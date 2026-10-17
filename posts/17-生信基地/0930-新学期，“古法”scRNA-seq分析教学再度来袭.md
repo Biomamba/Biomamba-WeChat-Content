@@ -52,7 +52,7 @@ R语言入门
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_yunying]领取：
 
-![](../../images/8b8ed978e5444dc4.webp)
+![](../../images/8b8ed978e5444dc4.gif)
 
 R语言教程目录：
 
@@ -154,7 +154,7 @@ R语言教程目录：
 
 Linux入门
 
-![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_yunying]领取：![](../../images/7666ab3e158cb9f4.webp)
+![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_yunying]领取：![](../../images/7666ab3e158cb9f4.gif)
 Linux教程目录：
 
 一、写在前面
@@ -258,7 +258,7 @@ Linux教程目录：
 
 # **单细胞基础分析学习手册**
 
-![](../../images/8bcd1832602cf4b1.webp)**单细胞基础分析教程目录** ：一、写在前面二、单细胞绪论2.1 课程安排2.2 视频及测试文件2.3 学习版服务器使用教程三、各类型数据读取3.1 简介3.2 视频及测试文件3.3 环境准备3.4 代码四、单样本分析4.1 R包安装与加载4.2 数据读入并创建Seurat对象
+![](../../images/8bcd1832602cf4b1.gif)**单细胞基础分析教程目录** ：一、写在前面二、单细胞绪论2.1 课程安排2.2 视频及测试文件2.3 学习版服务器使用教程三、各类型数据读取3.1 简介3.2 视频及测试文件3.3 环境准备3.4 代码四、单样本分析4.1 R包安装与加载4.2 数据读入并创建Seurat对象
 
 4.3 质控数据及可视化
 
@@ -424,7 +424,7 @@ Linux教程目录：
 
 **十、欢迎致谢**
 
-**双细胞过滤手册**![](../../images/53e7f9cbac1c56cc.webp)
+**双细胞过滤手册**![](../../images/53e7f9cbac1c56cc.gif)
 
 双细胞过滤教程目录：
 
@@ -498,7 +498,7 @@ Linux教程目录：
 
 # **轨迹分析学习手册**
 
-![](../../images/2cf6be5d4c299951.webp)**轨迹分析教程目录** ：一、写在前面二、可视化集锦三、绪论1\. 定义2\. 拟时序分析作用3\. 不同拟时序软件的比较 3.1 总体评价结果 3.2 准确性 3.3 可扩展性 3.4 稳定性 3.5 软件、文档和手稿方面的可用性四、monocle21\. 简介2\. 安装monocle23\. monocle2对象的格式4\. 初探monocle2 4.1 预处理、质控 4.2 细胞降维、分群、鉴定5\. monocle2实战 5.1 半监督式拟时序 5.2 非监督式的
+![](../../images/2cf6be5d4c299951.gif)**轨迹分析教程目录** ：一、写在前面二、可视化集锦三、绪论1\. 定义2\. 拟时序分析作用3\. 不同拟时序软件的比较 3.1 总体评价结果 3.2 准确性 3.3 可扩展性 3.4 稳定性 3.5 软件、文档和手稿方面的可用性四、monocle21\. 简介2\. 安装monocle23\. monocle2对象的格式4\. 初探monocle2 4.1 预处理、质控 4.2 细胞降维、分群、鉴定5\. monocle2实战 5.1 半监督式拟时序 5.2 非监督式的
 6\. 下游探索 6.1 DimPlot和FeaturePlot 6.2 VlnPlot 6.3 ggplot2绘图 6.4 细胞比例探索 6.5 基因表达量的探索五、monocle31. 简介2. monocle3和monocle2的主要区别 2.1 monocle3的主要功能 2.2 先谈缺点 2.3 再看看优点3\. 安装monocle3 3.1 R语言中的安装 3.2 通过conda安装4\. 初探monocle3 4.1 monocle3对象的构建 4.2 预处理、质控 4.3 细胞降维、分群、鉴定 4.4 取子集以及亚群分析5\. monocle3实战 5.1 预处理数据 5.2 拟时序分析6\. 下游探索 6.1 DimPlot和FeaturePlot 6.2 VlnPlot 6.3 ggplot2绘图 6.4 细胞比例探索 6.5 基因表达量的探索六、slingshot1\. 简介2\. 官方教学解读 2.1 介绍 2.2 上游分析 2.3 下游分析 2.4 功能详细解说3\. 外部数据实操 3.1 单细胞数据下载：GSE163973 3.2 测试数据预处理 3.3 细胞聚类 3.4 关键细胞 3.5 拟时序分析 3.6 探究分化过程中的基因表达4\. 下游探索 4.1 DimPlot和FeaturePlot 4.2 VlnPlot 4.3 ggplot2绘图 4.4 细胞比例探索 4.5 基因表达量的探索七、velocyto
 
 ## 1\. RNAvelocity原文解读
@@ -703,7 +703,7 @@ Linux教程目录：
 
 # **拷贝数变异分析学习手册**
 
-![](../../images/1f2b7acdeb52502e.webp)
+![](../../images/1f2b7acdeb52502e.gif)
 
 **拷贝数变异分析教程目录** ：
 
@@ -859,4 +859,4 @@ Linux教程目录：
 
 **欢迎交流**
 
-![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/7ef00c45433a7bde.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/7ef00c45433a7bde.webp)![图片](../../images/4ccf87cacd1143af.gif)您点的每个赞和在看，我都认真当成了喜欢

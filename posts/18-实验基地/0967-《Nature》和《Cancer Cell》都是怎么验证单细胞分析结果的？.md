@@ -14,7 +14,7 @@ albums: ["实验基地"]
 
 **流式细胞术**
 
-![](../../images/61f98b6cc6627bd1.webp)
+![](../../images/61f98b6cc6627bd1.gif)
 
 流式细胞术是现代生命科学和医学研究中不可或缺的强大分析工具。它通过让细胞“排队”经过激光束，快速、定量地获取单个细胞的多种信息（大小、颗粒度、特定分子表达等），并能分离特定细胞群体。其高通量、多参数、单细胞水平分析的能力，使其在免疫学、血液学、肿瘤学、细胞生物学、药物研发等领域发挥着至关重要的作用。
 
@@ -60,7 +60,7 @@ albums: ["实验基地"]
 
 **免疫组化或免疫荧光技术**
 
-![](../../images/61f98b6cc6627bd1.webp)
+![](../../images/61f98b6cc6627bd1.gif)
 
 免疫组化是一种在显微镜下观察的实验室技术，用来检测组织切片中特定蛋白质（抗原）的存在和位置。免疫荧光技术是一种利用“抗体”和“发光染料”相结合，在显微镜下精确定位抗原的技术。前者用显色底物，后者用荧光标记。
 
@@ -98,7 +98,7 @@ CSC-INV（CD133+VIM+）主要位于肿瘤边缘（侵袭前沿）；CSC-QUIES（
 
 **免疫印迹法**
 
-![](../../images/61f98b6cc6627bd1.webp)
+![](../../images/61f98b6cc6627bd1.gif)
 
 一种用于检测特定蛋白质在复杂生物样本中表达水平、分子量及翻译后修饰（如磷酸化、乙酰化）的经典分子生物学技术。
 
@@ -128,7 +128,7 @@ ATM-INFLAM中 HSF1-HSP90 通路激活 ，之后驱动NLRP3炎症小体组装。W
 
 **FISH**
 
-![](../../images/61f98b6cc6627bd1.webp)
+![](../../images/61f98b6cc6627bd1.gif)
 
 FISH是指荧光原位杂交技术(Fluorescene in situ hybridization, FISH)的缩写。FISH利用DNA碱基互补配对的特点，在体外一定的条件下，使同源的DNA链或DNA-RNA单链结合成双链，以荧光标记取代同位素标记而形成的一种新的原位杂交方法。
 
@@ -162,7 +162,7 @@ Cluster2：高表达 Pdgfra（血小板生因子受体α）→ REM睡眠调控
 
 **谱系追踪**
 
-![](../../images/61f98b6cc6627bd1.webp)
+![](../../images/61f98b6cc6627bd1.gif)
 
 谱系追踪(Lineage Tracing)是一种用于追踪特定细胞及其后代的分子生物学技术。通过标记或追踪细胞及其衍生细胞的分布、分化和功能变化，谱系追踪能够帮助研究者了解细胞的起源、发育过程以及在组织再生、发育或疾病中的动态变化。
 
@@ -194,7 +194,7 @@ Cluster2：高表达 Pdgfra（血小板生因子受体α）→ REM睡眠调控
 
 实验基地
 
-![](../../images/0d23a9e56c8dd279.webp)长期以来Biomamba都在自己的媒体矩阵中分享生信分析技能。生命科学毕竟是物质的科学，脱离了**实验** 总是玩不转的，大家的分析结果也需要去实验验证。一方面自己想在不同的领域里开疆扩土，追寻些新的可能；另一方面也想为大家的科研生涯全方面保驾护航，未来给大家提供新的服务、交流交流实验技能。所以，Biomamba联合**浙江大学博士团队** 组建了一个自己的实验室(Biomamba生信基地**终于有基地** 啦！)，base上海张江。目前还是百业待兴，大家有什么想法可以**填写问卷** 跟咱反馈反馈：
+![](../../images/0d23a9e56c8dd279.gif)长期以来Biomamba都在自己的媒体矩阵中分享生信分析技能。生命科学毕竟是物质的科学，脱离了**实验** 总是玩不转的，大家的分析结果也需要去实验验证。一方面自己想在不同的领域里开疆扩土，追寻些新的可能；另一方面也想为大家的科研生涯全方面保驾护航，未来给大家提供新的服务、交流交流实验技能。所以，Biomamba联合**浙江大学博士团队** 组建了一个自己的实验室(Biomamba生信基地**终于有基地** 啦！)，base上海张江。目前还是百业待兴，大家有什么想法可以**填写问卷** 跟咱反馈反馈：
 问卷链接，文末阅读原文可直达：https://www.wjx.cn/vm/tpYsP8D.aspx# 问卷二维码：![](../../images/629a0059c119f269.jpg)
 更多想法也可以直接添加我们的客服微信[**Biomamba_zhushou**]聊聊，我们也有专门的实验基地交流群。
 实验室环境：![](../../images/2741f9fe2a0db8d0.webp)![](../../images/b24faf0484214f94.webp)![](../../images/23a77724eaa25e47.webp)![](../../images/315463a23aa1c65e.webp)
@@ -219,10 +219,10 @@ DOI: 10.1093/pcmedi/pbac014
 
 **如何联系我们**
 
-![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.gif) 您点的每个赞和在看，我都认真当成了喜欢

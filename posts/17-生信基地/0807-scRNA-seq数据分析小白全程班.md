@@ -41,13 +41,13 @@ R语言入门课学习资料
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](../../images/e7e4956bc0938b18.webp)
+![](../../images/e7e4956bc0938b18.gif)
 
 ![图片](../../images/f74ae4c6b8127d36.webp)
 
 Linux入门课学习手册
 
-![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：![](../../images/98d2889c8e05d481.webp)
+![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：![](../../images/98d2889c8e05d481.gif)
 ![图片](../../images/baa38cc067455bc1.png)
 
 单细胞细胞基础分析学习资料
@@ -57,7 +57,7 @@ Linux入门课学习手册
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：![图片](../../images/789c9f6e91d27dbc.webp)
-![](../../images/d768e9095bef652c.webp)
+![](../../images/d768e9095bef652c.gif)
 
 ![](../../images/bfbd27dbaedc735d.webp)
 
@@ -135,7 +135,7 @@ Linux入门课学习手册
 
 教程图片集锦：![图片](../../images/370c7dd984f552c8.webp)
 
-![](../../images/c14cf141c11b3548.webp)**教程目录** ：一、写在前面二、可视化集锦三、绪论1.定义2.拟时序分析作用3.不同拟时序软件的比较（1）总体评价结果（2）准确性（3）可扩展性（4）稳定性（5）软件、文档和手稿方面的可用性四、monocle21.简介2.安装monocle23.monocle2对象的格式4.初探monocle2（1）预处理、质控（2）细胞降维、分群、鉴定5.monocle2实战（1）半监督式拟时序（2）非监督式的
+![](../../images/c14cf141c11b3548.gif)**教程目录** ：一、写在前面二、可视化集锦三、绪论1.定义2.拟时序分析作用3.不同拟时序软件的比较（1）总体评价结果（2）准确性（3）可扩展性（4）稳定性（5）软件、文档和手稿方面的可用性四、monocle21.简介2.安装monocle23.monocle2对象的格式4.初探monocle2（1）预处理、质控（2）细胞降维、分群、鉴定5.monocle2实战（1）半监督式拟时序（2）非监督式的
 6.下游探索（1）DimPlot和FeaturePlot（2）VlnPlot（3）ggplot2绘图（4）细胞比例探索（5）基因表达量的探索五、monocle31.简介2.monocle3和monocle2的主要区别（1）monocle3的主要功能（2）先谈缺点（3）再看看优点3.安装monocle3（1）R语言中的安装（2）通过conda安装4.初探monocle3（1）monocle3对象的构建（2）预处理、质控（3）细胞降维、分群、鉴定（4）取子集以及亚群分析5.monocle3实战（1）预处理数据（2）拟时序分析6.下游探索（1）DimPlot和FeaturePlot（2）VlnPlot（3）ggplot2绘图（4）细胞比例探索（5）基因表达量的探索六、slingshot1.简介2.官方教学解读（1）介绍（2）上游分析（3）下游分析（4）功能详细解说3.外部数据实操（1）单细胞数据下载：GSE163973（2）测试数据预处理（3）细胞聚类（4）关键细胞（5）拟时序分析（6）探究分化过程中的基因表达4.下游探索（1）DimPlot和FeaturePlot（2）VlnPlot（3）ggplot2绘图（4）细胞比例探索（5）基因表达量的探索七、velocyto
 
 ## 1.RNAvelocity原文解读
@@ -184,7 +184,7 @@ Linux入门课学习手册
 
 教程图片集锦：![图片](../../images/6ab5eca8d27949d1.webp)
 
-![](../../images/77ccd33bede6cf50.webp)
+![](../../images/77ccd33bede6cf50.gif)
 
 **教程目录** ：
 
@@ -269,7 +269,7 @@ Linux入门课学习手册
 
 教程图片集锦：![](../../images/cdad48471321b87c.webp)
 
-![](../../images/72dc5b2b4d98badc.webp)
+![](../../images/72dc5b2b4d98badc.gif)
 
 **教程目录** ：
 
@@ -361,7 +361,7 @@ Linux入门课学习手册
 
 ![](../../images/b8d2c1317161cd0d.webp)
 
-![](../../images/0e923a1708c39007.webp)
+![](../../images/0e923a1708c39007.gif)
 
 **教程目录** ：
 
@@ -428,7 +428,7 @@ Linux入门课学习手册
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习
 
-![](../../images/1056937db45b8597.webp)
+![](../../images/1056937db45b8597.gif)
 
 **教程目录** ：
 
@@ -505,10 +505,10 @@ Linux入门课学习手册
 
 **如何联系我们**
 
-![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.gif) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.gif) 您点的每个赞和在看，我都认真当成了喜欢

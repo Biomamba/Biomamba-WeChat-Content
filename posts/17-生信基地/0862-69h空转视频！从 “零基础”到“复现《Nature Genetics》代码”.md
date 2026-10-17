@@ -64,14 +64,14 @@ Linux基础课学习手册
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](../../images/0eacdc991206140e.webp)
+![](../../images/0eacdc991206140e.gif)
 
 ![图片](../../images/bcbcf46639712bd1.png)
 
 Python基础课学习手册
 
 ![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
-![](../../images/c16ee691fd2bad3c.webp)
+![](../../images/c16ee691fd2bad3c.gif)
 ![图片](../../images/bcbcf46639712bd1.png)
 
 空间转录组-概论及上游定量学习资料
@@ -80,7 +80,7 @@ Python基础课学习手册
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](../../images/51302434c2c34541.webp)
+![](../../images/51302434c2c34541.gif)
 
 **教程目录** ：
 
@@ -143,7 +143,7 @@ Python基础课学习手册
 
 ![图片](../../images/24f0aca514ad3ded.webp)
 
-![](../../images/28561826aff82bc2.webp)
+![](../../images/28561826aff82bc2.gif)
 
 **教程目录：**
 
@@ -169,7 +169,7 @@ Python基础课学习手册
 
 教程图片集锦：
 
-![](../../images/a50371bb3827d716.webp)![](../../images/2e202756ae1224d8.webp)
+![](../../images/a50371bb3827d716.webp)![](../../images/2e202756ae1224d8.gif)
 
 教程目录：
 
@@ -252,7 +252,7 @@ Python基础课学习手册
 
 scenic学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/a4de5bfd188e43c7.webp)
+![](../../images/a4de5bfd188e43c7.gif)
 
 **教程目录** ：
 
@@ -306,7 +306,7 @@ scenic学习手册以html文件格式提供，可在浏览器中打开并翻阅�
 
 decoupler学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/24a1135bb7d508d6.webp)
+![](../../images/24a1135bb7d508d6.gif)
 
 **教程目录** ：
 
@@ -367,7 +367,7 @@ decoupler学习手册以html文件格式提供，可在浏览器中打开并翻�
 
 hotspot学习手册 以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/5ffc68da57fd37ef.webp)
+![](../../images/5ffc68da57fd37ef.gif)
 
 **教程目录** ：
 
@@ -417,7 +417,7 @@ hotspot学习手册 以html文件格式提供，可在浏览器中打开并翻�
 
 tangram学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/0a0902abad18d0dd.webp)
+![](../../images/0a0902abad18d0dd.gif)
 
 **教程目录** ：
 
@@ -481,7 +481,7 @@ tangram学习手册以html文件格式提供，可在浏览器中打开并翻阅
 
 cell2location学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/030e31c0d796f86f.webp)
+![](../../images/030e31c0d796f86f.gif)
 
 **教程目录** ：
 
@@ -557,7 +557,7 @@ cell2location学习手册以html文件格式提供，可在浏览器中打开并
 
 Squidpy学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/bae7212fa177e3b2.webp)
+![](../../images/bae7212fa177e3b2.gif)
 
 **教程目录** ：
 
@@ -605,7 +605,7 @@ Squidpy学习手册以html文件格式提供，可在浏览器中打开并翻阅
 
 stSME聚类方法学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/24ee50b1245d7bab.webp)
+![](../../images/24ee50b1245d7bab.gif)
 
 **教程目录** ：
 
@@ -656,7 +656,7 @@ stSME聚类方法学习手册以html文件格式提供，可在浏览器中打�
 
 ******NMF分解学习手册 以html文件格式提供，可在浏览器中打开并翻阅学习：‍******
 
-![](../../images/ebc1a4458ef7fc0c.webp)
+![](../../images/ebc1a4458ef7fc0c.gif)
 
 ******
 ******
@@ -703,7 +703,7 @@ stSME聚类方法学习手册以html文件格式提供，可在浏览器中打�
 
 CellphoneDB学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/344e65fd6fc1e347.webp)
+![](../../images/344e65fd6fc1e347.gif)
 
 **教程目录** ：
 
@@ -757,7 +757,7 @@ CellphoneDB学习手册以html文件格式提供，可在浏览器中打开并�
 
 COMMOT学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/092b8e99bc0b3c63.webp)
+![](../../images/092b8e99bc0b3c63.gif)
 
 **教程目录** ：
 
@@ -808,7 +808,7 @@ COMMOT学习手册以html文件格式提供，可在浏览器中打开并翻阅�
 
 ******stLearn学习手册 以html文件格式提供，可在浏览器中打开并翻阅学习：‍******
 
-![](../../images/dc7fa53acbd2098a.webp)
+![](../../images/dc7fa53acbd2098a.gif)
 
 ******
 ******
@@ -891,7 +891,7 @@ COMMOT学习手册以html文件格式提供，可在浏览器中打开并翻阅�
 
 SpaTrack学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/94e6a23e28d8cf5c.webp)
+![](../../images/94e6a23e28d8cf5c.gif)
 
 **教程目录** ：
 
@@ -961,7 +961,7 @@ SpaTrack学习手册以html文件格式提供，可在浏览器中打开并翻�
 
 stLearn学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/d3a7673370ea7b96.webp)
+![](../../images/d3a7673370ea7b96.gif)
 
 **教程目录** ：
 
@@ -1031,7 +1031,7 @@ InferCNV
 
 InferCNV学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/40a4d1e31cfdcf5f.webp)
+![](../../images/40a4d1e31cfdcf5f.gif)
 
 **教程目录** ：
 
@@ -1079,7 +1079,7 @@ CalicoST
 
 CalicoST学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/658b4c311b52bcd8.webp)
+![](../../images/658b4c311b52bcd8.gif)
 
 **教程目录** ：
 
@@ -1131,7 +1131,7 @@ CalicoST学习手册以html文件格式提供，可在浏览器中打开并翻�
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![图片](../../images/14a6aad91fb584c7.webp)
+![图片](../../images/14a6aad91fb584c7.gif)
 
 **教程目录** ：
 
@@ -1225,10 +1225,10 @@ CalicoST学习手册以html文件格式提供，可在浏览器中打开并翻�
 
 **如何联系我们**
 
-![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/4ccf87cacd1143af.gif) 您点的每个赞和在看，我都认真当成了喜欢

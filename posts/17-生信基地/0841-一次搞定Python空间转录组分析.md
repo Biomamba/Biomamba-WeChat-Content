@@ -33,14 +33,14 @@ Linux基础课学习手册
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](../../images/0eacdc991206140e.webp)
+![](../../images/0eacdc991206140e.gif)
 
 ![图片](../../images/697dd2eb5e60e8d8.png)
 
 Python基础课学习手册
 
 ![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
-![](../../images/c16ee691fd2bad3c.webp)
+![](../../images/c16ee691fd2bad3c.gif)
 ![图片](../../images/bcbcf46639712bd1.png)
 
 空间转录组-概论及上游定量学习资料
@@ -49,7 +49,7 @@ Python基础课学习手册
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](../../images/51302434c2c34541.webp)
+![](../../images/51302434c2c34541.gif)
 
 **教程目录** ：
 
@@ -110,7 +110,7 @@ Python基础课学习手册
 
 ![](../../images/07302048e519a2e3.webp)
 
-![](../../images/e334c6f0759cbd31.webp)
+![](../../images/e334c6f0759cbd31.gif)
 
 **教程目录** ：
 
@@ -147,7 +147,7 @@ Python基础课学习手册
 教程图片集锦：
 
 ![](../../images/a50371bb3827d716.webp)
-![](../../images/c6707d588559fecc.webp)
+![](../../images/c6707d588559fecc.gif)
 
 **教程目录** ：
 
@@ -194,7 +194,7 @@ Python基础课学习手册
 教程图片集锦：
 
 ![](../../images/8f1a513146cb146b.webp)
-![](../../images/f5c9e32f23478728.webp)
+![](../../images/f5c9e32f23478728.gif)
 
 **教程目录** ：
 
@@ -235,7 +235,7 @@ Python基础课学习手册
 教程图片集锦：
 
 ![](../../images/4e4ab971b7ef2833.webp)
-![](../../images/1ef355b5769b5e62.webp)
+![](../../images/1ef355b5769b5e62.gif)
 
 **教程目录** ：
 
@@ -295,7 +295,7 @@ Python基础课学习手册
 教程图片集锦：
 
 ![](../../images/40537f87be8beb3c.webp)
-![](../../images/3653e24e251fabec.webp)
+![](../../images/3653e24e251fabec.gif)
 
 **教程目录** ：
 
@@ -360,7 +360,7 @@ Python基础课学习手册
 教程图片集锦：
 
 ![图片](../../images/bd8574f343da82be.webp)
-![图片](../../images/bcf833406259739d.webp)
+![图片](../../images/bcf833406259739d.gif)
 
 **教程目录** ：
 
@@ -443,7 +443,7 @@ Python基础课学习手册
 教程图片集锦：
 
 ![](../../images/255843d8c554e739.webp)
-![](../../images/62991b6758fcf981.webp)
+![](../../images/62991b6758fcf981.gif)
 
 **教程目录** ：
 
@@ -516,7 +516,7 @@ Python基础课学习手册
 教程图片集锦：
 
 ![](../../images/8d723f9f6f0fc863.webp)
-![](../../images/8337cdeaacca3b14.webp)
+![](../../images/8337cdeaacca3b14.gif)
 
 **教程目录** ：
 
@@ -565,10 +565,10 @@ Python基础课学习手册
 
 **如何联系我们**
 
-![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.gif) 您点的每个赞和在看，我都认真当成了喜欢

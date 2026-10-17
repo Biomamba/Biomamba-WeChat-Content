@@ -10,7 +10,7 @@ albums: ["生信基地"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537786&idx=1&sn=8288f16b95c1f4598079cef9eb03678d&chksm=9b3c2d2aac4ba43c4633ef27c37475a3f58ddb37f3012ca52bde6d20a2c984d939826fd170c1#rd
 > 合集：生信基地
 
-**写在前面****![](../../images/e8ea7913c574d2eb.webp)**
+**写在前面****![](../../images/e8ea7913c574d2eb.gif)**
 
 有同学在我们的B站下面做出了下图评论。
 
@@ -24,7 +24,7 @@ albums: ["生信基地"]
 
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21&token=827157490&lang=zh_CN&poc_token=HLe6Q2mjR5L5stXqZGOdzOvf2Vk8eTYi05UUYRRy#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469&token=827157490&lang=zh_CN#wechat_redirect>)、自测数据个性化分析辅导、[实验科研服务](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537678&idx=1&sn=578993fdfa060d38c80e2df6fc200c39&scene=21#wechat_redirect>)和[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532039&idx=2&sn=1e7a1ae6097fe217182f1ff305325512&scene=21&token=827157490&lang=zh_CN&poc_token=HAu7Q2mj4g12fl0KnW3ea82YSsZC41y8EAkeGbBI#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。
 
-**全程班培训课程![](../../images/e8ea7913c574d2eb.webp)**
+**全程班培训课程![](../../images/e8ea7913c574d2eb.gif)**
 
 我们的培训课程主要有：[生信小白入门课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526126&idx=1&sn=ab205f18c19b5b98b4b59b6c89b394ec&scene=21&token=1721358726&lang=zh_CN&poc_token=HKPDT2mjZ1EjCfBM7QtZoCWK39OO-kMAipOkd4-p#wechat_redirect>)、[R语言入门课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528126&idx=2&sn=668c2709891956b567b316f9f2fb26ea&scene=21&click_id=2&token=1721358726&lang=zh_CN&poc_token=HNPGT2mjdx6snIb3sfaprsNlMqyNmwUUEDKM1wpf#wechat_redirect>)、[Python入门课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537399&idx=1&sn=d14c7987d1384fe133094748844b8d59&scene=21#wechat_redirect>)[R语言scRNA-seq基础课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=1&sn=e988a2172618fd6f609575294db9a44f&scene=21#wechat_redirect>)、[R语言scRNA-seq小白全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535927&idx=2&sn=86947f0522de0d9785865bd24115b002&scene=21#wechat_redirect>)、[Python scRNA-seq全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533067&idx=1&sn=7ef76058cbcf7bd45f58147766c75854&scene=21#wechat_redirect>)、[Python 空间转录组全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21#wechat_redirect>)。这些课程均有回放，可联系客服[Biomamba_zhushou]领取资料并进群，另外还有老师答疑解惑。
 
@@ -86,7 +86,7 @@ albums: ["生信基地"]
 
 我们后面将会举办更多的课程，大家可以持续关注我们~
 
-**单细胞教程全收录![](../../images/e8ea7913c574d2eb.webp)**
+**单细胞教程全收录![](../../images/e8ea7913c574d2eb.gif)**
 
 这里一站式汇总了本号单细胞测序分析的全部干货教程，每一份内容都凝结着实战经验，希望能帮大家解锁生信技能，学有所获！
 
@@ -343,7 +343,7 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 
 向下滑动查看更多
 
-**空间转录组![](../../images/11e4974d303effca.webp)**
+**空间转录组![](../../images/11e4974d303effca.gif)**
 
 空间转录组可谓是高、新、贵技术，我们更过以下内容：
 学空间转录组的顺序：[Python学习空间转录组的最佳顺序](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535282&idx=1&sn=ea2103b4dd55f40a09d0e76090775f7b&scene=21#wechat_redirect>)
@@ -403,7 +403,7 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 
 向下滑动查看更多
 
-**Bulk RNA-seq![](../../images/e8ea7913c574d2eb.webp)**
+**Bulk RNA-seq![](../../images/e8ea7913c574d2eb.gif)**
 
 目前来说通过[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)测序对于分析器官、组织内的异质性来说可谓是首选方法，但是动辄数万元/样的费用并不适合所有科研工作者。所以我们还准备了Bulk RNA-Seq相关分析分享，供大家学习~。
 
@@ -412,7 +412,7 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 [Bulk RNASeq| 转录组实战](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510793&idx=1&sn=bfa69e8f261932d9bea74443fab732f0&scene=21#wechat_redirect>)**[不做单细胞，怎么让自己的Bulk数据也能分析细胞类群和免疫浸润？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532107&idx=2&sn=7afc7517afb7dbdefeb7fd3312c1d5e8&scene=21#wechat_redirect>)****[FPKM,TPM, Counts: 谁更适合做差异分析？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500475&idx=2&sn=22aca40cd46e12f9f41714fecd964bb4&scene=21#wechat_redirect>)****[吸烟会引会起外周血表观遗传学变异！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501903&idx=1&sn=7784d732002a5a85ae4e3e079a5790fe&scene=21#wechat_redirect>)****[可变剪切分析神器——rMATs](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520911&idx=1&sn=1662a0b8ba6daa27cac8de6e581f3bfd&scene=21#wechat_redirect>)****[六千字深度解析| 可变剪切分析神器rmats环境配置与使用教程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529986&idx=1&sn=4aa7f4e1721d707703fb83b1e0ad8574&scene=21#wechat_redirect>)****[应审稿人要求| pseudo bulk差异分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521437&idx=1&sn=d47b48170f7189b8fb74b2316d0c4898&scene=21#wechat_redirect>)****文献阅读****[纯生信挖掘+6个样WB，发表IF=10文章](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533827&idx=1&sn=11289cc9333b34303b8c4d16fc53d714&scene=21#wechat_redirect>)****[sc联合bulk RNA-Seq揭示预测免疫治疗反应的泛癌干细胞特征](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533717&idx=1&sn=655c7290a42905cee5346fc3c5025496&scene=21#wechat_redirect>)****[bulk+scRNA-seq挖掘BCL2-MAPK14-TXN氧化应激诊断模型，鉴定脓毒症中氧化应激关键基因](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530000&idx=1&sn=e8ddca4e1b2e60839cdf2a7fe87b3dfe&scene=21#wechat_redirect>)****[IF=12.4| sc联合Bulk RNA：构建预测前列腺癌的神经内分泌细胞内在特征](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528154&idx=1&sn=7665d8dd86083b7818d04474310c1cb8&scene=21#wechat_redirect>)****[鼻咽癌的Bulk RNA-Seq与scRNA-Seq联合分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510548&idx=1&sn=58048c46e837b1d56dffa282272c6d96&scene=21#wechat_redirect>)****[自测蛋白质组+Bulk RNA-Seq & 挖掘scRNA-Seq=13.6分JASN](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504408&idx=1&sn=da427a6687b06a82d9dd58ae9f9aa474&scene=21#wechat_redirect>)****
 **
 
-**订阅内容![](../../images/e8ea7913c574d2eb.webp)**
+**订阅内容![](../../images/e8ea7913c574d2eb.gif)**
 
 我们也有一些生信订阅资料， 有需要的同学可以加客服微信优惠获取~有长期学习生物信息学的同学可以参考：**[开放终身订阅~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)**
 
@@ -625,7 +625,7 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 
 向下滑动查看更多
 
-**编程语言教程![](../../images/e8ea7913c574d2eb.webp)**
+**编程语言教程![](../../images/e8ea7913c574d2eb.gif)**
 
 作为生信分析的半壁江山，我们也做过大量基于R语言、Linux、Python和Perl语言的教程分享：
 
@@ -1043,7 +1043,7 @@ Python
 
 还有一种古老的语言：[perl语言基础命令](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247483979&idx=1&sn=b9066d57a805973835d1652897edbe41&scene=21&token=2143911808&lang=zh_CN&poc_token=HPetTGmjFePWjie81yV7NxBvDjmvqo3q98bRj8t4#wechat_redirect>)
 
-**服务器![](../../images/e8ea7913c574d2eb.webp)**
+**服务器![](../../images/e8ea7913c574d2eb.gif)**
 
 服务器作为生信人必备的工具，Biomamba 生信基地可以为大家提供**稳定** 、**高效** 的运算支持。
 
@@ -1214,7 +1214,7 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 
 向下滑动查看更多
 
-在线工具**![](../../images/e8ea7913c574d2eb.webp)**
+在线工具**![](../../images/e8ea7913c574d2eb.gif)**
 
 零代码的受众永远比代码的受众多，Biomamba人称生信界手工耿，用shiny写过一些小工具：[ Biomamba的在线工具合集](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504403&idx=1&sn=43e081157d0f6623955a19f691f679ac&chksm=9b3cab43ac4b2255af9cf7e0e3f2c97f8d28b5bb7dca82c99822046015d6556dd1cf127ce358&scene=21&cur_album_id=3168648680917467142&search_click_id=#wechat_redirect>)[给你安排一个懂生信的工具人（一）：火山图](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484153&idx=1&sn=68ce6d3499ff7c13fed387bea4fff5a9&chksm=9b3f7ba9ac48f2bfe5ba3e30bca7709e41c2c0f111b9dbfaf703f83d03f107b8589adb1e7792&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（二）：真-工具人](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484166&idx=1&sn=7fcaa65879a9ad9564c47ebf4dbbff4d&chksm=9b3f7a56ac48f340e4891de4d911c3776170725abe2900d846d3c94f379605b03b1ec8d23dbe&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（三）：凌波微课开发的在线版metacoder](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484237&idx=1&sn=e1873cc52566f8002b827568dff99b35&chksm=9b3f7a1dac48f30b533ea87a8e800f6cb77606ace1da700a4324c8c888b0e102d01a20039870&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（四）：ggplot2"作弊器"](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484259&idx=1&sn=7c6498b0d69e7e7a492014e22c02abba&chksm=9b3f7a33ac48f3254ae190904dbf6798bda1b8fc3a10cd5a72f41543fdf1f89dc4b0a9697f7b&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（五）：手把手教你用在线 pheatmap 绘制热图](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484391&idx=1&sn=6f4369bbb231d946dcb63b399ffe4bfd&chksm=9b3f7ab7ac48f3a1a88a92c03be88e25cf57373f1099961ff1f01ad48faf8d8b94538b3cdd32&scene=21#wechat_redirect>)
 [给你安排一个懂生信的工具人（六）：再也不怕装不上packages了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484429&idx=2&sn=da45138ab6e68e29d373670afe5737a4&chksm=9b3f7d5dac48f44b420c0b940e835996b8d2f4429397a61ae8a5fd4fa1a86cd974f260a360d0&scene=21#wechat_redirect>)
@@ -1236,7 +1236,7 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 
 还想要什么工具尽管告诉我[Biomamba_zhushou]，Biomamba给你做！
 
-**单细胞云平台![](../../images/e8ea7913c574d2eb.webp)**
+**单细胞云平台![](../../images/e8ea7913c574d2eb.gif)**
 
 除了零代码的小工具之外，能进行零代码操作的还有云平台。在"全民"单细胞的今天，仍有许多同学因为**代码门槛** 而对这个行业望而却步。现如今，我们找到了志同道合的伙伴，共同开发并优化了**SeekSoul Online单细胞分析云平台** ，以帮助大家以零基础、零代码的姿态从事单细胞相关数据分析与挖掘。
 
@@ -1307,7 +1307,7 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 
 向下滑动查看更多
 
-**生信基地![](../../images/e8ea7913c574d2eb.webp)**
+**生信基地![](../../images/e8ea7913c574d2eb.gif)**
 
 [ Biomamba生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526229&idx=1&sn=0718f1702150ba77a7f7e3beadd6e0ba&scene=21&token=2056463462&lang=zh_CN&poc_token=HEEuXmmj8X3HcrusRDLAx5l-hJ-T_y-RYZcs3fgx#wechat_redirect>)扎根****南京** ，专注**生物信息学** 分析教学与科研。现平台能够提供并**不仅局限于**[ 生信培训](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531447&idx=1&sn=242b49b5e2f5496efbd4484bf2e81604&scene=21#wechat_redirect>)、科研讲座、个性化生信分析服务、[服务器租售](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2725521219349151745&scene=173&subscene=&sessionid=svr_1ce9b984f8c&enterid=1738811170&from_msgid=2247522266&from_itemidx=1&count=3&nolastread=1#wechat_redirect>)等方面的内容。Biomamba生信基地已经**稳定运行多年** ，全网拥有超过**10w的粉丝** 与**500w的点击量** 。**[线下生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522649&idx=1&sn=a3a3df860fd162691403281356dcbf1d&scene=21#wechat_redirect>) 已举办多场活动。****
 
@@ -1384,7 +1384,7 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 
 **持续更新中~**
 
-**实验基地![](../../images/e8ea7913c574d2eb.webp)**
+**实验基地![](../../images/e8ea7913c574d2eb.gif)**
 
 不只是生信分析，我们也希望能够在湿实验方面给予大家充分的支持。长期以来Biomamba都在自己的媒体矩阵中分享生信分析技能。生命科学毕竟是物质的科学，脱离了实验总是玩不转的，大家的分析结果也需要去实验验证。为此我们组建了实验室。
 
@@ -1417,7 +1417,7 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 **
 **
 
-读者问答**![](../../images/e8ea7913c574d2eb.webp)**
+读者问答**![](../../images/e8ea7913c574d2eb.gif)**
 
 我们解答并解决过很多读者的问题，欢迎大家继续向我们提问，我们永远会倾听大家的声音：
 
@@ -1436,7 +1436,7 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 **
 **
 
-**粉丝来稿![](../../images/e8ea7913c574d2eb.webp)**
+**粉丝来稿![](../../images/e8ea7913c574d2eb.gif)**
 
 另外，我们也十分欢迎大家加入到我们的创作队列中，Biomamba 生信基地也有大家贡献的智慧：
 
@@ -1485,7 +1485,7 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 **
 **
 
-**基金申报![](../../images/e8ea7913c574d2eb.webp)**
+**基金申报![](../../images/e8ea7913c574d2eb.gif)**
 
 生物信息学在国自然申请中扮演着至关重要的角色，它不仅是处理和分析海量生物数据的关键工具，更是推动生命科学研究从数据驱动向知识发现转变的核心驱动力。我们也联合寻因生物&青椒医学推出了基金申报方面的分享：
 
@@ -1518,23 +1518,23 @@ GPU共享服务器：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.
 **
 **
 
-文献速递**![](../../images/e8ea7913c574d2eb.webp)**
+文献速递**![](../../images/e8ea7913c574d2eb.gif)**
 
 我们给大家做过一百多篇生物 &医药文献分享，这里就不逐一插入了：[文献速递点击跳转](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2802463431357661184#wechat_redirect>)
 
-漫谈胡侃**![](../../images/e8ea7913c574d2eb.webp)**
+漫谈胡侃**![](../../images/e8ea7913c574d2eb.gif)**
 
 另外，Biomamba 时常会发出一些犀利点评，这些内容就不在此逐一呈现了 ：[漫谈胡侃](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2697849917016670209&token=2143911808&lang=zh_CN#wechat_redirect>)
 
-求职、求学、招聘**![](../../images/e8ea7913c574d2eb.webp)**
+求职、求学、招聘**![](../../images/e8ea7913c574d2eb.gif)**
 
 谁苦读多年，不是想来份钱多事少离家近的工作，我们长期帮助大家发布求职/招聘的推送，详见合辑：[ 求职、求学、招聘](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2672902529483309057#wechat_redirect>)
 
-千里姻缘一线牵**![](../../images/e8ea7913c574d2eb.webp)**
+千里姻缘一线牵**![](../../images/e8ea7913c574d2eb.gif)**
 
 学习固然要紧，但也别光顾着埋头读书，闲暇时也留意留意，给自己找个合适的对象吧~[ 开一个相亲板块~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522720&idx=1&sn=8255dd6eed068775bf40ff16758b63a8&scene=21&token=2143911808&lang=zh_CN&poc_token=HL0GTmmjiToKiJt8f7oMQwok6yseHRa2S0ENg-Ed#wechat_redirect>)[科研硕博相亲交流群](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528124&idx=2&sn=6fc448ece5499676dde4a84e49070ca1&scene=21&token=2143911808&lang=zh_CN&poc_token=HNkGTmmj8M9T_eCtUjcrKm5oW2fMOaQM-wPI1dll#wechat_redirect>)
 
-送周边**![](../../images/e8ea7913c574d2eb.webp)**
+送周边**![](../../images/e8ea7913c574d2eb.gif)**
 
 Biomamba 生信基地共有七种 周边：[R语言scRNA-seq全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535927&idx=2&sn=86947f0522de0d9785865bd24115b002&scene=21#wechat_redirect>)超大鼠标垫、[Python scRNA-seq全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533067&idx=1&sn=7ef76058cbcf7bd45f58147766c75854&scene=21#wechat_redirect>)超大鼠标垫、[Python空间转录组全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21#wechat_redirect>)超大鼠标垫、金士顿64GB超大U盘、Biomamba同款胸包、[Linux速查](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505777&idx=1&sn=f3efae390566b838a445ab9f832323c8&scene=21#wechat_redirect>)超大鼠标垫(80cmX30cm)、Biomamba精品咖啡杯。我们的周边不仅仅局限这些，后期我们会不定期的给大家发放Biomamba 生信基地周边，请大家多多关注我们公众号发布的活动通知~
 
@@ -1556,7 +1556,7 @@ Biomamba同款背包与词云展示：![图片](../../images/a5677b018ddfe55b.we
 
 ![图片](../../images/90560a158f13ab43.webp)
 
-交流群**![](../../images/e8ea7913c574d2eb.webp)**
+交流群**![](../../images/e8ea7913c574d2eb.gif)**
 
 我们维护了多个群聊，方便大家交流各个方向的问题，大家都可以联系我们的任意一个微信号，发送下面的关键词加群：
 
@@ -1574,7 +1574,7 @@ Biomamba同款背包与词云展示：![图片](../../images/a5677b018ddfe55b.we
 
 [SeekSoulOnline云平台交流群](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530889&idx=2&sn=f4114c69ce6824248ed76b83a94c8863&scene=21#wechat_redirect>)[科研硕博相亲交流群](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528124&idx=2&sn=6fc448ece5499676dde4a84e49070ca1&scene=21#wechat_redirect>)[跟人工智能聊天哪有跟人聊天有意思](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)
 
-![图片](../../images/cb4255ab8010219d.webp)
+![图片](../../images/cb4255ab8010219d.gif)
 
 **欢迎致谢**
 
