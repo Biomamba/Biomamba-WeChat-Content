@@ -1,0 +1,93 @@
+---
+title: "在线高阶韦恩图UpSetR App"
+date: 2023-10-29
+source: https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504403&idx=5&sn=12e5a17af1cc976ce78876b51cd241ca&chksm=9b3cab43ac4b2255b518b65f9634c8e3df04ba114f36e6c303afabc62c6216aff2d21787fbef#rd
+albums: ["在线工具"]
+---
+
+# 在线高阶韦恩图UpSetR App
+
+> 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504403&idx=5&sn=12e5a17af1cc976ce78876b51cd241ca&chksm=9b3cab43ac4b2255b518b65f9634c8e3df04ba114f36e6c303afabc62c6216aff2d21787fbef#rd
+> 合集：在线工具
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQZNVj4LpuVDSuXYukibmBxmSxibaA1GglIllTSLWKnRfa20fALeV7MpGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+写在前面
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQZNVj4LpuVDSuXYukibmBxmSxibaA1GglIllTSLWKnRfa20fALeV7MpGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)“给你安排一个懂生信的工具人”这个系列我们一直致力于给大家**制作** 或分享一些**去代码化的生信工具** ，以方便非生信专业的科研人员将科研时间集中花费在生物学问题上。往期回顾见文末。
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQZNVj4LpuVDSuXYukibmBxmSxibaA1GglIllTSLWKnRfa20fALeV7MpGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+高阶韦恩图 UpSetR.App
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQZNVj4LpuVDSuXYukibmBxmSxibaA1GglIllTSLWKnRfa20fALeV7MpGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+在生信分析的实战中，我们经常需要探究多个基因集、多个组别的一些特征基因的相互包含关系，这时就会需要韦恩图或高阶韦恩图的介入。此前我们已经把UpSetR的代码教程发布完毕，UpSetR功能强大，几乎能完成高阶韦恩图的所有操作。若同学们觉得UpSetR的语法复杂，也可以用我们今天要介绍的在线版本。
+
+代码教程：
+
+[UpSetR高阶韦恩图| 1.基本用法](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495565&idx=1&sn=e098568d1f1d4c377c8daa8048205839&chksm=9b3c96ddac4b1fcb2fa1239ae270dca4a38db484199543d70fdd8321d4b7ef96b4ede2814243&scene=21#wechat_redirect>)
+
+[UpSetR高阶韦恩图| 2.标注与图注](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495752&idx=1&sn=25aeb8d267c1b5d168d94637cb2c08e7&chksm=9b3c8918ac4b000e9164433a4893a015ee549b6d70d735780f7b6479eac6d37ec74086af3354&scene=21#wechat_redirect>)
+
+[UpSetR高阶韦恩图| 3.图形组合注释](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247496700&idx=1&sn=b197ff50a3555d935a37716dbafec088&chksm=9b3c8aacac4b03ba8ba236321232d159db69edf5e214c2383bc98dd0178a5111f72fc9964ba5&scene=21#wechat_redirect>)
+
+[UpSetR高阶韦恩图| 4.注释及图片调整](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497682&idx=1&sn=b4436a156fea5c2071f8b2dc68e3054d&chksm=9b3c8e82ac4b079407b1c00238fc3a88fe76395b2aae3e3999da70871ca5a156de6588ccd5fd&scene=21#wechat_redirect>)
+
+App在线版链接：
+
+http://biomamba.com:34038/UpSetR
+
+本地exe程序版下载链接：
+
+链接：
+
+https://pan.baidu.com/s/1TRTfGemASJL0mrZrjBkvmw?pwd=cgea
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyUjBUdYedwGR4wEiasDXz2TeibibWLe6xup9hhWibENzrA09o8lXWzm0ic6cjU4tdWbuZJnCAicZrGpiahA/640?wx_fmt=jpeg)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQZNVj4LpuVDSuXYukibmBxmSxibaA1GglIllTSLWKnRfa20fALeV7MpGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+视频教程
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQZNVj4LpuVDSuXYukibmBxmSxibaA1GglIllTSLWKnRfa20fALeV7MpGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+具体使用起来很简单，本地版打开exe文件后与在线版同理:
+
+csv文件准备，表头需要为![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpywyyFIVR5bTsyUnFJa0t9XAZ9XQcDLZxXoibycYmz7jibDicnibgE5ibIy29heqicaOBXrqIYKDmWQuj8Q/640?wx_fmt=png)
+
+B站同步播出，欢迎来三联:
+
+https://www.bilibili.com/video/BV1334y197Pw?p=10
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQZNVj4LpuVDSuXYukibmBxmSxibaA1GglIllTSLWKnRfa20fALeV7MpGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+往期回顾
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWh2NFJDBiafvwwKurdL1kViaQLiacep1yYD3gtbQrf2SxSiaKTic4fvApxf7HlVskaU0tGia7VJfKuc7kbw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+[给你安排一个懂生信的工具人（一）：火山图](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484153&idx=1&sn=68ce6d3499ff7c13fed387bea4fff5a9&chksm=9b3f7ba9ac48f2bfe5ba3e30bca7709e41c2c0f111b9dbfaf703f83d03f107b8589adb1e7792&scene=21#wechat_redirect>)
+[给你安排一个懂生信的工具人（二）：真-工具人](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484166&idx=1&sn=7fcaa65879a9ad9564c47ebf4dbbff4d&chksm=9b3f7a56ac48f340e4891de4d911c3776170725abe2900d846d3c94f379605b03b1ec8d23dbe&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（三）：凌波微课开发的在线版metacoder](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484237&idx=1&sn=e1873cc52566f8002b827568dff99b35&chksm=9b3f7a1dac48f30b533ea87a8e800f6cb77606ace1da700a4324c8c888b0e102d01a20039870&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（四）：ggplot2"作弊器"](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484259&idx=1&sn=7c6498b0d69e7e7a492014e22c02abba&chksm=9b3f7a33ac48f3254ae190904dbf6798bda1b8fc3a10cd5a72f41543fdf1f89dc4b0a9697f7b&scene=21#wechat_redirect>)
+[给你安排一个懂生信的工具人（五）：手把手教你用在线 pheatmap 绘制热图](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484391&idx=1&sn=6f4369bbb231d946dcb63b399ffe4bfd&chksm=9b3f7ab7ac48f3a1a88a92c03be88e25cf57373f1099961ff1f01ad48faf8d8b94538b3cdd32&scene=21#wechat_redirect>)
+[给你安排一个懂生信的工具人（六）：再也不怕装不上packages了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484429&idx=2&sn=da45138ab6e68e29d373670afe5737a4&chksm=9b3f7d5dac48f44b420c0b940e835996b8d2f4429397a61ae8a5fd4fa1a86cd974f260a360d0&scene=21#wechat_redirect>)
+
+[给你安排一个懂生信的工具人（七）：在线版相关性分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484467&idx=1&sn=762ff5fbb54441633144ed6dead0b096&chksm=9b3f7d63ac48f475071fd62ae6a1c09a23da8036cc2cbd11e7740fdb9def79328e4eab45f4b1&scene=21#wechat_redirect>)
+
+[给你安排一个懂生信的工具人（八）：不会有人真的只会做T检验吧](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484505&idx=1&sn=762f80bd6840ec03d5151592679240f9&chksm=9b3f7d09ac48f41f4279fccefeb6e4ca15b6a9c9cdd9a00a0cc23c93174fa2db084032828a74&scene=21#wechat_redirect>)
+[给你安排一个懂生信的工具人（九）：在线PCA分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247485571&idx=1&sn=a0497f79fe83ff6b86705f6eb0e1cbf9&chksm=9b3f71d3ac48f8c528efe63261858d1f6ef46acd4af49cc2da2a5b5e85c59ae020ad0ab06a4e&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（十）：不学编程 零代码完成单细胞测序数据分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247485730&idx=1&sn=42b9b35026bec5359ac34750dea3bf44&chksm=9b3f7072ac48f964970f673a86e27ecd453a80b953168dc110e0ea6bfa4110eeed3350c9601a&scene=21#wechat_redirect>)
+[我把之前的在线工具都挪了个窝](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487051&idx=1&sn=c161c002171a61be28172e155c492cd7&chksm=9b3f771bac48fe0db73f68316bdda0a9ebc9fe9e10c867f540aba7b6ef3d1d86b2ab9e8dcbb9&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人（十一）：在线查询KEGG中通路与基因对应关系](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490119&idx=1&sn=f6f9a7f901c6fc1623552614d4ab8085&chksm=9b3f6317ac48ea01e67015d72a3079574b765889635cd6d5b99b5919a58935117a152a6fee5f&scene=21#wechat_redirect>)
+[给你安排一个懂生信的工具人（十二）：KEGG通路、基因查询2.0](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490795&idx=1&sn=65dbe1a8e026466d0c5ce391c823c215&chksm=9b3f65bbac48ecad55381edd2f7221ccc910178c5c378877d49762e2e1606c02be407db61c98&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人|13. 火山图绘制2.0](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497142&idx=1&sn=a3dc3cac8845ae5013394f8407cf5725&chksm=9b3c8ce6ac4b05f071ba9d196b1d462edb610f4672bd5a7ad22cee339212375c215989fcb041&scene=21#wechat_redirect>)[给你安排一个懂生信的工具人|14. 富集分析App](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497621&idx=1&sn=cf1b6b70d60b3c406303b78086ac041f&chksm=9b3c8ec5ac4b07d318c0d8a2d486ee288799d5729eb1e2a8d0b8fcec396f90f0b8bb6809ad53&scene=21#wechat_redirect>)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**如何联系我们**
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([有root权限的共享服务器](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503869&idx=1&sn=142f8c7ba8620815a8770773df077f12&chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+
+[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+
+大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
+[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢

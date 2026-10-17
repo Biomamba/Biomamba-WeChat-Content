@@ -1,0 +1,93 @@
+---
+title: "【急招】生物信息学中心负责人！博士/Master优先"
+date: 2025-08-20
+source: https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530566&idx=3&sn=9ba6d975834be4dbe97a24d6ada7e9cd&chksm=9b3c0116ac4b88003ffe9e392214aa79c0acdece9ac6f714f96dab97d0a96bd2bf8c4f9d4b13#rd
+albums: ["求职/求学/招聘"]
+---
+
+# 【急招】生物信息学中心负责人！博士/Master优先
+
+> 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530566&idx=3&sn=9ba6d975834be4dbe97a24d6ada7e9cd&chksm=9b3c0116ac4b88003ffe9e392214aa79c0acdece9ac6f714f96dab97d0a96bd2bf8c4f9d4b13#rd
+> 合集：求职/求学/招聘
+
+**1**
+
+**写在前面**
+
+我们长期发布招聘/求职板块(甚至我给自己都发了求职：[Biomamba求职| 国奖+4篇一作SCI](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521428&idx=1&sn=fe5787d52393ed0a251d99936a996e6a&scene=21#wechat_redirect>))，欢迎各位老师/老板欢迎联系~我们也在招贤纳士：[Biomamba生信基地诚聘生信人才](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528660&idx=2&sn=6153f951a65d2dc82ca5bef005541504&scene=21#wechat_redirect>)。其它需要求职的小伙伴也欢迎把简历发给我们[Biomamba_zhushou]，大家一起找工作/学习。用人单位也可以联系我们免费刊登招聘信息~
+
+**2**
+
+**岗位描述**
+
+我们正在寻找经验丰富的**生物信息学数据分析中心****负责人** ，负责领导团队开展多组学数据分析及生物医学大数据挖掘等工作。
+
+该职位将**直接参与** 科研项目规划、技术路线制定及团队管理，推动生物信息学在医学、药物研发或农业基因组学等领域的应用
+
+**3**
+
+**岗位职责**
+
+1.负责生物信息学团队的建设与管理，制定部门发展规划和技术路线。
+
+2.主导基因组、转录组、表观组等多组学数据的分析与挖掘，或优化生信分析流程。
+
+3.与其他部门协作，解决关键技术问题。
+
+**4**
+
+**任职要求**
+
+**01**
+
+**学历背景**
+
+博士学历（优秀硕士可放宽），生物信息学、医学或计算机科学等相关专业。
+
+**02**
+
+**工作经验**
+
+2年以上生物信息学分析经验；
+
+**03**
+
+**相关技能**
+
+精通Python/R/Perl等编程语言，熟悉Linux环境和常用生信工具（如GATK、STAR、DESeq2等）；具备多组学（如WGS、RNA-seq、ChIP-seq等）项目经验，熟悉公共数据库（TCGA、GEO、NHANES、GWAS等）。
+
+**04**
+
+**优先条件**
+
+  * 在SCI期刊以第一作者发表过高水平论文；
+
+  * 有基因组学、蛋白组或多数据库项目经验；
+
+  * 熟悉云计算高性能计算平台。
+
+**05**
+
+**个人素质**
+
+  * 优秀的沟通能力和部门协作能力；
+
+  * 对技术创新有热情，能承受工作压力。
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/4mmESnRe5xRs1uSSLXicDWCVgCQmz2N6HeKNId3hW6YMojkKHoo7195VAASBym1W93hHL9yCHkqX8YtSIN34xwQ/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)工作地点：重庆市
+
+**薪资待遇：**
+
+面议（行业领先，具备竞争力）
+
+**招聘人数：** 2人
+
+**应聘方式**
+
+请准备好**简历+代表作（论文/项目报告）** ，发送至以下微信：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/4mmESnRe5xRs1uSSLXicDWCVgCQmz2N6HerVrlEwplYaMXYlhhNxBFJXDiaaas2ryEibbKT3oRqOSia3AGABGTdd7w/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+
+欢迎有志于生物信息学技术创新的精英加入！
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyQGYRBTgoIFAiaUYZNOPia2ibnvLKVC00pIibHjgjLibicvRZbvysvJpFtia5u18TBuUzWUfRyWicbdlv4eA/640?wx_fmt=png&from=appmsg)

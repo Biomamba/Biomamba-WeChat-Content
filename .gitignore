@@ -1,0 +1,18 @@
+# 抓取的原始中间产物，不入仓库
+raw/
+*.html
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 私有：本地工作记忆，不入公开仓库
+.workbuddy/
+
+# 含明文 token 的推送脚本，勿入库
+scripts/git_api_push.py

@@ -1,0 +1,781 @@
+---
+title: "富集分析可视化的版本答案？CBNPlot单细胞实操"
+date: 2026-09-07
+source: https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541688&idx=1&sn=6f79a9bf31753a3da40279a5df3b45e4&chksm=9b3c5ae8ac4bd3fed2032dd0152f3b13bf7047240bf2a6e0c7f86003fe2079e3bf919918a2e7#rd
+albums: ["单细胞教程全收录"]
+---
+
+# 富集分析可视化的版本答案？CBNPlot单细胞实操
+
+> 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541688&idx=1&sn=6f79a9bf31753a3da40279a5df3b45e4&chksm=9b3c5ae8ac4bd3fed2032dd0152f3b13bf7047240bf2a6e0c7f86003fe2079e3bf919918a2e7#rd
+> 合集：单细胞教程全收录
+
+**一、写在前面**
+
+1. 什么是贝叶斯网络
+
+贝叶斯网络(Bayesian Network, BN)是一种概率图模型，使用**有向无环图(Directed Acyclic Graph, DAG)** 描述一组变量之间的条件依赖关系：图中每个节点代表一个随机变量(如一个基因或一条通路)，有向边表示变量间的依赖关系。与[共表达网络](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=5&sn=23f42e58509a93e1f91c09cad53ccbdf&scene=21#wechat_redirect>)(如[WGCNA](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499737&idx=1&sn=b3f6174e1908494692d82ac154ce3218&scene=21#wechat_redirect>))不同，贝叶斯网络中的边具有**方向性** ，且每一条边都是从数据中通过结构学习算法推断而来，因此更适合回答”谁调控谁”的问题。
+
+2\. 文献解读：CBNplot能做什么
+
+CBNplot是一个2022年发表在《Bioinformatics》(IF=6.2)上的Bioconductor包[1]，由京都大学的Noriaki Sato等人开发(clusterProfiler的开发者余光创教授也是作者之一)。文章指出：在研究基因表达谱时，除了鉴定差异表达基因之外，确定基因之间的重要有向边能提供额外的宝贵信息；然而当时缺少能够基于富集分析(EAs)结果便捷推断[基因调控网络](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535250&idx=1&sn=a2839b6cb9d3618dff3f20570c48cf0f&scene=21#wechat_redirect>)(GRN)的工具。因此作者开发了CBNplot：
+
+  * 它从基因表达数据中推断贝叶斯网络，并显式利用来自通路数据库的富集分析结果
+
+  * 核心功能包括：结构学习的便捷封装、基于富集结果的网络[可视化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538886&idx=1&sn=bdf5d89b810a62d6d54dca3170aadd1e&scene=21#wechat_redirect>)、与参考网络的比较、在图上反映基因相关信息(如DepMap依赖分数)
+
+  * 作者以膀胱癌相关数据集(GSE133624)演示了完整分析，包括贝叶斯网络特有的概率推理(probabilistic reasoning)，验证了跨数据集的结果可迁移性与已知生物学知识的一致性[1]
+
+一句话总结就是：CBNplot能够基于富集分析结果与表达矩阵，推断并绘制基因(或通路)之间的贝叶斯网络，让”富集分析结果→网络推断→可视化”一气呵成(Figure 1)。其主要函数包括：
+
+  * bngeneplot()：绘制某个通路内部基因之间的贝叶斯网络，节点为通路内的差异基因
+  * bnpathplot()：通路与通路之间的贝叶斯网络，每个通路用其成员基因表达矩阵的主成分1(eigengene)表示
+  * `bngeneplotCustom()/`bnpathplotCustom()`：``自定义版，支持高亮hub基因、指定边、调整配色字体、绘制边强度等`
+
+  * `bngenetest()/`bnpathtest()`：检验不同bootstrap次数`R`对网络推断稳定性的影响`
+
+  * `compareBNs()：比较不同条件(如疾病VS对照)推断出的网络差异`
+  * `queryCpDistLs()：基于推断的网络做条件概率查询`
+
+  * compareRef = TRUE：将推断的网络与Reactome等参考通路数据库进行比较
+
+其核心原理是：以表达矩阵为输入，通过bnlearn::boot.strength()(默认爬山算法hc+BIC评分)进行bootstrap结构学习，每条边的强度(strength)代表该边在bootstrap中出现的比例，方向(direction)代表有向边的频率，两者共同评估推断的置信度。
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwl0gLhUibzAoGjPNRVeWsel0pm4SPQpBw1sWGWJosPIMSpwSA995aymorKwDVeyOIiczEt9wm7GXcHiaGcLI8icm5TseD1X8ts9sL4/640?wx_fmt=jpeg&from=appmsg)
+
+[1]Sato N, Tamada Y, Yu G, Okuno Y. CBNplot: Bayesian network plots for enrichment analysis. Bioinformatics. 2022 May 13;38(10):2959-2960. doi: 10.1093/bioinformatics/btac175.
+
+## 3\. 使用场景
+
+  * **[bulk RNA-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539518&idx=2&sn=c5ae4de79cf56486445597c13fe31db0&scene=21#wechat_redirect>) ：对[差异基因](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536970&idx=1&sn=9b51f3c942793be68dbaaa12e1ab39b4&scene=21#wechat_redirect>)富集分析后，用整个表达矩阵推断通路内/通路间网络(官方文档[2]的示例即为bulk数据)**
+  * **单细胞 ：以某个细胞类型的marker基因做富集分析，再用该细胞类型的表达矩阵推断网络，研究**特定细胞类型内部** 通路的调控关系——本教程的主题**
+  * **跨条件比较 ：compareBNs()比较疾病VS对照的网络差异；`bngenetest()`评估网络稳定性**
+  * **临床问题 ：官方文档还展示了将临床变量加入网络、条件概率查询等高级玩法[2]**
+
+[2]https://noriakis.github.io/software/CBNplot/
+
+4\. CBNplot亮点
+
+  * 与clusterProfiler/ReactomePA无缝衔接
+  * 网络推断由表达数据驱动，边具有方向与强度
+  * bootstrap评估边置信度
+  * 支持单细胞数据：取某个细胞类型的表达矩阵即可
+  * 支持网络比较、条件概率查询、加入临床协变量
+  * 可视化基于[ggplot2](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538758&idx=1&sn=f20dba250f454e3def68a062793940e0&scene=21#wechat_redirect>)/ggraph，可自由定制
+
+学习手册可视化集锦（文末可获得代码和测试文件）：
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlELrNRF0ux7knHWdaaIrupFnRIAUh3tHz9Y7TUetOBYCVa7MQJlw7ia3t1PWYPEqcKibAtJ5vHBtD6QmG2yic7oVSW8TdluOUSt0/640?wx_fmt=jpeg)
+
+**二、 CBNplot官方demo**
+
+### 1\. 安装
+
+CBNplot已在Bioconductor发布，直接通过BiocManager安装即可。本教程使用[conda](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530994&idx=2&sn=3f3bdf2d06532c0b0ab8c9a477b8332c&scene=21#wechat_redirect>)环境CBNplot_env(R 4.5 + Bioconductor 3.22)，安装命令如下：
+
+  *   *   *   *   *   *   *   *   *   *
+
+```
+# 方法一：BiocManager安装(推荐)if (!require("BiocManager", quietly = TRUE))    install.packages("BiocManager")BiocManager::install("CBNplot")# 方法二：conda环境一键安装(本教程采用)# mamba create -n CBNplot_env -c conda-forge -c bioconda -y \#   r-base=4.5 r-seurat=5.5.1 bioconductor-cbnplot=1.10.0 \#   bioconductor-reactomepa r-rmarkdown r-knitr r-ggrepel r-msigdbr pandoc# 方法三：GitHub开发版# devtools::install_github("noriakis/CBNplot")
+```
+
+  *   *   *   *
+
+```r
+library(CBNplot)        # 贝叶斯网络绘制library(bnlearn)        # 贝叶斯网络结构学习library(org.Hs.eg.db)   # 人类基因注释library(clusterProfiler) # 富集分析
+```
+
+2.官方demo复现
+
+以下是官方vignette的演示流程[3]：抽取[KEGG](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504403&idx=7&sn=99c35dd1d7cf7ad20adf0898fa916c73&scene=21#wechat_redirect>)通路00532中的基因作为”差异基因”，用bnlearn自带的gaussian.test数据充当表达矩阵：
+
+  *   *   *
+
+```
+## 加载示例数据(gaussian.test为bnlearn包自带的连续型高斯数据)data(gaussian.test)dim(gaussian.test)  # 5000行7列
+```
+```
+## [1] 5000    7
+```
+
+  *   *   *   *   *
+
+```r
+## 提取KEGG通路00532(硫酸软骨素/硫酸皮肤素生物合成通路)中的基因作为"差异基因"kegg <- org.Hs.egPATH2EGmapped <- mappedkeys(kegg)genes <- as.list(kegg[mapped])[["00532"]]length(genes)
+```
+```
+## [1] 22
+```
+
+  *   *   *   *
+
+```r
+## 用随机数据充当这些基因的表达矩阵counts <- head(gaussian.test, length(genes))row.names(counts) <- genesdim(counts)
+```
+```
+## [1] 22  7
+```
+
+对这些基因做KEGG富集分析。注意：enrichKEGG需要在线访问KEGG REST API，网络不稳定时可能报”cannot open the connection”或”SSL connect error”，这里用重试函数包装一下(报错的详细处理方案见本教程配套的debug手册)：
+
+  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+```r
+options(timeout = 300)  # 延长R的下载超时时间# 重试包装函数：失败后等待5秒重试，最多3次enrichKEGG_retry <- function(gene, max_attempts = 3) {  for (i in seq_len(max_attempts)) {    res <- tryCatch(enrichKEGG(gene = gene), error = function(e) e)    if (!inherits(res, "error")) return(res)    message("第", i, "次尝试失败，5秒后重试...")    Sys.sleep(5)  }  stop("enrichKEGG多次尝试均失败，请检查网络，或改用enrichGO/enrichPathway等本地富集方法")}pway <- enrichKEGG_retry(gene = genes)# 将ENTREZID转换为gene symbol，便于后续网络图展示pway <- setReadable(pway, org.Hs.eg.db, keyType = "ENTREZID")head(pway, 3)
+```
+
+```
+##            category                        subcategory       ID
+## hsa00532 Metabolism Glycan biosynthesis and metabolism hsa00532
+## hsa00534 Metabolism Glycan biosynthesis and metabolism hsa00534
+## hsa00515 Metabolism Glycan biosynthesis and metabolism hsa00515
+##                                                                      Description
+## hsa00532 Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate
+## hsa00534              Glycosaminoglycan biosynthesis - heparan sulfate / heparin
+## hsa00515                                      Mannose type O-glycan biosynthesis
+##          GeneRatio BgRatio RichFactor FoldEnrichment    zScore       pvalue
+## hsa00532     20/22 21/9423 0.95238095      407.92208 90.303928 3.952274e-58
+## hsa00534      5/22 24/9423 0.20833333       89.23295 20.935893 1.758798e-09
+## hsa00515      2/22 23/9423 0.08695652       37.24506  8.418693 1.277986e-03
+##              p.adjust qvalue
+## hsa00532 1.185682e-57     NA
+## hsa00534 2.638197e-09     NA
+## hsa00515 1.277986e-03     NA
+##                                                                                                                                          geneID
+## hsa00532 CHST3/UST/B4GALT7/CHSY1/B3GAT3/DSE/CHST11/CHST15/CHPF2/CSGALNACT2/CHST12/CSGALNACT1/CHST7/XYLT1/XYLT2/CHPF/CHST14/B3GALT6/CHST13/CHSY3
+## hsa00534                                                                                                     B4GALT7/B3GAT3/XYLT1/XYLT2/B3GALT6
+## hsa00515                                                                                                                          B3GAT1/B3GAT2
+##          Count
+## hsa00532    20
+## hsa00534     5
+## hsa00515     2
+```
+
+向下滑动查看全部~
+
+#### 2.1 bngeneplot：通路内基因网络
+
+  *   *   *   *   *   *
+
+```
+bngeneplot(  results = pway,      # 富集分析结果  exp = counts,        # 表达矩阵(行为基因、列为样本)  pathNum = 1,         # 绘制结果中按p值排序第1位的通路  expRow = "ENTREZID"  # 表达矩阵行名的ID类型)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkCrVHLybJOThIYcUfFb96FLSVV8C00kMhZo0icA7Aj4GQOhxuzT626rZsWOzUgqQ1BYMCiaZyojkANKHhFT6UgLiclGr3Ekicbvok/640?wx_fmt=png&from=appmsg)
+
+图中边的粗细代表边强度(strength，该边在bootstrap中出现的比例)，箭头代表推断的方向。returnNet = TRUE可以返回用于推断的原始数据框、强度/方向表(str)以及平均网络(av)：
+
+  *   *   *
+
+```r
+ret <- bngeneplot(results = pway, exp = counts, pathNum = 1,                  returnNet = TRUE, expRow = "ENTREZID")head(ret$str)  # from/to: 边的两端; strength: 边强度; direction: 方向置信度
+```
+```
+##    from      to strength direction
+## 1 CHST3     UST     0.25 0.4000000
+## 2 CHST3 B4GALT7     0.00 0.0000000
+## 3 CHST3   CHSY1     0.15 0.0000000
+## 4 CHST3  B3GAT3     0.30 0.5833333
+## 5 CHST3     DSE     0.10 0.5000000
+## 6 CHST3  CHST11     0.10 0.5000000
+```
+
+得到的网络可以直接转换为igraph对象做下游分析：
+
+  *   *
+
+```r
+g <- bnlearn::as.igraph(ret$av)head(sort(igraph::evcent(g)$vector, decreasing = TRUE))  # 特征向量中心性排序(hub基因)
+```
+
+2.2 bnpathplot：通路间网络
+
+  *   *   *   *   *   *   *
+
+```
+bnpathplot(  results = pway,       # 富集分析结果  exp = counts,         # 表达矩阵  nCategory = 5,        # 纳入推断的通路数量(按p值取前5)  shadowText = TRUE,    # 文字加阴影  expRow = "ENTREZID")
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwn8G8laQU60hHKiczS0fPNvenkDACj1gbuibYkMBI9UaValxT7VzF2OQjH3KFmODn6XI2OVJCnHj0iaPaJkrF8iavs7ykCdQlqWyibw/640?wx_fmt=png&from=appmsg)
+
+2.3 Custom版本
+
+  *   *   *
+
+```
+# 高亮hub通路/基因bnpathplotCustom(results = pway, exp = counts, expRow = "ENTREZID",                 fontFamily = "serif", glowEdgeNum = 1, hub = 1)
+```
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkS5Auym6XibvZXCBpIFcRQ23RK4z7UuWa5P44o6YbUSrMz0oGYryo5icicGzc5bibb0bmDtL6vjb0aLswbuCe0XSFtIFmGre8nicd4/640?wx_fmt=png&from=appmsg)
+
+  *   *
+
+```
+bngeneplotCustom(results = pway, exp = counts, expRow = "ENTREZID",                 pathNum = 1, fontFamily = "sans", glowEdgeNum = NULL, hub = 1)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmrq8no2HyBcCyUc64rRjiaRLIlIblwHXa2J2RZMPaRwNStl20zvNRdqYLcfFrSXoULGyVctHGE7Rbqicz9gT1Ey0xMZ6qIJVyoU/640?wx_fmt=png&from=appmsg)
+
+[3]https://bioconductor.org/packages/release/bioc/vignettes/CBNplot/inst/doc/CBNplot_basic_usage.html
+
+**三、 CBNplot单细胞实战**
+
+### 1\. 数据来源
+
+实战数据来自10X Genomics官方提供的3k PBMC数据(3k PBMCs from a Healthy Donor，10X Genomics数据集页面)，包含来自一名健康供体的2700个外周血单个核细胞(peripheral blood mononuclear cells, PBMC)的[scRNA-seq](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=4421772406013378566#wechat_redirect>)数据，基于hg19参考基因组(v1化学)，是目前单细胞领域使用最广泛的教学数据集。基因以gene symbol命名，可通过以下命令下载：
+
+  *   *   *   *
+
+```
+# 下载(约7.3MB)并解压mkdir -p data && cd datawget https://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gztar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz && rm pbmc3k_filtered_gene_bc_matrices.tar.gz
+```
+
+2\. 单细胞标准流程
+
+  *   *   *   *
+
+```r
+library(Seurat)     # 单细胞分析library(dplyr)      # 数据操作library(ggplot2)    # 绘图library(patchwork)  # 拼图
+```
+
+2.1 读入数据与[质控](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=2&sn=0323d692cf61092ed994fb434e4cfb1d&scene=21#wechat_redirect>)
+
+  *   *   *   *   *   *
+
+```r
+# 读取10X标准输出目录(barcodes.tsv/genes.tsv/matrix.mtx)counts <- Read10X("data/filtered_gene_bc_matrices/hg19/")scRNA <- CreateSeuratObject(counts, project = "pbmc3k",                            min.cells = 3,      # 基因至少在3个细胞中表达                            min.features = 200) # 每个细胞至少检测到200个基因scRNA
+```
+```
+## An object of class Seurat
+## 13714 features across 2700 samples within 1 assay
+## Active assay: RNA (13714 features, 0 variable features)
+##  1 layer present: counts
+```
+
+  *   *   *   *
+
+```r
+# 计算线粒体基因比例(人源以MT-开头)scRNA[["percent.mt"]] <- PercentageFeatureSet(scRNA, pattern = "^MT-")# 质控前可视化VlnPlot(scRNA, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size = 0)
+```
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnKia6OHbCtR089Nq30EAVIM9lVYalvnsvO1JT1AP0Fh0z6ntB4BvhoFqYwVtRCJhjpxKdvjLdbux6ucLW3rxHdg5bbty39Y0dQ/640?wx_fmt=png&from=appmsg)
+
+  *   *   *
+
+```r
+# 过滤：基因数200-2500之间(去除双细胞与低质量细胞)，线粒体比例<5%(去除死细胞)scRNA <- subset(scRNA, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 5)scRNA
+```
+```
+## An object of class Seurat
+## 13714 features across 2638 samples within 1 assay
+## Active assay: RNA (13714 features, 0 variable features)
+##  1 layer present: counts
+```
+
+2.2 标准化、降维与聚类
+
+  *   *   *   *   *
+
+```r
+scRNA <- NormalizeData(scRNA, normalization.method = "LogNormalize", scale.factor = 10000) # 对数标准化scRNA <- FindVariableFeatures(scRNA, selection.method = "vst", nfeatures = 2000)           # 找高变基因scRNA <- ScaleData(scRNA)                                   # 缩放scRNA <- RunPCA(scRNA, features = VariableFeatures(scRNA))  # PCA降维ElbowPlot(scRNA, ndims = 30)                                # 肘图选择主成分数量
+```
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmSD4ETXNkEFMpc7kQdyHZ3V1iaU1aUXTkapBXsnrWCEHhjTEnRS79ElsH4ohcfkJYV48oAfyK3IKVlp3zpV4wDTOB7gDk9OUyU/640?wx_fmt=png&from=appmsg)
+
+  *   *   *
+
+```r
+# 构建SNN图并聚类scRNA <- FindNeighbors(scRNA, dims = 1:10)        # 根据肘图选择前10个主成分scRNA <- FindClusters(scRNA, resolution = 0.5)    # 分辨率0.5
+```
+```
+## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+##
+## Number of nodes: 2638
+## Number of edges: 95927
+##
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.8728
+## Number of communities: 9
+## Elapsed time: 0 seconds
+```
+
+  *   *
+
+```r
+scRNA <- RunUMAP(scRNA, dims = 1:10)DimPlot(scRNA, reduction = "umap", label = TRUE)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnclDphsST5SfSib8M1bXGIuaKSanRK4tMarHwNSHB8icvedX2dW6rX1TlsJUAOBdsDXUTr72ibWeUrSddeomDrn4Qw0TnsnwYrxU/640?wx_fmt=png&from=appmsg)
+
+2.3 细胞类型[注释](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537859&idx=1&sn=cd3f1fff64f2147afb6222d65db4917f&scene=21#wechat_redirect>)
+
+用各cluster的经典marker基因注释细胞类型：
+
+  *   *   *   *   *   *   *   *
+
+```
+# 经典marker的小提琴图VlnPlot(scRNA, features = c("MS4A1", "CD79A",     # B细胞                            "CD3D", "IL7R",       # T细胞                            "CD14", "LYZ",        # 单核细胞                            "NKG7", "GNLY",       # NK细胞                            "FCER1A", "CST3",     # DC                            "PPBP"),              # 血小板        stack = TRUE, flip = TRUE)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkGhyib5TwY9clHbN5Sxu5lZbntQ1RU1MfOGf4cbNgLWQVzICbYH3pria8EXNpFov07HrzjeiafJkT08HOgXibibT4Yib58XcpMaRaoM/640?wx_fmt=png&from=appmsg)
+
+  *   *   *   *   *
+
+```r
+# 计算各cluster的marker平均表达作为注释依据markers <- c("MS4A1","CD79A","CD3D","IL7R","CD8A","NKG7","GNLY",             "CD14","LYZ","FCGR3A","MS4A7","FCER1A","CST3","PPBP","S100A8","S100A9")avg <- AverageExpression(scRNA, features = markers, group.by = "seurat_clusters")round(avg[[1]], 2)
+```
+```
+## 16 x 9 sparse Matrix of class "dgCMatrix"
+##           g0     g1    g2    g3    g4    g5     g6     g7     g8
+## S100A9  0.73 135.02  0.77  0.86  0.85 12.84   0.68  11.59   3.17
+## S100A8  0.43  78.40  0.48  0.40  0.20  4.85   0.46   2.73   1.96
+## FCER1A  0.11   0.15  0.01  0.01  0.06  0.02   0.10  14.71   .
+## FCGR3A  0.21   0.67  0.19  0.17  2.06 21.95  12.94   0.30   1.30
+## GNLY    0.41   0.72  0.51  0.46 11.23  0.34 109.48   0.60   .
+## CD8A    0.91   0.08  0.41  0.13  4.40  0.09   0.63   0.05   .
+## PPBP    0.05   0.62  0.07  0.10  0.40  0.28   .      0.07 465.68
+## IL7R    5.91   0.51  8.02  0.68  5.61  0.43   0.94   0.91   0.41
+## CD14    0.09   6.82  0.07  0.01  0.07  0.53   0.03   0.53   .
+## MS4A7   0.09   1.43  0.09  0.35  0.05  8.07   0.05   0.51   0.26
+## MS4A1   0.19   0.23  0.21 11.70  0.27  0.27   0.27   0.06   .
+## CD3D   10.69   0.46 11.43  0.33 13.69  0.28   1.11   0.25   .
+## LYZ     3.08 182.87  3.08  3.17  2.75 29.07   2.77 126.38   6.89
+## CST3    0.84  56.50  0.97  1.03  1.22 50.46   1.53  88.49  18.07
+## CD79A   0.19   0.18  0.23 22.55  0.14  0.17   0.08   0.67   0.09
+## NKG7    0.71   1.05  1.00  0.62 49.43  1.60 123.37   0.67   0.39
+```
+
+向下滑动查看全部~
+
+  *   *   *   *   *   *
+
+```r
+# 根据marker表达对cluster重命名(例如cluster 3高表达MS4A1/CD79A，注释为B细胞)new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T",                     "FCGR3A+ Mono", "NK", "DC", "Platelet")names(new.cluster.ids) <- levels(scRNA)scRNA <- RenameIdents(scRNA, new.cluster.ids)DimPlot(scRNA, reduction = "umap", label = TRUE)
+```
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnGhdI6K2hIibib9XhIHK041APCfzROYldG5JVbYI2kHQoGzIftiaEYB4TgXxEWztqWrChjiagNxqKibtjEOMqfibyC5KDFj9uwuriaFo/640?wx_fmt=png&from=appmsg)
+
+  *
+
+```
+table(Idents(scRNA))
+```
+```
+##
+##  Naive CD4 T   CD14+ Mono Memory CD4 T            B        CD8 T FCGR3A+ Mono
+##          684          481          476          344          291          162
+##           NK           DC     Platelet
+##          155           32           13
+```
+
+2.4 提取B细胞的差异基因
+
+接下来我们以B细胞(344个细胞)为例，展示CBNplot在单细胞中的应用。首先找到B细胞相对于其它细胞类型的差异表达基因：
+
+  *   *   *   *
+
+```r
+B.markers <- FindMarkers(scRNA, ident.1 = "B",                         only.pos = TRUE,          # 只保留B细胞中上调的基因                         logfc.threshold = 0.25)   # log2FC阈值0.25head(B.markers, 5)
+```
+```
+##                   p_val avg_log2FC pct.1 pct.2     p_val_adj
+## CD79A      0.000000e+00   6.911221 0.936 0.041  0.000000e+00
+## MS4A1      0.000000e+00   5.718520 0.855 0.053  0.000000e+00
+## CD79B     2.655974e-274   4.636747 0.916 0.142 3.642403e-270
+## LINC00926 2.397625e-272   7.379757 0.564 0.009 3.288103e-268
+## TCL1A     9.481783e-271   6.688051 0.622 0.022 1.300332e-266
+```
+
+2.5 富集分析
+
+对B细胞的marker基因做GO(BP)富集分析：
+
+  *   *   *   *   *   *   *   *   *   *
+
+```r
+ego <- enrichGO(gene = rownames(B.markers),                OrgDb = org.Hs.eg.db,                keyType = "SYMBOL",    # 输入基因ID类型                ont = "BP",            # 生物学过程                pvalueCutoff = 0.05,                qvalueCutoff = 0.2,                minGSSize = 10,                maxGSSize = 500,                readable = FALSE)head(ego, 3)
+```
+```
+##                    ID            Description GeneRatio   BgRatio RichFactor
+## GO:0042254 GO:0042254    ribosome biogenesis  115/2610 329/18842  0.3495441
+## GO:0006364 GO:0006364        rRNA processing   85/2610 237/18842  0.3586498
+## GO:0016072 GO:0016072 rRNA metabolic process   93/2610 288/18842  0.3229167
+##            FoldEnrichment    zScore       pvalue     p.adjust       qvalue
+## GO:0042254       2.523414 11.177986 1.683917e-22 9.040950e-19 8.160793e-19
+## GO:0006364       2.589149  9.872115 9.361328e-18 2.513049e-14 2.268398e-14
+## GO:0016072       2.331186  9.128564 6.489986e-16 1.161491e-12 1.048417e-12
+##                                                geneID
+## GO:0042254 RPS23/RPS11/RPS5/ISG20/RPS8/RPS27/RPSA/FAU/RPS21/RPS13/RPS19/RPL37/RPL35/RPL5/RPS3A/RPL27/NUP88/BMS1/PWP1/RPP40/RIOK2/TCOF1/REXO4/XPO1/RPUSD3/DDX27/UTP6/DDX10/PIH1D1/RCL1/CHD7/DKC1/SBDS/TFB2M/METTL18/MTG1/NSUN5/NOL10/GNL3L/GTPBP4/C1QBP/NOP14/DHX37/MDN1/URB1/KRR1/HEATR1/RPUSD1/NOC2L/ZNHIT6/NSUN3/DDX56/DDX18/TRMT61B/NOL11/ERAL1/BYSL/NSUN4/TEX10/WDR74/GEMIN4/NOL8/UTP18/RRP8/DDX3X/AATF/COPRS/KAT2B/WDR75/NGRN/C1D/EIF1AX/WDR43/NOL9/TSR2/WDR12/DDX47/ERI1/TRMT2B/MAK16/METTL16/TSR3/EXOSC5/XRCC5/RPS17/MCAT/NVL/ZCCHC4/NMD3/EXOSC10/MYBBP1A/TMA16/PAK1IP1/RRP15/LSG1/DCAF13/GNL2/EIF5B/WDR77/EXOSC9/NHP2/EXOSC2/SART1/FTSJ3/DDX54/USP16/CUL4A/MRTO4/RRP7A/NOLC1/WBP11/MPV17L2/TSR1/DDX52/EXOSC7
+## GO:0006364 ISG20/RPS27/RPS21/RPS13/RPS19/RPL37/RPL35/RPL5/RPL27/BMS1/PWP1/RPP40/RIOK2/REXO4/RPUSD3/DDX27/UTP6/DDX10/PIH1D1/RCL1/CHD7/DKC1/SBDS/TFB2M/METTL18/NSUN5/NOL10/NOP14/DHX37/MDN1/URB1/KRR1/HEATR1/RPUSD1/ZNHIT6/NSUN3/DDX56/DDX18/TRMT61B/NOL11/BYSL/NSUN4/TEX10/WDR74/GEMIN4/NOL8/UTP18/RRP8/AATF/COPRS/KAT2B/WDR75/C1D/WDR43/NOL9/TSR2/WDR12/DDX47/ERI1/TRMT2B/MAK16/METTL16/TSR3/EXOSC5/RPS17/NVL/ZCCHC4/EXOSC10/PAK1IP1/RRP15/DCAF13/WDR77/EXOSC9/NHP2/EXOSC2/SART1/FTSJ3/DDX54/MRTO4/RRP7A/NOLC1/WBP11/TSR1/DDX52/EXOSC7
+## GO:0016072 ISG20/RPS27/RPS21/RPS13/RPS19/RPL37/RPL35/RPL5/SMARCB1/RPL27/BMS1/PWP1/RPP40/RIOK2/TCOF1/NCL/REXO4/RPUSD3/DDX27/UTP6/DDX10/PIH1D1/RCL1/CHD7/DKC1/SBDS/TFB2M/METTL18/NSUN5/NOL10/NOP14/DHX37/MDN1/URB1/KRR1/HEATR1/RPUSD1/SPIN1/ZNHIT6/NSUN3/DDX56/DDX18/TRMT61B/NOL11/BYSL/NSUN4/GTF3C5/TEX10/WDR74/GEMIN4/NOL8/UTP18/RRP8/AATF/COPRS/KAT2B/RNF10/WDR75/C1D/WDR43/NOL9/TSR2/WDR12/DDX47/ERI1/TRMT2B/MAK16/METTL16/TSR3/EXOSC5/RPS17/NVL/MYC/ZCCHC4/EXOSC10/PAK1IP1/RRP15/DCAF13/WDR77/EXOSC9/NHP2/EXOSC2/SART1/FTSJ3/DDX54/MRTO4/RRP7A/NOLC1/WBP11/GTF3C2/TSR1/DDX52/EXOSC7
+##           Count
+## GO:0042254    115
+## GO:0006364    85
+## GO:0016072    93
+```
+
+向下滑动查看全部~
+
+  *   *
+
+```
+# 气泡图看一下富集结果dotplot(ego, showCategory = 10) + ggtitle("GO Biological Process")
+```
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmAYPyibwCYLhib4zQRLicZRZd6keU85k9RuPc4oZ9SDImUc6fkx3Udq0gF5xfmR3jmUCdDvGd6rWV95Rno7MYWicdvD6Ic8z4D7sA/640?wx_fmt=png&from=appmsg)
+
+3、bngeneplot：单细胞中的通路内基因网络
+
+CBNplot需要两个输入：富集结果与表达矩阵。在单细胞中，我们将B细胞的对数归一化表达矩阵作为exp。由于CBNplot内部通过ENTREZID与通路基因列表匹配，我们需要先把表达矩阵的行名从SYMBOL转换为ENTREZID：
+
+  *   *   *   *   *   *
+
+```r
+# 取出B细胞B_cells <- subset(scRNA, idents = "B")# 提取对数归一化表达矩阵(data layer)，适合贝叶斯网络的连续变量推断# 注意：Seurat 5.5中GetAssayData()已被移除，需改用LayerData()exp_B <- LayerData(B_cells, assay = "RNA", layer = "data")dim(exp_B)
+```
+```
+## [1] 13714   344
+```
+
+  *   *   *   *   *   *   *
+
+```r
+# 行名转换：SYMBOL -> ENTREZIDgene.df <- bitr(rownames(exp_B), fromType = "SYMBOL", toType = "ENTREZID", OrgDb = org.Hs.eg.db)# 去除无法映射/多对多映射的基因gene.df <- gene.df[!duplicated(gene.df$SYMBOL) & !duplicated(gene.df$ENTREZID), ]exp_B_entrez <- exp_B[gene.df$SYMBOL, ]rownames(exp_B_entrez) <- gene.df$ENTREZIDdim(exp_B_entrez)
+```
+```
+## [1] 11400   344
+```
+
+  *   *   *
+
+```r
+# 稀疏矩阵转为稠密矩阵(11400基因x344细胞，仅约31MB)# 保证returnNet/compareRef等功能正常运行exp_B_entrez <- as.matrix(exp_B_entrez)
+```
+
+在GO结果中挑选一条与B细胞生物学密切相关的通路——“B cell activation”(GO:0042113，按p值排序位于第4位)：
+
+  *
+
+```
+which(ego@result$Description == "B cell activation")  # 该通路的行号(即pathNum)
+```
+```
+## [1] 4
+```
+
+  *
+
+```
+ego@result[4, c("ID", "Description", "GeneRatio", "p.adjust")]
+```
+```
+##                    ID       Description GeneRatio     p.adjust
+## GO:0042113 GO:0042113 B cell activation   77/2610 2.464711e-10
+```
+
+绘制该通路内基因的贝叶斯网络(耗时约1分钟)：
+
+  *   *   *   *   *   *   *   *   *   *
+
+```
+bngeneplot(  results = ego,              # GO富集结果  exp = exp_B_entrez,         # B细胞的归一化表达矩阵  expRow = "ENTREZID",        # 行名ID类型  pathNum = 4,                # 绘制"B cell activation"通路  R = 20,                     # bootstrap次数，越大越稳定但越慢  seed = 1,                   # 随机种子，保证结果可重复  algo = "hc",                # 结构学习算法：hc=爬山算法  scoreType = "bic-g"         # 评分函数：BIC(高斯))
+```
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkXibbKeTth5jnMqBAUoLjicGXwZcCqVLXq9c6ApibFCsZic4esJ3OXcxq6aBjE2jicesOeEsKlb8ADhED6G2icrb10Th9Uvv7fvI1bM/640?wx_fmt=png&from=appmsg)
+
+可以看到，网络中CD19、MS4A1(CD20)、CD79B等B细胞共受体复合物成员与CD74(MHC II类分子不变链)之间的边强度最高——它们共同介导B细胞对抗原的识别，与”B cell activation”的生物学过程完全吻合。
+
+接下来提取网络数据，看看hub基因与边强度：
+
+  *   *   *   *   *
+
+```r
+# returnNet=TRUE返回网络推断的原始数据ret <- bngeneplot(results = ego, exp = exp_B_entrez, expRow = "ENTREZID",                  pathNum = 4, R = 20, seed = 1, returnNet = TRUE)# 边强度排序ret$str %>% arrange(desc(strength)) %>% head(10)
+```
+```
+##      from     to strength direction
+## 1  LAPTM5  MS4A1     0.95 0.6842105
+## 2    VAV3 NOTCH2     0.95 0.4736842
+## 3  NOTCH2   VAV3     0.95 0.5263158
+## 4    CD74   CD19     0.95 0.5526316
+## 5   MS4A1 LAPTM5     0.95 0.3157895
+## 6    CD19   CD74     0.95 0.4473684
+## 7  LAPTM5  HDAC9     0.90 0.5555556
+## 8    VAV3   CD19     0.90 0.5000000
+## 9   HDAC9 LAPTM5     0.90 0.4444444
+## 10   CD19   VAV3     0.90 0.5000000
+```
+
+  *   *   *
+
+```r
+# 转为igraph对象计算特征向量中心性(hub基因)g <- bnlearn::as.igraph(ret$av)head(sort(igraph::evcent(g)$vector, decreasing = TRUE), 10)
+```
+```
+## TNFRSF13B      CD74      PMS2    GPR183     CD79B      CD19      MSH6     MS4A1
+## 1.0000000 0.9533795 0.8718732 0.8417282 0.5202063 0.4397609 0.3825191 0.3432447
+##     CLCF1      VAV3
+## 0.3162028      0.2948068
+```
+
+中心性最高的TNFRSF13B(即TACI)是B细胞活化的关键受体，其功能缺失会导致常见变异型免疫缺陷(CVID)——hub基因的鉴定再次印证了网络推断的合理性。
+
+用Custom版本把hub基因与边强度画在同一张图上：
+
+  *   *   *   *   *   *   *   *   *   *   *   *
+
+```
+# hub参数高亮中心性最高的基因，strengthPlot附加边强度柱状图bngeneplotCustom(  results = ego,  exp = exp_B_entrez,  expRow = "ENTREZID",  pathNum = 4,  R = 20,  seed = 1,  hub = 3,             # 高亮前3个hub基因  strengthPlot = TRUE, # 附加边强度柱状图  nStrength = 10       # 展示前10条边)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmJavmAXRibFFvXKhn6WO71buMuHeExGBcD7AmFyBBicx41oib45ltv5QtsQLSOKficgOuF02YYUalCibToAMBJOiapboQ327Nkxia3kg/640?wx_fmt=png&from=appmsg)
+
+4\. bnpathplot：通路间网络
+
+将富集结果中前10条通路作为节点，推断通路之间的贝叶斯网络：
+
+  *   *   *   *   *   *   *   *   *
+
+```
+bnpathplot(  results = ego,  exp = exp_B_entrez,  expRow = "ENTREZID",  nCategory = 10,      # 取p值最小的前10条通路  R = 20,  seed = 1,  shadowText = TRUE)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkdN3VyPGoQkkG4WyDXBO1phHWiaUEIDP24mdP8ibY4RsYMt3lDNPAorWia9ocZvFBAVQibAeqH2etjbsyQF5AE19yFYZdoMgtKGQA/640?wx_fmt=png&from=appmsg)
+
+  *   *   *   *   *   *   *   *   *   *   *
+
+```
+# Custom版本：高亮hub通路与关键边bnpathplotCustom(  results = ego,  exp = exp_B_entrez,  expRow = "ENTREZID",  nCategory = 10,  R = 20,  seed = 1,  hub = 2,           # 高亮前2个hub通路  glowEdgeNum = 2    # 高亮前2条边)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwn6ypfRHso0UE5yQpwzMU7XcEReNTK43d7nxTNUr5a59WTndau2gluxZDVhaLyZtPJib1rMW6fMWteIZJsj8tGZxkoLWo8zickM0/640?wx_fmt=png&from=appmsg)
+
+5\. 与参考通路数据库比较
+
+CBNplot还能将推断出的网络与Reactome参考通路数据库中已知的相互作用进行比较。由于compareRef需要Reactome来源的富集结果，我们先用ReactomePA(本地reactome.db数据库，无需联网)做一次富集：
+
+  *   *   *   *   *   *
+
+```r
+library(ReactomePA)# B细胞marker的SYMBOL转为ENTREZIDgene.df <- bitr(rownames(B.markers), fromType = "SYMBOL", toType = "ENTREZID", OrgDb = org.Hs.eg.db)# Reactome富集ep <- enrichPathway(gene = gene.df$ENTREZID, organism = "human", pvalueCutoff = 0.05)head(ep, 3)
+```
+```
+##                  ID
+## R-HSA-8868773 R-HSA-8868773
+## R-HSA-72312    R-HSA-72312
+## R-HSA-6791226 R-HSA-6791226
+##                                      Description
+## R-HSA-8868773      rRNA processing in the nucleus and cytosol
+## R-HSA-72312                                   rRNA processing
+## R-HSA-6791226 Major pathway of rRNA processing in the nucleolus and cytosol
+##                GeneRatio   BgRatio RichFactor FoldEnrichment   zScore
+## R-HSA-8868773   68/1787 177/11287  0.3841808       2.426552 8.296363
+## R-HSA-72312     72/1787 194/11287  0.3711340       2.344146 8.190180
+## R-HSA-6791226   64/1787 167/11287  0.3832335       2.420569 8.021188
+##                pvalue    p.adjust       qvalue
+## R-HSA-8868773 2.082446e-13 2.436141e-10  2.128840e-10
+## R-HSA-72312  3.087631e-13 2.436141e-10  2.128840e-10
+## R-HSA-6791226 1.216864e-12 6.400704e-10  5.593304e-10
+##                                                geneID
+## R-HSA-8868773                           6142/6228/6205/6193/23521/6202/6138/6132/6141/6232/4736/3921/6136/6159/2197/6222/6147/6227/6143/6133/6207/6144/6223/6181/6168/6167/200916/6125/6189/6155/9349/9790/10799/55781/140032/4691/55813/10171/1736/8602/57647/11103/55127/25926/705/26354/54881/51096/84128/10438/23160/79707/55759/51202/90459/115939/6218/5394/11102/55623/25879/55651/117246/55131/27341/1454/55720/11056
+## R-HSA-72312   6142/6228/6205/6193/23521/6202/6138/6132/6141/6232/4736/3921/6136/6159/2197/6222/6147/6227/6143/6133/6207/6144/6223/6181/6168/6167/200916/6125/6189/6155/9349/9790/10799/55781/140032/4691/285367/55813/10171/1736/8602/57647/11103/55127/25926/705/387338/26354/54881/51096/84128/51335/10438/23160/79707/55759/51202/90459/115939/6218/5394/11102/55623/25879/55651/117246/55131/27341/54931/1454/55720/11056
+## R-HSA-6791226                                                   6142/6228/6205/6193/23521/6202/6138/6132/6141/6232/4736/3921/6136/6159/2197/6222/6147/6227/6143/6133/6207/6144/6223/6181/6168/6167/200916/6125/6189/6155/9349/9790/10799/55781/140032/4691/55813/10171/8602/57647/11103/55127/25926/705/26354/54881/51096/84128/10438/23160/79707/55759/51202/90459/6218/5394/11102/25879/117246/55131/27341/1454/55720/11056
+##            Count
+## R-HSA-8868773    68
+## R-HSA-72312      72
+## R-HSA-6791226    64
+```
+
+向下滑动查看全部~
+
+  *   *   *   *   *   *   *   *   *   *   *   *
+
+```
+# 与Reactome参考网络比较(交集部分)bngeneplot(  results = ep,  exp = exp_B_entrez,  expRow = "ENTREZID",  pathNum = 1,  R = 20,  seed = 1,  compareRef = TRUE,             # 与参考通路数据库比较  compareRefType = "intersection", # 交集  pathDb = "reactome"            # 参考数据库)
+```
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmqfItYzBJ0eCR0S5TcyfhFdM3pKr08DXSWaICf5998KgUZdt4uzbIwicicEoic5XKVxNRIicxUmu3tVQzoJHYjibthQyKHR3TTMU0Y/640?wx_fmt=png&from=appmsg)
+
+6\. 结果解读
+
+本教程以B细胞为例完成了CBNplot的单细胞应用：
+
+  * 通路内基因网络：“B cell activation”网络共有69条边。边强度最高的相互作用出现在LAPTM5-MS4A1、VAV3-NOTCH2、CD74-CD19之间(强度0.95)；CD19/CD79B/MS4A1是B细胞受体(BCR)共受体复合物的核心成员，CD74参与MHC II类分子的组装与抗原递呈，NOTCH2调控边缘区B细胞发育——均与B细胞活化的生物学过程一致
+
+  * hub基因：特征向量中心性最高的TNFRSF13B(TACI)是B细胞活化的关键受体，其次的CD74、GPR183、CD79B、CD19、MS4A1均为经典的B细胞功能基因
+
+  * 通路间网络：bnpathplot以各通路的eigengene为节点推断通路间的调控关系，可辅助判断富集通路之间的上下游关系
+
+  * 参考比较：compareRef将推断网络与Reactome已知相互作用对比，用先验知识验证数据驱动推断的可靠性
+
+单细胞数据使用CBNplot时需要注意：
+
+  * 表达矩阵：建议使用对数归一化后的datalayer，贝叶斯网络的连续变量推断(高斯分布假设)更适合log转换后的数据
+
+  * 细胞数量：参与推断的细胞过少会导致网络不稳定，建议每个细胞类型至少数百个细胞
+
+  * [稀疏性](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529675&idx=1&sn=4d16321d68430f9a1c2d20fb77234d24&scene=21#wechat_redirect>)：单细胞数据零值较多，通路的eigengene或pseudobulk表达(如AverageExpression())可以缓解该问题
+
+  * bootstrap次数R：默认20，越大结果越稳定，但耗时线性增加
+
+  * 可重复性：务必设置seed；网络结果应结合已知生物学知识解读
+
+**四、资料领取**
+
+本推送的代码和测试文件可以在以下链接中下载：
+
+![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlMWsia2yI2AMn2fv4FFX5rLurDqKQib3hPYBwib8thCmTckEibIMicQOq7jiatBOgYgP9GnicpOTV9jMk4FmyurPpsxwtL52M5ibQc0a4/640?wx_fmt=png&from=appmsg)
+
+百度网盘链接: https://pan.baidu.com/s/1sEdiIeK1A3B4zd9dysMyQQ
+
+滴滴助手[Biomamba_zhushou]获取提取码
+
+**五、总结与 环境版本信息**
+
+本教程介绍了CBNplot的原理与用法，并将其应用于10X PBMC单细胞数据：先通过[Seurat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540715&idx=2&sn=3cd1ae2f3bb66978317dc04097eef826&scene=21#wechat_redirect>)完成质控、聚类与细胞类型注释，再通过clusterProfiler富集B细胞的marker基因，最后用CBNplot推断并绘制了”B cell activation”通路内基因网络、通路间网络，并与Reactome参考网络进行了比较。推断出的强边与hub基因(CD19、MS4A1、CD79B、TNFRSF13B等)均与B细胞活化的已知生物学高度吻合，展示了CBNplot在单细胞数据中挖掘通路内调控关系的潜力。
+
+  *
+
+```
+sessionInfo()
+```
+```
+## R version 4.5.3 (2026-03-11)
+## Platform: x86_64-conda-linux-gnu
+## Running under: Ubuntu 20.04.4 LTS
+##
+## Matrix products: default
+## BLAS/LAPACK: /home/biomamba/miniforge3/CBNplot_env/lib/libopenblasp-r0.3.34.so;  LAPACK version 3.12.0
+##
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+##
+## time zone: Asia/Shanghai
+## tzcode source: system (glibc)
+##
+## attached base packages:
+## [1] stats4    stats     graphics  grDevices utils     datasets  methods
+## [8] base
+##
+## other attached packages:
+##  [1] ReactomePA_1.54.0      future_1.75.0          patchwork_1.3.2
+##  [4] ggplot2_4.0.3          dplyr_1.2.1            Seurat_5.5.1
+##  [7] SeuratObject_5.4.0     sp_2.2-3               clusterProfiler_4.18.4
+## [10] org.Hs.eg.db_3.23.1    AnnotationDbi_1.74.0   IRanges_2.44.0
+## [13] S4Vectors_0.48.0       Biobase_2.70.0         BiocGenerics_0.56.0
+## [16] generics_0.1.4         bnlearn_5.2.1          CBNplot_1.10.0
+##
+## loaded via a namespace (and not attached):
+##   [1] spatstat.sparse_3.2-0   fs_2.1.0                matrixStats_1.5.0
+##   [4] enrichplot_1.30.4       httr_1.4.8              RColorBrewer_1.1-3
+##   [7] tools_4.5.3             sctransform_0.4.3       R6_2.6.1
+##  [10] uwot_0.2.5              lazyeval_0.2.3          ggdist_3.3.3
+##  [13] withr_3.0.3             graphite_1.56.0         gridExtra_2.3.1
+##  [16] progressr_1.0.0         cli_3.6.6               spatstat.explore_3.8-2
+##  [19] fastDummies_1.7.6       scatterpie_0.2.6        labeling_0.4.3
+##  [22] sass_0.4.10             spatstat.data_3.1-9     S7_0.2.2
+##  [25] readr_2.2.0             ggridges_0.5.7          pbapply_1.7-4
+##  [28] systemfonts_1.3.2       yulab.utils_0.2.5       gson_0.2.1
+##  [31] DOSE_4.4.0              R.utils_2.13.0          parallelly_1.48.0
+##  [34] RSQLite_3.53.3          gridGraphics_0.5-1      spatstat.random_3.5-1
+##  [37] ica_1.0-3               distributional_0.8.1    GO.db_3.22.0
+##  [40] Matrix_1.7-6            pvclust_2.2-0           cherryblossom_0.1.0
+##  [43] abind_1.4-8             R.methodsS3_1.8.2       lifecycle_1.0.5
+##  [46] yaml_2.3.12             qvalue_2.42.0           BiocFileCache_3.0.0
+##  [49] Rtsne_0.17              grid_4.5.3              blob_1.3.0
+##  [52] promises_1.5.0          ExperimentHub_3.0.0     crayon_1.5.3
+##  [55] dir.expiry_1.18.0       miniUI_0.1.2            ggtangle_0.1.2
+##  [58] lattice_0.23-1          cowplot_1.2.0           KEGGREST_1.50.0
+##  [61] pillar_1.11.1           knitr_1.51              fgsea_1.36.2
+##  [64] future.apply_1.20.2     codetools_0.2-20        fastmatch_1.1-8
+##  [67] glue_1.8.1              ggiraph_0.9.6           spatstat.univar_3.2-0
+##  [70] ggfun_0.2.1             fontLiberation_0.1.0    data.table_1.18.4
+##  [73] vctrs_0.7.3             png_0.1-9               treeio_1.34.0
+##  [76] spam_2.11-4             gtable_0.3.6            cachem_1.1.0
+##  [79] xfun_0.60               mime_0.13               tidygraph_1.3.0
+##  [82] Seqinfo_1.0.0           survival_3.8-9          gmp_0.7-5.1
+##  [85] fitdistrplus_1.2-6      ROCR_1.0-12             nlme_3.1-170
+##  [88] ggtree_4.0.4            bit64_4.8.4             fontquiver_0.2.1
+##  [91] filelock_1.0.3          RcppAnnoy_0.0.23        bslib_0.12.0
+##  [94] irlba_2.3.7             KernSmooth_2.23-26      otel_0.2.0
+##  [97] DBI_1.3.0               tidyselect_1.2.1        bit_4.6.0
+## [100] compiler_4.5.3          curl_8.0.0              httr2_1.3.0
+## [103] graph_1.88.1            fontBitstreamVera_0.1.1 plotly_4.12.1
+## [106] scales_1.4.0            lmtest_0.9-40           rappdirs_0.3.4
+## [109] goftest_1.2-3           stringr_1.6.0           digest_0.6.39
+## [112] spatstat.utils_3.2-4    rmarkdown_2.31          XVector_0.50.0
+## [115] htmltools_0.5.9         pkgconfig_2.0.3         usdata_0.3.1
+## [118] dbplyr_2.6.0            fastmap_1.2.0           rlang_1.3.0
+## [121] htmlwidgets_1.6.4       shiny_1.14.0            openintro_2.5.1
+## [124] farver_2.1.2            jquerylib_0.1.4         zoo_1.8-15
+## [127] jsonlite_2.0.0          airports_0.1.0          BiocParallel_1.44.0
+## [130] GOSemSim_2.36.0         R.oo_1.27.1             magrittr_2.0.5
+## [133] ggplotify_0.1.3         dotCall64_1.2           Rcpp_1.1.2
+## [136] ape_5.8-1               ggnewscale_0.5.2        viridis_0.6.5
+## [139] gdtools_0.5.1           reticulate_1.46.0       stringi_1.8.9
+## [142] ggraph_2.2.2            MASS_7.3-66             AnnotationHub_4.0.0
+## [145] plyr_1.8.9              parallel_4.5.3          listenv_1.0.0
+## [148] ggrepel_0.9.8           deldir_2.0-4            Biostrings_2.78.0
+## [151] graphlayouts_1.2.5      splines_4.5.3           tensor_1.5.1
+## [154] hms_1.1.4               igraph_2.3.3            spatstat.geom_3.8-2
+## [157] RcppHNSW_0.7.0          reshape2_1.4.5          BiocVersion_3.22.0
+## [160] evaluate_1.0.5          BiocManager_1.30.27     tzdb_0.5.0
+## [163] tweenr_2.0.3            httpuv_1.6.17           RANN_2.6.2
+## [166] tidyr_1.3.2             purrr_1.2.2             polyclip_1.10-7
+## [169] scattermore_1.2         ggforce_0.5.0           xtable_1.8-8
+## [172] reactome.db_1.96.0      Rmpfr_1.1-1             RSpectra_0.16-2
+## [175] tidytree_0.4.8          tidydr_0.0.6            later_1.4.8
+## [178] viridisLite_0.4.3       tibble_3.3.1            aplot_0.3.1
+## [181] memoise_2.0.1           cluster_2.1.8.3         globals_0.19.1
+```
+
+向下滑动查看全部~
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+
+**欢迎致谢**
+
+如果以上内容对你有帮助，欢迎在文章的Acknowledgement中加上这一段，联系客服微信可以发放奖励：
+```
+Since Biomamba and his wechat public account team produce bioinformatics tutorials and share code with annotation, we thank Biomamba for their guidance in bioinformatics and data analysis for the current study.
+```
+
+**欢迎在发文/毕业时向我们分享你的喜悦~**
+
+**已致谢文章**
+
+[ 鼻咽癌的Bulk RNA-Seq与scRNA-Seq联合分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510548&idx=1&sn=58048c46e837b1d56dffa282272c6d96&chksm=9b3cd344ac4b5a52369e91b4e61fa0a2c951b82cc21165b99f42ba2c2191d4add803bd73c928&scene=21&cur_album_id=3425248581018714114#wechat_redirect>)
+
+[13分+文章利用scRNA-Seq揭示地铁细颗粒物引起肺部炎症的分子机制](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511886&idx=1&sn=31c712d00377b0f0ed33703b5b4fbfd8&chksm=9b3cd61eac4b5f084fde14a2eb50356f2f40a66c608d38909f12a3d81f48cff029a09ce2ee8c&token=1453608870&lang=zh_CN&scene=21#wechat_redirect>)
+
+[除了铁死亡，还有铜死亡？！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247518144&idx=1&sn=d036f1bb04b09eb73f53e2104d69404c&chksm=9b3cfe90ac4b77862f2f463b42132c7bfdb687a1b61d350dcf656117b1331271e179710fd4fa&scene=21&cur_album_id=3425248581018714114#wechat_redirect>)
+
+[IF14.3| scRNA-seq+脂质组多组学分析揭示宫内生长受限导致肝损伤的性别差异](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520900&idx=1&sn=157134292ffc2e5df730c5ba8a357b61&chksm=9b3cebd4ac4b62c286543c30381e9b4fdb8b44b28d4fa902fb963bbd45b28e1d3f1bc98eb148&scene=21&cur_album_id=3425248581018714114#wechat_redirect>)[银屑病和脂肪肝病中共同病理和免疫特征](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521069&idx=1&sn=4ef441a885cb2525ee3b5c81001feddf&chksm=9b3cea7dac4b636be9f10ffdf75e13531fccae62129944b21a457db2e08c3f2db1e1b553ac34&scene=21&cur_album_id=3425248581018714114#wechat_redirect>) [《Advanced Science》新型Arf1抑制剂促进癌症干细胞衰老并增强抗肿瘤免疫](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522233&idx=1&sn=287a380de741ff55f0ce78dc9c727985&chksm=9b3ceee9ac4b67ffd925abafeba2cb215a5984e6dc85f0d8607340a07ec9208f1d19eae0e04b&scene=21#wechat_redirect>)
+
+[scRNA-seq揭示脓毒症预后水平预测的关键靶点！](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522281&idx=1&sn=f95eb12fdc340b8da1123ec6253e6fac&chksm=9b3ceeb9ac4b67afa587e5fa3a2a8960e9bb28a1ad6dc48e49120a76154417a4c8be95af90b0&scene=21#wechat_redirect>)
+
+[机器学习+生信多组学联合构建牙周炎"线粒体功能障碍与免疫微环境"关联网络](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527168&idx=1&sn=0791d2bf53a9a60015577f892b10d370&scene=21#wechat_redirect>)
+
+[KIF18A在肝细胞癌转移中的双重角色](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528014&idx=1&sn=d285c9ebd415be328fc682d00e6182c0&scene=21#wechat_redirect>)
+
+[bulk+scRNA-seq挖掘BCL2-MAPK14-TXN氧化应激诊断模型，鉴定脓毒症中氧化应激关键基因](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530000&idx=1&sn=e8ddca4e1b2e60839cdf2a7fe87b3dfe&chksm=9b3c0f40ac4b86562e0e307b9dbb8688159e72b3c19d9ceebf8a4bb2e21638896f005b497b11&scene=21&cur_album_id=3425248581018714114&search_click_id=#wechat_redirect>)
+
+[致谢文章+1，中科院1区，scRNA-seq揭示麻黄-甘草配对治疗呼吸系统症状和多(I:C)诱发肺炎模型机制](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536407&idx=1&sn=4da88e13f112662a02fea89d1b7798e9&scene=21#wechat_redirect>)
+
+[致谢文章又+1，生物信息学+机器学习鉴定驱动糖尿病肾病免疫激活和小管间隙损伤的PANoptosis枢纽基因](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537544&idx=1&sn=6e5bb738eb11af53173f9fef67b977df&scene=21#wechat_redirect>)
+
+向下滑动查看更多
+
+欢迎大家致谢~
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+**如何联系我们**
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢

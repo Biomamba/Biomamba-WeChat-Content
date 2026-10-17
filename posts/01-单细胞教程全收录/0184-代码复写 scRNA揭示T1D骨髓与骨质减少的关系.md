@@ -1,0 +1,710 @@
+---
+title: "代码复写| scRNA揭示T1D骨髓与骨质减少的关系"
+date: 2024-01-11
+source: https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507144&idx=1&sn=ed6e95f16601e6196cea7179b88db250&chksm=9b3ca598ac4b2c8ecfd1025246eb79c6aa8bf5703f8698d23f1d1f673121e3bf8168a32dba07#rd
+albums: ["单细胞教程全收录", "全文复现"]
+---
+
+# 代码复写| scRNA揭示T1D骨髓与骨质减少的关系
+
+> 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507144&idx=1&sn=ed6e95f16601e6196cea7179b88db250&chksm=9b3ca598ac4b2c8ecfd1025246eb79c6aa8bf5703f8698d23f1d1f673121e3bf8168a32dba07#rd
+> 合集：单细胞教程全收录 / 全文复现
+
+评审环节开始！
+
+** _写在前面_**
+
+首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是10号作品。本作品复写了题为"Single-cell RNA sequencing analysis reveals the relationship of bone marrow and osteopenia in STZ-induced type 1 diabetic mice"的论文.**文章链接** ：https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/36328744/**数据链接：** 本文作者未提供连接，可在文末百度云下载**复现图片集锦** ：
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwP23eM9MP3t8luanniaLqMDAuvZQRVJmMN67QHa3dGU7rdxQ3VJPugJoicq43UZF3uxyXaLVCbqYpA/640?wx_fmt=jpeg&from=appmsg)
+
+**文献解读** ：本文作者未提供
+
+一、复写内容
+
+数据读取
+
+  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+```r
+library(multtest)library(dplyr)library(mindr)library(Seurat)#####自动读取cellranger(LINUX)输出的feature barcode matricrm(list = ls())pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/diabetes/149_Ctrl/") #自动读取10X的数据，是一些tsv与mtx文件pbmc <- CreateSeuratObject(counts = pbmc.data, project = "biomamba")
+####仅有一个稀疏矩阵时的读取方法#####matrix_data <- read.table("single_cell_datamatrix.txt", sep="\t", header=T, row.names=1)dim(matrix_data)seurat_obj <- CreateSeuratObject(counts = matrix_data)
+######读取RDS文件############rm(list = ls())pbmc <- readRDS("panc8.rds")saveRDS(pbmc,"pbmc.rds")
+
+#############library(tidyverse)str(pbmc)library(mindr)(out <- capture.output(str(pbmc)))out2 <- paste(out, collapse="\n")mm(gsub("\\.\\.@","# ",gsub("\\.\\. ","#",out2)),type ="text",root= "Seurat")
+```
+
+单样本分析
+
+  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+```r
+library(multtest)library(Seurat)library(dplyr)library(patchwork)library(R.utils)rm(list=ls())
+pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/DM1") #pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/lung/SiO2") #pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/lung/Norm")pbmc <- CreateSeuratObject(counts = pbmc.data, project = "Ctrl",min.cells = 3,min.features = 200)
+library(ggplot2)pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc,pattern = "^mt-")#head(pbmc@meta.data,5)VlnPlot(pbmc,features = c("nFeature_RNA","nCount_RNA","percent.mt"),ncol = 3)
+plot1 <- FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "percent.mt")plot2 <- FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")CombinePlots(plots = list(plot1, plot2))
+pbmc <- subset(pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 50)#ncol(as.data.frame(pbmc[["RNA"]]@counts))pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000)
+pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)top10_Ctrl <- head(VariableFeatures(pbmc),10)
+plot1 <- VariableFeaturePlot(pbmc)plot2 <- LabelPoints(plot = plot1, points = top10_Ctrl, repel = TRUE)plot1 + plot2
+pbmc <- ScaleData(pbmc,features = rownames(pbmc))
+pbmc <- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
+#print(pbmc[["pca"]],dims = 1:5, nfeatures = 5)#VizDimLoadings(pbmc, dims = 1:2, reduction = "pca")
+#DimPlot(pbmc, reduction = "pca")
+#DimHeatmap(pbmc, dims = 1:15, cells = 500, balanced = TRUE)
+
+#更好看的PCA降维方法pbmc <- JackStraw(pbmc, num.replicate = 100)pbmc <- ScoreJackStraw(pbmc, dims = 1:20)JackStrawPlot(pbmc, dims = 1:20)ElbowPlot(pbmc,ndims = 50)
+pbmc <- FindNeighbors(pbmc, dims = 1:30)pbmc <- FindClusters(pbmc, resolution = 0.42)pbmc <- RunTSNE(pbmc, dims = 1:16)pbmc_plot <- DimPlot(pbmc, reduction = "pca",label = TRUE)pbmc_plot <- DimPlot(pbmc, reduction = "tsne",label = TRUE)
+
+cluster_counts <- table(pbmc@meta.data$seurat_clusters)n_cells_cluster0 <- cluster_counts["0"]print(paste("Number of cells in cluster 0:", n_cells_cluster0))
+
+pbmc.marker <- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+top10_Ctrl <- pbmc.marker %>% group_by(cluster) %>% top_n(n=10, wt = avg_log2FC)
+DoHeatmap(pbmc, features = top10_Ctrl$gene) + NoLegend()
+#malat1,#new.cluster.ids <- c("mesenchymal cell", "epithelial cell", "Macrophage cell", "Lymphocyte cell", "Neural stem cell", "Natural killer cell",#                    "Pericyte cell", "Endothelial cell", "Myofibroblast cell", "Clara cell")#new.cluster.ids <- c("mesenchymal cell", "epithelial cell", "Neutrophil cell", "Lymphocyte cell", "Brush cell", "Endothelial cell",#                     "Macrophage cell", "Nature killer cell", "Myofibroblast cell", "clara cell")
+#names(new.cluster.ids) <- levels(pbmc)#pbmc <- RenameIdents(pbmc, new.cluster.ids)
+only_C <- DimPlot(pbmc, reduction = "tsne", label = TRUE, pt.size = 0.5)  # 13
+
+ggsave(  filename = "only_C.jpg", # 保存的文件名称。通过后缀来决定生成什么格式的图片  width = 13,             # 宽  height = 13,            # 高  units = "in",          # 单位  dpi = 300              # 分辨率DPI)
+# Calculate the percentage of cells in each clustercluster_percentages <- table(pbmc@meta.data$seurat_clusters) / nrow(pbmc) * 100
+# Create a data frame for the pie chart with new cluster namespie_data <- data.frame(Cluster = names(cluster_percentages), Percentage = as.numeric(cluster_percentages))
+# Replace cluster names with the new namespie_data$Cluster <- new.cluster.ids[pie_data$Cluster]
+# Sort the data frame by cluster percentagepie_data <- pie_data[order(pie_data$Percentage, decreasing = TRUE), ]
+# Create a pie chartpie_chart <- ggplot(pie_data, aes(x = "", y = Percentage, fill = Cluster)) +  geom_bar(stat = "identity", width = 1, color = "white") +  coord_polar("y", start = 0) +  labs(fill = "Cluster", x = NULL, y = NULL, title = "Cell Proportions") +  theme_minimal() +  theme(legend.position = "right")
+png("cell_proportion1.jpg", width = 2800, height = 1800, res = 500)
+# Display the pie chartprint(pie_chart)
+dev.off()
+
+Ctrl_heatmap <- DoHeatmap(pbmc, features = top10_Ctrl$gene) + NoLegend()
+# 统计每个亚群的细胞数量Ctrl_cluster_counts <- table(pbmc@meta.data$seurat_clusters)
+# 输出每个亚群的数量print(Ctrl_cluster_counts)
+
+pbmc2.data <- Read10X(data.dir = "D:/C/user/Desktop/DM1")#pbmc2.data <- Read10X(data.dir = "D:/C/user/Desktop/lung/SiO2")pbmc2 <- CreateSeuratObject(counts = pbmc2.data, project = "DM",min.cells = 3,min.features = 200)
+library(ggplot2)pbmc2[["percent.mt"]] <- PercentageFeatureSet(pbmc2,pattern = "^mt-")head(pbmc2@meta.data,5)VlnPlot(pbmc2,features = c("nFeature_RNA","nCount_RNA","percent.mt"),ncol = 3)
+plot1 <- FeatureScatter(pbmc2, feature1 = "nCount_RNA", feature2 = "percent.mt")plot2 <- FeatureScatter(pbmc2, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")CombinePlots(plots = list(plot1, plot2))
+pbmc2 <- subset(pbmc2, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 20)ncol(as.data.frame(pbmc2[["RNA"]]@counts))pbmc2 <- NormalizeData(pbmc2, normalization.method = "LogNormalize", scale.factor = 10000)
+pbmc2 <- FindVariableFeatures(pbmc2, selection.method = "vst", nfeatures = 2000)top10_DM <- head(VariableFeatures(pbmc2),10)
+plot1 <- VariableFeaturePlot(pbmc2)plot2 <- LabelPoints(plot = plot1, points = top10_DM, repel = TRUE)#plot1 + plot2
+pbmc2 <- ScaleData(pbmc2, features = rownames(pbmc2))
+pbmc2 <- RunPCA(pbmc2, features = VariableFeatures(object = pbmc2))pbmc2_plot <- DimPlot(pbmc, reduction = "pca",label = TRUE)#print(pbmc[["pca"]],dims = 1:5, nfeatures = 5)#VizDimLoadings(pbmc, dims = 1:2, reduction = "pca")
+#DimPlot(pbmc, reduction = "pca")
+#DimHeatmap(pbmc, dims = 1:15, cells = 500, balanced = TRUE)
+
+#更好看的PCA降维方法#pbmc2 <- JackStraw(pbmc2, num.replicate = 100)#pbmc2 <- ScoreJackStraw(pbmc2, dims = 1:20)JackStrawPlot(pbmc2, dims = 1:20)ElbowPlot(pbmc2)
+#hqy -- 0.12
+pbmc2 <- FindNeighbors(pbmc2, dims = 1:18)pbmc2 <- FindClusters(pbmc2, resolution = 0.72)pbmc2 <- RunTSNE(pbmc2, dims = 1:18)pbmc2_plot <- DimPlot(pbmc2, reduction = "tsne", label = TRUE)only_D <- DimPlot(pbmc2, reduction = "tsne", label = TRUE)
+#new.cluster.ids <- c("mesenchymal cell", "epithelial cell", "Macrophage cell", "Lymphocyte cell", "Neural stem cell", "Natural killer cell",#                     "Pericyte cell", "Endothelial cell", "Myofibroblast cell", "Clara cell")#new.cluster.ids <- c("mesenchymal cell", "epithelial cell", "Neutrophil cell", "Lymphocyte cell", "Brush cell", "Endothelial cell",#                     "Macrophage cell", "Nature killer cell", "Myofibroblast cell", "clara cell")#names(new.cluster.ids) <- levels(pbmc2)#pbmc2 <- RenameIdents(pbmc2, new.cluster.ids)
+ggsave(  filename = "only_D.jpg", # 保存的文件名称。通过后缀来决定生成什么格式的图片  width = 13,             # 宽  height = 13,            # 高  units = "in",          # 单位  dpi = 300              # 分辨率DPI)
+
+# Calculate the percentage of cells in each clustercluster_percentages_DM <- table(pbmc2@meta.data$seurat_clusters) / nrow(pbmc2) * 100
+# Create a data frame for the pie chart with new cluster namespie_data_DM <- data.frame(Cluster = names(cluster_percentages_DM), Percentage = as.numeric(cluster_percentages_DM))
+# Replace cluster names with the new namespie_data_DM$Cluster <- new.cluster.ids[pie_data_DM$Cluster]
+# Sort the data frame by cluster percentagepie_data_DM <- pie_data_DM[order(pie_data_DM$Percentage, decreasing = TRUE), ]
+# Create a pie chartpie_chart_DM <- ggplot(pie_data_DM, aes(x = "", y = Percentage, fill = Cluster)) +  geom_bar(stat = "identity", width = 1, color = "white") +  coord_polar("y", start = 0) +  labs(fill = "Cluster", x = NULL, y = NULL, title = "Cell Proportions") +  theme_minimal() +  theme(legend.position = "right")
+png("cell_proportion2.jpg", width = 2800, height = 1800, res = 500)# Display the pie chartprint(pie_chart_DM)dev.off()
+
+#cluster_counts <- table(pbmc2@meta.data$seurat_clusters)#n_cells_cluster0 <- cluster_counts["0"]#print(paste("Number of cells in cluster 0:", n_cells_cluster0))
+#tsne降维#pbmc <- RunTSNE(pbmc, dims = 1:10)#DimPlot(pbmc, reduction = "tsne")
+#pbmc2.marker <- FindAllMarkers(pbmc2, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+#top10_DM <- pbmc2.marker %>% group_by(cluster) %>% top_n(n=10, wt =avg_log2FC)
+#DM_heatmap <- DoHeatmap(pbmc2, features = top10_DM$gene) + NoLegend()
+#DM_heatmap#ggsave("DM_heatmap.tiff",width = 6,height = 5)#tiff("DM_heatmap.tiff",width = 1200,height = 1000,units = "px")#DM_heatmap#dev.off()
+#DM_cluster_counts <- table(pbmc2@meta.data$seurat_clusters)#print(DM_cluster_counts)
+#plottogether <- pbmc_plot + pbmc2_plot
+
+# 组1的亚群细胞数量group1_counts <- table(pbmc@meta.data$seurat_clusters)total_group1_cells <- sum(group1_counts)
+# 组2的亚群细胞数量group2_counts <- table(pbmc2@meta.data$seurat_clusters)total_group2_cells <- sum(group2_counts)
+# 提取共同的八个亚群common_clusters <- intersect(names(group1_counts), names(group2_counts))
+# 计算亚群细胞数量差异diff_counts <- (group2_counts[common_clusters]/total_group1_cells) - (group1_counts[common_clusters]/total_group2_cells)
+# 绘制柱状图barplot(diff_counts, names.arg = common_clusters, xlab = "亚群", ylab = "细胞数量差异")
+# 定义柱状图颜色bar_colors <- c("blue", "red", "green", "orange", "purple", "pink", "cyan", "gray")
+png(file = "increase_decrease.jpg", width = 800, height = 600, res = 100)
+# 绘制柱状图，并设置颜色barplot(diff_counts, names.arg = common_clusters, xlab = "亚群", ylab = "细胞数量差异", col = bar_colors)
+dev.off()
+
+# 绘制CD36基因的表达情况FeaturePlot(pbmc, features = "Cd14")
+# 获取基因表达数据gene_expression_Ctrl <- GetAssayData(pbmc, assay = "RNA")
+# 提取 Cd45 基因的表达cd68_expression_Ctrl <- gene_expression_Ctrl["Cd14", ]
+# 计算表达 Cd45 的细胞数量cd68_positive_cells_Ctrl <- sum(cd68_expression_Ctrl > 0)
+# 所有细胞的数量total_cells_Ctrl <- nrow(pbmc[["RNA"]]@counts)
+# 计算表达 Cd36 的细胞占比cd68_positive_percentage_Ctrl <- cd68_positive_cells_Ctrl / total_cells_Ctrl * 100
+# 输出结果print(paste("表达 Cd14 的细胞占比:", cd68_positive_percentage_Ctrl, "%"))
+# 计算其他细胞的数量other_cells <- total_cells_Ctrl - cd68_positive_cells_Ctrl
+# 创建饼图pie_values <- c(cd68_positive_cells_Ctrl, other_cells)pie_labels <- c("CD68+ immune cells", "Other cells")colors <- c("steelblue", "gray")
+# 计算比例percentages <- round(pie_values / sum(pie_values) * 100, 1)labels_with_percentage <- paste(pie_labels, "(", percentages, "%", ")")
+
+png(file = "Cd14_1.jpg", width = 1100, height = 800, res = 120)# 绘制饼图，将标签和比例标在图上pie(pie_values, labels = labels_with_percentage, col = colors, border = "white", main = "CD36 Expression")
+# 添加图例legend("topright", legend = labels_with_percentage, fill = colors, border = "white", cex = 0.8)dev.off()
+# 绘制CD36基因的表达情况FeaturePlot(pbmc2, features = "Cd14")
+# 获取基因表达数据gene_expression_DM <- GetAssayData(pbmc2, assay = "RNA")
+# 提取 Cd36 基因的表达cd68_expression_DM <- gene_expression_DM["Cd14", ]
+# 计算表达 Cd36 的细胞数量cd68_positive_cells_DM <- sum(cd68_expression_DM > 0)
+# 所有细胞的数量total_cells_DM <- nrow(pbmc[["RNA"]]@counts)
+# 计算表达 Cd36 的细胞占比cd68_positive_percentage_DM <- cd68_positive_cells_DM / total_cells_DM * 100
+# 输出结果print(paste("表达 Cd36 的细胞占比:", cd68_positive_percentage_DM, "%"))
+# 计算其他细胞的数量other_cells <- total_cells_DM - cd68_positive_cells_DM
+# 创建饼图pie_values <- c(cd68_positive_cells_DM, other_cells)pie_labels <- c("CD68+ immune cells", "Other cells")colors <- c("steelblue", "gray")
+# 计算比例percentages <- round(pie_values / sum(pie_values) * 100, 1)labels_with_percentage <- paste(pie_labels, "(", percentages, "%", ")")
+# 绘制饼图，将标签和比例标在图上pie(pie_values, labels = labels_with_percentage, col = colors, border = "white", main = "CD36 Expression")
+# 添加图例legend("topright", legend = labels_with_percentage, fill = colors, border = "white", cex = 0.8)
+png(file = "Cd14_2.jpg", width = 1100, height = 800, res = 120)# 绘制饼图，将标签和比例标在图上pie(pie_values, labels = labels_with_percentage, col = colors, border = "white", main = "CD36 Expression")
+# 添加图例legend("topright", legend = labels_with_percentage, fill = colors, border = "white", cex = 0.8)dev.off()
+```
+
+多样本分析
+
+  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+```r
+library(multtest)library(dplyr)library(ggplot2)library(patchwork)library(Seurat)library(tidyverse)library(devtools)
+rm(list=ls())
+myfunction1 <- function(testA.seu){  testA.seu <- NormalizeData(testA.seu, normalization.method = "LogNormalize", scale.factor = 10000)  testA.seu <- FindVariableFeatures(testA.seu, selection.method = "vst", nfeatures = 2000)  return(testA.seu)}pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/DM1")pbmc <- CreateSeuratObject(counts = pbmc.data, project = "DM",min.cells = 3,min.features = 200)pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc,pattern = "^mt-")pbmc2.data <- Read10X(data.dir = "D:/C/user/Desktop/Ctrl1")pbmc2 <- CreateSeuratObject(counts = pbmc2.data, project = "Ctrl",min.cells = 3,min.features = 200)pbmc2[["percent.mt"]] <- PercentageFeatureSet(pbmc2,pattern = "^mt-")
+pbmc <- myfunction1(pbmc)pbmc2 <- myfunction1(pbmc2)
+testAB.anchors <- FindIntegrationAnchors(object.list = list(pbmc,pbmc2), dims = 1:20)testAB.integrated <- IntegrateData(anchorset = testAB.anchors, dims = 1:20)DefaultAssay(testAB.integrated) <- "integrated"
+testAB.integrated <- ScaleData(testAB.integrated,vars.to.regress = c("nCount_RNA","nfeature_RNA","percent_mt"))testAB.integrated <- RunPCA(testAB.integrated, npcs = 50, verbose = FALSE)testAB.integrated <- FindNeighbors(testAB.integrated, dims = 1:30)testAB.integrated <- FindClusters(testAB.integrated, resolution = 0.15)testAB.integrated <- RunUMAP(testAB.integrated,dims = 1:30)#testAB.integrated <- RunTSNE(testAB.integrated,dims = 1:30)DimPlot(testAB.integrated, label = T)head(testAB.integrated@meta.data,5)VlnPlot(testAB.integrated,features = c("nFeature_RNA","nCount_RNA","percent.mt"),ncol = 3)plot1 <- FeatureScatter(testAB.integrated, feature1 = "nCount_RNA", feature2 = "percent.mt")plot2 <- FeatureScatter(testAB.integrated, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")CombinePlots(plots = list(plot1, plot2))
+testAB.integrated <- subset(testAB.integrated, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 50)ncol(as.data.frame(testAB.integrated[["RNA"]]@counts))testAB.integrated <- ScaleData(testAB.integrated)testAB.integrated <- RunPCA(testAB.integrated, features = VariableFeatures(object = testAB.integrated))print(testAB.integrated[["pca"]],dims = 1:5, nfeatures = 5)VizDimLoadings(testAB.integrated, dims = 1:2, reduction = "pca")DimPlot(testAB.integrated, reduction = "pca")DimHeatmap(testAB.integrated, dims = 1:15, cells = 500, balanced = TRUE)
+#更好看的PCA降维方法testAB.integrated <- JackStraw(testAB.integrated, num.replicate = 100)testAB.integrated <- ScoreJackStraw(testAB.integrated, dims = 1:20)JackStrawPlot(testAB.integrated, dims = 1:20)ElbowPlot(testAB.integrated)
+testAB.integrated <- FindNeighbors(testAB.integrated, dims = 1:10)testAB.integrated <- FindClusters(testAB.integrated, resolution = 0.15)testAB.integrated <- RunUMAP(testAB.integrated, dims = 1:10)DimPlot(testAB.integrated, reduction = "umap")DimPlot(testAB.integrated, label = T)
+#testAB.integrated <- RunTSNE(testAB.integrated, dims = 1:10)#DimPlot(testAB.integrated, reduction = "tsne")
+testAB.integrated.marker <- FindAllMarkers(testAB.integrated, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+top10 <- testAB.integrated.marker %>% group_by(cluster) %>% top_n(n=10, wt =avg_log2FC)
+DoHeatmap(testAB.integrated, features = top10$gene) + NoLegend()
+new.cluster.ids <- c("Hematopoietic stem cell", "Vascular endothelial cell", "Erythroid cell", "Mesangial cell", "Schwalie et al.Nature.P3", "Microglial cell", "cardiomyocyte", "Podocyte", "Type I spiral ganglion neuron", "Neutrophil")names(new.cluster.ids) <- levels(testAB.integrated)testAB.integrated <- RenameIdents(testAB.integrated, new.cluster.ids)DimPlot(testAB.integrated, label = T)
+# 假设你已经进行了整合数据的操作，并生成了名为testAB.integrated的Seurat对象
+# 对整合数据进行聚类分析testAB.integrated <- FindNeighbors(testAB.integrated)testAB.integrated <- FindClusters(testAB.integrated, resolution = 0.15)
+# 获取聚类亚群标识cluster.ids <- levels(testAB.integrated$seurat_clusters)library(MAST)# 对每个聚类亚群进行差异基因分析for (cluster.id in cluster.ids) {  subset.obj <- subset(testAB.integrated)    # 检查当前亚群是否至少包含一个细胞  if (nrow(subset.obj) > 0) {    cat("Cluster:", cluster.id, "\n")        # 执行差异基因分析，你可以根据自己的需要使用适当的方法和阈值    differentially_expressed_genes <- FindMarkers(subset.obj, test.use = "MAST", ident.1 = cluster.id)    print(differentially_expressed_genes)        # 将差异表达基因保存到文件    file.name <- paste("Cluster_", cluster.id, "_DEGs.txt", sep = "")    write.table(differentially_expressed_genes, file = file.name, sep = "\t", quote = FALSE)  } else {    cat("Cluster", cluster.id, "is empty - no cells with this identity class.\n")  }}
+library(clusterProfiler)
+# 读取文件内容data <- read.table("Cluster_0_DEGs.txt", sep = "\t", header = FALSE)
+# 添加列名colnames(data) <- c("Gene", "P-Value", "LogFC", "Var1", "Var2", "Var3")
+# 打印加载的数据print(data)
+
+library(biomaRt)
+# Set up the biomart databaseensembl <- useMart("ensembl", dataset = "mmusculus_gene_ensembl")  # Replace with the appropriate dataset for your organism
+# Define your input gene IDs and parametersinput_gene_ids <- c("Apold1", "Atf3", "Cdkn1a")from_type <- "mgi_symbol"  # The input gene ID type, e.g., "symbol", "entrezgene", "ensembl_gene_id"to_type <- "entrezgene_id"  # The desired output gene ID type, e.g., "symbol", "entrezgene", "ensembl_gene_id"
+# Perform gene ID conversion or annotation retrievalgene_annotations <- bitr(data$Gene, fromType = from_type, toType = to_type, OrgDb  = ensembl)
+# Print the resultsprint(gene_annotations)
+# 假设你有一个名为gene_annotations的数据框或矩阵
+# 设置保存路径和文件名file_path <- "gene_annotations.txt"
+# 使用write.table函数保存为txt文件write.table(gene_annotations, file = file_path, sep = "\t", quote = FALSE, row.names = FALSE)
+```
+
+GO和KEGG
+
+  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+```r
+library(multtest)library(dplyr)library(ggplot2)library(patchwork)library(Seurat)library(tidyverse)library(devtools)rm(list=ls())
+myfunction1 <- function(testA.seu){  testA.seu <- NormalizeData(testA.seu, normalization.method = "LogNormalize", scale.factor = 10000)  testA.seu <- FindVariableFeatures(testA.seu, selection.method = "vst", nfeatures = 2000)  return(testA.seu)}pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/lung/SiO2/")pbmc <- CreateSeuratObject(counts = pbmc.data, project = "DM",min.cells = 3,min.features = 200)pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc,pattern = "^mt-")pbmc2.data <- Read10X(data.dir = "D:/C/user/Desktop/lung/Norm/")pbmc2 <- CreateSeuratObject(counts = pbmc2.data, project = "Ctrl",min.cells = 3,min.features = 200)pbmc2[["percent.mt"]] <- PercentageFeatureSet(pbmc2,pattern = "^mt-")
+pbmc <- myfunction1(pbmc)pbmc2 <- myfunction1(pbmc2)
+testAB.anchors <- FindIntegrationAnchors(object.list = list(pbmc,pbmc2), dims = 1:20)testAB.integrated <- IntegrateData(anchorset = testAB.anchors, dims = 1:20)DefaultAssay(testAB.integrated) <- "integrated"
+testAB.integrated <- ScaleData(testAB.integrated, features = rownames(testAB.integrated))testAB.integrated <- RunPCA(testAB.integrated, npcs = 50, verbose = FALSE)
+# Find neighbors and perform unbiased clusteringtestAB.integrated <- FindNeighbors(testAB.integrated, dims = 1:30)testAB.integrated <- FindClusters(testAB.integrated, resolution = 0.06)
+# Perform UMAPtestAB.integrated <- RunUMAP(testAB.integrated, dims = 1:30)
+# Plot UMAP with unbiased clusteringDimPlot(testAB.integrated, group.by = "orig.ident", label = FALSE)DimPlot(testAB.integrated, label = TRUE)
+
+testAB.marker <- FindAllMarkers(testAB.integrated, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+top10 <- testAB.marker %>% group_by(cluster) %>% top_n(n=10, wt = avg_log2FC)
+png(file = "heatmap_all.jpg", width = 1400, height = 1200, res = 100)DoHeatmap(testAB.integrated, features = top10$gene) + NoLegend()dev.off()
+
+# Mt2 epithelial Wfdc21  S100a1new.cluster.ids <- c("mesenchymal cell", "epithelial cell", "Neutrophil cell", "Lymphocyte cell", "Brush cell", "Endothelial cell",                     "Macrophage cell", "Nature killer cell", "Myofibroblast cell", "clara cell")names(new.cluster.ids) <- levels(testAB.integrated)testAB.integrated <- RenameIdents(testAB.integrated, new.cluster.ids)
+DimPlot(testAB.integrated, label = TRUE)ggsave(  filename = "C_and_D.jpg", # 保存的文件名称。通过后缀来决定生成什么格式的图片  width = 13,             # 宽  height = 13,            # 高  units = "in",          # 单位  dpi = 300              # 分辨率DPI)
+png(file = "contrast.jpg", width = 1400, height = 1000, res = 100)# DM类别细胞着色为蓝色DimPlot(testAB.integrated, group.by = "orig.ident", cols = c("DM" = "red","Ctrl" = "blue"), label = FALSE)dev.off()
+
+#cluster_counts <- table(testAB.integrated@meta.data$seurat_clusters)#testAB.marker <- FindAllMarkers(testAB.integrated, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)#top10 <- testAB.marker %>% group_by(cluster) %>% top_n(n=10, wt =avg_log2FC)
+
+library(edgeR)library(clusterProfiler)
+# 创建组别标签group <- c(rep("DM", ncol(pbmc@assays$RNA@counts)), rep("Ctrl", ncol(pbmc2@assays$RNA@counts)))
+# 创建DGEList对象d <- DGEList(counts = testAB.integrated@assays$RNA@counts, group = group)
+# 进行基因表达筛选d <- calcNormFactors(d)keep <- filterByExpr(d)d <- d[keep, ]
+# 进行差异表达分析design <- model.matrix(~ group, data = d$samples)d <- estimateDisp(d, design)fit <- glmQLFit(d, design)
+# 使用exactTest进行差异表达分析qlf <- glmQLFTest(fit, contrast = c(0, 1))
+diffGenes <- rownames(topTags(qlf, n = 20)$table)
+diffGeneCounts <- testAB.integrated@assays$RNA@counts[diffGenes, ]
+# 提取差异基因的统计信息diffGenesInfo <- topTags(qlf, n = 20)$table
+diffGenesInfo <- as.data.frame(diffGenesInfo)
+
+# 添加上调和下调的标记diffGenesInfo$Upregulated <- ifelse(diffGenesInfo$logFC > 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")diffGenesInfo$Downregulated <- ifelse(diffGenesInfo$logFC < 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")
+diffGenesInfo$Upregulated == "Yes"
+upregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "Yes", ])Downregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "No", ])
+
+# 打印差异基因的信息print(diffGenesInfo)
+
+# 进行GO分析(geneSymbols包含全部基因，upregulated_genes只有上调基因，Downregulated_genes只有下调基因)geneSymbols <- rownames(diffGeneCounts)
+library(org.Mm.eg.db)goEnrichment <- enrichGO(gene          = Downregulated_genes,                         OrgDb        = org.Mm.eg.db,                         keyType      = "SYMBOL",                         ont          = "all",                         pAdjustMethod = "BH",                         pvalueCutoff = 0.1,                         qvalueCutoff = 0.1)
+png(file = "down_GO.jpg", width = 1400, height = 1000, res = 100)
+dotplot(goEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory =5,#只显示前5        split="ONTOLOGY") + #以ONTOLOGY类型分开  facet_grid(ONTOLOGY~., scale='free') #以ONTOLOGY类型分屏绘图
+dev.off()
+
+# 加载所需的包library(clusterProfiler)
+# 提取基因的Entrez IDgeneIDs <- select(org.Mm.eg.db, keys = Downregulated_genes, keytype = "SYMBOL", columns = "ENTREZID")
+# 过滤掉没有映射到Entrez基因ID的基因mappedGenes <- geneIDs$ENTREZID[!is.na(geneIDs$ENTREZID)]
+
+# 进行KEGG富集分析keggEnrichment <- enrichKEGG(gene         = mappedGenes,                             keyType = "kegg",                             organism     = "mmu",                             pvalueCutoff = 1,                             qvalueCutoff = 1)
+# 输出结果goEnrichmentkeggEnrichment
+
+png(file = "down_KEGG.jpg", width = 1400, height = 1000, res = 100)dotplot(keggEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory = 10) dev.off()
+
+#Idents(testAB.integrated) <- ifelse(testAB.integrated$seurat_clusters == 0, "red", "gray")
+#DimPlot(testAB.integrated, group.by = "seurat_clusters")
+#DimPlot(testAB.integrated, group.by = "seurat_clusters", label = FALSE) +#  scale_color_manual(values = c("red", rep("gray", sum(testAB.integrated$seurat_clusters != 0))))
+DimPlot(testAB.integrated, group.by = "seurat_clusters", label = FALSE) +  scale_color_manual(values = c(rep("gray", 6), "red", rep("gray", 7)))
+
+# Get cells from cluster 6cluster6.cells <- subset(testAB.integrated, seurat_clusters == 6)
+# Create a new Seurat object for cluster 0 cellscluster6 <- CreateSeuratObject(counts = cluster6.cells@assays$RNA@counts, project = "Cluster6")
+#cluster6$orig.ident <- cluster6.cells$orig.ident
+cluster6 <- NormalizeData(cluster6)cluster6 <- FindVariableFeatures(cluster6)cluster6 <- ScaleData(cluster6)
+# Perform PCA on cluster 0 cellscluster6 <- RunPCA(cluster6, npcs = 30)
+# Find neighbors and perform clustering on cluster 0 cellscluster6 <- FindNeighbors(cluster6, dims = 1:30)cluster6 <- FindClusters(cluster6, resolution = 0.3)
+# Perform UMAP on cluster 0 cellscluster6 <- RunUMAP(cluster6, dims = 1:30)
+# Plot UMAP for cluster 0 cellsDimPlot(cluster6, reduction = "umap", group.by = "seurat_clusters", label = TRUE)DimPlot(cluster6)
+#对cluster6进行差异基因分析（GO,KEGG）library(edgeR)library(clusterProfiler)
+
+cluster6_cells <- testAB.integrated$seurat_clusters == 4
+# 创建组别标签group <- ifelse(cluster6_cells %in% TRUE, "Cluster6", "Other")
+# 创建DGEList对象d <- DGEList(counts = testAB.integrated@assays$RNA@counts, group = group)
+# 进行基因表达筛选d <- calcNormFactors(d)keep <- filterByExpr(d)d <- d[keep, ]
+# 进行差异表达分析design <- model.matrix(~ group, data = d$samples)d <- estimateDisp(d, design)fit <- glmQLFit(d, design)
+# 使用exactTest进行差异表达分析qlf <- glmQLFTest(fit, contrast = c(0, 1))
+diffGenes <- rownames(topTags(qlf, n = 20)$table)
+diffGeneCounts <- testAB.integrated@assays$RNA@counts[diffGenes, ]
+# 提取差异基因的统计信息diffGenesInfo <- topTags(qlf, n = 20)$table
+diffGenesInfo <- as.data.frame(diffGenesInfo)
+# 添加上调和下调的标记diffGenesInfo$Upregulated <- ifelse(diffGenesInfo$logFC > 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")diffGenesInfo$Downregulated <- ifelse(diffGenesInfo$logFC < 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")
+diffGenesInfo$Upregulated == "Yes"
+upregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "Yes", ])Downregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "No", ])
+
+# 打印差异基因的信息print(diffGenesInfo)
+
+# 进行GO分析(geneSymbols包含全部基因，但upregulated_genes只有上调基因，Downregulated_genes只有下调基因)geneSymbols <- rownames(diffGeneCounts)
+library(org.Mm.eg.db)goEnrichment <- enrichGO(gene          = upregulated_genes,                         OrgDb        = org.Mm.eg.db,                         keyType      = "SYMBOL",                         ont          = "all",                         pAdjustMethod = "BH",                         pvalueCutoff = 0.1,                         qvalueCutoff = 0.1)
+
+png(file = "up_GO_1.jpg", width = 1400, height = 1000, res = 100)
+dotplot(goEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory =5,#只显示前5        split="ONTOLOGY") + #以ONTOLOGY类型分开  facet_grid(ONTOLOGY~., scale='free') #以ONTOLOGY类型分屏绘图
+dev.off()
+
+# 加载所需的包library(clusterProfiler)
+# 提取基因的Entrez IDgeneIDs <- select(org.Mm.eg.db, keys = upregulated_genes, keytype = "SYMBOL", columns = "ENTREZID")
+# 过滤掉没有映射到Entrez基因ID的基因mappedGenes <- geneIDs$ENTREZID[!is.na(geneIDs$ENTREZID)]
+
+# 进行KEGG富集分析keggEnrichment <- enrichKEGG(gene         = mappedGenes,                             keyType = "kegg",                             organism     = "mmu",                             pvalueCutoff = 1,                             qvalueCutoff = 1)
+# 输出结果goEnrichmentkeggEnrichment
+barplot(keggEnrichment, x = "GeneRatio", color = "p.adjust", #默认参数        showCategory =10) #只显示前10
+
+png(file = "up_KEGG_1.jpg", width = 1400, height = 1000, res = 100)dotplot(keggEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory = 10) dev.off()
+
+#对cluster0 进行GO和KEGG分析library(edgeR)library(clusterProfiler)
+
+cluster0_cells <- testAB.integrated$seurat_clusters == 0
+# 创建组别标签group <- ifelse(cluster0_cells %in% TRUE, "Cluster0", "Other")
+# 创建DGEList对象d <- DGEList(counts = testAB.integrated@assays$RNA@counts, group = group)
+# 进行基因表达筛选d <- calcNormFactors(d)keep <- filterByExpr(d)d <- d[keep, ]
+# 进行差异表达分析design <- model.matrix(~ group, data = d$samples)d <- estimateDisp(d, design)fit <- glmQLFit(d, design)
+# 使用exactTest进行差异表达分析qlf <- glmQLFTest(fit, contrast = c(0, 1))
+diffGenes <- rownames(topTags(qlf, n = 20)$table)
+diffGeneCounts <- testAB.integrated@assays$RNA@counts[diffGenes, ]
+# 提取差异基因的统计信息diffGenesInfo <- topTags(qlf, n = 20)$table
+diffGenesInfo <- as.data.frame(diffGenesInfo)
+# 添加上调和下调的标记diffGenesInfo$Upregulated <- ifelse(diffGenesInfo$logFC > 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")diffGenesInfo$Downregulated <- ifelse(diffGenesInfo$logFC < 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")
+diffGenesInfo$Upregulated == "Yes"
+upregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "Yes", ])Downregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "No", ])
+
+# 打印差异基因的信息print(diffGenesInfo)
+
+# 进行GO分析(geneSymbols包含全部基因，但upregulated_genes只有上调基因，Downregulated_genes只有下调基因)geneSymbols <- rownames(diffGeneCounts)
+library(org.Mm.eg.db)goEnrichment <- enrichGO(gene          = upregulated_genes,                         OrgDb        = org.Mm.eg.db,                         keyType      = "SYMBOL",                         ont          = "all",                         pAdjustMethod = "BH",                         pvalueCutoff = 0.1,                         qvalueCutoff = 0.1)
+dotplot(goEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory =5,#只显示前5        split="ONTOLOGY") + #以ONTOLOGY类型分开  facet_grid(ONTOLOGY~., scale='free') #以ONTOLOGY类型分屏绘图
+# 加载所需的包library(clusterProfiler)
+# 提取基因的Entrez IDgeneIDs <- select(org.Mm.eg.db, keys = upregulated_genes, keytype = "SYMBOL", columns = "ENTREZID")
+# 过滤掉没有映射到Entrez基因ID的基因mappedGenes <- geneIDs$ENTREZID[!is.na(geneIDs$ENTREZID)]
+
+# 进行KEGG富集分析keggEnrichment <- enrichKEGG(gene         = mappedGenes,                             keyType = "kegg",                             organism     = "mmu",                             pvalueCutoff = 1,                             qvalueCutoff = 1)
+# 输出结果goEnrichmentkeggEnrichment
+barplot(keggEnrichment, x = "GeneRatio", color = "p.adjust", #默认参数        showCategory =10) #只显示前10dotplot(keggEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory = 10)
+
+#拟时序分析:
+
+cluster6.marker <- FindAllMarkers(cluster6, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+
+significant.markers <- subset(cluster6.marker, p_val_adj < 0.05 & avg_log2FC > 0.5)
+# Group markers by clustermarkers.by.cluster <- split(significant.markers, significant.markers$cluster)
+
+# 计算每个亚群在DM和Ctrl中的细胞数dm_cell_counts <- sapply(markers.by.cluster, function(df) sum(cluster6$orig.ident == "DM"))ctrl_cell_counts <- sapply(markers.by.cluster, function(df) sum(cluster6$orig.ident == "Ctrl"))
+# 创建柱状图barplot(rbind(dm_cell_counts, ctrl_cell_counts),        beside = TRUE,        names.arg = paste("Subgroup", 1:5),        legend.text = c("DM", "Ctrl"),        xlab = "Subgroups",        ylab = "Cell Counts",        main = "Cell Counts by Subgroup and Condition")
+# 获取 cluster6.cells 中每个细胞的 origin.ident 信息cluster6_origin <- cluster6.cells$orig.ident
+# 计算属于 DM / Ctrl条件的细胞数目dm_cell_counts <- sum(cluster6_origin == "DM")ctrl_cell_counts <- sum(cluster6_origin == "Ctrl")
+# 打印 DM 细胞数目print(dm_cell_counts)print(ctrl_cell_counts)
+
+# View top differentially expressed genes for each cluster#for (cluster_id in names(markers.by.cluster)) {#  cluster_markers <- markers.by.cluster[[cluster_id]]#  top_markers <- head(cluster_markers, n = 10)#  print(paste("Cluster", cluster_id))#  print(top_markers)#}
+
+"Malat1" %in% rownames(testAB.integrated@assays$RNA@data)
+testAB.integrated[["Malat1"]] <- testAB.integrated@assays$RNA@data["Malat1", ]Malat1_positive <- subset(testAB.integrated, subset = Malat1 > 0)Malat1_negative <- subset(testAB.integrated, subset = Malat1 == 0)
+DimPlot(testAB.integrated, group.by = "seurat_clusters", label = TRUE)
+# 将"Atf3"阳性细胞的UMAP坐标转换为data.frame格式Malat1_positive_coords <- data.frame(UMAP1 = Malat1_positive@reductions$umap@cell.embeddings[, 1],                                   UMAP2 = Malat1_positive@reductions$umap@cell.embeddings[, 2])Malat1_negative_coords <- data.frame(UMAP1 = Malat1_negative@reductions$umap@cell.embeddings[, 1],                                   UMAP2 = Malat1_negative@reductions$umap@cell.embeddings[, 2])
+
+# 绘制UMAP降维图，将"Atf3"阳性细胞标记为红色点，将"Atf3"阴性细胞标记为灰色点library(ggplot2)
+plot_umap <- ggplot() +  geom_point(data = Malat1_negative_coords,             aes(x = UMAP1, y = UMAP2),             color = "grey") +  geom_point(data = Malat1_positive_coords,              aes(x = UMAP1, y = UMAP2),              color = "red") +  theme_void() +  theme(legend.position = "none")
+plot_umap
+
+# 获取"Malat1"基因在不同类别细胞中的表达量数据malat1_expression <- FetchData(cluster6, vars = c("seurat_clusters", "Malat1"))
+# 创建小提琴图violin_plot <- ggplot(malat1_expression, aes(x = seurat_clusters, y = Malat1)) +  geom_violin() +  xlab("Cluster") +  ylab("Expression of Malat1") +  ggtitle("Expression of Malat1 in Different Clusters")
+# 显示小提琴图print(violin_plot)
+# 获取所有类别细胞的"Malat1"基因表达量数据malat1_expression <- FetchData(testAB.integrated, vars = c("seurat_clusters", "Malat1"))
+# 创建小提琴图violin_plot <- ggplot(malat1_expression, aes(x = seurat_clusters, y = Malat1)) +  geom_violin() +  xlab("Cluster") +  ylab("Expression of Malat1") +  ggtitle("Expression of Malat1 in Ten Clusters")
+# 显示小提琴图print(violin_plot)
+sessionInfo()
+```
+
+亚群分析
+
+  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+```r
+library(multtest)library(dplyr)library(ggplot2)library(patchwork)library(Seurat)library(tidyverse)library(devtools)rm(list=ls())
+myfunction1 <- function(testA.seu){  testA.seu <- NormalizeData(testA.seu, normalization.method = "LogNormalize", scale.factor = 10000)  testA.seu <- FindVariableFeatures(testA.seu, selection.method = "vst", nfeatures = 5000) #2000  return(testA.seu)}#pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/lung/SiO2/")pbmc.data <- Read10X(data.dir = "D:/C/user/Desktop/diabetes/150_DM/")pbmc <- CreateSeuratObject(counts = pbmc.data, project = "DM",min.cells = 3,min.features = 200)pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc,pattern = "^mt-")#pbmc2.data <- Read10X(data.dir = "D:/C/user/Desktop/lung/Norm/")pbmc2.data <- Read10X(data.dir = "D:/C/user/Desktop/diabetes/149_Ctrl/")pbmc2 <- CreateSeuratObject(counts = pbmc2.data, project = "Ctrl",min.cells = 3,min.features = 200)pbmc2[["percent.mt"]] <- PercentageFeatureSet(pbmc2,pattern = "^mt-")
+
+pbmc <- myfunction1(pbmc)pbmc2 <- myfunction1(pbmc2)
+testAB.anchors <- FindIntegrationAnchors(object.list = list(pbmc,pbmc2), dims = 1:20)testAB.integrated <- IntegrateData(anchorset = testAB.anchors, dims = 1:20)DefaultAssay(testAB.integrated) <- "integrated"
+testAB.integrated <- ScaleData(testAB.integrated, features = rownames(testAB.integrated))testAB.integrated <- RunPCA(testAB.integrated, npcs = 50, verbose = FALSE)
+# Find neighbors and perform unbiased clustering hqy-resolution:0.06 baisi:13-0.20testAB.integrated <- FindNeighbors(testAB.integrated, dims = 1:30)testAB.integrated <- FindClusters(testAB.integrated, resolution = 0.32)
+
+#library(Seurat)#library(clustree)#obj <- FindClusters(testAB.integrated, resolution = seq(0.02,0.18, by= 0.01))#clustree(obj)
+
+# Perform UMAPtestAB.integrated <- RunTSNE(testAB.integrated)
+# Plot UMAP with unbiased clusteringDimPlot(testAB.integrated, group.by = "orig.ident", label = FALSE)DimPlot(testAB.integrated, label = TRUE)
+# Step 1: Filter Ctrl group data from testAB.integratedctrl_subset <- subset(testAB.integrated, orig.ident == "Ctrl")DM_subset <- subset(testAB.integrated, orig.ident == "DM")
+# Step 3: Plot UMAP with subcluster annotations for Ctrl groupDimPlot(ctrl_subset, group.by = "seurat_clusters", label = TRUE) + ggtitle("Ctrl Group UMAP with Subcluster Annotations")
+# Plot UMAP with unbiased clustering for the entire testAB.integrated datasetp_full <- DimPlot(testAB.integrated, group.by = "orig.ident", label = FALSE) + ggtitle("Integrated UMAP")
+# Plot UMAP with subcluster annotations for Ctrl groupp_ctrl <- DimPlot(ctrl_subset, group.by = "seurat_clusters", label = TRUE) + ggtitle("Ctrl Group UMAP with Subcluster Annotations")
+# Plot UMAP with subcluster annotations for Ctrl groupp_DM <- DimPlot(DM_subset, group.by = "seurat_clusters", label = TRUE) + ggtitle("DM Group UMAP with Subcluster Annotations")
+# Combine the two plots side by side using patchworkp_full + p_ctrlp_full + p_DM
+
+# 组1的亚群细胞数量group1_counts <- table(ctrl_subset@meta.data$seurat_clusters)total_group1_cells <- sum(group1_counts)
+# 组2的亚群细胞数量group2_counts <- table(DM_subset@meta.data$seurat_clusters)total_group2_cells <- sum(group2_counts)
+# 提取共同的八个亚群common_clusters <- intersect(names(group1_counts), names(group2_counts))
+# 计算亚群细胞数量差异diff_counts <- (group2_counts[common_clusters]/total_group2_cells) - (group1_counts[common_clusters]/total_group1_cells)
+# 绘制柱状图barplot(diff_counts, names.arg = common_clusters, xlab = "亚群", ylab = "细胞数量差异")
+# 定义柱状图颜色bar_colors <- c("blue", "red", "green", "orange", "purple", "pink", "cyan", "gray")
+# 绘制柱状图，并设置颜色barplot(diff_counts, names.arg = common_clusters, xlab = "亚群", ylab = "细胞数量差异", col = bar_colors)
+
+#epithelial mesenchymal
+#new.cluster.ids <- c("epithelial cell", "Matrix fibroblast", "Macrophage", "Lymphocyte", "mesenchymal cell", "Natural killer cell",#                     "Pericyte", "Endothelial cell", "Myofibroblast", "Clara cell", "", "", "")#names(new.cluster.ids) <- levels(testAB.integrated)#testAB.integrated <- RenameIdents(testAB.integrated, new.cluster.ids)
+
+#ggsave(#  filename = "C_and_D.jpg", # 保存的文件名称。通过后缀来决定生成什么格式的图片#  width = 13,             # 宽#  height = 13,            # 高#  units = "in",          # 单位#  dpi = 300              # 分辨率DPI#)
+# Plot UMAP with unbiased clustering 0.09DimPlot(testAB.integrated, group.by = "integrated_snn_res.0.06", label = TRUE)
+DimPlot(testAB.integrated, group.by = "orig.ident", label = FALSE)
+
+png(file = "contrast.jpg", width = 1400, height = 1000, res = 100)# DM类别细胞着色为蓝色DimPlot(testAB.integrated, group.by = "orig.ident", cols = c("DM" = "red","Ctrl" = "blue"), label = FALSE)dev.off()
+
+testAB.marker <- FindAllMarkers(testAB.integrated, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+top10 <- testAB.marker %>% group_by(cluster) %>% top_n(n=10, wt =avg_log2FC)
+heatmap_all <- DoHeatmap(testAB.integrated, features = top10$gene) + NoLegend()
+
+#Idents(testAB.integrated) <- ifelse(testAB.integrated$seurat_clusters == 0, "red", "gray")
+#DimPlot(testAB.integrated, group.by = "seurat_clusters")
+#DimPlot(testAB.integrated, group.by = "seurat_clusters", label = FALSE) +#  scale_color_manual(values = c("red", rep("gray", sum(testAB.integrated$seurat_clusters != 0))))
+#DimPlot(testAB.integrated, group.by = "seurat_clusters", label = FALSE) +#  scale_color_manual(values = c(rep("gray", 6), "red", rep("gray", 7)))
+
+# Get cells from cluster 6,18,23cluster6.cells <- subset(testAB.integrated, seurat_clusters == 4)
+# Create a new Seurat object for cluster 0 cellscluster6 <- CreateSeuratObject(counts = cluster6.cells@assays$RNA@counts, project = "Cluster6")
+cluster6 <- NormalizeData(cluster6)cluster6 <- FindVariableFeatures(cluster6)cluster6 <- ScaleData(cluster6)
+# Step 1: Find differentially expressed genes in DM group relative to Ctrl grouptestAB.diff <- FindMarkers(testAB.integrated, ident.1 = "Ctrl", ident.2 = "DM", group.by = "orig.ident", min.pct = 0.25, logfc.threshold = 0.25)
+
+testAB.diff$expression_status="ns";testAB.diff[which(testAB.diff$avg_log2FC  > 0.5 & testAB.diff$p_val_adj <0.05),]$expression_status="up";testAB.diff[which(testAB.diff$avg_log2FC  < -0.5 & testAB.diff$p_val_adj < 0.05),]$expression_status="down";testAB.diff$expression_status=factor(testAB.diff$expression_status, levels=c('down','ns','up'))
+# Step 3: Create a volcano plot for differentially expressed genes with all expression statusvolcano_plot <- ggplot(testAB.diff, aes(x = avg_log2FC, y = -log10(p_val))) +  geom_point(aes(color = expression_status)) +  geom_hline(yintercept = 1.3, linetype = "dashed", color = "gray") +  geom_vline(xintercept = 0, linetype = "dashed", color = "gray") +  scale_color_manual(values = c("Upregulated" = "red", "Downregulated" = "blue", "Not significant" = "gray")) +  labs(title = "Volcano Plot of Differentially Expressed Genes (DM vs. Ctrl)",       x = "log2 Fold Change (DM/Ctrl)",       y = "-log10(p-value)") +  theme_minimal()
+print(volcano_plot)
+nrow(testAB.diff)
+
+library(clusterProfiler)
+testAB.diff$gene <- rownames(testAB.diff)# 提取筛选出来的高表达基因的基因列表selected_genes <- testAB.diff$gene[which(testAB.diff$expression_status == "up")]
+library(org.Mm.eg.db)goEnrichment <- enrichGO(gene          = selected_genes,                         OrgDb        = org.Mm.eg.db,                         keyType      = "SYMBOL",                         ont          = "all",                         pAdjustMethod = "BH",                         pvalueCutoff = 0.1,                         qvalueCutoff = 0.1)
+dotplot(goEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory =5,#只显示前5        split="ONTOLOGY") + #以ONTOLOGY类型分开  facet_grid(ONTOLOGY~., scale='free') #以ONTOLOGY类型分屏绘图
+
+library(clusterProfiler)
+# 提取基因的Entrez IDgeneIDs <- select(org.Mm.eg.db, keys = selected_genes, keytype = "SYMBOL", columns = "ENTREZID")
+# 过滤掉没有映射到Entrez基因ID的基因mappedGenes <- geneIDs$ENTREZID[!is.na(geneIDs$ENTREZID)]
+# 进行KEGG富集分析keggEnrichment <- enrichKEGG(gene         = mappedGenes,                             keyType = "kegg",                             organism     = "mmu",                             pvalueCutoff = 1,                             qvalueCutoff = 1)dotplot(keggEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory = 10)
+
+# Perform PCA on cluster 0 cellscluster6 <- RunUMAP(cluster6, npcs = 30)
+# Find neighbors and perform clustering on cluster 0 cells 0.32cluster6 <- FindNeighbors(cluster6, dims = 1:20)cluster6 <- FindClusters(cluster6, resolution = 0.62)
+# Perform UMAP on cluster 0 cellscluster6 <- RunUMAP(cluster6, dims = 1:20)
+
+png(file = "cluster1_subset.jpg", width = 1400, height = 1000, res = 100)# Plot UMAP for cluster 0 cellsDimPlot(cluster6, reduction = "umap", group.by = "seurat_clusters", label = TRUE)dev.off()
+cluster6.marker <- FindAllMarkers(cluster6, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+top10 <- cluster6.marker %>% group_by(cluster) %>% top_n(n=10, wt =avg_log2FC)
+heatmap_1 <- DoHeatmap(cluster6, features = top10$gene) + NoLegend()
+ggsave(filename = "heatmap_2.jpg", plot = heatmap_1, width = 18, height = 12, dpi = 300)
+
+significant.markers <- subset(cluster6.marker, p_val_adj < 0.05 & avg_log2FC > 0.5)
+
+#对cluster6进行差异基因分析（GO,KEGG）library(edgeR)library(clusterProfiler)
+
+cluster6_cells <- testAB.integrated$seurat_clusters == 4
+# 创建组别标签group <- ifelse(cluster6_cells %in% TRUE, "Cluster6", "Other")
+# 创建DGEList对象d <- DGEList(counts = testAB.integrated@assays$RNA@counts, group = group)
+# 进行基因表达筛选d <- calcNormFactors(d)keep <- filterByExpr(d)d <- d[keep, ]
+# 进行差异表达分析design <- model.matrix(~ group, data = d$samples)d <- estimateDisp(d, design)fit <- glmQLFit(d, design)
+# 使用exactTest进行差异表达分析qlf <- glmQLFTest(fit, contrast = c(0, 1))
+diffGenes <- rownames(topTags(qlf, n = 20)$table)
+diffGeneCounts <- testAB.integrated@assays$RNA@counts[diffGenes, ]
+# 提取差异基因的统计信息diffGenesInfo <- topTags(qlf, n = 20)$table
+diffGenesInfo <- as.data.frame(diffGenesInfo)
+# 添加上调和下调的标记diffGenesInfo$Upregulated <- ifelse(diffGenesInfo$logFC > 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")diffGenesInfo$Downregulated <- ifelse(diffGenesInfo$logFC < 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")
+diffGenesInfo$Upregulated == "Yes"
+upregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "Yes", ])Downregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "No", ])
+
+# 打印差异基因的信息print(diffGenesInfo)
+
+# 进行GO分析(geneSymbols包含全部基因，但upregulated_genes只有上调基因，Downregulated_genes只有下调基因)geneSymbols <- rownames(diffGeneCounts)
+library(org.Mm.eg.db)goEnrichment <- enrichGO(gene          = upregulated_genes,                         OrgDb        = org.Mm.eg.db,                         keyType      = "SYMBOL",                         ont          = "all",                         pAdjustMethod = "BH",                         pvalueCutoff = 0.1,                         qvalueCutoff = 0.1)
+
+#png(file = "up_GO_2.jpg", width = 1400, height = 1000, res = 100)
+dotplot(goEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory =5,#只显示前5        split="ONTOLOGY") + #以ONTOLOGY类型分开  facet_grid(ONTOLOGY~., scale='free') #以ONTOLOGY类型分屏绘图
+#dev.off()
+
+# 加载所需的包library(clusterProfiler)
+# 提取基因的Entrez IDgeneIDs <- select(org.Mm.eg.db, keys = upregulated_genes, keytype = "SYMBOL", columns = "ENTREZID")
+# 过滤掉没有映射到Entrez基因ID的基因mappedGenes <- geneIDs$ENTREZID[!is.na(geneIDs$ENTREZID)]
+
+# 进行KEGG富集分析keggEnrichment <- enrichKEGG(gene         = mappedGenes,                             keyType = "kegg",                             organism     = "mmu",                             pvalueCutoff = 1,                             qvalueCutoff = 1)
+# 输出结果goEnrichmentkeggEnrichment
+barplot(keggEnrichment, x = "GeneRatio", color = "p.adjust", #默认参数        showCategory =10) #只显示前10
+
+#png(file = "up_KEGG_2.jpg", width = 1400, height = 1000, res = 100)dotplot(keggEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory = 10) #dev.off()
+
+cluster6 <- ScaleData(cluster6, features = rownames(testAB.integrated))cluster6 <- RunPCA(cluster6, npcs = 50, verbose = FALSE)
+# Find neighbors and perform unbiased clustering hqy-resolution:0.06 baisi:13-0.20cluster6 <- FindNeighbors(cluster6, dims = 1:30)cluster6 <- FindClusters(cluster6, resolution = 0.32)
+
+#library(Seurat)#library(clustree)#obj <- FindClusters(testAB.integrated, resolution = seq(0.02,0.18, by= 0.01))#clustree(obj)
+
+cluster6 <- RunTSNE(cluster6)cluster6.marker <- FindAllMarkers(cluster6, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+
+significant.markers <- subset(cluster6.marker, p_val_adj < 0.05 & avg_log2FC > 0.5)
+
+# Group markers by clustermarkers.by.cluster <- split(significant.markers, significant.markers$cluster)
+
+# 遍历markers.by.cluster中的每个亚群#for (cluster in names(markers.by.cluster)) {  # 获取当前亚群的基因列表#  genes <- markers.by.cluster[[cluster]]$gene  # 删除基因名称中包含"mt-"的部分#  genes <- gsub("mt-", "", genes)  # 更新markers.by.cluster中当前亚群的基因列表#  markers.by.cluster[[cluster]]$gene <- genes#}
+
+cluster_counts <- data.frame(cluster = character(),                             DM_count = numeric(),                             Ctrl_count = numeric(),                             stringsAsFactors = FALSE)
+for (i in 0:(length(markers.by.cluster) - 1)) {  cluster_markers <- markers.by.cluster[[i+1]]    # 获取亚群中的基因列表  cluster_genes <- unique(cluster_markers$gene)    # 初始化计数器  dm_count <- 0  ctrl_count <- 0    # 遍历基因列表  for (gene in cluster_genes) {    # 获取在亚群中表达该基因的细胞名称    gene_cells <- rownames(cluster6@assays$RNA@counts)[cluster6$seurat_clusters == i]        # 统计细胞属于"DM"和"Ctrl"的数量    dm_count <- dm_count + sum(gene_cells %in% rownames(pbmc@assays$RNA@counts)[pbmc$orig.ident == "DM"])    ctrl_count <- ctrl_count + sum(gene_cells %in% rownames(pbmc2@assays$RNA@counts)[pbmc2$orig.ident == "Ctrl"])  }    # 将结果添加到数据框  cluster_counts <- rbind(cluster_counts,                           data.frame(cluster = names(markers.by.cluster)[i+1],                                     DM_count = dm_count,                                     Ctrl_count = ctrl_count))}
+print(cluster_counts)
+
+DimPlot(cluster6)
+DimPlot(testAB.integrated)
+new.cluster.ids <- c("mesenchymal cell", "epithelial cell", "Neutrophil cell", "Lymphocyte cell", "Brush cell", "Endothelial cell",                     "Macrophage cell", "Nature killer cell", "Myofibroblast cell", "clara cell")names(new.cluster.ids) <- levels(testAB.integrated)testAB.integrated <- RenameIdents(testAB.integrated, new.cluster.ids)
+png(file = "cluster0_vision.jpg", width = 1400, height = 1000, res = 100)DimPlot(testAB.integrated, label = TRUE) +  scale_color_manual(values = c("red", rep("gray", 9)))dev.off()
+
+#对cluster6进行差异基因分析（GO,KEGG）library(edgeR)library(clusterProfiler)
+
+cluster6_cells <- cluster6$seurat_clusters == 0
+# 创建组别标签group <- ifelse(cluster6_cells %in% TRUE, "Cluster6", "Other")
+# 创建DGEList对象d <- DGEList(counts = cluster6@assays$RNA@counts, group = group)
+# 进行基因表达筛选d <- calcNormFactors(d)keep <- filterByExpr(d)d <- d[keep, ]
+# 进行差异表达分析design <- model.matrix(~ group, data = d$samples)d <- estimateDisp(d, design)fit <- glmQLFit(d, design)
+# 使用exactTest进行差异表达分析qlf <- glmQLFTest(fit, contrast = c(0, 1))
+diffGenes <- rownames(topTags(qlf, n = 20)$table)
+diffGeneCounts <- testAB.integrated@assays$RNA@counts[diffGenes, ]
+# 提取差异基因的统计信息diffGenesInfo <- topTags(qlf, n = 20)$table
+diffGenesInfo <- as.data.frame(diffGenesInfo)
+# 添加上调和下调的标记diffGenesInfo$Upregulated <- ifelse(diffGenesInfo$logFC > 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")diffGenesInfo$Downregulated <- ifelse(diffGenesInfo$logFC < 0 & diffGenesInfo$FDR < 0.05, "Yes", "No")
+diffGenesInfo$Upregulated == "Yes"
+upregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "Yes", ])Downregulated_genes <- row.names(diffGenesInfo[diffGenesInfo$Upregulated == "No", ])
+
+# 打印差异基因的信息print(diffGenesInfo)
+
+# 进行GO分析(geneSymbols包含全部基因，但upregulated_genes只有上调基因，Downregulated_genes只有下调基因)geneSymbols <- rownames(diffGeneCounts)
+library(org.Mm.eg.db)goEnrichment <- enrichGO(gene          = upregulated_genes,                         OrgDb        = org.Mm.eg.db,                         keyType      = "SYMBOL",                         ont          = "all",                         pAdjustMethod = "BH",                         pvalueCutoff = 0.1,                         qvalueCutoff = 0.1)
+
+png(file = "up_GO_2.jpg", width = 1400, height = 1000, res = 100)
+dotplot(goEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory =5,#只显示前5        split="ONTOLOGY") + #以ONTOLOGY类型分开  facet_grid(ONTOLOGY~., scale='free') #以ONTOLOGY类型分屏绘图
+dev.off()
+
+# 加载所需的包library(clusterProfiler)
+# 提取基因的Entrez IDgeneIDs <- select(org.Mm.eg.db, keys = upregulated_genes, keytype = "SYMBOL", columns = "ENTREZID")
+# 过滤掉没有映射到Entrez基因ID的基因mappedGenes <- geneIDs$ENTREZID[!is.na(geneIDs$ENTREZID)]
+
+# 进行KEGG富集分析keggEnrichment <- enrichKEGG(gene         = mappedGenes,                             keyType = "kegg",                             organism     = "mmu",                             pvalueCutoff = 1,                             qvalueCutoff = 1)
+# 输出结果goEnrichmentkeggEnrichment
+barplot(keggEnrichment, x = "GeneRatio", color = "p.adjust", #默认参数        showCategory =10) #只显示前10
+
+png(file = "up_KEGG_2.jpg", width = 1400, height = 1000, res = 100)dotplot(keggEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory = 10) dev.off()
+
+library(ggplot2)
+# Create a new Seurat object for the integrated dataintegrated_data <- testAB.integrated
+# Get the gene expression matrixgene_expression <- as.matrix(integrated_data@assays$RNA@counts)
+# Extract the expression values for the selected genesselected_genes <- c("Lum", "Dcn", "Gsn", "Rgs5", "Crip1")
+which(!(selected_genes%in%rownames(testAB.integrated)))selected_rows <- rownames(gene_expression) %in% selected_genesgene_expression <- gene_expression[selected_rows, ]
+gene_expression_df <- data.frame(  Gene = rownames(gene_expression),  Group_C = gene_expression[, integrated_data$orig.ident == "DM"],  Group_D = gene_expression[, integrated_data$orig.ident == "Ctrl"])
+# Reshape the data frame to long formatgene_expression_df_long <- tidyr::pivot_longer(  gene_expression_df,  cols = c(Group_C, Group_D),  names_to = "Group",  values_to = "Expression")
+# Plot the gene expression using a bar chartbar_plot <- ggplot(gene_expression_df_long, aes(x = Gene, y = Expression, fill = Group)) +  geom_bar(stat = "identity", position = "dodge") +  labs(x = "Gene", y = "Expression", title = "Gene Expression in C and D Groups") +  scale_fill_manual(values = c("blue", "red")) +  theme_minimal()
+# Display the bar plotprint(bar_plot)
+
+#useless (画几个基因在C和D中的表达差异)
+library(ggplot2)
+# 创建一个包含六个基因的数据框gene_list <- c("Lum", "Dcn", "Gsn", "Rgs5",  "Crip1")
+which(!(gene_list%in%rownames(testAB.integrated)))
+# 从Seurat对象中获取基因的表达情况gene_expression <- testAB.integrated@assays$RNA@counts[gene_list, ]
+# 提取C组和D组的表达值group_c_expression <- colSums(gene_expression[, pbmc$orig.ident == "DM"])group_d_expression <- colSums(gene_expression[, pbmc2$orig.ident == "Ctrl"])
+# 创建一个包含表达情况的数据框expression_data <- data.frame(  Gene = gene_list,  Group_C = group_c_expression,  Group_D = group_d_expression)
+# 创建柱状图bar_plot <- ggplot(expression_data, aes(x = Gene, y = Group_C, fill = "C")) +  geom_bar(stat = "identity", position = "dodge") +  labs(x = "Gene", y = "Expression", title = "Gene Expression in C and D Groups") +  scale_fill_manual(values = c("C" = "blue")) +  theme_minimal()
+# 添加D组的柱状图bar_plot <- bar_plot + geom_bar(data = expression_data, aes(x = Gene, y = Group_D, fill = "D"),                                stat = "identity", position = "dodge")
+# 调整图例bar_plot <- bar_plot + guides(fill = guide_legend(title = "Group"))
+# 显示柱状图print(bar_plot)
+
+library(org.Mm.eg.db)goEnrichment <- enrichGO(gene          = upregulated_genes,                         OrgDb        = org.Mm.eg.db,                         keyType      = "SYMBOL",                         ont          = "all",                         pAdjustMethod = "BH",                         pvalueCutoff = 0.1,                         qvalueCutoff = 0.1)
+png(file = "up_GO_ve.jpg", width = 1400, height = 1000, res = 100)
+dotplot(goEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory =5,#只显示前5        split="ONTOLOGY") + #以ONTOLOGY类型分开  facet_grid(ONTOLOGY~., scale='free') #以ONTOLOGY类型分屏绘图
+dev.off()
+
+# 加载所需的包library(clusterProfiler)
+# 提取基因的Entrez IDgeneIDs <- select(org.Mm.eg.db, keys = upregulated_genes, keytype = "SYMBOL", columns = "ENTREZID")
+# 过滤掉没有映射到Entrez基因ID的基因mappedGenes <- geneIDs$ENTREZID[!is.na(geneIDs$ENTREZID)]
+
+png(file = "up_KEGG_ve.jpg", width = 1400, height = 1000, res = 100)# 进行KEGG富集分析keggEnrichment <- enrichKEGG(gene         = mappedGenes,                             keyType = "kegg",                             organism     = "mmu",                             pvalueCutoff = 1,                             qvalueCutoff = 1)dotplot(keggEnrichment,x = "GeneRatio", color = "p.adjust", size = "Count", #默认参数        showCategory = 10)
+dev.off()
+
+# 输出结果goEnrichmentkeggEnrichment
+
+# Calculate total counts for DM and Ctrl categoriestotal_dm <- sum(cluster_counts$DM_count)total_ctrl <- sum(cluster_counts$Ctrl_count)
+# Calculate proportionscluster_counts$DM_proportion <- cluster_counts$DM_count / total_dmcluster_counts$Ctrl_proportion <- cluster_counts$Ctrl_count / total_ctrl
+# Plot pie chart for DM category with labelsdm_pie <- ggplot(cluster_counts, aes(x = "", y = DM_proportion, fill = cluster)) +  geom_bar(width = 1, stat = "identity") +  coord_polar("y", start = 0) +  labs(fill = "Cluster", x = NULL, y = NULL, title = "Lung Cell Types") +  geom_text(aes(label = scales::percent(DM_proportion)), position = position_stack(vjust = 0.5)) +  theme_void()
+# Plot pie chart for Ctrl category with labelsctrl_pie <- ggplot(cluster_counts, aes(x = "", y = Ctrl_proportion, fill = cluster)) +  geom_bar(width = 1, stat = "identity") +  coord_polar("y", start = 0) +  labs(fill = "Cluster", x = NULL, y = NULL, title = "Ctrl Cell Types") +  geom_text(aes(label = scales::percent(Ctrl_proportion)), position = position_stack(vjust = 0.5)) +  theme_void()
+# Combine the pie charts using patchworkpie_chart <- ctrl_pie + dm_pie + plot_layout(ncol = 2)
+# Display the pie chartsprint(pie_chart)
+ggsave(filename = "sub_epithelial_count.jpg", plot = pie_chart, width = 10, height = 5, dpi = 300)
+
+# 从DM类别中提取"Malat1"基因的表达Malat1_DM <- FetchData(pbmc, vars = "Cd68")
+# 从Ctrl类别中提取"Malat1"基因的表达Malat1_Ctrl <- FetchData(pbmc2, vars = "Cd68")
+# 执行t检验，比较"Malat1"基因在DM和Ctrl类别中的表达差异ttest_result <- t.test(Malat1_DM, Malat1_Ctrl)
+# 获取p-valuep_value <- ttest_result$p.value
+# 根据p-value判断基因的类别if (p_value < 0.05) {  gene_category <- "Significant"} else {  gene_category <- "Not Significant"}
+# 打印基因的类别print(gene_category)
+
+# 假设已经从Seurat对象中提取了"Malat1"基因的表达数据，并分别存储在Malat1_DM和Malat1_Ctrl中
+# 判断显著性if (p_value < 0.05) {  if (mean(Malat1_DM$Cd68) > mean(Malat1_Ctrl$Cd68)) {    gene_category <- "DM significantly higher"  } else {    gene_category <- "Ctrl significantly higher"  }} else {  gene_category <- "No significant difference"}
+# 打印基因的类别print(gene_category)
+
+# 从Seurat对象中提取Aqp7基因的表达数据 hqy-Cd14 rna_Cd14Cd68_expr <- FetchData(cluster6, vars = "Lyz2")
+# 将Aqp7_expr数据整理成适合绘制小提琴图的数据框格式Cd68_data <- data.frame(  cluster = cluster6$seurat_clusters,  expression = log1p(Cd68_expr$Lyz2), # 使用log1p转换表达值  orig.ident = ifelse(cluster6$orig.ident == "DM", "DM", "Ctrl")  # 根据orig.ident设置分组变量)
+# 使用ggplot2绘制小提琴图plot_Cd68 <- ggplot(Cd68_data, aes(x = factor(cluster), y = expression)) +  geom_violin(trim = FALSE) +  geom_jitter(width = 0.2, size = 1, alpha = 0.6) + # 可选：添加散点图  labs(x = "Cluster", y = "log1p(Expression of CD14)") +  theme_minimal()
+# 输出小提琴图print(plot_Cd68)
+# 使用ggplot2绘制小提琴图，并按组别着色  plot_Cd68_facet <- ggplot(Cd68_data, aes(x = factor(cluster), y = expression)) +  geom_violin(aes(fill = orig.ident), trim = FALSE) +  geom_jitter(aes(color = orig.ident), width = 0.2, size = 1, alpha = 0.6) +  # 可选：添加散点图  labs(x = "Cluster", y = "log1p(Expression of CD14)") +  theme_minimal() +  scale_fill_manual(values = c("gray", "red"), labels = c("Ctrl", "DM")) +  # 设置填充颜色和图例标签  scale_color_manual(values = c("gray", "red"), labels = c("Ctrl", "DM")) +  # 设置散点图颜色和图例标签  guides(fill = guide_legend(title = "Group"),  # 设置填充颜色的图例标题         color = guide_legend(title = "Group"))  # 设置散点图颜色的图例标题
+# 输出带有分组着色的小提琴图print(plot_Cd68_facet)
+ggsave("CD14_vio.jpg", plot_Cd68_facet, dpi = 300)
+malat1_expression <- FetchData(cluster6, vars = c("seurat_clusters", "Lyz2"))malat1_expression$orig.ident <- NA# 从pbmc和pbmc2中获取DM和Ctrl的细胞名称# 获取"DM"组的细胞名称dm_cells <- rownames(pbmc@meta.data[pbmc@meta.data$orig.ident == "DM", ])ctrl_cells <- rownames(pbmc2@meta.data[pbmc2@meta.data$orig.ident == "Ctrl", ])
+# 创建orig.ident列并初始化为NAmalat1_expression$orig.ident <- NA
+
+cell_names <- substr(rownames(malat1_expression), 1, nchar(rownames(malat1_expression))-2)# 将细胞名称中属于DM的设置为"DM"malat1_expression$orig.ident[match(dm_cells, cell_names)] <- "DM"
+# 将细胞名称中属于Ctrl的设置为"Ctrl"malat1_expression$orig.ident[match(ctrl_cells, cell_names)] <- "Ctrl"
+# 输出结果print(malat1_expression)
+# 将orig.ident列转换为因子类型malat1_expression$orig.ident <- factor(malat1_expression$orig.ident, levels = c("DM", "Ctrl"))
+# 创建小提琴图violin_plot <- ggplot(malat1_expression, aes(x = seurat_clusters, y = Lyz2, fill = orig.ident)) +  geom_violin() +  xlab("Cluster") +  ylab("Expression of CD68") +  ggtitle("Expression of CD68 in Different Clusters") +  scale_fill_manual(values = c("red", "blue"), labels = c("DM", "Ctrl"))
+# 显示小提琴图print(violin_plot)
+ggsave("CD68.jpg", violin_plot, dpi = 300)
+
+library(dplyr)
+# 汇总数据并计算每个亚群中"DM"和"Ctrl"的表达量均值summary_data <- malat1_expression %>%  group_by(seurat_clusters, orig.ident) %>%  summarise(mean_expression = mean(Vwf))
+# 创建柱状图bar_plot <- ggplot(summary_data, aes(x = seurat_clusters, y = mean_expression, fill = orig.ident)) +  geom_bar(stat = "identity", position = "dodge") +  xlab("Cluster") +  ylab("Mean Expression of CD14") +    ggtitle("Mean Expression of CD14 in Different Clusters") +  scale_fill_manual(values = c("red", "blue"), labels = c("DM", "Ctrl"))
+# 显示柱状图print(bar_plot)
+ggsave("subset_CD68.jpg", bar_plot, dpi = 300)
+
+library(Seurat)
+# 假设testAB.integrated对象名为seurat_obj# 假设cd36_cells包含Cd36基因表达的细胞名称cd68_cells <- rownames(testAB.integrated@assays$RNA@data[testAB.integrated$orig.ident == "DM" & testAB.integrated@assays$RNA@data[, "Cd14"] > 0, ])
+
+# 假设testAB.integrated对象名为seurat_obj
+# Set the dimensions for UMAP plotplot_dim <- c("UMAP_1", "UMAP_2")
+# Plot the UMAP with Cd36 expressionFeaturePlot(object = testAB.integrated, features = "Lyz2", pt.size = 1)
+
+ggsave("subset_CD14.jpg", t, dpi = 300)
+# Retrieve cells belonging to "DM" and "Ctrl" groupsdm_cells <- rownames(testAB.integrated@assays$RNA@counts)[testAB.integrated$orig.ident == "DM"]ctrl_cells <- rownames(testAB.integrated@assays$RNA@counts)[testAB.integrated$orig.ident == "Ctrl"]
+
+# Find cells expressing Cd36 in "DM" and "Ctrl" groupscd68_dm_cells <- intersect(dm_cells, cd68_cells)cd68_ctrl_cells <- intersect(ctrl_cells, cd68_cells)
+# Mark cells expressing Cd36 in "DM" group as red on the UMAP plotpoints(testAB.integrated@reductions$umap@cell.embeddings[cd36_dm_cells, plot_dim[1]],       testAB.integrated@reductions$umap@cell.embeddings[cd36_dm_cells, plot_dim[2]],       col = "red", pch = 16)
+# Mark cells expressing Cd36 in "Ctrl" group as red on the UMAP plotpoints(testAB.integrated@reductions$umap@cell.embeddings[cd36_ctrl_cells, plot_dim[1]],       testAB.integrated@reductions$umap@cell.embeddings[cd36_ctrl_cells, plot_dim[2]],       col = "red", pch = 16)
+```
+
+拟时序分析
+
+  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+```r
+# 安装和加载所需的包BiocManager::install("monocle3")library(monocle3)
+# 创建一个 Monocle 3 对象cluster6_monocle <- new_cell_data_set(cluster6@assays$RNA@counts, cluster6@meta.data)
+# 运行基因筛选cluster6_monocle <- preprocess_cds(cluster6_monocle, num_dim = 30)
+# 估计基因的嵌入维度cluster6_monocle <- reduce_dimension(cluster6_monocle)
+# 构建拟时序cluster6_monocle <- order_cells(cluster6_monocle)
+# 可视化拟时序结果plot_cells(cluster6_monocle, color_cells_by = "ordering")
+# 提取拟时序结果pseudotime <- pseudotime(cluster6_monocle)
+
+# 创建一个 Monocle 3 对象cluster6_monocle <- new_cell_data_set(cluster6@assays$RNA@counts, cluster6@meta.data)
+# 运行基因筛选cluster6_monocle <- preprocess_cds(cluster6_monocle, num_dim = 30)
+# 降维（使用 UMAP）cluster6_monocle <- reduce_dimension(cluster6_monocle, reduction_method = "UMAP")
+# 聚类细胞cluster6_monocle <- cluster_cells(cluster6_monocle, reduction_method = "UMAP")
+# 学习图形cluster6_monocle <- learn_graph(cluster6_monocle)
+# 构建拟时序cluster6_monocle <- order_cells(cluster6_monocle)
+# 可视化拟时序结果plot_cells(cluster6_monocle, color_cells_by = "ordering")
+# 提取拟时序结果pseudotime <- pseudotime(cluster6_monocle)
+
+# 安装和加载所需的包install.packages("BiocManager")  # 如果未安装BiocManager，请先安装BiocManager::install("monocle3")library(monocle3)
+```
+
+本作品作者为提供markdown文件，输出图片存放在本地，大家可以前往下载：
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwP23eM9MP3t8luanniaLqMDAFmmaS2otUYapen8cnkHlMvtKzaUoNC8N6ibArc5TeLNCp7UnoKeREw/640?wx_fmt=png&from=appmsg)
+
+01
+
+二、测试文件及代码
+
+如果你也想学习本文的代码和思路，我们给大家准备好了测试文件和代码。
+
+链接：https://pan.baidu.com/s/1s8tPdCcOZVmaMFIglkcfIA?pwd=0jeo
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwP23eM9MP3t8luanniaLqMDmj1JyyVe1ut1e5WM85Wm3R37eTcyHumzxoJPAIib7ChicKsiaEAAldcSw/640?wx_fmt=jpeg&from=appmsg)
+
+02
+
+三、合作方介绍
+
+****本次活动由**Biomamba生信基地** 组织主办、**北京寻因生物科技** 有限公司独家冠名、科研者之家、西柚云超算联合赞助，设立总价值约**50W** 的科研助力基金。
+北京寻因生物科技有限公司：
+
+北京寻因生物科技有限公司（简称寻因生物）成立于2018年，秉承“用技术温暖生命，预见未来”的企业愿景，致力于全球单细胞市场标准普世化发展，推动单细胞技术在早筛、临床、药研等应用方向的深耕落地，为全球科学家、技术公司及药企工业等客户提供可信赖的高品质单细胞技术服务及实验室建设解决方案。
+
+科研者之家：
+
+科研者之家（www.home-for-researchers）是目前国内最知名的科研工具箱平台，以“科研不停，神器不止”为理念，自2019年上线以来，多款工具火爆科研界，如AI写作助手、Figdraw在线绘图平台、生信零代码平台、AI润色、DLP一键改写降重、中文版Pubmed、课题思路助手等。截止目前，包括Nature，Advanced Materials等顶级期刊在内，科研者之家相关科研工具被论文引用已超2300次之多。
+
+西柚云超算：
+
+西柚云是一家专注于科研共享计算的云服务基建型公司。于2022年推出独立研发的大禹共享型计算系统，具有实例动态迁移（拒绝传统型共享服务器单节点卡顿）、开箱即用的生信环境、每个用户拥有[独立的实例和root权限](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503869&idx=1&sn=142f8c7ba8620815a8770773df077f12&chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&scene=21#wechat_redirect>)等特性。
+
+03
+
+四、往期作品回顾
+
+[干细胞样CD4+ T细胞与自身免疫性血管炎](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506684&idx=1&sn=c27703a05d4fffae6a5e9e54b4fa7dfe&chksm=9b3ca3acac4b2abaa1e5d4f4a7e4d0730f2e5c4d72c7b3d3d29a653c3bae6590d90e31908dde&scene=21#wechat_redirect>)
+[结直肠癌免疫图谱中的基因表达程序](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506720&idx=2&sn=4760277df5a7b6f0d6d1698ac734aa3b&chksm=9b3ca270ac4b2b66b0330e822893fa233ba3bdfd45d857097fba6e86561196c1497c20db25b8&scene=21#wechat_redirect>)
+[MLP模型鉴定免疫细胞发育和瘤内T细胞耗竭的单细胞染色质图谱](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506754&idx=1&sn=3e3e9b4857bb0371b7c1113df792df2e&chksm=9b3ca212ac4b2b043baf0c72684d186a1c065ff7b3d865c308aff4f3483ab5923638fda8d1ff&scene=21#wechat_redirect>)
+[T Cell单细胞参考图谱](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506779&idx=1&sn=dc97a74cfac6caeabaa838160385c3b2&chksm=9b3ca20bac4b2b1da51998764b22ac3c08415298a47ded14283337386f18f9548749de70725e&scene=21#wechat_redirect>)
+[小鼠纹状体单细胞基因变化图谱](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506900&idx=1&sn=83774f3062e42ca0eee1df2cf19144f0&chksm=9b3ca284ac4b2b9221736162ac44280d6184c9f8b0cc13bbcc4c914c14b707fe13a850c6418e&scene=21#wechat_redirect>)
+[人类肾脏snRNA-seq图谱拟时序分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506960&idx=1&sn=9f5913231f9583411e47ccf0dcadedf6&chksm=9b3ca540ac4b2c56a60b5f71ab32e1eacd3194af4bfef819b2de60fc50781360876b45837bf7&scene=21#wechat_redirect>)
+[CellRank的教程重现](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507012&idx=1&sn=fb01cca63326fd6e8c682434a53fc2ea&chksm=9b3ca514ac4b2c02115ae5dea368190ce74997ac16a07fdc29f76cef815600b1e5b813c71163&scene=21#wechat_redirect>)
+[代码复写| 胶质瘤相关巨噬细胞scRNA图谱](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507096&idx=1&sn=98e42a5768074d2766f2ce64214ac391&chksm=9b3ca5c8ac4b2cdebe68a8519a087e41a4c88a7e465c5ddc107f633a5fbf3fcc8bbff6aa8821&scene=21#wechat_redirect>)
+
+04
+
+**本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**如何联系我们**
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+
+[永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
+
+大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
+[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢

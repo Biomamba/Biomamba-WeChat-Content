@@ -1,0 +1,116 @@
+---
+title: "答读者问（七）有人问我Biomamba何解"
+date: 2021-12-25
+source: https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484550&idx=1&sn=ec4466084c1c9eba7eb292e95f33b5bb&chksm=9b3f7dd6ac48f4c042b4e9df2abd717b1354b4914c3f7510eaf444e97965a0f6622979e710e0#rd
+albums: ["答读者问"]
+---
+
+# 答读者问（七）有人问我Biomamba何解
+
+> 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484550&idx=1&sn=ec4466084c1c9eba7eb292e95f33b5bb&chksm=9b3f7dd6ac48f4c042b4e9df2abd717b1354b4914c3f7510eaf444e97965a0f6622979e710e0#rd
+> 合集：答读者问
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWachiaX9aibqLAnYDVicTUjnoFCjOOYibagTobvMYicOq1nc4ZNnPMr7ibiblHw/640?wx_fmt=gif)
+
+# 往期回顾：
+
+[答读者问 （一）单基因究竟能否进行GSEA](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484175&idx=1&sn=3e45ad62b045a541874e5ae7ca03f849&chksm=9b3f7a5fac48f349f8893500825d2c6b4ff581fbb0816c1074d88a0dbbb4a612c1e1bb3740bb&scene=21#wechat_redirect>)
+
+[答读者问 （二）为什么我的PCA分析报错了？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484248&idx=1&sn=b1fe7174a28562d01422e43609f41709&chksm=9b3f7a08ac48f31e3bbfdb4a9824dadf25a8fa3ff9b78dd15d646ae4c3da5db04e2e4acfba3d&scene=21#wechat_redirect>)
+
+[答读者问 （三）单细胞测序前景](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484280&idx=2&sn=844af02070012a1c2681880596ba51a2&chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&scene=21#wechat_redirect>)
+
+[答读者问 （四）如何分析细胞亚群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484316&idx=2&sn=e8d02fddc80d1137bb64c55541f1651d&chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&scene=21#wechat_redirect>)
+
+[答读者问 （五）如何实现各物种基因的ID/symbol的转换](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484353&idx=2&sn=8fccb88c871a42c803e313be157ab293&chksm=9b3f7a91ac48f387df8b462f7318596fc5c645d6f05eefac2c598ff6875c0a2eeb902aaf5a15&scene=21#wechat_redirect>)
+
+[答读者问 （六）Seurat中如何让细胞听你指挥](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484376&idx=2&sn=9fda8a5261e86f889a58d607163ce0fd&chksm=9b3f7a88ac48f39ea9c19e256a513c9ae80c6f6dc1724b7783884e23981e2061c78fa67071c9&scene=21#wechat_redirect>)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWadD0ojiakibw37SnYZsfoukg94HiacfZ2PeS4w90UnVzAuASNAPZTgH2FA/640?wx_fmt=gif)
+
+讲道理，这又是一篇非技术帖。之前有些朋友问我为何使用Biomamba作为公众号以及我个人的网名，在这里，请允许我做一个简单的回答。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWaOxVuKx7wicNJcz0nUibYoudbWIibmYyG7Z9eXRWvpfQ2k3pUHIoH3QlsA/640?wx_fmt=png)
+
+Biomamba
+
+Bio无需多言，一开口就是老前缀了。不知道我的公众号用户里有多少篮球用户，给大家全须全尾的说道说道。black mamba(黑曼巴)原为非洲最大的毒蛇，成年蛇体长可达3m，是非洲毒蛇中体型最长、速度最快、攻击性最强的种类[1]。NBA球星科比布莱恩特(Kobe Bryant)（不会吧不会吧，不会真有人没听过这个名字吧）也因此常自诩为black mamba，因此世人常以黑曼巴称之。
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWa6JEkQIQyCib95OYkuBoqIicZOY8aKBnZxnNz4tEMJRNuHRgWIVLzqsAA/640?wx_fmt=jpeg)
+
+**
+**
+
+**Kobe**
+
+**
+**
+
+**
+**
+
+**
+**
+
+**
+**
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWarv7licY0zU9lBvvc79ia1axLqdH37diaAwPPtRWJIib3NOX1aqibjnsucBw/640?wx_fmt=jpeg)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWadD0ojiakibw37SnYZsfoukg94HiacfZ2PeS4w90UnVzAuASNAPZTgH2FA/640?wx_fmt=gif)
+
+01
+
+科比出生于1978年8月23日，美国著名篮球运动员，于1996年被湖人队签下，年仅十七岁的他便踏入残酷的NBA商业联盟，在球场上与成年人们同场竞技。他灿烂的篮球生涯延续至2016年。二十年间收获的主要荣誉有→→→→→→→→→→→→→→→→
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWaUyxIe4AFxfdbXWcZJ691b2R1Pg59hKVQRC5t6LQLlUtR4ibr6wc3PTg/640?wx_fmt=png)
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWaibxeSTmOHiasxBiarIhulf26cYpVgQibPgXds30nBM6ziblQibp0kFLaBwaA/640?wx_fmt=jpeg)
+
+可能圈外的用户不太了解，其中每一项都足以震古烁今（奥运会奖牌除外），其余数据上的记录及荣誉不胜枚举。其以精湛的技巧、迅捷的步伐、华丽的动作、坚忍的斗志收获了大量的粉丝。由于其粉丝数量巨大，业界也常戏称其粉丝群体为“60亿”。上图为科比中国行与粉丝的合影。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWa3O8H9IEVbdDXBW0mRWEFUtmJ3icESyl75MicaZKNcTs8HpFFmmTUYhQQ/640?wx_fmt=png)
+
+随便放一个集锦意思一下吧那就。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWa3O8H9IEVbdDXBW0mRWEFUtmJ3icESyl75MicaZKNcTs8HpFFmmTUYhQQ/640?wx_fmt=png)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWadD0ojiakibw37SnYZsfoukg94HiacfZ2PeS4w90UnVzAuASNAPZTgH2FA/640?wx_fmt=gif)
+
+说到这里，大家也应当明白，这个号名称来由最大的原因就是：我是个科比人柱力。当然，抛开篮球因素外，我的出发点主要是其执着、好斗的精神、对于热爱的忠诚以及其充满智慧的人生观（当然也就叫做曼巴精神）。我们通过这个“高中生毕业生”说过的话来了解一下：
+Someone has to win, why not be me?
+When you want to give up, think about what made you insist on coming here.
+Second means you are the number one loser.
+I know the appearance of Losangeles at four in the morning.
+Failure is more painful than death.
+
+Love me or hate me, both must have one. All the time. Hate my game, my ....... Hate it, hate it with all your thoughts. But there are many people who love me, and the reason is the same as those who hate me.
+If you are afraid of failure, you will fail.
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWadD0ojiakibw37SnYZsfoukg94HiacfZ2PeS4w90UnVzAuASNAPZTgH2FA/640?wx_fmt=gif)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWadD0ojiakibw37SnYZsfoukg94HiacfZ2PeS4w90UnVzAuASNAPZTgH2FA/640?wx_fmt=gif)
+
+在16年退役的那一天，坐在最后一排上高数课的我看完了他人生中的最后一场比赛，我以为他的那句“mamba out”，会带走我的青春。但是他走之前还留下了这么一句话“如果在我退役二十年之后，我最大的成就还是篮球，那么我就是失败的”。事实上，还未到二十年，他就已经兑现了自己的诺言：在17年发布了他制作的动画短片《亲爱的篮球之后》，该作品迅速的在第二年的3月5日获得了第90届奥斯卡的“最佳动画短片奖”（这是什么成就不用说了吧，小李子22年陪跑冠军直呼内行）。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWa3O8H9IEVbdDXBW0mRWEFUtmJ3icESyl75MicaZKNcTs8HpFFmmTUYhQQ/640?wx_fmt=png)
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWaUnMtKaMlQpQ5E3kQn7E5G0PLb1DTzN4qUSkKvY01IxA0S1Bk0nynicQ/640?wx_fmt=jpeg)
+
+不仅如此，这个高中生退休后还开始写书了，其作品巫兹纳德系列也荣登北美畅销书籍的榜首，目前有两部，我有其中的《巫兹纳德：训练营》。看，他真的做到了，他对胜利的追求不止于篮球。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWa3O8H9IEVbdDXBW0mRWEFUtmJ3icESyl75MicaZKNcTs8HpFFmmTUYhQQ/640?wx_fmt=png)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWadD0ojiakibw37SnYZsfoukg94HiacfZ2PeS4w90UnVzAuASNAPZTgH2FA/640?wx_fmt=gif)
+
+02
+
+所以说，mamba在更多的情况
+
+下是一个代词，通常指业界翘楚，继科比之后NBA的各种绝活哥也通常被称为各种曼巴。回到最初的问题，mamba是我个人的图腾，让我时刻告诉自己做事需要笃定、专注、坚持。那么，Biomamba连在一起便是本公众号的主旨——努力成为生物行业中的优质公众号。我也希望这个号能够二十年如一日的更下去（只有拖更，没有断更）。
+
+斯人已逝，遗忘才是终点！
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwM7LZwfTEM9WurECaib6lWarR6pbb8yeBcz0LRWxcQG76M1SXvhYo7zo2P89ImClSlOaGKQzToM0g/640?wx_fmt=jpeg)
+
+参考：[1]https://baike.sogou.com/v59089199.htm?fromTitle=%E6%9B%BC%E5%B7%B4%E8%9B%87[2]https://baike.baidu.com/item/%E7%A7%91%E6%AF%94%C2%B7%E5%B8%83%E8%8E%B1%E6%81%A9%E7%89%B9/318773?fromtitle=%E7%A7%91%E6%AF%94&fromid=133066&fr=aladdin

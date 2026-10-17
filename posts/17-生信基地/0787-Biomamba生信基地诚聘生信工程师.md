@@ -1,0 +1,74 @@
+---
+title: "Biomamba生信基地诚聘生信工程师"
+date: 2025-01-02
+source: https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526253&idx=1&sn=9d21bded48b1200ca31917491a43e7df&chksm=9b3c1e3dac4b972b8fc46beacbe7623423152910bb0fea023e1eff17ad74e795aae78a1d1c6f#rd
+albums: ["生信基地", "求职/求学/招聘"]
+---
+
+# Biomamba生信基地诚聘生信工程师
+
+> 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526253&idx=1&sn=9d21bded48b1200ca31917491a43e7df&chksm=9b3c1e3dac4b972b8fc46beacbe7623423152910bb0fea023e1eff17ad74e795aae78a1d1c6f#rd
+> 合集：生信基地 / 求职/求学/招聘
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+诚招生信工程师
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+Biomamba生信基地已经**稳定运行多年** ，[线下生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522649&idx=1&sn=a3a3df860fd162691403281356dcbf1d&scene=21#wechat_redirect>)因发展需要，现诚聘**全职** 的小伙伴。先聊聊我和平台的优势(我自认为的)。
+
+1、本人95后，目前的工作内容都直接与我直接对接，相信作为同龄人的我们沟通起来会**零障碍** 。愿意选择加入我们的同学都会被我们会当作伙伴。Biomamba负责给你们打杂，你们只需要安心工作![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/v1.3.10/assets/newemoji/LetMeSee.png)
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyJTurcWOC9GGd5VvBqk9u2cK8RvUSF0HZDy9xSxMPyoXMJibdafloWnc5KWVsoY9ZKGiboCGZ4ALbg/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+**Biomamba组装椅子ing**
+
+2、Biomamba明年博士毕业，并且希望长期从事**科研工作** ，相信无论是在**职场** 还是**学术** 层面都能够为你提供一定的帮助。
+
+3、资金充裕：一定为大家提供一份与你个人能力和工作内容**相匹配** 的薪酬。
+
+4、工作环境稳定：Biomamba生信基地励志为大家提供至少五十年的科研内容输出，所以办公室是我全资购置的(位于**南京百家湖CBD** ，隔壁就是景枫、金鹰、1912、太阳城、百家湖，心情不好随时下楼逛街![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/v1.3.10/assets/newemoji/Yellowdog.png))，大平层，**朝南** 的飘窗，光照充足，保障大家的工作环境和心情一样阳光。还有38年产权，**完全不用担心** 公司/老板跑路。现在公司人均**工作机都是海景房** ，人均工作面积可观，目前90平的工作环境里只安排了三位同事。
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpx8zeFc4XvbRUPaZolf3djBicORCoYxhCKhkJgrUu5jpTkNvk8iaLcA9hLqFTISNEiay14JQBRmIIdNg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+给大家配备了茶水吧、咖啡机、零食柜，还有想要的配套设施也欢迎告诉我们![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/v1.3.10/assets/Expression/Expression_14@2x.png)：
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyJTurcWOC9GGd5VvBqk9u2PaQSvDhnu7UJibZ5RibWO6RpkHjQH9kAtbU9miaGlhuZRQlqDYRwa3yTA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+5、没有出差压力，在办公室里就可以完成全部的工作内容。
+
+6、业务稳定：我们全网有近**十万** 的粉丝用户，拥有**多家战略合作** 伙伴。目前Biomamba生信基地处于快速扩张阶段，早期加入的员工能够快速晋升，熟悉工作内容后即可成立独立部门纳新。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+岗位要求
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+1、岗位定位：**全职** 单细胞/空转生信工程师
+
+2、职责：负责公众号文献解读/代码分享类内容输出；深度参与Biomamba生信基地图文、视频教程制作；参与公众号兼职生信工作人员的工作安排与作业校验。3、要求：熟悉本公众号内容。学历要求**硕士** 及以上，有内驱力与自我学习能力。我希望你能够拥有**生物信息学背景** ，**熟练掌握** 常见的生物信息学分析(尤其是单细胞、空转及其联合分析)，能够熟练的应用各类**办公软件**(office三件套Word、Excel、PPT；adobe三件套PS、AI、PR)。希望**近期能够线下入职** 。![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+单细胞/空转生信工程师自测卷
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+我们设计了一份单细胞/空转**生信工程师自测卷** 。Biomamba个人觉得从事相关行业的生信工程师，以下题目需要至少能完成/答对**80%** 以上，大家可以自测一下。如果考虑来Biomamba生信基地担任单细胞/空转生信工程师，欢迎填写问卷后将简历发送至：**1913507043@qq.com** 。
+
+在线自测卷(文末阅读原文可直达)：
+
+https://kaoshi.wjx.top/vm/tVlb8JP.aspx#
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwX66NS5qOQWPsd55y5LbynjiaENpPX4gfUgFD6CeQLSvhZiaFH23ib0icssC1z8Ltav7XH1HnCyibjSkw/640?wx_fmt=jpeg&from=appmsg)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+联系方式
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+
+有意向的同学可以填写以上自测卷并发送您的简历、意向职位、最早实习/入职时间、预期薪酬、联系方式发送至邮箱**1913507043@qq.com** 。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
