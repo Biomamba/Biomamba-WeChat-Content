@@ -12,7 +12,7 @@ albums: ["单细胞教程全收录"]
 
 # **一、写在前面：**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 此前已经给大家简单介绍过了五种单细胞基因集打分方法，包含`AddModuleScore`、`ssGSEA`、`GSVA`、`PercentageFeatureSet`、`AUCell`：[**一文搞定单细胞基因集评分**](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490658&idx=1&sn=3460a09ef4ad2916aabfaa13e195c7b1&chksm=9b3f6532ac48ec249e974aa5bfcca2f5d441e64bbd353fe9dd45a50b47599663bf0334def7d4&scene=21#wechat_redirect>)。但最近在做SCENIC(用于单细胞转录因子调控网络预测)的教程，其中用到了AUCell这一R包/算法来计算**regulon** 的活性，本以为AUCell是其他的哪位大佬开发的，没想到是作者在设计SCENIC时顺手写的基因集打分方法，看来硬生信和软生信之间的鸿沟是真实存在的，AUCell值得我们用单独的版面来介绍。
 
@@ -23,7 +23,7 @@ albums: ["单细胞教程全收录"]
 
 # **二、教程：**
 
-![](../../images/90fab1387787746b.webp) 1.0 AUCell简介AUCell可以在单细胞测序数据种鉴定/识别激活的基因集，主要实现方式是通过曲线下面积(Area Under the Curve, AUC)去计算每个细胞中是否存在富集的关键基因集(signature)。输出的**AUC scores** 类似于GSVA score，可以用于反应**signature** 的相对表达量。值得一提的是，由于GSVA score的计算方式基于排序和AUC，因此计算过程并不受基因表达量的**单位** 以及**normalization** 的影响；并且AUC scores是以**每一个细胞为单位** 进行计算的，因此处理大数据内存吃紧时，对每个子集计算AUC score再合并也无妨。
+![](../../images/90fab1387787746b.gif) 1.0 AUCell简介AUCell可以在单细胞测序数据种鉴定/识别激活的基因集，主要实现方式是通过曲线下面积(Area Under the Curve, AUC)去计算每个细胞中是否存在富集的关键基因集(signature)。输出的**AUC scores** 类似于GSVA score，可以用于反应**signature** 的相对表达量。值得一提的是，由于GSVA score的计算方式基于排序和AUC，因此计算过程并不受基因表达量的**单位** 以及**normalization** 的影响；并且AUC scores是以**每一个细胞为单位** 进行计算的，因此处理大数据内存吃紧时，对每个子集计算AUC score再合并也无妨。
 
 ## 2.0. 分析前准备
 
@@ -543,7 +543,7 @@ par(mfrow=c(3,3))AUCell_plotTSNE(tSNE=cellsTsne, exprMat=exprMatrix, plots = "AU
 
 # **最后、单细胞教程全收录：**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 单细胞数据分析系列教程：
 

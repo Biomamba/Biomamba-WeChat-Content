@@ -12,7 +12,7 @@ albums: ["单细胞教程全收录"]
 
 # **一、写在前面：**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 有些同学在使用服务器的时候([生信分析为什么离不开服务器](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493231&idx=2&sn=6ca55bd540fd12686da05a3ac2a40e33&chksm=9b3c9f3fac4b1629940794a6974a033cc78db1ac5c391fc02b66d299db29319415a5dd9cdfc7&token=239324761&lang=zh_CN&scene=21#wechat_redirect>))发现自己使用服务器的时候计算速度甚至还不如本地的电脑。在沟通的过程中我们发现，有一部分同学不太会在自己运行任务时调用多线程并行计算来加速自己的计算(48线程的机器只用1个线程当然很亏啦)。我们此前就以`monocle`为例跟大家讨论过并行计算的问题([答读者问 （十七）调用的线程越多就算的越快嘛?](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488995&idx=1&sn=7140e0d037671542fb37dff3a3c94b28&chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&scene=21#wechat_redirect>))，这次我们就以`Seurat`官方教程[1]教大家如何通过`future`的并行策略加快`Seurat`的计算。
 
@@ -20,7 +20,7 @@ albums: ["单细胞教程全收录"]
 
 # **二、并行计算**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 ## **0 测试代码和数据**
 
@@ -239,7 +239,7 @@ ggplot(timing.comparisons, aes(fxn, time)) + geom_bar(aes(fill = strategy), stat
 
 # **三、内存问题**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 并行计算时有默认调用内存的上限，你可能会遇到以下报错：
 ```
@@ -268,7 +268,7 @@ makecore(4,1)#这里以4线程,1GB为例，
 
 # **四、版本信息**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 大概1/3很多报错的发生都是因为版本问题：
 ```

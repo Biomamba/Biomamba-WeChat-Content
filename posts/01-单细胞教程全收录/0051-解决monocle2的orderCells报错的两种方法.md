@@ -10,7 +10,7 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491083&idx=1&sn=c5697ab024193cb6595d27e4f4d3bfaf&chksm=9b3f675bac48ee4d7244d9819e14fe210f7e42e40fc7a6a8df7b95bfd92f06334d60d226cb93#rd
 > 合集：单细胞教程全收录
 
-![](../../images/90fab1387787746b.webp)此前我们给大家做了一系列monocle的教程用于帮助大家完成**拟时序分析** ，虽然是**边做边骂** monocle语法差、bug多、版本不兼容，但是monocle从**计算效率和效果** 上来看仍然是市面上最优秀的拟时序分析软件之一。
+![](../../images/90fab1387787746b.gif)此前我们给大家做了一系列monocle的教程用于帮助大家完成**拟时序分析** ，虽然是**边做边骂** monocle语法差、bug多、版本不兼容，但是monocle从**计算效率和效果** 上来看仍然是市面上最优秀的拟时序分析软件之一。
 目前从大家的反馈上来看，orderCells这个函数由于版本问题出现bug的频率最多，此前我们已经给大家出了一个推送解决版本问题([答读者问（十八）、一个我至少被问过30遍的monocle报错](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490010&idx=1&sn=24c55fa4bd5d7d829625cb67dbaf321a&chksm=9b3f608aac48e99c9f27e3423c8398034a1819d0ccebbf21170b955461d2c335132d6f3cce25&scene=21#wechat_redirect>))，但是仍有同学不会安装相应的版本，这里我们也提供一种更简单的**修改源码** 方法，并且经验证后确定有效。
 
 **视频教程** :
@@ -26,7 +26,7 @@ https://pan.baidu.com/s/1XRkUW7s2nQxE6HuLjY-VGw?pwd=5652
 
 图文教程：
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 # 一、问题
 
@@ -71,7 +71,7 @@ mycds1 <- orderCells(mycds)#这里先按修改前的运行(我这个版本本就
 
 **往期回顾：**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 单细胞数据分析系列教程：
 

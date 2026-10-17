@@ -26,7 +26,7 @@ albums: ["单细胞教程全收录"]
 
 ![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)一如既往地，我们整理好了测试文件和代码的html文件，供大家翻阅学习：
 
-![](../../images/f99d013e9a491b52.webp)
+![](../../images/f99d013e9a491b52.gif)
 
 分析输出图片示例：
 

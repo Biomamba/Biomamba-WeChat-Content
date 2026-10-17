@@ -5,7 +5,7 @@
 </blockquote>
 <p><img alt="" src="../../images/32d1a043631a4178.png"></p>
 <p>方法一：视频教程</p>
-<p><img alt="" src="../../images/806f50c6211bc173.webp">这一讲内容关于细胞类型注释，之前的课程中我们已对单细胞转录组测序的基本分析流程做了基本的梳理，相信大家已经可以完成一些基础的分析。单细胞转录组测序的pipeline设计较为复杂、也不能像bulk RNA-Seq一样设计通用的自动化分析流程，最大的原因便是不同数据集之间的细胞群注释迥然不同，分析数据时需要做到足够的个性化。因此本次课程我们给大家提供了数据库注释、singleR内置数据集与自定义注释、seurat内置注释等方法供大家选择。相信大家完成本次课程的学习，可以解决单细胞类群注释的所有问题。</p>
+<p><img alt="" src="../../images/806f50c6211bc173.gif">这一讲内容关于细胞类型注释，之前的课程中我们已对单细胞转录组测序的基本分析流程做了基本的梳理，相信大家已经可以完成一些基础的分析。单细胞转录组测序的pipeline设计较为复杂、也不能像bulk RNA-Seq一样设计通用的自动化分析流程，最大的原因便是不同数据集之间的细胞群注释迥然不同，分析数据时需要做到足够的个性化。因此本次课程我们给大家提供了数据库注释、singleR内置数据集与自定义注释、seurat内置注释等方法供大家选择。相信大家完成本次课程的学习，可以解决单细胞类群注释的所有问题。</p>
 <h4 id="32023">第一个代码块中没有注释，看不懂的同学去看一下前面的教程(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;chksm=9b3cb9baac4b30ac6f0ce28a6dd10470e73d1e1d6defece5636939a32a6db9b2cce0ff8688eb&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|3.单样本分析(2023年重置)</a>)，测试数据也与那里的相同。</h4>
 <h4 id="_1"></h4>
 <p>视频教程，版面原因变成画中画了，建议阅读原文去B站观看：</p>
@@ -13,7 +13,7 @@
 https://www.bilibili.com/video/BV1S44y1b76Z?p=6</p>
 <p><img alt="" src="../../images/32d1a043631a4178.png"></p>
 <p>准备工作</p>
-<p><img alt="" src="../../images/806f50c6211bc173.webp"></p>
+<p><img alt="" src="../../images/806f50c6211bc173.gif"></p>
 <p>进行预处理，作到细胞注释前的步骤 第一个代码块中<strong>没有注释</strong> ，看不懂的同学去看一下我们的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;chksm=9b3cb9baac4b30ac6f0ce28a6dd10470e73d1e1d6defece5636939a32a6db9b2cce0ff8688eb&amp;scene=21&amp;cur_album_id=2923694853375688706#wechat_redirect">第三讲 单样本分析</a></p>
 <pre><code class="language-r"># 预处理到细胞注释前的步骤：
 if(T){rm(list = ls())
@@ -100,7 +100,7 @@ if(T){rm(list = ls())
 <h1 id="_2"><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487923&amp;idx=1&amp;sn=15043c6d729b0d5493ab875b0e54a259&amp;chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0&amp;scene=21#wechat_redirect"></a></h1>
 <p><img alt="" src="../../images/32d1a043631a4178.png"></p>
 <p>方法一：查数据库</p>
-<p><img alt="" src="../../images/806f50c6211bc173.webp"></p>
+<p><img alt="" src="../../images/806f50c6211bc173.gif"></p>
 <pre><code class="language-r">library(dplyr)
 # 按照log2FC筛选top10基因
 top10 &lt;- pbmc.markers %&gt;% group_by(cluster) %&gt;% top_n(n = 10, wt = avg_log2FC)
@@ -135,7 +135,7 @@ DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, pt.size = 0.5) + NoLeg
 <p><img alt="" src="../../images/4c3ea91051ed1212.webp"></p>
 <p><img alt="" src="../../images/32d1a043631a4178.png"></p>
 <p>方法二：通过singleR注释</p>
-<p><img alt="" src="../../images/806f50c6211bc173.webp"></p>
+<p><img alt="" src="../../images/806f50c6211bc173.gif"></p>
 <p>这一方法很鸡肋，不推荐、不推荐、不推荐！主要是由于很难找到合适的<strong>参考数据</strong> ，但是对于免疫细胞的注释还是有可观效果的。</p>
 <pre><code class="language-r">if(!require(SingleR))BiocManager::install('SingleR')
 # remove.packages('matrixStats')#移除后可能需要重新打开
@@ -193,7 +193,7 @@ table(cellType[,1:2])#访问celltyple的2~3列
 <p>你有合适的参考数据集时可以用方法三、方法四进行注释</p>
 <p><img alt="" src="../../images/32d1a043631a4178.png"></p>
 <p>方法三：自定义singleR注释</p>
-<p><img alt="" src="../../images/806f50c6211bc173.webp"></p>
+<p><img alt="" src="../../images/806f50c6211bc173.gif"></p>
 <pre><code class="language-r">#我们走个极端，拿它自己作为自己的参考数据集，看看注释的准不准
 ##########利用singleR构建自己的数据作为参考数据集########
 library(SingleR)
@@ -429,7 +429,7 @@ p1|p2#完美，无差别注释，当然了，我们这个参考数据用的比�
 <p><img alt="" src="../../images/69463383b2f16d8d.webp"></p>
 <p><img alt="" src="../../images/32d1a043631a4178.png"></p>
 <p>方法四、Seurat内置的投影</p>
-<p><img alt="" src="../../images/806f50c6211bc173.webp"></p>
+<p><img alt="" src="../../images/806f50c6211bc173.gif"></p>
 <pre><code class="language-r">library(Seurat)
 pancreas.query &lt;- bfreaname.pbmc#待注释数据
 
@@ -472,7 +472,7 @@ p1|p2#完美，无差别注释，当然了，我们这个参考数据用的比�
 
 版本问题
 
-![](../../images/806f50c6211bc173.webp)
+![](../../images/806f50c6211bc173.gif)
 [code]
 #### 最近发现代码运行的最大障碍是各个packages的版本冲突问题，这里列出本次分析环境中的所有信息，报错时可以参考
 sessionInfo()
@@ -591,7 +591,7 @@ sessionInfo()
 <h3 id="_3">可以看出，各种注释方法都是比较科学的，但最大的挑战来源于参考数据集与待注释数据集间的适用度。</h3>
 <h2 id="ok">OK 开席！</h2>
 <p><strong>单细胞系列教程目录</strong></p>
-<p><img alt="" src="../../images/90fab1387787746b.webp"> 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/以下的资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;chksm=9b3c9b97ac4b1281ab462f866538f096ba2473a3d1426a27d8d97ccc636bfd081e1ba8934dfd&amp;scene=21#wechat_redirect">单细胞数据基础分析学习手册</a></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"> 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/以下的资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;chksm=9b3c9b97ac4b1281ab462f866538f096ba2473a3d1426a27d8d97ccc636bfd081e1ba8934dfd&amp;scene=21#wechat_redirect">单细胞数据基础分析学习手册</a></p>
 <p>单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499776&amp;idx=2&amp;sn=7fc250d94ed88cfd5e2224f071bb1742&amp;chksm=9b3cb950ac4b30467a082527547b91aec15b7d1f40d44e362894aedeb6a99e014518fa5e4743&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|1.绪论</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499795&amp;idx=2&amp;sn=68e6298eb43633c71939c146d90230ff&amp;chksm=9b3cb943ac4b3055e09739d77e037d679f3d9ec68780d1aa8c592f806fcc8d2322eaee78752d&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|2.各类数据结构与读取方法</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;chksm=9b3cb9baac4b30ac6f0ce28a6dd10470e73d1e1d6defece5636939a32a6db9b2cce0ff8688eb&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|3.单样本分析</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500117&amp;idx=2&amp;sn=cef0b0abec6d73a8c2615980ef68aec1&amp;chksm=9b3cb805ac4b3113fdc820b9c9667f9554b2e39f90c45b5806021a415698b0a5141c521c64dc&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|4.多样本整合</a>

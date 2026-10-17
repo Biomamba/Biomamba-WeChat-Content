@@ -5,15 +5,15 @@
 </blockquote>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>写在前面</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp">随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些<strong>改进的可视化</strong> 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样<strong>信达雅</strong> 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2707677276481814529#wechat_redirect"><strong>单细胞测图片改造计划</strong></a>的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
+<p><img alt="" src="../../images/90fab1387787746b.gif">随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些<strong>改进的可视化</strong> 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样<strong>信达雅</strong> 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2707677276481814529#wechat_redirect"><strong>单细胞测图片改造计划</strong></a>的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
 这次的内容为对DotPlot的改造，主要DIY的地方是加上了顶部的Celltype注释条与侧面的基因聚类树。本教程需要有一定的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506720&amp;idx=1&amp;sn=fe897ba3c33a8e63bf6a4e35aeac1896&amp;scene=21#wechat_redirect">R语言基础</a>方可放心食用。本周末<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527337&amp;idx=1&amp;sn=6893269670fc98b41d6bb1decf5abadb&amp;scene=21#wechat_redirect">R语言学习计划启动</a>！</p>
 <p><img alt="" src="../../images/d177e2eb51b3b086.webp"></p>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>视频教程</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp">B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1S44y1b76Z?p=19</p>
+<p><img alt="" src="../../images/90fab1387787746b.gif">B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1S44y1b76Z?p=19</p>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>代码及测试文件</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp">不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或<strong>扫码打开</strong> ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：</p>
+<p><img alt="" src="../../images/90fab1387787746b.gif">不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或<strong>扫码打开</strong> ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：</p>
 <p><img alt="" src="../../images/b1e5f33320c540b9.png"></p>
 <p>通过网盘分享的文件：改造单细胞DotPlot</p>
 <p>链接: https://pan.baidu.com/s/1Hfu_ROTeVg8xKRH5vZ-fdg?pwd=gdvk</p>
@@ -22,7 +22,7 @@
 <p>若链接失效可以文末联系客服领取~</p>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>图文教程</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"></p>
 <h1 id="_1">一、测试数据处理</h1>
 <p>经典的pbmc3k数据集 下面预处理的步骤看不懂的同学可以先补一下基础知识手把手教你做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487976&amp;idx=1&amp;sn=8edd929256e609e4210a40df63fc1427&amp;chksm=9b3f68b8ac48e1aefd3ff38dd5744c485cde5d7f28d79745b66863928d4614fafb2928b3f617&amp;payreadticket=HMoAY_v8_rICSU7SWHmvxC0_zLzxhvZtkSG6IE0gCGU29Swy8TC2jTa2hBv3oc4ktoOPfGo&amp;scene=21#wechat_redirect">单细胞测序数据分析（三）——单样本分析</a></p>
 <pre><code class="language-r">suppressMessages({
@@ -469,9 +469,9 @@ p2 %&gt;% insert_top(p2_anno,height = .05) %&gt;%
 <p><img alt="" src="../../images/a6b2ffcea2d25a28.webp"></p>
 <p><img alt="图片" src="../../images/68adda3cdb14540f.webp"></p>
 <p><strong>如何联系我们</strong></p>
-<p><img alt="图片" src="../../images/3b8e21da777157f9.webp"><img alt="图片" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><img alt="图片" src="../../images/3b8e21da777157f9.webp"><img alt="图片" src="../../images/7a5130b05d387a24.gif"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
 <p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
 <p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
-<p><img alt="图片" src="../../images/52dfc495fd16977e.webp"><img alt="图片" src="../../images/acba43cb3408c3d0.webp"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>
+<p><img alt="图片" src="../../images/52dfc495fd16977e.webp"><img alt="图片" src="../../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

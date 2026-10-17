@@ -14,13 +14,13 @@ albums: ["单细胞教程全收录", "答读者问"]
 
 写在前面
 
-![](../../images/90fab1387787746b.webp)这一讲其实我们更过，这里重置了一下，大家可以配合这一讲一起学习([答读者问 （十四）Seurat中分类变量处理技巧](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486134&idx=1&sn=e581b8ac20bbc968aeef3f9cf56f3a0f&chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&scene=21#wechat_redirect>))。付费解锁里没内容啦，所有内容都放出来了。只需要这讲的同学不要订阅，本推送是个“假的付费内容”。
+![](../../images/90fab1387787746b.gif)这一讲其实我们更过，这里重置了一下，大家可以配合这一讲一起学习([答读者问 （十四）Seurat中分类变量处理技巧](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486134&idx=1&sn=e581b8ac20bbc968aeef3f9cf56f3a0f&chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&scene=21#wechat_redirect>))。付费解锁里没内容啦，所有内容都放出来了。只需要这讲的同学不要订阅，本推送是个“假的付费内容”。
 
 ![](../../images/ceac53a8b65f5faf.png)
 
 开整
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 # 一、提取或删除细胞
 
@@ -261,7 +261,7 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 代码及测试文件
 
-![](../../images/90fab1387787746b.webp)不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
+![](../../images/90fab1387787746b.gif)不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
 
 ![](../../images/f14e933e45b0605a.webp)
 
@@ -275,7 +275,7 @@ https://pan.baidu.com/s/1uH_Ft0qYB5xKzzULO0oDKA?pwd=bir2
 
 **单细胞系列教程目录**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 单细胞数据分析系列教程：
 

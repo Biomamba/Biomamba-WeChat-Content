@@ -10,9 +10,9 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247489675&idx=1&sn=be27cd0a25fe4f2924582bd87a3d86d4&chksm=9b3f61dbac48e8cd19187daa9851cdc7fd435d72d99563613ec9674aa6a8b9d64f63125ba77e#rd
 > 合集：单细胞教程全收录
 
-![](../../images/90fab1387787746b.webp)这是一篇我安排给技术支持的作业，总的来说两者都是用于处理表达矩阵的函数，但SCTransform()显得比ScaleData()更加高级一些，ScaleData()的功能只是SCTransform()的一部分。而且，针对符合**正则化负二项式回归分布** 的系数矩阵来说SCTransform()用于分群敏感度会更高；值得注意的是SCTransform()的矩阵不适合用于批次矫正。
+![](../../images/90fab1387787746b.gif)这是一篇我安排给技术支持的作业，总的来说两者都是用于处理表达矩阵的函数，但SCTransform()显得比ScaleData()更加高级一些，ScaleData()的功能只是SCTransform()的一部分。而且，针对符合**正则化负二项式回归分布** 的系数矩阵来说SCTransform()用于分群敏感度会更高；值得注意的是SCTransform()的矩阵不适合用于批次矫正。
 
-![](../../images/90fab1387787746b.webp)ScaleData()与SCTransform()有什么区别呢？首先，两者算法截然不同，SCTransform基于“正则化负二项式回归分布”算法，用于测序数据的归一化，常用来对单细胞测序数据的测序深度差异进行归一化，是Seurat3.0流程重要步骤。Seurat最新版本可以使用SCTransform函数对数据做标准化，它可代替三个函数**（****NormalizeData, ScaleData, FindVariableFeatures****）** 的运行，且对测序深度的校正效果好于log标准化，但不能用于批次校正使用。
+![](../../images/90fab1387787746b.gif)ScaleData()与SCTransform()有什么区别呢？首先，两者算法截然不同，SCTransform基于“正则化负二项式回归分布”算法，用于测序数据的归一化，常用来对单细胞测序数据的测序深度差异进行归一化，是Seurat3.0流程重要步骤。Seurat最新版本可以使用SCTransform函数对数据做标准化，它可代替三个函数**（****NormalizeData, ScaleData, FindVariableFeatures****）** 的运行，且对测序深度的校正效果好于log标准化，但不能用于批次校正使用。
 
 而ScaleData()是Seurat2.0版本的标准流程，在PCA之前对数据进行正态化处理，因为PCA主成分分析认为主元之间彼此正交，样本呈高斯分布（正态分布）。SCT流程在官网是这样介绍的：sctransform使用“正则化负二项式回归分布”计算scRNA-seq数据中的技术噪声模型。此模型的残差是归一化值，可以是正数，也可以是负数。正值即阳性残差表明，对于该基因在群体中的平均表达和细胞测序深度，我们观察到的UMI比预期的要多，而负残差则表明相反。
 

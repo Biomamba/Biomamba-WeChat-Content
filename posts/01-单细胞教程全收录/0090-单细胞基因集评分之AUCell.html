@@ -4,13 +4,13 @@
 合集：单细胞教程全收录</p>
 </blockquote>
 <h1 id="_1"><strong>一、写在前面：</strong></h1>
-<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"></p>
 <p>此前已经给大家简单介绍过了五种单细胞基因集打分方法，包含<code>AddModuleScore</code>、<code>ssGSEA</code>、<code>GSVA</code>、<code>PercentageFeatureSet</code>、<code>AUCell</code>：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490658&amp;idx=1&amp;sn=3460a09ef4ad2916aabfaa13e195c7b1&amp;chksm=9b3f6532ac48ec249e974aa5bfcca2f5d441e64bbd353fe9dd45a50b47599663bf0334def7d4&amp;scene=21#wechat_redirect"><strong>一文搞定单细胞基因集评分</strong></a>。但最近在做SCENIC(用于单细胞转录因子调控网络预测)的教程，其中用到了AUCell这一R包/算法来计算<strong>regulon</strong> 的活性，本以为AUCell是其他的哪位大佬开发的，没想到是作者在设计SCENIC时顺手写的基因集打分方法，看来硬生信和软生信之间的鸿沟是真实存在的，AUCell值得我们用单独的版面来介绍。</p>
 <p>考虑节省时间我们先将<strong>图文</strong> 教程更新出来，不知诸位是否需要<strong>视频</strong> 教程（真的还蛮花时间的），老规矩，上票:</p>
 <h1 id="_2">**</h1>
 <p>**</p>
 <h1 id="_3"><strong>二、教程：</strong></h1>
-<p><img alt="" src="../../images/90fab1387787746b.webp"> 1.0 AUCell简介AUCell可以在单细胞测序数据种鉴定/识别激活的基因集，主要实现方式是通过曲线下面积(Area Under the Curve, AUC)去计算每个细胞中是否存在富集的关键基因集(signature)。输出的<strong>AUC scores</strong> 类似于GSVA score，可以用于反应<strong>signature</strong> 的相对表达量。值得一提的是，由于GSVA score的计算方式基于排序和AUC，因此计算过程并不受基因表达量的<strong>单位</strong> 以及<strong>normalization</strong> 的影响；并且AUC scores是以<strong>每一个细胞为单位</strong> 进行计算的，因此处理大数据内存吃紧时，对每个子集计算AUC score再合并也无妨。</p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"> 1.0 AUCell简介AUCell可以在单细胞测序数据种鉴定/识别激活的基因集，主要实现方式是通过曲线下面积(Area Under the Curve, AUC)去计算每个细胞中是否存在富集的关键基因集(signature)。输出的<strong>AUC scores</strong> 类似于GSVA score，可以用于反应<strong>signature</strong> 的相对表达量。值得一提的是，由于GSVA score的计算方式基于排序和AUC，因此计算过程并不受基因表达量的<strong>单位</strong> 以及<strong>normalization</strong> 的影响；并且AUC scores是以<strong>每一个细胞为单位</strong> 进行计算的，因此处理大数据内存吃紧时，对每个子集计算AUC score再合并也无妨。</p>
 <h2 id="20">2.0. 分析前准备</h2>
 <h3 id="201">2.0.1 版本信息</h3>
 <p>大家软件装不上时第一件事就应该检查环境的版本信息：</p>
@@ -380,7 +380,7 @@
 <h1 id="_4"></h1>
 <h1 id="_5"></h1>
 <h1 id="_6"><strong>最后、单细胞教程全收录：</strong></h1>
-<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"></p>
 <p>单细胞数据分析系列教程：</p>
 <p>B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/以下的资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491618&amp;idx=1&amp;sn=ebd55322b512225ed1834bd307fc0baa&amp;chksm=9b3c9972ac4b1064bf1ec24f5c547cec831625db80da2f77e55ea56f8a326ca0cb715a0bff3d&amp;scene=21#wechat_redirect">2022资料合辑</a></p>
 <p>单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484077&amp;idx=1&amp;sn=e329bf865493d46308985f4c111370ae&amp;chksm=9b3f7bfdac48f2eb7e903510338bd772c6be34ccbcb681806d288e62a05eee28fa209d2f33b9&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（一）——绪论</a>

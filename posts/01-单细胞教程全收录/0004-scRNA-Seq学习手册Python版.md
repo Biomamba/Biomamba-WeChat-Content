@@ -16,7 +16,7 @@ albums: ["单细胞教程全收录"]
 
 ![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)我们B站的[十八万播放量的单细胞教程](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503465&idx=1&sn=e62ea7c78885c6959a535c2f1a10cd6d&chksm=9b3cb739ac4b3e2ffb60d625dc83b0b914d2956a64a6e8400712920dd2ac4c9f11e4e7752d74&scene=21#wechat_redirect>)是基于**R语言** 实现的。因此这里我们再整理一个scRNA-Seq学习手册的**Python版**(基于scanpy)，包含"准备工作"、"Anndata数据结构理解"、"单样本分析"、"scanpy可视化"、"多样本整合"、"PAGA轨迹推断"共六个章节。文末下载链接包含代码、学习手册、测试文件和输出结果。希望该手册可以帮助大家完成Python环境中单细胞基础分析的一站式学习，学习手册的演示可以看如下动图，翻阅起来比较方便：
 
-![](../../images/abc9781887b03d2a.webp)
+![](../../images/abc9781887b03d2a.gif)
 
 文末下载资料包含测试数据、**单细胞** 学习手册、输出文件、输出图片、标记语言文件(jupyter notebook和Rmarkdown，感兴趣的同学也可以点开学一学咱们的手册是怎么制作出来的)以及scanpy的**空间转录组学习** 手册：
 

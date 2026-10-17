@@ -551,7 +551,7 @@ p1_with_img
 
 这是张”活”图哦，大家可以自行探索一下功能：
 
-**![](../../images/22736cae44d1837d.webp)**
+**![](../../images/22736cae44d1837d.gif)**
 
 ## 1.6`marker`计算与展示
 
@@ -697,7 +697,7 @@ sessionInfo()
 
 ![](../../images/07e88994d32c0968.png)
 
-![](../../images/eae23336d3a269f5.webp)
+![](../../images/eae23336d3a269f5.gif)
 
 与以往的教程一样，我们给大家准备了SeekSpace数据分析的学习手册及对应测试文件，大家可以添加企业微信回复关键字"SeekSpace**学习手册** "即领:
 

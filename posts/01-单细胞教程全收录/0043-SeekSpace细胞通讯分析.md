@@ -571,7 +571,7 @@ sessionInfo()
 
 ![](../../images/07e88994d32c0968.png)
 
-![](../../images/b783bd132ecdd476.webp)
+![](../../images/b783bd132ecdd476.gif)
 
 与以往的教程一样，我们给大家准备了SeekSpace数据分析的学习手册及对应测试文件，大家可以添加企业微信回复关键字"SeekSpace**学习手册** "即领:
 

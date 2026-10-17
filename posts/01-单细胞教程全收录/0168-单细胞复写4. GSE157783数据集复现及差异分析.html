@@ -4,13 +4,13 @@
 合集：单细胞教程全收录 / 全文复现 / 粉丝来稿</p>
 </blockquote>
 <h1 id="_1"><strong>写在前面：</strong></h1>
-<p><img alt="" src="../../images/90fab1387787746b.webp"> 我反复的谈过，细胞类型注释才是单细胞测序中最难的环节，这主要是不同单细胞测序项目中的<strong>取样形式</strong> 、<strong>建库方法</strong> 、<strong>测序平台</strong> 、<strong>分析工具</strong> 、<strong>函数参数</strong> 等多方面因素造成的。拿笔者的第一个单细胞数据集来说，光是调整过滤参数、分辨率、寻找marker加以注释就花了一个月的时间，属实是既枯燥又乏味，为了给大家提供方便，以后会不定期带领大家复现一些已发表数据集中的细胞类型注释过程，有需要的同学可以持续关注，若有感兴趣的物种、组织器官也可以在文末客服处登记；当然，如果您有好的注释结果，也欢迎以<strong>Rmarkdown</strong> 与工程文件Rdata的形式来稿，可以为大家提供稿费。本期测试文件下载：</p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"> 我反复的谈过，细胞类型注释才是单细胞测序中最难的环节，这主要是不同单细胞测序项目中的<strong>取样形式</strong> 、<strong>建库方法</strong> 、<strong>测序平台</strong> 、<strong>分析工具</strong> 、<strong>函数参数</strong> 等多方面因素造成的。拿笔者的第一个单细胞数据集来说，光是调整过滤参数、分辨率、寻找marker加以注释就花了一个月的时间，属实是既枯燥又乏味，为了给大家提供方便，以后会不定期带领大家复现一些已发表数据集中的细胞类型注释过程，有需要的同学可以持续关注，若有感兴趣的物种、组织器官也可以在文末客服处登记；当然，如果您有好的注释结果，也欢迎以<strong>Rmarkdown</strong> 与工程文件Rdata的形式来稿，可以为大家提供稿费。本期测试文件下载：</p>
 <p>链接：https://pan.baidu.com/s/1AXmoz0SHx4-rEcC6-nn1mw?pwd=ix7z</p>
 <p><img alt="" src="../../images/4cbe1c2de442eff3.jpg"></p>
 <p>包含文件：</p>
 <p><img alt="" src="../../images/f7e1a768d4635d3b.webp"></p>
 <h1 id="_2"><strong>复现图文教程</strong></h1>
-<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"></p>
 <pre><code class="language-r">rm(list=ls())
 library(Seurat)
 library(Matrix)
@@ -1786,7 +1786,7 @@ print(paste(length(up_genes1),length(up_genes2),length(intersect(up_genes1,up_ge
 <h1 id="_3">**</h1>
 <p>**</p>
 <h1 id="_4"><strong>往期回顾：</strong></h1>
-<p><img alt="" src="../../images/90fab1387787746b.webp"><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490504&amp;idx=1&amp;sn=0066b2b33067cedb9d1c28689a53faab&amp;chksm=9b3f6298ac48eb8e12cdc7bdd6263e5feb9039f549f7b9dbf4e258854ee61476d09f702f1447&amp;scene=21#wechat_redirect"> 单细胞注释复写(一):Human Fetal Kidney</a>
+<p><img alt="" src="../../images/90fab1387787746b.gif"><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490504&amp;idx=1&amp;sn=0066b2b33067cedb9d1c28689a53faab&amp;chksm=9b3f6298ac48eb8e12cdc7bdd6263e5feb9039f549f7b9dbf4e258854ee61476d09f702f1447&amp;scene=21#wechat_redirect"> 单细胞注释复写(一):Human Fetal Kidney</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491642&amp;idx=1&amp;sn=2246fb702277ddc690f056fc8854142e&amp;chksm=9b3c996aac4b107c059a403978eca7be1ae7987659626272c58430910ad75892ad470517aefb&amp;scene=21#wechat_redirect">单细胞注释复写（二）: human colorectal</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501145&amp;idx=2&amp;sn=12c2e8d104ad343fc13acb8cda266e6c&amp;chksm=9b3cbc09ac4b351f4ed708a0ed577a21f48ccb0d4173aed94a027b4170147ab85931ee51d1e5&amp;scene=21#wechat_redirect">单细胞复写|3.急性心肌梗塞(AMI)外周血scRNA-Seq分析实战(链接重置)</a></p>
 <p><img alt="" src="../../images/d0a809a43821e1e5.png"></p>

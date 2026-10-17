@@ -30,7 +30,7 @@ albums: ["单细胞教程全收录"]
 
 ![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
-![](../../images/0b62c85da3767a46.webp)
+![](../../images/0b62c85da3767a46.gif)
 
 文末下载链接中包含的内容：
 

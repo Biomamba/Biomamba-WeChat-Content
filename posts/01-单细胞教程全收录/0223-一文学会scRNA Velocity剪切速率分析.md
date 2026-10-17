@@ -37,7 +37,7 @@ https://satijalab.org/seurat/articles/pbmc3k_tutorial.html
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/859f0d1ac006995d.webp)
+![](../../images/859f0d1ac006995d.gif)
 
 **教程目录** ：
 

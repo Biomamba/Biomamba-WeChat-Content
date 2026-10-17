@@ -5,11 +5,11 @@
 </blockquote>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>写在前面</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp">最近在群里总是发现有些同学在做细胞分群时把分辨率调的很高，从而获得了几十个cluster，但是这些cluster又展示出了相似的表达模式，因此便一筹莫展，不知下一步如何是好。看的我密恐都犯了：<img alt="" src="../../images/f3b2a9bd6252c09d.png"><img alt="" src="../../images/dcc567374a3ef34c.webp">
+<p><img alt="" src="../../images/90fab1387787746b.gif">最近在群里总是发现有些同学在做细胞分群时把分辨率调的很高，从而获得了几十个cluster，但是这些cluster又展示出了相似的表达模式，因此便一筹莫展，不知下一步如何是好。看的我密恐都犯了：<img alt="" src="../../images/f3b2a9bd6252c09d.png"><img alt="" src="../../images/dcc567374a3ef34c.webp">
 很多人都觉得获得的cluster数量越多越好，实则不然，一味的调高分辨率并不会使你显得技术超群。<code>FindClusters()</code>只是一个数字游戏，根据各cluster的表达特征找到合适的分辨率才是一个精巧的活。有足够marker支撑的cluster才能被称为是一种细胞类型。我们来一起探索一番。</p>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>开整</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp">一、预处理
+<p><img alt="" src="../../images/90fab1387787746b.gif">一、预处理
 以经典的pbmc3k来演示这个过程，这一步做到分群前，下面代码不理解的同学可以看一下这一讲：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487976&amp;idx=1&amp;sn=8edd929256e609e4210a40df63fc1427&amp;chksm=9b3f68b8ac48e1aefd3ff38dd5744c485cde5d7f28d79745b66863928d4614fafb2928b3f617&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（三）——单样本分析</a></p>
 <pre><code>if(!require(Seurat))install.packages(&quot;Seurat&quot;)
 if(!require(dplyr))install.packages(&quot;dplyr&quot;)
@@ -198,14 +198,14 @@ VlnPlot(pbmc,features = rownames(top10),pt.size = 0,idents = c('Mono_0','Mono_1'
 <p><img alt="" src="../../images/4e9e536ca01647dc.webp"> 可以看出这两种<code>monocyte</code>具有自己的<code>marker</code>，大家可以去cellmarker搜搜看，这分别都属于什么亚群，感兴趣的同学也可以尝试分一分更多的亚群</p>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>代码与测试文件</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"></p>
 <p>不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记。</p>
 <p>链接:</p>
 <p>https://pan.baidu.com/s/1VNbXtIS4SSzy9cqlHVz7iw?pwd=ptps</p>
 <p><img alt="" src="../../images/0b4ae5e562f35e86.jpg"></p>
 <p>若链接失效可以文末联系客服领取~</p>
 <p><strong>单细胞系列教程目录</strong></p>
-<p><img alt="" src="../../images/90fab1387787746b.webp"> 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/以下的资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;chksm=9b3c9b97ac4b1281ab462f866538f096ba2473a3d1426a27d8d97ccc636bfd081e1ba8934dfd&amp;scene=21#wechat_redirect">单细胞数据基础分析学习手册</a></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"> 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/以下的资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;chksm=9b3c9b97ac4b1281ab462f866538f096ba2473a3d1426a27d8d97ccc636bfd081e1ba8934dfd&amp;scene=21#wechat_redirect">单细胞数据基础分析学习手册</a></p>
 <p>单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484077&amp;idx=1&amp;sn=e329bf865493d46308985f4c111370ae&amp;chksm=9b3f7bfdac48f2eb7e903510338bd772c6be34ccbcb681806d288e62a05eee28fa209d2f33b9&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（一）——绪论</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484086&amp;idx=1&amp;sn=7346a09ba350d6fb7c806dcb7509a1ef&amp;chksm=9b3f7be6ac48f2f02cb948140381ad2a0e3818cc0eefc53cb7a1ad7459aacdc1e90a1ce0af8b&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（二）——各类输入文件读取</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487976&amp;idx=1&amp;sn=8edd929256e609e4210a40df63fc1427&amp;chksm=9b3f68b8ac48e1aefd3ff38dd5744c485cde5d7f28d79745b66863928d4614fafb2928b3f617&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（三）——单样本分析</a>

@@ -5,13 +5,13 @@
 </blockquote>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>写在前面</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp">我们在做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487976&amp;idx=1&amp;sn=8edd929256e609e4210a40df63fc1427&amp;chksm=9b3f68b8ac48e1aefd3ff38dd5744c485cde5d7f28d79745b66863928d4614fafb2928b3f617&amp;scene=21#wechat_redirect">单样本分析</a>的时候用这个代码计算过细胞中线粒体的百分比:</p>
+<p><img alt="" src="../../images/90fab1387787746b.gif">我们在做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487976&amp;idx=1&amp;sn=8edd929256e609e4210a40df63fc1427&amp;chksm=9b3f68b8ac48e1aefd3ff38dd5744c485cde5d7f28d79745b66863928d4614fafb2928b3f617&amp;scene=21#wechat_redirect">单样本分析</a>的时候用这个代码计算过细胞中线粒体的百分比:</p>
 <pre><code class="language-r">pbmc[[&quot;percent.mt&quot;]] &lt;- PercentageFeatureSet(pbmc, pattern = &quot;^MT-&quot;)
 </code></pre>
 <p>这是因为线粒体的mRNA都是诸如MT-ATP6、MT-ATP8这样以”MT-“开头命名，以这种格式开头的基因多为同一家族或具有相同特征的一类基因，那么问题来了，人类单细胞数据集中有哪些以特定字符加”-“开头的基因呢？浅浅的探索一下。</p>
 <p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
 <p>开整</p>
-<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"></p>
 <p>过程很简单，随便写个正则表达式就可以了：</p>
 <pre><code class="language-r">library(Seurat)
 ## Attaching SeuratObject
@@ -77,7 +77,7 @@ CombinePlots(gg,ncol = 3)#看来包含的基因数量多没用，还不如只包
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493493&amp;idx=1&amp;sn=2cd725b2f04377f218955bafbcbb877d&amp;chksm=9b3c9e25ac4b17330a9b9ff77302ab95a9dc5dc7e6fe7298f28d682112ee066c7d4bc1947982&amp;scene=21#wechat_redirect">一文搞定单细胞基因集评分</a></p>
 <p>那么，小鼠的基因应该就不需要我再演示一遍了吧~</p>
 <p><strong>单细胞系列教程目录</strong></p>
-<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<p><img alt="" src="../../images/90fab1387787746b.gif"></p>
 <p>单细胞数据分析系列教程：</p>
 <p>B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/以下的资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;chksm=9b3c9b97ac4b1281ab462f866538f096ba2473a3d1426a27d8d97ccc636bfd081e1ba8934dfd&amp;scene=21#wechat_redirect">单细胞数据基础分析学习手册</a></p>
 <p>单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484077&amp;idx=1&amp;sn=e329bf865493d46308985f4c111370ae&amp;chksm=9b3f7bfdac48f2eb7e903510338bd772c6be34ccbcb681806d288e62a05eee28fa209d2f33b9&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（一）——绪论</a>
