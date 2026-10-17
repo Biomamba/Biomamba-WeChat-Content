@@ -73,8 +73,8 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 **五、细胞注释**
 
 细胞注释页面会给出对应分群策略下的降维图、气泡图、小提琴图、热图、细胞比例柱状图等信息，帮助你完成细胞类型的注释![](../../images/a0bc58b5e4b6250a.webp)
-可视化内容展示：![](../../images/80dc3da9cd292dfd.webp)
-给大家展示一个新功能，利用系统输出的marker结合singleR和AI，能够一键注释细胞类型。![](../../images/48d84b2dabd9720e.webp)
+可视化内容展示：![](../../images/80dc3da9cd292dfd.gif)
+给大家展示一个新功能，利用系统输出的marker结合singleR和AI，能够一键注释细胞类型。![](../../images/48d84b2dabd9720e.gif)
 保存后的新注释在这里，我们以CellAnnotation注释进行后续分析：![](../../images/f08fe7eba0026386.webp)
 
 **六、图片美化**
@@ -89,7 +89,7 @@ Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴
 
 **八、差异与富集分析**
 
-[零代码单细胞| 差异分析与富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)也可以一站式完成![](../../images/f02638e4d1200655.webp)可以按照如下演示创建你需要的差异分析![](../../images/241b50459ce11c41.webp)
+[零代码单细胞| 差异分析与富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)也可以一站式完成![](../../images/f02638e4d1200655.webp)可以按照如下演示创建你需要的差异分析![](../../images/241b50459ce11c41.gif)
 
 **九、亚群分析**
 
@@ -98,7 +98,7 @@ Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴
 **十、高级分析**
 
 高级分析现SeeksoulOnline已经内置了几十种高级分析，包含monocle3、cellphonedb、infercnv、scenic、monocle2、DiffEnrich、CytoTRACE、CellChat、scMetabolism、copyKAT、GSVA、Nichenet、scVelo、scoring、group_diffenrich、Augur、hdWGCNA、GeneActivity、ATAC_Peak2Gene共19种高级分析，大家可以逐个试一试，我们后面再出一篇推送来演示这些内容~![](../../images/356da88109539d50.webp)
-还有炫酷的交互式分析，绝对值得大家好好探索一番：![](../../images/e41177b851c40789.webp)
+还有炫酷的交互式分析，绝对值得大家好好探索一番：![](../../images/e41177b851c40789.gif)
 
 **十一、辅助信息与结题报告**
 
@@ -113,7 +113,7 @@ Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴
 ./└── report    ├── dist    │   └── src    │       ├── assets    │       ├── css    │       ├── file    │       ├── graph    │       ├── img    │       └── js    ├── report.html    └── report.pdf
 ```
 
-报告的html文件是可交互的哦：![](../../images/48b91ea99054664d.webp)
+报告的html文件是可交互的哦：![](../../images/48b91ea99054664d.gif)
 
 下载链接：
 
@@ -149,10 +149,10 @@ Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴
 
 **如何联系我们**
 
-![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.gif) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.gif) 您点的每个赞和在看，我都认真当成了喜欢

@@ -26,7 +26,7 @@ albums: ["答读者问"]
 
 [答读者问 （六）Seurat中如何让细胞听你指挥](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484376&idx=2&sn=9fda8a5261e86f889a58d607163ce0fd&chksm=9b3f7a88ac48f39ea9c19e256a513c9ae80c6f6dc1724b7783884e23981e2061c78fa67071c9&scene=21#wechat_redirect>)
 
-![](../../images/6383b0a37cf927d9.webp)
+![](../../images/6383b0a37cf927d9.gif)
 
 讲道理，这又是一篇非技术帖。之前有些朋友问我为何使用Biomamba作为公众号以及我个人的网名，在这里，请允许我做一个简单的回答。
 
@@ -57,7 +57,7 @@ Bio无需多言，一开口就是老前缀了。不知道我的公众号用户�
 
 ![](../../images/ba4a302b1c43b6f7.jpg)
 
-![](../../images/6383b0a37cf927d9.webp)
+![](../../images/6383b0a37cf927d9.gif)
 
 01
 
@@ -75,7 +75,7 @@ Bio无需多言，一开口就是老前缀了。不知道我的公众号用户�
 
 ![](../../images/3d3d8657472831ef.png)
 
-![](../../images/6383b0a37cf927d9.webp)
+![](../../images/6383b0a37cf927d9.gif)
 
 说到这里，大家也应当明白，这个号名称来由最大的原因就是：我是个科比人柱力。当然，抛开篮球因素外，我的出发点主要是其执着、好斗的精神、对于热爱的忠诚以及其充满智慧的人生观（当然也就叫做曼巴精神）。我们通过这个“高中生毕业生”说过的话来了解一下：
 Someone has to win, why not be me?
@@ -87,9 +87,9 @@ Failure is more painful than death.
 Love me or hate me, both must have one. All the time. Hate my game, my ....... Hate it, hate it with all your thoughts. But there are many people who love me, and the reason is the same as those who hate me.
 If you are afraid of failure, you will fail.
 
-![](../../images/6383b0a37cf927d9.webp)
+![](../../images/6383b0a37cf927d9.gif)
 
-![](../../images/6383b0a37cf927d9.webp)
+![](../../images/6383b0a37cf927d9.gif)
 
 在16年退役的那一天，坐在最后一排上高数课的我看完了他人生中的最后一场比赛，我以为他的那句“mamba out”，会带走我的青春。但是他走之前还留下了这么一句话“如果在我退役二十年之后，我最大的成就还是篮球，那么我就是失败的”。事实上，还未到二十年，他就已经兑现了自己的诺言：在17年发布了他制作的动画短片《亲爱的篮球之后》，该作品迅速的在第二年的3月5日获得了第90届奥斯卡的“最佳动画短片奖”（这是什么成就不用说了吧，小李子22年陪跑冠军直呼内行）。
 
@@ -101,7 +101,7 @@ If you are afraid of failure, you will fail.
 
 ![](../../images/3d3d8657472831ef.png)
 
-![](../../images/6383b0a37cf927d9.webp)
+![](../../images/6383b0a37cf927d9.gif)
 
 02
 

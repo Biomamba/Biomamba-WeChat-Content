@@ -10,7 +10,7 @@ albums: ["文献速递", "漫谈胡侃"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495643&idx=1&sn=e2bf17757dd4fa770cafc4e8d79983c3&chksm=9b3c968bac4b1f9d29460c867a1f88c95e8fd75f3ab9a3dd6ea90b9fef110ec39d5007cd457d#rd
 > 合集：文献速递 / 漫谈胡侃
 
-![](../../images/c934ec2ae8c423bb.webp)
+![](../../images/c934ec2ae8c423bb.gif)
 
 **写在前面**
 
@@ -18,7 +18,7 @@ albums: ["文献速递", "漫谈胡侃"]
 
 这几天有一篇发表在《Nature》题为“FXR inhibition may protect from SARS-CoV-2 infection by reducing ACE2”[1]的文章引起了大家广泛的关注。主要内容是**熊去氧胆酸(ursodeoxycholic acid, UDCA)可能有预防新冠的作用** 。很多媒体称其是新冠终结者、可以预防所有冠状病毒，我认为这种说法**为时尚早** 。
 
-![](../../images/c934ec2ae8c423bb.webp)
+![](../../images/c934ec2ae8c423bb.gif)
 
 **研究内容**
 
@@ -36,7 +36,7 @@ albums: ["文献速递", "漫谈胡侃"]
 
 ![](../../images/165651e631b57baa.webp)
 
-![](../../images/c934ec2ae8c423bb.webp)
+![](../../images/c934ec2ae8c423bb.gif)
 
 **我来胡侃两段**
 

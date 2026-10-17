@@ -10,7 +10,7 @@ albums: ["答读者问"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521009&idx=1&sn=06a9e3d1c7564992399ca1e4055dc293&chksm=9b3ceba1ac4b62b7d39ce16b55b272599a3f1491977dc9feb64ac114b8c0d7a0961603c0d556#rd
 > 合集：答读者问
 
-![](../../images/0ffc03dd3fbc9e2f.webp)
+![](../../images/0ffc03dd3fbc9e2f.gif)
 
 **一、写在前面**
 
@@ -25,9 +25,9 @@ albums: ["答读者问"]
 
 更多内容可咨询客服微信[**Biomamba_kefu**]
 
-![](../../images/06077bf834ad4007.webp)
+![](../../images/06077bf834ad4007.gif)
 
-![](../../images/0ffc03dd3fbc9e2f.webp)
+![](../../images/0ffc03dd3fbc9e2f.gif)
 
 **二、通过bypy使用百度云**
 
@@ -96,7 +96,7 @@ options:  -h, --help           show this help                       message and 
 Commands:help <command> - provide some information for the commandcdl_add <source_url> [save_path] [timeout] - add an offline (cloud) download taskcdl_addmon <source_url> [save_path] [timeout] - add an offline (cloud) download task and monitor the download progresscdl_cancel <task_id>  - cancel an offline (cloud) download taskcdl_list - list offline (cloud) download taskscdl_query <task_ids>  - query existing offline (cloud) download taskscleancache - remove invalid entries from hash cache filecombine <remotefile> [localfile] [md5s] - try to create a file at PCS by combining slices, having MD5s specifiedcompare [remotedir] [localdir] - compare the remote directory with the local directorycopy/cp <from> <to> - copy a file / dir remotely at Baidu Yundelete/remove/rm <remotepath> - delete a file / dir remotely at Baidu Yundowndir [remotedir] [localdir] - download a remote directory (recursively)downfile <remotefile> [localpath] - download a remote file.download [remotepath] [localpath] - download a remote directory (recursively) / filedumpcache - display file hash cachelist/ls [remotepath] [format] [sort] [order] - list the 'remotepath' directory at Baidu PCSlistrecycle [start] [limit] - list the recycle contentsmeta <remotepath> [format] - get information of the given path (dir / file) at Baidu Yun.mkdir <remotedir> - create a directory at Baidu Yunmove/mv/rename/ren <from> <to> - move a file / dir remotely at Baidu Yunquota/info - display the quota informationrefreshtoken - refresh the access tokenrestore <remotepath> - restore a file from the recycle binsearch <keyword> [remotepath] [recursive] - search for a file using keyword at Baidu Yunstream <remotefile> <localpipe> [format] [chunk] - stream a video / audio file converted to M3U format at cloud side, to a pipe.syncdown [remotedir] [localdir] [deletelocal] - sync down from the remote directory to the local directorysyncup [localdir] [remotedir] [deleteremote] - sync up from the local directory to the remote directoryupload [localpath] [remotepath] [ondup] - upload a file or directory (recursively)whoami - display the user information
 ```
 
-![](../../images/06077bf834ad4007.webp)
+![](../../images/06077bf834ad4007.gif)
 
 本教程参考：https://github.com/houtianze/bypy
 
@@ -104,7 +104,7 @@ Commands:help <command> - provide some information for the commandcdl_add <sourc
 
 **如何联系我们**
 
-![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -113,4 +113,4 @@ Commands:help <command> - provide some information for the commandcdl_add <sourc
 
 ![](../../images/e29532a7f035a4ca.webp)
 
-![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.gif)您点的每个赞和在看，我都认真当成了喜欢
