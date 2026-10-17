@@ -27,7 +27,7 @@ albums: ["空间转录组"]
 ![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)**Stereopy** :
 包含基础分析、空间共现性计算、配受体互作预测、空间可变基因计算、图像特征分类等内容：
 
-![](../../images/b0964b1c64b1bb1c.webp)
+![](../../images/b0964b1c64b1bb1c.gif)
 
 分析输出图片示例：
 

@@ -1140,7 +1140,7 @@ SAW用户手册：https://www.stomics.tech/service/saw_8_1/docs/index.html
 
 提取码请联系客服微信Biomamba_zhushou
 
-![图片](../../images/cb4255ab8010219d.webp)
+![图片](../../images/cb4255ab8010219d.gif)
 
 **欢迎致谢**
 

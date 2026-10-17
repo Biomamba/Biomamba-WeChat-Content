@@ -27,7 +27,7 @@ albums: ["空间转录组"]
 
 **Seurat** ：包含10X Visium与Slide-seq的分析流程
 
-![](../../images/ef9468b2ccb3c761.webp)
+![](../../images/ef9468b2ccb3c761.gif)
 
 分析输出图片示例：
 

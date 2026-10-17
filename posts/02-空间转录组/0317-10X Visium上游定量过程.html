@@ -3,7 +3,7 @@
 <p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522444&amp;idx=1&amp;sn=91ddf9e2ca3fb75db3ad524fe0042fab&amp;chksm=9b3ce1dcac4b68cae69b4da8444dbccbf8c5cddd04697797420d1cc43a2048575a5f23d9d395#rd
 合集：空间转录组</p>
 </blockquote>
-<p><img alt="" src="../../images/73d94b6f8a663b6d.webp"></p>
+<p><img alt="" src="../../images/73d94b6f8a663b6d.gif"></p>
 <h1 id="1">1 软件简介</h1>
 <p>Space Ranger是10x 公司为空间转录分析量身打造的一款数据分析软件，一般会用它来完成上游的分析步骤，主要用来处理Visium空间基因表达数据与明场和荧光显微镜图像，将测序数据和图片作为输入的数据，输出表达定量矩阵，为下游的seurat包提供整合之后的数据。也结合配套的loupe软件，做一些降维，聚类结果的可视化。</p>
 <p>官网：https://www.10xgenomics.com/support/software/space-ranger/latest</p>
@@ -298,7 +298,7 @@ sub_data &lt;- Seurat::subset(object = seurat_object, cells = cell_ID)
 <strong>荧光</strong>|  8 位或 16 位灰度单幅，8 位或 16 位灰度单幅；16位灰度TIFF/BigTIFF或JPEG| --darkimage--dapi-index| 否，必须在loupe中手动对齐
 <strong>荧光</strong>|  24 位单色图像 TIFF/BigTIFF 或 JPEG| --colorizedImage--dapi-index| 否，必须在loupe中手动对齐
 <strong>CytAssist图像</strong>|  24位彩色图像| --cytaimage| 是</p>
-<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.gif"></p>
 <p><strong>空间转录组内容合集</strong></p>
 <p><strong>代码教程</strong> ：</p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247508744&amp;idx=2&amp;sn=8b13dec563b3dde70d6a1438300a4a3a&amp;chksm=9b3cda58ac4b534ee4028b11d74f635dfdd1b1f17b3ca7d29135e4990229349e7ddc4ca0d9be&amp;scene=21#wechat_redirect">空间转录组学习手册合辑</a>(包含<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505213&amp;idx=2&amp;sn=6b9aad43c273009c3d7f80c63bb9f619&amp;chksm=9b3cac6dac4b257b8fca1980fd5437ce131dd26377eeef8614d09c11a7ee22ed771cbf323a60&amp;scene=21#wechat_redirect">Seurat</a>、<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505248&amp;idx=2&amp;sn=18995c7248ca6f13b61edfef24208ae1&amp;chksm=9b3cac30ac4b2526050f91dd431bef96ab3dfbdc1a20b3dac32daa5138c11ceb8781b14a2bcd&amp;scene=21#wechat_redirect">Scanpy</a>、<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505844&amp;idx=2&amp;sn=5756c0702d080d6e602c504e7d461013&amp;chksm=9b3caee4ac4b27f268c5f7cd39b6a1cbc138e465a6375c26c9a49b31697b63a4af2f702ec6b2&amp;scene=21#wechat_redirect">Squidpy</a>、<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505686&amp;idx=2&amp;sn=925ce770136ec3e964b954c639eed29e&amp;chksm=9b3cae46ac4b2750f4c9f6d249d82257047334d7a7d5642288f5c2f909c51c934d692032eaa0&amp;scene=21#wechat_redirect">Stereopy</a>)</p>
@@ -318,8 +318,8 @@ sub_data &lt;- Seurat::subset(object = seurat_object, cells = cell_ID)
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520891&amp;idx=1&amp;sn=147d185643bd5dbba4e58b20b2eed872&amp;chksm=9b3ceb2bac4b623d0273eb53b44709e951a493d79338d622b07e256cb4bf385c7d77983e7f48&amp;scene=21#wechat_redirect">《Nature Methods》教你如何挑选空转平台</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247521196&amp;idx=1&amp;sn=f77395164cd2e2568daa2aae811b8861&amp;chksm=9b3ceafcac4b63ea5349ea37e1376ca3e0de875466bfc296721bd9e65568de342ddc406293df&amp;scene=21#wechat_redirect">Tangram利用深度学习完成空间与单细胞数据的整合</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247521581&amp;idx=1&amp;sn=0d7e4373a7bd011161e0e2b256c6461e&amp;chksm=9b3cec7dac4b656bd062ec6b779916220b85903d1a4c955717c34b04867b92551e391772d8a6&amp;scene=21#wechat_redirect">空间转录组做到啥程度能博士毕业？</a></p>
-<p><img alt="" src="../../images/06077bf834ad4007.webp"></p>
-<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><img alt="" src="../../images/06077bf834ad4007.gif"></p>
+<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.gif"></p>
 <p><strong>欢迎致谢</strong></p>
 <p>如果以上内容对你有帮助，欢迎在文章的Acknowledgement中加上这一段，联系客服微信可以发放奖励：</p>
 <pre><code>Since Biomamba and his wechat public account team produce bioinformatics tutorials and share code with annotation, we thank Biomamba for their guidance in bioinformatics and data analysis for the current study.
@@ -336,12 +336,12 @@ sub_data &lt;- Seurat::subset(object = seurat_object, cells = cell_ID)
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522281&amp;idx=1&amp;sn=f95eb12fdc340b8da1123ec6253e6fac&amp;chksm=9b3ceeb9ac4b67afa587e5fa3a2a8960e9bb28a1ad6dc48e49120a76154417a4c8be95af90b0&amp;scene=21#wechat_redirect"><strong>scRNA-seq揭示脓毒症预后水平预测的关键靶点！</strong></a></p>
 <p>**
 **</p>
-<p><img alt="" src="../../images/06077bf834ad4007.webp"></p>
+<p><img alt="" src="../../images/06077bf834ad4007.gif"></p>
 <p><img alt="" src="../../images/68adda3cdb14540f.webp"></p>
 <p><strong>如何联系我们</strong></p>
-<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504843&amp;idx=2&amp;sn=c2ba75edc0382855cfc914c3bb713e7e&amp;chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.gif"> 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504843&amp;idx=2&amp;sn=c2ba75edc0382855cfc914c3bb713e7e&amp;chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
 <p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
 <p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
-<p><img alt="" src="../../images/acba43cb3408c3d0.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>
+<p><img alt="" src="../../images/acba43cb3408c3d0.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

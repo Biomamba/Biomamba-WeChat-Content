@@ -23,7 +23,7 @@ albums: ["单细胞教程全收录"]
 
 所见即所得
 
-![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)![](../../images/f8154c26e0e90f06.webp)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)![](../../images/f8154c26e0e90f06.gif)
 
 文末下载链接中包含的内容：
 

@@ -26,7 +26,7 @@ albums: ["单细胞教程全收录"]
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](../../images/9a0aafd1696aa8f0.webp)
+![](../../images/9a0aafd1696aa8f0.gif)
 
 **
 **

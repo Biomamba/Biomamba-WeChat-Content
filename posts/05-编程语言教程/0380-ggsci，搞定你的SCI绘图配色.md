@@ -12,7 +12,7 @@ albums: ["编程语言教程"]
 
 # **一、视频教程：**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 前段时间分析数据绘图时总为选图片的**配色** 而烦恼，经人提醒学习了一手`ggsci`，果然药到病除。`ggsci`中收录了来自于**科研文献** ，**可视化数据库** 、**科幻电影** 、**电视节目** 的配色方案。此外 **ColorBrewer** 和**viridis** 也能提供优秀的配色方案，感兴趣的同学可以试一试。
 
@@ -28,7 +28,7 @@ https://www.bilibili.com/video/BV1miNVeWEkw
 
 # **二、离散型数据**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 ggsci具体收录的配色方案有：
 
@@ -355,7 +355,7 @@ p1_simpsons = p1 + scale_color_simpsons()+labs(title = 'simpsons配色')p2_sim
 
 # **三、连续性数据**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 ## **3.1 准备工作**
 
@@ -437,7 +437,7 @@ grid.arrange(  p4 + scale_fill_material("red"),         p4 + scale_fill_m
 
 # ****
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
 上面我们用` scale_fill_pal`和`scale_fill_pal`调整图片的色系，若需要在其它可视化软件中使用`ggsci`，则可使用`pal_pal名`的形式生成rgb颜色调用
 
@@ -463,7 +463,7 @@ library("scales")show_col(mypal)
 
 **大家更喜欢哪一款呢**
 
-![](../../images/90fab1387787746b.webp)
+![](../../images/90fab1387787746b.gif)
 
   *   *   *   *
 
@@ -477,10 +477,10 @@ library(patchwork)p1+p1_npg+p1_aaas+p1_nejm+p1_lancet+p1_jama+p1_jco+  p1_ucscg
 
 **如何联系我们**
 
-![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.gif) 您点的每个赞和在看，我都认真当成了喜欢

@@ -3,7 +3,7 @@
 <p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519707&amp;idx=1&amp;sn=73dcab26f9b2ed75a954327317d07112&amp;chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea#rd
 合集：服务器</p>
 </blockquote>
-<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.gif"></p>
 <p><strong>一、写在前面</strong></p>
 <p>人生苦短，为了加快我分析单细胞与空间转录组的速度，新配了一台工作站具体配置大家可以参考下面这张配置表和机箱照片。我这套配置的费用在<strong>2w</strong> +</p>
 <p><img alt="" src="../../images/cf5ef6ce738edafa.webp"></p>
@@ -12,12 +12,12 @@
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247508226&amp;idx=1&amp;sn=69e0eea720ac6aecc0362bcb9ac339ba&amp;chksm=9b3cd852ac4b51445651a091be0fb6f638bd8cf5eb399af1c54804631fe3047706cf1d4044de&amp;scene=21#wechat_redirect"></a>实体(稳定高效)：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506028&amp;idx=2&amp;sn=3b479a92f0c6119c4584efbc23b8c32a&amp;chksm=9b3ca13cac4b282a9ffe1fc4f4ab1a50b14688c6490f859ef714b84a755c286cb8a585054486&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a></p>
 <p>访问链接：https://biomamba.xiyoucloud.net/</p>
 <p>更多内容可咨询客服微信[<strong>Biomamba_yunying</strong>]</p>
-<p><img alt="" src="../../images/06077bf834ad4007.webp"></p>
-<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><img alt="" src="../../images/06077bf834ad4007.gif"></p>
+<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.gif"></p>
 <p><strong>二、系统与配置选择</strong></p>
 <p>系统方面，为了更好的兼容<strong>WSL2</strong> ，我选择了<strong>Win11</strong> ，另外我的Bios中还有一份<strong>Ubuntu的双系统</strong> 。CPU方面选的也比较有性价比(选次顶配就完事了)，i7-14700KF有<strong>20核28线程</strong> ，单线程的计算能力也十分在线，足够我们跑常见的生信流程。唯一比较遗憾的是这块CPU只支持<strong>192GB的内存</strong> ，而4*48GB的内存条是最<strong>不具性价比</strong> 的(如果可以我想把内存拉到384GB，省得在各个服务器之间东奔西走)。显卡方面，考虑到空间转录组和机器学习都会用到显存，因此我选择了<strong>RTX3090</strong>(除了专业炼丹的卡，普通民(you)用(xi)卡最大显存就是24GB的3090和4090，显然我没那么多预算，所以选由于功耗比一般不用于挖矿的前者)。其它比较重要的配置就是我选了2TB的固态+5TB的机械硬盘(单细胞原始数据一个样就一百G，这个容量不过分)。</p>
-<p><img alt="" src="../../images/06077bf834ad4007.webp"></p>
-<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><img alt="" src="../../images/06077bf834ad4007.gif"></p>
+<p><img alt="" src="../../images/0ffc03dd3fbc9e2f.gif"></p>
 <p><strong>三、工作环境配置</strong></p>
 <p>说完系统和硬件，再记录一下我的环境配置过程吧，我安装了一些我日常工作需要用到的软件与环境，基本都是神器：</p>
 <p>WSL2中的jupyter需要这么设置：</p>
@@ -57,12 +57,12 @@
 <p>提取码：9i39</p>
 <p><img alt="" src="../../images/de79a0d776c23411.jpg"></p>
 <p>finalshell不用多说，链接服务器敲代码/传输文件必备(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504843&amp;idx=2&amp;sn=c2ba75edc0382855cfc914c3bb713e7e&amp;chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>)；Everything就相当于windows的locate命令(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497743&amp;idx=1&amp;sn=f8e9fda7d325262f129a80faf77217dd&amp;chksm=9b3c815fac4b0849c12cfb926cef2eaed8e0c779cb50c92647c48230b99492dc12aed135e03f&amp;scene=21#wechat_redirect">Linux| 19.文件查找 find, locate, which</a>)找文件秒出；360压缩，windows中打包解包必备；QQPC电脑管家，没事可以给你清清文件查查配置，广告相对于竞品几乎是没有；谷歌浏览器几乎也是必备的；Bywave，魔法上网用的，翻github去外边学习必备，大家可以访问这个链接： https://user.by.ltd/aff.php?aff=23313；向日葵，用于远程控制电脑，出差党必备；有道云笔记，同样是出差党必备，能够帮助你随时随地获得自己的代码笔记(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485426&amp;idx=2&amp;sn=278de11dd3e99d2fb9ed336727af3df9&amp;chksm=9b3f7ea2ac48f7b46d1cb9c43f063a39c39edce1c243863714f94fdd907eee04efcdb270f568&amp;scene=21#wechat_redirect">进来领有道云笔记会员</a>)；AI不用多介绍，绘制流程图用得上；PS我一般用来把AI输出的PDF图片转为TIFF。</p>
-<p><img alt="" src="../../images/06077bf834ad4007.webp"></p>
+<p><img alt="" src="../../images/06077bf834ad4007.gif"></p>
 <p><img alt="" src="../../images/68adda3cdb14540f.webp"></p>
 <p><strong>如何联系我们</strong></p>
-<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.gif"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
 <p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
 <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
 <p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
-<p><img alt="" src="../../images/acba43cb3408c3d0.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>
+<p><img alt="" src="../../images/acba43cb3408c3d0.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

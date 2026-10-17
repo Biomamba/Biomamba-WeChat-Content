@@ -29,7 +29,7 @@ scRNA-seq拷贝数变异分析
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](../../images/72dc5b2b4d98badc.webp)
+![](../../images/72dc5b2b4d98badc.gif)
 
 ‍
 

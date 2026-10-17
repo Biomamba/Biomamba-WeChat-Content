@@ -29,7 +29,7 @@ albums: ["Bulk RNA-seq"]
 
 ![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
-![](../../images/9e389eff21cd6450.webp)
+![](../../images/9e389eff21cd6450.gif)
 
 ![](../../images/2771085b97be1ca2.png)
 

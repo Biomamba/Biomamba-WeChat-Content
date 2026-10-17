@@ -30,7 +30,7 @@ albums: ["空间转录组"]
 ![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)**Stereopy** :
 包含文件格式转换/读取、SingleR注释、细胞通讯、轨迹分析、转录因子预测等章节：
 
-![](../../images/d82ab6db304c5244.webp)
+![](../../images/d82ab6db304c5244.gif)
 
 分析输出图片示例：
 

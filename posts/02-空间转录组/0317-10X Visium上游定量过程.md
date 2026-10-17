@@ -10,7 +10,7 @@ albums: ["空间转录组"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522444&idx=1&sn=91ddf9e2ca3fb75db3ad524fe0042fab&chksm=9b3ce1dcac4b68cae69b4da8444dbccbf8c5cddd04697797420d1cc43a2048575a5f23d9d395#rd
 > 合集：空间转录组
 
-![](../../images/73d94b6f8a663b6d.webp)
+![](../../images/73d94b6f8a663b6d.gif)
 
 # 1 软件简介
 
@@ -484,7 +484,7 @@ f.选择生成JSON文件或者继续手动对齐：
 **荧光**|  24 位单色图像 TIFF/BigTIFF 或 JPEG| \--colorizedImage\--dapi-index| 否，必须在loupe中手动对齐
 **CytAssist图像**|  24位彩色图像| \--cytaimage| 是
 
-![](../../images/0ffc03dd3fbc9e2f.webp)
+![](../../images/0ffc03dd3fbc9e2f.gif)
 
 **空间转录组内容合集**
 
@@ -524,9 +524,9 @@ f.选择生成JSON文件或者继续手动对齐：
 
 [空间转录组做到啥程度能博士毕业？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521581&idx=1&sn=0d7e4373a7bd011161e0e2b256c6461e&chksm=9b3cec7dac4b656bd062ec6b779916220b85903d1a4c955717c34b04867b92551e391772d8a6&scene=21#wechat_redirect>)
 
-![](../../images/06077bf834ad4007.webp)
+![](../../images/06077bf834ad4007.gif)
 
-![](../../images/0ffc03dd3fbc9e2f.webp)
+![](../../images/0ffc03dd3fbc9e2f.gif)
 
 **欢迎致谢**
 
@@ -553,13 +553,13 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 **
 **
 
-![](../../images/06077bf834ad4007.webp)
+![](../../images/06077bf834ad4007.gif)
 
 ![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.gif) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
@@ -568,4 +568,4 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 ![](../../images/e29532a7f035a4ca.webp)
 
-![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.gif)您点的每个赞和在看，我都认真当成了喜欢

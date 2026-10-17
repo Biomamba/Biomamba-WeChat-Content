@@ -55,7 +55,7 @@ albums: ["单细胞教程全收录"]
 
 所见即所得
 
-![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)一如既往地，我们整理好了测试文件和代码的html文件，供大家翻阅学习：![](../../images/f99d013e9a491b52.webp)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)一如既往地，我们整理好了测试文件和代码的html文件，供大家翻阅学习：![](../../images/f99d013e9a491b52.gif)
 分析输出图片示例：![](../../images/3d411ae0fe9ba3dd.webp)
 ![](../../images/7d247e6c6ef19f87.png)
 解锁前需阅读：[龙年订阅须知](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509093&idx=1&sn=d82ed3738bc25b922a4837016198951e&chksm=9b3cdd35ac4b5423f08cf6ab2f4afc5d815c2321991d880e8b7162e63fd1d7e4695cd7391022&scene=21#wechat_redirect>)![](../../images/399758fa7d6941c2.png)

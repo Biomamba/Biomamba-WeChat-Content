@@ -10,7 +10,7 @@ albums: ["服务器"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520888&idx=2&sn=18746c66dc3bde17131dd819a26263bd&chksm=9b3ceb28ac4b623eda41c2cc6f6bc479b0f3c00b04376a4b3cbd28b653a0ffacf6ce4771807b#rd
 > 合集：服务器
 
-![](../../images/0ffc03dd3fbc9e2f.webp)
+![](../../images/0ffc03dd3fbc9e2f.gif)
 
 **一、写在前面**
 
@@ -28,17 +28,17 @@ albums: ["服务器"]
 
 更多内容可咨询客服微信[**Biomamba_yunying**]
 
-![](../../images/06077bf834ad4007.webp)
+![](../../images/06077bf834ad4007.gif)
 
-![](../../images/0ffc03dd3fbc9e2f.webp)
+![](../../images/0ffc03dd3fbc9e2f.gif)
 
 **二、系统与配置选择**
 
 系统方面，为了更好的兼容**WSL2** ，我选择了**Win11** ，另外我的Bios中还有一份**Ubuntu的双系统** 。CPU方面选的也比较有性价比(选次顶配就完事了)，i7-14700KF有**20核28线程** ，单线程的计算能力也十分在线，足够我们跑常见的生信流程。唯一比较遗憾的是这块CPU只支持**192GB的内存** ，而4*48GB的内存条是最**不具性价比** 的(如果可以我想把内存拉到384GB，省得在各个服务器之间东奔西走)。显卡方面，考虑到空间转录组和机器学习都会用到显存，因此我选择了**RTX3090**(除了专业炼丹的卡，普通民(you)用(xi)卡最大显存就是24GB的3090和4090，显然我没那么多预算，所以选由于功耗比一般不用于挖矿的前者)。其它比较重要的配置就是我选了2TB的固态+5TB的机械硬盘(单细胞原始数据一个样就一百G，这个容量不过分)。
 
-![](../../images/06077bf834ad4007.webp)
+![](../../images/06077bf834ad4007.gif)
 
-![](../../images/0ffc03dd3fbc9e2f.webp)
+![](../../images/0ffc03dd3fbc9e2f.gif)
 
 **三、工作环境配置**
 
@@ -82,13 +82,13 @@ sudo apt install libcairo2-dev
 
 finalshell不用多说，链接服务器敲代码/传输文件必备([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))；Everything就相当于windows的locate命令([Linux| 19.文件查找 find, locate, which](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497743&idx=1&sn=f8e9fda7d325262f129a80faf77217dd&chksm=9b3c815fac4b0849c12cfb926cef2eaed8e0c779cb50c92647c48230b99492dc12aed135e03f&scene=21#wechat_redirect>))找文件秒出；360压缩，windows中打包解包必备；QQPC电脑管家，没事可以给你清清文件查查配置，广告相对于竞品几乎是没有；谷歌浏览器几乎也是必备的；Bywave，魔法上网用的，翻github去外边学习必备，大家可以访问这个链接： https://user.by.ltd/aff.php?aff=23313；向日葵，用于远程控制电脑，出差党必备；有道云笔记，同样是出差党必备，能够帮助你随时随地获得自己的代码笔记([进来领有道云笔记会员](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247485426&idx=2&sn=278de11dd3e99d2fb9ed336727af3df9&chksm=9b3f7ea2ac48f7b46d1cb9c43f063a39c39edce1c243863714f94fdd907eee04efcdb270f568&scene=21#wechat_redirect>))；AI不用多介绍，绘制流程图用得上；PS我一般用来把AI输出的PDF图片转为TIFF。
 
-![](../../images/06077bf834ad4007.webp)
+![](../../images/06077bf834ad4007.gif)
 
 ![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -97,4 +97,4 @@ finalshell不用多说，链接服务器敲代码/传输文件必备([生信分�
 
 ![](../../images/e29532a7f035a4ca.webp)
 
-![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.gif)您点的每个赞和在看，我都认真当成了喜欢

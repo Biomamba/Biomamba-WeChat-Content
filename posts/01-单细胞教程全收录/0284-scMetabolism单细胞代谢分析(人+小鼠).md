@@ -201,7 +201,7 @@ Mouse_sc_metabolism.R内容如下
 
 提取码获取请联系客服：
 
-![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/cb4255ab8010219d.webp)
+![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/cb4255ab8010219d.gif)
 
 **欢迎致谢**
 

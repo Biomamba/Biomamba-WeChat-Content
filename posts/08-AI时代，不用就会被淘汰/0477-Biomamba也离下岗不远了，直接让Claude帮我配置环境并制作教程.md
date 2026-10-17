@@ -10,7 +10,7 @@ albums: ["AI时代，不用就会被淘汰"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539308&idx=1&sn=c1b2915aac125f4fa31bd50ffb8b98b9&chksm=9b3c233cac4baa2a7f092d46cbc237d0e4f1ccd4481d469a21fdbafcb23e23f33cc2e4f573fd#rd
 > 合集：AI时代，不用就会被淘汰
 
-![图片](../../images/0ffc03dd3fbc9e2f.webp)
+![图片](../../images/0ffc03dd3fbc9e2f.gif)
 
 **一、写在前面**
 
@@ -22,9 +22,9 @@ albums: ["AI时代，不用就会被淘汰"]
 
 更多内容可咨询客服微信[**Biomamba_zhushou**]
 
-![图片](../../images/06077bf834ad4007.webp)
+![图片](../../images/06077bf834ad4007.gif)
 
-![图片](../../images/0ffc03dd3fbc9e2f.webp)
+![图片](../../images/0ffc03dd3fbc9e2f.gif)
 
 **二、让AI干活**
 
@@ -40,9 +40,9 @@ https://github.com/theislab/scgen这个是scGEN的链接，https://scgen.readthe
 
 当然，有时候实测结果也会有点问题，比如测试流程时并没有在我已有的conda环境里操作，而不是新建一个纯净的conda环境。教程中的测试数据也是模拟的数据，而非真实数据，看来需要[Skills](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539062&idx=2&sn=6fd50e106bf2ebd5fb517a35676097a4&scene=21#wechat_redirect>)规范一下。![](../../images/f3a39aad22efba16.webp)
 最终，我们测试了3种模型，包括GPT5.5、Opus4.8、DeepSeek V4 Pro，给大家保存好了jupyter文件，AI Agent甚至能把测试的环境也给我提交到[jupyterhub](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531443&idx=2&sn=eb26532ba3998955bf46d9d9529ed8d9&scene=21#wechat_redirect>)当中。实际测试过程中也遇到一些问题，例如字体不能正常显示的时候AI没法敏锐的察觉到并解决这个问题，还是需要进一步的交互。在修改新的一版文档时有可能会继承上一版的其它bug，或者忘记了你之前交代过的其它前提或SKILLS。不过总体上还是节省了很多时间，尤其是省去了疯狂检索怎么解决安装依赖关系这个环节。![](../../images/c75361d4b88cd8e8.webp)
-![图片](../../images/06077bf834ad4007.webp)
+![图片](../../images/06077bf834ad4007.gif)
 
-![图片](../../images/0ffc03dd3fbc9e2f.webp)
+![图片](../../images/0ffc03dd3fbc9e2f.gif)
 
 **三、手册与文件**
 
@@ -54,11 +54,11 @@ https://github.com/theislab/scgen这个是scGEN的链接，https://scgen.readthe
 
 ![](../../images/61951f55c21c9ad5.png)
 大家可以预览一下生成的手册，GPT 5.5生成的比较简短GPT5.5：![](../../images/3e13b3f8524231b2.webp)
-Opus 4.8：![](../../images/fc16875f46f1ebcc.webp)
+Opus 4.8：![](../../images/fc16875f46f1ebcc.gif)
 DeepSeek V4 pro![](../../images/152eed5f37a68809.webp)
-![图片](../../images/06077bf834ad4007.webp)
+![图片](../../images/06077bf834ad4007.gif)
 
-![图片](../../images/0ffc03dd3fbc9e2f.webp)
+![图片](../../images/0ffc03dd3fbc9e2f.gif)
 
 **四、生信新时代**
 
@@ -70,16 +70,16 @@ DeepSeek V4 pro![](../../images/152eed5f37a68809.webp)
 
 [RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21#wechat_redirect>)
 [![图片](../../images/bb64da6d0197c4e8.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21&poc_token=HD30QWqjyfz9w8kaP4lTzV2TrwmmFWeikVE7vHza#wechat_redirect>)[![图片](../../images/b2f06246ca98fb72.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)[![图片](../../images/5e8cec6cc1a63959.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)
-![图片](../../images/06077bf834ad4007.webp)
+![图片](../../images/06077bf834ad4007.gif)
 
 ![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/acba43cb3408c3d0.gif) 您点的每个赞和在看，我都认真当成了喜欢
