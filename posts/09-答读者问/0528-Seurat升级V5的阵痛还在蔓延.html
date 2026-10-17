@@ -1,0 +1,485 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0528-Seurat升级V5的阵痛还在蔓延</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="seuratv5">Seurat升级V5的阵痛还在蔓延</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247541846&amp;idx=1&amp;sn=610b2dd291ba97466ca70c852c82c5b3&amp;chksm=9b3c5d06ac4bd410024f708c8ddf56f5aabd7e2d9773d848124d94f691a6665c09ea2628b3d7#rd
+合集：答读者问</p>
+</blockquote>
+<p><strong>一、Seurat升级带来的DoubletFinder报错</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;scene=21&amp;poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect"> SeuratV4升级V5算是个单细胞史上的大事件，函数和数据存储对象框架迎来了巨巨巨巨大改动。这一改不但影响原有的Seurat代码，还会影响其它依赖Seurat或其对象开发的包，例如</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501735&amp;idx=2&amp;sn=35fc792961507f4ae1cbae3a2882fba6&amp;scene=21#wechat_redirect">CellChat</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;scene=21&amp;poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect">、</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503617&amp;idx=1&amp;sn=18389ffe1d201b1c0592ebc923aac851&amp;scene=21#wechat_redirect">NicheNetR</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;scene=21&amp;poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect">、</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;scene=21#wechat_redirect">monocle3</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;scene=21&amp;poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect">、</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527850&amp;idx=1&amp;sn=f4e2ca5e2e5e71eeaf132375bb8270eb&amp;scene=21#wechat_redirect">slingshot</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;scene=21&amp;poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect">、singleR、scType、</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537531&amp;idx=1&amp;sn=e5f08c08b352287ddfda069a20019afb&amp;scene=21#wechat_redirect">SoupX</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;scene=21&amp;poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect">、</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497831&amp;idx=2&amp;sn=82fa51c76a381fba0b444e9b6b23eb5f&amp;scene=21#wechat_redirect">UCell</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;scene=21&amp;poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect">等等等等，它们都或多或少能够直接处理Seurat对象或接受Seurat对象转化为自己的分析数据对象。我们去除双细胞用到的</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537531&amp;idx=3&amp;sn=c02a04fcecf0df66a7e544a821a62493&amp;scene=21#wechat_redirect">DoubletFinder就是其中之一，如果你用的是V2.0.6或之前的版本，但Seurat却是V5的话，那么你大概率在运行parampSeep时会遇到这个报错。</a><img alt="" src="../../images/2a0cd8d5b01bd005.png">
+问题是怎么发生的——DoubletFinder与Seurat版本的兼容性</p>
+<p>Seurat在<strong>v5版本</strong> 对数据结构进行了重大改动：assay类由<code>Assay</code>升级为<code>Assay5</code>，表达矩阵的存储方式由传统的<strong>slot</strong>(<code>counts</code>/<code>data</code>/<code>scale.data</code>)变为<strong>layers</strong>(如<code>counts</code>、<code>data</code>、<code>scale.data</code>可以按样本拆分为<code>counts.Sample1</code>、<code>counts.Sample2</code>…)。而<code>DoubletFinder</code>旧版本(CRAN归档版v2.0.4以及2023-11-21之前的GitHub版本)的源码中仍然直接通过<code>seu@assays$RNA@counts</code>这样的方式访问slot，在<code>Assay5</code>对象上自然就会报错。</p>
+<p><strong>二、三种Debug解决方案</strong></p>
+<p>Debug场景：三种解决方案</p>
+<h2 id="assay5assay">方案一：Assay5转Assay(对象“降级”，不换包)</h2>
+<p>最省事的办法：把<code>Assay5</code>转成v4风格的<code>Assay</code>类，旧版代码访问<code>@counts</code>时自然就能找到slot了。Seurat官方提供了<code>as()</code>转换方法，一行代码即可完成：</p>
+<pre><code># 复制一份对象用于演示(不影响原对象):
+</code></pre>
+<pre><code class="language-r">Blood_conv &lt;-Blood# 将RNA assay由Assay5转换为v4的Assay类(Seurat官方提供的as方法,自动合并layers):
+</code></pre>
+<pre><code class="language-r">Blood_conv[['RNA']] &lt;-as(Blood_conv[['RNA']], Class ='Assay')
+</code></pre>
+<pre><code>## Warning: Assay RNA changing from Assay5 to Assay
+</code></pre>
+<pre><code># 查看转换结果:类变成了Assay,counts成为真正的slot:
+</code></pre>
+<pre><code>class(Blood_conv[['RNA']])
+</code></pre>
+<pre><code>## [1] &quot;Assay&quot;## attr(,&quot;package&quot;)## [1] &quot;SeuratObject&quot;
+</code></pre>
+<pre><code># 转换后slot访问不再报错:
+</code></pre>
+<pre><code>class(slot(Blood_conv[['RNA']], 'counts'))
+</code></pre>
+<pre><code>## [1] &quot;dgCMatrix&quot;## attr(,&quot;package&quot;)## [1] &quot;Matrix&quot;
+</code></pre>
+<p>现在旧版<code>paramSweep_v3</code>就能正常在转换后的对象上运行了：</p>
+<pre><code class="language-r"># 设置随机种子(生成人工双细胞涉及抽样,固定种子保证可重复):set.seed(20260908)# 旧版paramSweep_v3在&quot;降级&quot;后的对象上运行(隐藏冗长的进度信息):invisible(capture.output(  sweep.res.list_conv &lt;-paramSweep_v3(Blood_conv, PCs =1:18, sct =FALSE)))
+</code></pre>
+<pre><code># 查看扫描结果(共6个pN × 一批pK,每个元素是各细胞的pANN向量):
+</code></pre>
+<pre><code>length(sweep.res.list_conv)
+</code></pre>
+<pre><code>## [1] 186
+</code></pre>
+<pre><code>head(sweep.res.list_conv[[1]])
+</code></pre>
+<pre><code>##                        pANN## AAACATACAACCAC-1 0.14285714## AAACATTGAGCTAC-1 0.00000000## AAACATTGATCAGC-1 0.00000000## AAACCGTGCTTCCG-1 0.00000000## AAACCGTGTATGCG-1 0.00000000## AAACGCACTGGTAC-1 0.07142857
+</code></pre>
+<pre><code># 汇总扫描结果并选择最优pK:
+</code></pre>
+<pre><code class="language-r">sweep.stats_conv &lt;-summarizeSweep(sweep.res.list_conv, GT =FALSE) # GT:是否有金标准双细胞注释
+</code></pre>
+<pre><code>## Loading required package: KernSmooth
+</code></pre>
+<pre><code>## KernSmooth 2.23 loaded## Copyright M. P. Wand 1997-2009
+</code></pre>
+<pre><code>## Loading required package: ROCR
+</code></pre>
+<pre><code class="language-r">bcmvn_conv &lt;-find.pK(sweep.stats_conv)                             # 计算BCmvn选择最优pK
+</code></pre>
+<p><img alt="" src="../../images/77bca8ebb758debd.png"></p>
+<pre><code>## NULL
+</code></pre>
+<pre><code># 最优pK即BCmvn最大值对应的pK:bcmvn_conv[which.max(bcmvn_conv$BCmetric), c('pK', 'BCmetric')]
+</code></pre>
+<pre><code>##     pK BCmetric## 4 0.03 16114.09
+</code></pre>
+<p>这个方案<strong>不需要更换DoubletFinder版本</strong> ，一行转换代码即可让旧版继续工作，且该思路适用于<strong>所有</strong> 依赖v4 <code>Assay</code> slot的旧工具(如部分老版绘图包、轨迹分析包等)。缺点是转换后对象不再是纯正的v5结构(分层layer被合并)，且<strong>每一份新数据都要记得转换</strong> 。</p>
+<h2 id="_1">方案二：自己动手修改源码(理解原理)</h2>
+<p>既然报错只是<code>@counts</code>一处slot访问的问题，我们也可以自己写一个修复版函数：把slot访问替换为v5官方的<code>LayerData()</code>函数。修复版如下：</p>
+<pre><code># 方案二:自定义修复版paramSweep# 与旧版paramSweep_v3的差别只有一处——用LayerData()替代@counts的slot访问(★标注行):
+</code></pre>
+<pre><code class="language-r">paramSweep_fix &lt;-function(seu, PCs =1:10, sct =FALSE, num.cores =1) {# pK与pN的扫描范围(与官方一致):
+</code></pre>
+<pre><code class="language-r">pK &lt;-c(0.0005, 0.001, 0.005, seq(0.01, 0.3, by =0.01))
+</code></pre>
+<pre><code class="language-r">pN &lt;-seq(0.05, 0.3, by =0.05)# 移除过小的pK(细胞数不足时无法计算k近邻):  min.cells &lt;-round(nrow(seu@meta.data)/(1-0.05) -nrow(seu@meta.data))
+</code></pre>
+<pre><code class="language-r">pK.test &lt;-round(pK *min.cells)
+</code></pre>
+<pre><code class="language-r">pK &lt;-pK[which(pK.test &gt;=1)]# 读取原始预处理参数(v5中命令同样保存在@commands中):
+</code></pre>
+<pre><code class="language-r">orig.commands &lt;-seu@commands# 若细胞数超过10000,抽样10000个细胞用于扫描(官方策略,提高效率):
+</code></pre>
+<p>*</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r"># DoubletFinder适配Seurat v5 LayerData版本if (nrow(seu@meta.data) &gt; 10000) {    real.cells &lt;- rownames(seu@meta.data)[sample(1:nrow(seu@meta.data), 10000, replace = FALSE)]    data &lt;- LayerData(seu, assay = 'RNA', layer = 'counts')[, real.cells]  # Seurat v5 获取counts层    n.real.cells &lt;- ncol(data)} else {    real.cells &lt;- rownames(seu@meta.data)    data &lt;- LayerData(seu, assay = 'RNA', layer = 'counts')  # Seurat v5 替代 seu@assays$RNA@counts    n.real.cells &lt;- ncol(data)}# 逐pN生成人工双细胞并计算pANN，复用DoubletFinder内部函数 parallel_paramSweep_v3output2 &lt;- lapply(    as.list(1:length(pN)),    FUN = DoubletFinder:::parallel_paramSweep_v3,    n.real.cells,    real.cells,    pK,    pN,    data,    orig.commands,    PCs,    sct)# 将结果整理为列表sweep.res.list &lt;- list()list.ind &lt;- 0for (i in 1:length(output2)) {    for (j in 1:length(output2[[i]])) {        list.ind &lt;- list.ind + 1        sweep.res.list[[list.ind]] &lt;- output2[[i]][[j]]    }}name.vec &lt;- NULLfor (j in 1:length(pN)) {    name.vec &lt;- c(name.vec, paste('pN', pN[j], 'pK', pK, sep = '_'))}names(sweep.res.list) &lt;- name.vecreturn(sweep.res.list)
+</code></pre>
+<pre><code># 直接在v5对象上运行修复版函数(不转换、不换包):
+</code></pre>
+<pre><code>set.seed(20260908)
+</code></pre>
+<pre><code class="language-r">invisible(capture.output(  sweep.res.list_fix &lt;-paramSweep_fix(Blood, PCs =1:18, sct =FALSE)))
+</code></pre>
+<pre><code># 修复版运行成功,结果与官方一致:length(sweep.res.list_fix)
+</code></pre>
+<pre><code>## [1] 186
+</code></pre>
+<p>这个方案帮助你<strong>理解报错本质</strong> ——v5只是把slot换成了layer，读取方式相应地从<code>@</code>访问改为<code>LayerData()</code>函数。事实上<strong>新版官方代码用的正是这个思路</strong>(用<code>SeuratObject::Version()</code>判断对象版本，v5用<code>LayerData()</code>、旧版用<code>GetAssayData()</code>)，本方案相当于手动实现了官方的修复。</p>
+<h2 id="doubletfinder">方案三：升级到新版DoubletFinder(推荐)</h2>
+<p>前两个方案治标，<strong>升级包才是治本</strong> 。2023-11-21起官方GitHub版本已适配Seurat v5(函数名去掉<code>_v3</code>)，2025-02起现维护者对v5的适配进一步完整。我们直接重装新版：</p>
+<pre><code># 升级安装最新GitHub版(force = TRUE强制覆盖旧版):# 注意:必须先卸载已加载的旧版命名空间,否则R会拒绝覆盖安装(&quot;package in use&quot;):
+</code></pre>
+<pre><code>detach('package:DoubletFinder', unload =TRUE)
+</code></pre>
+<pre><code>remotes::install_github('chris-mcginnis-ucsf/DoubletFinder', dependencies =FALSE, upgrade ='never', force =TRUE, quiet =TRUE)# 删除前面报错场景中定义的旧版函数别名(否则会遮蔽新版函数):
+</code></pre>
+<pre><code>rm(paramSweep)
+</code></pre>
+<pre><code># 重新加载新版:
+</code></pre>
+<pre><code>suppressMessages(library(DoubletFinder))
+</code></pre>
+<pre><code># 新版版本号(2.0.6)与函数名(无_v3后缀):
+</code></pre>
+<pre><code>cat('DoubletFinder版本:', as.character(packageVersion('DoubletFinder')), '\n')
+</code></pre>
+<pre><code>## DoubletFinder版本: 2.0.6
+</code></pre>
+<pre><code>sort(getNamespaceExports('DoubletFinder'))
+</code></pre>
+<pre><code>## [1] &quot;doubletFinder&quot;  &quot;find.pK&quot;        &quot;modelHomotypic&quot; &quot;paramSweep&quot;    ## [5] &quot;summarizeSweep&quot;
+</code></pre>
+<p>查看新版源码中与旧版对应的关键行(官方是如何修复的)：</p>
+<pre><code># 新版paramSweep源码关键行:用版本判断+LayerData()兼容v5:
+</code></pre>
+<pre><code>cat(grep('Version|LayerData|GetAssayData', deparse(DoubletFinder::paramSweep), value =TRUE), sep ='\n')
+</code></pre>
+<pre><code class="language-r">##     if (SeuratObject::Version(seu) &gt;= &quot;5.0&quot;) {##         counts &lt;- LayerData(seu, assay = &quot;RNA&quot;, layer = &quot;counts&quot;)##         counts &lt;- GetAssayData(object = seu, assay = &quot;RNA&quot;, slot = &quot;counts&quot;)
+</code></pre>
+<p>在v5对象上<strong>直接</strong> 运行新版<code>paramSweep</code>，无需任何转换：</p>
+<pre><code class="language-r"># 新版paramSweep直接在v5对象上运行(sct = FALSE):set.seed(20260908)invisible(capture.output(  sweep.res.list &lt;-paramSweep(Blood, PCs =1:18, sct =FALSE)))
+</code></pre>
+<pre><code>length(sweep.res.list)
+</code></pre>
+<pre><code>## [1] 186
+</code></pre>
+<p>对应你报错调用中的<code>paramSweep(..., sct = T)</code>，我们再补一个<strong>SCTransform流程</strong> 的验证(sct = T要求原始分析用SCTransform预处理)：</p>
+<pre><code># sct = T场景:用SCTransform重新预处理一份对象(SCTransform自带标准化与高变基因选择):
+</code></pre>
+<pre><code class="language-r">Blood_sct &lt;-SCTransform(Blood, verbose =FALSE)
+</code></pre>
+<pre><code class="language-r">Blood_sct &lt;-RunPCA(Blood_sct, npcs =30, verbose =FALSE)# 新版paramSweep在SCT对象上运行(sct = T;num.cores = 6并行加速):
+</code></pre>
+<pre><code class="language-r">invisible(capture.output(  sweep.res.list_sct &lt;-paramSweep(Blood_sct, PCs =1:18, sct = T, num.cores =6)))
+</code></pre>
+<pre><code># sct = T同样运行成功:
+</code></pre>
+<pre><code>length(sweep.res.list_sct)
+</code></pre>
+<pre><code>## [1] 186
+</code></pre>
+<p><strong>三、完整实战</strong></p>
+<h1 id="pbmc3k">pbmc3k双细胞去除实战</h1>
+<p>面按官方标准流程完成pbmc3k的双细胞去除。上一节方案三中我们已经完成了参数扫描(<code>sweep.res.list</code>)，直接继续：</p>
+<h2 id="1pkbcmvn">1、选择最优pK(BCmvn)</h2>
+<pre><code class="language-r"># 汇总扫描结果(无金标准,GT = FALSE):
+sweep.stats &lt;-summarizeSweep(sweep.res.list, GT =FALSE)
+head(sweep.stats)
+</code></pre>
+<pre><code>##     pN    pK    BCreal
+## 1 0.05 0.005 0.9350510
+## 2 0.05  0.01 0.9339655
+## 3 0.05  0.02 0.9273848
+## 4 0.05  0.03 0.9193688
+## 5 0.05  0.04 0.9142656
+## 6 0.05  0.05 0.9155618
+</code></pre>
+<pre><code class="language-r"># find.pK:计算各pK的均值-方差归一化双峰系数(BCmvn),选择最大值对应的pK:
+bcmvn &lt;-find.pK(sweep.stats)
+</code></pre>
+<p><img alt="" src="../../images/6fc3498d472cd218.png"></p>
+<pre><code>## NULL
+</code></pre>
+<pre><code># 展示前几个pK(按BCmvn降序):
+head(bcmvn[order(bcmvn$BCmetric, decreasing =TRUE), ], 10)
+</code></pre>
+<pre><code>##    ParamID    pK    MeanBC        VarBC  BCmetric
+## 4        4  0.03 0.9082464 5.636350e-05 16114.088
+## 3        3  0.02 0.9108131 7.769318e-05 11723.205
+## 5        5  0.04 0.9050636 9.616875e-05  9411.202
+## 2        2  0.01 0.9100652 1.472901e-04  6178.727
+## 6        6  0.05 0.9038305 1.644325e-04  5496.665
+## 7        7  0.06 0.9015231 2.184894e-04  4126.165
+## 8        8  0.07 0.8973457 2.949828e-04  3042.027
+## 1        1 0.005 0.9076393 3.038645e-04  2986.987
+## 9        9  0.08 0.8916227 4.699673e-04  1897.202
+## 10      10  0.09 0.8799205 9.680828e-04   908.931
+</code></pre>
+<pre><code class="language-r"># 提取最优pK(BCmvn最大的pK):
+optimal_pK &lt;-as.numeric(as.character(bcmvn$pK[which.max(bcmvn$BCmetric)]))
+optimal_pK
+</code></pre>
+<pre><code>## [1] 0.03
+</code></pre>
+<pre><code class="language-r"># 绘制BCmvn随pK变化的曲线(峰值即最优pK),图片保存到data目录:
+p_bcmvn &lt;-ggplot(bcmvn, aes(x =as.numeric(as.character(pK)), y = BCmetric)) +
+geom_point(color ='grey40') +
+geom_line(color ='grey70') +
+geom_vline(xintercept = optimal_pK, linetype ='dashed', color ='firebrick') +
+annotate('text', x = optimal_pK +0.02, y =max(bcmvn$BCmetric) *0.95,
+label =paste0('pK = ', optimal_pK), color ='firebrick') +
+labs(x ='pK', y ='BCmvn', title ='pK selection by BCmvn') +
+theme_classic() +theme(plot.title =element_text(hjust =0.5))
+ggsave('data/Figure_bcmvn_pK_selection.png', p_bcmvn, width =6, height =4, dpi =300)
+p_bcmvn
+</code></pre>
+<p><img alt="" src="../../images/7b4b50b8fd6ef0f2.webp"></p>
+<h2 id="2nexp">2、估计预期双细胞数(nExp)</h2>
+<pre><code class="language-r"># modelHomotypic:根据细胞类型注释估计同型双细胞(转录相似细胞形成的双细胞)的比例:
+# DoubletFinder对同型双细胞不敏感,需要校正预期双细胞数:
+annotations &lt;-as.character(Blood$seurat_clusters) # 聚类结果作为细胞类型注释
+homotypic.prop &lt;-modelHomotypic(annotations)
+homotypic.prop
+</code></pre>
+<pre><code>## [1] 0.2593514
+</code></pre>
+<pre><code class="language-r"># 预期双细胞数:官方demo假设7.5%的双细胞率(10x Chromium平台经验值);
+# 实际应参照10x官方multiplet rate表按自己的上样细胞数估计,可参考官方issue#76的讨论:
+nExp_poi &lt;-round(0.075*ncol(Blood)) # 泊松估计的预期双细胞数
+nExp_poi
+</code></pre>
+<pre><code>## [1] 202
+</code></pre>
+<pre><code class="language-r"># 经同型双细胞比例校正后的预期双细胞数:
+nExp_poi.adj &lt;-round(nExp_poi *(1-homotypic.prop))
+nExp_poi.adj
+</code></pre>
+<pre><code>## [1] 150
+</code></pre>
+<h2 id="3doubletfinder">3、运行doubletFinder</h2>
+<p>新版函数名为<code>doubletFinder</code>(旧版为<code>doubletFinder_v3</code>)，运行两次：第一次计算pANN，第二次用校正后的nExp直接基于pANN分类：</p>
+<pre><code class="language-r"># 第一次运行:计算每个细胞的pANN(该步会再次生成人工双细胞,耗时较长):
+set.seed(20260908)
+Blood &lt;-doubletFinder(Blood, # 输入Seurat对象
+PCs =1:18, # 使用的主成分
+pN =0.25, # 人工双细胞比例(官方默认0.25)
+pK = optimal_pK, # 上一步BCmvn选出的最优pK
+nExp = nExp_poi, # 预期双细胞数
+reuse.pANN =NULL, # 是否复用已有的pANN(第一次运行设为NULL)
+sct =FALSE) # 是否为SCTransform流程
+</code></pre>
+<pre><code># 查看新增的meta.data列(pANN与第一次分类结果):
+grep('pANN|DF.classifications', colnames(Blood@meta.data), value =TRUE)
+</code></pre>
+<pre><code>## [1] &quot;pANN_0.25_0.03_202&quot;               &quot;DF.classifications_0.25_0.03_202&quot;
+</code></pre>
+<pre><code class="language-r"># 第二次运行:复用第一次的pANN,用同型校正后的nExp重新分类(节省计算):
+pANN_col &lt;-grep('pANN', colnames(Blood@meta.data), value =TRUE)
+Blood &lt;-doubletFinder(Blood, PCs =1:18, pN =0.25, pK = optimal_pK,
+nExp = nExp_poi.adj, # 校正后的预期双细胞数
+reuse.pANN = pANN_col, # 复用第一次运行得到的pANN列
+sct =FALSE)
+</code></pre>
+<pre><code class="language-r"># 双细胞鉴定结果列(DF.classifications_pN_pK_nExp;两次运行各有一列,取最后校正后的那列):
+class_col &lt;-tail(grep('DF.classifications', colnames(Blood@meta.data), value =TRUE), 1)
+class_col
+</code></pre>
+<pre><code>## [1] &quot;DF.classifications_0.25_0.03_150&quot;
+</code></pre>
+<pre><code>table(Blood@meta.data[, class_col])
+</code></pre>
+<pre><code>##
+## Doublet Singlet
+##     150    2550
+</code></pre>
+<pre><code class="language-r"># 查看pANN的分布(红色虚线为校正后nExp对应的pANN阈值):
+pANN_threshold &lt;-sort(Blood@meta.data[, pANN_col], decreasing =TRUE)[nExp_poi.adj]
+p_pann &lt;-ggplot(Blood@meta.data, aes(x = .data[[pANN_col]])) +
+geom_histogram(bins =50, fill ='steelblue', color ='white') +
+geom_vline(xintercept = pANN_threshold, linetype ='dashed', color ='firebrick') +
+labs(x ='pANN', y ='Cell number', title ='pANN distribution') +
+theme_classic() +theme(plot.title =element_text(hjust =0.5))
+ggsave('data/Figure_pANN_distribution.png', p_pann, width =6, height =4, dpi =300)
+p_pann
+</code></pre>
+<p><img alt="" src="../../images/52b9f96d2ec532d9.webp"></p>
+<h2 id="4">4、去除双细胞并展示最终效果</h2>
+<pre><code class="language-r"># 保留被判定为单细胞(Singlet)的细胞:
+Blood_singlet &lt;-subset(Blood, cells =rownames(Blood@meta.data)[Blood@meta.data[, class_col] == 'Singlet'])
+# 去除双细胞前后的细胞数对比:
+cat('过滤前细胞数:', ncol(Blood), '\n')
+</code></pre>
+<pre><code>## 过滤前细胞数: 2700
+</code></pre>
+<pre><code>cat('过滤后细胞数:', ncol(Blood_singlet), '\n')
+</code></pre>
+<pre><code>## 过滤后细胞数: 2550
+</code></pre>
+<pre><code>cat('去除双细胞数:', ncol(Blood) -ncol(Blood_singlet), '\n')
+</code></pre>
+<pre><code>## 去除双细胞数: 150
+</code></pre>
+<pre><code># 保存过滤后的对象供后续分析使用:
+saveRDS(Blood_singlet, 'data/Blood_singlet.rds')
+</code></pre>
+<pre><code class="language-r"># 对过滤后的对象重新聚类(看看双细胞去除后聚类是否更清晰):
+Blood_singlet &lt;-NormalizeData(Blood_singlet, verbose =FALSE)
+Blood_singlet &lt;-FindVariableFeatures(Blood_singlet, selection.method ='vst', nfeatures =2000, verbose =FALSE)
+Blood_singlet &lt;-ScaleData(Blood_singlet, verbose =FALSE)
+Blood_singlet &lt;-RunPCA(Blood_singlet, features =VariableFeatures(Blood_singlet), verbose =FALSE)
+Blood_singlet &lt;-FindNeighbors(Blood_singlet, dims =1:18)
+Blood_singlet &lt;-FindClusters(Blood_singlet, resolution =0.5)
+</code></pre>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+##
+## Number of nodes: 2550
+## Number of edges: 111377
+##
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.8630
+## Number of communities: 8
+## Elapsed time: 0 seconds
+</code></pre>
+<pre><code class="language-r">Blood_singlet &lt;-RunUMAP(Blood_singlet, dims =1:18)
+</code></pre>
+<pre><code class="language-r"># 双细胞去除前后UMAP对比(左:过滤前;右:过滤后):
+p1 &lt;-DimPlot(Blood, reduction ='umap', label =TRUE, pt.size =0.8) +
+ggtitle('Before doublet removal') +NoLegend()
+p2 &lt;-DimPlot(Blood_singlet, reduction ='umap', label =TRUE, pt.size =0.8) +
+ggtitle('After doublet removal') +NoLegend()
+p_compare &lt;-plot_grid(p1, p2, ncol =2)
+# 对比图保存到data目录:
+ggsave('data/Figure_UMAP_before_after_doublet_removal.png', p_compare, width =10, height =4.5, dpi =300)
+p_compare
+</code></pre>
+<p><img alt="" src="../../images/fad77e6150b769f1.webp"></p>
+<pre><code># 双细胞在UMAP中的分布(红色为被判定的双细胞):
+DimPlot(Blood, reduction ='umap', group.by = class_col, cols =c('Singlet' = 'grey85', 'Doublet' = 'firebrick'), pt.size =0.8) +
+ggtitle('Doublets highlighted')
+</code></pre>
+<p><img alt="" src="../../images/53ee16701b4f2d1b.webp"></p>
+<p>从最终效果可以看到：pbmc3k的2700个细胞中，经<code>DoubletFinder</code>鉴定出<strong>150个双细胞</strong>(占比约5.6%)，与10x平台在该细胞数下的预期双细胞率相当。这些双细胞多位于UMAP上两个细胞群之间的“中间地带”，去除后聚类边界更加清晰，避免了它们被误判为新的细胞群。</p>
+<p><strong>四、资料下载</strong></p>
+<p>完整演示手册下载<img alt="" src="../../images/d0207b0e2d2d6cc9.webp"></p>
+<p>通过网盘分享的文件：SeuratV5_DoubletFinder双细胞去除debug</p>
+<p>链接: https://pan.baidu.com/s/13iB3ZwquTDIU9libdsEEzA</p>
+<p>提取码: jtvs</p>
+<p><img alt="图片" src="../../images/2b97050f06208e7a.webp"></p>
+<p><strong>欢迎交流</strong></p>
+<p><img alt="图片" src="../../images/fb7650d03b8755cc.webp"><img alt="图片" src="../../images/ec72a80f59849127.webp"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539170&amp;idx=1&amp;sn=ebd269635da35335554c53709fa0a0c0&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家一起讨论。<img alt="图片" src="../../images/a565d9f1d91c5a6e.webp"><img alt="图片" src="../../images/4ccf87cacd1143af.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

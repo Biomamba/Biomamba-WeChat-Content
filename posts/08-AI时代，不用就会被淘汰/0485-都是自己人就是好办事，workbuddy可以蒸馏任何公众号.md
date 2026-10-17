@@ -12,7 +12,7 @@ albums: ["AI时代，不用就会被淘汰"]
 
 **一、写在前面**
 
-在很早之前我就有这个想法了，应该把生信基地的所有内容都蒸馏一下，只可惜用claude、codex等产品尝试时都失败了，因为它们都无法去抓取公众号页面的信息。但是，WorkBuddy出现就不一样了，毕竟大家都姓马，互通有无是应该的吧![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/newemoji/Yellowdog.png)。![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmE9KvgS9VSmPLicH8L5thuSBXrfWZ1Heswj8WqAiaMaKDpYLpia3icqQkIwicdjoicPDXGMRPCdgibMNdUib58u1407iaCR6Licws7UE7KE/640?wx_fmt=png&from=appmsg)
+在很早之前我就有这个想法了，应该把生信基地的所有内容都蒸馏一下，只可惜用claude、codex等产品尝试时都失败了，因为它们都无法去抓取公众号页面的信息。但是，WorkBuddy出现就不一样了，毕竟大家都姓马，互通有无是应该的吧![](../../images/f5474f96e421a44a.png)。![](../../images/09ad6e149c203f4a.webp)
 蒸馏出的报告大概这么个情况，大家可以自己注册一个试一试(阅读原文可直达)，理论上可以蒸馏任何公众号[1]。一代人有一代人的鸡蛋要领，注册领token：https://www.workbuddy.cn/events/invite?inviteCode=6o82rjr9r4i2csk7
 
 # Biomamba生信基地 · 全内容蒸馏报告
@@ -271,31 +271,31 @@ Python 流程（logNormalize → HVG 2000 → scale → PCA 50 → Harmony 按�
 
 ### 作者官方细胞类型（13 类）
 
-![author celltype](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmcWU5gsUgibYkiaCRUWtW6N2sDk3NIJMCowGKW8UUocLPvHA03hoCUgGcOn3CaBYtR6hNe7JZ56nuNu1iaWmN3MVEJiaLo5R3VjrM/640?wx_fmt=png&from=appmsg)
+![author celltype](../../images/0f2a527db0f3c8bf.webp)
 
 ### 本次 Leiden 聚类（res=0.6）
 
-![leiden](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnr28Hxfbky076BoeTKOp2YHEKn0MPynppgyMzeAFYlB3I5PRGbVRf8SFpcrIpn5P3sDAQcO6MXjjeG6FQrrbWyo7NvCO50yJA/640?wx_fmt=png&from=appmsg)
+![leiden](../../images/ff00d10c9de4e250.webp)
 
 ### 按位点（P 原发 / M 淋巴结）
 
-![site](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnSx4R6mvam4Q3EtynsWSTs0DAFdzEzru8uPvrRDc0IWiaaRwV2B6Rg4NCJRC3KWFuEPEuhFgJB60libe6OJALXaukJPibVKSZWUM/640?wx_fmt=png&from=appmsg)
+![site](../../images/3029d45ed56551eb.webp)
 
 ### 按患者
 
-![patient](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmeib9lFgYSuPDMBJt7Uom0fSDqfuGfDNFY6OTAtib2W65Hb0niaLo7HcNcw0bIr4Giar5VtrOkVgPmen5rtG12n1jJDWe1fbUBiaHM/640?wx_fmt=png&from=appmsg)
+![patient](../../images/50e1b1caef09a5cb.webp)
 
 ✅ 与原文 Fig.1 格局一致：上皮细胞呈明显患者特异性分团（恶性细胞的个体异质性），免疫/基质细胞跨患者混合良好——正是原文"恶性细胞不做跨患者整合"设计的原因。
 
 ### 我们的聚类 vs 作者注释的一致性（行归一化）
 
-![agreement](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnCNa2rQ4VmnNnKScpZbLVmiaymckKktYoVQv56WhsC5jTBugdDzOYW9MjHJybw8kjReQj0ulBS0PSnzTdbLpCf2dnQiaYBqfyCw/640?wx_fmt=png&from=appmsg)
+![agreement](../../images/94de58ac85762ef6.webp)
 
 Leiden 聚类与作者 13 类细胞标签的平均最佳匹配纯度 = **0.888** ，Python 复现的分群与作者 Seurat 分群高度一致。
 
 ### 谱系 marker 点图
 
-![dotplot](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwk7LKg34Hd6HkxOb2ibycjxvEBOmpXPPVZXBQu8O2IETyJkforOv3SnicqG1PQO4mYeAjo3XScfym4syK1MSQe9ia6ibt4btzKXr14/640?wx_fmt=png&from=appmsg)
+![dotplot](../../images/7fde9d75df457abd.webp)
 
 EPCAM/KRT 标记上皮、CD3D/E 与 NKG7 标记 T/NK、LYZ/CD14 标记 TAM、COL1A1 标记 CAF/Myofib、PECAM1/VWF 标记内皮、TPSAB1 标记肥大细胞——各类群 marker 表达模式与预期完全吻合。Salivary（正常涎腺上皮）表达 KRT5/KRT14 但免疫 marker 阴性，与原文将其单独归类一致。
 
@@ -303,11 +303,11 @@ EPCAM/KRT 标记上皮、CD3D/E 与 NKG7 标记 T/NK、LYZ/CD14 标记 TAM、COL
 
 从作者注释的 13,049 个 T 细胞中按 CD8A/CD8B⁺ 且 CD4⁻ 圈定 **2,947 个 CD8⁺ T 细胞** （原文 CD8 亚群为 3,387，圈定策略不同属合理差异）。
 
-![cd8 umap](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlibI0gIzDodFribNYwCz5Sbia6DkgWsxqD22u4VXg7ZmJ23bGtgk7Jibiavibe6iabdhRC7tShxibCqibkicj0AnjPf1D9ZcfK4fzSvZIicU/640?wx_fmt=png&from=appmsg)
+![cd8 umap](../../images/db43bb4233a7ae24.webp)
 
 左：naïve 评分（IL7R/TCF7/LEF1/CCR7/SELL）；中：耗竭评分（TIGIT/HAVCR2/LAG3/PDCD1/TOX/CXCL13/ENTPD1）；右：位点。可见 naïve 与耗竭评分呈空间分离的两个极端，且高耗竭区在 M（淋巴结）中占比更高——与原文"淋巴结中 T 细胞功能失常更严重"一致。
 
-![sox4](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm4TD94SJMZ9JHrk3K0VLzbTYm3G14xfEbM2tsEYGpq3vIAtkNBk50FwgIbhOsEW2lPnDh6gX1tAP7A3PTuEKhlF1u0b9usxPY/640?wx_fmt=png&from=appmsg)
+![sox4](../../images/4a02198616b6c49d.webp)
 
 ### SOX4–耗竭相关性
 
@@ -321,11 +321,11 @@ Pearson **r = 0.294** （n=2,947），显著正相关。
 
 ### EMT 评分 P vs M
 
-![emt](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmR1OaYZj7icaGjujtOoNMqDvmibb3grPuT5jqynDXqBaneEf5mfeF1feXUzhswjxIzDuH97P4NHmQsenLGOFJ3z4tC7BTwDibhYE/640?wx_fmt=png&from=appmsg)
+![emt](../../images/44626963bfd33d02.webp)
 
 ### AXL / AURKA / AURKB / MDK / SOX4 P vs M
 
-![axl](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmibpj5MeT7AuOGeuxV2SqG8rRq8POCyfLiaWqYXtrq9ldSnjWJxibC35fHbzr2Kz4sl1n0CoiaFcAUvMXeEk1ygx2vFLDYibsMk3xU/640?wx_fmt=png&from=appmsg)基因| M（淋巴结）vs P（原发）logFC| 校正后 P| 解读
+![axl](../../images/461e96d7b4a02397.webp)基因| M（淋巴结）vs P（原发）logFC| 校正后 P| 解读
 ---|---|---|---
 **AXL**|  +0.179| 6.7×10⁻⁷| ✅ 转移灶上皮中显著上调，与原文"AXL 驱动 pre-metastatic 表型、抑制剂可阻断侵袭"方向一致
 AURKA| −0.044| 0.60（不显著）| ⚠️ 原文 AURK 信号存在于**原发灶内的小 pre-metastatic 亚群** （需轨迹分析才能显露），整体 P vs M 比较中被稀释属预期；分亚群分析需 monocle 轨迹（R 端）或后续 Palantir 复现
@@ -337,11 +337,11 @@ AURKB| +0.043| 0.22（不显著）
 
 ### MDK 在各细胞类型中的表达
 
-![mdk celltype](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlBXDiatF604GMLCib2yiatnl6bxL0ZrATy4g2jiavUNYZeCbnnLTmHXqCTHoahvlQkdZz6xicPWx9P5hhB4EVBTb4HHibr1jP6jUxUI/640?wx_fmt=png&from=appmsg)
+![mdk celltype](../../images/13b01c1c7142b545.webp)
 
 ### MDK 在 UMAP 上的分布
 
-![mdk umap](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwma7F4bOylA31YM7kk1cm0ZNic1YCHRe4zRvjicT6XztYTfKprAVqd0iaWXhOrPAP1Fdjiac8CT2yN7pia0AibaxicE6wbnEyzYXhD5DA/640?wx_fmt=png&from=appmsg)
+![mdk umap](../../images/62eb759930d57041.webp)
 
 ✅ MDK 高表达集中于上皮细胞团（恶性细胞是 Midkine 信号的主要发送方），与原文"pre-metastatic 肿瘤细胞经 MDK 通路作用于 CD8⁺ T 细胞、介导免疫逃逸"的发送方定位一致。配受体互作显著性检验（CellChat/liana）依赖 OmniPath 数据库，留待联网环境跑批。
 
@@ -638,7 +638,7 @@ GEO GSE225331| GEO| Fluidigm C1 PDC 单细胞数据
 
 **四、文件下载**
 
-本文产出结果下载：![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl0azd1jvvDC6WTeJqksoQGGR86CXlFheDL3LlvStEkFRSjPb702ET1dMYlEnYDJ0EY5vDag0ibEmpRasZt8C3pezlQDHZYTqib8/640?wx_fmt=png&from=appmsg)
+本文产出结果下载：![](../../images/8f9c5f960537ccf0.png)
 
 通过网盘分享的文件：都是自己人就是好办事，workbuddy可以蒸馏任何公众号
 
@@ -646,10 +646,10 @@ GEO GSE225331| GEO| Fluidigm C1 PDC 单细胞数据
 
 提取码请联系客服微信[Biomamba_zhushou]领取
 
-给大家组建了AI生信交流群，欢迎加入：![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmu7jbUiaTa6A1tQhickF2wQPv1VzJ4eRrqfdwX4Uue8A1f2yziaz2dOtgFHTeIYLXkELRibLn7VGoNiavew9wSIauGCOZeFgMyQ9K0/640?wx_fmt=jpeg)
+给大家组建了AI生信交流群，欢迎加入：![](../../images/4fc97a9beb1e2c2a.webp)
 参考：[1]https://www.workbuddy.cn/events/invite?inviteCode=out2i4pzqzx
-[2]Quah HS, Cao EY, Suteja L, Li CH, et al. Single cell analysis in head and neck cancer reveals potential immune evasion mechanisms during early metastasis. Nat Commun. 2023 Mar 27;14(1):1680. doi: 10.1038/s41467-023-37379-y. PMID: 36973261; PMCID: PMC10042873.![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+[2]Quah HS, Cao EY, Suteja L, Li CH, et al. Single cell analysis in head and neck cancer reveals potential immune evasion mechanisms during early metastasis. Nat Commun. 2023 Mar 27;14(1):1680. doi: 10.1038/s41467-023-37379-y. PMID: 36973261; PMCID: PMC10042873.![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

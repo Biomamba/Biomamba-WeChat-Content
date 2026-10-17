@@ -18,7 +18,7 @@ albums: ["求职/求学/招聘"]
 
 **联系方式：******
 
-851022933@qq.com![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+851022933@qq.com![](../../images/2c562ef3d26044d9.jpg)
 
 ************一、基本信息************
 
@@ -55,7 +55,7 @@ albums: ["求职/求学/招聘"]
   * 1.生信分析：转录组、蛋白质组等多组学分析、lncRNA 鉴定、可变剪接分析、细胞器组装、基因组组装等生物信息学技能,熟练操作 Linux 系统，熟练使用 R 或其他程序语言。
   * 2.实验技能：PCR、qPCR、WB、亚细胞定位、克隆连接转化等分子基础实验；活性氧染色及蛋白酶活性分析等生理实验。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/2c562ef3d26044d9.jpg)
 ************往期回顾************
 
 **[歪!?来"Biomamba 生信基地"兼职？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)******************
@@ -95,4 +95,4 @@ albums: ["求职/求学/招聘"]
 [陆军军医大学大坪医院曾春雨教授课题组诚招博士后及科研助理](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503592&idx=1&sn=ac33dd3d09f5e223a812ffa419dc88ee&chksm=9b3cb7b8ac4b3eae405e88ef7b2dbed5f5ae0333be60e86d2f4e5c21773f90c7a7b4d7fb673a&scene=21#wechat_redirect>)[求学| 寻找博导](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503709&idx=1&sn=dc54a207fc5e8683f7a960bf514887ac&chksm=9b3cb60dac4b3f1b48c842a7e56bf1ca1a1bcd6433eb8d26c567b2dc22842e248c7406b769ae&scene=21#wechat_redirect>)
 [南京医科大学公共卫生学院尹先勇教授课题组诚聘博士后1-2名！](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503769&idx=1&sn=e37c7403f79bba980bfffa767a62cd18&chksm=9b3cb6c9ac4b3fdfa80f385dc2cad0189e3620656c89490a72bf559e0940994b3a624f8e0303&scene=21#wechat_redirect>)
 [求学| 寻找博导 已有4篇一作+国奖](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503835&idx=1&sn=2d92314564440a911638523c130400f4&chksm=9b3cb68bac4b3f9db327a35ec8b5b6ec84e2cafcf50c9c4f2e16239c68e76294e2637deb48cb&scene=21#wechat_redirect>)
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/92e152fe9b5bb46e.jpg)

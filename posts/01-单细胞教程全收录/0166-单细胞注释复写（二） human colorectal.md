@@ -12,23 +12,23 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 # **写在前面：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 我反复的谈过，细胞类型注释才是单细胞测序中最难的环节，这主要是不同单细胞测序项目中的**取样形式** 、**建库方法** 、**测序平台** 、**分析工具** 、**函数参数** 等多方面因素造成的。拿笔者的第一个单细胞数据集来说，光是调整过滤参数、分辨率、寻找marker加以注释就花了一个月的时间，属实是既枯燥又乏味，为了给大家提供方便，以后会不定期带领大家复现一些已发表数据集中的细胞类型注释过程，有需要的同学可以持续关注，若有感兴趣的物种、组织器官也可以在文末客服处登记；当然，如果您有好的注释结果，也欢迎以**Rmarkdown** 与工程文件Rdata的形式来稿，可以为大家提供稿费。注释后的数据：
+![](../../images/90fab1387787746b.webp) 我反复的谈过，细胞类型注释才是单细胞测序中最难的环节，这主要是不同单细胞测序项目中的**取样形式** 、**建库方法** 、**测序平台** 、**分析工具** 、**函数参数** 等多方面因素造成的。拿笔者的第一个单细胞数据集来说，光是调整过滤参数、分辨率、寻找marker加以注释就花了一个月的时间，属实是既枯燥又乏味，为了给大家提供方便，以后会不定期带领大家复现一些已发表数据集中的细胞类型注释过程，有需要的同学可以持续关注，若有感兴趣的物种、组织器官也可以在文末客服处登记；当然，如果您有好的注释结果，也欢迎以**Rmarkdown** 与工程文件Rdata的形式来稿，可以为大家提供稿费。注释后的数据：
 
 https://pan.baidu.com/s/1yZjOF_CVQKG8mXP00N2LTQ?pwd=4eer
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzwbrtZTjHQun2lmQ0zyEDhyLaIhqYhDic5B25GgibsEF7LREvYx4lA8duSicPmic4dnpSLVgiazqQVKmg/640?wx_fmt=jpeg)
+![](../../images/0eeb4185fb4f610b.jpg)
 
 大家拿到这个数据后，可以load()上图中的rdata文件后参考这个教程(文中的方法三与方法四)对自己手中合适的数据加以注释：[手把手教你做单细胞测序数据分析（五）——细胞类型注释](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488597&idx=1&sn=6123d348db245774d4a0db4134a839d4&chksm=9b3f6d05ac48e4132f92ca6c32dab29d2a4e1eb00d1db3b6e10eba7ffc7154e8554a70938583&scene=21#wechat_redirect>)
 
 # **往期回归：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 [单细胞注释复写(一):Human Fetal Kidney](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490504&idx=1&sn=0066b2b33067cedb9d1c28689a53faab&chksm=9b3f6298ac48eb8e12cdc7bdd6263e5feb9039f549f7b9dbf4e258854ee61476d09f702f1447&scene=21#wechat_redirect>)
 
 # **本期复现过程：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 **一、基本信息**
 
@@ -56,7 +56,7 @@ https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132465
 
 细胞类型注释信息由文章作者提供
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 **二、数据处****理**
 
@@ -231,7 +231,7 @@ head(sce@meta.data)
 # 可视化基因和UMI(可以看到作者已经对基因进行了过滤: < 6000)features <- c('nCount_RNA','nFeature_RNA')VlnPlot(sce,features = features,pt.size = 0,group.by = 'orig.ident')&NoLegend()&labs(x = '')&theme(axis.text.x = element_text(angle = 90,hjust = 1,vjust = 0.5))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCE23cib1hMJm5iby1WhwjMwutf1WDD4WJNn3YuibtqjHPjZT9lZmSkiaAIw/640?wx_fmt=png)
+![](../../images/b418b8fd875a60d8.webp)
 
   *   *   *
 
@@ -239,7 +239,7 @@ head(sce@meta.data)
 # 可视化线粒体基因(可以看到作者已经对线粒体基因进行了过滤: < 20%)features <- c('percent.mt')VlnPlot(sce,features = features,pt.size = 0,group.by = 'orig.ident')&NoLegend()&labs(x = '')&theme(axis.text.x = element_text(angle = 90,hjust = 1,vjust = 0.5))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCIylPYoibm0hiaNrMSao07JDM4D4hmhwwGRv16tbFIArgLDiar643UYtQQ/640?wx_fmt=png)
+![](../../images/60e1ff5932f815fe.webp)
 
   *
 
@@ -279,7 +279,7 @@ ElbowPlot(sce,ndims = 50)
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCtJibnkNb88Q3n5cd4Q26oC5IT27knPRVKjkIiabCDBKkxsXticgxvTN3Q/640?wx_fmt=png)**
+**![](../../images/eb9b613ffe1f8531.png)**
 
   *   *   *   *
 
@@ -303,7 +303,7 @@ sce_ha<- sce
 DimPlot(sce,group.by = 'orig.ident',split.by = 'orig.ident',ncol = 5) + NoLegend() + NoAxes()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCHYAQm0pZGv6JlEmkhwPX7XNfbFfiat3BXuvE993J0YgWNcF9JearGuQ/640?wx_fmt=png)
+![](../../images/0e15528a952feb01.webp)
 
   *
 
@@ -318,7 +318,7 @@ DimPlot(sce,group.by = 'Cell_type',split.by = 'Class') + NoAxes()
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCDQNVOqIJS85v5wib3SmccgtXZZia8zsct5etsD25ic4AIRfS5cqKtfS1A/640?wx_fmt=png)**
+**![](../../images/4a4ad653ddec2538.webp)**
 
 **
 **
@@ -341,7 +341,7 @@ DimPlot(sce,group.by = 'Cell_type',split.by = 'Class') + NoAxes()
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPC8NhJuQX1VZfMyUqMpiaPpLbOvzibLZ2oqzI6C3NsFKibqooCcbFrSvoibw/640?wx_fmt=png)**
+**![](../../images/746486d7d4342823.webp)**
 
   *   *
 
@@ -367,7 +367,7 @@ my9color <- c('#5470c6','#91cc75','#fac858','#ee6666','#73c0de','#3ba272','#fc84
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCQXZDboZTe1M78qgiaZ7KdmhS244VBGib85hBAhgGtcKAjRp5kpqv7f2w/640?wx_fmt=png)**
+**![](../../images/282da6af3c2faad5.webp)**
 
   *   *
 
@@ -379,7 +379,7 @@ my9color <- c('#5470c6','#91cc75','#fac858','#ee6666','#73c0de','#3ba272','#fc84
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCniamibWhFHYLswibFStKst7vbEgxOm6HfjiaovvBMka2OrcsoHNgsoUO3Q/640?wx_fmt=png)**
+**![](../../images/d947dba9206ced60.webp)**
 
 **
 **
@@ -394,7 +394,7 @@ my9color <- c('#5470c6','#91cc75','#fac858','#ee6666','#73c0de','#3ba272','#fc84
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCsZViadfApumtogo9ql5wCyYS89ibNGop8FficQN7nxyQpNvgK7f96w7ng/640?wx_fmt=png)**
+**![](../../images/49ed0d00fbf069f8.webp)**
 
 **
 **
@@ -412,7 +412,7 @@ DimPlot(sce,group.by = 'Class',split.by = 'Class',cols = c('#80b9df','#fe8180'))
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCEFLbLOtTDEGJicG2NHjsryvWfPE4pQicRAqXYriaX8kJFYSLicL7zRbwfA/640?wx_fmt=png)**
+**![](../../images/2b4d71feb125700e.webp)**
 
 **
 **
@@ -427,7 +427,7 @@ DimPlot(sce,group.by = 'Class',split.by = 'Class',cols = c('#80b9df','#fe8180'))
 
 ****
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCaOb6TTpXyl1cjHDibXbX1OFJwlib97vS4cJBWeqyPQ8eEXgDKO92kvaQ/640?wx_fmt=png)**
+**![](../../images/f113a43945f4841e.webp)**
 
 ****
 
@@ -471,7 +471,7 @@ p <- DoHeatmap(subset(sce_big,downsample = 100),features = as.character(unique(b
 p
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCibDH9ALyibQ494wgEe8SxicLLhPev1lUF0wibOlia3XEdeT4omT7icWbTu0g/640?wx_fmt=png)
+![](../../images/ca6006efd71af57d.webp)
 
   *   *   *   *   *   *   *   *
 
@@ -509,14 +509,14 @@ p <- DoHeatmap(subset(sce_small,downsample = 100),features = as.character(unique
 ggsave('heatmap_small.pdf',width = 49,height = 49,dpi = 500)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyicsCUOjIUZRGFgYrTT0EPCmQOwFMov5fWRdqA1EZpq9lyMN9f7iaRWCS3GHzGFJgFn5VuLjJvY3rw/640?wx_fmt=png)
+![](../../images/fe162de9c28aecd5.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

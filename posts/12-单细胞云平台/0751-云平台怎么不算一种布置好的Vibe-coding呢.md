@@ -12,7 +12,7 @@ albums: ["单细胞云平台"]
 
 Biomamba有话说
 
-近期恰好在做[SeekSoul Online云平台](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247543067&idx=2&sn=b2d5fcea3db8517794c057a5194ffcb3&scene=21#wechat_redirect>)[直播教学](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247543076&idx=2&sn=49130acecc31a5b41f361d9978a70b5e&scene=21#wechat_redirect>)，一个成熟的云平台，本质上就是一个已经帮你把 prompt、MCP、skills 和执行环境全配好的 AI Agent——而且它还自带算力，还给你出结题报告。![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnlhx7OdibopzmRoasCWdfJj0nUzdSCw8e4cwb41n7NzouRnvGxOoGORmuzl3Jo7LLueMapn7cUE9DgN5BrjxG30LfymsduIL4c/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=1)
+近期恰好在做[SeekSoul Online云平台](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247543067&idx=2&sn=b2d5fcea3db8517794c057a5194ffcb3&scene=21#wechat_redirect>)[直播教学](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247543076&idx=2&sn=49130acecc31a5b41f361d9978a70b5e&scene=21#wechat_redirect>)，一个成熟的云平台，本质上就是一个已经帮你把 prompt、MCP、skills 和执行环境全配好的 AI Agent——而且它还自带算力，还给你出结题报告。![图片](../../images/238d0aeb252c9a62.webp)
 云平台学习资料下载：
 
 https://pan.baidu.com/s/1W0WRNaqQGZcL6lykds0nEg?pwd=2kee
@@ -42,7 +42,7 @@ AI Agent 的组件| 云平台里对应的东西
 
 而云平台这一层已经堆到什么程度了？这次课程我们实打实跑完了七个项目，下面这些高级分析模块**不是"支持"，是已经跑完、状态全部 Success、图已经出好了** ：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmWRk1plcI6THByZTEpMjHykp4bcBDF8nbnDfJUHf3BmdncxnZmeRTia9WbClqCtl2Lt9Dicr43ncxcibjzqk0FUNkx6X8I3BYSG8/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=2)
+![图片](../../images/5d4314b934fc6d90.webp)
 
 **单细胞转录组（常规）**` monocle3`拟时序 ·`CytoTRACE`干性评分 ·`hdWGCNA`共表达网络 ·`scenic`转录因子 ·`Augur`扰动响应 ·`scMetabolism`代谢通路 ·`cellphonedb`细胞通讯 ·`infercnv` 拷贝数 · 基因集评分（预定义基因集）
 
@@ -82,7 +82,7 @@ Agent 能帮你把代码写出来，但它不会给你那台[256GB内存的机�
 
 Agent给你的是一段代码和输出结果，相信大家都拿到过画外音很多、结果很多错误、图片不能正常显示的分析结果。使用云平台给你则科研得到：
 
-  * 交互式 HTML（点基因名直接跳 NCBI，双击基因看 FeaturePlot，降维方式随时切换）![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwlLHnAcO9hEbvMz1sjJppZzITWACibF0M1dlfqTqBCTIQWnu32MLoHh9IsC96wgibN1OHCODKYXBmAVUsVDjmHUdb1gXWPsuRj4w/640?wx_fmt=gif&from=appmsg)
+  * 交互式 HTML（点基因名直接跳 NCBI，双击基因看 FeaturePlot，降维方式随时切换）![](../../images/e1d2a96a8793baab.webp)
 
   * 一份排版好的 PDF
   * 全部图表（降维图、堆叠柱形图/饼图、featureplot、vlnplot、dotplot、heatmap，颜色还能自己调）
@@ -106,13 +106,13 @@ Agent给你的是一段代码和输出结果，相信大家都拿到过画外音
 
 所以真正有些创新性的分析或者流程，还得看AI或者人工，无论你选哪条路，也许Biomamba都可以给你提供一些帮助：
 
-[![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmicKp8c0tve1YCwdCmaPNZBwXZYC4V0BGSGYCfoDYiaj9jiaGDGTVXuX6zQub0u4yHAasU6ca8dcHF4nPR5SLPUuMYULh0c4nd1g/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539480&idx=1&sn=9f1d8a76c0a5ddad4983c3fcf7620622&scene=21#wechat_redirect>)[![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmwradkiaGBicfYD9K30jpZg3vHTUdoWawh3TNyVpaKLBvAW9Bx1qpaylfaqtP3p7pAStJxn7Dj1BiclJB3VYjsTZuRMS8BkkCYjs/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541362&idx=1&sn=aa987d7569fa3892a65adb616fe9a73e&scene=21#wechat_redirect>)
+[![](../../images/de9e1332807ae9a6.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539480&idx=1&sn=9f1d8a76c0a5ddad4983c3fcf7620622&scene=21#wechat_redirect>)[![](../../images/152f1082a5526925.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541362&idx=1&sn=aa987d7569fa3892a65adb616fe9a73e&scene=21#wechat_redirect>)
 
-[![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkIcB57t2OITgvHz7AQuDXPb7HlBJf8rn4ROuia021PGzDfbPPzf3rAh9j26GL3EVhd2tBOC8KdgJnVWj49ooI2knNrxblzj2Ws/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=4)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540790&idx=2&sn=3e34a111e77e0cf29ee21b48a7940a9a&scene=21#wechat_redirect>)
+[![图片](../../images/8b3ca60d14dd31e9.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540790&idx=2&sn=3e34a111e77e0cf29ee21b48a7940a9a&scene=21#wechat_redirect>)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)
+![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

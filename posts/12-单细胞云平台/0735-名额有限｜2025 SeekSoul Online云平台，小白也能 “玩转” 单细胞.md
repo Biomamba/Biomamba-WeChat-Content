@@ -36,12 +36,12 @@ SeekSoul Online 云平台培训班持续走向全国，哪里有需求，我们�
 
 **课程安排**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/N0VMNpQ8EATSicX7M6Z14G5xb63dDL5ib69lT5ibItR3yhNF6eU2sOy112bwkEOYiaYwOQPdq22MmpylB3dXDq8nJA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/05b2625d7d9cb444.webp)
 
 **
 ****报名方式**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNkNzrvXvV12EIBfFiaNN785eAS0fk0bibV4aKNeSy3ib6j5IPVicfDvl4Nog/640?wx_fmt=png)
+![](../../images/41b67eead2f67574.webp)
 
 扫码添加程经理报名，开启科研学习
 
@@ -53,15 +53,15 @@ SeekSoul Online 云平台培训班持续走向全国，哪里有需求，我们�
 
 此外，4月份**北京站及福州站** 已同步启动。如果您在别的城市想要体验培训班，不用担心，**速速扫码填写您的相关信息，下一次城市可能就是你所在的呢。**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/N0VMNpQ8EATSicX7M6Z14G5xb63dDL5ib6R5anLJMupzHLauZX0PQrIgEbRP1DiaY8ZTciaxlWnoC4jQdsywNF2l8A/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/c47ec378305a0a7c.webp)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_gif/lz4tmy2KasG4ibqG3yjo1seNebsft6JAreXzhBDQQOHjj0FLkRoOpNbxkjHLGJEX3JBnpxwTGqyibgaJ5Xz8iczxg/640?wx_fmt=gif)
+![](../../images/6684ef34ec1f74c4.gif)
 
  _小寻盼：您的转发、点赞、在看与喜欢_
 
 **关于寻因生物**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNk8ZW0ccIJ0mI1Xo0n3CmoPRW4WLmib8acr8lYqKzMfLT27AHk4kGx6ow/640?wx_fmt=png)
+![](../../images/6fb11af4bb50b78d.png)
 
 北京寻因生物科技有限公司（简称寻因生物）——专注单细胞测序技术自研、创新的国产技术平台。秉承“用技术温暖生命，预见未来”的企业愿景，致力成为您身边最值得信赖的单细胞创新合作伙伴。
 
@@ -79,4 +79,4 @@ SeekSoul Online 云平台培训班持续走向全国，哪里有需求，我们�
 
  _**END**_
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNkXOa7xQ7icu8ibLHlGJ2xRv20JHZcNaiatXzIXFTHetQPJnpvAvPqPoxKw/640?wx_fmt=png)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNkibfLbZ6icCibwH42W5y6gLiboQkyAHoFtJHyb0qc3GtPaU7ibTR56AOnkNw/640?wx_fmt=png)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNkllNpDicG5kmCOy0TW6fMdHSPOJ4KXk5uBxqwvwspLD9S9wckAndzPyg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNkJIKxicpxNoHCcZ0ibU9VKHngpO6gRSkWq3bY2b6RWc2H0E8bmicaIKUMA/640?wx_fmt=png)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNkoicMXo92vctPGzHqk2QWMaYp13CGiapgOHGFAg9qYicbE9dyUxmGjSh2A/640?wx_fmt=png)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNk7GgA1PF6icV7FiciaT8x9tpqNa5rGHZtLxqgN4guRLk5JJIr3UCHlwD4w/640?wx_fmt=png)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNkp0OTWDjwqntD7fPOicBIVQcJsyp77IRsrypAhrZtFs10F5vjPoA1icWg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAS7nYHAfNN26KYiaibtPKMmNk17L2vVkVKBQwopybhyKwiaXlC0ibEEm0RgybibMhia8qFXOjvqhN3LS0Fg/640?wx_fmt=png)
+![](../../images/383e7d9cdb99a6b8.png)![](../../images/ccea22b04d191e28.webp)![](../../images/766633f93a8493da.png)![](../../images/ab5aca61c1c5e229.png)![](../../images/43b388f2a638a183.webp)![](../../images/438fd7859f53c120.png)![](../../images/c738e4363b642b45.webp)![](../../images/b3a0eff0c2479a28.webp)

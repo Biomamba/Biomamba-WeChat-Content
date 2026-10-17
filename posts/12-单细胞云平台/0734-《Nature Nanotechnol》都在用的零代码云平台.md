@@ -10,9 +10,9 @@ albums: ["单细胞云平台"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519130&idx=1&sn=2a72fdc55dd1e53d4fec30f265114956&chksm=9b3cf2caac4b7bdcdfc56934e2be0c0efbf84d9a3ded94a11343eef288456eaea09b199a001a#rd
 > 合集：单细胞云平台
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzXNNPfib5kYSb4z9QpMCY1jicFxVDnz7rm9lUBTpiaoI4GVa2ljLJu9NyBdyQwkUEc1fdjP7g2ekvMA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/a5be401ad27f1360.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzXNNPfib5kYSb4z9QpMCY1j6R59k6faSql57qaem4mF0h3lRxgAxtIgfeA29rQDpVQyaNEYBgicPPQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fec3fc199718bac1.webp)
 
 单细胞数据分析离不开好的工具。磨刀不误砍柴功嘛，通过**SeekSoul**Online** 云平台**完成单细胞分析**到底可以有多高效** ？让我们一起看看怎么通过云平台**1小时** 完成**高分项目文章** 的单细胞数据可视化图片的绘制！
 
@@ -22,15 +22,15 @@ https://seeksoul.online/index.html#/login?from=Biomamba
 
 扫码添加客服，参加云平台精彩活动（文末可了解活动详情）～
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsVyaEK5ibvZdjtCahBgofUEAZ87djBSchpljw2YdEknjv9NAiacuBXpBQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ff6a1b490d3b617b.webp)
 
 扫一扫 添加客服微信
 
 **文章信息**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsFd79aeNjVPSSkicB4EhYUmeLB8TOWQt3qwsSic9FZiaIdGLpLQhlMiaxeA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/753b70cf78dba136.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzXNNPfib5kYSb4z9QpMCY1jZQVxAS7dslbOY5dM9g4rHvdgZCTE6d8wcoYK2cowbxickWueO00kxDg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fc5cbe48e974e62a.webp)
 
 **中文标题：** Janus 脂质酶用于调节感染糖尿病伤口中的氧化还原和免疫稳态
 
@@ -48,7 +48,7 @@ https://seeksoul.online/index.html#/login?from=Biomamba
 
 **单细胞研究结果**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsFd79aeNjVPSSkicB4EhYUmeLB8TOWQt3qwsSic9FZiaIdGLpLQhlMiaxeA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtssWt5N0qSicmOrRQf8lQU5aUmiaVOZfvAGaC8IzEB9FW4RtSyLItBM1Qw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsVrA3al7E30pOeFcnmlQfoYCpgia7yZFo84LN8CbPHfkpmviagxV6yfZg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/753b70cf78dba136.webp)![](../../images/4677f29ca57498ad.webp)![](../../images/22d9acf9eb7a2173.webp)
 
 在该研究中，研究人员通过构建二型糖尿病小鼠模型，并设置对照组/TSeL治疗组进行单细胞转录组分析。结果表明（如上图），TSeL 治疗能够促进巨噬细胞从 M1 型向 M2 型极化，减少炎症反应，促进创面的愈合。同时揭示TGFβ和IL-17信号通路在伤口愈合中的重要性。
 
@@ -60,27 +60,27 @@ Seeksoul online云平台是可以完成单细胞全套流程分析的，单细�
 
 点击【画图工具】→填写图片标题信息→选择【降维图】类型→降维类型选择“tSNE”，分组因子选择细胞注释的全部细胞类型→点击【提交】
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsXln4GwOvgxF31jN4WHBbBxWeKpN2icFf3sNlMibqMuCX2XutkKDPoeDw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/afb80f3a615adb33.webp)
 
 即可展示各种细胞类型的tSNE降维结果。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsOgpib6hCgHHtXQp4oqoSVldJicZq1EYzIERq8a7OUe8ce3Z317DgUd9g/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/10480b548b351af6.webp)
 
 **2\. 云平台实现Fig5b_marker在细胞类型中的表达气泡图**
 
 点击【画图工具】→填写图片标题信息→选择【Dotplot】类型→features选择“准备好的marker基因”，分组因子选择细胞注释的全部细胞类型→点击【提交】
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsmIoogDjVSFEvmNAq7qDhBGl32tT9rGNMHKX4uiaJ6gHQWjQfydo26wQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/0ed02167d7ac37c9.webp)
 
 即可展示各种细胞类型的marker基因气泡图。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsc14CiabMYvicsqic3MHRNsDfWVNzibXW8ibXBUBhJ7gfwtUMhDLfdLJQqSg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/24c53802b0b6fad5.webp)
 
 作者文章中提到TSeL可直接调控γδT细胞IL-17A、IFNY 的表达，进一步增强M1-M2 巨噬细胞极化。那么我们通过云平台怎么通过拟时序分析揭示M1-M2 巨噬细胞极化的分化趋势，以及绘制γδT细胞、M1-M2 巨噬细胞的细胞占比的堆叠柱状图和IL-17A的表达的Feature plot图呢？别着急，接下来小寻教大家逐一实现～
 
 **3\. 云平台实现Fig5d_的M1和M2巨噬细胞轨迹分析结果**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJts6QLVFj4mbuRK5iacJ4xcQNb1meQXmf7sDYSqeswm2uKibbxfE4LYRORA/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsWRSonhZ0GFxMgjTjruyJeK2yU0vC7UFzbWbnZgarIYUWcrdV5cjgtA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/71fec455713c70ee.webp)![](../../images/9a9111769a08694e.webp)
 
 通过拟时序分析揭示不同类型巨噬细胞的过渡状态，结果表明，M1巨噬细胞在过渡状态的早期阶段占主导地位，而M2巨噬细胞出现在后期阶段。
 
@@ -88,27 +88,27 @@ Seeksoul online云平台是可以完成单细胞全套流程分析的，单细�
 
 点击【画图工具】→填写图片标题信息→选择【分组统计图】类型→图形选择“堆叠柱状图”→分组因子选择“γδT细胞、M1、M2 巨噬细胞和其他细胞”→拆分因子选择“样本分组结果”→点击【提交】
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsCTw49gheD75CjibVa4wtLXCVjBD760iakL2t8UpUyywjXNqJMRBbK0xA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1334733e0c7840a7.webp)
 
 可以看出与对照组相比，Tsel组中M1巨噬细胞减少，M2巨噬细胞数量增加。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsOBVHGqwiblRVDhdP5WMwcBfg96FDuBD16ldCPHHILibqDJNA1ZjPZe5A/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/dd6ffdbd936188ae.webp)
 
 **5\. 云平台实现Il17a基因可视化的feature plot图**
 
 点击【画图工具】→填写图片标题信息→选择【FeaturePlot】类型→features选择“il17a基因”→点击【提交】。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJts6VtQJ1nf3cRajNNJUy6CLWHsuMhMSBSnOXhQJAicabq451V9eibANaSA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/bd957803303f8916.webp)
 
 可以看出il17a基因在γδT细胞中表达。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJts7hr1buvec01Cicn4cial9WFNPyKsMMCl6GQiaflG6hBFuDNRgcWdMBicqw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/400c098a82dd3486.webp)
 
 **6.云平台实现Fig5l的细胞通讯分析**
 
 云平台通过高级分析的cellchat软件发现γδT细胞和巨噬细胞的相互作用，而成纤维细胞、内皮细胞与免疫细胞的相互作用对促进伤口愈合也很关键。分析结果也是和文章中高度一致的。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtspSKGs9SDw5qZ6nQOeGFGhkJLLLMxztib6XNrmxTcDf4dyWIXTcu3WUA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/b52a929cef894b06.webp)
 
 **小结**
 
@@ -129,12 +129,12 @@ TCR抗原表位注释分析（VDJ测序数据分析）
 
 ##
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsh6HcezS5JKk4JSTJR6icB5f9p1Rb9JuRWfyBibjw6gxhUSdqiaemfkibQw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)扫码 添加客服微信
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtseofHla5xhhlB6PkwDiar2avVplHuZuabXXszHT2R2zeYhhNYZqkDoeg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)扫码进交流群
+![](../../images/8d6b51391dcec1cf.webp)扫码 添加客服微信
+![](../../images/45ef1d2136d9f97b.webp)扫码进交流群
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJts5NTUicibr8ubYqWktZA2m02ohf7SRYYKhw8UovHYChGGNDSRBYvWoFRA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/69341a73f89c2b4a.webp)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_gif/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsM1iaIeFzGuhNHXBSuno8T8XV8dHQOrYmxYzH59JxaUWUkeNOvZwMicQQ/640?wx_fmt=gif&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/3d14b52ffaade4c8.webp)
 
 **参考文献：**
 
@@ -142,7 +142,7 @@ Wei, T., Pan, T., Peng, X. et al. Janus liposozyme for the modulation of redox a
 
 **关于寻因生物**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtseNpllO5tgK6oiaKSY0siaT6lHPyHnN3RfxohWxQBbpXicc3BeyE3KokpA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c437f364e9771624.webp)
 
 北京寻因生物科技有限公司（简称寻因生物）——专注单细胞测序技术自研、创新的国产技术平台。秉承“用技术温暖生命，预见未来”的企业愿景，致力成为您身边最值得信赖的单细胞创新合作伙伴。
 
@@ -160,4 +160,4 @@ Wei, T., Pan, T., Peng, X. et al. Janus liposozyme for the modulation of redox a
 
  _**END**_
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsUWQjemeHEkcMoKzphjEGhsCW4Lx8bLnTqzplxY5BIZzYl085KwtMmg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJts2x4Yw35uoUs5lcsJAJ2g5PKB15eMJR2gAVPDQfib9zD6FELwjewvZJQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsYupvEmTHNdhDEkqibrmAMMXOicgE8AHHBXdPxJG1pFuBafbnnIGNxibEQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtskWibeRhO0cbN0vZwWwqAWbPAVGsP961mtIRENLg8GR5GVh3dV0fD4fw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsf1n4w5KsHaXBwvpjyYdkNfX8PkDhblIVLEazAMrBibP9EJU9vTy3pcQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJts3IS6sFt7zciclJtReRkrsicW5hPKmjSuIl9icRAE5kzmmwYibZDm9DyeVg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtsbgrQuCXISPwyawqX9PW0BvJOI9NshHbud19bpiaR4vOkRjAanPnBtnQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQURdotcIaBXGD8N7YjSJtscibJD3NOYxTw78McoADTibAH2L74ibJ1nY78icD5PQjDBTqeUt1xXpPmsQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c14253446aed84ee.webp)![](../../images/7fd7ee67b0862e5f.webp)![](../../images/f54de3b48dff4046.webp)![](../../images/d599b2f468f35ada.webp)![](../../images/67878c6ec9eab99a.webp)![](../../images/b226534bc880f6f0.webp)![](../../images/266b4313404bdc24.webp)![](../../images/6e94ae526f913ebe.webp)

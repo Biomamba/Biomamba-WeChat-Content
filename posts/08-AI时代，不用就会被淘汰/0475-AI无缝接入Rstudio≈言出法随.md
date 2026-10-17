@@ -20,13 +20,13 @@ albums: ["AI时代，不用就会被淘汰"]
 
   * 在Rstudio中可以直接唤起聊天框向AI提问，再也不用在浏览器和Rstudio之间来回切换了！更不用担心因为魔法上网而导致网络冲突、卡顿。xiyouAgent能够提供多种AI大模型供选择，同时也支持自定义编程水平以及风格等参数。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyNEDx3CvrtGeyIgMFAP36RVSTZZfibZ1oiavamNzeKHavXMKEb9ibzLGtN4b9ibR2hciaN80TwFiceMlow/640?wx_fmt=png&from=appmsg)
+![](../../images/82b8d6710bf47c29.webp)
 
 ### 在代码编辑框与AI对话辅助编程
 
   * xiyouAgent能够在代码框中直接注释代码，甚至能够点击AI Code调用AI的能力，直接让AI帮忙写代码。
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2pf8Q1bzcsNCVPH2kKdJq4tWf4gYQOzOOUNaqbgvRl13dCj7yepibNEw/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_gif/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2oibWyr2t0fYS9bsadVJVY7pFnCELKUNLy2HarfxXjg0ldUibkPaOtlIg/640?wx_fmt=gif&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/1eea013ac8efd3ab.webp)![图片](../../images/d6f3691ae5546e5a.webp)
 
 ### AI自动注释代码
 
@@ -34,31 +34,31 @@ albums: ["AI时代，不用就会被淘汰"]
 
   * 演示过程：
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_gif/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2U8ib6NrdKaMY6WZaa8FS7LlPJpSNu0zKe45aeNXA9xb1ojCtcWb70Yw/640?wx_fmt=gif&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/e1a8e271a1d640b9.webp)
 
   * 原始代码：
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2ic2R3DjHLAcdlOfYCsLIDicKjTcPYFHEBhhDtDicS6EYgQERiaiaAfqGMibA/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/07c9111715c00dd6.png)
 
   * AI补充注释后的代码：
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2urHPKNkfZwkqBpClM5hIJNKbaNqblhsm3VMeqmlhwibl29DDVsJC5tw/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/ccb5f434a13e3ca8.webp)
 
 ## 日志追踪
 
   * 在运行大任务之时，总时不时想瞄一眼，又怕登录Rstudio会卡住？辛苦科研一天，晚上躺在床上，突然想起还有任务在运行着，又忧心忡忡？即使用nohup挂在后台，也得爬起来用终端看日志：[程序可以自己跑的，不用盯着](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511096&idx=1&sn=14191291fa6fbdb625b9601d230509f7&scene=21#wechat_redirect>)。只需要在代码的关键点位加上添加云日志的功能，就能在手机上看到具体的日志信息了。
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2V74s0y5ZiafQV5whhVvRdGicljibjUWvBnxoGhFb0ArRdnbmRo3Gl1bTw/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/128bf922850e80a0.webp)
 
   * PC端查看进度，访问：https://ai.xiyoucloud.net/#/log-trace即可查看相关日志；也可以在移动端（西柚云超算公众号->实用工具->日志追踪）随时随地访问！只需要填上令牌就能查询到相关的日志了，日志还能按照项目分组，数据更加清晰！
 
   * PC端入口：
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd29iap1SteTegpyLWcNnIvtOAkTxSEou3mmSkicoiaWuxVQYp2GDmSCicgsg/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/7ac2e063953c6009.webp)
 
   * 移动端入口：
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2ibcjXKMaMuxqqhjANbxEfwldiapZS97NzcqrgKMzeAP76icsFzibj4zeJA/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/3ba59acb61ef4607.webp)
 
 # 详细获取/使用教程
 
@@ -70,7 +70,7 @@ albums: ["AI时代，不用就会被淘汰"]
 
   1. 注册账号：复制网址(https://biomamba.xiyoucloud.net/)至浏览器，注册账号实名认证。申领[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)或[足够支持你完成硕博生涯的生信环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526504&idx=2&sn=417d07347cebe0a1bd403f6c3e7d9b29&scene=21#wechat_redirect>)，否则无法获取转发端口。
 
-2.联系客服微信[Biomamba_yunying]获取大禹系统网址与登录方式 3.在大禹系统中打开XiYou AI页面 4.复制令牌备用![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2SVYC0KqWzMyx4n11N0UdVsD6ctNPNZRMxibu1ZibyVF4uicmklpIVYubQ/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+2.联系客服微信[Biomamba_yunying]获取大禹系统网址与登录方式 3.在大禹系统中打开XiYou AI页面 4.复制令牌备用![图片](../../images/11d05d54525a350b.webp)
 
 ## 怎么获取Token
 
@@ -78,7 +78,7 @@ albums: ["AI时代，不用就会被淘汰"]
 
 > **每个用户限制购买一次，请勿重复领取。如有恶意薅羊毛等行为，我们将追究责任。**
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2IcJGK6k6ibJ9QYzCf9edvv2qS05KSLibaryX2ibmGndEBHbHTc2l6sc9Q/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2bOllWXK0Dm73qBkAYQaFXPfic9fyXRUV55q0dtPRzaMovdQj9ULlPMg/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2Y6OrCOBJhN9hmPt32EibTRjPXCOHxoxfFbcfkTjtFL5Lib2b4Yx9yffg/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2WbxIMx3fgJR6ZqiaLADcuLicP4GuDZUiaicicotEOsEc3tr8lgwMyIc72wQ/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/9b983f35791c56af.webp)![图片](../../images/88b1ed53863204af.webp)![图片](../../images/86942a797ab75d20.webp)![图片](../../images/c80c61aa2c5321b8.webp)
 
 ##  安装R包
 
@@ -130,7 +130,7 @@ sudo dpkg -i xiyou_agent_jammy_r420_0.0.1_amd64.deb
 sudo dpkg -r xiyouagent
 ```
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_jpg/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2xwVGiawLgibdaWgm2UadEQRzyrGibnG0FlNwibbyqEVPWG00b5ia2au2ibjg/640?wx_fmt=jpeg&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/f4d4c48eea19ad83.webp)
 
 ## 环境配置
 
@@ -140,11 +140,11 @@ sudo dpkg -r xiyouagent
 
 API_KEY可以在西柚云大禹系统免费获取 XIYOU_API_KEY="sk-xxx"，配置好后从以下页面复制即可：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyNEDx3CvrtGeyIgMFAP36RY7Gy1diblvjo14QDbS2Kx3JH5NTqZR7jYI6dKV65ZTxIdTYJicKdVofw/640?wx_fmt=png&from=appmsg)
+![](../../images/8009111eee0c1897.webp)
 
 XIYOU_AGENT_LISTING_PORT、XIYOU_AGENT_VISIT_URL请参考你西柚云实例中的端口来设置。例如我的专业版节点：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyNEDx3CvrtGeyIgMFAP36RPATN6s6O7icqL2bfwibckGv4Q2Uo3tY79ibl0lSsy7DWLJWyToYQoiczwA/640?wx_fmt=png&from=appmsg)
+![](../../images/40d38d8848b7cc89.webp)
 
 ```
 # 内网固定监听端口
@@ -156,7 +156,7 @@ XIYOU_AGENT_VISIT_URL="http://xiyoucloud.pro:12741"
 
 ##
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_gif/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2SKibdwYLhNz1cVQFRkHNPovic79D65S6ibKL6oiasOaAYWs1x157ic8o8VA/640?wx_fmt=gif&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/7bf06dc3fbc3c553.webp)
 
 4.点击Rstudio的Session菜单，点击Restart R，重启Session使得配置生效
 
@@ -164,17 +164,17 @@ XIYOU_AGENT_VISIT_URL="http://xiyoucloud.pro:12741"
 
   * 即使您不是在自己本地电脑使用Rstudio，而是在使用了端口映射的云服务器使用Rstudio，只需要按照本教程进行简单的配置也能照常使用，而且有访问控制的安全策略，避免非法访问公网端口。
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2k9q3QgAA8KYxdL0dPia4QYh4JB0gYxRKSS3vfxManbCicCepIQZ5icY1g/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/10e1165bcc18326d.png)
 
   * 配置如下：西柚云用户可以直接从西柚云系统复制相关信息，非西柚云用户按照自己云服务器的端口映射规则配置即可，注意是要配置一个空闲且可以公网访问的端口，不是Rstudio端口。
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2aIyMCCe03gqhydLwljW45aDhLoThzUbJ6MbEUAx21X4MJUNjJQR7aw/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/322bb431a99d8a83.webp)
 
 ## 设置快捷键
 
   * 可以通过设置Rstudio的快捷键，这样就可以通过快捷键触发相关的能力，不用每次都鼠标点击了。建议AI Code设置快捷键为CTRL+ALT+P（Program），AI Comment设置快捷键为CTRL+ALT+C（Comment）。
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2dSDoCg5MGjnpI064FiczZra8I4gq18re0quGbpOnJDvicKu3Wtxt6PDg/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2yic3YQMto2uztfLZxtRMdMZgkgwTn6zyCPLyZ6BJqeBjbBxO0Azt8Bg/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2yxmXj2tZd4nq2yHW0ZMAiciaxu1rFibIYRoYnG1w80yka02SojclDxSJg/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/eb37f1646f644160.png)![图片](../../images/7b46db16d6b7b1d3.webp)![图片](../../images/214f8d8fcbb680b8.webp)
 
 ## 怎么切换模型
 
@@ -188,22 +188,22 @@ doubao-1-5-pro-256k-250115| Doubao-1.5-Pro-256k，基于Doubao-1.5-Pro全面升�
 deepseek-v3-250324| DeepSeek-V3-0324 模型升级，推理能力显著提升，数学、代码评测超越 GPT-4.5；HTML 前端任务的代码可用性更高，视觉效果更美观、富有设计感；中文写作质量优化，长文本创作能力增强；搜索场景报告生成更精准。| 由于官方API比较火爆，该模型响应速度较慢，属于正常现象。
 deepseek-r1-250120| DeepSeek-R1 在后训练阶段大规模使用了强化学习技术，在仅有极少标注数据的情况下，极大提升了模型推理能力。在数学、代码、自然语言推理等任务上，性能比肩 OpenAI 01 正式版。|
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2lekTuLJmneXT8UkglhSNRFX0icxqfyjv4rxoePUmtlWlH8B8ndU4K2A/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2aqLAFbMrM7FRAyIz1Umab7YHEqm4N5dIPiawqicRU2QFusQJYZPuzJXA/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2qGQc7pghBcxLNgibfNSennL0olQq2UwRdtaDj61LLg8jM179zbJfKSA/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
+![图片](../../images/71ad497220acc00f.webp)![图片](../../images/bc04d98a01290ae4.webp)![图片](../../images/e6a65802108fd5d3.webp)
 
 ## 知识点
 
   * AI编程和AI注释的过程有点久，这是为啥呢？我们平时和大模型对话，都是流式对话，不至于让人觉得慢，但此处需要让大模型处理完所有需求后一次性返回结果，耐心等待吧☕☕☕~
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/gibavWFU6tSNtf66ADS9yic8XkHqd2Otd2piavPpyHBWVp3iaKSK9EH7JV3HRibhZpN6ic5eVc638nWQKEbhFrIxHZBg/640?wx_fmt=png&tp=wxpic&wxfrom=10005&wx_lazy=1&wx_co=1)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/3d54f9cf037bccad.webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/7ef00c45433a7bde.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

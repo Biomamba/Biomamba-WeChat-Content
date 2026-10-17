@@ -74,7 +74,7 @@ albums: ["求职/求学/招聘"]
 
   * 对技术创新有热情，能承受工作压力。
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/4mmESnRe5xRs1uSSLXicDWCVgCQmz2N6HeKNId3hW6YMojkKHoo7195VAASBym1W93hHL9yCHkqX8YtSIN34xwQ/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)工作地点：重庆市
+![图片](../../images/e4201fc9b20da710.png)工作地点：重庆市
 
 **薪资待遇：**
 
@@ -86,8 +86,8 @@ albums: ["求职/求学/招聘"]
 
 请准备好**简历+代表作（论文/项目报告）** ，发送至以下微信：
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/4mmESnRe5xRs1uSSLXicDWCVgCQmz2N6HerVrlEwplYaMXYlhhNxBFJXDiaaas2ryEibbKT3oRqOSia3AGABGTdd7w/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/ac6de323a31d9808.webp)
 
 欢迎有志于生物信息学技术创新的精英加入！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyQGYRBTgoIFAiaUYZNOPia2ibnvLKVC00pIibHjgjLibicvRZbvysvJpFtia5u18TBuUzWUfRyWicbdlv4eA/640?wx_fmt=png&from=appmsg)
+![](../../images/01fed2a437b87c11.webp)

@@ -10,9 +10,9 @@ albums: ["求职/求学/招聘"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520406&idx=1&sn=c7f7c621e1ef304fb98977ad6bde28e5&chksm=9b3ce9c6ac4b60d03fe74fcf9f1a72b96893d7a53b4f4e55d79a103ebb8bf2ec582b80fe8c03#rd
 > 合集：求职/求学/招聘
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/aebaf9b1bf8b9fc3.webp)
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyibdAnROF3icRvlTKHbEl31KwOusWeJia2UxraZwz2oibxhuBpgQ1rOjObNCkhgbTN4R8YanYWOx87oQ/640?wx_fmt=png&from=appmsg)
+**![](../../images/660ff64a64e8fb99.png)
 **
 
 **
@@ -60,8 +60,8 @@ albums: ["求职/求学/招聘"]
 
 期待您的加入，共同探索蛋白质研究与药物研发的新领域！
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/813e6b96370cd59e.webp)
+![](../../images/aebaf9b1bf8b9fc3.webp)
 **********往期回顾**********
 
 **[歪!?来"Biomamba 生信基地"兼职？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)******************
@@ -118,4 +118,4 @@ albums: ["求职/求学/招聘"]
 [中山大学孙逸仙纪念医院基础与转化医学研究中心实验岗位招聘启事](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519051&idx=1&sn=1160c3b9adcc1586517c327ea2c7a0e2&chksm=9b3cf21bac4b7b0d7579a6ffd3fb60bfa8b3330a653d034b5f9f8650f355fb2499cd2f25f0be&scene=21#wechat_redirect>)
 [免疫与炎症全国重点实验室招聘科研助理岗位](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519618&idx=1&sn=1f31895d93f3bb7de8b2753008968f40&chksm=9b3cf4d2ac4b7dc4e6e1f916a0e06a2f54eacb3b7e947d9aa60db47dcc1524e9224758a09b60&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/813e6b96370cd59e.webp)

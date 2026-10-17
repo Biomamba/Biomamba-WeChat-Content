@@ -10,11 +10,11 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538079&idx=2&sn=9ecd53f31d266d0d3db9db396f8275e2&chksm=9b3c2ccfac4ba5d9fbb82a568a35b2728da5d4cde10ddaa6570f54574c29078421aeb5fb630b#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+![](../../images/f08cdfe212eb6283.png)
 
 写在前面
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/007e970626afa0b7.png)
 
 最近发现很多带有FastXXX、RapidXXX字符的单细胞分析工具上架，顾名思义，这类工具能够以不同数量级的速度完成原有的单细胞分析。例如FastCCC，利用包含1600万个细胞、450种细胞类型的数据作为参考模板快速获取[细胞通讯](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536366&idx=1&sn=c3eb2d3abad1952b3b7fa88099c607b7&scene=21#wechat_redirect>)的计算结果。
 
@@ -22,11 +22,11 @@ albums: ["单细胞教程全收录"]
 
 欢迎大家在评论区留言补充更多高效工具。
 
-学习手册部分图片集锦：![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmIRqm7vgzUmUUXQzPlaOByVKibQqv5HpZt6nt5enxEcV2dtOA4KChXWluIobXy3WysmNn6m7sqBgF5eouUzTJFcogT4YJlQR1s/640?wx_fmt=jpeg&from=appmsg)优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)**更多生信教程可见：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)****-Biomamba**![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+学习手册部分图片集锦：![](../../images/28f8b862eb822da8.webp)优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]![](../../images/fe8ecb8594a1f419.webp)**更多生信教程可见：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)****-Biomamba**![](../../images/7d247e6c6ef19f87.png)![](../../images/f08cdfe212eb6283.png)
 
 三款高效加速工具介绍
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/007e970626afa0b7.png)
 
 1\. fastCCC
 
@@ -38,7 +38,7 @@ albums: ["单细胞教程全收录"]
 
 特点介绍：FastCCC的速度至少是CPDB V5和V4、[CellChat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536366&idx=3&sn=e44b787fa7a653fb8d98588d88cf26e0&scene=21#wechat_redirect>)、SingleCellSignalR、[ICELLNET](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536366&idx=3&sn=e44b787fa7a653fb8d98588d88cf26e0&scene=21#wechat_redirect>)、[NicheNet](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536366&idx=3&sn=e44b787fa7a653fb8d98588d88cf26e0&scene=21#wechat_redirect>)、[CellCall](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536366&idx=3&sn=e44b787fa7a653fb8d98588d88cf26e0&scene=21#wechat_redirect>)这些工具中任意一种的十倍。计算时调用的内存也是所有算法中最小的，并能够支持100万个细胞的数据分析(文中作者最多测试到200w细胞)。除了召回率和FPR外，FastCCC在精度、准确性、特异性、平衡准确率和Jaccard指数、F1分数、马修相关系数均优于其它方法。通过快速傅里叶变换（FFT）利用卷积技术，FastCCC推导出C-S零分布的解析解，实现了p值的可扩展解析计算，而无需计算密集的置换。FastCCC引入了模块化的C-S计算框架，通过配体与受体表达水平之间的代数运算捕捉相互作用强度。它还容纳配体和受体的多亚基蛋白复合物，解释了不同亚基的独特相互作用强度。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwkfpj3IknF0CZO8WKMHdA3zGotrXUXicvsav9x3XhibJgeE7nCTvk9iblZXLZqMDc1y9zjNSzLxxrhFfg4KoWInSELQ5wEOL07l1Q/640?wx_fmt=jpeg)
+![](../../images/c6ca81fe0ba0a3b4.webp)
 
 2\. fastCNV
 
@@ -60,18 +60,18 @@ albums: ["单细胞教程全收录"]
 
 特点介绍：这是由scverse(就是那个开发了[scanpy](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533070&idx=1&sn=eb762b5b475695f418438d6628d8012f&scene=21#wechat_redirect>)、[anndata](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528513&idx=1&sn=1ff1b8bee321f8f5bcac425ce96dc6ff&scene=21#wechat_redirect>)、[squidpy](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532641&idx=1&sn=c8422ab7c1cd70751fb3109a84cb64ea&scene=21#wechat_redirect>)这些神包组织)开发的工具，通过CuPy内核处理SciPy数据，可以借助NVIDIA-GPU(NVIDIA的官网也可以看到这个项目:https://github.com/NVIDIA-AI-Blueprints/single-cell-analysis-blueprint)加速数百倍的提升单细胞数据计算过程，可以无缝接入scanpy分析anndata数据。值得一提的是，通过RAPIDS内存管理系统，可以在GPU显存不足时把数据暂存到内存当中，并且在GPU充足时支持跨GPU的分布式计算，这意味着rapid single-cell支持数[百万单细胞数据](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534670&idx=1&sn=7178b77f1efe4ca253f90b9121231204&scene=21#wechat_redirect>)的计算(试试上作者测试了100million的数据分析，也只需200min)。在预处理、标准化、高变基因计算、降维(PCA、UMAP、t-SNE)、临近图谱构建、leiden分群等操作时可以提升约120倍计算速度。rapid single-cell准还能支持空间自相关指标、通路及转录因子活性推断、批次矫正、干扰距离计算等操作。只要细胞数超过5w，rapid single-cell准能大大的提升你的计算效率。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlbBdwZ0vYr9s04SupseFAApsbtzLM8CXQHFjYkcTnnJ0cM5bXp3HpJUDGNpbQY0YibyiclaV6cy6VgLPX0LJ0q4x7dAZtGMBG48/640?wx_fmt=png&from=appmsg)
+![](../../images/faed385df26c56bc.webp)
 
-以上是三款工具的基本信息，具体实操见我们手册~，领取资料联系客服[Biomamba_zhushou]:![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+以上是三款工具的基本信息，具体实操见我们手册~，领取资料联系客服[Biomamba_zhushou]:![](../../images/fe8ecb8594a1f419.webp)
+![](../../images/7d247e6c6ef19f87.png)![](../../images/f08cdfe212eb6283.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/007e970626afa0b7.png)
 
 以html格式提供学习手册，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwncfcaBC3mhNtcQia2YVt7KicKfiaqr1IqDfaJqibwHQW4meVyLVon5qEpHgKHx72BjRgibfApugDOM6khk2RwCcD9pia4p9QGRYIwyA/640?wx_fmt=gif&from=appmsg)
+![](../../images/2e6398108a8fd465.webp)
 
 学习手册目录：
 
@@ -119,13 +119,13 @@ albums: ["单细胞教程全收录"]
 
 文末下载链接中包含以下内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmAjzNkO9eu3K1qeKIutJdkcCPgdPfJIyz05icJztDWRQh8sxG6ogHpkltzSOEQy1uUoEnQKoj4cuHvxgculBB6NLVPJ6zgnEmM/640?wx_fmt=png&from=appmsg)测试文件，总大小9.30GB![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/23458d27b7f9b032.webp)测试文件，总大小9.30GB![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 往期推送
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)
 
@@ -161,17 +161,17 @@ Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资�
 
 文件夹中已经更新的教程有：
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwFyPvvyMoyrCDjicmgGcjLom5Yy4JXTXgcSvQIht80m1loPpSwgUPS52jZwKrYqDsXVgSRqwibJYkg/640?wx_fmt=png&from=appmsg)**
+**![](../../images/bc4a928a4947108c.webp)**
 
 持续更新中~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](../../images/eab31beb8c0e41d2.png)
 
 学习手册领取：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/8b04fd62fd8f3d51.png)![](../../images/007e970626afa0b7.png)
 
 本推送教程、测试文件下载链接：
 
@@ -179,4 +179,4 @@ https://pan.baidu.com/s/100GgFRIP51MPo7bakcYPuA
 
 提取码请联系客服微信获取：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fe8ecb8594a1f419.webp)![](../../images/7d247e6c6ef19f87.png)

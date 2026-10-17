@@ -10,11 +10,11 @@ albums: ["编程语言教程"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528153&idx=2&sn=acc25b0fe695378dec296d2bafc164c0&chksm=9b3c1789ac4b9e9fdf0551b26f8a5fb07b1c1a26e95d1d88f4ef857e962164daf21e5294e595#rd
 > 合集：编程语言教程
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/c33e327c8d66af99.webp)
 
 视频教程
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/3ff4011fef611c1c.webp)![](../../images/00dcbb5df4af21d3.webp)
 
 先上教程视频，B站同步播出：
 
@@ -24,13 +24,13 @@ https://www.bilibili.com/video/BV1miNVeWEkw
 
 "R语言入门课"是我们认为**生信小白入门** 不得不听的一个课程，我们也为这个课程准备了许多**干货** 。在第三节课中，我们给大家详细的介绍了Rstudio的基本使用技巧。RStudio是一款强大且广受欢迎的集成开发环境（IDE），专为 R 语言设计（当然也能运行Python和shell），旨在提升数据分析和统计建模的效率。它提供了一个用户友好的界面，将代码编辑、数据可视化、调试和项目管理等功能集成在一起，使统计/生信人能够更加高效地工作。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/f74ae4c6b8127d36.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/c33e327c8d66af99.webp)
 
 R语言入门课
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/3ff4011fef611c1c.webp)![](../../images/00dcbb5df4af21d3.webp)
 
 1、课程简介
 
@@ -40,20 +40,20 @@ R语言入门课
 
 **报名/缴费二维码：**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/7ef00c45433a7bde.webp)![](../../images/f74ae4c6b8127d36.webp)![](../../images/c33e327c8d66af99.webp)
 
 资料&课表
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)本次课程的学习资料可以联系文末客服微信领取:
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxtWyh2oFbkW2gT4k8lvFeXnI6JzN8xM8RWSXTJPtry2H5QSUWJibTYSfMGpAso9qicgN8M7rAI617g/640?wx_fmt=gif&from=appmsg)
+![](../../images/3ff4011fef611c1c.webp)![](../../images/00dcbb5df4af21d3.webp)本次课程的学习资料可以联系文末客服微信领取:
+![](../../images/e71650e138890536.webp)
 
 目前12节总计5.5h的视频课程回放已剪辑完毕，方便错过直播的同学随时加入学习：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxPGbgxeKtcc5DibsheFewicmia5jPx1Jic18ZUJqYpNs4cvxLhCgricA2YjPPjbqo5SpE6MEibz9OgSAEw/640?wx_fmt=png&from=appmsg)
+![](../../images/177afabf2d0f198e.webp)
 
 除了学习视频外，还给大家准备了学习资料，包括学习手册、课后习题。大家人手一份资料可以跟着视频联系：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxPGbgxeKtcc5DibsheFewicmicfPruB2l20gdfdRoAM8Aj1ULhAhgM1ZQibjBMq2UkO7ugkiagmxL5TLg/640?wx_fmt=png&from=appmsg)
+![](../../images/0f6d77700b56e7bd.png)
 
 课程目录：
 
@@ -115,12 +115,12 @@ R语言入门课
 
 4.2 ggplot2包的详细信息
 
-4.2.1 放置数据和映射选项4.2.2 将图形作为对象使用4.2.3 保存图形![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+4.2.1 放置数据和映射选项4.2.2 将图形作为对象使用4.2.3 保存图形![](../../images/f74ae4c6b8127d36.webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([免费两周学习版上架啦~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([免费两周学习版上架啦~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -129,4 +129,4 @@ R语言入门课
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/7ef00c45433a7bde.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

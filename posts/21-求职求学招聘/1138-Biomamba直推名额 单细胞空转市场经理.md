@@ -10,7 +10,7 @@ albums: ["求职/求学/招聘"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509283&idx=1&sn=7b3b9367f463c9f70a6d2d464a5e2745&chksm=9b3cdc73ac4b5565302340debbf0c5805a4fdf12fd54998d0d7e7ff48a55aa0e58ae412ae7b9#rd
 > 合集：求职/求学/招聘
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2c562ef3d26044d9.jpg)
 
 ************一、简介************
 
@@ -20,7 +20,7 @@ Biomamba直推一个**base北京** 的知名单细胞测序公司，不聊别的
 
   * **薪资待遇**
 
-具有市场竞争力的薪金，能力者待遇从优(包你满意![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/v1.3.10/assets/newemoji/Yellowdog.png))，欢迎咨询（具体面议）。
+具有市场竞争力的薪金，能力者待遇从优(包你满意![](../../images/4d0458a9188cecdd.webp))，欢迎咨询（具体面议）。
 
   * **员工福利**
 
@@ -81,4 +81,4 @@ Biomamba直推一个**base北京** 的知名单细胞测序公司，不聊别的
 
 周经理 18515523532（手机号同微信）
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/92e152fe9b5bb46e.jpg)

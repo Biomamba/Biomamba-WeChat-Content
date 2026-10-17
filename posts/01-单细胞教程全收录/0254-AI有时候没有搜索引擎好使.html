@@ -1,0 +1,308 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0254-AI有时候没有搜索引擎好使</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="ai">AI有时候没有搜索引擎好使</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532797&amp;idx=1&amp;sn=395c1a724450e6f7ae360a7d0bdd8dba&amp;chksm=9b3c39adac4bb0bb915f8890244ddf153fe2fbbca7685bcaf79073f87a5037bf0967e9522745#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>一、遇到问题</strong></p>
+<p>最近做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">拷贝数变异分析</a>使用infercnv的时候遇到了个小bug，在运行到step15的leiden聚类过程中会有以下报错：<img alt="" src="../../images/ba418313332f2e1e.webp">
+如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531160&amp;idx=2&amp;sn=04d3798dc60958af2c9020fe7c4bd9b8&amp;scene=21#wechat_redirect">单细胞数据分析</a><strong>教学</strong> 、生信热点<strong><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469#wechat_redirect">全文复现</a></strong> 、自测数据<strong>个性化分析</strong> 辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530174&amp;idx=1&amp;sn=c3b0499adcc9093546e4ba1cfffba7bd&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[<strong>Biomamba_zhushou</strong>]</p>
+<p><strong>二、AI指点小弯路</strong></p>
+<p>如果把代码和运行日志提交给AI，那你收获到的回答是：</p>
+<p>这个报错发生在 <code>inferCNV</code> 进行Leiden聚类前的“计算近邻图”步骤，核心问题是<strong>矩阵中出现了<code>NA</code>（缺失值）</strong>，导致邻接矩阵的索引分配失败。这不是你的数据原本有缺失，而很可能是计算过程中的数值问题。</p>
+<p>为了高效定位和解决，请按以下顺序进行检查。</p>
+<h3 id="na">🔍 第一步：定位并处理NA值（首选方案）</h3>
+<p>运行以下诊断代码，检查产生问题的核心对象：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r"># 1. 检查 infercnv_obj 中的肿瘤细胞表达矩阵（最可能出问题的位置）# 假设你的 inferCNV 对象名为 `infercnv_obj`tumor_expr_matrix &lt;- infercnv_obj@expr.datacat(&quot;肿瘤细胞表达矩阵中 NA 的数量:&quot;, sum(is.na(tumor_expr_matrix)), &quot;\n&quot;)cat(&quot;矩阵维度:&quot;, dim(tumor_expr_matrix), &quot;\n&quot;)
+# 2. 如果有NA，查看其分布if(sum(is.na(tumor_expr_matrix)) &gt; 0) {# 查看哪些基因（行）包含NA  na_genes &lt;- rowSums(is.na(tumor_expr_matrix)) &gt; 0cat(&quot;包含 NA 的基因数量:&quot;, sum(na_genes), &quot;\n&quot;)
+# 查看哪些细胞（列）包含NA  na_cells &lt;- colSums(is.na(tumor_expr_matrix)) &gt; 0cat(&quot;包含 NA 的细胞数量:&quot;, sum(na_cells), &quot;\n&quot;)
+# 可选：查看少量NA的具体位置which(is.na(tumor_expr_matrix), arr.ind = TRUE)[1:10, ]}
+</code></pre>
+<p>如果发现 <code>NA</code>，通常是平滑或去中心化步骤中出现了数值计算问题。可以用以下方法<strong>安全地替换</strong> （例如用基因的中位数）：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r"># 3. 替换NA（如果上一步发现NA）if(sum(is.na(tumor_expr_matrix)) &gt; 0) {  # 按基因（行）计算中位数，忽略NA  gene_medians &lt;- matrixStats::rowMedians(tumor_expr_matrix, na.rm = TRUE)
+  # 为每个NA找到对应的基因，并用该基因的中位数替换  na_indices &lt;- which(is.na(tumor_expr_matrix), arr.ind = TRUE)  for(i in1:nrow(na_indices)) {    row_idx &lt;- na_indices[i, 1]    tumor_expr_matrix[row_idx, na_indices[i, 2]] &lt;- gene_medians[row_idx]  }
+  # 验证NA已处理  cat(&quot;替换后，NA的数量:&quot;, sum(is.na(tumor_expr_matrix)), &quot;\n&quot;)
+  # 将处理后的矩阵放回对象  infercnv_obj@expr.data &lt;- tumor_expr_matrix}
+</code></pre>
+<h3 id="_1"></h3>
+<hr>
+<ol>
+<li>****````</li>
+</ol>
+<h3 id="_2">第二步：检查版本与数据转换</h3>
+<p>如果第一步<strong>没有发现NA</strong> ，问题可能出在数据转换的兼容性上：</p>
+<ol>
+<li>
+<p><strong>检查包版本</strong> ：确保你使用的 <code>infercnv</code> 和 <code>Seurat</code> 是比较新的版本。某些旧版本在交互时可能存在bug。</p>
+</li>
+<li>
+<p>*</p>
+</li>
+</ol>
+<pre><code>packageVersion(&quot;infercnv&quot;)packageVersion(&quot;Seurat&quot;)
+</code></pre>
+<ol>
+<li>
+<p><strong>检查矩阵类型</strong> ：警告 <code>Warning: Data is of class matrix. Coercing to dgCMatrix.</code> 表明内部进行了一次类型转换。虽然这通常是安全的，但可以尝试<strong>手动提供一个稀疏矩阵</strong> 。</p>
+<ul>
+<li>注意：如果你的数据量极大（如超过10万细胞），<code>as.matrix</code> 可能会耗尽内存。请优先使用稀疏矩阵操作。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_3">🧠 第三步：如果问题依然存在</h3>
+<p>如果以上步骤未能解决，你需要深入 <code>inferCNV</code> 运行时的内部状态：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r"># 在报错前，保存关键环境状态# 将以下代码放在 infercnv() 函数调用之前options(error = function() {  sink(&quot;infercnv_debug.log&quot;)  # 将调试信息保存到文件  traceback()  # 打印调用栈
+# 列出当前所有变量，寻找可能的异常对象cat(&quot;\n=== 列出所有变量 ===\n&quot;)print(ls.str())
+# 特别检查与“nearest neighbor”或“graph”相关的变量cat(&quot;\n=== 检查邻居图相关对象 ===\n&quot;)  nn_objects &lt;- ls(pattern = &quot;graph|neighbor|nn|snn&quot;, envir = .GlobalEnv)print(nn_objects)
+  sink()})
+</code></pre>
+<p><strong>三、答案早在github中</strong></p>
+<p>事实上，我的矩阵中没有任何的NA，跟着AI检查了半天也没有解决问题，如果你用搜索引擎检索一下，可以发现网友遇到过类似的问题(https://github.com/broadinstitute/infercnv/issues/396)由于在计算过程中R使用了科学计数法，把100000以上的数字以1e5这种形式表示了，因此无法参与后续的计算。因此，大家只需要在执行infercnv之前加上一个options(scipen = 100)即可解决这一问题。
+<img alt="" src="../../images/4f5c4b75ff9af637.webp">不过，你大概率还会遇到一个新的问题（别笑，你也过不了第二关）：由于你的细胞数量超过了10w，那么infercnv输出热图时会向你索取千万TB级别的内存（是的你没看错）。<img alt="" src="../../images/1a0f873edabc8142.webp">这时你就只能选择no_plot = T，在结果输出到本地的时候通过<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530367&amp;idx=1&amp;sn=f7452a93145295bd6dfc4a7e571413d6&amp;scene=21#wechat_redirect">downsample</a>自行绘制热图了。AI未必能替你解决所有问题，常见的bug其实都被遇到过，且被前辈们总结过解决方案，别太迷信AI，该检索的时候还是得搜一搜<img alt="" src="../../images/c5ab0509525881a9.png">。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>infercnv_obj = infercnv::run(infercnv.obj,                             cutoff=0.1, # use 1 for smart-seq, 0.1 for 10x-genomics                              out_dir=&quot;infercnv_output&quot;,                             cluster_by_groups=T,                              denoise=TRUE,                             HMM=TRUE,                             num_threads=20,                             no_plot = T
+)
+</code></pre>
+<p>我们不是巨人，但是你站在我们的肩膀上也可以更进一步：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531388&amp;idx=3&amp;sn=dfaf8cac9db70bb408206fb3da27ffda&amp;scene=21#wechat_redirect">这可能是全网最全的scRNA-seq分析教程！</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531221&amp;idx=1&amp;sn=2346109f4cf6d3398dd15351474edf95&amp;scene=21#wechat_redirect">单细胞+空间转录组，Python全流程实战教学！</a></p>
+<p><img alt="图片" src="../../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../../images/fb7650d03b8755cc.webp"><img alt="图片" src="../../images/ec72a80f59849127.webp"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=2&amp;sn=e5d0a63646094c3094b7b916350d22ad&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../../images/4ccf87cacd1143af.webp"> 您点的每个赞和在看，我都认真当成了喜欢
+```</p></article></body></html>

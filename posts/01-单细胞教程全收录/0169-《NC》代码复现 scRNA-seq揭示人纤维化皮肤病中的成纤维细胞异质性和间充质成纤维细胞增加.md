@@ -10,11 +10,11 @@ albums: ["单细胞教程全收录", "全文复现"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247525649&idx=1&sn=6145f50422ef8680be2a7ffd6c66f5f3&chksm=9b3c1c41ac4b955748b6735bb43b27fb222f3795c4ae49bb8a453f78765fc472ff43f9e7fc89#rd
 > 合集：单细胞教程全收录 / 全文复现
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 学习手册
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)本次教程中，我们复写了题为"**Single-cell RNA-seq reveals fibroblast heterogeneity and increased mesenchymal fibroblasts in human fibrotic skin diseases** "的文章(10.1038/s41467-021-24110-y)。纤维化是一种以成纤维细胞增殖和细胞外基质（ECM）过度积累为特征的病理过程，它可影响任何器官，导致组织瘢痕形成和器官功能障碍。最近，新的证据表明成纤维细胞实际上是形态和功能异质的细胞群体，但其异质性还没有很好的证实。这篇文章中，作者通过使用scRNA-seq 探索了皮肤瘢痕中的成纤维细胞异质性，发现瘢痕中成纤维细胞可以被分为4个亚群, 分泌状、分泌网状、间充质和促炎性。这些发现有助于我们更深入地理解纤维化皮肤疾病的病理，并为纤维化治疗提供潜在的靶点。本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)本次教程中，我们复写了题为"**Single-cell RNA-seq reveals fibroblast heterogeneity and increased mesenchymal fibroblasts in human fibrotic skin diseases** "的文章(10.1038/s41467-021-24110-y)。纤维化是一种以成纤维细胞增殖和细胞外基质（ECM）过度积累为特征的病理过程，它可影响任何器官，导致组织瘢痕形成和器官功能障碍。最近，新的证据表明成纤维细胞实际上是形态和功能异质的细胞群体，但其异质性还没有很好的证实。这篇文章中，作者通过使用scRNA-seq 探索了皮肤瘢痕中的成纤维细胞异质性，发现瘢痕中成纤维细胞可以被分为4个亚群, 分泌状、分泌网状、间充质和促炎性。这些发现有助于我们更深入地理解纤维化皮肤疾病的病理，并为纤维化治疗提供潜在的靶点。本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：
 [生信分析为什么要使用服务器？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491007&idx=1&sn=8619c2bad23791b3252a1c4cb1831931&chksm=9b3f64efac48edf9c02f84959aeee9b12480736fce70c5ddb8b41d79cfc22ce590ea2cb60fba&token=1760636281&lang=zh_CN&scene=21#wechat_redirect>)
 [足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511780&idx=1&sn=3acc0874f7d2fa75f1abbe7a9a9b4069&chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&scene=21#wechat_redirect>)
 [配置一个心仪的工作站(硬件+环境配置)](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519707&idx=1&sn=73dcab26f9b2ed75a954327317d07112&chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea&scene=21#wechat_redirect>)
@@ -23,21 +23,21 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 本教程复现集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwZqh9cm68DpicZyIZ0bKG4U0BLmsFUtSwQFYEHcBZmbt1M4e49OD2VibJlgJicmyUkbLsYbnNquNCbA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/241b51c11fb5f2a7.webp)
 
 **-Biomamba**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwZqh9cm68DpicZyIZ0bKG4UVdQkaZbhrYhaKiaYK7ziaTaB3R2HESiapoT6thfMNFWFylMb5hL1yBgSA/640?wx_fmt=gif&from=appmsg)
+![](../../images/c77d33fa8b58c19e.webp)
 
 **教程目录** ：
 
@@ -74,18 +74,18 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 文末下载链接中包含的内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZqh9cm68DpicZyIZ0bKG4U5gShMhX5a4oe6icyD1diamwVroEhyWNqFUccibnggNfGszQWDPXNe9qPg/640?wx_fmt=png&from=appmsg)
+![](../../images/9cc9ebc61f4f55e6.webp)
 
 测试文件约**10.37GB** ，大家注意按需下载！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
 解锁前需阅读：[龙年订阅须知](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509093&idx=1&sn=d82ed3738bc25b922a4837016198951e&chksm=9b3cdd35ac4b5423f08cf6ab2f4afc5d815c2321991d880e8b7162e63fd1d7e4695cd7391022&scene=21#wechat_redirect>)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+![](../../images/f08cdfe212eb6283.png)
 
 文末还可解锁以下内容
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/556752da2b520ff6.png)
 
 龙年订阅合集持续更新中，联系客服微信[Biomamba_kefu]可以119￥获取全部资料(包括今年后面更新的内容)。当然，付费不是目的，以下资料都可以通过**转发领取**(更推荐这种方式)。
 
@@ -100,8 +100,8 @@ albums: ["单细胞教程全收录", "全文复现"]
 [SCENIC转录因子调控网络图](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520750&idx=1&sn=496bead1531a7eddd5c286030d350745&chksm=9b3ce8beac4b61a8589a1f8a66bd0571e09c0646655b6d805348bf6f4a0c7b52851615c22868&scene=21#wechat_redirect>)
 [scATAC分析学习手册](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521636&idx=1&sn=208907010f3f7412c1c91343d7dfb0d3&chksm=9b3cec34ac4b6522977cb002919634af5334eec170b32f4961826dafb42f44f611144b159b2b&scene=21#wechat_redirect>)
 [单细胞拷贝数变异学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522733&idx=1&sn=4e3a0707fd8f83b5ad9377bc91ee8e53&scene=21#wechat_redirect>)
-[microRNA-靶标相互作用及疾病和药物关联分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247523676&idx=1&sn=6dad381e38df9ad63b90ed5935b73bf0&scene=21#wechat_redirect>)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+[microRNA-靶标相互作用及疾病和药物关联分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247523676&idx=1&sn=6dad381e38df9ad63b90ed5935b73bf0&scene=21#wechat_redirect>)![](../../images/3536da08710707f3.png)![](../../images/399758fa7d6941c2.png)
 
 订阅后获取学习手册下载链接：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)

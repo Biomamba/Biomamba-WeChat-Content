@@ -10,7 +10,7 @@ albums: ["求职/求学/招聘"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495684&idx=2&sn=8a97344850a4f0ebcd43adccce91e3e7&chksm=9b3c8954ac4b004237536ebb630ee64949f26555c29f9063622b6a53034bb081ca0476eaa99a#rd
 > 合集：求职/求学/招聘
 
-James Cook University (Australia) 分子细胞生物学中心Ulf Schmitz研究组拟招收博士生，与悉尼大学Centenary Institute紧密合作。![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+James Cook University (Australia) 分子细胞生物学中心Ulf Schmitz研究组拟招收博士生，与悉尼大学Centenary Institute紧密合作。![](../../images/2c562ef3d26044d9.jpg)
 ************一、课题组简介************
 
 Ulf’s Computational Biomedicine Lab主要开展基于单细胞多组学和长读长测序数据的分析算法开发研究，数学模型构建以及其在癌症等生物方向上的应用。大老板是A/Prof. Ulf Schmitz, 澳大利亚国家健康医学科研基金委（NHMRC）Emerging Leadership Fellow 。更多详情请见:
@@ -49,7 +49,7 @@ https://scholar.google.com/citations?user=cfpzmaUAAAAJ&hl=en
 
 ****************************************感兴趣的同学请将个人简历以PDF形式发送至我邮箱thaddeus.wu@jcu.edu.au。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/2c562ef3d26044d9.jpg)
 ************往期回顾************
 
 **[歪!?来"Biomamba 生信基地"兼职？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)**
@@ -72,4 +72,4 @@ https://scholar.google.com/citations?user=cfpzmaUAAAAJ&hl=en
 
 [中国科学院上海有机化学研究所林亮课题组招聘启事](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495575&idx=1&sn=73a21a59139f7b9908b86187f2618bcd&chksm=9b3c96c7ac4b1fd1c73463bcc38b5af6c113162de67c19883cfa1f1c84cf51e783c512858222&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞，我都认真当成了喜欢
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/0694eb4925c4700f.gif)您点的每个赞，我都认真当成了喜欢

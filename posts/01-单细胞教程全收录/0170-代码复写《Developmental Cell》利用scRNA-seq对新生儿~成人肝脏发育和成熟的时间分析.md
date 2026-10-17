@@ -12,11 +12,11 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 ****
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 学习手册
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1) 本次教程中，我们复写了题为"Temporal analyses of postnatal liver development and maturation by single-cell transcriptomics"的文章(DOI: 10.1016/j.devcel.2022.01.004)。本研究提供了详细的图谱，通过单细胞分辨率的逐步变化，以说明新生儿肝脏如何发育成主要代谢器官。通过拟时序分析揭示了肝细胞和liver sinusoid endothelial cells （LSEC ）在代谢区构建中的渐进和协同发育和功能成熟的过程。主要发现包括：(1）在 D7 鉴定出一组巨噬细胞，其表现出巨噬细胞和内皮细胞的混合表型。(2) 分析预测了出生后的肝脏生物钟受 Bhlhe40 （Dec1） 等因素的调节，还推断了几个关键代谢途径适应新生儿生命剧烈环境变化的动态变化。(3) Dcn+ macrophage (Dcn+ Mac) 和 Treg 细胞之间的 CXCL12-GRK6-CXCR4 信号传导可能促进 Treg 细胞的募集和活性
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png) 本次教程中，我们复写了题为"Temporal analyses of postnatal liver development and maturation by single-cell transcriptomics"的文章(DOI: 10.1016/j.devcel.2022.01.004)。本研究提供了详细的图谱，通过单细胞分辨率的逐步变化，以说明新生儿肝脏如何发育成主要代谢器官。通过拟时序分析揭示了肝细胞和liver sinusoid endothelial cells （LSEC ）在代谢区构建中的渐进和协同发育和功能成熟的过程。主要发现包括：(1）在 D7 鉴定出一组巨噬细胞，其表现出巨噬细胞和内皮细胞的混合表型。(2) 分析预测了出生后的肝脏生物钟受 Bhlhe40 （Dec1） 等因素的调节，还推断了几个关键代谢途径适应新生儿生命剧烈环境变化的动态变化。(3) Dcn+ macrophage (Dcn+ Mac) 和 Treg 细胞之间的 CXCL12-GRK6-CXCR4 信号传导可能促进 Treg 细胞的募集和活性
 本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：
 [足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511780&idx=1&sn=3acc0874f7d2fa75f1abbe7a9a9b4069&chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&scene=21#wechat_redirect>)
 [配置一个心仪的工作站(硬件+环境配置)](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519707&idx=1&sn=73dcab26f9b2ed75a954327317d07112&chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea&scene=21#wechat_redirect>)
@@ -25,21 +25,21 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 本教程**复现集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx7s9DEKedvCskpbaRajibicnUlJEK4kDN58A3ACGCECib4hCD4ibRzJV3OiaxTBoYQb6CsiapcazDLj9YA/640?wx_fmt=png&from=appmsg)
+![](../../images/1fe10ae568464c51.webp)
 
 **-Biomamba**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpznttzoqtuQBeRAM4tHRweMyib33cMSSiaV2IBpmOEoYTaQr71ktoicmHsnEmzH6tNNc3ZX1xkbpAGOQ/640?wx_fmt=gif&from=appmsg)
+![](../../images/cf128d973b63555f.webp)
 
 **教程目录** ：
 
@@ -60,17 +60,17 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 文末下载链接中包含的内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwG8ib3Q1Etq0Xz3p5ljkeBHlZ1icUNTadsCZVSjoZKzYFqcubalh5cZyjkvJpKvLn2h6O4X5ZIrFxA/640?wx_fmt=png&from=appmsg)
+![](../../images/d24fe444bdee1921.webp)
 
 测试文件约**2.4GB** ，大家注意按需下载！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-解锁前需阅读：[龙年订阅须知](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509093&idx=1&sn=d82ed3738bc25b922a4837016198951e&chksm=9b3cdd35ac4b5423f08cf6ab2f4afc5d815c2321991d880e8b7162e63fd1d7e4695cd7391022&scene=21#wechat_redirect>)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+解锁前需阅读：[龙年订阅须知](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509093&idx=1&sn=d82ed3738bc25b922a4837016198951e&chksm=9b3cdd35ac4b5423f08cf6ab2f4afc5d815c2321991d880e8b7162e63fd1d7e4695cd7391022&scene=21#wechat_redirect>)![](../../images/f08cdfe212eb6283.png)
 
 文末还可解锁以下内容
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/556752da2b520ff6.png)
 
 龙年订阅合集持续更新中，联系客服微信[**Biomamba_yunying**]可以119￥获取全部资料(包括今年后面更新的内容)。当然，付费不是目的，以下资料都可以通过**转发领取**(更推荐这种方式)。
 
@@ -88,8 +88,8 @@ albums: ["单细胞教程全收录", "全文复现"]
 [microRNA-靶标相互作用及疾病和药物关联分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247523676&idx=1&sn=6dad381e38df9ad63b90ed5935b73bf0&scene=21#wechat_redirect>)[《NC》代码复现| scRNA-seq揭示人纤维化皮肤病中的成纤维细胞异质性和间充质成纤维细胞增加](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247525649&idx=1&sn=6145f50422ef8680be2a7ffd6c66f5f3&scene=21#wechat_redirect>)
 [《Nature Communications》| scRNA-seq揭示头颈癌早期转移过程中潜在的免疫逃避机制](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526011&idx=1&sn=e601b8dedfad86ee6d9ce5b6d6ca8511&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/3536da08710707f3.png)![](../../images/399758fa7d6941c2.png)
 
 订阅后获取学习手册下载链接：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)

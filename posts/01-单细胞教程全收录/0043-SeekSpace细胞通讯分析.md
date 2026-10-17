@@ -12,11 +12,11 @@ albums: ["单细胞教程全收录"]
 
 **SeekSpace &Cellchat细胞通讯分析**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png)
+![](../../images/07e88994d32c0968.png)
 
 **测试数据可扫码添加微信号获取：**
 
-**![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyj1YuxeQOPycPgyFUwEFzVtNBiaVm0eZn3wYJU3ePYeh8icEhHxibfWuVU8pGzAIjk9zZjjAXvdYnMw/640?wx_fmt=jpeg&from=appmsg)**
+**![](../../images/46f67262e1a02980.webp)**
 
 **
 **
@@ -48,7 +48,7 @@ DimPlot(mouse_brain,
         group.by = 'Main.CellType')# 分组变量
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2zquS0dslZK3aqG0PHMTu4gTThGZ89MXKukOp2pzwmFIic4EmETfibKAA/640?wx_fmt=png&from=appmsg)
+![](../../images/96db91a07cb3c4e0.webp)
 
 ## 1.2 构建`CellChat`对象
 
@@ -107,7 +107,7 @@ CellChatDB <- CellChatDB.mouse # 这里我们用的是小鼠数据，如果需�
 showDatabaseCategory(CellChatDB)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR28mliashW129qGMlP1hP3RftIecRxyBhOxeT2zYiatibS9bYrnQ9xzPibdA/640?wx_fmt=png&from=appmsg)
+![](../../images/3b7012ff3ca5a563.png)
 
 ```
 # 查看详细配受体对：
@@ -295,7 +295,7 @@ netVisual_circle(cellchat@net$count, vertex.weight = rowSums(cellchat@net$count)
 netVisual_circle(cellchat@net$weight, vertex.weight = rowSums(cellchat@net$weight), weight.scale = T, label.edge= F, title.name = "Interaction weights/strength")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2dWqKJbMMpfbiaGO5ao5eOkNzk1gsEXzM2UV0vAWFZO08oVw3wgwGtJQ/640?wx_fmt=png&from=appmsg)
+![](../../images/d48d98657b29c40a.webp)
 
 绘制细胞间通讯数量的热图：
 
@@ -306,7 +306,7 @@ netVisual_heatmap(cellchat, measure = "count", color.heatmap = "Blues")# 颜色�
 ## Do heatmap based on a single object
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2b9vQbguNUKsFz1AUX4HBNC9UzFNFWOibKylAQvn60ibsKOKaSYC1TUYA/640?wx_fmt=png&from=appmsg)
+![](../../images/3eca4a79330dcf09.webp)
 
 绘制细胞间通讯强度/权重的热图：
 
@@ -317,7 +317,7 @@ netVisual_heatmap(cellchat, measure = "weight", color.heatmap = "Reds")# 看一�
 ## Do heatmap based on a single object
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2Lm6X7yFyOuHsRiaGx1cfFJDjibXX2ncWSTPuxVBdazRY0CNkZPTMVRSQ/640?wx_fmt=png&from=appmsg)
+![](../../images/5a8d6543a3bff397.webp)
 
 指定通路进行”圈图”展示：
 
@@ -351,7 +351,7 @@ par(mfrow=c(1,1), xpd = TRUE) # `xpd = TRUE` should be added to show the title
 netVisual_aggregate(cellchat, signaling = pathways.show, layout = "circle")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2icKicsKguNFoyVu6TPwpoYsnFYULjpjcML83GkRB9B2v2icKibUZvz6uEw/640?wx_fmt=png&from=appmsg)
+![](../../images/e86ff2c1ffc69b00.png)
 
 设置布局`layout`为`spatial`，即可绘制带有空间坐标的细胞通讯图片，从下图可以看出`netVisual_aggregate`函数会在空间切片上找到细胞类型的中心位置，并标上细胞之间的通讯作用。
 
@@ -360,7 +360,7 @@ par(mfrow=c(1,1))
 netVisual_aggregate(cellchat, signaling = pathways.show, layout = "spatial", edge.width.max = 2, vertex.size.max = 1, alpha.image = 0.2, vertex.label.cex = 3.5)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2kyWWyqkL4Es4Ewjdtqh77ZrmwgEu6OE1dVcBQDIov3mf4AxyLqianfQ/640?wx_fmt=png&from=appmsg)
+![](../../images/0ecea69cecdfe622.webp)
 
 与单细胞部分一样，在空间转录组数据的计算中，`CellChat`支持各细胞类型在对应通讯通路中所扮演角色(`Sender`,`Receiver`,`Mediator`,`Influence`)的可能性计算：
 
@@ -372,7 +372,7 @@ par(mfrow=c(1,1))
 netAnalysis_signalingRole_network(cellchat, signaling = pathways.show, width = 8, height = 2.5, font.size = 10)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2NsRsriaPequYico52kian7UsXc5BT2s72rQUYPo5LC4AOcByic1FZxQWMg/640?wx_fmt=png&from=appmsg)
+![](../../images/746ee77efecc174c.png)
 
 展示对应通路中配受体的基因表达量：
 
@@ -408,21 +408,21 @@ my_receptor
 spatialFeaturePlot(cellchat, features = my_ligand, point.size = 0.8, color.heatmap = "Reds", direction = 1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2h2ibSR2fRyqpjebwh8tsI4IIIhtwmXSnoDFMvH91hTbt5GRND393BUg/640?wx_fmt=png&from=appmsg)
+![](../../images/8137271e9a435279.webp)
 
 ```
 # 绘制受体：
 spatialFeaturePlot(cellchat, features = my_receptor, point.size = 0.8, color.heatmap = "Reds", direction = 1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2LicIktia6IwPWfwROJRSpvrlTSK2qXUNNaN0UXgzmIDib4M8AHTEyW1yg/640?wx_fmt=png&from=appmsg)
+![](../../images/e535273d47410494.webp)
 
 ```
 # 可以与细胞类型的分布情况做对比：
 spatialDimPlot(cellchat,point.size = 0.8)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2y5lL8HQmXmNCBIjmkwNboXooB8lrPjLxeq1npaWr4JibrkKANx2m5CQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f9cef9cb0c93b7a5.webp)
 
 此外，`CellChat`还支持绘制指定配受体对的基因表达情况
 
@@ -446,7 +446,7 @@ spatialFeaturePlot(cellchat,
                    cutoff = 0.05, enriched.only = F, color.heatmap = "Reds", direction = 1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2WrWc0IZAeQAK1d2f0ibfndh7kaDv3DGDbVuVHkLb6BErB0epnvGK9fQ/640?wx_fmt=png&from=appmsg)
+![](../../images/eb90e7e08d4f7dd4.webp)
 
 可以看到`Igf1`与`Igf1r`这对配受体在空间中的表达情况，由于设置了`binary`，因此只有`Nrxn1`表达、`Nlgn1`表达、二者均表达、二者均不表达 这几个分类选项。
 
@@ -464,7 +464,7 @@ runCellChatApp(cellchat)
 ```
 
 弹出的窗口页面如下，大家可以自行探索一番：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2r8skLicr7c70pUbMVricicarnglJjJIYJohJ2IE0SzlcgfftLMdic0yOyQ/640?wx_fmt=png&from=appmsg)
+![](../../images/8a43cec7b74c66fa.webp)
 
 ## 3.8 环境信息
 
@@ -569,21 +569,21 @@ sessionInfo()
 
 **学习手册**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png)
+![](../../images/07e88994d32c0968.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2qFJ7NmWa0TwBH7ndUVr1o3g5PUpKvfdyh52tFmNDuoQDLxIbdsy3cA/640?wx_fmt=gif&from=appmsg)
+![](../../images/b783bd132ecdd476.webp)
 
 与以往的教程一样，我们给大家准备了SeekSpace数据分析的学习手册及对应测试文件，大家可以添加企业微信回复关键字"SeekSpace**学习手册** "即领:
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyj1YuxeQOPycPgyFUwEFzVtNBiaVm0eZn3wYJU3ePYeh8icEhHxibfWuVU8pGzAIjk9zZjjAXvdYnMw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/46f67262e1a02980.webp)
 
 分析集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2GMZDs84cg2XNKLXVBmew877Qd7qL8eFqRZ8fLgJjuB1qibhxFtZlxLw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/f7e239e45792b03d.webp)
 
 下载内容包括：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw3Q4kpGjDLrGQR3XFYQnjgSm67Z3Eog6H1ab9p9yWBI5148ZHwbldLrOb8RB3CKxNgqCrv9D3nMg/640?wx_fmt=png&from=appmsg)
+![](../../images/33ab98d95a01bb34.png)
 
 为了进一步推动单细胞科研的发展，寻因生物推出了“**2024 寻因Space行知计划** ”，愿与行知者携手，一直游到海水变蓝。
 
@@ -595,6 +595,6 @@ sessionInfo()
 
 **3项助力：样本投入及价格活动、送单细胞云平台免费分析**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/pHzHVM2oJO3ISKEsibgPQ0cdss8ibyDdM5hVtbeNER9NCk8tORrKAb4Kwn8s8C6xwzQ75BKqPjmqvewgO95jAyyQ/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c0d7802ef015cacb.jpg)
 
 **填写报名表单，参与行知计划**

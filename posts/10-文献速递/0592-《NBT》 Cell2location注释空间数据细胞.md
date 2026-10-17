@@ -48,7 +48,7 @@ albums: ["文献速递"]
 
 **Figure1**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClIWnPziaTpJicicsrb5sMgnVicOjqAE7JbJDyL9BCwsL4nqpaDrjKBfQ00w/640?wx_fmt=png&from=appmsg)
+![](../../images/0f371fddc8630bc3.webp)
 
 #### (2) `cell2location`能够精准`mapping`鼠脑的细胞类型
 
@@ -56,7 +56,7 @@ albums: ["文献速递"]
 
 **Figure2**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClKa8wZQjsNCgwsqglKxMOqVvNbZVmqAYLvXQhouaWdg96ELppfsGJng/640?wx_fmt=png&from=appmsg)
+![](../../images/244553d5c376763a.webp)
 
 #### (3) `cell2location`能够识别星形区域性胶质细胞亚群
 
@@ -64,7 +64,7 @@ albums: ["文献速递"]
 
 **Figure3**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClyc7DSICjs642OljQojJuTsFhlIyyv3k8zjPFjXicpPDU9qiaBcMV3tqg/640?wx_fmt=png&from=appmsg)
+![](../../images/8092ac3a87af68ca.webp)
 
 #### (4)精准解析淋巴结的细胞组成¶
 
@@ -73,11 +73,11 @@ albums: ["文献速递"]
 
 **Figure4**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClFPtskc9zFGjZsSbgpBcVA8bGEbBvwlib6XPERicVcMUxZWdIVWAkJHfA/640?wx_fmt=png&from=appmsg)
+![](../../images/7a81a598fde1b683.webp)
 
 **Figure5**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClF1vE32foibdofchuuoX2cLAkKyMicZ7DoIW5vlfkLSGZo3W6ohTJ8GTA/640?wx_fmt=png&from=appmsg)
+![](../../images/aff46ea00f69de79.webp)
 
 **三、总结**
 
@@ -104,14 +104,14 @@ Cell2location支持GPU加速，需要GPU算力的同学可参考：[5090终于�
 
 Kleshchevnikov, V., Shmatko, A., Dann, E. et al. Cell2location maps fine-grained cell types in spatial transcriptomics. Nat Biotechnol 40, 661–671 (2022). https://doi.org/10.1038/s41587-021-01139-4
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

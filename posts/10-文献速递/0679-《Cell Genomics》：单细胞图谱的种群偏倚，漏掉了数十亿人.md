@@ -18,7 +18,7 @@ albums: ["文献速递"]
 
 这篇发表于《Cell Genomics》的“Are different populations fairly represented in single-cell omic atlases”（IF=8.4，DOI：10.1016/j.xgen.2026.101300 ）首次对三大单细胞联盟进行了系统性的人口代表性审计。研究揭示了一个与GWAS领域相似的困境——欧洲血统样本的系统性过度代表，以及亚洲、拉丁裔等群体的严重缺位。这不仅是一个技术问题，更是一个关乎健康公平的结构性挑战。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkNtianwxghIaL5ehWeZBxrxKe75q22tM5aSu6BoI6HryA70qjDGXh4S4uv6ibJoz9tTOSQlPxs83dR1ZBtzXoicZsfV5FVoibaTjc/640?wx_fmt=png&from=appmsg)
+![](../../images/3740098dd1a37517.webp)
 
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21&token=827157490&lang=zh_CN&poc_token=HLe6Q2mjR5L5stXqZGOdzOvf2Vk8eTYi05UUYRRy#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469&token=827157490&lang=zh_CN#wechat_redirect>)、自测数据[个性化分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539480&idx=1&sn=9f1d8a76c0a5ddad4983c3fcf7620622&chksm=9b3c2248ac4bab5e30c2b38a268a6368663b32f530dbb46a15b66d4d3bca57ab417d61afc825&token=1952405879&lang=zh_CN&scene=21#wechat_redirect>)辅导、[实验科研服务](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537678&idx=1&sn=578993fdfa060d38c80e2df6fc200c39&scene=21#wechat_redirect>)和[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539358&idx=2&sn=1c28c3a16370b1243285cd2c217f4969&scene=21#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。
 
@@ -30,7 +30,7 @@ albums: ["文献速递"]
 
 1.1 **人类细胞图谱（ HCA）：全球参考下的严重失衡**
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlzzWIjTXs8PHcf8a3iavC2U6tWt80icgic4vd8RHtLv6Db1IVACSuq2t79kNGjPWrdrWGHVbeUK30qicbNYK557NHqV077OxM3UH8/640?wx_fmt=png&from=appmsg)**
+**![](../../images/7d7ff4c9363a8186.webp)**
 
 **Fig.1**
 
@@ -42,7 +42,7 @@ albums: ["文献速递"]
 
 1.2 **人类肿瘤图谱网络（ HTAN）：癌症领域的代表性危机**
 
-**![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkgwzyerxrgMBc5iaYGLPpTEtfPMKObpxWD93ABkHP6GcbHuhydkMgiaHG55LsTjy3ZDDicZcEB7onxujuicib0eeKIiaG3lS8ymF36A/640?wx_fmt=png&from=appmsg)**
+**![](../../images/bbe09a3e92126559.webp)**
 
 **Fig.2**
 
@@ -50,7 +50,7 @@ albums: ["文献速递"]
 
 1.3 **PsychAD 联盟：神经精神疾病的血统鸿沟**
 
-**![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkoQphUyj949cwSKgcmXq2olT5eibDd5hZjdlkrugicNdAtL00qaa9MuqcmY893zV6oQdtu7HwGiadSkyg85SVAP46nHic0fLvjLHo/640?wx_fmt=png&from=appmsg)**
+**![](../../images/7c0fe38dcfddf416.webp)**
 
 **Fig.3**
 
@@ -97,7 +97,7 @@ albums: ["文献速递"]
 
 **3.****行动框架：****16****项检查清单**
 
-**![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnb3LHgicnf9mGicMa52fv3lrsmFVtJlPRHgRzRGmFe6ibEiaTxicPefqZOHIf3oS8mhIN4uWbuaeBZRNsOAdgzcs7FtZav5JIaBLtc/640?wx_fmt=png&from=appmsg)**
+**![](../../images/d5386516b7879fe1.webp)**
 
 **Table 1**
 
@@ -121,7 +121,7 @@ albums: ["文献速递"]
 
 更多单细胞教程：
 
-[![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwniaDJ0aKcPIOIUheqrSYttfdUwa1Cg3KhD9v1gh34lHFJ2lwM7iab8a6Ijnp2lcDKZDexiaicb7fPdRiau7WXAuO1XTPSxIWllOpKE/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=3)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
+[![图片](../../images/baae0c8a77682de7.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
 
 **五、参考**
 
@@ -131,8 +131,8 @@ albums: ["文献速递"]
 
 Oria
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

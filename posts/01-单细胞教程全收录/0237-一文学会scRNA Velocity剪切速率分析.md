@@ -10,11 +10,11 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529963&idx=2&sn=149c902aabdb2b4fa1fc2d148949b154&chksm=9b3c0cbbac4b85add0c2dbbae73d8e320bc6bdad4f20ceecdf8a2e95ce32219b487a586e4c51#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 RNA Velocity
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)RNA丰度是单个细胞状态的一个强有力的指标。目前，单细胞RNA测序能够以高定量精度、灵敏度和通量揭示RNA丰度。然而，目前这种方法只能捕获到某一时间点的静态快照，这给诸如胚胎发生或组织再生等时间动态变化研究带来了挑战。因此，作者提出了RNA速率的概念(基因表达状态的时间导数)。通过RNA速率分析区分常见单细胞RNA测序中的未剪接和已剪接mRNA直接估算。RNA速率是一个高维向量，能够在数小时的时间尺度上预测单个细胞的未来状态。本次教程我们从RNA Velocity原文解读、**数据下载、软件安装、生成loom文件、 R中实现RNA速率分析、Python中实现RNA速率分析。**参考内容：
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)RNA丰度是单个细胞状态的一个强有力的指标。目前，单细胞RNA测序能够以高定量精度、灵敏度和通量揭示RNA丰度。然而，目前这种方法只能捕获到某一时间点的静态快照，这给诸如胚胎发生或组织再生等时间动态变化研究带来了挑战。因此，作者提出了RNA速率的概念(基因表达状态的时间导数)。通过RNA速率分析区分常见单细胞RNA测序中的未剪接和已剪接mRNA直接估算。RNA速率是一个高维向量，能够在数小时的时间尺度上预测单个细胞的未来状态。本次教程我们从RNA Velocity原文解读、**数据下载、软件安装、生成loom文件、 R中实现RNA速率分析、Python中实现RNA速率分析。**参考内容：
 
 https://velocyto.org/velocyto.py/install/index.html
 
@@ -28,16 +28,16 @@ https://satijalab.org/seurat/articles/pbmc3k_tutorial.html
 [配置一个心仪的工作站(硬件+环境配置)](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519707&idx=1&sn=73dcab26f9b2ed75a954327317d07112&chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea&scene=21#wechat_redirect>)
 [独享服务器，生信分析不求人](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503618&idx=1&sn=ca47ca985aa8560f6b38f15f210519e2&chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&scene=21#wechat_redirect>)
 [为实验室准备一份生物信息学不动产](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492383&idx=1&sn=b8d912877cb38e8d8c9084d1d9370ded&chksm=9b3c9a4fac4b135926091a8af972c45a17a2fa1f94c704779c60df5f733847036c3797894c1c&scene=21#wechat_redirect>)
-本教程可视化集锦![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDWBBsQfX1B6ibR8SbuqFk5YTia3hajnDtvMxO6UPdiaqL6qr0BOxUby6I68gEUHiacLEyX4GK3Wfecg/640?wx_fmt=png&from=appmsg) **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+本教程可视化集锦![](../../images/5acd8a0ea89e35df.webp) **-Biomamba**
+![](../../images/7d247e6c6ef19f87.png)![](../../images/399758fa7d6941c2.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpymPc72Paribbb1XsqyvB2u1qicN7lYfoNDAvNiaMBMzapI6awJdIibDQqIibmpopkATO51vHDAOgPh08g/640?wx_fmt=gif&from=appmsg)
+![](../../images/859f0d1ac006995d.webp)
 
 **教程目录** ：
 
@@ -84,16 +84,16 @@ https://satijalab.org/seurat/articles/pbmc3k_tutorial.html
 
 文末下载链接中包含以下内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwVh4AzuXMUbRiazd3BSqQmQhPibLjZmM6eiaDN8GBKXktCcib1r2jgbSD2GuKJAl6NlOSOadyKVdaUDw/640?wx_fmt=png&from=appmsg)
+![](../../images/fb4923242db2656b.webp)
 
 测试文件约**36.57GB** ，大家注意按需下载！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+![](../../images/7d247e6c6ef19f87.png)
+![图片](../../images/eab31beb8c0e41d2.png)
 
 往期订阅
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：[那就开放一个终身订阅吧~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)
 
@@ -119,11 +119,11 @@ https://satijalab.org/seurat/articles/pbmc3k_tutorial.html
 
 # [肿瘤异质性分析必备| 一文学会四种scRNA-seq拷贝数变异分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)解锁前需阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/697dd2eb5e60e8d8.png)解锁前需阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**![](../../images/399758fa7d6941c2.png)
 
 订阅后获取学习手册下载链接：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 请联系[Biomamba_zhushou]获取文件提取码
 
@@ -136,4 +136,4 @@ https://pan.baidu.com/s/1dewgNR3EhDUjh96wHqoPDA?
 https://pan.baidu.com/s/1yXzQi0zBqh4ZLR6Hznckiw?
 
 **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)

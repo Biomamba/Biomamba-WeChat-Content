@@ -10,7 +10,7 @@ albums: ["答读者问"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521009&idx=1&sn=06a9e3d1c7564992399ca1e4055dc293&chksm=9b3ceba1ac4b62b7d39ce16b55b272599a3f1491977dc9feb64ac114b8c0d7a0961603c0d556#rd
 > 合集：答读者问
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/0ffc03dd3fbc9e2f.webp)
 
 **一、写在前面**
 
@@ -25,9 +25,9 @@ albums: ["答读者问"]
 
 更多内容可咨询客服微信[**Biomamba_kefu**]
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/06077bf834ad4007.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/0ffc03dd3fbc9e2f.webp)
 
 **二、通过bypy使用百度云**
 
@@ -39,11 +39,11 @@ albums: ["答读者问"]
 # 安装bypypip install bypy# 配置账号密码：bypy info
 ```
 
-会返回以下页面：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwfic3SFGcYZ4QHooRZ0wjZiawb3z6ZEalZfibU2V9LQDJ6ABITUKLSXBeNjyt9V5dubTwAz7FlmZMRg/640?wx_fmt=png&from=appmsg)
-用浏览器访问上面提供的网址，登录自己的百度云盘账号：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwfic3SFGcYZ4QHooRZ0wjZiaOpkWw9mpACicZHedibXUiafrgEgrgR8sf3dRuibovUGAibrTcrv9gW4tfOQ/640?wx_fmt=png&from=appmsg)
-授权后会返回授权码，复制授权码：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwfic3SFGcYZ4QHooRZ0wjZia42CPABBRnykPLZ2DscuRQWIYtxPia18hkIYeo91mCuPictsg44LFdukA/640?wx_fmt=png&from=appmsg)回到终端粘贴授权码，回车后会自动配置百度网盘账号密码及初始设置，返回百度云盘的存储信息，下面的信息会与各位的windows客户端相一致：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwfic3SFGcYZ4QHooRZ0wjZiatL9H0PgMKiaqbdTSce0UhSkFFPw7kRo1GCmdwVRnaCicHyq7nibgds7Gg/640?wx_fmt=png&from=appmsg)
-配置好之后，在Windows客户端会多出这么一个文件夹，这个文件夹就是Linux和windows交换文件的桥梁：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwfic3SFGcYZ4QHooRZ0wjZiahc0ZmToQG0en9bPMgvTr864zVibOdPmebUnRraTsZiauC8vMwVgKFusQ/640?wx_fmt=png&from=appmsg)
+会返回以下页面：![](../../images/56f5e1890dd7da3b.webp)
+用浏览器访问上面提供的网址，登录自己的百度云盘账号：![](../../images/10b3f3b15b84ac9f.webp)
+授权后会返回授权码，复制授权码：![](../../images/dd19d0e21a676f17.webp)回到终端粘贴授权码，回车后会自动配置百度网盘账号密码及初始设置，返回百度云盘的存储信息，下面的信息会与各位的windows客户端相一致：
+![](../../images/5f7eeccd52270914.webp)
+配置好之后，在Windows客户端会多出这么一个文件夹，这个文件夹就是Linux和windows交换文件的桥梁：![](../../images/ec510b1a328f96dd.png)
 在Linux终端使用百度云，大家就得使用命令行啦，最常用的是：1、查看目录下包含哪些内容：
 
   *
@@ -52,7 +52,7 @@ albums: ["答读者问"]
 bypy list
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwfic3SFGcYZ4QHooRZ0wjZiarPnQ8TjIgNcvAJC8AynTCPicicWaZdJYNfB5Ub9rnqNvcPILjI4sLexg/640?wx_fmt=png&from=appmsg)
+![](../../images/c3de46bfa4c51553.webp)
 
 /apps/bypy/即为bypy访问的根目录
 
@@ -82,7 +82,7 @@ bypy download test /home/biomamba
 
 下载时也会有进度条：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwfic3SFGcYZ4QHooRZ0wjZiaok2wx5bMAbvVWnzk7Yiantg4hXyiaH7aa4BAva3Pz09EFb9j6dsNQn9Q/640?wx_fmt=png&from=appmsg)
+![](../../images/1000f68ec0c8dfa7.webp)
 
 大文件建议大家挂载在后台下载：[程序可以自己跑的，不用盯着](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511096&idx=1&sn=14191291fa6fbdb625b9601d230509f7&chksm=9b3cd568ac4b5c7e77ef9c3bf2970902e77d96474cc2ce36b14f406824c5363bb4c0b754306f&scene=21#wechat_redirect>)
 
@@ -96,21 +96,21 @@ options:  -h, --help           show this help                       message and 
 Commands:help <command> - provide some information for the commandcdl_add <source_url> [save_path] [timeout] - add an offline (cloud) download taskcdl_addmon <source_url> [save_path] [timeout] - add an offline (cloud) download task and monitor the download progresscdl_cancel <task_id>  - cancel an offline (cloud) download taskcdl_list - list offline (cloud) download taskscdl_query <task_ids>  - query existing offline (cloud) download taskscleancache - remove invalid entries from hash cache filecombine <remotefile> [localfile] [md5s] - try to create a file at PCS by combining slices, having MD5s specifiedcompare [remotedir] [localdir] - compare the remote directory with the local directorycopy/cp <from> <to> - copy a file / dir remotely at Baidu Yundelete/remove/rm <remotepath> - delete a file / dir remotely at Baidu Yundowndir [remotedir] [localdir] - download a remote directory (recursively)downfile <remotefile> [localpath] - download a remote file.download [remotepath] [localpath] - download a remote directory (recursively) / filedumpcache - display file hash cachelist/ls [remotepath] [format] [sort] [order] - list the 'remotepath' directory at Baidu PCSlistrecycle [start] [limit] - list the recycle contentsmeta <remotepath> [format] - get information of the given path (dir / file) at Baidu Yun.mkdir <remotedir> - create a directory at Baidu Yunmove/mv/rename/ren <from> <to> - move a file / dir remotely at Baidu Yunquota/info - display the quota informationrefreshtoken - refresh the access tokenrestore <remotepath> - restore a file from the recycle binsearch <keyword> [remotepath] [recursive] - search for a file using keyword at Baidu Yunstream <remotefile> <localpipe> [format] [chunk] - stream a video / audio file converted to M3U format at cloud side, to a pipe.syncdown [remotedir] [localdir] [deletelocal] - sync down from the remote directory to the local directorysyncup [localdir] [remotedir] [deleteremote] - sync up from the local directory to the remote directoryupload [localpath] [remotepath] [ondup] - upload a file or directory (recursively)whoami - display the user information
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/06077bf834ad4007.webp)
 
 本教程参考：https://github.com/houtianze/bypy
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

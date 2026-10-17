@@ -1,0 +1,28 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>1003-一次糟糕的R包学习体验</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="r">一次糟糕的R包学习体验</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503524&amp;idx=1&amp;sn=e7afa36766a3a3504d084d3adad47459&amp;chksm=9b3cb7f4ac4b3ee28c124029e8041e554e1edffd35040969a93a2646fef2de3119dad5c0add4#rd
+合集：漫谈胡侃</p>
+</blockquote>
+<p><strong>写在前面</strong></p>
+<p>最近看到一个很好的文章，名为"Single-cell protein activity analysis identifies recurrence-associated renal tumor macrophages"，发表在《Cell》主刊上。文章中开发了一种能够通过scRNA-Seq矩阵来<strong>推断蛋白质活性</strong> 矩阵的R包——PISCES，可以说是变相的完成了“<strong>单细胞蛋白质组学</strong> ”的执行。<img alt="" src="../../images/1f55a1068e89b18f.webp">
+看了文章之后觉得颇有兴趣，遂展开了该包的学习。谁知除了<strong>踩坑</strong> 一无所获。PISCES的Github地址为：https://github.com/califano-lab/PISCES，感兴趣的伙伴可以自己试试。</p>
+<p><strong>踩坑</strong></p>
+<p><strong>踩坑1</strong> 首先，我按照官方的提示装好了一切依赖的包，但是当我使用browseVignettes(package = "PISCES")调用教程文档时却遇到了报错，我也尝试着在不同平台、不同版本的环境中安装R包，但是均无果。</p>
+<p><img alt="" src="../../images/f16135cf39307c96.webp"></p>
+<p><img alt="" src="../../images/f7cef0fca35aa10f.png"></p>
+<p><strong>踩坑2</strong>
+想着既然无法直接调用vigettes，那我自己去Github把打包文件下下来，从vignettes里的Rmarkdown文件自己编译总行了吧。</p>
+<p><img alt="" src="../../images/a8ef23b33c73c1f3.png"></p>
+<p>结果你猜怎么着，嘿，从Github上pull的包是新版的，rmd却是按照旧版制作的，但旧版的函数CorDist已经不存在了。fine，又给我关上了一扇窗。</p>
+<p><img alt="" src="../../images/d56dd05f50198596.png"></p>
+<p>而另一个名为pisces_pbmc.Rmd的文档，运行过半时又发现没有"d496-blood_pisces-narnea.rds"这个文件，并且我用我能想到的所有搜索引擎检索了一番，也并没有发现这个文件的下载地址。</p>
+<p><img alt="" src="../../images/384cfb97f1fe9853.png"></p>
+<p>看下一行命令的函数帮助文档，这个函数的输入对象是一个表达矩阵，不过这个输入矩阵是raw count呢，还是normalization后的表达量呢，至少在文档里不得而知。我当然还可以像上述这样<strong>顺藤摸瓜</strong> 一个个的查询每行命令无法运行的解决办法，只是这样有些索然无味。作者自然是没有<strong>义务</strong> 服务于用户，他也确实没有回答Github中大家在Issues中的问题。所以对于我来说，一个R包的优秀程度不单限于其背后支撑的文章以及强大的功能，还在于它是否便于<strong>安装</strong> 、是否有能让其他用户方便<strong>落地的教程</strong> 。所以很遗憾，这个优秀的作品不能为我所用，我更倾向于找一些平替。大家如果有比较好的蛋白质网络预测包也欢迎给我们推荐~</p>
+<p><img alt="" src="../../images/62b90a03083a0624.png"></p>
+<p><img alt="" src="../../images/d0a809a43821e1e5.png"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/feb9903c31c83e08.png"><img alt="" src="../../images/349b3050f055aa44.gif"> 公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247502091&amp;idx=1&amp;sn=616584a04370d483da5697acc5d7350a&amp;chksm=9b3cb05bac4b394d959001e44005b96fbde477fe1fef5ca44c66f18642956d5b615f0c816d40&amp;scene=21#wechat_redirect">有root权限的共享服务器,空空的计算节点任意穿梭</a>)的<strong>微信号[Biomamba_yunying]</strong> ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅，<strong>备注来意会优先通过</strong>)。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

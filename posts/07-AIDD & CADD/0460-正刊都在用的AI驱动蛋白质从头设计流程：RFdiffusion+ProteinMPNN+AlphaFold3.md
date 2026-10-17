@@ -10,11 +10,11 @@ albums: ["AIDD & CADD"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538886&idx=2&sn=e70f96e3ac4ca3fedac3152f8149dece&chksm=9b3c2196ac4ba880f79d11dd2a51ebf0483aaa35f35e6e35e399b2fec5cda37ad5e030ac72e2#rd
 > 合集：AIDD & CADD
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 写在前面
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 **传统蛋白质工具与药物 主要来源于天然筛选、定向进化及基因工程改造，依赖高通量实验与结构解析等手段进行优化**，这导致传统方法**周期漫长 与价格昂贵**。然而，Ai驱动的蛋白质设计领域目前正在从根本上**颠覆** 这一传统方法。与其对现有蛋白质进行改造，不如从**底层构建具有复杂构架与功能的蛋白质** ，这些蛋白质不仅与天然蛋白一样强大，而且是全新的、可由用户编程的，这在如今正成为可能。这就是从头设计 (de novo design) 的概念：基于工程学原理或“蓝图”设计蛋白质，而**不依赖于自然界中已存在的天然起点** 。
 
@@ -34,46 +34,46 @@ nature chemistry：https://www.nature.com/articles/s41557-025-01998-3
 
 ACS Nano：https://pubs.acs.org/doi/10.1021/acsnano.5c13783
 
-PS，如果你需要我们提供代运行，尽管联系我们，以下是参考列表：![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlhVezhWVACknyPRj7biczHib6t7SyzsgZiclZ88chQnS16oVFkQb4yHJrQdFUAHzBw8WKhxTodDAgwUSpqJJCY2NSUZkl7ZxvqMg/640?wx_fmt=png&from=appmsg)
+PS，如果你需要我们提供代运行，尽管联系我们，以下是参考列表：![](../../images/b4aad00c8de3bd32.webp)
 如果你缺少GPU算力，不妨看看：[免费使用|共享服务器上线RTX3080(20GB显存)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529989&idx=1&sn=94d64b24a28c6da3c752e2a5b135b50a&scene=21#wechat_redirect>)[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21#wechat_redirect>)
 优惠订阅资料或购买服务器请联系客服微信[Biomamba_zhushou]**更多生信教程可见：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)**
 **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
+![](../../images/399758fa7d6941c2.png)
 
 RFdiffusion+ProteinMPNN+AlphaFold
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 **RFdiffusion：造骨架（The Architect）**
 
   * **核心逻辑** ：它暂时不关注具体的氨基酸侧链序列，而是聚焦于“拓扑形状”与“空间互补”。算法从**随机高斯噪声** 出发，在逐步去噪的过程中，不仅遵循一般蛋白质的折叠物理化学规则，还能动态感知靶标蛋白带来的空间位阻（Steric hindrance）和界面几何特征，最终生成一个完美贴合靶向区域的蛋白质骨架。
 
-![截屏2026-01-14 14.21.54](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmdE9RaiaCzClA3ULWNiacVA4QK5sAeHCFY5km56dufTKfjfucSTG6GJMyEny6DM16uPk0hRa8eHvfHib5gwY8dFUUiaSicHnsPIEiaU/640?wx_fmt=png&from=appmsg)
+![截屏2026-01-14 14.21.54](../../images/3ebaf940cac45bf0.webp)
 
 ### ProteinMPNN：填序列（The Builder）
 
   * **核心逻辑** ：它通过深度学习理解空间中残基的相互作用。它**接过 RFdiffusion 给出的“骨架”** ，迅速计算出最佳的氨基酸序列组合。
 
-![截屏2026-01-14 14.26.08](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkmAhTtn6aicxuoh7BDm96z0x88mVgErVmWzFSygRfcJAcJZyMbxia5mX3gr5lvNbSKJgPTFxtch7iazFeZXaQLZ3MlL6kAia9cvII/640?wx_fmt=png&from=appmsg)
+![截屏2026-01-14 14.26.08](../../images/b93c983c8bdac003.webp)
 
 ### AlphaFold：验结构（The Judge）
 
   * **核心逻辑** ：我们将 ProteinMPNN 设计**生成的氨基酸序** 列输入至 **AlphaFold** 进行计算验证，以检验该序列在自然生理条件下能否自发折叠为预设的三维靶向构象。同时，通过分析 AlphaFold3 输出的结构**置信度指标（如 pLDDT、PAE 及 ipTM 等）** ，我们能够定量评估该蛋白质设计方案的**合理性与结合稳定性** 。
 
-![截屏2026-01-14 14.29.07](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmsMhVS1icF8ncLJcDpIw8yZlpou4HM3sW7lBJXezbQxIIbEGaghDWdReDfCt02nheNesLOZ1ILkyHUhvKCMblsjLBOiccP3YsDA/640?wx_fmt=png&from=appmsg)
+![截屏2026-01-14 14.29.07](../../images/35a24612f99ad3c2.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+![](../../images/f08cdfe212eb6283.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/007e970626afa0b7.png)
 
 以html格式提供学习手册，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwmx3x3iar4CicpwCbDGaRykcKoFBsSBl5hWJeSkLbxthZwia4SUM6XPMCEJBgYbkzhzdXfP1Iic3UfwOPV9ejyEURvRNcoXWApKPY4/640?wx_fmt=gif&from=appmsg)
+![](../../images/2f912e31b83ba92a.webp)
 
 教程目录：零、欢迎关注一、准备工作1.1 编程基础1.2 硬件基础二、理论基础2.1 RFdiffusion：造骨架（The Architect）2.2 ProteinMPNN：填序列（The Builder）2.3 AlphaFold：验结构（The Judge）三、Demo流程3.1 RFdiffusion部署学习 3.1.1 RFdiffusion部署 3.1.2 RFdiffusion输入文件参数3.2 ProteinMPNN部署学习 3.2.1 ProteinMPNN部署 3.2.2 ProteinMPNN输入参数3.3 AlphaFold3 验证四、蛋白结合剂设计实战4.1 安装部署dl_binder_design记录 4.1.1 安装ProteinMPNN-FastRelax环境 4.1.2 安装AlphaFold2环境 4.1.3 克隆ProteinMPNN 4.1.4 下载AlphaFold2模型权重 4.1.5 （可选）安装silent_tools4.2 靶点选择4.3 RFdiffusion蛋白设计4.4 筛选设计的binding蛋白 4.4.1 压缩pdb文件为silent文件 4.4.2 ProteinMPNN-FastRelax 4.4.3 AlphaFold2 复合物预测4.5 结果分析
 
@@ -82,12 +82,12 @@ RFdiffusion+ProteinMPNN+AlphaFold
 
 文末下载链接中包含以下内容：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlSJehnW7icKiaONKIAzrZamtGIAMTCcKDWkiaESiaoxiceDFXTXOiclR4ytd1lUBDFjWNvoAz1Bar2BkKDzLVhK54s6rT3jiag0QjBgc/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/f45e96f7e96183e6.png)![](../../images/7d247e6c6ef19f87.png)
+![](../../images/399758fa7d6941c2.png)
 
 往期推送
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)
 
@@ -119,17 +119,17 @@ Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资�
 
 [Ai驱动结合蛋白设计：Bindcraft全流程教学](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537769&idx=1&sn=5dbfe76b35fd2f7593e55bff48c6fa73&scene=21#wechat_redirect>)
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwFyPvvyMoyrCDjicmgGcjLom5Yy4JXTXgcSvQIht80m1loPpSwgUPS52jZwKrYqDsXVgSRqwibJYkg/640?wx_fmt=png&from=appmsg)****
+**![](../../images/bc4a928a4947108c.webp)****
 **
 
 **持续更新中~**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+![](../../images/7d247e6c6ef19f87.png)
+解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](../../images/eab31beb8c0e41d2.png)
 
 学习手册领取：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/8b04fd62fd8f3d51.png)![](../../images/007e970626afa0b7.png)
 
 本推送教程、测试文件下载链接：
 
@@ -137,4 +137,4 @@ https://pan.baidu.com/s/1t8YLKYjf2o2izACd7mARIA
 
 提取码请联系客服微信获取：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fe8ecb8594a1f419.webp)![](../../images/7d247e6c6ef19f87.png)

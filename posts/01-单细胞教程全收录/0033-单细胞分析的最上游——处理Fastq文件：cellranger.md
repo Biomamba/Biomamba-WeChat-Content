@@ -10,11 +10,11 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501751&idx=2&sn=a79512f54db7456ea577de40f1a2d286&chksm=9b3cbee7ac4b37f1ce313d5eeb9a9ac9940640ab599ac5ab5d438fa86a8007796b768e4e68c2#rd
 > 合集：单细胞教程全收录
 
-。![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png)
+。![](../../images/32d1a043631a4178.png)
 
 写在前面
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif)原先我们将这一部分内容安排在了整个课程的最后，是考虑到这部分内容需要一定的Linux基础。这并不代表这是一个下游的内容，相反，这是单细胞测序整个生物信息学分析中最上游的内容。作为承前启后的一个步骤，实验的部分到Fastq文件终止，生信的部分由Fastq文件开始（如果这里你不知道我在说什么，建议去看一下我们这个系列的第一讲：[手把手教你做单细胞测序数据分析（一）——绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484077&idx=1&sn=e329bf865493d46308985f4c111370ae&chksm=9b3f7bfdac48f2eb7e903510338bd772c6be34ccbcb681806d288e62a05eee28fa209d2f33b9&scene=21#wechat_redirect>)）。如果是10X genomics平台做的测序，那么用cellranger处理Fastq文件即可，另一种主流的平台——dropseq，我们在下篇推送也会给大家介绍。
+![](../../images/806f50c6211bc173.webp)原先我们将这一部分内容安排在了整个课程的最后，是考虑到这部分内容需要一定的Linux基础。这并不代表这是一个下游的内容，相反，这是单细胞测序整个生物信息学分析中最上游的内容。作为承前启后的一个步骤，实验的部分到Fastq文件终止，生信的部分由Fastq文件开始（如果这里你不知道我在说什么，建议去看一下我们这个系列的第一讲：[手把手教你做单细胞测序数据分析（一）——绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484077&idx=1&sn=e329bf865493d46308985f4c111370ae&chksm=9b3f7bfdac48f2eb7e903510338bd772c6be34ccbcb681806d288e62a05eee28fa209d2f33b9&scene=21#wechat_redirect>)）。如果是10X genomics平台做的测序，那么用cellranger处理Fastq文件即可，另一种主流的平台——dropseq，我们在下篇推送也会给大家介绍。
 这部分教程比较尴尬：掌握Linux知识并拥有服务器的同学可能不需要视频教程，而没有Linux基础和服务器的同学看了视频也无法自己操作。因此没有条件自己操作的同学也可以**在文末联系我** ，可以帮助大家完成cellranger定量的过程。学习本次内容需要各位具有一定的Linux基础：[跟着Biomamba一起学Linux| 一.计算机硬件组成](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491413&idx=1&sn=1252abc3bd5584bdf5d59487c8dd61e3&chksm=9b3f6605ac48ef13bf0bc605a9f3bba4b804f56b824a0b2a550f7c831516441e829f35ed9f69&scene=21#wechat_redirect>)
 [Linux| 二.计算机软件组成与Linux](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492243&idx=1&sn=bbb06cfd7a0836943262bf4897a390d1&chksm=9b3c9bc3ac4b12d529d9e5173c1ef22f43db3dbffac9143384fb463f30da1ca6afeea8d987bb&scene=21#wechat_redirect>)[Linux| 三.免费获得Linux系统-WSL](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493279&idx=1&sn=ab7f430ea98de7f29d8f4bfb238eb0d6&chksm=9b3c9fcfac4b16d916ba186e658ffb8973043e85f2fd0cf524a1f27715056555ba0130b0c2d5&scene=21#wechat_redirect>)[Linux| 四.免费获得Linux系统-虚拟机](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493649&idx=1&sn=0b3070157cc16bb54424bec5b8641d32&chksm=9b3c9141ac4b18574a6a09a78749e40df7bbbb320fad2a593d7a61586526085ebbdabd148384&scene=21#wechat_redirect>)
 [Linux| 五.免费获得Linux系统-服务器](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247494994&idx=2&sn=0cecd945228792a6be108cca83e85779&chksm=9b3c9402ac4b1d14893b28d8618d437c0aec1ac6117154bd8ffeaac8f8f129ddefb0d4377cfb&scene=21#wechat_redirect>)
@@ -63,17 +63,17 @@ wget 'http://cf.10xgenomics.com/samples/cell-exp/2.1.0/neurons_900/neurons_900_f
 
 四、硬件要求运行cellranger需要的内存可以参考这里：[做单细胞测序到底需要多少内存](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487923&idx=1&sn=15043c6d729b0d5493ab875b0e54a259&chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0&scene=21#wechat_redirect>)，单细胞测序的数据动辄就是100G（压缩前），所以理论上靠自己的笔记本是必然跑不动的。我这里的服务器是377GB的内存([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501099&idx=1&sn=78446147184292fad3417495926b3096&chksm=9b3cbc7bac4b356dcf0460781f9bf16df4ede481f8cc57282c7384b9d2baccaa820d64c89bab&scene=21#wechat_redirect>))，总之如果大家有这样配置的设备，跑正常深度的Fastq文件应该是没有问题。当然，如果你没有Linux基础或充足的计算资源，你也可以扫描下方的二维码寻求帮助。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzFPmcjRWI9aY9WQgqEg6Sgd3MHnzTBppQ2zNUVp0Jicc7G59uhw2kkWIqXOrXn1ecXSqribicENRDicA/640?wx_fmt=png)
+![](../../images/ec6930a314700534.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器([有root权限的共享服务器,注册即送200￥](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500273&idx=1&sn=f600f10077f6298ea957e459b5f8a375&chksm=9b3cb8a1ac4b31b702838076dbceb077e9c8980d9cffe5c4ab10ebbeceaf5fe3e658003e66c4&scene=21#wechat_redirect>))的**微信号[Biomamba_kefu]** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅，**备注来意会优先通过**)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器([有root权限的共享服务器,注册即送200￥](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500273&idx=1&sn=f600f10077f6298ea957e459b5f8a375&chksm=9b3cb8a1ac4b31b702838076dbceb077e9c8980d9cffe5c4ab10ebbeceaf5fe3e658003e66c4&scene=21#wechat_redirect>))的**微信号[Biomamba_kefu]** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅，**备注来意会优先通过**)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

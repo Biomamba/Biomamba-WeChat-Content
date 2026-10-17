@@ -10,29 +10,29 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537859&idx=2&sn=18ae896ac1a635a10f5a8dd78b3ebeb8&chksm=9b3c2d93ac4ba485a4227133470989308c5495ed4b24a2a5b56f9092b9ed97c072c07433562e#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 进阶质控：去RNA污染
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)基于液滴的[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)RNA测序（scRNA-seq）已能够在单次实验中对数十万个细胞的转录组进行定量分析。这项技术为理解正常和病理性细胞行为的最新进展提供了支撑。此外，构建“人类细胞图谱”的大规模研究工作，关键依赖于基于液滴的scRNA-seq所产生的转录组读数的准确性和细胞特异性。基于液滴的scRNA-seq的核心假设是：每个进行分子标记和逆转录的液滴仅包含来自单个细胞的信使RNA（mRNA）。
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)基于液滴的[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)RNA测序（scRNA-seq）已能够在单次实验中对数十万个细胞的转录组进行定量分析。这项技术为理解正常和病理性细胞行为的最新进展提供了支撑。此外，构建“人类细胞图谱”的大规模研究工作，关键依赖于基于液滴的scRNA-seq所产生的转录组读数的准确性和细胞特异性。基于液滴的scRNA-seq的核心假设是：每个进行分子标记和逆转录的液滴仅包含来自单个细胞的信使RNA（mRNA）。
 但在实际应用中，这一假设常被违背，可能导致scRNA-seq数据的解释出现偏差。典型例子包括含有**多个细胞的液滴（双细胞液滴）** 和空液滴。目前，检测和[去除双细胞](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528430&idx=2&sn=7e73a081c3b94f705af30c1463bb6838&scene=21#wechat_redirect>)液滴仍是研究的热点领域。另一种违背该假设的现象是：输入溶液中的无细胞RNA与包裹在液滴内的细胞混合后被测序。即使在最高质量的数据集中，这些污染性的外源性RNA也被证实存在。基于此，我们整理出了可以进行去RNA污染的软件：SoupX、DecontX、CellBender，其中SoupX的目标是去除每个细胞中无细胞mRNA分子的贡献，恢复每个细胞中每种基因的真实分子丰度；**DecontX 是一种新颖的贝叶斯方法，可用于估算和去除单个细胞中的污染；CellBender的作用包括**减少背景噪声引起的批次差异、降低伪差异表达信号。****
 
 往期我们也出了去除双细胞的教程，感兴趣的小伙伴可以点击[scRNA-Seq双细胞过滤手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511622&idx=1&sn=60b35668e569267bab14ec8fbba8bd74&scene=21#wechat_redirect>)学习哦~
 
-学习手册图片集锦：![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwnVicRgXeiaTYh1531OK0UXJql8QpYp3a8K4uHHKgxN20xdnrWS2qrf7sDDicBnrdE7NFEibIxdM9DqkTRjfCA2PCWlyRtT6pIPFias/640?wx_fmt=jpeg)
+学习手册图片集锦：![](../../images/1f1e916bccd8645d.webp)
 
-优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)**更多生信教程可见：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)**
+优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]![](../../images/fe8ecb8594a1f419.webp)**更多生信教程可见：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)**
 **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+![](../../images/7d247e6c6ef19f87.png)
+![](../../images/f08cdfe212eb6283.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/007e970626afa0b7.png)
 
 以html格式提供学习手册，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwkgRW6QNLqQDvqmEHAT9II9bP1StS74JC3YjhTk1nbbVJYGjQ58NCiarSGdMaZsgU0KBMFtkjspWXcYhSjwR5KPlHbQmj3y9kug/640?wx_fmt=gif&from=appmsg)
+![](../../images/053af3f53c899eee.webp)
 
 单细胞去污染教程目录：
 
@@ -106,13 +106,13 @@ albums: ["单细胞教程全收录"]
 
 文末下载链接中包含以下内容：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlRo8KZ1yjjXokF7icAIX9UqibCUolHracFWh8PzTTPdYk9Hylzom2whKiclYWen7tg4nZibKnribx9gGWFt95KjvCqoA41Jxp6FWec/640?wx_fmt=png&from=appmsg)测试文件，总大小5.73GB![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/47787fe13c2a96f8.png)测试文件，总大小5.73GB![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 往期推送
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)
 
@@ -142,23 +142,23 @@ Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资�
 
 [拷贝数变异分析的python实现及R语言对比](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537733&idx=1&sn=b938e687d0acf2d906139314e137b903&scene=21#wechat_redirect>)
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwFyPvvyMoyrCDjicmgGcjLom5Yy4JXTXgcSvQIht80m1loPpSwgUPS52jZwKrYqDsXVgSRqwibJYkg/640?wx_fmt=png&from=appmsg)****
+**![](../../images/bc4a928a4947108c.webp)****
 **
 
 持续更新中~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](../../images/eab31beb8c0e41d2.png)
 
 订阅后解锁下方学习手册链接：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)本推送教程、测试文件下载链接：
+![图片](../../images/8b04fd62fd8f3d51.png)![](../../images/007e970626afa0b7.png)本推送教程、测试文件下载链接：
 
 https://pan.baidu.com/s/1k4fVammykDXU5F238xpCfQ
 
 提取码请联系客服微信获取：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fe8ecb8594a1f419.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)

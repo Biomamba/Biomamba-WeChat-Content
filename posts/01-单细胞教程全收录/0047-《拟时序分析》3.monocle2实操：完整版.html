@@ -1,0 +1,549 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0047-《拟时序分析》3.monocle2实操：完整版</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="3monocle2">《拟时序分析》3.monocle2实操：完整版</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501684&amp;idx=2&amp;sn=45c8b083e1094718d7fc4b97e370b01d&amp;chksm=9b3cbe24ac4b3732e6eb04084fe3af4419c817755e4eb9a11ba1fb9f68488d12fe7bc865ad0b#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../../images/806f50c6211bc173.webp">在之前的精简版里我们已经带领大家快速的走了一遍拟时序，这次我们更新了<strong>四个视频</strong> 在B站，带领大家从软件安装、数据创建及格式转换、降维聚类、拟时序分析方式的选择及最后的可视化等方面完整的演示了monocle2的所有主要功能，大家可以前往B站学习，连播起来比较方便：https://www.bilibili.com/video/BV1br4y1x7Hf?p=4主要分析结果：</p>
+<p><img alt="" src="../../images/d20f89b1cecc00a2.webp"></p>
+<p>软件安装：
+monocle对象的创建与转换：</p>
+<p>初探monocle：
+拟时序分析：</p>
+<p>本次课程所涉及的可复制<strong>代码</strong> 、<strong>测试文件</strong> 可在文末订阅获取或转发找客服微信[Biomamba]领取，当然你也可以参考这里：https://cole-trapnell-lab.github.io/monocle-release/docs/。后续的代码如果不出意外都会在服务器中演示（<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501099&amp;idx=1&amp;sn=78446147184292fad3417495926b3096&amp;chksm=9b3cbc7bac4b356dcf0460781f9bf16df4ede481f8cc57282c7384b9d2baccaa820d64c89bab&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>）。</p>
+<p><img alt="" src="../../images/4b87ec9c4a97c105.png"></p>
+<p><img alt="" src="../../images/bfa8d34621147641.png"></p>
+<p><img alt="" src="../../images/32d1a043631a4178.png"></p>
+<p>图文教程</p>
+<p><img alt="" src="../../images/806f50c6211bc173.webp"></p>
+<p>本文所用代码可以参考：<strong>https://cole-trapnell-lab.github.io/monocle-release/docs/</strong></p>
+<p>其实在官方的主页上<code>monocle2</code>和<code>monocle3</code>的alpha版已经不再推荐使用了，由于monocle2还是服役了相当长的时间的，加上发文章需要时间周期，目前主流的文章还是以monocle2为主，不过最新发表的文章也逐渐转变为monocle3了。本人还是先带大家学习一下monocle2</p>
+<p>monocle2的三大主要功能：</p>
+<p>Clustering：划分细胞亚群</p>
+<p>classifying：通过拟时序探索细胞亚群之间的细微差别与联系</p>
+<p>counting：差异计算，查看基因表达量</p>
+<h3 id="monocle">一、monocle安装</h3>
+<p>1、一些已经弃用的安装方法</p>
+<pre><code>#这些会导致你不知道自己用的是什么版本
+#if(!require(monocle))BiocManager::install('monocle')
+#3.5以后的R已经不支持biocLite了
+# if(!require(monocle)){
+#   source(&quot;http://bioconductor.org/biocLite.R&quot;)
+#   biocLite(&quot;monocle&quot;)
+# }
+</code></pre>
+<p>2、这部分安装在linux里完成 conda的使用和R包安装安装可以参考： <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486877&amp;idx=1&amp;sn=9a829acd331a9075fb03881700d19fdd&amp;chksm=9b3f74cdac48fddb9c6404473f4a7254d14811435e055d163ee4b595a5071cd47bf4c892aada&amp;scene=21#wechat_redirect">如何在Linux中安装指定版本的R</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486877&amp;idx=1&amp;sn=9a829acd331a9075fb03881700d19fdd&amp;chksm=9b3f74cdac48fddb9c6404473f4a7254d14811435e055d163ee4b595a5071cd47bf4c892aada&amp;scene=21#wechat_redirect">装着装着我R没了？</a></p>
+<pre><code class="language-r">#conda search monocle
+#conda create -n monocle.2.18.0
+# conda activate monocle.2.18.0
+#conda install r-base==4.0.5
+#conda install
+# conda install bioconductor-monocle==2.18.0
+
+library(monocle)
+library(Seurat)
+if(!require(dplyr))install.packages('dplyr')
+#installed.packages() %&gt;%as.data.frame() %&gt;% filter(Package=='monocle') %&gt;% View()
+packageVersion('monocle')#不要用2.21.1以及2.40.0，ordercell的时候会出bug
+</code></pre>
+<pre><code>## [1] '2.18.0'
+</code></pre>
+<p>二、monocle对象的格式:celldataset的创建、转换</p>
+<pre><code class="language-r">#官方给出的cds对象构建过程
+# pd &lt;- new(&quot;AnnotatedDataFrame&quot;, data = mycds_sample_sheet)
+# pd &lt;- new(&quot;AnnotatedDataFrame&quot;, data = sample_sheet)
+# fd &lt;- new(&quot;AnnotatedDataFrame&quot;, data = gene_annotation)
+# cds &lt;- newCellDataSet(expr_matrix, phenoData = pd, featureData = fd)
+
+#官方给出的cds对象转换方法
+sce.obj&lt;- readRDS('test.data/sce.obj.rds')
+class(sce.obj)
+## [1] &quot;Seurat&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;SeuratObject&quot;
+try(importCDS(sce.obj))#快速将Seurat对象转换为monocle
+## Error in importCDS(sce.obj) :
+##   the object type you want to export to is not supported yet
+try(importCDS(sce.obj, import_all = TRUE))#如果你想保留Seurat对象中的所有元素
+## Error in importCDS(sce.obj, import_all = TRUE) :
+##   the object type you want to export to is not supported yet
+
+#lung &lt;- load_lung()#可能有些版本冲突加载不进来
+lung &lt;- readRDS('test.data/lung.rds')#下载到本地读取
+class(lung)
+## [1] &quot;CellDataSet&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;monocle&quot;
+try(lung_seurat &lt;- exportCDS(lung, 'Seurat'))#转换为Seurat对象
+## Error in Seurat::CreateSeuratObject(raw.data = data, normalization.method = &quot;LogNormalize&quot;,  :
+##   argument &quot;counts&quot; is missing, with no default
+try(lung_SCESet &lt;- exportCDS(lung, 'Scater'))#转换为Scater对象
+## Loading required namespace: scater
+## Error in loadNamespace(name) : there is no package called 'scater'
+
+# 这些封装好的函数容易出bug，我这里是通通无法运行，求人不如求自己，自己从Seurat对象里取：
+data &lt;- as(as.matrix(sce.obj@assays$RNA@counts), 'sparseMatrix')#直接输入稀疏矩阵比较省内存
+data[1:4,1:4]
+## 4 x 4 sparse Matrix of class &quot;dgCMatrix&quot;
+##               AAACATACAACCAC-1 AAACATTGAGCTAC-1 AAACATTGATCAGC-1
+## AL627309.1                   .                .                .
+## AP006222.2                   .                .                .
+## RP11-206L10.2                .                .                .
+## RP11-206L10.9                .                .                .
+##               AAACCGTGCTTCCG-1
+## AL627309.1                   .
+## AP006222.2                   .
+## RP11-206L10.2                .
+## RP11-206L10.9                .
+pd &lt;- new('AnnotatedDataFrame',
+          data = sce.obj@meta.data)
+fData &lt;- data.frame(gene_short_name = row.names(data),
+                    row.names = row.names(data))
+fd &lt;- new('AnnotatedDataFrame', data = fData)
+mycds &lt;- newCellDataSet(data,
+                        phenoData = pd,
+                        featureData = fd,
+                        expressionFamily = negbinomial.size())
+#expressionFamily 需要根据输入数据做出相应的选择
+#negbinomial.size()与negbinomial()都是适用于UMI count的输入，而前者计算速度更快，后者运行的更加准确
+#tobit() ，适用于截断正态分布(truncated normal distributions)的数据,如FPKM、TPM，monocle处理这类数据会先取log
+#gaussianff()，看名字就知道，处理高斯分布的数据，通常是log后的FPKM、TPM，不推荐，因为你所normalization、log的方式未必与monocle相同
+
+class(mycds)
+## [1] &quot;CellDataSet&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;monocle&quot;
+#果然，完美运行
+
+#再换回去 cds =&gt; seurat.obj
+as.data.frame(mycds@phenoData@data)[1:4,1:4]
+##                  orig.ident nCount_RNA nFeature_RNA percent.mt
+## AAACATACAACCAC-1     pbmc3k       2419          779  3.0177759
+## AAACATTGAGCTAC-1     pbmc3k       4903         1352  3.7935958
+## AAACATTGATCAGC-1     pbmc3k       3147         1129  0.8897363
+## AAACCGTGCTTCCG-1     pbmc3k       2639          960  1.7430845
+names(mycds@phenoData@data)
+## [1] &quot;orig.ident&quot;      &quot;nCount_RNA&quot;      &quot;nFeature_RNA&quot;    &quot;percent.mt&quot;
+## [5] &quot;RNA_snn_res.0.5&quot; &quot;seurat_clusters&quot; &quot;celltype&quot;        &quot;Size_Factor&quot;
+class(mycds@assayData$exprs)
+## [1] &quot;dgCMatrix&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;Matrix&quot;
+
+m2seurat &lt;- CreateSeuratObject(counts = mycds@assayData$exprs,
+                               meta.data = mycds@phenoData@data)
+class(m2seurat)#没问题
+## [1] &quot;Seurat&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;SeuratObject&quot;
+
+#那就拿构建好的mycds开始浅学一下monocle
+</code></pre>
+<p>三、初探monocle</p>
+<p>1、预处理、质控</p>
+<pre><code class="language-r">mycds &lt;- estimateSizeFactors(mycds)
+mycds &lt;- estimateDispersions(mycds)#评估表达矩阵的离散度,这一步相当于Seurat::FindVariableFeatures()
+## Warning: `group_by_()` was deprecated in dplyr 0.7.0.
+## Please use `group_by()` instead.
+## See vignette('programming') for more help
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+## Warning: `select_()` was deprecated in dplyr 0.7.0.
+## Please use `select()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+## Warning: glm.fit: algorithm did not converge
+## Removing 276 outliers
+
+#质控(可选) 去除死细胞、空液滴、碎细胞液滴、双液滴，提高计算准确度、降低运算时间
+mycds &lt;- detectGenes(mycds, min_expr = 0.1)
+head(fData(mycds))
+##               gene_short_name num_cells_expressed
+## AL627309.1         AL627309.1                   9
+## AP006222.2         AP006222.2                   3
+## RP11-206L10.2   RP11-206L10.2                   5
+## RP11-206L10.9   RP11-206L10.9                   3
+## LINC00115           LINC00115                  18
+## NOC2L                   NOC2L                 254
+mycds_expressed_genes &lt;- row.names(subset(fData(mycds),
+                                          num_cells_expressed &gt;= 10))
+mycds_expressed_genes[1:5]
+## [1] &quot;LINC00115&quot; &quot;NOC2L&quot;     &quot;HES4&quot;      &quot;ISG15&quot;     &quot;C1orf159&quot;
+mycds &lt;- mycds[mycds_expressed_genes,]
+
+length(row.names(sce.obj))
+## [1] 13714
+length(mycds_expressed_genes)
+## [1] 11095
+
+#如果你有做过质控分析存在pd里，可以向下面这个取子集，
+#这里我们用的不是参考数据，不做，质控我们会用专门的课程去讲解
+# valid_cells &lt;- row.names(subset(pData(mycds),
+#                                 Cells.in.Well == 1 &amp;
+#                                   Control == FALSE &amp;
+#                                   Clump == FALSE &amp;
+#                                   Debris == FALSE &amp;
+#                                   Mapped.Fragments &gt; 1000000))
+
+# mycds &lt;- mycds[,valid_cells]
+</code></pre>
+<p>2、细胞降维、分群、鉴定</p>
+<pre><code class="language-r">#我们说过monocle是可以用来鉴定细胞类型的
+#如果你拥有一些先验知识，你可以通过设定一定的阈值来鉴定细胞
+#比如我们之前命名好的Seurat.obj
+future::plan(&quot;multiprocess&quot;, workers = 10)
+## Warning: Strategy 'multiprocess' is deprecated in future (&gt;= 1.20.0)
+## [2020-10-30]. Instead, explicitly specify either 'multisession' (recommended) or
+## 'multicore'. In the current R session, 'multiprocess' equals 'multisession'.
+## Warning in supportsMulticoreAndRStudio(...): [ONE-TIME WARNING] Forked
+## processing ('multicore') is not supported when running R from RStudio
+## because it is considered unstable. For more details, how to control forked
+## processing or not, and how to silence this warning in future R sessions, see ?
+## parallelly::supportsMulticore
+seu.marker &lt;- FindAllMarkers(sce.obj)
+## Calculating cluster Naive CD4 T
+## Calculating cluster CD14+ Mono
+## Calculating cluster Memory CD4 T
+## Calculating cluster B
+## Calculating cluster CD8 T
+## Calculating cluster FCGR3A+ Mono
+## Calculating cluster NK
+## Calculating cluster DC
+## Calculating cluster Platelet
+top10gene &lt;- seu.marker %&gt;% group_by(cluster) %&gt;% top_n(n = 10, wt = avg_log2FC)
+top10gene %&gt;% filter(cluster=='B')
+## # A tibble: 10 × 7
+## # Groups:   cluster [1]
+##        p_val avg_log2FC pct.1 pct.2 p_val_adj cluster gene
+##        &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;   &lt;chr&gt;
+##  1 0               4.31 0.936 0.041 0         B       CD79A
+##  2 0               3.38 0.855 0.053 0         B       MS4A1
+##  3 2.66e-274       3.48 0.916 0.142 3.64e-270 B       CD79B
+##  4 2.40e-272       2.84 0.564 0.009 3.29e-268 B       LINC00926
+##  5 9.48e-271       3.59 0.622 0.022 1.30e-266 B       TCL1A
+##  6 2.94e-266       3.06 0.89  0.118 4.04e-262 B       HLA-DQA1
+##  7 1.17e-229       3.08 0.863 0.147 1.61e-225 B       HLA-DQB1
+##  8 5.26e-185       2.92 1     0.821 7.21e-181 B       CD74
+##  9 1.95e-183       2.76 1     0.494 2.68e-179 B       HLA-DRA
+## 10 5.75e- 85       3.45 0.233 0.012 7.88e- 81 B       IGLL5
+top10gene %&gt;% filter(cluster=='NK')
+## # A tibble: 10 × 7
+## # Groups:   cluster [1]
+##        p_val avg_log2FC pct.1 pct.2 p_val_adj cluster gene
+##        &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;   &lt;chr&gt;
+##  1 7.95e-269       4.83 0.961 0.068 1.09e-264 NK      GZMB
+##  2 3.41e-237       4.05 0.877 0.062 4.67e-233 NK      FGFBP2
+##  3 4.16e-219       3.30 0.729 0.039 5.71e-215 NK      SPON2
+##  4 4.85e-206       4.00 0.948 0.107 6.65e-202 NK      PRF1
+##  5 3.13e-191       5.32 0.961 0.131 4.30e-187 NK      GNLY
+##  6 4.21e-155       3.25 0.948 0.149 5.77e-151 NK      CST7
+##  7 5.93e-149       3.13 0.929 0.152 8.13e-145 NK      GZMA
+##  8 6.09e-140       4.04 1     0.255 8.35e-136 NK      NKG7
+##  9 5.29e-138       3.59 0.71  0.077 7.25e-134 NK      CCL4
+## 10 3.67e-109       2.91 0.548 0.058 5.04e-105 NK      IGFBP7
+
+CD79A_id &lt;- row.names(subset(fData(mycds), gene_short_name == &quot;CD79A&quot;))
+GZMB_id &lt;- row.names(subset(fData(mycds),
+                            gene_short_name == &quot;GZMB&quot;))
+
+cth &lt;- newCellTypeHierarchy()
+cth &lt;- addCellType(cth, &quot;B&quot;, classify_func =
+                     function(x) { x[CD79A_id,] &gt;= 1 })
+cth &lt;- addCellType(cth, &quot;NK&quot;, classify_func = function(x)
+{ x[CD79A_id,] &lt; 1 &amp; x[GZMB_id,] &gt; 1 })
+class(cth)
+## [1] &quot;CellTypeHierarchy&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;monocle&quot;
+
+mycds &lt;- classifyCells(mycds, cth, 0.1)
+table(pData(mycds)$CellType)
+##
+##       B      NK Unknown
+##     417     198    2023
+#没有NK，看来阈值选的不对，作者也表示这种标识方法是会受到单细胞测序的测序深度影响，那我们也就不继续往下标了，
+#总之monocle的注释就图一乐吧，我们已经在Seurat中做了比较好的注释了
+
+#这是monocle的，当然这里只是一个简单的尝试
+pm &lt;- ggplot(pData(mycds),
+             aes(x = factor(1),
+                 fill = factor(CellType))) + geom_bar(width = 1)+
+  coord_polar(theta = &quot;y&quot;) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+#这是seurat注释的
+ps&lt;-ggplot(pData(mycds),
+           aes(x = factor(1),
+               fill = factor(celltype))) + geom_bar(width = 1)+
+  coord_polar(theta = &quot;y&quot;) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+pm|ps#按表达量分群这种操作Seurat肯定也效果不好
+</code></pre>
+<p><img alt="" src="../../images/8e5ea7659545ae4d.webp"></p>
+<pre><code class="language-r">#当然，monocle也可以用非监督式的方法进行分群：
+#找出一些表达量高得高变基因来，这些基因可能是会参与细胞命运得决定得
+disp_table &lt;- dispersionTable(mycds)#这步其实有点像 Seurat::FindVariableFeatures()
+unsup_clustering_genes &lt;- subset(disp_table, mean_expression &gt;= 0.1)
+length(unsup_clustering_genes$gene_id)#大概两千多个“离散基因”
+## [1] 2252
+mycds &lt;- setOrderingFilter(mycds, unsup_clustering_genes$gene_id)
+plot_ordering_genes(mycds)
+## Warning: Transformation introduced infinite values in continuous y-axis
+## Warning: Transformation introduced infinite values in continuous y-axis
+</code></pre>
+<p><img alt="" src="../../images/a5365d5111bdd8b1.webp"></p>
+<pre><code>#平均表达值与离散度（可变性较高的基因被标为黑点，而灰色的点会被下游分析弃用）
+
+plot_pc_variance_explained(mycds, return_all = F) #这其实就是Seurat里的肘图
+</code></pre>
+<p><img alt="" src="../../images/3af4003f26b791d4.png"></p>
+<pre><code class="language-r">mycds &lt;- reduceDimension(mycds, max_components = 2, num_dim = 6,
+                         reduction_method = 'tSNE', verbose = T)#降维
+## Remove noise by PCA ...
+## Reduce dimension by tSNE ...
+#monocle分群可以指定分群的数量
+cluster.num &lt;- length(unique(sce.obj$celltype))
+cluster.num
+## [1] 9
+mycds &lt;- clusterCells(mycds, num_clusters = cluster.num)
+## Distance cutoff calculated to 3.639641
+mono.redu &lt;- plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;,
+                                show_cell_names =T,
+                                cell_name_size =5)
+mono.redu
+</code></pre>
+<p><img alt="" src="../../images/bdfcd668d72692bb.webp"></p>
+<pre><code class="language-r">library(patchwork)
+plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;,
+                   markers = c(&quot;CD79A&quot;),
+                   show_cell_names =T,
+                   cell_name_size =5)|mono.redu
+</code></pre>
+<p><img alt="" src="../../images/cb8e441690bcbcd2.webp"></p>
+<pre><code>plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;,
+                   markers = c(&quot;GZMB&quot;),
+                   show_cell_names =T,
+                   cell_name_size =5)|mono.redu
+</code></pre>
+<p><img alt="" src="../../images/875ff2976bfb80ee.webp"></p>
+<pre><code class="language-r">#我看了一下输入参数里是有show_cell_names的，但是源码中没有用到，作者可能把这个参数遗忘了
+
+#### 看一下与Seurat的差别，基本形状还是差不多的，但是人家的label是可以展示的
+seu.tsne &lt;- DimPlot(sce.obj,label = T,reduction = 'tsne')
+plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;,
+                   show_cell_names =T,
+                   cell_name_size =10)|seu.tsne
+</code></pre>
+<p><img alt="" src="../../images/c5fdc8c8612c4802.webp"></p>
+<pre><code class="language-r">#### 这里相当于Seurat regression，排除一些不想要的因素
+names(pd@data)
+## [1] &quot;orig.ident&quot;      &quot;nCount_RNA&quot;      &quot;nFeature_RNA&quot;    &quot;percent.mt&quot;
+## [5] &quot;RNA_snn_res.0.5&quot; &quot;seurat_clusters&quot; &quot;celltype&quot;
+
+mycds &lt;- reduceDimension(mycds, max_components = 2, num_dim = 2,
+                         reduction_method = 'tSNE',
+                         residualModelFormulaStr = &quot;~percent.mt&quot;,
+                         verbose = T)
+## Removing batch effects
+## Remove noise by PCA ...
+## Reduce dimension by tSNE ...
+mycds &lt;- clusterCells(mycds, num_clusters = 9)
+## Distance cutoff calculated to 4.127304
+reg.tsne &lt;- plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;)#感觉数据分布的更加不好了，看来nFeature_RNA
+reg.tsne|mono.redu
+</code></pre>
+<p><img alt="" src="../../images/31954e49c3693a68.webp"></p>
+<pre><code class="language-r">mycds &lt;- reduceDimension(mycds, max_components = 2, num_dim = 2,
+                         reduction_method = 'tSNE',
+                         residualModelFormulaStr = &quot;~nFeature_RNA + percent.mt&quot;,#两个变量的影响一起排除
+                         verbose = T)
+## Removing batch effects
+## Remove noise by PCA ...
+## Reduce dimension by tSNE ...
+mycds &lt;- clusterCells(mycds, num_clusters = 9)
+## Distance cutoff calculated to 4.515581
+reg2.tsne&lt;-plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;)
+#感觉数据分布的更加不好了，看来nFeature_RNA
+mono.redu|reg.tsne|reg2.tsne
+</code></pre>
+<p><img alt="" src="../../images/188c44bc5e9a0337.webp"></p>
+<pre><code>plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;) +
+  facet_wrap(~celltype)#可以分面展示，所以说其实monocle的图本质上也都是用ggplot2画的
+</code></pre>
+<p><img alt="" src="../../images/93dd780a139a019f.webp"></p>
+<pre><code class="language-r">#用monocle计算一下marker，看看降维效果如何
+diff_test_res &lt;- differentialGeneTest(mycds[mycds_expressed_genes,],
+                                      fullModelFormulaStr = &quot;~celltype&quot;)
+#这一步就相当于Seurat里的findallmarker，不能多线程，狠麻烦，会算很久
+diff_test_res[1:4,1:4]
+##           status           family         pval         qval
+## LINC00115     OK negbinomial.size 9.547089e-01 9.716102e-01
+## NOC2L         OK negbinomial.size 4.047651e-01 5.783723e-01
+## HES4          OK negbinomial.size 1.118682e-45 6.430970e-44
+## ISG15         OK negbinomial.size 2.504851e-22 6.148523e-21
+
+ordering_genes &lt;- row.names (subset(diff_test_res, qval &lt; 0.01))
+mycds &lt;- setOrderingFilter(mycds, ordering_genes)
+plot_ordering_genes(mycds)#看的出来monocle和seurat对于高变基因的选择有所不同的
+## Warning: Transformation introduced infinite values in continuous y-axis
+## Transformation introduced infinite values in continuous y-axis
+</code></pre>
+<p><img alt="" src="../../images/81540abecd231308.webp"></p>
+<pre><code class="language-r">mycds &lt;- reduceDimension(mycds, max_components = 2, num_dim = 3,
+                         norm_method = 'log',
+                         reduction_method = 'tSNE',
+                         # residualModelFormulaStr = &quot;~Media + num_genes_expressed&quot;,
+                         verbose = T)
+## Remove noise by PCA ...
+## Reduce dimension by tSNE ...
+mycds &lt;- clusterCells(mycds, num_clusters = 9)
+## Distance cutoff calculated to 3.935338
+mono.gene.tsne &lt;-plot_cell_clusters(mycds, 1, 2, color = &quot;celltype&quot;)
+
+mono.gene.tsne|mono.redu|seu.tsne
+</code></pre>
+<p><img alt="" src="../../images/662a302d8daa3815.webp"></p>
+<pre><code class="language-r">#我们不用monocle内置的选择进行降维，如果我们适用Seurat里找出的高变基因进行降维会怎样呢
+seu.var.gene &lt;- Seurat::VariableFeatures(sce.obj)
+length(seu.var.gene)
+## [1] 2000
+mycds &lt;- setOrderingFilter(mycds, seu.var.gene)
+mycds &lt;- reduceDimension(mycds, max_components = 2, num_dim = 3,
+                         norm_method = 'log',
+                         reduction_method = 'tSNE',
+                         # residualModelFormulaStr = &quot;~Media + num_genes_expressed&quot;,
+                         verbose = T)
+## Remove noise by PCA ...
+## Reduce dimension by tSNE ...
+mycds &lt;- clusterCells(mycds, num_clusters = 9)
+## Distance cutoff calculated to 3.913686
+
+seu.var.plot &lt;- plot_ordering_genes(mycds)#看的出来monocle和seurat对于高变基因的选择有所不同的
+mono.gene.tsne|seu.var.plot
+## Warning: Transformation introduced infinite values in continuous y-axis
+## Transformation introduced infinite values in continuous y-axis
+</code></pre>
+<p><img alt="" src="../../images/21a998020437baae.webp"></p>
+<pre><code>#说实话，seurat用惯了，用monocle处理这些分群和降维的信息，真的很难受
+</code></pre>
+<p>四、拟时序 有选择先验(半监督式)/高变基因(非监督式)两种机器学习供大家选择</p>
+<p>1、半监督式拟时序</p>
+<pre><code class="language-r">##### 正式开始拟时序
+#生物学意义就不多描述了，大家可以看一下前两讲
+#第一步：，
+#这一步主要作用是去噪、提取真正对拟时序有用的基因矩阵，这会影响拟时序的形状
+#半监督式：寻找自己感兴趣的，这里我们先用各celltype之间的marker gene尝试一下
+diff_test_res &lt;- differentialGeneTest(mycds[mycds_expressed_genes,],
+                                      fullModelFormulaStr = &quot;~celltype&quot;)
+diff_test_res[1:4,1:4]
+##           status           family         pval         qval
+## LINC00115     OK negbinomial.size 9.547089e-01 9.716102e-01
+## NOC2L         OK negbinomial.size 4.047651e-01 5.783723e-01
+## HES4          OK negbinomial.size 1.118682e-45 6.430970e-44
+## ISG15         OK negbinomial.size 2.504851e-22 6.148523e-21
+#这一步就相当于Seurat里的findallmarker，不能多线程，狠麻烦，会算很久
+ordering_genes &lt;- row.names (subset(diff_test_res, qval &lt; 0.01))
+ordering_genes[1:5]
+## [1] &quot;HES4&quot;     &quot;ISG15&quot;    &quot;TNFRSF18&quot; &quot;TNFRSF4&quot;  &quot;SDF4&quot;
+
+mycds &lt;- setOrderingFilter(mycds, ordering_genes)
+plot_ordering_genes(mycds)
+## Warning: Transformation introduced infinite values in continuous y-axis
+## Transformation introduced infinite values in continuous y-axis
+</code></pre>
+<p><img alt="" src="../../images/81540abecd231308.webp"></p>
+<pre><code class="language-r">#第二步：利用Reversed Graph Embedding降维
+mycds &lt;- reduceDimension(mycds, max_components = 2,
+                         method = 'DDRTree')
+#第三步：计算细胞的拟时间
+suppressWarnings(mycds &lt;- orderCells(mycds))
+
+#展示轨迹图的方法
+plot_cell_trajectory(mycds, color_by = &quot;celltype&quot;)|
+  plot_cell_trajectory(mycds, color_by = &quot;State&quot;)|#根据拟时间的顺序，可以将细胞分为不同的state
+  plot_cell_trajectory(mycds, color_by = &quot;Pseudotime&quot;)#来看看拟时间吧
+</code></pre>
+<p><img alt="" src="../../images/d9efe38e632a8a74.webp"></p>
+<pre><code class="language-r"># select.col &lt;-c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3', '#476D87',
+#                '#E95C59', '#E59CC4', '#AB3282', '#23452F', '#BD956A', '#8C549C', '#585658',
+#                '#9FA3A8', '#E0D4CA', '#5F3D69', '#C5DEBA', '#58A4C3', '#E4C755', '#F7F398',
+#                '#AA9A59', '#E63863', '#E39A35', '#C1E6F3', '#6778AE', '#91D0BE', '#B53E2B',
+#                '#712820', '#DCC1DD', '#CCE0F5',  '#CCC9E6', '#625D9E', '#68A180', '#3A6963',
+#                '#968175'
+# )
+# plot_cell_trajectory(mycds, color_by = &quot;celltype&quot;)
+
+#####注意 拟时间可能会与实际的生物学方向相反，如果你具有一定的先验知识，那么你可以反转这一进程
+ori.pse &lt;- plot_cell_trajectory(mycds, color_by = &quot;Pseudotime&quot;)
+suppressWarnings(mycds &lt;- orderCells(mycds,reverse = T))
+revserse.pse &lt;- plot_cell_trajectory(mycds, color_by = &quot;Pseudotime&quot;)
+ori.pse|revserse.pse#很明显，拟时序进行了一个重新排序
+</code></pre>
+<p><img alt="" src="../../images/d24d1c90f2ff0e5b.webp"></p>
+<pre><code>#如果你觉得混在一起看不清楚
+plot_cell_trajectory(mycds, color_by = &quot;State&quot;) +
+  facet_wrap(~State, nrow = 1)
+</code></pre>
+<p><img alt="" src="../../images/d4de326889fab4b4.webp"></p>
+<pre><code>plot_cell_trajectory(mycds, color_by = &quot;State&quot;) +
+  facet_wrap(~celltype, nrow = 1)
+</code></pre>
+<p><img alt="" src="../../images/413331a84fc30111.webp"></p>
+<pre><code class="language-r">blast_genes &lt;- diff_test_res$gene_short_name[1:10]
+plot_genes_jitter(mycds[blast_genes,],
+                  grouping = &quot;State&quot;,
+                  min_expr = 0.1)#如果你觉得丑，没有拟合曲线，可以试试下面这个
+</code></pre>
+<p><img alt="" src="../../images/05f996c698f0e5f4.webp"></p>
+<pre><code class="language-r">mycds_expressed_genes &lt;-  row.names(subset(fData(mycds),
+                                           num_cells_expressed &gt;= 10))
+mycds_filtered &lt;- mycds[mycds_expressed_genes,]
+
+top10gene
+## # A tibble: 90 × 7
+## # Groups:   cluster [9]
+##        p_val avg_log2FC pct.1 pct.2 p_val_adj cluster     gene
+##        &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;       &lt;chr&gt;
+##  1 1.96e-107      1.05  0.901 0.594 2.69e-103 Naive CD4 T LDHB
+##  2 1.61e- 82      1.33  0.436 0.11  2.20e- 78 Naive CD4 T CCR7
+##  3 4.20e- 77      0.952 0.838 0.406 5.76e- 73 Naive CD4 T CD3D
+##  4 3.19e- 50      0.999 0.628 0.358 4.38e- 46 Naive CD4 T NOSIP
+##  5 3.32e- 49      1.05  0.336 0.104 4.56e- 45 Naive CD4 T LEF1
+##  6 2.50e- 44      1.03  0.331 0.11  3.43e- 40 Naive CD4 T PRKCQ-AS1
+##  7 7.61e- 43      0.938 0.438 0.185 1.04e- 38 Naive CD4 T PIK3IP1
+##  8 3.32e- 39      0.869 0.197 0.041 4.55e- 35 Naive CD4 T FHIT
+##  9 6.49e- 33      0.926 0.263 0.088 8.89e- 29 Naive CD4 T MAL
+## 10 7.37e- 30      1.10  0.245 0.084 1.01e- 25 Naive CD4 T LDLRAP1
+## # … with 80 more rows
+cds_subset &lt;- mycds_filtered[c('LDHB','CCR7','CD3D'),]
+plot_genes_in_pseudotime(cds_subset, color_by = &quot;celltype&quot;)
+</code></pre>
+<p><img alt="" src="../../images/96cbd1435f6a7a6d.webp"></p>
+<p>2、非监督式的</p>
+<pre><code class="language-r">##### 刚才是半监督式的，现在来个非监督式的
+#重来
+#1、按照cluster基因做拟时序
+mycds &lt;- newCellDataSet(data,
+                        phenoData = pd,
+                        featureData = fd,
+                        expressionFamily = negbinomial.size())
+mycds &lt;- estimateSizeFactors(mycds)
+mycds &lt;- estimateDispersions(mycds, cores=10, relative_expr = TRUE)
+## Warning: glm.fit: algorithm did not converge
+## Removing 276 outliers
+
+mycds &lt;- detectGenes(mycds, min_expr = 0.1)#看看哪些基因表达了
+fData(mycds)$use_for_ordering &lt;-
+  fData(mycds)$num_cells_expressed &gt; 0.05 * ncol(mycds)
+expr.genes &lt;- fData(mycds)$gene_short_name[fData(mycds)$use_for_ordering]
+mycds &lt;- setOrderingFilter(mycds, ordering_genes =expr.genes )
+mycds &lt;- reduceDimension(mycds, max_components = 2, method = 'DDRTree')
+#mycds &lt;- orderCells(mycds)
+
+plot_ordering_genes(mycds)
+## Warning: Transformation introduced infinite values in continuous y-axis
+## Warning: Transformation introduced infinite values in continuous y-axis
+</code></pre>
+<p><img alt="" src="../../images/b8b33b58fd5e432f.webp"></p></article></body></html>

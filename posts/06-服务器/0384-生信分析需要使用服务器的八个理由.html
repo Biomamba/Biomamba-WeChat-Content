@@ -1,0 +1,44 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0384-生信分析需要使用服务器的八个理由</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">生信分析需要使用服务器的八个理由</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511347&amp;idx=1&amp;sn=1834210a5de23b4b89d95ac38e808408&amp;chksm=9b3cd463ac4b5d75cbae50842bb3c62280f23d79822dc77e48c9e1d3ebdc07594b696feec71c#rd
+合集：服务器</p>
+</blockquote>
+<p><strong>接标题，主要有以下几点原因：</strong></p>
+<p><strong>一、升级配置</strong></p>
+<p>这一点可以说是刚需，公众号内的粉丝大都是研究单细胞测序的，现在动辄就百万细胞的数据集，拿自己的8G内存笔记本显然配置够不上需求。以下为各档位服务器的配置，起步<strong>256GB</strong> 、<strong>20线程</strong> 的配置足够为你的大数据集保驾护航：</p>
+<p><img alt="" src="../../images/9905fb237be7dd0a.webp"></p>
+<p>****<strong>●</strong> ****真的≈独享，机器中当前账号中没有计算任务时配置全空，无需与他人共享计算资源：</p>
+<p><img alt="" src="../../images/8c7f510c3faec15d.png"></p>
+<p>****<strong>●</strong> <strong><strong>当然我们也提供真正的</strong>独享</strong> 服务器：</p>
+<p><img alt="" src="../../images/1551e8ceae9894d6.webp"></p>
+<p>**<strong>●</strong> **当然，记得合理分配计算资源，并不是调用的资源越多计算速度就越快：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488995&amp;idx=1&amp;sn=7140e0d037671542fb37dff3a3c94b28&amp;chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&amp;scene=21#wechat_redirect"></a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488995&amp;idx=1&amp;sn=7140e0d037671542fb37dff3a3c94b28&amp;chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&amp;scene=21#wechat_redirect">调用的线程越多就算的越快嘛?</a></p>
+<p><strong>二、技术支持</strong></p>
+<p>做生信分析难免会遇到环境配置和软件安装的问题，自己一个个去搜软件安装办法和依赖环境效率过低，而作为专业的生信服务器，西柚云的生信技术人员已经在服务器中预装了上千款生信软件/R包:</p>
+<p><img alt="" src="../../images/2e5eb72a7698372b.webp"></p>
+<p><img alt="" src="../../images/03d7f78c55c657b1.webp"></p>
+<p><strong>三、不用关机</strong></p>
+<p>这点我想大家深有体会，很多软件或函数任务运行时可能会花费数天时间，在本地电脑运行期间若自己的电脑若遇到断电、断网等问题，运行中的任务则会付之一炬。而服务器在机房稳定运行、永不关机，在服务器中执行任务时，无论是挂载在<strong>Linux</strong> 还是用<strong>Rstudio-server</strong> 运行，即使本地的电脑掉线或关机，服务器依然可以继续执行任务，完全不用守着自己的电脑。大家把自己的任务提交到后台运行即可：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511096&amp;idx=1&amp;sn=14191291fa6fbdb625b9601d230509f7&amp;chksm=9b3cd568ac4b5c7e77ef9c3bf2970902e77d96474cc2ce36b14f406824c5363bb4c0b754306f&amp;scene=21#wechat_redirect">程序可以自己跑的，不用盯着</a></p>
+<p><strong>四、网速快</strong></p>
+<p>相较于大家的塑料校园网，服务器每台接入1000M的专线，且我们具有正规备案，即使访问境外的数据库依旧可以达到相同的速度，即使是使用最简单的<strong>wget</strong> 命令也能达到极高的下载速度，即使是用作一个网盘，似乎也比百度云更有优势。</p>
+<p><img alt="" src="../../images/aff2547ae1fbb259.webp"></p>
+<p><strong>五、性价比高</strong></p>
+<p>如上，一年服务器的费用差不多与一年的百度云会员、一个16GB内存条、1T的固态硬盘价格相当，但<strong>功能却多了许多</strong> 。与其花<strong>重金</strong> 升级自己的电脑，倒不如低价租用一台服务器，现在通过联名页面注册即<strong>送200￥优惠券</strong> ，填写优惠码[<strong>biomamba</strong>]立减：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510088&amp;idx=1&amp;sn=9475687e466d5290c1a3a376dea6c9e6&amp;chksm=9b3cd118ac4b580e760655b7f7a3bc6f7ca8085e68e73be1a98178e3db290667c82648a9d19d&amp;scene=21#wechat_redirect">“200元”粉丝福利使用方式</a>。</p>
+<p><img alt="" src="../../images/5de7167c38b688da.webp"><img alt="" src="../../images/131c7800a8d889f8.webp"></p>
+<p>另外，可咨询文末微信号<strong>领取返现福利</strong>(200￥粉丝专属优惠券与返现可叠加：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510088&amp;idx=1&amp;sn=9475687e466d5290c1a3a376dea6c9e6&amp;chksm=9b3cd118ac4b580e760655b7f7a3bc6f7ca8085e68e73be1a98178e3db290667c82648a9d19d&amp;scene=21#wechat_redirect">“200元”粉丝福利使用方式</a>)，注册链接：</p>
+<p>https://biomamba.xiyoucloud.net/</p>
+<p><strong>六、损耗低</strong></p>
+<p>电脑的工作是有损耗的，相信大家在用自己的电脑计算时已经感受到机器的<strong>风扇在嗡嗡作响</strong> ，倘若电脑不堪重负出现故障，随便换哪个<strong>零件</strong> 想来也比服务器的租金要高。</p>
+<p><strong>七、数据存储有保障</strong></p>
+<p>相较于传统的硬盘直储，服务器的存储方式为<strong>超融合集群存储</strong> ，具体优点为高可靠性、高性能高可用，并且具有在线更换硬件、恢复数据的优势。这些优点我们之前专门花推送去说过(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490796&amp;idx=1&amp;sn=99bdd182e1f02f88d30b196e4960b9b0&amp;chksm=9b3f65bcac48ecaa845cda6ce3a127feae4776966297c75978a55cced57f90646564aded6438&amp;scene=21#wechat_redirect">大家的宝贝数据怎么存储才最安全</a>)。</p>
+<p><strong>八、正经Linux系统</strong></p>
+<p>无论是windows下的子系统、双系统，还是虚拟机，与<strong>真正的Linux</strong> 环境还是有所区别。而服务器原汁原味的Linux可以帮助大家在真正的Linux环境中学习生信。没有Linux基础的小伙伴也不用担心，我们已经为大家准备好了系列教程：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505777&amp;idx=1&amp;sn=f3efae390566b838a445ab9f832323c8&amp;chksm=9b3cae21ac4b2737f5923b246470d699474c041bb78de50d2b71b99d537f9f44ca2938002cda&amp;scene=21#wechat_redirect">十小时学会Linux</a></p>
+<p>详细试用教程可联系客服微信Biomamba_yunying</p>
+<p><img alt="" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接备注来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../../images/acba43cb3408c3d0.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

@@ -14,7 +14,7 @@ albums: ["文献速递"]
 
 本次分享的是2021年发布于《Journal of Chemical Information and Modeling》的文章（IF：5.6）“AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field,and Python Bindings” **DOI: 10.1021/acs.jcim.1c00203 链接：https://pubmed.ncbi.nlm.nih.gov/34278794/**
 
-![image-20250731000308824](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0QJbTfuaHibzxqShl3Ud4FKFaFEiciaeHBJTgXsoccrCwibNkQqyGZMa9Iuiam7bgGDKr21lkEcOpUxA/640?wx_fmt=png&from=appmsg)
+![image-20250731000308824](../../images/de1e46a6dd4fee8d.webp)
 
 分子对接作为药物发现的核心技术，通过模拟小分子与靶标蛋白的结合过程，为新药设计提供了关键洞见。在众多对接工具中，**[AutoDock Vina](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=1&sn=90de71a3b453e635920d309faedb36c7&scene=21#wechat_redirect>) 以其高效性、精准性和开源特性脱颖而出，成为全球研究者青睐的选择**。然而，随着研究的深入，Vina 在处理复杂场景（如大环分子对接、显式水分子模拟等）时显露出一定的局限性。**[AutoDock Vina 1.2.0](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=1&sn=90de71a3b453e635920d309faedb36c7&scene=21#wechat_redirect>) 的推出标志着这一工具的重大升级，新版本不仅引入了多配体同步对接、水合对接和大环分子柔性对接等全新方法，还扩展了对 AutoDock4.2 评分函数的支持，并新增了 Python 接口**。这些改进显著提升了 Vina 的功能性和灵活性。本文将深入探讨这些新特性，剖析它们如何突破原有局限，为分子对接研究注入新的活力。如果想学习[分子批量对接与亲和力热图绘制](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=1&sn=90de71a3b453e635920d309faedb36c7&scene=21#wechat_redirect>)可以看这里
 
@@ -37,13 +37,13 @@ albums: ["文献速递"]
 
 [AutoDock Vina 1.2.0](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=1&sn=90de71a3b453e635920d309faedb36c7&scene=21#wechat_redirect>)所集成的四种强大的、此前版本所不具备的全新对接方法，极大地拓宽了其应用范围。首先，新版本支持**多配体同步对接（multi-ligand docking）** ，允许用户将多个配体分子同时对接到一个受体靶点中。这一功能在**基于片段的药物设计（fragment-based drug design）** 等领域具有重要应用价值，例如，可以模拟多个小分子片段在活性位点中的协同结合模式（图 1A）。
 
-![f76f3d4e9a8af7790e732ddae7c682080de0670d2f9c711be6b9a2dab29569d0](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw0QJbTfuaHibzxqShl3Ud4FUWq7IEeLAbZdicpnWiaGuyxTjx368csUm5a9aV42ZicCYZ1nFVZF7jzZw/640?wx_fmt=jpeg&from=appmsg)
+![f76f3d4e9a8af7790e732ddae7c682080de0670d2f9c711be6b9a2dab29569d0](../../images/71cfd911c4538dfe.webp)
 
 图1
 
 新版本还完整实现了**水合对接（hydrated docking）** 方案。该方法旨在显式地模拟关键水分子在配体-受体相互作用中的“桥接”或“被取代”的角色，从而提高对接精度。在对接过程中，水分子被简化为可移动的W原子，如果它在结合过程中被蛋白质取代，则会为最终的结合打分增加一项有利的熵贡献。作者通过对HSP90蛋白-配体复合物的测试表明，启用该方案后，对接的成功率得到了显著提升，例如在仅考虑最佳构象时，成功率从50%提高到了67%（图 2）。
 
-![90007fa28d69406cc4753e230436a3c103d55ec345d5e15e33ec0dd42954d6b7](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw0QJbTfuaHibzxqShl3Ud4FzJ16Rz9fXLehz0PKZbrP4mCLwXUqhxc4TicxiaF9ernZlkaKHwRcjuZw/640?wx_fmt=jpeg&from=appmsg)
+![90007fa28d69406cc4753e230436a3c103d55ec345d5e15e33ec0dd42954d6b7](../../images/5c111d26e9e20c48.jpg)
 
 图2
 
@@ -82,7 +82,7 @@ Vina| 64| 50| 1.22| 0.77
 
 其次，在**构象预测（pose prediction）** 的准确性，即预测的配体结合姿势与晶体结构姿势的吻合程度上，**Vina评分函数表现出明显且一致的优势** 。例如，在仅考虑排名第一的最佳构象时，Vina能够成功预测（RMSD < 2 Å）68%的靶点，而AD4的成功率仅为54%（图 3）。作者还指出，一个有趣的发现是，Vina更优越的搜索算法并未显著提升AD4评分函数的筛选表现，这表明AD4评分函数本身的局限性可能是其性能瓶颈，而非搜索效率。
 
-![0a0d0fc56a0077713656ad432ce1578f087d3c308edf3b940269a1603ef40ef4](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw0QJbTfuaHibzxqShl3Ud4FVtC60ytEkyAPv7WOOnQNCKgQZm147dU7abJiaOmAeARao169yqPicPow/640?wx_fmt=jpeg&from=appmsg)
+![0a0d0fc56a0077713656ad432ce1578f087d3c308edf3b940269a1603ef40ef4](../../images/48a90d2113eb3ddc.webp)
 
 图3
 
@@ -90,14 +90,14 @@ Vina| 64| 50| 1.22| 0.77
 
 [ AutoDock Vina 1.2.0 ](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=1&sn=90de71a3b453e635920d309faedb36c7&scene=21#wechat_redirect>)的问世无疑为分子对接领域带来了新的里程碑。**通过融合 AutoDock 套件的强大功能，如 AutoDock4.2 评分函数和专用对接方法，新版本在模拟复杂分子体系时展现出更高的精确度和适应性** 。Python 接口和批处理功能的加入，则进一步降低了使用门槛，使研究者能够轻松构建高效的工作流，应对大规模虚拟筛选等需求。性能测试表明，**Vina 和 AutoDock4.2 评分函数在不同靶点上各有千秋，这也凸显了在新版本中同时提供两种评分函数的智慧设计** 。未来，凭借开源社区的持续推动，**[AutoDock Vina 1.2.0](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=1&sn=90de71a3b453e635920d309faedb36c7&scene=21#wechat_redirect>)有望在药物发现和生物医学研究中发挥更大作用，成为连接理论与实践的重要桥梁**。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

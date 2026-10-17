@@ -14,13 +14,13 @@ albums: ["实验基地"]
 
 **流式细胞术**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyLpMLyTkhzCe8G6c9ibpdxeXAYJLW3dxd5W57kqYt8ogYERBh0ibiaMnicxPFmsgEO7q1CJuth3pwKfg/640?wx_fmt=gif&from=appmsg)
+![](../../images/61f98b6cc6627bd1.webp)
 
 流式细胞术是现代生命科学和医学研究中不可或缺的强大分析工具。它通过让细胞“排队”经过激光束，快速、定量地获取单个细胞的多种信息（大小、颗粒度、特定分子表达等），并能分离特定细胞群体。其高通量、多参数、单细胞水平分析的能力，使其在免疫学、血液学、肿瘤学、细胞生物学、药物研发等领域发挥着至关重要的作用。
 
 案例：新冠肺炎重症患者肺部T细胞耗竭机制验证（DOI: 10.1093/pcmedi/pbac014）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8oY281d7qYHOfZKNRCdWMDNkVURgxPhfvf38HgcclmXsBgFDo3HF0pg/640?wx_fmt=png&from=appmsg)
+![](../../images/69b05b44e4997738.webp)
 
 样本：重症COVID-19患者支气管肺泡灌洗液（BALF）
 
@@ -56,17 +56,17 @@ albums: ["实验基地"]
 
   2. 结果显示T_EXH细胞葡萄糖摄取量3倍于普通CD8+T细胞（p<0.001），与单细胞代谢评分高度相关（R=0.91）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8G0pSpriaiaLEOG8VJIsAtSM44nsvcdjPC1lpbn8PjKQ8P1YhJ2mkMkXQ/640?wx_fmt=png&from=appmsg)
+![](../../images/7191a37a10900ed1.webp)
 
 **免疫组化或免疫荧光技术**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyLpMLyTkhzCe8G6c9ibpdxeXAYJLW3dxd5W57kqYt8ogYERBh0ibiaMnicxPFmsgEO7q1CJuth3pwKfg/640?wx_fmt=gif&from=appmsg)
+![](../../images/61f98b6cc6627bd1.webp)
 
 免疫组化是一种在显微镜下观察的实验室技术，用来检测组织切片中特定蛋白质（抗原）的存在和位置。免疫荧光技术是一种利用“抗体”和“发光染料”相结合，在显微镜下精确定位抗原的技术。前者用显色底物，后者用荧光标记。
 
 案例：胶质母细胞瘤（GBM）中肿瘤干细胞微环境的空间验证（DOI: 10.1016/j.ccell.2021.05.002）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8PS6hRzdSgrhUBrEI0kZsHeEnpaSD64tp8aSYYf7NOVDAp7WpD2KXbg/640?wx_fmt=png&from=appmsg)
+![](../../images/97195b150e48b704.webp)
 
 样本： 8例初诊GBM患者的肿瘤组织
 
@@ -78,7 +78,7 @@ albums: ["实验基地"]
 
 **免疫荧光验证方案**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8HnWtIIOic0p5CT9mj4xR8tp8QEcQSJibQo8O75RZrvS0NeIeQV3hKRzw/640?wx_fmt=png&from=appmsg)
+![](../../images/00534273c73772c2.webp)
 
 一、标志物空间定位验证
 
@@ -98,13 +98,13 @@ CSC-INV（CD133+VIM+）主要位于肿瘤边缘（侵袭前沿）；CSC-QUIES（
 
 **免疫印迹法**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyLpMLyTkhzCe8G6c9ibpdxeXAYJLW3dxd5W57kqYt8ogYERBh0ibiaMnicxPFmsgEO7q1CJuth3pwKfg/640?wx_fmt=gif&from=appmsg)
+![](../../images/61f98b6cc6627bd1.webp)
 
 一种用于检测特定蛋白质在复杂生物样本中表达水平、分子量及翻译后修饰（如磷酸化、乙酰化）的经典分子生物学技术。
 
 案例：肥胖症中脂肪组织巨噬细胞（ATM）的炎症机制验证（DOI:10.1016/j.cmet.2023.12.011）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8QaZWJ7LMibUOFKvxicjicibpnXmmZbCZV5jxvvYKP5QsyHAlibLiaRdic70Cg/640?wx_fmt=png&from=appmsg)
+![](../../images/bab8884dc06b379d.webp)
 
 样本：肥胖患者 vs 健康对照的皮下脂肪组织
 
@@ -124,17 +124,17 @@ CSC-INV（CD133+VIM+）主要位于肿瘤边缘（侵袭前沿）；CSC-QUIES（
 
 ATM-INFLAM中 HSF1-HSP90 通路激活 ，之后驱动NLRP3炎症小体组装。WB通过p-HSF1 (Ser326)的磷酸化抗体，检测HSF1磷酸化的激活情况。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8IsLsWB2hOnYEaOQuotZUZbgicjS1pHLLpzQ1C8GgeFyNM2nkb0Y451g/640?wx_fmt=png&from=appmsg)
+![](../../images/9a628d90ab842d21.webp)
 
 **FISH**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyLpMLyTkhzCe8G6c9ibpdxeXAYJLW3dxd5W57kqYt8ogYERBh0ibiaMnicxPFmsgEO7q1CJuth3pwKfg/640?wx_fmt=gif&from=appmsg)
+![](../../images/61f98b6cc6627bd1.webp)
 
 FISH是指荧光原位杂交技术(Fluorescene in situ hybridization, FISH)的缩写。FISH利用DNA碱基互补配对的特点，在体外一定的条件下，使同源的DNA链或DNA-RNA单链结合成双链，以荧光标记取代同位素标记而形成的一种新的原位杂交方法。
 
 案例：逆行标记+单细胞测序锁定睡眠调控核心靶点（DOI: 10.1038/nature22350）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8NBeUlia4qsYZKZkno5dlEnfBl2TmPP86TMdsvkxic9Ys0nia4UCqzckAg/640?wx_fmt=png&from=appmsg)
+![](../../images/807f04bfc11008a3.webp)
 
 样本：小鼠的靶向POA睡眠激活区
 
@@ -158,17 +158,17 @@ Cluster2：高表达 Pdgfra（血小板生因子受体α）→ REM睡眠调控
 
   5. 实验结果发现92.3%的 Gal+ 神经元同时表达 mCherry（病毒标记的睡眠神经元），Gal 转录本在POA腹外侧核（VLPO）富集（密度 15.7斑点/细胞 vs 其他区域<2），与单细胞测序结果一致。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8sicLFU3jbfpiarg1K3z7YgX7ndk6FPviadNYvH7yUXkuyj8PO8JFRKMVA/640?wx_fmt=png&from=appmsg)
+![](../../images/1235782bb7478bd9.webp)
 
 **谱系追踪**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyLpMLyTkhzCe8G6c9ibpdxeXAYJLW3dxd5W57kqYt8ogYERBh0ibiaMnicxPFmsgEO7q1CJuth3pwKfg/640?wx_fmt=gif&from=appmsg)
+![](../../images/61f98b6cc6627bd1.webp)
 
 谱系追踪(Lineage Tracing)是一种用于追踪特定细胞及其后代的分子生物学技术。通过标记或追踪细胞及其衍生细胞的分布、分化和功能变化，谱系追踪能够帮助研究者了解细胞的起源、发育过程以及在组织再生、发育或疾病中的动态变化。
 
 案例：利用CRISPR条形码谱系追踪验证造血干细胞演化路径（DOI: 10.1038/s41586-020-2503-6）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8NNKalBxicc3oicvGd5iaXk8qxg1GJP08VXicojdePibJRQibWy4Ww2kgMMZw/640?wx_fmt=png&from=appmsg)
+![](../../images/b0cc48f5bbceb509.webp)
 
 样本：造血干细胞（HSCs）
 
@@ -188,18 +188,18 @@ Cluster2：高表达 Pdgfra（血小板生因子受体α）→ REM睡眠调控
 
   4. 结果显示：Tcf15+ HSC 定向迁移至骨内膜，分化过程持续 48±6小时。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8bHaFqNpdWykZMbtJZUD4xSffNYicwGNzDvk0y68hf3al2g8HmbaX39g/640?wx_fmt=png&from=appmsg)
+![](../../images/a8a7b5f01ed95b43.webp)
 
   5. 总结讨论：通过单细胞测序分析方法得到的这些研究结果再利用实验方法进行验证，能够使文章结果更有说服力，研究结论更有深度。大家可以根据自己的研究内容，实验周期等设计湿实验进行验证。
 
 实验基地
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/GQbSTiaXLprNn6cH2n2BY8Igbr2AKe0qXgOJdicCVBe3ibjXaibwJ6DSMFIo3JNV55gXfbew0HpO610Zlmt4YmPFBw/640?wx_fmt=gif&from=appmsg)长期以来Biomamba都在自己的媒体矩阵中分享生信分析技能。生命科学毕竟是物质的科学，脱离了**实验** 总是玩不转的，大家的分析结果也需要去实验验证。一方面自己想在不同的领域里开疆扩土，追寻些新的可能；另一方面也想为大家的科研生涯全方面保驾护航，未来给大家提供新的服务、交流交流实验技能。所以，Biomamba联合**浙江大学博士团队** 组建了一个自己的实验室(Biomamba生信基地**终于有基地** 啦！)，base上海张江。目前还是百业待兴，大家有什么想法可以**填写问卷** 跟咱反馈反馈：
-问卷链接，文末阅读原文可直达：https://www.wjx.cn/vm/tpYsP8D.aspx# 问卷二维码：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpww01gvpQZv1Luqr5CgdHlmKxgFZGxBacyJnoPzMH14UQw0Eble0AMddicFLFJsu2COzkBRRT9Vcww/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/0d23a9e56c8dd279.webp)长期以来Biomamba都在自己的媒体矩阵中分享生信分析技能。生命科学毕竟是物质的科学，脱离了**实验** 总是玩不转的，大家的分析结果也需要去实验验证。一方面自己想在不同的领域里开疆扩土，追寻些新的可能；另一方面也想为大家的科研生涯全方面保驾护航，未来给大家提供新的服务、交流交流实验技能。所以，Biomamba联合**浙江大学博士团队** 组建了一个自己的实验室(Biomamba生信基地**终于有基地** 啦！)，base上海张江。目前还是百业待兴，大家有什么想法可以**填写问卷** 跟咱反馈反馈：
+问卷链接，文末阅读原文可直达：https://www.wjx.cn/vm/tpYsP8D.aspx# 问卷二维码：![](../../images/629a0059c119f269.jpg)
 更多想法也可以直接添加我们的客服微信[**Biomamba_zhushou**]聊聊，我们也有专门的实验基地交流群。
-实验室环境：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpww01gvpQZv1Luqr5CgdHlm9bGNicMoCAib87QYuCJrRQ8jMXajhuN3vZLzFzjXBcZfdpic9ov2duWLw/640?wx_fmt=jpeg&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpww01gvpQZv1Luqr5CgdHlmSSLmSKTib6QorrtVWGEcOXH0h2dFZ9KT5qJ3N56O1MCHMtqibv1c7XVw/640?wx_fmt=jpeg&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpww01gvpQZv1Luqr5CgdHlmXmPosiatL4EqlCOKJ0eWxichowib5ibjohRniaDxvInicPQ5wy6TrBrqG6EA/640?wx_fmt=jpeg&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpww01gvpQZv1Luqr5CgdHlmufoqicicBLBbpOZea0lpribqwlataicu6a8FfhzJjzfn8soWMiaStOmVlbA/640?wx_fmt=jpeg&from=appmsg)
+实验室环境：![](../../images/2741f9fe2a0db8d0.webp)![](../../images/b24faf0484214f94.webp)![](../../images/23a77724eaa25e47.webp)![](../../images/315463a23aa1c65e.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwOO27SFswHNfOykRWwQialJt5ByBGcODjEfu91F7GaoZxPTMKqkJsf19O6wyM7eLDh9NCJWT3NLzg/640?wx_fmt=png&from=appmsg)
+![](../../images/32d10ef5bf61af35.png)
 
 参考文献
 
@@ -213,16 +213,16 @@ DOI: 10.1093/pcmedi/pbac014
 
 **DOI: 10.1038/s41586-020-2503-6**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwOO27SFswHNfOykRWwQialJt5ByBGcODjEfu91F7GaoZxPTMKqkJsf19O6wyM7eLDh9NCJWT3NLzg/640?wx_fmt=png&from=appmsg)
+![](../../images/32d10ef5bf61af35.png)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

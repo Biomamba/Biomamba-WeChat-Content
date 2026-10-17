@@ -14,7 +14,7 @@ WGCNA相关内容此前我们已经做过几次分享：[一文学会WGCNA](<htt
 [WGCNA+cytoscape构建基因表达模块网络图](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499271&idx=1&sn=69ae605ffe6fe60925ed144c88b8803b&chksm=9b3c8757ac4b0e41ca67ce8fb023ca849da7cbe828a7d3116bdcd96d2a9c9b6293c010cc7465&scene=21#wechat_redirect>)
 [一文搞定单细胞/空间转录组的WGCNA分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499737&idx=1&sn=b3f6174e1908494692d82ac154ce3218&chksm=9b3c8689ac4b0f9fbb0c8ba42172c702ca978683c4de28f9f56bd8e7764fe114ba9a1b9c7dac&scene=21#wechat_redirect>)今天的内容来自粉丝的稿件:[欢迎来稿](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500560&idx=1&sn=8aa4f37a7e851a29f341045dd3877b86&chksm=9b3cba40ac4b3356d784179b272b06ca0951c31b895a63477a2679140a6459ee4a4914361225&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhj7hIic2NjicC6J5lrGGlfusH1IWibHhE6hAgZWb3AyY7XFSZSvehp5LCnKlY6gd4CtBYicicQ5XXokbQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1d6e082d59476197.png)
 
 WGCNA(Weighted Gene Co-expression Network Analysis)即加权基因共表达网络分析，能帮助我们找到各方面相似的基因模块(module)，探索基因网络与关注表型之间的关系，寻找核心基因。适用于组别较多样本量大的数据，推荐5组(或者15个样品)以上的数据。比如：不同器官或组织类型发育调控、同一组织不同发育调控、非生物胁迫不同时间点应答、病原菌侵染后不同时间点应答。
 
@@ -205,7 +205,7 @@ plotDendroAndColors(sampleTree,
                     main = "Sample dendrogram and trait heatmap")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCk0o7CicI2gU4a3LuB5au0cO5JPYQDJaEPbZx3L6CU5PYSycx1GjY9Og/640?wx_fmt=png)
+![](../../images/a88691912d9d87f9.webp)
 
 ```r
 # 根据样本树状图的可视化结果，手动选择合适的cutHeight值，将样本划分为不同的组
@@ -313,7 +313,7 @@ plot(sft$fitIndices[,1],  # x轴为power值
        col = "steelblue")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCwqbLicMdkfwXNGggUricTqnA5FZxCVaQP23aYFFTvwib9YKsYQlibgs6FQ/640?wx_fmt=png)
+![](../../images/689008973c47a79b.webp)
 ```
 ## integer(0)
 ```
@@ -403,7 +403,7 @@ if(T){  # 判断条件为真
 }
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCG8zH4CubJhUWIokh7GJT9cibddZrkJiaiahuRs7CwnEgldClNFmFxDcSw/640?wx_fmt=png)
+![](../../images/5d05a708ab5666a2.webp)
 
 **输出文件解读**
 
@@ -453,7 +453,7 @@ if(T){
 }
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaC4d6cCFCSicD8E7ejlhasc3j2icT5gzWDVVCHvc0zn50py83fjoZ9UEicA/640?wx_fmt=png)
+![](../../images/f88b61c482f6ce64.webp)
 
 **输出文件解读**
 
@@ -501,7 +501,7 @@ if(T){
 ## [1] "brown"
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCrwJN2dP5QAnI6AaFXmRZnTrqPnh1KCESqM7x9praS2a8ccnbmR7gFw/640?wx_fmt=png)
+![](../../images/cf3b476afd0e15b0.webp)
 
 **输出文件解读** 针对关键模块和感兴趣的性状进一步挖掘，看看基因与模块的相关性（Module Membership, MM） 和基因与性状的相关性（Gene Significance, GS）之间是否有某种关联。
 
@@ -556,7 +556,7 @@ if(T){
 ## ..done.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCEL69n3ZlEUBCWh8icrZadzzD9Nkwq6olrjn9qPic6AhjxQWWHEp9MMvA/640?wx_fmt=png) **输出文件解读** 基因之间的相关性热图。其中颜色越深，说明基因之间的相互作用越强。由于对角线表示模块内部基因之间的相互作用，所以自然是对角线上的颜色最深。
+![](../../images/64368d2d157f6370.webp) **输出文件解读** 基因之间的相关性热图。其中颜色越深，说明基因之间的相互作用越强。由于对角线表示模块内部基因之间的相互作用，所以自然是对角线上的颜色最深。
 
 # **7、模块相关性热图**
 
@@ -572,7 +572,7 @@ if(T){
 }
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCsHhy5PZial6RRxcSw3liaeSTkQZEyhrLyXY8pOox4Q0tQbKR18uzOVYA/640?wx_fmt=png)
+![](../../images/c5a2b99c1e9799b8.webp)
 
 **输出文件解读** 模块之间的聚类树和相关性热图，探索模块之间的互作关系：
 
@@ -616,33 +616,33 @@ if(T){  # 判断条件为真
 参考：
 https://github.com/cran/WGCNA
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **测试文件与可复制代码**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCY7BSkdahjcsnqdNicQKevY99jnuhYw6FVibjIsWLZ0gfXfcjOLnQ5ELw/640?wx_fmt=png)
+![](../../images/d7de70628d5267c3.png)
 
 链接：
 
 https://pan.baidu.com/s/1n36-b_us9FnvlVH2rQr4lA?pwd=hkob
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxSznbkHeic5FNpq1icHYGDaCIISygk9XDOLDNIKXiblDpg8KUyKfIOWWiblJLFdMdlDXPu8NKSCY8X8A/640?wx_fmt=jpeg)
+![](../../images/c2178d8cae9452d2.jpg)
 
 若链接失效可以文末联系客服领取~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([有root权限的共享服务器](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503869&idx=1&sn=142f8c7ba8620815a8770773df077f12&chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([有root权限的共享服务器](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503869&idx=1&sn=142f8c7ba8620815a8770773df077f12&chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

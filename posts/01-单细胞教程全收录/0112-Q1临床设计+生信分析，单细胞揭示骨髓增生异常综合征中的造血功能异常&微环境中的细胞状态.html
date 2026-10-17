@@ -1,0 +1,38 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0112-Q1临床设计+生信分析，单细胞揭示骨髓增生异常综合征中的造血功能异常&微环境中的细胞状态</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="q1">Q1临床设计+生信分析，单细胞揭示骨髓增生异常综合征中的造血功能异常&amp;微环境中的细胞状态</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520295&amp;idx=1&amp;sn=8f98781c4ecc8205bcfd2cfa86caed9c&amp;chksm=9b3ce977ac4b60617583775dcd4f0b2e3133a4fec23f7c9b95ae42b26bae9b8f6ddcd1f5ccb0#rd
+合集：单细胞教程全收录 / 文献速递</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>最近看到了一篇<strong>纯生信</strong> 的《Journal of Translational Medicine》(<strong>IF=6.1</strong>)，可以看到，虽然现在各期刊对纯生信的文章不是很友好，但只要有<strong>好的分析思路</strong> ，纯生信依旧能发出<strong>Q1文章</strong> 。骨髓增生异常综合征 （MDS） 是一种复杂的造血恶性肿瘤，其特征是骨髓 （BM） 发育不良，伴有贫血、中性粒细胞减少或血小板减少等症状。MDS 在预后方面表现出相当大的异质性，约 30% 的患者进展为急性髓系白血病 （AML）。目前可用于 MDS 的 scRNA-seq 数据集仅关注<strong>CD34</strong> 造血祖细胞。作者认为，使用整个 BM 细胞进行 MDS 研究可能对于理解 MDS 的病理生理学提供更多信息。作者共抽取了<strong>5名MDF患者</strong> 及<strong>4名健康人</strong> 群的BM进行了scRNA-seq分析，其中 3 名被归类为造血功能缺陷高风险，2 名被归类为低风险。虽然没有观察到突变负荷显着增加，但高危 MDS 患者在造血干细胞和祖细胞 （HSPC） 和粒细胞-巨噬细胞祖细胞 （GMP） 之间的阶段表现出 T 细胞活化和异常骨髓生成。异常骨髓生成的转录因子分析表明，表观遗传调节因子染色质结构蛋白编码基因<strong>HMGA1</strong> 在高危MDS组中高度激活，在低危MDS组中度激活。CellOracle对HMGA1的扰动模拟了小鼠谱系阴性 BM细胞中造血功能不足。通过作者新开发的MarcoPolo流程将 MDS和AML细胞投影到 BM 细胞参考上，直观地可视化了髓系白血病发展和造血层次结构异常之间的联系，表明即使队列规模达到 1,000 名患者或更多，将所有患病骨髓细胞整合到一个共同的参考图上在技术上是可行的。我们可以一起看看作者的分析思路。</p>
+<p><img alt="" src="../../images/272ddc88996ee296.webp"></p>
+<p><strong>二、主要内容</strong></p>
+<p>1、MDS患者的BM单细胞注释结果经过scRNA-seq的基础分析(教程可参考：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510768&amp;idx=1&amp;sn=cead60ac55bf28910f5cf220d723fe05&amp;chksm=9b3cd3a0ac4b5ab68b1a11e981eea4a23aae26cd2bf48f886f834b0893c73cca31072b224a39&amp;scene=21#wechat_redirect">少走点单细胞的弯路</a>)后，共获得分别来自5名MDS患者的69,625个细胞和来自4个健康供体的36,896个细胞，这些细胞共被分为14种细胞类型(Figure 1B)。可以清楚地观察到 5 名MDS患者中有3名的中性粒细胞原、中性粒细胞和单核细胞的产生量都显着降低。另外两名MDS患者的这些成熟髓样细胞的比例相当，但BM中的HSPC分数更高(与其银屑病病史一致)。作者将3 例成熟髓细胞水平极低的 MDS 患者分为高危 MDS 组，另外 2 名为低危 MDS 组。在MDS高危组中，中性粒细胞和单核细胞的分数显着降低，表明MDS1,2和5患者骨髓生成不足（图1C，D）。高危MDS和低危MDS组之间的髓样/淋巴比例似乎相反，表明这种血液疾病的组之间可能存在过渡阶段。</p>
+<p><img alt="" src="../../images/5c7ea44d73540558.webp"></p>
+<p>Figure 1</p>
+<p>2、MacroPolo对BM细胞的注释揭示了MDS与AML之间的联系
+本文作者的课题组开发了名为MacroPolo的pipeline，能够在3min内注释1w个细胞的BM单细胞数据，或者祖细胞、成熟细胞的髓系细胞参考图谱(图2A)。结果显示， 4 名健康供体的 HSPC、GMP 和成熟髓系细胞（单核细胞和中性粒细胞）的数量平衡，而来自高危MDS组的3名MDS患者显示出成熟髓系细胞的密度低得多(Figure 2B-F)。<img alt="" src="../../images/ea00df9d5e2842ed.webp"></p>
+<p>Figure 2</p>
+<p>3、造血轨迹显示高危 MDS 组的粒细胞发生异常</p>
+<p>已有人或小鼠BM细胞的数据证明HSPC到成熟中性粒细胞和单核细胞的发育轨迹，当使用基于扩散图的算法Palantir模拟MDS细胞的拟时序时，作者观察到HSPCs和GMP细胞的伪时间状态在高风险和低风险MDS组中都发生了显着改变（图3B）。单核细胞发育看起来正常。然而，在中性粒细胞原和中性粒细胞发育过程中观察到拖延状态，这与高危MDS组中这两种细胞类型的产生减少一致。造血中公认的标志物或转录因子的表达也与预期一致：HSPC标记物CD34在两个MDS组中的表达过活化，GMP维持标志物MS4A3和MPO的表达受到抑制，包括SPI-1、CEBPD、FOS、S100A8在内的成熟中性粒细胞标志物的表达也降低，成熟单核细胞标志物 CD14 的表达似乎正常(Figure 3C)。巨核细胞-红系祖细胞 （MEP） 标记物 EGR1 的表达在 MDS 组中似乎受到抑制（Figure 3C）。这与贫血和血小板减少症普遍见于MDS患者的观点一致。在分析改变的通路时，作者还发现高风险 MDS 组具有典型的干扰素 α 和 γ 信号传导和炎症通路上调，这在低风险 MDS 组中没有观察到。</p>
+<p><img alt="" src="../../images/d2ba4eeea7277400.webp"></p>
+<p>Figure3</p>
+<p>4、染色质表观遗传调节因子 HMGA1 及其调节子在高危 MDS 患者中过度激活</p>
+<p>为了识别MDS单细胞转录组学数据集中的关键转录或表观遗传调节因子，作者使用SCENIC(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500439&amp;idx=1&amp;sn=d6b4874a8352f5b7a4165629c03058ce&amp;chksm=9b3cbbc7ac4b32d158fd3c5c2f155c54c892d40eaae3718409936fc319f69705da32badf79d6&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|学习手册</a>)、SCENIC-plus和Van算法对转录因子及其调节子（下游效应基因）进行了无偏的数据挖掘。作者首先对HSPCs和GMP细胞中的调节活性进行了排序。前14个调节因子的活动热图如图所示(Figure 4A)。作者发现，而 5 名 MDS 患者中有 4 名由 1 至 3 个调节因子主导，例如，在MDS1、3、4患者的HSPCs和GMP细胞中，HMGA1调节子在细胞池中占主导地位。HMGA1调控因子的等级水平也升高，而CEBPD和EGR1的等级水平降低(图4B-D)。HMGA1的表达在MDS高危组中均匀且显着地过激活，与此前报道相一致。RACK1被预测为HMGA1的下游效应子，作者也发现其在高危MDS组中的表达也上调。为了进一步验证上述分析结果作者里利用GSE24552当中包含的MDS患者CD34分选的scRNA-seq数据集，同样发现MDS组的HMGA1和RACK1表达也显着升高。另一个来自159名MDS患者和17名健康对照（GSE58831）的CD34祖细胞的批量RNA-seq数据集也支持这样的结果。HMGA1和RACK1在拟时间轴上的表达表明其对HSPC和GMP维持的作用可能至关重要。用于CellOracle对高质量BM细胞（图14G）的6个分支进行了注释，在Cebpd和Hmga1的干扰后，作者成功地模拟了异常造血（HSPC 比例较高，祖细胞比例较低），与人类的 MDS 表型类似。综上所述HMGA1及其调节子在高危MDS组中过度激活，作者认为降低HMGA1的表达或活性是未来研究中改善MDS的重要策略选择。</p>
+<p><img alt="" src="../../images/18971dc4d7e54f45.webp"></p>
+<p>Figure 4</p>
+<p><img alt="" src="../../images/253281145501479c.webp"></p>
+<p>Figure S1</p>
+<p>5、T 细胞微环境在高危 MDS 中作用</p>
+<p>在诊断过程中，作者注意到几个克隆性造血相关基因发生了突变（见表1）。在基于SComatic的体突变检测中，未观察到显著的体细胞突变负荷(Figure 5B)。然后，作者探究了MDS患者的细胞间通讯(教程可参考：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501735&amp;idx=2&amp;sn=35fc792961507f4ae1cbae3a2882fba6&amp;chksm=9b3cbef7ac4b37e1417d4108c8bd378c68c3907431ddfc52ad37c916e85649bb450d761a8e19&amp;scene=21#wechat_redirect">《细胞通讯》CellChat学习手册</a>)是否发生了变化。如图所示，高危MDS组在BM环境中表现出更强的细胞通讯强度（Figure 5C），特别是在计算HSPCs和GMPs时。在对MDS组的T细胞活性进行评分时，作者观察到高危MDS组对CD8T和DNT细胞的炎症水平、耗竭活性、细胞毒性活性和免疫监视水平增加（图5D-G）。基于这些使用构成 scRNA-seq 数据集的 T 细胞的比较，作者们得出结论，高风险 MDS 组的 T 细胞比低风险 MDS 组的 T 细胞活化程度更高。</p>
+<p><img alt="" src="../../images/90362242b6b63850.webp"></p>
+<p>Figure5</p>
+<p><strong>三、最后聊聊</strong></p>
+<p>作者在没有补充实验的情况下利用自测数据库和来源于GEO的两个数据库中证明了，染色质动力学相关的表观遗传调节因子 HMGA1 在 MDS 造血过程中被重新编程。算是一篇纯生信的单细胞数据分析文章的良好范文，感兴趣的同学可以阅读一下原文。Guo, X., Jin, W., Wen, Y. et al. Computing cell state discriminates the aberrant hematopoiesis and activated microenvironment in Myelodysplastic syndrome (MDS) through a single cell genomic study. J Transl Med 22, 673 (2024). https://doi.org/10.1186/s12967-024-05496-x<img alt="" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../../images/acba43cb3408c3d0.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

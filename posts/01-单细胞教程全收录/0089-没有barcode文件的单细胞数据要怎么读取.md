@@ -10,21 +10,21 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490952&idx=1&sn=364a3941e59e45234795c906a42fc9ab&chksm=9b3f64d8ac48edcec70384cf5c6a91224d0f7841ce3a7cfcade6513500c13673a6695d6f0299#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 前言
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)今天偶然在GEO里看到这样一个有意思的单细胞数据，metadata倒是上传了，但是cellranger输出的三个文件给了俩。。。作者倘若不上传则罢了，上传了却缺斤短两，快餐时代里，很难让人不觉得这篇文章的数据分析是测序公司代做的。作者这看起来压根连数据结构都不了解，更不要谈数据分析了。鄙人大胆地感觉这篇文章的**数据分析** 像是个**外包项目** 。虽然我素来爱胡说八道，但也别跟我说人家可是《Cell》，Cell咋了，Sylvain Lesné在《Science》上不也糊弄了16年？
+![](../../images/7c0febec2249cfa6.gif)今天偶然在GEO里看到这样一个有意思的单细胞数据，metadata倒是上传了，但是cellranger输出的三个文件给了俩。。。作者倘若不上传则罢了，上传了却缺斤短两，快餐时代里，很难让人不觉得这篇文章的数据分析是测序公司代做的。作者这看起来压根连数据结构都不了解，更不要谈数据分析了。鄙人大胆地感觉这篇文章的**数据分析** 像是个**外包项目** 。虽然我素来爱胡说八道，但也别跟我说人家可是《Cell》，Cell咋了，Sylvain Lesné在《Science》上不也糊弄了16年？
 
 数据链接：
 
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE165905
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzXwkfDiabytPonNHibD6EvDiclRxrRicrlfPuTPEO3pvd0lpGS8R0bfcnERTmkEenoHJlTDwXXnR6PIQ/640?wx_fmt=png)
+![](../../images/71f9b0877ea3b917.png)
 文章链接：
-https://pubmed.ncbi.nlm.nih.gov/34174187/![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4jr1zrF4XeBV3BEpxLW04ZWPlLPDQFauHtOSWCHQEylnN9hzc0dSksw/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+https://pubmed.ncbi.nlm.nih.gov/34174187/![](../../images/2455eda79a0ff7a4.gif)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)倒不是说我不会读取没有细胞名的数据在此无能狂怒，只是没有细胞名称metadata很难对的上。除了用**fastq** 文件从头做之外，没有其他万无一失的校验方式。读一遍自证清白好了：
+![](../../images/7c0febec2249cfa6.gif)倒不是说我不会读取没有细胞名的数据在此无能狂怒，只是没有细胞名称metadata很难对的上。除了用**fastq** 文件从头做之外，没有其他万无一失的校验方式。读一遍自证清白好了：
 ```r
 library(Seurat)
 ```
@@ -201,7 +201,7 @@ scRNA <- RunUMAP(scRNA, dims = 1:15) #运行UMAP算法
 DimPlot(scRNA,split.by = 'sample_id')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzXwkfDiabytPonNHibD6EvDicAEY1ehRJp2OtK4Bq8l0SIF0fNK1MjnCxejM9HsfUeicFXEynI9qG1ww/640?wx_fmt=png)
+![](../../images/ce895f40b082814d.webp)
 
 看起来样本间的批次效应是存在的，但作者没有给注释后的细胞类型信息，看起来我们无法考究细胞名的顺序与`metadata`是否一致，更深层次的探讨可能需要大家对着原文的组间差异重新做一遍加以检验，这里我推荐还是给细胞派一个随机的名称为好。
 ```r
@@ -234,14 +234,14 @@ scRNA2
 ## Active assay: RNA (33538 features, 0 variable features)
 ```
 
-这里由于没有样本信息和分组变量就无法去做差异分析了，所以也就不往下做了，所以真正想要分析这个数据的同学我还是建议你从**fastq** 做起吧。![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4jr1zrF4XeBV3BEpxLW04ZWPlLPDQFauHtOSWCHQEylnN9hzc0dSksw/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+这里由于没有样本信息和分组变量就无法去做差异分析了，所以也就不往下做了，所以真正想要分析这个数据的同学我还是建议你从**fastq** 做起吧。![](../../images/2455eda79a0ff7a4.gif)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

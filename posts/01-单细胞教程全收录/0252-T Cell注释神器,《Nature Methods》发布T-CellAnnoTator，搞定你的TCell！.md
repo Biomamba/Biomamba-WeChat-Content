@@ -49,7 +49,7 @@ albums: ["单细胞教程全收录"]
 # 加载必要的包suppressPackageStartupMessages({    library(tidyverse)    library(data.table)    library(Matrix)    library(Seurat)    library(R.utils)})
 ```
 
-下载测试数据[4]：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzymPOyIBliaPjVNHuKNT7ENpKHTzo8bwuVk8ct7Xx9eYpiblej6xr4GJdcIqrF49QwuYqMubYAD6jg/640?wx_fmt=png&from=appmsg)也可以通过代码下载：
+下载测试数据[4]：![](../../images/163c17ecfc300242.webp)也可以通过代码下载：
 
   *   *   *
 
@@ -125,7 +125,7 @@ usage = read.table(paste0(data_dir, output_name, '.rf_usage_normalized.txt'))s
 usage %>% head(2)scores %>% head()
 ```
 
-这样你就得到了uasge和scores两个数据框：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzymPOyIBliaPjVNHuKNT7ENw6TEDV3McI0reHE7CmLnicEcicUPUgbqzkkuMNM8GGzS5L5PF7Vb12jg/640?wx_fmt=png&from=appmsg)再添加score中的注释信息回原来的Seurat对象就好：
+这样你就得到了uasge和scores两个数据框：![](../../images/6537a8e2798ee5fd.png)再添加score中的注释信息回原来的Seurat对象就好：
 
   *   *   *
 
@@ -150,7 +150,7 @@ seu_object <- AddMetaData(seu_object,metadata = as.data.frame(scores))
 # Initialize directory to download example data todata_dir = './Example_Data'if not os.path.exists(data_dir):    os.mkdir(data_dir)datafn = os.path.join(data_dir, 'example_data.h5ad')cmd = 'wget -O %s https://zenodo.org/records/13368041/files/COMBAT-CITESeq-DATA.Raw.T.ADTfixed20230831FiltForcNMF.Downsampled.h5ad' % datafnprint(cmd)!{cmd}# 加载测试文件：adata = tcat.load_counts(datafn)adata# 这是个标准的anndata
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzymPOyIBliaPjVNHuKNT7ENoCME85kHdCmyA7icngGavDqgWQMiaWxFfjdQ2mlVabzqSvZJZicCFHa7w/640?wx_fmt=png&from=appmsg)库文件
+![](../../images/f8fa4031209c551d.png)库文件
 
   *   *   *   *   *   *   *   *
 
@@ -158,7 +158,7 @@ seu_object <- AddMetaData(seu_object,metadata = as.data.frame(scores))
 # 加载包查看依赖库文件import starcatstarcat.available_refs# 目前内置的库文件有这三种# array(['TCAT.V1', 'MYELOID.GLIOMA.V1', 'BONEMARROW.CD34POS.HSPC.V1'],       dtype=object)# 加载我们需要的T Cell依赖文件tcat = starCAT(reference='TCAT.V1', cachedir='./cache')print(tcat.ref_name)display(tcat.ref.iloc[:5, :5])
 ```
 
-当中包含许多特征评分：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzymPOyIBliaPjVNHuKNT7ENhjicOXljefkBHgkRalGemnApN9icb6XggHdlbOMSE5M5TgXknwKuh4ew/640?wx_fmt=png&from=appmsg)
+当中包含许多特征评分：![](../../images/3964101e223b8508.png)
 ```
 实际运行非常简单，一行搞定：
 ```
@@ -169,7 +169,7 @@ seu_object <- AddMetaData(seu_object,metadata = as.data.frame(scores))
 usage, scores = tcat.fit_transform(adata)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzymPOyIBliaPjVNHuKNT7ENia1144wwbk7W9icwVw9O3YQSg55gmbKSNQKmhOicE3Liaj57k0PjYxxP2w/640?wx_fmt=png&from=appmsg)
+![](../../images/9bd71fc4c93f1217.webp)
 
   *
 
@@ -177,12 +177,12 @@ usage, scores = tcat.fit_transform(adata)
 usage.head()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzymPOyIBliaPjVNHuKNT7ENgmHMp6icu8nYhatBQz2Po2GJoae70a4pfX74xrmnHVibqn7T7unFltEA/640?wx_fmt=png&from=appmsg)
+![](../../images/6d40e95d95e9017c.png)
 ```
 作者提供的降维图，区分的不是很开，这也正式需要starCAT的意义，常规的降维分群很难区分这样的精细亚群
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzymPOyIBliaPjVNHuKNT7EN5ibs9LyJd0icQr2jQZIWANr7HcXr6OP3jASGADVBIh9AyEjAPichMhJtg/640?wx_fmt=png&from=appmsg)
+![](../../images/1fa6c5ad98130ef7.webp)
 
 1、https://www.nature.com/articles/s41592-025-02793-1
 
@@ -194,14 +194,14 @@ usage.head()
 
 5、https://zenodo.org/records/13368041/files/COMBAT-CITESeq-DATA.Raw.T.ADTfixed20230831FiltForcNMF.Downsampled.h5ad?download=1
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=24)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=25)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=26) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

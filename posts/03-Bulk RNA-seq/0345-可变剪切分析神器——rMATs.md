@@ -12,7 +12,7 @@ albums: ["Bulk RNA-seq"]
 
 **一、写在前面**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMN4wcu4V86b8Ky3XPAHHiczibNWEWJDzCM106Eq6OOkVzMOUQtDH0fh9TQ/640?wx_fmt=png&from=appmsg)
+![](../../images/7e5f70140aa206bc.webp)
 
 **选择性剪接（Alternative splicing，AS）是剪除未成熟mRNA中的内含子、保留外显子后生成成熟mRNA的过程。** 在各类疾病发生和发展过程中，异常的选择性剪接起着重要作用。目前RNA-seq已经成为定量分析选择性剪切的有力工具，这篇文章中，作者在先前研究两个样本RNA-seq数据之间的**MATS(multivariate analysis of transcript splicing)的基础上，针对重复（replicate）的样本进行分析，开发了一种新的方法称为 rMATS。**我们在此前的课程转录组教程中已经包含了rMATS的实战([Bulk RNASeq| 转录组实战](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510793&idx=1&sn=bfa69e8f261932d9bea74443fab732f0&chksm=9b3cd259ac4b5b4fd4b3bb80d0210a3396cda777b32ab49be1a45339453db314bb2a17fc438d&scene=21#wechat_redirect>))，这里让我们一起来看看这个方法的具体内容吧。
 
@@ -26,23 +26,23 @@ albums: ["Bulk RNA-seq"]
 
 **Fig.1：**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMN2vuWBBOh00iaxia279PKRfOQvRQ6hKNQKNVW31JIMQnd9c2meic2ia8Cxw/640?wx_fmt=png&from=appmsg)
+![](../../images/48409a2141ab5271.png)
 
 **Fig.S1：**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNaDDzQicGPndbVOxjBpWEoxsyjIxNiahiasHqjVB2OaS5Mt0ndID1FUklQ/640?wx_fmt=png&from=appmsg)
+![](../../images/b5ccc5c3059aafbe.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNS49lq9xicztGOrkOe2KftfzCagiaX0qSafqE0KXCzoCxWMVyqDaMCZTw/640?wx_fmt=png&from=appmsg)
+![](../../images/e886b37acc777aa2.png)
 
 **Fig.2**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNkvBmzib0iciaicCibKkTaDJOQPr4ITibphbbHvAjkBRtOyYgLSvfrKqSOHQw/640?wx_fmt=png&from=appmsg)
+![](../../images/b7dbbf317375d8dc.png)
 
   1. **1. ****rMATS****的模拟研究。******
 
 之后，**作者进行模拟研究来评估rMATS的性能** 。选择两个样本（每个样本10个重复的RNA-seq数据），共5000个外显子，其中5%的外显子存在差异剪接。而95%的外显子不存在差异剪接，即两个样本间Δψ≤5%，并计算标准差SD来衡量样本之间的可变性。使用**rMATS来分析这些模拟数据** ，结果发现在所有三组模拟中，rMATS对重复数据的分析优于对合并数据的分析，特别是当样本可变性增加时（Fig.3）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNicrh7NRaFrFIQhqMjKLBxGP2850ibTCkR9V507uJK1icxWOicmibvugBeYw/640?wx_fmt=png&from=appmsg)
+![](../../images/4ff21be071755a34.webp)
 
   1. **2. ****前列腺癌的rMATs分析。******
 
@@ -50,7 +50,7 @@ albums: ["Bulk RNA-seq"]
 
 **Fig.4**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNj7tSbKw627TU464MF2rt6lUPPkM4Zib29BEXR7PhoBtD7nyS0Wdwbzw/640?wx_fmt=png&from=appmsg)
+![](../../images/bd319388bd85b03b.webp)
 
 **3\. 样本大小和测序深度影响检测方法的精确度，******
 
@@ -58,7 +58,7 @@ albums: ["Bulk RNA-seq"]
 
 **Fig.5：**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNgxU4rSgicK35sgFY3xhO40PoCAibY9q6EXVhmhAZKQDQjPUbOEHlh1fg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/1ba38ae64d4819e9.webp)
 
   1. **4. ****配对重复中的rMATS统计。******
 
@@ -66,11 +66,11 @@ albums: ["Bulk RNA-seq"]
 
 **Fig.6：**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNib0wb2Ayk1QdtJPvyy8S9vgjOY80CP3qHOAoQU31zroFGvUsNnsUb6A/640?wx_fmt=png&from=appmsg)
+![](../../images/26cb3420c44f5435.png)
 
 **Fig.7**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNVibllVlIoOAOC8yYh9vqhVyfrOZf549KBS4icUmf29W1ShOVvGKFfRyQ/640?wx_fmt=png&from=appmsg)
+![](../../images/8a718a2d98ff9cec.webp)
 
 **5.****rMATS****和其他分析方法的比较。******
 
@@ -81,23 +81,23 @@ albums: ["Bulk RNA-seq"]
 **
 **
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzWtAtYBFvnxnHeZeKCFNMNibVhmdL0el2FVibKhTV1tZsjEQrc9GsHyn56Pz3dXRImd0bJ5QdWxVKQ/640?wx_fmt=png&from=appmsg)
+![](../../images/85018d2eb77ecc16.webp)
 
 **三、总结讨论**
 
 综上所述，作者的数据为RNA-Seq的选择性剪接分析提供了指导原则，证明了生物学重复对于设计研究的重要性，同时合并RNA-seq或合并来自多个重复样品的RNA-Seq数据不是解决变异性的有效方法，并且异常值的产生会导致结果的假阳性率变高，因此重复数据的使用对于差异性剪接分析是必不可少的。**rMATS的使用教程、测试数据可见：****[Bulk RNASeq| 转录组实战](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510793&idx=1&sn=bfa69e8f261932d9bea74443fab732f0&chksm=9b3cd259ac4b5b4fd4b3bb80d0210a3396cda777b32ab49be1a45339453db314bb2a17fc438d&scene=21#wechat_redirect>)****。** 总的来说，rMATs是对于重复数据进行差异选择性剪接的有力工具。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

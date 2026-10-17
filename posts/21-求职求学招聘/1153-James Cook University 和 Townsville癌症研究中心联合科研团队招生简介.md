@@ -10,9 +10,9 @@ albums: ["求职/求学/招聘"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521419&idx=1&sn=d51aaa3b84caa2cef13f69e6a5b1d988&chksm=9b3ceddbac4b64cd118b3da6a7f41331eda4cd14ddfbb5a21eff461ac2598eb7bf9620ac3f80#rd
 > 合集：求职/求学/招聘
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/aebaf9b1bf8b9fc3.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpx88fFcrPL9FwTib7XEFhLnusp4KE9FiaBSV8kVzh4JRjCRb8gv0LrQMYrFYMcxnx7gFIDchaUDcdibQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/401879352e02c84a.webp)
 
 【招生广告】 我们诚邀对肿瘤学、分子生物学和生物科技有热情的优秀学生，加入James Cook University 和 Townsville癌症研究中心的联合科研团队，参与我们的研究项目。这是一个绝佳的机会，可以参与到融合前沿技术与关键临床应用的研究中，为提升癌症治疗效果和患者护理做出贡献。
 
@@ -38,8 +38,8 @@ Ulf’s Computational Biomedicine Lab主要开展基于单细胞多组学和长�
 
 感兴趣的同学请将个人简历与成绩单以PDF形式私信我或者发送至我邮箱thaddeus.wu@jcu.edu.au
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/813e6b96370cd59e.webp)
+![](../../images/aebaf9b1bf8b9fc3.webp)
 **********往期回顾**********
 
 **[歪!?来"Biomamba 生信基地"兼职？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)******************
@@ -96,4 +96,4 @@ Ulf’s Computational Biomedicine Lab主要开展基于单细胞多组学和长�
 [中山大学孙逸仙纪念医院基础与转化医学研究中心实验岗位招聘启事](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519051&idx=1&sn=1160c3b9adcc1586517c327ea2c7a0e2&chksm=9b3cf21bac4b7b0d7579a6ffd3fb60bfa8b3330a653d034b5f9f8650f355fb2499cd2f25f0be&scene=21#wechat_redirect>)
 [免疫与炎症全国重点实验室招聘科研助理岗位](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519618&idx=1&sn=1f31895d93f3bb7de8b2753008968f40&chksm=9b3cf4d2ac4b7dc4e6e1f916a0e06a2f54eacb3b7e947d9aa60db47dcc1524e9224758a09b60&scene=21#wechat_redirect>)
 [福建医科大学徐沁课题组招聘硕士、博士研究生](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520972&idx=1&sn=59acc15d6e70b7d315e64296c464f36d&chksm=9b3ceb9cac4b628a0216446bbe4a3353a72fb6db68327cada439b5c5b9c9c76329458139e352&scene=21#wechat_redirect>)
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/813e6b96370cd59e.webp)

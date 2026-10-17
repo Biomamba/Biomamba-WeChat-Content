@@ -22,14 +22,14 @@ albums: ["文献速递"]
 
 [copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>) 的工作流程将贝叶斯方法与分层聚类相结合，计算得到单个细胞的基因组拷贝数谱。接着从高通量3’scRNA-seq数据中定义亚克隆（Figure 1）。该工作流程将唯一分子标识符的基因表达矩阵作为输入数据。分析从注释基因开始，按基因的坐标进行排序。执行 Freeman-Tukey变换以使方差更加稳定，然后进行多项式动态线性建模让单细胞UMI计数中的异常值更加平滑（Figure 1a）。接下来通过检测具有高置信度的二倍体细胞亚群，以推断正常 2N细胞的拷贝数基线值。为达到这一目的，作者将单个细胞汇集到几个小的分层集群中，并使用高斯混合模型（GMM）估计每个集群的方差（Figure 1b）。通过遵循严格的分类标准，具有最小估计方差的簇被定义为“置信的二倍体细胞”。当数据只有少数正常细胞，或者当肿瘤细胞具有近二倍体基因组且CNA事件有限时，可能会发生潜在的错误分类。在这种情况下，[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)提供了一种GMM定义”模式来逐个识别二倍体正常细胞，其中假设单个细胞中基因表达的三个高斯模型的混合物代表基因组增益、损失和中性状态。当处于中性状态的基因占表达基因的至少99%时，单个细胞被定义为“具有置信度的二倍体细胞”。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzibd70wSoiaDOKslQUdWiatIwMnQcLpRlEn2RlfmOVkE9PfZUfITkIFcvuVyGIEliavMnzV5FLBOkGGg/640?wx_fmt=png&from=appmsg)Figure 1
+![](../../images/db25dd0fef0d3bf6.webp)Figure 1
 
 **三、主要结果**
 
 1\. 性能评估
 
 为了评估[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)的性能，作者通过高通量3’scRNA-seq(10X Genomics)对来自癌前乳腺肿瘤（DCIS1）的1,480个单肿瘤细胞进行了测序(Figure2)。作者使用[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)从scRNA-seq数据中计算了全基因组拷贝数谱(Figure2a-b)，并将结果与inferCNV对相同数据进行的分析结果进行了比较(Figure2c-d)。为了获得DNA拷贝数谱的真实实验参考数据，作者从DCIS1中对数百万个非整倍体肿瘤细胞进行了流式分选，用于全基因组bulk DNA测序(Figure 2e-f)。结果表明，[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)在220Kb基因组分辨率下与批量参考DNA 拷贝数谱实现了高度一致性(Pearson 相关性 = 0.82)。在bulk DNA-seq数据中检测到的大多数主要CNA都在scRNA-seq数据中被鉴定出来，包括chr4、6、8、12、17、20、X染色体出现的拷贝数增加和chr2、3、9、10、15染色体出现的拷贝数丢失(Figure2a-b)。作者用`inferCNV`处理了同一数据集,并根据成纤维细胞marker 基因ACTA2和FN1手动鉴定基质细胞，这些基因用于提供所需的内部基线参考。接下来，作者通过使用220Kb可变的分bin将inferCNV的结果转换为与[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)相同的基因组分辨率来比较数据。尽管inferCNV的信号较低，但通过相关性分析，这些数据也与bulk DNA-seq数据参考实现了高度一致(Pearson相关性= 0.79)(Figure2c-d）。然而，inferCNV的一个主要局限性是它只能报告基因窗口的平滑平均值，并且不检测染色体断点或拷贝数片段的特定坐标，这些内容可以通过[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)来实现。作者通过重复采样不同基因大小区间的相邻局部区域，进一步计算了从两种方法推断的拷贝数状态到参考bulk DNA-seq拷贝数谱的相对距离。该分析表明，与inferCNV输出的滑动窗口平均值相比，[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)分割结果显著(p值<0.001，T检验)更接近参考的DNA拷贝数状态(Figure2g)。此外，作者发现[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)在5到500个基因的不同大小的基因区间中表现出更稳定的性能(Figure2h)。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzibd70wSoiaDOKslQUdWiatIwvXAZ9gucZKlqD9T6HLON2tCoFrR3nPUCIWicxjztXMSEcYicic3BWDCJw/640?wx_fmt=png&from=appmsg)
+![](../../images/0c1f2f0228d83cb6.webp)
 
 Figure 2
 
@@ -38,7 +38,7 @@ Figure 2
 ### 2\. 实体瘤中肿瘤细胞和正常细胞的分类
 
 作者将[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)应用于先前发表的来自5名胰腺癌(PDAC)患者的3’scRNA-seq数据，以及我们从5名三阴性乳腺癌(TNBC)患者和5名甲状腺未分化癌(ATC)患者生成的3’scRNA-seq数据，以根据肿瘤细胞和正常细胞的拷贝数差异来区分肿瘤细胞和正常细胞(Figure 3)。作者通过[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)分析了来自5名PDAC患者的9,717个单细胞转录组，并成功鉴定了所有患者的非整倍体肿瘤细胞亚群(Figure 3a & Figure S2a）。预测的肿瘤细胞具有全基因组CNA，包括染色染1q、3q、7p、8q、17、19、20的频繁扩增和染色体3p、6、8p的缺失，这些在 PDAC14-16肿瘤中很常见，而具有二倍体特征的正常细胞没有复发性 CNA。作者分类的非整倍体肿瘤细胞的UMAP存在共定位现象，这些表达簇使用一组四种已建立的肿瘤上皮标志物(EPCAM、KRT19、KRT18和KRT8)检测到高上皮基因评分。值得注意的是，在所有5例PDAC患者中，仅在两个上皮簇中的一个(c1)中检测到全基因组CNA，表明另一个簇可能是正常的二倍体上皮细胞(c2)，这不能仅通过基因表达来判断。作者将c1簇指定为肿瘤细胞，因为它们对应于非整倍体拷贝数谱，并且含有较高的KRT19表达水平，KRT19是识别PDAC肿瘤中癌细胞的广泛使用的标志物。作者认为[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)通过计算肿瘤细胞与c1表达簇的共定位，在鉴定肿瘤细胞方面实现了高准确性(98.5%一致性)(FigureS2)。根据这些数据，我们估计了肿瘤纯度，范围为6-18%(Figure3d)，并且与以前的组织病理学数据一致，表明PDAC患者的肿瘤纯度通常较低，因为基质细胞群高18-20。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzibd70wSoiaDOKslQUdWiatIwQwTbhpOO16DJEzfa98G1CtYCrufGAhLuGmW3RPo6uEiaaG1ql5CpHYw/640?wx_fmt=png&from=appmsg)
+![](../../images/ca7a0b0363930fea.webp)
 
 Figure 3
 
@@ -52,7 +52,7 @@ Figure 3
 
 接下来，作者分析了先前发表的 scRNA-seq 数据集，该数据集使用来自两名 GBM 患者的第一代全长 scRNA-seq（SMART-seq2） 方法30 进行测序：GBM1（MGH125）和GBM2（MGH128）、（GSE131928）。与仅具有部分基因体覆盖的高通量3’或5’scRNA-seq方法（10X Genomics）相比，全长SMART-seq2数据具有覆盖整个基因转录本的序列读数。然而，SMART-seq2的细胞通量要低得多（每个患者分别为332和184个细胞），并且没有可以减轻扩增偏倚的UMI条形码。为了进行[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>) 分析，作者使用了表示归一化基因表达计数数据的TPM/10矩阵。在这两个样本中，我们观察到非整倍体肿瘤细胞和二倍体正常细胞簇之间的明显分离（图 4e、g）。[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)推断的非整倍体肿瘤细胞簇表达高水平的 EGFR （图 4f， h），这是 GBM患者中已确定的肿瘤细胞标志物。总的来说，这些数据表明 [copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)与广泛的scRNA-seq技术兼容。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzibd70wSoiaDOKslQUdWiatIwFLEKtXeHtpQ3yUz8fTibRDjFC3MDaZeMVBpibVicDRMHTezrCt8FYPILA/640?wx_fmt=png&from=appmsg)
+![](../../images/6d915c2d5bb2eff9.webp)
 
 Figure 4
 
@@ -61,7 +61,7 @@ Figure 4
 这部分算是作者对[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)的实战检验，为了描绘克隆亚结构并将癌症基因型与表型联系起来，作者将[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)应用于从三名TNBC患者生成的scRNA-seq数据（Figure 5）。对推断的拷贝数谱进行聚类，以根据拷贝数差异识别亚群，并从单细胞谱簇中计算共有拷贝数谱，以识别具有拷贝数差异的基因组区域。根据亚克隆的共有图谱，作者进行了差异表达（DE）和基因特征分析，以确定亚克隆之间的表型差异。
 
 在一个 TNBC 样本（TNBC1）中，797个非整倍体拷贝数谱的聚类确定了两个主要亚克隆（A，B），分别占肿瘤质量的44%和28%（Figure 5a），并在它们的相邻连接（NJ）树中被两个不同的谱系分开。剩下的两个患者也均能通过[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)区分出肿瘤亚克隆。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzibd70wSoiaDOKslQUdWiatIwsZicxyZQVoYpvqWiatsDH0trz6EZgwaxJPvUkA2GAdHTId3cuWLGUaKg/640?wx_fmt=png&from=appmsg)
+![](../../images/c267e1a7985af43b.webp)
 
 Figure 5
 
@@ -71,14 +71,14 @@ Figure 5
 
 不可避免的，[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)也存在一定的局限性：并非所有癌症类型都具有可用于区分正常细胞和肿瘤细胞的非整倍体拷贝数事件。特别是，已知儿科癌症和造血癌（例如 AML、CLL）几乎没有拷贝数改变，因此可能不适用于[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>) 分析。另一个限制是[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)主要限于根据整个基因组读取深度的变化检测 CNA事件，不能用于检测其他导致基因组多样性的基因组事件，包括染色体结构重排、插入缺失和体细胞突变。此外，由于3’scRNA-seq数据的技术可变性，[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)无法提供有关具有独特基因型的单个细胞基因组的可靠拷贝数信息。这使得[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)更适合分析许多细胞扩增并具有相似基因型的肿瘤中的亚克隆，而不是复制细胞或极其罕见的亚群的分析。我们使用[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)注意到的一个潜在问题是，当scRNA-seq数据集没有任何肿瘤细胞时，[copykat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)可能会尝试错误地检测基因表达水平最高的簇中的CNA事件。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

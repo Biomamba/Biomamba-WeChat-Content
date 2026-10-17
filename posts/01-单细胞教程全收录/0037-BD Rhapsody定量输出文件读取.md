@@ -10,19 +10,19 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519706&idx=1&sn=9d084bd8edf6ab4d9184672e5a4a2722&chksm=9b3cf48aac4b7d9c16ef85de7a5f33e65552bbba5d11d2170237063cf754fe9ff376647d3bd7#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1acba08ed67b8404.webp)
 
 演示过程
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+![](../../images/ed620ac26d383667.webp)
 
 此前我们做了[BD Rhapsody平台单细胞转录组定量流程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506542&idx=1&sn=99cf7af7fc0d56b0d6fe7ea3596df2b6&chksm=9b3ca33eac4b2a28e6682a7cf0b2091a387a06ecf89ee10737cf2194286ec0bba472ef1c2b90&scene=21#wechat_redirect>)，有些同学表示不知道如何读取`cwl-runner`输出的表达矩阵，这里我们来演示一下：
 
 测试数据与教程的下载地址：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfda2tKsq3ggJFFLrVmsuknZbhjia1Lic5viatMgb7ndWu8moNRZSZAh7fmeA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/454a3448c6081735.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdaV7x3LSPHdLYz0ZF3eXcjob09epdLtRicVyrpYuM6gY5gDYToNX3D7zg/640?wx_fmt=png&from=appmsg)
+![](../../images/52e8c499bd1978f8.png)
 
 输出文件夹下会有一个以`_Expression_Data.st`结尾的文件，即为我们需要的表达矩阵。
 ```r
@@ -148,7 +148,7 @@ VlnPlot(scRNA, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 
 ## utilizing "counts" layer instead.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdaNORUISia3P9ZUzbhYjU6Wjia4jIPdw3Dic5pcVFJZqqZwmsDjF3cgKpYg/640?wx_fmt=png&from=appmsg)
+![](../../images/ffc57e9ea02ad1e5.webp)
 ```r
 #用小提琴图来展示QC的结果，展示了每个barcode中基因的数目、UMI数目以及线粒体基因含量的分布情况
 plot1 <- FeatureScatter(scRNA, feature1 = "nCount_RNA", feature2 = "percent.mt")
@@ -161,7 +161,7 @@ CombinePlots(plots = list(plot1, plot2)) #高变基因，判断趋势及占比
 ## the patchwork system.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdaEXSOQHLbwQ3AYa6ic4R22RQtw4xhRfOMDvWo79m3plUmKrDMOiaUEUrw/640?wx_fmt=png&from=appmsg)
+![](../../images/32ca40cc616e5cad.webp)
 ```r
 scRNA <- subset(scRNA, subset = nFeature_RNA > 200 & nFeature_RNA < 5000 & percent.mt < 20)
 #质控，选子集，RNA数量在200与2500之间的，多的可能是低质量细胞或空drouplets，gene count多的可能是doublets or multiplets
@@ -199,7 +199,7 @@ CombinePlots(plots = list(plot1, plot2))  #输出差异基因散点图（有无�
 ## log-10 transformation introduced infinite values.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdahBpPLowvN7pvuchWou9OXuWiciccIdlQcZc50zczkYUUNFiaRHISwOaLA/640?wx_fmt=png&from=appmsg)
+![](../../images/90e2afb572e782d0.png)
 ```r
 scRNA <- ScaleData(scRNA, features =  rownames(scRNA)) #将数据进行标准化，为后续的PCA分析做准备，数据存在scRNA[["RNA"]]@scale.data
 ```
@@ -284,17 +284,17 @@ print(scRNA[["pca"]], dims = 1:5, nfeatures = 5) #打印PCA部分结果
 VizDimLoadings(scRNA, dims = 1:2, reduction = "pca")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfda0V9OcoKPM2nsibnmNp8nwrTNCyhsM4tOpON48Y3FGFEibsS9BAvkiaCFQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9cf9fa08a1da827d.webp)
 ```
 DimHeatmap(scRNA, dims = 1, cells = 500, balanced = TRUE) #三种PCA展示方式
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdaWN3fbiaKWZfx1l5ibQlJMcvhTicHS2ULoRjkQTrwSasRveJpSbTXWhIWA/640?wx_fmt=png&from=appmsg)
+![](../../images/ad49fda897a2ae02.webp)
 ```
 DimHeatmap(scRNA, dims = 1:15, cells = 500, balanced = TRUE) #展示15种PCA
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdaVTxAr2N36ibSsrqgRGQ9v4jOKrM1OYsibsobsIbOGicv4lLgvA3cGLAzg/640?wx_fmt=png&from=appmsg)
+![](../../images/0b96beec6f6e46f4.webp)
 ```r
 #筛选合适的维度：
 scRNA <- JackStraw(scRNA, num.replicate = 100) #重复计算次数
@@ -307,14 +307,14 @@ JackStrawPlot(scRNA, dims = 1:15) #画出1到15个维度
 ## (`geom_point()`).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfda53sfOe8X7kibPY7yXMDcX7YibuUqEcgLsictEMcrfe0GOV09F2Sn18q6A/640?wx_fmt=png&from=appmsg)
+![](../../images/e37fcbabe9207447.webp)
 ```
 #JackStrawPlot相当于高级PCA，为挑选合适维度进行下游可视化提供依据
 
 ElbowPlot(scRNA) #利用ElbowPlot来评价PC，PCA切记为了结果好看而降低PC数
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdalyrwysKyKicSXfa8vfDwicN9nhg1ueXvjxdkibDWmq4zlokO80DNbLyfQ/640?wx_fmt=png&from=appmsg)
+![](../../images/d228d9c62b7a3eed.png)
 ```r
 scRNA <- FindNeighbors(scRNA, dims = 1:10)
 ```
@@ -391,7 +391,7 @@ scRNA <- RunTSNE(scRNA, dims = 1:10) #运行TSNE算法，TSNE算法运行时间�
 DimPlot(scRNA, reduction = "umap", label = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdaWHNia0Pq3PG9aVXmQibWibOhr7yFjL1SuucRnQU1EXvoYrBEhLBSREwyg/640?wx_fmt=png&from=appmsg)
+![](../../images/0526c377d66a0f0f.webp)
 ```r
 #显示分类群的标号
 
@@ -441,7 +441,7 @@ top3gene <- scRNA.markers %>% group_by(cluster) %>% top_n(n = 3, wt = avg_log2FC
 VlnPlot(scRNA, features = unique(top3gene$gene),pt.size = 0,stack = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxUiaOqdmiaZ1Esg5xWldibfdadRLzf98dQdCFQsicyVVKN5Dn92ia04MLuk1EYLqvGHUcssslWGn2KiahA/640?wx_fmt=png&from=appmsg) 接下来的分析探索就请大家自己完成啦，大家可以参考原数据集： https://ngdc.cncb.ac.cn/gsa-human/browse/HRA001033
+![](../../images/742bebf63a205cc9.webp) 接下来的分析探索就请大家自己完成啦，大家可以参考原数据集： https://ngdc.cncb.ac.cn/gsa-human/browse/HRA001033
 
 本教程用到的R语言环境：
 ```
@@ -518,7 +518,7 @@ sessionInfo()
 
 **单细胞系列教程目录**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：[scRNA-Seq学习手册2023_R语言版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500516&idx=1&sn=3c0b9de505fcd232054e38b451fa1742&chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&scene=21#wechat_redirect>)
+![](../../images/73d94b6f8a663b6d.webp) 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：[scRNA-Seq学习手册2023_R语言版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500516&idx=1&sn=3c0b9de505fcd232054e38b451fa1742&chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&scene=21#wechat_redirect>)
 [scRNA-Seq学习手册Python版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504877&idx=2&sn=2b56a9cfa19fcc918ee6c2ed88fed017&chksm=9b3caabdac4b23ab6e28425a4a5eb4d40ee3612e51f84f5d1e53ac91bef93f717e9e754398e3&scene=21#wechat_redirect>)
 
 单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：[手把手教你做单细胞测序数据分析|1.绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499776&idx=2&sn=7fc250d94ed88cfd5e2224f071bb1742&chksm=9b3cb950ac4b30467a082527547b91aec15b7d1f40d44e362894aedeb6a99e014518fa5e4743&scene=21#wechat_redirect>)
@@ -679,17 +679,17 @@ scFAST系列[scFAST分析| 01.绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzO
 [生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>)[足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511780&idx=1&sn=3acc0874f7d2fa75f1abbe7a9a9b4069&chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&scene=21#wechat_redirect>)
 [独享服务器，生信分析不求人](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503618&idx=1&sn=ca47ca985aa8560f6b38f15f210519e2&chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&scene=21#wechat_redirect>)
 [为实验室准备一份生物信息学不动产](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247502932&idx=1&sn=401d384d47616029375224b2d0a3c933&chksm=9b3cb504ac4b3c1299aac5c9f0747ccc36777390d2a939e1ed4af37c2836c1f7e8b4af612989&scene=21#wechat_redirect>)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

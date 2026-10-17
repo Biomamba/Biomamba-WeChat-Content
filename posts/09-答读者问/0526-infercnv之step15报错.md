@@ -18,7 +18,7 @@ albums: ["答读者问"]
 
 ## （1）报错界面
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmYc2VficU8UeYiajsL1VR7rtJYEtfvGo9GFaajGdZRCVEt513AR3qLMKLjaQOLxkoKhGs2fth1mGvnJHuVMgs5JhBzXHH6TGMnQ/640?wx_fmt=png&from=appmsg)
+![](../../images/5ec3e7967af2eec6.webp)
 
 ## （2）原因
 
@@ -30,11 +30,11 @@ albums: ["答读者问"]
 
 由于在计算过程中R使用了科学计数法，把100000以上的数字以1e5这种形式表示了，因此无法参与后续的计算。因此，大家只需要在执行infercnv之前加上一个options(scipen = 100)即可解决这一问题。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnEpvPiavPdB5iaZk6Kw0vhZaDH1EmdkPbibyfAIdQNicQ5IaH8WEZC3KK00IdC6LaJHNjTVsib87AGLPVzPR6kdkOlCMADEUic8EEng/640?wx_fmt=png&from=appmsg)
+![](../../images/21092cc5ec142f67.webp)
 
 不过，你大概率还会遇到一个新的问题（别笑，你也过不了第二关）： 由于你的细胞数量超过了10w，那么infercnv输出热图时会向你索取千万TB级别的内存（是的你没看错）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnTatoAXczuT6BpwtHugkS3yq5ic3mVsMZVLsMrRJSnTPwD7HAIaibibNLPNIb6zLja3K0VusjxdW08lMURbicHUdcFd556QTQazkU/640?wx_fmt=png&from=appmsg)
+![](../../images/4083c37bb7dd3c49.webp)
 
 这时你就只能选择no_plot = T，在结果输出到本地的时候通过[downsample](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530367&idx=1&sn=f7452a93145295bd6dfc4a7e571413d6&scene=21#wechat_redirect>)自行绘制热图了。AI未必能替你解决所有问题，常见的bug其实都被遇到过，且被前辈们总结过解决方案，别太迷信AI，该检索的时候还是得搜一搜。
 
@@ -313,9 +313,9 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 
 向下滑动查看更多
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmqdmyxv8uPgt1G2SSAIvZ6cescuVRPWTvHo5fEjEUiaEtCEK5IDn3UgVIOHibdwQeeJLkkEVhVIVSROlKibleYyws7j2ib5BiaXwDk/640?wx_fmt=jpeg&from=appmsg)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/7cbc7c90f387b712.webp)
+![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

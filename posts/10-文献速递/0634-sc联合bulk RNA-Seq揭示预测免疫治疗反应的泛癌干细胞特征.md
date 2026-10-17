@@ -19,7 +19,7 @@ albums: ["文献速递"]
 
 **文章** Integrated analysis of single-cell and bulk RNA sequencing data reveals a pan-cancer stemness signature predicting immunotherapy response**（IF= 10.4）**发布于2022年**《 Genome Med》期刊。**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOB1QLibT97V1pursWjwXSFRu50iapAaNWBzVBk3sYnNj7TwTdymxiaicshhsiarA2twoTaNzdqr9iae0pA/640?wx_fmt=png&from=appmsg)
+![](../../images/0e89804def4d1d79.webp)
 这篇文章我们关注一下方法部分，特别是 Stem.Sig 构建的逻辑和流程。这篇文章构建了干性特征并打分的方法，那我们是不是可以去用其他算法去打分呢？比如[细胞衰老](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247525650&idx=8&sn=9bf5f11fd891caf2caafe41c0d48e688&scene=21#wechat_redirect>)、[T 细胞](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531388&idx=7&sn=801a250297aa2871f840a57e23ca4b86&scene=21#wechat_redirect>)状态、[通路](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504403&idx=7&sn=99c35dd1d7cf7ad20adf0898fa916c73&scene=21#wechat_redirect>)打分、或者其他自定义打分呢？这可为ICI生物标志物的挖掘提供更多维度的思路。
 
 免疫检查点抑制剂 (ICI) 开创了癌症治疗的新时代，为患者带来了前所未有的临床益处。然而，只有相对较少的患者对其有反应，这凸显了生物标志物研究的必要性，以优化患者选择和联合策略，以应对免疫耐药性。
@@ -40,7 +40,7 @@ DOI: 10.1186/s13073-022-01050-w
 
 **一、癌症干细胞与ICI耐药性相关**
 
-![13073_2022_1050_Fig1_HTML](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprNg4jFrETSAuHf7cJWN8tUTvQbodlcGPsYy0MjicjjpaCUqMT6aMgAibCfnjljeAsQoP43CralX7EGA/640?wx_fmt=other&from=appmsg)
+![13073_2022_1050_Fig1_HTML](../../images/b61e5860b0e63234.webp)
 
 A 、C SKCM 或 BCC 恶性细胞的 tSNE 图。顶部 [tSNE 图](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247508520&idx=1&sn=5964c7ac7cfad903cbc43794b3129a67&scene=21#wechat_redirect>)描绘了 CytoTRACE 评分在恶性细胞中的分布。深绿色表示分数较低 (低干性)，而深红色表示分数较高 (高干性)
 
@@ -50,7 +50,7 @@ B 、D SKCM队列中按反应表型 (NR vs. TN) 或 BCC 队列中按反应表型
 
 二、通过泛癌症scRNA分析开发Stem.Sig
 
-![13073_2022_1050_Fig2_HTML](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOB1QLibT97V1pursWjwXSFRMSdI08SGgAGAGv9t8rXPXbDeOFzFuJUN5qolD4IEMx9PhEVfQmdO3Q/640?wx_fmt=other&from=appmsg)
+![13073_2022_1050_Fig2_HTML](../../images/69d76d02a01924db.webp)
 
 A、 Circos 图描绘了 Stem.Sig 的发展
 
@@ -60,7 +60,7 @@ B、 Stem.Sig 中基因的通路富集分析
 
 三、使用泛癌症TCGA队列分析Stem.Sig与免疫抑制之间的潜在联系
 
-![13073_2022_1050_Fig3_HTML-1](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOB1QLibT97V1pursWjwXSFR8PibkiczaTREOYnlneDkMfw5ArgWpcyzesx8QicwEtxdrTCALOPmREEmw/640?wx_fmt=other&from=appmsg)
+![13073_2022_1050_Fig3_HTML-1](../../images/d3f7ca3197dd496c.webp)
 
 A、 Circos 图描绘了 Stem.Sig 与多种癌症类型中免疫相关基因表达水平之间的相关性。从 circos 图的内部到外部，带有黑色箭头的纵轴表示不同的癌症类型，由图 B 的 y 轴注释
 
@@ -76,7 +76,7 @@ E 、每种癌症类型的中位 Stem.Sig 与中位 ITH 的相关性
 
 四、通过Stem.Sig预测免疫治疗结果
 
-![13073_2022_1050_Fig4_HTML](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOB1QLibT97V1pursWjwXSFRErdym5tYlc3oPvlGNXXZnAUOiagIR2laTREPDtTn83Uh6x9UGZJVK5A/640?wx_fmt=other&from=appmsg)
+![13073_2022_1050_Fig4_HTML](../../images/6c9a1ed9029022f0.webp)
 
 A 、使用[机器学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510121&idx=1&sn=87b53d350d9aedd5b3205d59e51356a0&scene=21#wechat_redirect>)过程构建的 Stem.Sig 模型的训练、验证和测试流程图
 
@@ -88,7 +88,7 @@ D 、Kaplan-Meier 曲线比较验证和测试集中高风险和低风险患者�
 
 五、Stem.Sig与其他预测基因特征比较
 
-![13073_2022_1050_Fig5_HTML](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOB1QLibT97V1pursWjwXSFRTcE7IVoBOicAS8EgMHAledaxUUuAgg75FW4demCHZtL1aiciaQHpsJG0A/640?wx_fmt=other&from=appmsg)
+![13073_2022_1050_Fig5_HTML](../../images/16fda419611fc87e.webp)
 
 A、 Circos 图描绘了测试集中泛癌症特征的表现
 
@@ -98,7 +98,7 @@ C、 条形图描绘了 SKCM 队列中 Stem.Sig 和其他黑色素瘤特异性�
 
 六、利用CRISPR筛选数据探索Stem.Sig中的潜在治疗靶点
 
-![13073_2022_1050_Fig6_HTML](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOB1QLibT97V1pursWjwXSFRibms9Ij9MXibkEd9X231AJfKzdao1S7KucNxiczWMZxwNM5gHIWOIygBg/640?wx_fmt=other&from=appmsg)
+![13073_2022_1050_Fig6_HTML](../../images/d92289099ca10871.webp)
 
 A 、根据基因敲除对抗肿瘤免疫的影响对 17 个 CRISPR 数据集的基因排名。负 (正) z 分数表示敲除特定基因后免疫反应更好 (更差)。基因根据其平均z分数进行排序。排名靠前的基因与免疫抗性相关。热图中的空白方块表示相应队列中基因数据的缺失值
 
@@ -160,14 +160,14 @@ C 、热图描绘了不同 CRISPR 数据集中排名靠前的 3% 基因中 20 �
 
 Zhang Z, Wang ZX, Chen YX, et al. Integrated analysis of single-cell and bulk RNA sequencing data reveals a pan-cancer stemness signature predicting immunotherapy response. Genome Med. 2022;14(1):45. Published 2022 Apr 29.
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=24)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=25)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=26) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

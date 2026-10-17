@@ -16,11 +16,11 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是04号作品。本作品复写了题为"Interpretation of T cell states from single-cell transcriptomics data using reference atlases"的论文，**文章链接** ：https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8137700/**物种** ：人。**数据链接** ：https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129785**文章思路** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw1FRrIn465lvcmjVMQQPicDNBC6uffiapzMYcvs3Pr3JVuKWCkBf9vf0eQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f721b3b1e00d5082.webp)
 
 复现图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw1d1UI5iaU4Xn5FTPYgRST30GzteNkjKnE0LAF2AC0yErfUN9uLiajbySQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/4bb3fd11ee4ae5d9.webp)
 
 论文基本介绍与解读参赛人未提供.
 
@@ -39,23 +39,23 @@ rm(list = ls())#加载包#library(multtest)library(Seurat)library(dplyr)library(
 
 Fig.2d：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw1fuSPkKruoaVQ6Y0V6AwLWtjziaJXub8n38GApQtOsbrLXOeGreDTibVg/640?wx_fmt=png&from=appmsg)
+![](../../images/2e22ebc8fabb671b.webp)
 
 Fig.2e：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw1BlFtn1xDqs09uC7wYTwHNbYQLtJ5wiazERKP4LMmG5F5sFiaZv68m1dg/640?wx_fmt=png&from=appmsg)
+![](../../images/687fb6f882c0683c.webp)
 
 Fig.2f
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw1Bw56OQukx0d99icL4V276pz14jYoibxup4N6rZHAva91Vg5WibuMIn5Ig/640?wx_fmt=png&from=appmsg)
+![](../../images/7e11a6db998a21bf.webp)
 
 Fig2.g1:
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw1WiahaibTnjnUwpNvBAficCer5q6V5EJmUn37kyduGqTQaKuW7EJ5ctvow/640?wx_fmt=png&from=appmsg)
+![](../../images/4f024a8f99c7b94d.webp)
 
 Fig.2g2:
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw1QrHuMRT2YZicyxlL6eibiaQpRic4V0Zz3xPjsp6PufcvgwDlotBF5E6icibQ/640?wx_fmt=png&from=appmsg)
+![](../../images/e46913b3f2365d09.webp)
 
 01
 
@@ -65,7 +65,7 @@ Fig.2g2:
 
 链接：https://pan.baidu.com/s/1SsJ8WWZ9qSsE_3bg5a-QYQ?pwd=btsh
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyGgPRQBq3KekAxGY9y6xw13sGtZPJPU7OibV8jutopwepCoSSP1NRtXQh8XZKVTJ3g1fzWl1GPpCw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/cad1fcec8bfa06da.jpg)
 
 02
 
@@ -96,17 +96,17 @@ Fig.2g2:
 
 **本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/f24109c3fc7128df.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

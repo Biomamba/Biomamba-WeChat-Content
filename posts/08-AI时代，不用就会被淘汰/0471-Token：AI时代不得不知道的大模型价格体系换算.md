@@ -18,7 +18,7 @@ albums: ["AI时代，不用就会被淘汰"]
 
 [RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21#wechat_redirect>)
 AI时代，人人都得把大模型用起来，了解大模型价格体系，选对模型，不花冤枉钱！
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1pkvU45EiaUoGP61ogGmmoZJnH3fbsVQgiaZVibaxkDjr1via90Hc4Y1s4lgvczicxcv3gtfUqtIek4sS2P9YKS9w2pG389Fl17YoUA/640?wx_fmt=png&from=appmsg&wxfrom=13&tp=wxpic#imgIndex=1)
+![图片](../../images/bc9706571c616e8d.png)
 
 **Claude、Gemini、Codex对比**
 
@@ -33,7 +33,7 @@ AI时代，人人都得把大模型用起来，了解大模型价格体系，选
 教程| 西柚云教程：[ClaudeCode基础使用教程](<https://mp.weixin.qq.com/s?__biz=MzkzMzMxMjg4Mw==&mid=2247490912&idx=1&sn=29c604859852cf988b2e5b5c41d8cb62&scene=21#wechat_redirect>)| 西柚云教程：[GeminiCLI基础使用教程](<https://mp.weixin.qq.com/s?__biz=MzkzMzMxMjg4Mw==&mid=2247490966&idx=1&sn=fbb670b2747ef807c36466d25b586aa0&scene=21#wechat_redirect>)| 西柚云教程：[Codex基础使用教程](<https://mp.weixin.qq.com/s?__biz=MzkzMzMxMjg4Mw==&mid=2247490996&idx=1&sn=8279d3879ba15c63a8f3c8aae27b0a77&scene=21#wechat_redirect>)
 可用模型与定价| platform.claude.com| ai.google.dev| developers.openai.com
 
-![图片](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1rAiczzYSYuyHUlot4med36PdgnOkGZiciclEQrjediamyV0jZvF6RH2KfW7eNP3EiacH3TYQYKKbO4UukcXr0alJMHOvcrQic5bdfKM/640?wx_fmt=png&from=appmsg&wxfrom=13&tp=wxpic#imgIndex=2)
+![图片](../../images/79e1b569cefe69bd.png)
 
 **国内外AI IDE一览**
 
@@ -47,7 +47,7 @@ AI时代，人人都得把大模型用起来，了解大模型价格体系，选
 一句话特点| 最主流的通用 IDE| AI + 数据科学 IDE
 （RStudio 的 AI 版）| 有海外版本和国内版本，国内版本有免费模型| 使用自家模型的IDE| 很强大的AI IDE，**据传** 同一个模型，在Cursor上就是比其它IDE好用
 
-![图片](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1rRwCicHOm3jvoiaXtkoe3n0n3UAwSY39Gib36vibeDpchsGemNaIK2xTTTOnx5F6qolJjg1UchP3wn2t6g6KiavYB0F13G9R5gddOY/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=10005&wx_lazy=1#imgIndex=3)
+![图片](../../images/24076a59399931e3.png)
 
 **大模型计费的逻辑是什么？**
 
@@ -63,7 +63,7 @@ AI时代，人人都得把大模型用起来，了解大模型价格体系，选
 
   * 一般而言，输入 Token 和 输出 Token 单价不同，输出Token比输入Token贵得多，如下图Claude模型的价格对比，性能越强，模型价格越贵，而输出价格都是输入价格的5倍数。
 
-![1.png](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1oaDhWnSRSL2VtHZq9tTIyUKOv0GlaUzNVXMX8THxjwVIrWR7FFHQW5YDibWMOO1ibNHibltV6wlGpmPn2FTpAlmvk4x3aKkRCgH4/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=10005&wx_lazy=1#imgIndex=4)
+![1.png](../../images/911eb25a5b93dae8.webp)
 
 **中转站价格**
 
@@ -120,7 +120,7 @@ Token\单位| Token| 美金| 人民币
 
   * 模型倍率信息：https://www.0daysci.com/pricing
 
-![1.png](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1pdJGazwW44zFSq1a7iadgZyFCzyjX4Nelh5LYUDhr0ia5hviaoDQXmEiaJMbkSmVukHMpAGslxsC63AxZBI7XVhzIZKe7XsGricSXA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=10005&wx_lazy=1#imgIndex=5)
+![1.png](../../images/554b4f0a54ea91cd.webp)
 
 ****4️⃣**** 具体模型价格明细
 
@@ -152,7 +152,7 @@ gpt-5.1| $1.25| $10| 10/1.25=8| 1.25/2=0.625| (0.625/0.15)*0.15=0.625
 
   * 参考：https://github.com/songquanpeng/one-api/issues/766
 
-![图片](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1qVmLR4iaAmR8Vl2QsGHxE0S2HQpCLl2Gnlef6KI0Vnvu7Xu7zCPmdVdnK5D1kqEkl1oj09vic0PaEibmHNJ1dOsVeKqrNHERL2ibE/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=10005&wx_lazy=1#imgIndex=6)
+![图片](../../images/e50219e550128825.png)
 
 **常见问题**
 
@@ -180,15 +180,15 @@ Token用得很快，怎么办
 
 # 西柚云在售算力
 
-我们长期提供GPU、CPU算力，欢迎大家联系客服微信[Biomamba_zhushou]优惠下单。[![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwn6DxBMrAHqYkhTicn11UkjONjrSwsdAghvTSFCy9H69qnuW9qrwQHyRdYibZkaQbeT9U2rwLnRY4omujQTrkM38aVS5ZNegQsicI/640?wx_fmt=jpeg&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21#wechat_redirect>)
-[![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmrA678PDSEaEHesNLVKRPCZuJrp6iaQvdpEjNJenIyufia7YghlMQ0RkHqHyD2788DDNQW2icyK67359gU3oCehwichB10PiaaqCFU/640?wx_fmt=jpeg&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)[![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpx62LjQv3b1OUIICXAWDXk6MMOxibFNhgEHaLL4KhlicjAGT2pqRfiancY5xtGdiaZGGAx0ViacwH16KKA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21#wechat_redirect>)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+我们长期提供GPU、CPU算力，欢迎大家联系客服微信[Biomamba_zhushou]优惠下单。[![](../../images/4e16848e78ab0800.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21#wechat_redirect>)
+[![](../../images/7639767d80b412ae.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)[![图片](../../images/d6125d14730a8fb1.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21#wechat_redirect>)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

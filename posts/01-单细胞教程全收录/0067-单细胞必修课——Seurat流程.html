@@ -1,0 +1,1242 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0067-单细胞必修课——Seurat流程</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="seurat">单细胞必修课——Seurat流程</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247512220&amp;idx=1&amp;sn=c71bc3f1ef007eb29be8b3b4ec10f0af&amp;chksm=9b3cc9ccac4b40da749d2388dc2d885239a1e4f6ea0989f36b031c7253ce103b061e2605ad8c#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../../images/73d94b6f8a663b6d.webp"></p>
+<h1 id="_1">先设置一下清华镜像</h1>
+<pre><code>options(repos = &quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;)
+</code></pre>
+<h1 id="1">1. 简介</h1>
+<p>Seurat是一个R包（更新到5.0.2版本），专为单细胞RNA-seq数据的质量控制、分析和探索而设计。Seurat旨在使用户能够识别和解释单细胞转录组测量的异质性来源，并整合不同类型的单细胞数据。</p>
+<p>官网：https://satijalab.org/seurat/index.html.</p>
+<h1 id="2">2. 准备工作</h1>
+<pre><code>install.packages(&quot;Seurat&quot;)
+</code></pre>
+<pre><code class="language-r">library(Seurat)
+</code></pre>
+<pre><code>## Loading required package: SeuratObject
+</code></pre>
+<pre><code>## Loading required package: sp
+</code></pre>
+<pre><code>##
+## Attaching package: 'SeuratObject'
+</code></pre>
+<pre><code>## The following object is masked from 'package:base':
+##
+##     intersect
+</code></pre>
+<pre><code class="language-r">library(dplyr)
+</code></pre>
+<pre><code>##
+## Attaching package: 'dplyr'
+</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+##
+##     filter, lag
+</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+##
+##     intersect, setdiff, setequal, union
+</code></pre>
+<h1 id="3">3. 读取单细胞测序数据</h1>
+<h2 id="31-cellranger-count">3.1 针对从cellranger count输出的标准数据</h2>
+<p>读取cellranger的count输出结果中的<strong>filtered_feature_bc_matrix</strong> ，该文件主要包含3个压缩包：barcodes.tsv.gz，genes.tsv.gz和matrix.mtx.gz，或者是它们的解压形式：barcodes.tsv，genes.tsv和matrix.mtx；分别对应barcodes、基因信息和基因的表达矩阵。</p>
+<p>读取<strong>filtered_feature_bc_matrix</strong> ，得到其稀疏矩阵：</p>
+<pre><code class="language-r">pbmc.data &lt;- Read10X(data.dir = &quot;filtered_feature_bc_matrix&quot;)
+#注意这里是由于我们使用的是project，因此直接用待读取的文件名，这里也可以用绝对路径
+</code></pre>
+<p>查看”CD3D”, “TCL1A”, “MS4A1”这三个基因的前30个细胞的表达情况：</p>
+<pre><code>pbmc.data[c(&quot;CD3D&quot;, &quot;TCL1A&quot;, &quot;MS4A1&quot;), 1:30]
+</code></pre>
+<pre><code>## 3 x 30 sparse Matrix of class &quot;dgCMatrix&quot;
+</code></pre>
+<pre><code>##   [[ suppressing 30 column names 'AAACATACAACCAC-1', 'AAACATTGAGCTAC-1', 'AAACATTGATCAGC-1' ... ]]
+</code></pre>
+<pre><code>##
+## CD3D  4 . 10 . . 1 2 3 1 . . 2 7 1 . . 1 3 . 2  3 . . . . . 3 4 1 5
+## TCL1A . .  . . . . . . 1 . . . . . . . . . . .  . 1 . . . . . . . .
+## MS4A1 . 6  . . . . . . 1 1 1 . . . . . . . . . 36 1 2 . . 2 . . . .
+</code></pre>
+<p>其中0用点来表示，这是稀疏矩阵的一个特点。</p>
+<h2 id="32-h5">3.2 h5文件的读取</h2>
+<p>用Read10X_h5()进行读取：</p>
+<pre><code class="language-r">data1 &lt;- Read10X_h5(&quot;5k_mouse_liver_CNIK_3pv3_filtered_feature_bc_matrix.h5&quot;)
+</code></pre>
+<h2 id="33-csv">3.3 csv格式的文件读取</h2>
+<p>针对一些从网上下载下来的csv格式的数据，先将csv格式文件读取进来：</p>
+<pre><code class="language-r">data2 &lt;- read.csv(&quot;matrix.csv&quot;,stringsAsFactors = FALSE, row.names = 1)
+</code></pre>
+<p>读取后要先转化为matrix，再转换为稀疏矩阵，dgCMatrix：</p>
+<pre><code class="language-r">library(Matrix)
+data2 &lt;- as(as.matrix(data2),&quot;dgCMatrix&quot;)
+</code></pre>
+<h1 id="4-seurat">4. 创建Seurat对象</h1>
+<p>利用CreateSeuratObject函数</p>
+<pre><code class="language-r">pbmc &lt;- CreateSeuratObject(counts = pbmc.data, project = &quot;pbmc3k&quot;, min.cells = 3, min.features = 200)
+</code></pre>
+<pre><code>## Warning: Feature names cannot have underscores ('_'), replacing with dashes
+## ('-')
+</code></pre>
+<p>min.cell=3：保留大于等于3个细胞中表达的基因（保留基因的参数）</p>
+<p>min.features = 200：保留大于等于200个基因表达的细胞（保留细胞的参数）</p>
+<p>project = “pbmc3k”：对这个project进行命名为”pbmc3k”，也可以命名为其他</p>
+<h1 id="5">5. 数据质量检验</h1>
+<p>一般用线粒体基因表达百分比来检验细胞质量，线粒体基因表达百分比越高说明细胞状态越差，较差状态的细胞需要将其过滤去除</p>
+<h2 id="51">5.1 计算线粒体基因表达含量来检验细胞质量</h2>
+<p>识别以MT开头所有表达基因的百分比，人源基因用MT，鼠源基因用mt，注意大小写：</p>
+<pre><code class="language-r">pbmc[[&quot;percent.mt&quot;]] &lt;- PercentageFeatureSet(pbmc, pattern = &quot;^MT-&quot;)
+</code></pre>
+<p>结果保存在：pbmc–meta.data–percent.mt</p>
+<p>注：“^MT-”是一种正则表达式，如果识别其它基因，则需根据某类基因的共同特点，结合正则表达式的规则去写。</p>
+<p>并用小提琴图直观展示：</p>
+<pre><code>VlnPlot(pbmc, features = c(&quot;nFeature_RNA&quot;, &quot;nCount_RNA&quot;, &quot;percent.mt&quot;), ncol = 3)
+</code></pre>
+<pre><code>## Warning: Default search for &quot;data&quot; layer in &quot;RNA&quot; assay yielded no results;
+## utilizing &quot;counts&quot; layer instead.
+</code></pre>
+<p><img alt="" src="../../images/c6b23a6c15376e75.webp"></p>
+<p>三张图分别是：每个细胞基因的表达情况，转录本的表达情况和线粒体基因百分比。这里可以看到大部分细胞的线粒体百分比在5%以下，因此将5%以上的细胞过滤掉。</p>
+<h2 id="52">5.2 关系图</h2>
+<p>FeatureScatter分别查看转录本表达和线粒体表达百分比相关图，转录本表达和基因表达相关图：</p>
+<pre><code class="language-r">plot1 &lt;- FeatureScatter(pbmc, feature1 = &quot;nCount_RNA&quot;, feature2 = &quot;percent.mt&quot;)
+plot2 &lt;- FeatureScatter(pbmc, feature1 = &quot;nCount_RNA&quot;, feature2 = &quot;nFeature_RNA&quot;)
+plot1 + plot2
+</code></pre>
+<p><img alt="" src="../../images/43f05db3ed3a4e1a.webp"></p>
+<p>左图：转录本表达对应的线粒体百分比较低，大部分在5%下</p>
+<p>右图：基因表达和转录本表达呈线性，正常</p>
+<h1 id="6">6. 过滤细胞</h1>
+<p>取子集(subset)，转录本表达范围为200-2500，超过2500的表达可能是多细胞，线粒体表达低于5% (5表示5%，)的细胞:</p>
+<pre><code class="language-r">pbmc &lt;- subset(pbmc, subset = nFeature_RNA &gt; 200 &amp; nFeature_RNA &lt; 2500 &amp; percent.mt &lt; 5)
+VlnPlot(pbmc, features = c(&quot;nFeature_RNA&quot;, &quot;nCount_RNA&quot;, &quot;percent.mt&quot;), ncol = 3)
+</code></pre>
+<pre><code>## Warning: Default search for &quot;data&quot; layer in &quot;RNA&quot; assay yielded no results;
+## utilizing &quot;counts&quot; layer instead.
+</code></pre>
+<p><img alt="" src="../../images/624219930a271c43.webp"></p>
+<h1 id="7">7. 数据标准化</h1>
+<pre><code class="language-r">pbmc &lt;- NormalizeData(pbmc, normalization.method = &quot;LogNormalize&quot;)
+</code></pre>
+<pre><code>## Normalizing layer: counts
+</code></pre>
+<p>标准化后的数据保存在：pbmc–assays–data</p>
+<h1 id="8-hvg">8. 计算高可变基因(hvg)并查看</h1>
+<h2 id="81">8.1 计算高可变基因</h2>
+<p>高可变基因，是指在细胞间变化差异大的基因，高可变基因是后续分群降维的基础。这里计算前2000个高可变基因并查看：</p>
+<pre><code class="language-r">pbmc &lt;- FindVariableFeatures(pbmc, selection.method = &quot;vst&quot;, nfeatures = 2000)
+</code></pre>
+<pre><code>## Finding variable features for layer counts
+</code></pre>
+<pre><code>VariableFeatures(pbmc)
+</code></pre>
+<pre><code>##    [1] &quot;PPBP&quot;                &quot;LYZ&quot;                 &quot;S100A9&quot;
+##    [4] &quot;IGLL5&quot;               &quot;GNLY&quot;                &quot;FTL&quot;
+##    [7] &quot;PF4&quot;                 &quot;FTH1&quot;                &quot;GNG11&quot;
+##   [10] &quot;S100A8&quot;              &quot;FCER1A&quot;              &quot;HLA-DRA&quot;
+##   [13] &quot;CD74&quot;                &quot;CLU&quot;                 &quot;NKG7&quot;
+##   [16] &quot;GZMB&quot;                &quot;CST3&quot;                &quot;CCL4&quot;
+##   [19] &quot;C1QA&quot;                &quot;HLA-DPB1&quot;            &quot;SDPR&quot;
+##   [22] &quot;C1QB&quot;                &quot;AL928768.3&quot;          &quot;TUBB1&quot;
+##   [25] &quot;GUSB&quot;                &quot;C10orf32&quot;            &quot;GP9&quot;
+##   [28] &quot;LYPD2&quot;               &quot;LYAR&quot;                &quot;HAGH&quot;
+##   [31] &quot;FUS&quot;                 &quot;HLA-DPA1&quot;            &quot;DSCR3&quot;
+##   [34] &quot;SLA&quot;                 &quot;SMIM7&quot;               &quot;KIF5B&quot;
+##   [37] &quot;APOBEC3B&quot;            &quot;PPP6C&quot;               &quot;HBP1&quot;
+##   [40] &quot;HBA1&quot;                &quot;TMX2&quot;                &quot;CCL3&quot;
+##   [43] &quot;INTS12&quot;              &quot;HLA-DRB1&quot;            &quot;GIMAP5&quot;
+##   [46] &quot;CA2&quot;                 &quot;CD79A&quot;               &quot;LILRA4&quot;
+##   [49] &quot;CCL5&quot;                &quot;PRKCB&quot;               &quot;LST1&quot;
+##   [52] &quot;SERPINF1&quot;            &quot;MYL9&quot;                &quot;SIVA1&quot;
+##   [55] &quot;NDUFA12&quot;             &quot;C16orf13&quot;            &quot;IGJ&quot;
+##   [58] &quot;MLLT11&quot;              &quot;PRDX1&quot;               &quot;THOC7&quot;
+##   [61] &quot;RABL6&quot;               &quot;SDHB&quot;                &quot;CLDN5&quot;
+##   [64] &quot;IFI27&quot;               &quot;UBLCP1&quot;              &quot;STK38&quot;
+##   [67] &quot;TREML1&quot;              &quot;PRF1&quot;                &quot;SPARC&quot;
+##   [70] &quot;RALY&quot;                &quot;TNFRSF17&quot;            &quot;PTGDS&quot;
+##   [73] &quot;IL8&quot;                 &quot;HIST1H2AC&quot;           &quot;FCGR3A&quot;
+##   [76] &quot;C14orf1&quot;             &quot;TNFSF10&quot;             &quot;TYROBP&quot;
+##   [79] &quot;CLEC2B&quot;              &quot;ODC1&quot;                &quot;STAMBP&quot;
+##   [82] &quot;FCER1G&quot;              &quot;CWC15&quot;               &quot;FGFBP2&quot;
+##   [85] &quot;GMPR&quot;                &quot;AIF1&quot;                &quot;DNASE1L3&quot;
+##   [88] &quot;ITGA2B&quot;              &quot;HLA-DQA1&quot;            &quot;IDH2&quot;
+##   [91] &quot;CXCL3&quot;               &quot;CORO1B&quot;              &quot;NXT2&quot;
+##   [94] &quot;FCN1&quot;                &quot;PTCRA&quot;               &quot;STK17A&quot;
+##   [97] &quot;KLRG1&quot;               &quot;BMPR2&quot;               &quot;NT5C3A&quot;
+##  [100] &quot;IFITM3&quot;              &quot;PHACTR4&quot;             &quot;ABT1&quot;
+##  [103] &quot;MMD&quot;                 &quot;TSC22D1&quot;             &quot;CCT7&quot;
+##  [106] &quot;MZB1&quot;                &quot;DNAJC15&quot;             &quot;RXRA&quot;
+##  [109] &quot;PSMD14&quot;              &quot;STMN1&quot;               &quot;VAMP5&quot;
+##  [112] &quot;CISD1&quot;               &quot;TCL1A&quot;               &quot;TNFRSF9&quot;
+##  [115] &quot;SAT1&quot;                &quot;CLEC1B&quot;              &quot;COTL1&quot;
+##  [118] &quot;ACRBP&quot;               &quot;CLEC10A&quot;             &quot;OSCAR&quot;
+##  [121] &quot;NOP58&quot;               &quot;FAM32A&quot;              &quot;FERMT3&quot;
+##  [124] &quot;LUC7L&quot;               &quot;ALDH2&quot;               &quot;SH3GLB1&quot;
+##  [127] &quot;MPP1&quot;                &quot;COQ7&quot;                &quot;PACS1&quot;
+##  [130] &quot;NPC2&quot;                &quot;GGNBP2&quot;              &quot;SSBP1&quot;
+##  [133] &quot;TYMS&quot;                &quot;CARS&quot;                &quot;UBA5&quot;
+##  [136] &quot;CIR1&quot;                &quot;UBE2D1&quot;              &quot;PGM1&quot;
+##  [139] &quot;RRAGC&quot;               &quot;ZBP1&quot;                &quot;STX11&quot;
+##  [142] &quot;TMEM205&quot;             &quot;MTERFD2&quot;             &quot;PTPN7&quot;
+##  [145] &quot;STX18&quot;               &quot;REXO2&quot;               &quot;C19orf52&quot;
+##  [148] &quot;NUP54&quot;               &quot;HIST1H2BJ&quot;           &quot;MESDC2&quot;
+##  [151] &quot;RRM2&quot;                &quot;CMTM5&quot;               &quot;ABRACL&quot;
+##  [154] &quot;PACSIN2&quot;             &quot;FH&quot;                  &quot;ACTB&quot;
+##  [157] &quot;HNRNPH3&quot;             &quot;EMB&quot;                 &quot;SHOC2&quot;
+##  [160] &quot;KCNQ1OT1&quot;            &quot;CST7&quot;                &quot;HDAC1&quot;
+##  [163] &quot;WARS&quot;                &quot;ADSL&quot;                &quot;THYN1&quot;
+##  [166] &quot;ELOF1&quot;               &quot;DNAJC2&quot;              &quot;TMEM208&quot;
+##  [169] &quot;CCT2&quot;                &quot;ZNF688&quot;              &quot;OXLD1&quot;
+##  [172] &quot;HDAC5&quot;               &quot;RDH14&quot;               &quot;FKBP5&quot;
+##  [175] &quot;CDC42EP3&quot;            &quot;C21orf33&quot;            &quot;RIOK2&quot;
+##  [178] &quot;ECHDC1&quot;              &quot;PSMG2&quot;               &quot;NPRL2&quot;
+##  [181] &quot;PRDX3&quot;               &quot;WDR55&quot;               &quot;UNC45A&quot;
+##  [184] &quot;VPS25&quot;               &quot;ISCA2&quot;               &quot;PPIL2&quot;
+##  [187] &quot;DCAF5&quot;               &quot;RBM7&quot;                &quot;FAM107B&quot;
+##  [190] &quot;NEMF&quot;                &quot;PITPNA-AS1&quot;          &quot;GGA3&quot;
+##  [193] &quot;PSMB6&quot;               &quot;RNF113A&quot;             &quot;S100B&quot;
+##  [196] &quot;HLA-DMA&quot;             &quot;MS4A6A&quot;              &quot;GPKOW&quot;
+##  [199] &quot;NAT9&quot;                &quot;PRKD2&quot;               &quot;ADD1&quot;
+##  [202] &quot;ITPA&quot;                &quot;TNFSF13B&quot;            &quot;NSA2&quot;
+##  [205] &quot;NCOR2&quot;               &quot;MYCBP2&quot;              &quot;ASB8&quot;
+##  [208] &quot;ZNF493&quot;              &quot;HLA-DQB1&quot;            &quot;DERL1&quot;
+##  [211] &quot;MRPS12&quot;              &quot;PPP1R14A&quot;            &quot;UBE2Q1&quot;
+##  [214] &quot;CD9&quot;                 &quot;NRGN&quot;                &quot;LGALS2&quot;
+##  [217] &quot;SURF6&quot;               &quot;SUMO3&quot;               &quot;VPS28&quot;
+##  [220] &quot;FAM96A&quot;              &quot;PHF14&quot;               &quot;RPUSD2&quot;
+##  [223] &quot;ABI3&quot;                &quot;C17orf62&quot;            &quot;GPR183&quot;
+##  [226] &quot;BIRC5&quot;               &quot;TSSC1&quot;               &quot;TTC14&quot;
+##  [229] &quot;ACD&quot;                 &quot;RBM39&quot;               &quot;SH3KBP1&quot;
+##  [232] &quot;TAF12&quot;               &quot;KARS&quot;                &quot;LGALSL&quot;
+##  [235] &quot;IDO1&quot;                &quot;RPN2&quot;                &quot;ALKBH7&quot;
+##  [238] &quot;SLC48A1&quot;             &quot;GZMH&quot;                &quot;ZC3H15&quot;
+##  [241] &quot;S100A12&quot;             &quot;KDM3B&quot;               &quot;UBXN4&quot;
+##  [244] &quot;ACP1&quot;                &quot;FKBP2&quot;               &quot;CLNS1A&quot;
+##  [247] &quot;CCDC115&quot;             &quot;FEM1B&quot;               &quot;IL1B&quot;
+##  [250] &quot;C1QC&quot;                &quot;IDI1&quot;                &quot;STUB1&quot;
+##  [253] &quot;TMEM242&quot;             &quot;GCA&quot;                 &quot;LGALS1&quot;
+##  [256] &quot;MMADHC&quot;              &quot;FPR1&quot;                &quot;PRPF31&quot;
+##  [259] &quot;TRAPPC3&quot;             &quot;RNF213&quot;              &quot;GATA2&quot;
+##  [262] &quot;IRF9&quot;                &quot;CHTF8&quot;               &quot;LCN2&quot;
+##  [265] &quot;GDI2&quot;                &quot;TMEM165&quot;             &quot;CD160&quot;
+##  [268] &quot;LRRC26&quot;              &quot;GADD45B&quot;             &quot;CTNNBL1&quot;
+##  [271] &quot;GZMK&quot;                &quot;IFIT2&quot;               &quot;FYB&quot;
+##  [274] &quot;CTSS&quot;                &quot;ZNF263&quot;              &quot;CLEC4C&quot;
+##  [277] &quot;TALDO1&quot;              &quot;CDA&quot;                 &quot;CAT&quot;
+##  [280] &quot;RER1&quot;                &quot;TIGIT&quot;               &quot;FOLR3&quot;
+##  [283] &quot;KIAA0101&quot;            &quot;ENHO&quot;                &quot;PPA1&quot;
+##  [286] &quot;TMEM140&quot;             &quot;AATF&quot;                &quot;CHMP4A&quot;
+##  [289] &quot;HNRNPM&quot;              &quot;G0S2&quot;                &quot;NCF2&quot;
+##  [292] &quot;TOMM22&quot;              &quot;BOLA1&quot;               &quot;EIF2B1&quot;
+##  [295] &quot;IRF8&quot;                &quot;PARP1&quot;               &quot;SH3BP1&quot;
+##  [298] &quot;SNX17&quot;               &quot;VDAC3&quot;               &quot;IDH3G&quot;
+##  [301] &quot;GINM1&quot;               &quot;IGFBP7&quot;              &quot;ICAM2&quot;
+##  [304] &quot;PPP2CA&quot;              &quot;AC147651.3&quot;          &quot;SF3B5&quot;
+##  [307] &quot;LTB&quot;                 &quot;DDT&quot;                 &quot;S100A4&quot;
+##  [310] &quot;HLA-DRB5&quot;            &quot;TNFRSF1A&quot;            &quot;PYCARD&quot;
+##  [313] &quot;CD2&quot;                 &quot;VMO1&quot;                &quot;CDC40&quot;
+##  [316] &quot;CEBPB&quot;               &quot;CLYBL&quot;               &quot;ZUFSP&quot;
+##  [319] &quot;FKBP3&quot;               &quot;EWSR1&quot;               &quot;CARHSP1&quot;
+##  [322] &quot;EIF5&quot;                &quot;MAP3K7CL&quot;            &quot;METTL23&quot;
+##  [325] &quot;CMTM7&quot;               &quot;AQP3&quot;                &quot;RIC3&quot;
+##  [328] &quot;VTI1B&quot;               &quot;MFSD10&quot;              &quot;RP11-879F14.2&quot;
+##  [331] &quot;RNF139&quot;              &quot;LY6G6F&quot;              &quot;PPM1N&quot;
+##  [334] &quot;GSTO1&quot;               &quot;COMMD10&quot;             &quot;NDUFB10&quot;
+##  [337] &quot;SCP2&quot;                &quot;RPL7L1&quot;              &quot;LGALS3BP&quot;
+##  [340] &quot;MS4A7&quot;               &quot;BSDC1&quot;               &quot;UXS1&quot;
+##  [343] &quot;SAT2&quot;                &quot;JAK1&quot;                &quot;DNAJA3&quot;
+##  [346] &quot;SCT&quot;                 &quot;PMVK&quot;                &quot;SMIM5&quot;
+##  [349] &quot;RGS18&quot;               &quot;METTL3&quot;              &quot;ING5&quot;
+##  [352] &quot;IFI35&quot;               &quot;SRM&quot;                 &quot;PLA2G12A&quot;
+##  [355] &quot;RBM4&quot;                &quot;RNF187&quot;              &quot;POMT1&quot;
+##  [358] &quot;TTC3&quot;                &quot;C14orf166&quot;           &quot;MYOM2&quot;
+##  [361] &quot;BAZ2A&quot;               &quot;SRSF6&quot;               &quot;STOML2&quot;
+##  [364] &quot;APOBEC3A&quot;            &quot;SNX9&quot;                &quot;RP5-887A10.1&quot;
+##  [367] &quot;CTD-2006K23.1&quot;       &quot;MAL&quot;                 &quot;IFI30&quot;
+##  [370] &quot;AHNAK&quot;               &quot;NUDT1&quot;               &quot;PTAFR&quot;
+##  [373] &quot;ANAPC13&quot;             &quot;IL23A&quot;               &quot;CXCL2&quot;
+##  [376] &quot;RTN4&quot;                &quot;SCPEP1&quot;              &quot;UQCRC1&quot;
+##  [379] &quot;ARRB2&quot;               &quot;TMEM40&quot;              &quot;KCTD10&quot;
+##  [382] &quot;ZCCHC9&quot;              &quot;SPG7&quot;                &quot;QRICH1&quot;
+##  [385] &quot;TMEM50A&quot;             &quot;ATP5H&quot;               &quot;CD79B&quot;
+##  [388] &quot;PLBD1&quot;               &quot;SEPT5&quot;               &quot;C1orf162&quot;
+##  [391] &quot;FAM96B&quot;              &quot;SURF1&quot;               &quot;C19orf33&quot;
+##  [394] &quot;NIT2&quot;                &quot;MAEA&quot;                &quot;ITSN2&quot;
+##  [397] &quot;ISOC2&quot;               &quot;PSMA7&quot;               &quot;OARD1&quot;
+##  [400] &quot;MED30&quot;               &quot;PPIE&quot;                &quot;SLC16A3&quot;
+##  [403] &quot;HP1BP3&quot;              &quot;CD1C&quot;                &quot;H2AFY&quot;
+##  [406] &quot;YWHAE&quot;               &quot;TIMP1&quot;               &quot;MRPL20&quot;
+##  [409] &quot;DNAJA1&quot;              &quot;PSMC4&quot;               &quot;CFD&quot;
+##  [412] &quot;GOLGB1&quot;              &quot;DPH5&quot;                &quot;GPS1&quot;
+##  [415] &quot;ANXA1&quot;               &quot;MYLK&quot;                &quot;CTD-2302E22.4&quot;
+##  [418] &quot;VKORC1&quot;              &quot;ARRDC3&quot;              &quot;REEP3&quot;
+##  [421] &quot;AP2S1&quot;               &quot;FCGR3B&quot;              &quot;RUFY1&quot;
+##  [424] &quot;DIAPH1&quot;              &quot;MRPL9&quot;               &quot;CSNK2B&quot;
+##  [427] &quot;JAKMIP1&quot;             &quot;FN3KRP&quot;              &quot;MAFB&quot;
+##  [430] &quot;FAM212A&quot;             &quot;GPX1&quot;                &quot;DAB2&quot;
+##  [433] &quot;NAA20&quot;               &quot;XCL2&quot;                &quot;SAFB2&quot;
+##  [436] &quot;EPN1&quot;                &quot;IFFO1&quot;               &quot;S1PR4&quot;
+##  [439] &quot;MT-ND6&quot;              &quot;CCDC91&quot;              &quot;RP11-428G5.5&quot;
+##  [442] &quot;DUSP10&quot;              &quot;PITHD1&quot;              &quot;LAMTOR1&quot;
+##  [445] &quot;PLEKHA3&quot;             &quot;TMEM14B&quot;             &quot;NDUFB5&quot;
+##  [448] &quot;IFIT1&quot;               &quot;POLR2G&quot;              &quot;CD47&quot;
+##  [451] &quot;FCRLA&quot;               &quot;BTN3A1&quot;              &quot;LMAN2&quot;
+##  [454] &quot;CYFIP1&quot;              &quot;FBXO41&quot;              &quot;ATP1B3&quot;
+##  [457] &quot;GP1BA&quot;               &quot;AP001189.4&quot;          &quot;RFNG&quot;
+##  [460] &quot;GID8&quot;                &quot;ACAP1&quot;               &quot;ITGB3&quot;
+##  [463] &quot;TUBA8&quot;               &quot;ARL2&quot;                &quot;NFE2&quot;
+##  [466] &quot;TTC38&quot;               &quot;FCGR2A&quot;              &quot;CPQ&quot;
+##  [469] &quot;BCDIN3D&quot;             &quot;UBE2L6&quot;              &quot;KIFC1&quot;
+##  [472] &quot;STK32C&quot;              &quot;CYB5B&quot;               &quot;C5orf15&quot;
+##  [475] &quot;HSD17B11&quot;            &quot;GNB2&quot;                &quot;KCNG1&quot;
+##  [478] &quot;BBS2&quot;                &quot;RBCK1&quot;               &quot;SPOCD1&quot;
+##  [481] &quot;PDZK1IP1&quot;            &quot;NT5C&quot;                &quot;FBXO21&quot;
+##  [484] &quot;ERP44&quot;               &quot;EVI2B&quot;               &quot;YWHAB&quot;
+##  [487] &quot;SMARCC2&quot;             &quot;AHSA1&quot;               &quot;GFI1B&quot;
+##  [490] &quot;CTC-260E6.6&quot;         &quot;CHI3L2&quot;              &quot;EXOSC8&quot;
+##  [493] &quot;ERGIC3&quot;              &quot;WDR45&quot;               &quot;HMGB2&quot;
+##  [496] &quot;PINK1&quot;               &quot;CEPT1&quot;               &quot;GSTP1&quot;
+##  [499] &quot;ICOSLG&quot;              &quot;SETD1B&quot;              &quot;SAAL1&quot;
+##  [502] &quot;CGRRF1&quot;              &quot;PCNA&quot;                &quot;SENP2&quot;
+##  [505] &quot;ISG15&quot;               &quot;PITPNM1&quot;             &quot;CTA-217C2.1&quot;
+##  [508] &quot;FCGR1A&quot;              &quot;S100A11&quot;             &quot;GIMAP4&quot;
+##  [511] &quot;MLTK&quot;                &quot;GNS&quot;                 &quot;CTC-378H22.1&quot;
+##  [514] &quot;PRR5&quot;                &quot;DHX8&quot;                &quot;ATXN10&quot;
+##  [517] &quot;ATP5SL&quot;              &quot;TCP1&quot;                &quot;EFHD2&quot;
+##  [520] &quot;APOBEC3G&quot;            &quot;RELT&quot;                &quot;ADAL&quot;
+##  [523] &quot;SMARCA4&quot;             &quot;CTC-444N24.11&quot;       &quot;RP11-390E23.6&quot;
+##  [526] &quot;C16orf58&quot;            &quot;STK11IP&quot;             &quot;ATG4C&quot;
+##  [529] &quot;DAGLB&quot;               &quot;BTN3A2&quot;              &quot;LIG1&quot;
+##  [532] &quot;DENND5A&quot;             &quot;PRR12&quot;               &quot;KLHL6&quot;
+##  [535] &quot;ASGR1&quot;               &quot;ZNF467&quot;              &quot;TMEM141&quot;
+##  [538] &quot;DNAJA2&quot;              &quot;MRPL12&quot;              &quot;RILPL2&quot;
+##  [541] &quot;PSAP&quot;                &quot;LINC00936&quot;           &quot;LDOC1L&quot;
+##  [544] &quot;SRGN&quot;                &quot;RPL39L&quot;              &quot;AP4S1&quot;
+##  [547] &quot;TMEM91&quot;              &quot;KLRB1&quot;               &quot;IL4I1&quot;
+##  [550] &quot;STRA13&quot;              &quot;BLNK&quot;                &quot;ZNF559&quot;
+##  [553] &quot;TGFB1&quot;               &quot;C5AR1&quot;               &quot;CD82&quot;
+##  [556] &quot;TMEM194A&quot;            &quot;NUDT16L1&quot;            &quot;AC113189.5&quot;
+##  [559] &quot;HSP90AA1&quot;            &quot;ERCC6L2&quot;             &quot;CLIC3&quot;
+##  [562] &quot;CTSZ&quot;                &quot;UBAC2&quot;               &quot;ARL6IP5&quot;
+##  [565] &quot;CRIP2&quot;               &quot;MDS2&quot;                &quot;MS4A1&quot;
+##  [568] &quot;CCDC12&quot;              &quot;CIDEB&quot;               &quot;SGK1&quot;
+##  [571] &quot;CAPZA2&quot;              &quot;STT3A&quot;               &quot;MAFF&quot;
+##  [574] &quot;ACTN4&quot;               &quot;MRPL47&quot;              &quot;AL928742.12&quot;
+##  [577] &quot;PGM2&quot;                &quot;NOG&quot;                 &quot;C12orf45&quot;
+##  [580] &quot;CTSW&quot;                &quot;ENKUR&quot;               &quot;RP5-827C21.4&quot;
+##  [583] &quot;HGD&quot;                 &quot;DNAJB14&quot;             &quot;ZNF195&quot;
+##  [586] &quot;SMPDL3A&quot;             &quot;JUND&quot;                &quot;RP11-706O15.1&quot;
+##  [589] &quot;ST20&quot;                &quot;SPTSSB&quot;              &quot;TK1&quot;
+##  [592] &quot;TAOK2&quot;               &quot;GFER&quot;                &quot;PFDN2&quot;
+##  [595] &quot;USP19&quot;               &quot;PHF12&quot;               &quot;CDK19&quot;
+##  [598] &quot;ORAI1&quot;               &quot;URGCP&quot;               &quot;TYW5&quot;
+##  [601] &quot;DENND6A&quot;             &quot;METTL8&quot;              &quot;KRT7&quot;
+##  [604] &quot;MVD&quot;                 &quot;PPIG&quot;                &quot;TYMP&quot;
+##  [607] &quot;GZMA&quot;                &quot;PTPRN2&quot;              &quot;FGL2&quot;
+##  [610] &quot;DNMT3A&quot;              &quot;PEX16&quot;               &quot;WTAP&quot;
+##  [613] &quot;CRELD2&quot;              &quot;CPNE2&quot;               &quot;TMEM116&quot;
+##  [616] &quot;TRIP12&quot;              &quot;YTHDF2&quot;              &quot;TOP1MT&quot;
+##  [619] &quot;GMPR2&quot;               &quot;RAB34&quot;               &quot;P2RX5&quot;
+##  [622] &quot;LSM6&quot;                &quot;GBP1&quot;                &quot;NFATC1&quot;
+##  [625] &quot;PEX26&quot;               &quot;HMG20A&quot;              &quot;C16orf52&quot;
+##  [628] &quot;PACRGL&quot;              &quot;PCP2&quot;                &quot;ARG2&quot;
+##  [631] &quot;ANKEF1&quot;              &quot;ATG7&quot;                &quot;SIGLEC14&quot;
+##  [634] &quot;ZFYVE28&quot;             &quot;LRRC8C&quot;              &quot;TMEM9B&quot;
+##  [637] &quot;CDT1&quot;                &quot;RP11-367G6.3&quot;        &quot;RGMB&quot;
+##  [640] &quot;DHRS4L2&quot;             &quot;AP003733.1&quot;          &quot;SLC31A2&quot;
+##  [643] &quot;LPIN1&quot;               &quot;ARHGDIA&quot;             &quot;RIT1&quot;
+##  [646] &quot;AKAP8&quot;               &quot;HAVCR2&quot;              &quot;ANAPC4&quot;
+##  [649] &quot;B4GALT4&quot;             &quot;CDK16&quot;               &quot;BLOC1S1&quot;
+##  [652] &quot;EGFL7&quot;               &quot;C15orf48&quot;            &quot;RP5-1028K7.2&quot;
+##  [655] &quot;OBSCN&quot;               &quot;DHRS4&quot;               &quot;HOPX&quot;
+##  [658] &quot;NFAT5&quot;               &quot;PLD6&quot;                &quot;TMEM104&quot;
+##  [661] &quot;SPIN1&quot;               &quot;TMEM62&quot;              &quot;RCL1&quot;
+##  [664] &quot;MRPS33&quot;              &quot;TARSL2&quot;              &quot;PPA2&quot;
+##  [667] &quot;ZNF3&quot;                &quot;RNF26&quot;               &quot;RP11-138A9.2&quot;
+##  [670] &quot;ATP6V0E1&quot;            &quot;ERV3-1&quot;              &quot;CYB561&quot;
+##  [673] &quot;URB2&quot;                &quot;RHEBL1&quot;              &quot;ZNF528&quot;
+##  [676] &quot;BANP&quot;                &quot;ZNF394&quot;              &quot;NDUFS1&quot;
+##  [679] &quot;POLR3E&quot;              &quot;HELQ&quot;                &quot;DIS3&quot;
+##  [682] &quot;NDUFA2&quot;              &quot;DIDO1&quot;               &quot;ATXN7L3B&quot;
+##  [685] &quot;NSMAF&quot;               &quot;TSPAN15&quot;             &quot;AGO4&quot;
+##  [688] &quot;ID2&quot;                 &quot;GRAP&quot;                &quot;RP11-70P17.1&quot;
+##  [691] &quot;EDC3&quot;                &quot;PLA2G7&quot;              &quot;GPR171&quot;
+##  [694] &quot;TMSB4X&quot;              &quot;PRPF8&quot;               &quot;ANXA5&quot;
+##  [697] &quot;TERF2IP&quot;             &quot;AIM2&quot;                &quot;FBXO33&quot;
+##  [700] &quot;SLC4A7&quot;              &quot;PCYT1A&quot;              &quot;CYTL1&quot;
+##  [703] &quot;GTPBP2&quot;              &quot;MFF&quot;                 &quot;CISD3&quot;
+##  [706] &quot;RP11-349A22.5&quot;       &quot;TCTA&quot;                &quot;USP20&quot;
+##  [709] &quot;TNFAIP2&quot;             &quot;THAP2&quot;               &quot;MINA&quot;
+##  [712] &quot;ZFX&quot;                 &quot;LYPLA1&quot;              &quot;ZNF836&quot;
+##  [715] &quot;TBC1D23&quot;             &quot;DTX3&quot;                &quot;FHL1&quot;
+##  [718] &quot;RMND5A&quot;              &quot;MYADM&quot;               &quot;IL1RAP&quot;
+##  [721] &quot;ARSG&quot;                &quot;CD84&quot;                &quot;STAU2&quot;
+##  [724] &quot;DDAH2&quot;               &quot;MYO9B&quot;               &quot;PICALM&quot;
+##  [727] &quot;TAF6L&quot;               &quot;SMARCD3&quot;             &quot;PASK&quot;
+##  [730] &quot;TANGO6&quot;              &quot;GSTA4&quot;               &quot;MRPL28&quot;
+##  [733] &quot;HDAC2&quot;               &quot;SUV420H2&quot;            &quot;PQBP1&quot;
+##  [736] &quot;EIF4E&quot;               &quot;ST3GAL2&quot;             &quot;SAMD4B&quot;
+##  [739] &quot;USP33&quot;               &quot;LAT2&quot;                &quot;RPUSD4&quot;
+##  [742] &quot;USP3&quot;                &quot;BRAT1&quot;               &quot;ELL&quot;
+##  [745] &quot;LYSMD4&quot;              &quot;SRSF7&quot;               &quot;PHACTR1&quot;
+##  [748] &quot;USP7&quot;                &quot;SLC6A6&quot;              &quot;FAAH&quot;
+##  [751] &quot;GPR35&quot;               &quot;AC093323.3&quot;          &quot;ARIH2OS&quot;
+##  [754] &quot;HNRNPF&quot;              &quot;SPEN&quot;                &quot;RFC2&quot;
+##  [757] &quot;AP3M1&quot;               &quot;SKAP2&quot;               &quot;NMNAT3&quot;
+##  [760] &quot;HARS&quot;                &quot;GSTZ1&quot;               &quot;UBE2D2&quot;
+##  [763] &quot;TMEM102&quot;             &quot;MANBA&quot;               &quot;MRE11A&quot;
+##  [766] &quot;CLPX&quot;                &quot;PTGES2&quot;              &quot;IL4R&quot;
+##  [769] &quot;TMEM138&quot;             &quot;RBP7&quot;                &quot;CEP85L&quot;
+##  [772] &quot;RP11-792A8.4&quot;        &quot;IQCE&quot;                &quot;PTX3&quot;
+##  [775] &quot;AP3M2&quot;               &quot;CCL4L1&quot;              &quot;PUM1&quot;
+##  [778] &quot;NAAA&quot;                &quot;DAK&quot;                 &quot;MBOAT7&quot;
+##  [781] &quot;ASXL2&quot;               &quot;GIMAP2&quot;              &quot;TIMM17A&quot;
+##  [784] &quot;MOB2&quot;                &quot;ALG13&quot;               &quot;LILRB2&quot;
+##  [787] &quot;PAICS&quot;               &quot;GLB1&quot;                &quot;SNX3&quot;
+##  [790] &quot;SMCO4&quot;               &quot;FRAT1&quot;               &quot;NOL7&quot;
+##  [793] &quot;EMC7&quot;                &quot;SMC4&quot;                &quot;TRMT61A&quot;
+##  [796] &quot;PRR5L&quot;               &quot;CDC123&quot;              &quot;ANTXR2&quot;
+##  [799] &quot;CITED4&quot;              &quot;UBXN1&quot;               &quot;GLRX3&quot;
+##  [802] &quot;DDB2&quot;                &quot;RAB21&quot;               &quot;C1orf198&quot;
+##  [805] &quot;TFAM&quot;                &quot;METTL13&quot;             &quot;FRY-AS1&quot;
+##  [808] &quot;LGALS3&quot;              &quot;SSR3&quot;                &quot;VIL1&quot;
+##  [811] &quot;UGT2B17&quot;             &quot;LINC01003&quot;           &quot;CAMK2G&quot;
+##  [814] &quot;JARID2&quot;              &quot;RP11-509J21.2&quot;       &quot;C5AR2&quot;
+##  [817] &quot;TNS1&quot;                &quot;JAZF1&quot;               &quot;USP25&quot;
+##  [820] &quot;ARRDC4&quot;              &quot;CDC16&quot;               &quot;NAA25&quot;
+##  [823] &quot;ADA&quot;                 &quot;ADH5&quot;                &quot;ZNF106&quot;
+##  [826] &quot;TMX3&quot;                &quot;CFP&quot;                 &quot;CDC37&quot;
+##  [829] &quot;HVCN1&quot;               &quot;PIGF&quot;                &quot;PCNX&quot;
+##  [832] &quot;P2RY10&quot;              &quot;RFC5&quot;                &quot;PGRMC2&quot;
+##  [835] &quot;RALBP1&quot;              &quot;C9orf69&quot;             &quot;GTF2F2&quot;
+##  [838] &quot;CBX5&quot;                &quot;C8orf44&quot;             &quot;ESYT1&quot;
+##  [841] &quot;OSBPL7&quot;              &quot;MRPL19&quot;              &quot;HN1&quot;
+##  [844] &quot;RAB2A&quot;               &quot;NARS&quot;                &quot;CAPN12&quot;
+##  [847] &quot;TRUB2&quot;               &quot;CCDC107&quot;             &quot;OAS1&quot;
+##  [850] &quot;ANKRD44&quot;             &quot;VPS13A&quot;              &quot;TNNI2&quot;
+##  [853] &quot;CHD2&quot;                &quot;KIAA1429&quot;            &quot;CXXC1&quot;
+##  [856] &quot;DLST&quot;                &quot;PSMC5&quot;               &quot;KLF11&quot;
+##  [859] &quot;RP5-1073O3.7&quot;        &quot;BTK&quot;                 &quot;SMIM14&quot;
+##  [862] &quot;PMEPA1&quot;              &quot;CD93&quot;                &quot;CCDC22&quot;
+##  [865] &quot;ADPRM&quot;               &quot;SLC39A1&quot;             &quot;GOT2&quot;
+##  [868] &quot;CCND3&quot;               &quot;TM7SF3&quot;              &quot;TBC1D15&quot;
+##  [871] &quot;RP11-421L21.3&quot;       &quot;NIFK&quot;                &quot;ATP5C1&quot;
+##  [874] &quot;RHBDD3&quot;              &quot;AAR2&quot;                &quot;SLC25A14&quot;
+##  [877] &quot;SEPT11&quot;              &quot;SPG20&quot;               &quot;DUSP22&quot;
+##  [880] &quot;GUCD1&quot;               &quot;FOSL2&quot;               &quot;NFYC&quot;
+##  [883] &quot;GYS1&quot;                &quot;PNO1&quot;                &quot;LTV1&quot;
+##  [886] &quot;PRNP&quot;                &quot;TNFRSF25&quot;            &quot;RAB4B&quot;
+##  [889] &quot;ZNF92&quot;               &quot;HENMT1&quot;              &quot;PRAF2&quot;
+##  [892] &quot;HECTD1&quot;              &quot;POU2F2&quot;              &quot;LSM14A&quot;
+##  [895] &quot;HEXIM2&quot;              &quot;RMDN3&quot;               &quot;INO80C&quot;
+##  [898] &quot;DCTN3&quot;               &quot;DYNLT1&quot;              &quot;ADAM10&quot;
+##  [901] &quot;CHERP&quot;               &quot;C2orf76&quot;             &quot;PLAGL2&quot;
+##  [904] &quot;HDGF&quot;                &quot;KIAA1430&quot;            &quot;IFT57&quot;
+##  [907] &quot;TMEM60&quot;              &quot;ATG16L2&quot;             &quot;IFITM2&quot;
+##  [910] &quot;NARG2&quot;               &quot;XXbac-BPGBPG55C20.2&quot; &quot;GDPD1&quot;
+##  [913] &quot;INIP&quot;                &quot;CHIC2&quot;               &quot;RAB27B&quot;
+##  [916] &quot;FBXO4&quot;               &quot;RPL26L1&quot;             &quot;SMU1&quot;
+##  [919] &quot;CYTH4&quot;               &quot;PPIL4&quot;               &quot;TXNDC17&quot;
+##  [922] &quot;DDX54&quot;               &quot;ANKRD18A&quot;            &quot;BABAM1&quot;
+##  [925] &quot;EMG1&quot;                &quot;RWDD4&quot;               &quot;RBM3&quot;
+##  [928] &quot;UBE3A&quot;               &quot;TMEM80&quot;              &quot;C1GALT1C1&quot;
+##  [931] &quot;MANF&quot;                &quot;TPM2&quot;                &quot;RP11-432I5.1&quot;
+##  [934] &quot;COMMD5&quot;              &quot;PCGF1&quot;               &quot;ARAP1&quot;
+##  [937] &quot;LARS&quot;                &quot;QSOX1&quot;               &quot;RUNDC1&quot;
+##  [940] &quot;ATG16L1&quot;             &quot;CD2AP&quot;               &quot;MAP3K7&quot;
+##  [943] &quot;PTPN4&quot;               &quot;ACTR1B&quot;              &quot;HMGXB4&quot;
+##  [946] &quot;MLLT10&quot;              &quot;LRRC47&quot;              &quot;MAP3K8&quot;
+##  [949] &quot;GARS&quot;                &quot;TGFBR2&quot;              &quot;RP11-400F19.6&quot;
+##  [952] &quot;BBX&quot;                 &quot;ARID5B&quot;              &quot;UTP6&quot;
+##  [955] &quot;MED9&quot;                &quot;TDG&quot;                 &quot;SDAD1&quot;
+##  [958] &quot;MAP2K7&quot;              &quot;C9orf16&quot;             &quot;POLD2&quot;
+##  [961] &quot;TMEM87A&quot;             &quot;NDUFAF4&quot;             &quot;ZFAND4&quot;
+##  [964] &quot;ACTR6&quot;               &quot;ATF7IP2&quot;             &quot;GPATCH4&quot;
+##  [967] &quot;KIAA0040&quot;            &quot;FBXO25&quot;              &quot;SNAPIN&quot;
+##  [970] &quot;IDH1&quot;                &quot;C16orf74&quot;            &quot;COMMD4&quot;
+##  [973] &quot;MAX&quot;                 &quot;CCDC66&quot;              &quot;TMEM177&quot;
+##  [976] &quot;PEX19&quot;               &quot;HDDC3&quot;               &quot;SLC35A2&quot;
+##  [979] &quot;CCP110&quot;              &quot;AGPAT1&quot;              &quot;ZNF232&quot;
+##  [982] &quot;ANKAR&quot;               &quot;DESI1&quot;               &quot;MAF1&quot;
+##  [985] &quot;USP36&quot;               &quot;ARF4&quot;                &quot;COA6&quot;
+##  [988] &quot;IP6K1&quot;               &quot;RARA&quot;                &quot;NIT1&quot;
+##  [991] &quot;ARHGAP6&quot;             &quot;VSIG4&quot;               &quot;RP11-314N13.3&quot;
+##  [994] &quot;CASC4&quot;               &quot;AP3S1&quot;               &quot;RBBP6&quot;
+##  [997] &quot;ZYX&quot;                 &quot;POLR3K&quot;              &quot;PRSS57&quot;
+## [1000] &quot;HRASLS2&quot;             &quot;ADI1&quot;                &quot;SNRNP27&quot;
+## [1003] &quot;MTCH2&quot;               &quot;ARPC5&quot;               &quot;SPNS1&quot;
+## [1006] &quot;GNG3&quot;                &quot;LAMP2&quot;               &quot;CRTAP&quot;
+## [1009] &quot;COMMD3&quot;              &quot;PNPLA8&quot;              &quot;NR2C1&quot;
+## [1012] &quot;MTERFD1&quot;             &quot;FBXW4&quot;               &quot;ZBTB8OS&quot;
+## [1015] &quot;OLA1&quot;                &quot;CNEP1R1&quot;             &quot;CTNNBIP1&quot;
+## [1018] &quot;TPD52L2&quot;             &quot;ARMC7&quot;               &quot;SLFN5&quot;
+## [1021] &quot;LEPROT&quot;              &quot;IRAK4&quot;               &quot;LAIR1&quot;
+## [1024] &quot;HCCS&quot;                &quot;MRPL42&quot;              &quot;ADAM8&quot;
+## [1027] &quot;FOPNL&quot;               &quot;CAND1&quot;               &quot;NUDT5&quot;
+## [1030] &quot;TGFBRAP1&quot;            &quot;CRLS1&quot;               &quot;NAPRT1&quot;
+## [1033] &quot;SSBP3&quot;               &quot;MPV17&quot;               &quot;PI4KB&quot;
+## [1036] &quot;PTTG1&quot;               &quot;GLYCTK&quot;              &quot;DCAF8&quot;
+## [1039] &quot;CSRNP1&quot;              &quot;CNPY3&quot;               &quot;SERPINE2&quot;
+## [1042] &quot;C20orf27&quot;            &quot;PKN2&quot;                &quot;TNFAIP8&quot;
+## [1045] &quot;PRKACA&quot;              &quot;ACBD3&quot;               &quot;USF2&quot;
+## [1048] &quot;MPHOSPH10&quot;           &quot;THOC6&quot;               &quot;CCDC25&quot;
+## [1051] &quot;GOSR2&quot;               &quot;ATP6V1D&quot;             &quot;ACOT13&quot;
+## [1054] &quot;PRKACB&quot;              &quot;C16orf80&quot;            &quot;WARS2&quot;
+## [1057] &quot;DDX1&quot;                &quot;S100A6&quot;              &quot;REEP5&quot;
+## [1060] &quot;DENND1C&quot;             &quot;GGA2&quot;                &quot;NKIRAS2&quot;
+## [1063] &quot;MRPL1&quot;               &quot;PBRM1&quot;               &quot;NABP1&quot;
+## [1066] &quot;RBM5&quot;                &quot;MVB12A&quot;              &quot;ISOC1&quot;
+## [1069] &quot;USP5&quot;                &quot;RFC1&quot;                &quot;AC010642.1&quot;
+## [1072] &quot;TIMM10B&quot;             &quot;SEPHS2&quot;              &quot;ITM2A&quot;
+## [1075] &quot;C1orf63&quot;             &quot;CHN2&quot;                &quot;CTBP2&quot;
+## [1078] &quot;DOCK10&quot;              &quot;SETX&quot;                &quot;DMTN&quot;
+## [1081] &quot;GTPBP6&quot;              &quot;MKKS&quot;                &quot;ADIPOR2&quot;
+## [1084] &quot;MOCS2&quot;               &quot;SNX14&quot;               &quot;hsa-mir-1199&quot;
+## [1087] &quot;C1orf35&quot;             &quot;ATP5A1&quot;              &quot;ECSIT&quot;
+## [1090] &quot;SNRPB&quot;               &quot;NGFRAP1&quot;             &quot;RNF25&quot;
+## [1093] &quot;ZNF276&quot;              &quot;LDLRAP1&quot;             &quot;IL24&quot;
+## [1096] &quot;EMC10&quot;               &quot;RGL2&quot;                &quot;FNTA&quot;
+## [1099] &quot;GYG1&quot;                &quot;TMEM199&quot;             &quot;ZNF593&quot;
+## [1102] &quot;TMEM55A&quot;             &quot;C9orf37&quot;             &quot;AAGAB&quot;
+## [1105] &quot;DDX17&quot;               &quot;OCIAD1&quot;              &quot;C15orf61&quot;
+## [1108] &quot;C9orf142&quot;            &quot;EIF4E2&quot;              &quot;KPNA1&quot;
+## [1111] &quot;MTIF3&quot;               &quot;POP7&quot;                &quot;RNF125&quot;
+## [1114] &quot;POLDIP2&quot;             &quot;ETS1&quot;                &quot;ILF3&quot;
+## [1117] &quot;WIBG&quot;                &quot;TRIM14&quot;              &quot;ACADM&quot;
+## [1120] &quot;LBR&quot;                 &quot;UQCC1&quot;               &quot;FXN&quot;
+## [1123] &quot;PAFAH1B1&quot;            &quot;DCP2&quot;                &quot;ZFP36L1&quot;
+## [1126] &quot;ABHD5&quot;               &quot;SAMM50&quot;              &quot;ZAP70&quot;
+## [1129] &quot;DOK3&quot;                &quot;SLC20A2&quot;             &quot;INTS2&quot;
+## [1132] &quot;ZNF175&quot;              &quot;NKAP&quot;                &quot;SAMD3&quot;
+## [1135] &quot;FAM120A&quot;             &quot;CAMK1D&quot;              &quot;MGAT1&quot;
+## [1138] &quot;ZNF468&quot;              &quot;RHOG&quot;                &quot;SCAPER&quot;
+## [1141] &quot;PPP2R3C&quot;             &quot;TMEM126B&quot;            &quot;PIK3R1&quot;
+## [1144] &quot;SPRTN&quot;               &quot;NNT-AS1&quot;             &quot;UBE2K&quot;
+## [1147] &quot;TMEM18&quot;              &quot;TMCO1&quot;               &quot;TSPAN33&quot;
+## [1150] &quot;SEC31A&quot;              &quot;CNDP2&quot;               &quot;UIMC1&quot;
+## [1153] &quot;FASTKD1&quot;             &quot;RRS1&quot;                &quot;CCNB1&quot;
+## [1156] &quot;HMBOX1&quot;              &quot;VAPA&quot;                &quot;CCDC94&quot;
+## [1159] &quot;EOGT&quot;                &quot;SIAH2&quot;               &quot;GPBP1L1&quot;
+## [1162] &quot;OAT&quot;                 &quot;MX2&quot;                 &quot;PHPT1&quot;
+## [1165] &quot;THUMPD3&quot;             &quot;XPOT&quot;                &quot;PTGDR&quot;
+## [1168] &quot;KLHL24&quot;              &quot;METTL21A&quot;            &quot;ANKRA2&quot;
+## [1171] &quot;MID1IP1&quot;             &quot;MORF4L2&quot;             &quot;ISY1&quot;
+## [1174] &quot;PPP1R8&quot;              &quot;RAB1B&quot;               &quot;NFKBIL1&quot;
+## [1177] &quot;LYN&quot;                 &quot;TCEAL4&quot;              &quot;ILF3-AS1&quot;
+## [1180] &quot;GALK1&quot;               &quot;SNAP47&quot;              &quot;UBIAD1&quot;
+## [1183] &quot;RNF168&quot;              &quot;RORA&quot;                &quot;ATXN3&quot;
+## [1186] &quot;GLTP&quot;                &quot;NANS&quot;                &quot;CTA-29F11.1&quot;
+## [1189] &quot;AKTIP&quot;               &quot;NRBF2&quot;               &quot;ARHGEF2&quot;
+## [1192] &quot;SNX5&quot;                &quot;CDC5L&quot;               &quot;SYCE1&quot;
+## [1195] &quot;PWP1&quot;                &quot;COMMD8&quot;              &quot;DNAJC10&quot;
+## [1198] &quot;SNX20&quot;               &quot;BOLA3&quot;               &quot;NUDCD1&quot;
+## [1201] &quot;PPT1&quot;                &quot;C5orf56&quot;             &quot;FAM212B&quot;
+## [1204] &quot;RP11-532F6.3&quot;        &quot;BEX4&quot;                &quot;NDUFB6&quot;
+## [1207] &quot;PIGU&quot;                &quot;TASP1&quot;               &quot;ST7L&quot;
+## [1210] &quot;DIMT1&quot;               &quot;ALG5&quot;                &quot;CD96&quot;
+## [1213] &quot;ZNF350&quot;              &quot;HMGCL&quot;               &quot;BNIP2&quot;
+## [1216] &quot;RASD1&quot;               &quot;PDCD2L&quot;              &quot;SYVN1&quot;
+## [1219] &quot;ZNF561&quot;              &quot;POLR2E&quot;              &quot;GNPAT&quot;
+## [1222] &quot;SERPINA1&quot;            &quot;GALT&quot;                &quot;RASGRP2&quot;
+## [1225] &quot;RELB&quot;                &quot;C4orf3&quot;              &quot;RCHY1&quot;
+## [1228] &quot;CPSF3L&quot;              &quot;U2SURP&quot;              &quot;TIMMDC1&quot;
+## [1231] &quot;VPS13C&quot;              &quot;CKB&quot;                 &quot;EXOC6&quot;
+## [1234] &quot;C14orf80&quot;            &quot;CYLD&quot;                &quot;TMEM248&quot;
+## [1237] &quot;FAM173A&quot;             &quot;PAXIP1-AS1&quot;          &quot;RP11-139H15.1&quot;
+## [1240] &quot;TNFRSF13B&quot;           &quot;MDP1&quot;                &quot;STX4&quot;
+## [1243] &quot;EREG&quot;                &quot;DUS3L&quot;               &quot;BAG5&quot;
+## [1246] &quot;HOOK2&quot;               &quot;NR3C1&quot;               &quot;CCDC69&quot;
+## [1249] &quot;PDIA3&quot;               &quot;LYRM2&quot;               &quot;DEDD&quot;
+## [1252] &quot;THEM4&quot;               &quot;SRPR&quot;                &quot;DECR1&quot;
+## [1255] &quot;ATP6V0E2&quot;            &quot;ARPC5L&quot;              &quot;SNRNP35&quot;
+## [1258] &quot;NFU1&quot;                &quot;SDCCAG8&quot;             &quot;PRDM2&quot;
+## [1261] &quot;TRABD2A&quot;             &quot;SH3BGRL&quot;             &quot;NOS3&quot;
+## [1264] &quot;GBP4&quot;                &quot;ITGB7&quot;               &quot;CRTC2&quot;
+## [1267] &quot;CHPF2&quot;               &quot;ZNF330&quot;              &quot;YPEL3&quot;
+## [1270] &quot;CDV3&quot;                &quot;IFI44&quot;               &quot;SSX2IP&quot;
+## [1273] &quot;ZNF32&quot;               &quot;FADS1&quot;               &quot;PDXDC1&quot;
+## [1276] &quot;DHX36&quot;               &quot;TNRC6B&quot;              &quot;SPPL2A&quot;
+## [1279] &quot;DICER1&quot;              &quot;MADD&quot;                &quot;EIF2AK4&quot;
+## [1282] &quot;RP11-432J24.2&quot;       &quot;SLC19A1&quot;             &quot;ARID4A&quot;
+## [1285] &quot;MAPK1IP1L&quot;           &quot;NELFB&quot;               &quot;TANK&quot;
+## [1288] &quot;NEFH&quot;                &quot;ARPP19&quot;              &quot;CYTH2&quot;
+## [1291] &quot;XRRA1&quot;               &quot;C1orf123&quot;            &quot;LMF2&quot;
+## [1294] &quot;PCNP&quot;                &quot;RETN&quot;                &quot;RP11-589C21.6&quot;
+## [1297] &quot;NEXN&quot;                &quot;DUSP23&quot;              &quot;TRIT1&quot;
+## [1300] &quot;MAP2K3&quot;              &quot;MIS18BP1&quot;            &quot;RAB9A&quot;
+## [1303] &quot;BLZF1&quot;               &quot;RBPJ&quot;                &quot;CHD7&quot;
+## [1306] &quot;MAGEH1&quot;              &quot;KRBOX4&quot;              &quot;PEMT&quot;
+## [1309] &quot;SFR1&quot;                &quot;COG4&quot;                &quot;SAMSN1&quot;
+## [1312] &quot;GRAP2&quot;               &quot;TREX1&quot;               &quot;XXbac-BPG299F13.17&quot;
+## [1315] &quot;BRWD1&quot;               &quot;STX16&quot;               &quot;AC073072.5&quot;
+## [1318] &quot;P2RY6&quot;               &quot;GP6&quot;                 &quot;DHX15&quot;
+## [1321] &quot;ATG12&quot;               &quot;DPY30&quot;               &quot;ETHE1&quot;
+## [1324] &quot;SF3B1&quot;               &quot;YTHDC1&quot;              &quot;WNK1&quot;
+## [1327] &quot;SPON2&quot;               &quot;CD55&quot;                &quot;DNTTIP1&quot;
+## [1330] &quot;C7orf26&quot;             &quot;BLCAP&quot;               &quot;TMEM14C&quot;
+## [1333] &quot;ARL4A&quot;               &quot;CUL4B&quot;               &quot;NPHP3&quot;
+## [1336] &quot;RABEP2&quot;              &quot;SCFD1&quot;               &quot;CORO7&quot;
+## [1339] &quot;CACNA2D3&quot;            &quot;NOC4L&quot;               &quot;SLBP&quot;
+## [1342] &quot;ENY2&quot;                &quot;LRRC59&quot;              &quot;STAU1&quot;
+## [1345] &quot;MRPL21&quot;              &quot;ORC2&quot;                &quot;PIGT&quot;
+## [1348] &quot;C15orf57&quot;            &quot;ZBED5-AS1&quot;           &quot;TRIP11&quot;
+## [1351] &quot;KLF13&quot;               &quot;NAP1L4&quot;              &quot;SNW1&quot;
+## [1354] &quot;CR1&quot;                 &quot;FRMD3&quot;               &quot;SMARCB1&quot;
+## [1357] &quot;WHAMM&quot;               &quot;DHX9&quot;                &quot;NOL11&quot;
+## [1360] &quot;CIAPIN1&quot;             &quot;C12orf10&quot;            &quot;KCNK6&quot;
+## [1363] &quot;TMEM222&quot;             &quot;CELF1&quot;               &quot;SHARPIN&quot;
+## [1366] &quot;R3HDM2&quot;              &quot;FEM1A&quot;               &quot;IFT20&quot;
+## [1369] &quot;ORMDL2&quot;              &quot;FNBP4&quot;               &quot;NFIC&quot;
+## [1372] &quot;UCK1&quot;                &quot;TMCC2&quot;               &quot;RP11-219B4.7&quot;
+## [1375] &quot;CCNG1&quot;               &quot;HBEGF&quot;               &quot;CORO1C&quot;
+## [1378] &quot;TAL1&quot;                &quot;RP4-561L24.3&quot;        &quot;TPO&quot;
+## [1381] &quot;LINC01119&quot;           &quot;AC009501.4&quot;          &quot;NCKAP1&quot;
+## [1384] &quot;RP13-131K19.2&quot;       &quot;RP13-131K19.7&quot;       &quot;TMCC1-AS1&quot;
+## [1387] &quot;AC195454.1&quot;          &quot;SERPINE1&quot;            &quot;Y-RNA&quot;
+## [1390] &quot;ARC&quot;                 &quot;C9orf147&quot;            &quot;RP11-416N2.4&quot;
+## [1393] &quot;KRTAP5-AS1&quot;          &quot;OVCH1-AS1&quot;           &quot;SRGAP1&quot;
+## [1396] &quot;PGF&quot;                 &quot;MEG3&quot;                &quot;CTRL&quot;
+## [1399] &quot;CDH1&quot;                &quot;C19orf77&quot;            &quot;ZNF763&quot;
+## [1402] &quot;WDR62&quot;               &quot;LINC00884&quot;           &quot;MMRN1&quot;
+## [1405] &quot;SEPP1&quot;               &quot;RANBP17&quot;             &quot;TNFRSF21&quot;
+## [1408] &quot;LCNL1&quot;               &quot;FAM106A&quot;             &quot;KRT23&quot;
+## [1411] &quot;RAB12&quot;               &quot;TGFBR3L&quot;             &quot;RIOK1&quot;
+## [1414] &quot;ARHGAP24&quot;            &quot;VPS26B&quot;              &quot;RFXANK&quot;
+## [1417] &quot;TTC1&quot;                &quot;NME6&quot;                &quot;PTGES3&quot;
+## [1420] &quot;ACADVL&quot;              &quot;HPRT1&quot;               &quot;MICU1&quot;
+## [1423] &quot;TGOLN2&quot;              &quot;ACTL6A&quot;              &quot;CTNNB1&quot;
+## [1426] &quot;PSMB8&quot;               &quot;RP11-178G16.4&quot;       &quot;POLE4&quot;
+## [1429] &quot;EFCAB14&quot;             &quot;TRIM23&quot;              &quot;ARGLU1&quot;
+## [1432] &quot;CCDC124&quot;             &quot;RAB32&quot;               &quot;PRPS2&quot;
+## [1435] &quot;RGS14&quot;               &quot;ATP6AP1&quot;             &quot;DMAP1&quot;
+## [1438] &quot;SMCHD1&quot;              &quot;PLRG1&quot;               &quot;RBM25&quot;
+## [1441] &quot;PCSK7&quot;               &quot;IMPDH2&quot;              &quot;SMIM12&quot;
+## [1444] &quot;DDX56&quot;               &quot;RP11-468E2.4&quot;        &quot;PLEKHA1&quot;
+## [1447] &quot;PIGX&quot;                &quot;MTIF2&quot;               &quot;PRDX4&quot;
+## [1450] &quot;GIT2&quot;                &quot;HERPUD2&quot;             &quot;UFD1L&quot;
+## [1453] &quot;EIF2S1&quot;              &quot;SIK1&quot;                &quot;TBPL1&quot;
+## [1456] &quot;COX5A&quot;               &quot;SRA1&quot;                &quot;MRPL43&quot;
+## [1459] &quot;MRPS23&quot;              &quot;MRPL51&quot;              &quot;PHF5A&quot;
+## [1462] &quot;SMAP2&quot;               &quot;MRPS16&quot;              &quot;PARL&quot;
+## [1465] &quot;MPLKIP&quot;              &quot;DNAJC7&quot;              &quot;OAZ1&quot;
+## [1468] &quot;MT-CO2&quot;              &quot;TCEAL8&quot;              &quot;RAD23A&quot;
+## [1471] &quot;ERI3&quot;                &quot;R3HDM1&quot;              &quot;NFE2L2&quot;
+## [1474] &quot;DEXI&quot;                &quot;SLC25A12&quot;            &quot;ARSD&quot;
+## [1477] &quot;ELP6&quot;                &quot;UBE2D4&quot;              &quot;NDUFA9&quot;
+## [1480] &quot;ARID4B&quot;              &quot;GRPEL1&quot;              &quot;TBCB&quot;
+## [1483] &quot;GMPPA&quot;               &quot;CNIH4&quot;               &quot;RNASEH2B&quot;
+## [1486] &quot;RNF14&quot;               &quot;ECHS1&quot;               &quot;SRP72&quot;
+## [1489] &quot;CWC27&quot;               &quot;MKLN1&quot;               &quot;TAF7&quot;
+## [1492] &quot;C17orf59&quot;            &quot;ZNF45&quot;               &quot;VTI1A&quot;
+## [1495] &quot;CCT6A&quot;               &quot;RARS&quot;                &quot;TMED5&quot;
+## [1498] &quot;RCN2&quot;                &quot;LINC00926&quot;           &quot;N4BP2L1&quot;
+## [1501] &quot;IFNGR2&quot;              &quot;SMS&quot;                 &quot;SDHAF2&quot;
+## [1504] &quot;CASC7&quot;               &quot;NDUFA10&quot;             &quot;ARL2BP&quot;
+## [1507] &quot;HES1&quot;                &quot;CSRP1&quot;               &quot;ESAM&quot;
+## [1510] &quot;DRAM2&quot;               &quot;FLNA&quot;                &quot;EIF5B&quot;
+## [1513] &quot;GTF2B&quot;               &quot;RP11-488C13.5&quot;       &quot;MALT1&quot;
+## [1516] &quot;HSPB11&quot;              &quot;AK2&quot;                 &quot;CALCOCO2&quot;
+## [1519] &quot;NDUFA5&quot;              &quot;ZNF277&quot;              &quot;TBCC&quot;
+## [1522] &quot;TRAF3IP3&quot;            &quot;FGR&quot;                 &quot;VIPR1&quot;
+## [1525] &quot;SUCLG2&quot;              &quot;CIRH1A&quot;              &quot;DNAJC8&quot;
+## [1528] &quot;TBXA2R&quot;              &quot;POLR2K&quot;              &quot;ARL6&quot;
+## [1531] &quot;TXNDC5&quot;              &quot;GABARAPL2&quot;           &quot;STX5&quot;
+## [1534] &quot;CCNA2&quot;               &quot;MED28&quot;               &quot;C4orf33&quot;
+## [1537] &quot;TRPM4&quot;               &quot;YPEL2&quot;               &quot;PELI1&quot;
+## [1540] &quot;LAMTOR5&quot;             &quot;IL16&quot;                &quot;NBR1&quot;
+## [1543] &quot;PLEKHJ1&quot;             &quot;ANKHD1&quot;              &quot;HCFC2&quot;
+## [1546] &quot;ABHD17B&quot;             &quot;UBE2B&quot;               &quot;TMEM219&quot;
+## [1549] &quot;ARMCX5&quot;              &quot;PSMC6&quot;               &quot;CEP68&quot;
+## [1552] &quot;MGMT&quot;                &quot;NCR3&quot;                &quot;EVA1B&quot;
+## [1555] &quot;IL6&quot;                 &quot;SREK1&quot;               &quot;RP11-301O19.1&quot;
+## [1558] &quot;BIK&quot;                 &quot;MRPL14&quot;              &quot;LRRFIP1&quot;
+## [1561] &quot;KDELR2&quot;              &quot;ANKRD27&quot;             &quot;ANKRD54&quot;
+## [1564] &quot;BUB3&quot;                &quot;VPS51&quot;               &quot;EIF1AY&quot;
+## [1567] &quot;BET1&quot;                &quot;CD247&quot;               &quot;TOP2A&quot;
+## [1570] &quot;AATK&quot;                &quot;DOHH&quot;                &quot;TAF10&quot;
+## [1573] &quot;MNAT1&quot;               &quot;TOP2B&quot;               &quot;TBCK&quot;
+## [1576] &quot;CEACAM4&quot;             &quot;RNF7&quot;                &quot;FAM43A&quot;
+## [1579] &quot;MUM1&quot;                &quot;BBC3&quot;                &quot;TMEM229B&quot;
+## [1582] &quot;TBC1D8&quot;              &quot;DYNC2LI1&quot;            &quot;PDZD4&quot;
+## [1585] &quot;SLC2A13&quot;             &quot;C1orf54&quot;             &quot;ZNF747&quot;
+## [1588] &quot;VPS72&quot;               &quot;LIN52&quot;               &quot;CTTN&quot;
+## [1591] &quot;NAPSA&quot;               &quot;ATXN1L&quot;              &quot;CCM2&quot;
+## [1594] &quot;CEP164&quot;              &quot;SMOX&quot;                &quot;ABHD12&quot;
+## [1597] &quot;MIS18A&quot;              &quot;MGST2&quot;               &quot;PCMT1&quot;
+## [1600] &quot;OAZ2&quot;                &quot;RWDD1&quot;               &quot;RP11-1070N10.3&quot;
+## [1603] &quot;GAS6&quot;                &quot;MX1&quot;                 &quot;TIMM22&quot;
+## [1606] &quot;ATP6V0B&quot;             &quot;APOBEC3H&quot;            &quot;RP11-701P16.5&quot;
+## [1609] &quot;WDYHV1&quot;              &quot;PSMA1&quot;               &quot;DHRS7&quot;
+## [1612] &quot;ZMAT2&quot;               &quot;WDR83&quot;               &quot;PDK2&quot;
+## [1615] &quot;CES4A&quot;               &quot;DPH6&quot;                &quot;HCAR3&quot;
+## [1618] &quot;RP3-325F22.5&quot;        &quot;HAX1&quot;                &quot;IL32&quot;
+## [1621] &quot;ENTPD3-AS1&quot;          &quot;PJA1&quot;                &quot;VAMP8&quot;
+## [1624] &quot;PRELID1&quot;             &quot;RAD21&quot;               &quot;NECAB3&quot;
+## [1627] &quot;PARS2&quot;               &quot;SREBF1&quot;              &quot;ZSWIM6&quot;
+## [1630] &quot;IL17RA&quot;              &quot;F13A1&quot;               &quot;PDE6B&quot;
+## [1633] &quot;LYRM4&quot;               &quot;LINC00662&quot;           &quot;KIAA0196&quot;
+## [1636] &quot;TTN-AS1&quot;             &quot;GIMAP7&quot;              &quot;SIRT1&quot;
+## [1639] &quot;DHX34&quot;               &quot;DNAJB9&quot;              &quot;TMEM234&quot;
+## [1642] &quot;ZBTB10&quot;              &quot;SCAI&quot;                &quot;CTD-2537I9.12&quot;
+## [1645] &quot;CD1E&quot;                &quot;TROAP&quot;               &quot;LAMP5&quot;
+## [1648] &quot;CYTIP&quot;               &quot;ATP6V1A&quot;             &quot;MED7&quot;
+## [1651] &quot;TUBA4A&quot;              &quot;NAT14&quot;               &quot;TCL1B&quot;
+## [1654] &quot;TAOK3&quot;               &quot;TMEM87B&quot;             &quot;NRROS&quot;
+## [1657] &quot;CEP120&quot;              &quot;PURA&quot;                &quot;HDAC9&quot;
+## [1660] &quot;ASAH1&quot;               &quot;ID1&quot;                 &quot;ABCC10&quot;
+## [1663] &quot;SPI1&quot;                &quot;PRUNE&quot;               &quot;LUC7L3&quot;
+## [1666] &quot;AMDHD2&quot;              &quot;C1orf50&quot;             &quot;MLEC&quot;
+## [1669] &quot;TWF2&quot;                &quot;TAF1&quot;                &quot;IL27RA&quot;
+## [1672] &quot;PXMP4&quot;               &quot;ERH&quot;                 &quot;MPC2&quot;
+## [1675] &quot;SMC2&quot;                &quot;COLGALT1&quot;            &quot;PDIK1L&quot;
+## [1678] &quot;GNAZ&quot;                &quot;KRT1&quot;                &quot;YPEL5&quot;
+## [1681] &quot;PGM2L1&quot;              &quot;AKR1C3&quot;              &quot;LAMP3&quot;
+## [1684] &quot;USP30&quot;               &quot;FAM210B&quot;             &quot;MARCH5&quot;
+## [1687] &quot;LRCH4&quot;               &quot;SDHA&quot;                &quot;KLRC1&quot;
+## [1690] &quot;EHMT2&quot;               &quot;USP38&quot;               &quot;MLX&quot;
+## [1693] &quot;C1orf86&quot;             &quot;BACE2&quot;               &quot;CLSTN3&quot;
+## [1696] &quot;SNHG8&quot;               &quot;MYC&quot;                 &quot;FAM221A&quot;
+## [1699] &quot;KIR2DL3&quot;             &quot;ITCH&quot;                &quot;PNRC1&quot;
+## [1702] &quot;ATP1A1&quot;              &quot;RGS16&quot;               &quot;NUDC&quot;
+## [1705] &quot;FGFR1OP2&quot;            &quot;TADA2A&quot;              &quot;SLC40A1&quot;
+## [1708] &quot;MTRF1&quot;               &quot;SRPK1&quot;               &quot;RP11-10K16.1&quot;
+## [1711] &quot;ALKBH4&quot;              &quot;IFIT5&quot;               &quot;MALAT1&quot;
+## [1714] &quot;CCPG1&quot;               &quot;PLD4&quot;                &quot;TRADD&quot;
+## [1717] &quot;DRAXIN&quot;              &quot;APOOL&quot;               &quot;MT3&quot;
+## [1720] &quot;CPLX1&quot;               &quot;GPRC5C&quot;              &quot;CLPP&quot;
+## [1723] &quot;GPR153&quot;              &quot;RP3-467K16.4&quot;        &quot;C1orf186&quot;
+## [1726] &quot;RP11-443B7.3&quot;        &quot;ASAP2&quot;               &quot;TMPRSS11E&quot;
+## [1729] &quot;CTD-2353F22.1&quot;       &quot;CAV1&quot;                &quot;CLCN5&quot;
+## [1732] &quot;BAMBI&quot;               &quot;RP11-324I22.4&quot;       &quot;HKDC1&quot;
+## [1735] &quot;SCD&quot;                 &quot;WNT5B&quot;               &quot;C1R&quot;
+## [1738] &quot;SUOX&quot;                &quot;RP11-511B23.1&quot;       &quot;LINC01146&quot;
+## [1741] &quot;FAM154B&quot;             &quot;RP11-1151B14.4&quot;      &quot;SIGLEC12&quot;
+## [1744] &quot;DSCR9&quot;               &quot;AP001046.6&quot;          &quot;REPS2&quot;
+## [1747] &quot;ACAT2&quot;               &quot;BEX2&quot;                &quot;S100A10&quot;
+## [1750] &quot;IRF7&quot;                &quot;CXCL10&quot;              &quot;ANKRD49&quot;
+## [1753] &quot;DGUOK&quot;               &quot;DEPTOR&quot;              &quot;AFAP1L2&quot;
+## [1756] &quot;FFAR3&quot;               &quot;ZRANB3&quot;              &quot;TP53BP2&quot;
+## [1759] &quot;ITM2C&quot;               &quot;LMNB1&quot;               &quot;ATP5O&quot;
+## [1762] &quot;ZWINT&quot;               &quot;IFI6&quot;                &quot;CD302&quot;
+## [1765] &quot;CASP4&quot;               &quot;CTSC&quot;                &quot;MEF2D&quot;
+## [1768] &quot;UBE2F&quot;               &quot;FBXW5&quot;               &quot;HEMK1&quot;
+## [1771] &quot;RPL22L1&quot;             &quot;SARS&quot;                &quot;RBM26-AS1&quot;
+## [1774] &quot;TRIOBP&quot;              &quot;HLA-DMB&quot;             &quot;TRIP13&quot;
+## [1777] &quot;CEP55&quot;               &quot;RP11-110I1.14&quot;       &quot;EAPP&quot;
+## [1780] &quot;RAD51B&quot;              &quot;SLC27A1&quot;             &quot;SIRT6&quot;
+## [1783] &quot;E2F3&quot;                &quot;MRM1&quot;                &quot;ZNF799&quot;
+## [1786] &quot;TIMM13&quot;              &quot;SEC11C&quot;              &quot;VIM&quot;
+## [1789] &quot;TCEA1&quot;               &quot;CKS1B&quot;               &quot;CAMK2N1&quot;
+## [1792] &quot;NEK8&quot;                &quot;RASGRP4&quot;             &quot;EPC1&quot;
+## [1795] &quot;DDI2&quot;                &quot;DPY19L4&quot;             &quot;C3orf38&quot;
+## [1798] &quot;RP11-247A12.2&quot;       &quot;RPUSD3&quot;              &quot;WBP2&quot;
+## [1801] &quot;KIAA0930&quot;            &quot;FAM98A&quot;              &quot;SWAP70&quot;
+## [1804] &quot;OSBPL1A&quot;             &quot;GBGT1&quot;               &quot;GPR42&quot;
+## [1807] &quot;EIF3D&quot;               &quot;ACY3&quot;                &quot;RP6-91H8.3&quot;
+## [1810] &quot;ZNF503&quot;              &quot;RP3-395M20.9&quot;        &quot;ANKRD22&quot;
+## [1813] &quot;ZBTB32&quot;              &quot;TNFSF4&quot;              &quot;SLC16A5&quot;
+## [1816] &quot;ARHGAP11A&quot;           &quot;RGS1&quot;                &quot;SEPW1&quot;
+## [1819] &quot;DNPH1&quot;               &quot;GNAI2&quot;               &quot;XRCC5&quot;
+## [1822] &quot;ARPC1B&quot;              &quot;IDUA&quot;                &quot;IL7R&quot;
+## [1825] &quot;NKTR&quot;                &quot;MRPL23&quot;              &quot;CMTM3&quot;
+## [1828] &quot;YIPF3&quot;               &quot;NDUFA11&quot;             &quot;TINF2&quot;
+## [1831] &quot;RFPL2&quot;               &quot;MYCL&quot;                &quot;AEBP1&quot;
+## [1834] &quot;SYNE2&quot;               &quot;CDKN2A&quot;              &quot;USP8&quot;
+## [1837] &quot;WLS&quot;                 &quot;KCNC3&quot;               &quot;OLFM1&quot;
+## [1840] &quot;RP11-598F7.3&quot;        &quot;SPATA7&quot;              &quot;HLA-DQA2&quot;
+## [1843] &quot;SEC11A&quot;              &quot;FCGRT&quot;               &quot;SH3BGRL3&quot;
+## [1846] &quot;TOB1&quot;                &quot;OSTC&quot;                &quot;SRSF3&quot;
+## [1849] &quot;GOLT1B&quot;              &quot;TUBA1B&quot;              &quot;DDX24&quot;
+## [1852] &quot;NAIP&quot;                &quot;C19orf24&quot;            &quot;C6orf25&quot;
+## [1855] &quot;UBB&quot;                 &quot;HMOX1&quot;               &quot;PLAC8&quot;
+## [1858] &quot;TNNT1&quot;               &quot;POLR2I&quot;              &quot;CCR10&quot;
+## [1861] &quot;ABCC3&quot;               &quot;ZSCAN5A&quot;             &quot;MRPS18A&quot;
+## [1864] &quot;CD14&quot;                &quot;NENF&quot;                &quot;GSK3A&quot;
+## [1867] &quot;SH3BP5&quot;              &quot;ISCU&quot;                &quot;DEGS1&quot;
+## [1870] &quot;GOLGA7&quot;              &quot;NDFIP1&quot;              &quot;EGLN3&quot;
+## [1873] &quot;FAM110A&quot;             &quot;RGS19&quot;               &quot;ZNF428&quot;
+## [1876] &quot;NELL2&quot;               &quot;EARS2&quot;               &quot;NAPA-AS1&quot;
+## [1879] &quot;BLVRA&quot;               &quot;TXN2&quot;                &quot;RP11-164H13.1&quot;
+## [1882] &quot;LTC4S&quot;               &quot;HIST1H2BC&quot;           &quot;TAPBP&quot;
+## [1885] &quot;MAPK14&quot;              &quot;DPM1&quot;                &quot;DENND5B&quot;
+## [1888] &quot;MNDA&quot;                &quot;AC005082.12&quot;         &quot;MCOLN3&quot;
+## [1891] &quot;AMIGO1&quot;              &quot;C1orf51&quot;             &quot;RP11-307C12.12&quot;
+## [1894] &quot;CENPF&quot;               &quot;OTOF&quot;                &quot;CNRIP1&quot;
+## [1897] &quot;SEMA4F&quot;              &quot;IL1R2&quot;               &quot;FAM3D&quot;
+## [1900] &quot;PVRL3&quot;               &quot;TXNRD3&quot;              &quot;CENPU&quot;
+## [1903] &quot;ALDH7A1&quot;             &quot;RP11-393I2.4&quot;        &quot;GPR63&quot;
+## [1906] &quot;RP5-894D12.3&quot;        &quot;PAK3&quot;                &quot;GFRA2&quot;
+## [1909] &quot;RP11-297B17.3&quot;       &quot;RP11-305L7.3&quot;        &quot;NIPSNAP3B&quot;
+## [1912] &quot;MEIG1&quot;               &quot;TMEM86A&quot;             &quot;YPEL4&quot;
+## [1915] &quot;SLC6A12&quot;             &quot;PLEK2&quot;               &quot;CTD-2547L24.4&quot;
+## [1918] &quot;DUOX1&quot;               &quot;GPT2&quot;                &quot;AC137932.6&quot;
+## [1921] &quot;RNF165&quot;              &quot;SNPH&quot;                &quot;ATP9A&quot;
+## [1924] &quot;RP3-508I15.21&quot;       &quot;XCL1&quot;                &quot;NF1&quot;
+## [1927] &quot;GTF2H2&quot;              &quot;EXOC4&quot;               &quot;ATAD3C&quot;
+## [1930] &quot;RPUSD1&quot;              &quot;RP11-290F20.3&quot;       &quot;DUT&quot;
+## [1933] &quot;KLRC2&quot;               &quot;CTA-250D10.23&quot;       &quot;RP11-493L12.4&quot;
+## [1936] &quot;NCKAP1L&quot;             &quot;PMF1&quot;                &quot;COPS6&quot;
+## [1939] &quot;SCGB1C1&quot;             &quot;SIGLEC10&quot;            &quot;SEC61B&quot;
+## [1942] &quot;KLC4&quot;                &quot;RAB40C&quot;              &quot;PPIF&quot;
+## [1945] &quot;BIRC3&quot;               &quot;HAUS1&quot;               &quot;ZNHIT3&quot;
+## [1948] &quot;PRPF6&quot;               &quot;ACSM3&quot;               &quot;SAMD1&quot;
+## [1951] &quot;KLF6&quot;                &quot;QPRT&quot;                &quot;GUCY1B3&quot;
+## [1954] &quot;NUDT11&quot;              &quot;ZFAT&quot;                &quot;B2M&quot;
+## [1957] &quot;PPP2R1B&quot;             &quot;EPSTI1&quot;              &quot;LAS1L&quot;
+## [1960] &quot;RP11-111M22.3&quot;       &quot;C16orf54&quot;            &quot;PRPF18&quot;
+## [1963] &quot;PPP1R14B&quot;            &quot;RP11-430B1.2&quot;        &quot;NDNL2&quot;
+## [1966] &quot;NFKBIA&quot;              &quot;ICOS&quot;                &quot;TRIM8&quot;
+## [1969] &quot;EIF3M&quot;               &quot;GALNT1&quot;              &quot;FCGR2B&quot;
+## [1972] &quot;MED27&quot;               &quot;SLC2A3&quot;              &quot;ZNF397&quot;
+## [1975] &quot;C19orf59&quot;            &quot;CD37&quot;                &quot;GRN&quot;
+## [1978] &quot;CCDC109B&quot;            &quot;POLG&quot;                &quot;SNHG12&quot;
+## [1981] &quot;KIF3A&quot;               &quot;SELL&quot;                &quot;NONO&quot;
+## [1984] &quot;EIF3H&quot;               &quot;TMEM176B&quot;            &quot;CTB-152G17.6&quot;
+## [1987] &quot;LZTS2&quot;               &quot;UPK3A&quot;               &quot;APMAP&quot;
+## [1990] &quot;CTD-2012J19.3&quot;       &quot;GADD45G&quot;             &quot;MKNK1&quot;
+## [1993] &quot;AURKC&quot;               &quot;VOPP1&quot;               &quot;RHOC&quot;
+## [1996] &quot;CISH&quot;                &quot;CD27&quot;                &quot;LILRA3&quot;
+## [1999] &quot;CLIC2&quot;               &quot;HEMGN&quot;
+</code></pre>
+<h2 id="82">8.2 选出变化最大的前十个基因</h2>
+<pre><code class="language-r">top10 &lt;- head(VariableFeatures(pbmc), 10)
+</code></pre>
+<h2 id="83-hvghvg">8.3 可视化hvg，并列出前十hvg</h2>
+<pre><code class="language-r">plot1 &lt;- VariableFeaturePlot(pbmc)
+plot2 &lt;- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+</code></pre>
+<pre><code>## When using repel, set xnudge and ynudge to 0 for optimal results
+</code></pre>
+<pre><code>plot1
+</code></pre>
+<pre><code>## Warning in scale_x_log10(): log-10 transformation introduced infinite values.
+</code></pre>
+<p><img alt="" src="../../images/e9ac0bfe0cc114ff.webp"></p>
+<pre><code>plot2
+</code></pre>
+<pre><code>## Warning in scale_x_log10(): log-10 transformation introduced infinite values.
+</code></pre>
+<p><img alt="" src="../../images/9484c4eeb88e1a31.webp"></p>
+<h2 id="84-hvg">8.4 hvg的存放位置</h2>
+<p>hvg存放在：pbmc@assays$RNA@meta.features</p>
+<p>查看：</p>
+<pre><code>head(pbmc@assays$RNA@meta.features)
+</code></pre>
+<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'head': no slot of name &quot;meta.features&quot; for this object of class &quot;Assay5&quot;
+</code></pre>
+<h1 id="9-scale">9. 数据中心化(scale)</h1>
+<p>将数据变换为均值为0，方差为1，数据存放在：pbmc@assaysRNA@layers���@������scale.data</p>
+<pre><code class="language-r">all.genes &lt;- rownames(pbmc)
+</code></pre>
+<pre><code class="language-r">pbmc &lt;- ScaleData(pbmc, features=all.genes)
+</code></pre>
+<pre><code>## Centering and scaling data matrix
+</code></pre>
+<p>结果存放于： <img alt="" src="../../images/3841913b6a218fd4.webp"></p>
+<h1 id="10">10. 数据降</h1>
+<h2 id="101">10.1 主成分分析</h2>
+<ol>
+<li>计算主成分：</li>
+</ol>
+<pre><code class="language-r">pbmc &lt;- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
+</code></pre>
+<pre><code>## PC_ 1
+## Positive:  CST3, TYROBP, LST1, AIF1, FTL, FTH1, LYZ, FCN1, S100A9, TYMP
+##     FCER1G, CFD, LGALS1, S100A8, CTSS, LGALS2, SERPINA1, IFITM3, SPI1, CFP
+##     PSAP, IFI30, SAT1, COTL1, S100A11, NPC2, GRN, LGALS3, GSTP1, PYCARD
+## Negative:  MALAT1, LTB, IL32, IL7R, CD2, B2M, ACAP1, CD27, STK17A, CTSW
+##     CD247, GIMAP5, AQP3, CCL5, SELL, TRAF3IP3, GZMA, MAL, CST7, ITM2A
+##     MYC, GIMAP7, HOPX, BEX2, LDLRAP1, GZMK, ETS1, ZAP70, TNFAIP8, RIC3
+## PC_ 2
+## Positive:  CD79A, MS4A1, TCL1A, HLA-DQA1, HLA-DQB1, HLA-DRA, LINC00926, CD79B, HLA-DRB1, CD74
+##     HLA-DMA, HLA-DPB1, HLA-DQA2, CD37, HLA-DRB5, HLA-DMB, HLA-DPA1, FCRLA, HVCN1, LTB
+##     BLNK, P2RX5, IGLL5, IRF8, SWAP70, ARHGAP24, FCGR2B, SMIM14, PPP1R14A, C16orf74
+## Negative:  NKG7, PRF1, CST7, GZMB, GZMA, FGFBP2, CTSW, GNLY, B2M, SPON2
+##     CCL4, GZMH, FCGR3A, CCL5, CD247, XCL2, CLIC3, AKR1C3, SRGN, HOPX
+##     TTC38, APMAP, CTSC, S100A4, IGFBP7, ANXA1, ID2, IL32, XCL1, RHOC
+## PC_ 3
+## Positive:  HLA-DQA1, CD79A, CD79B, HLA-DQB1, HLA-DPB1, HLA-DPA1, CD74, MS4A1, HLA-DRB1, HLA-DRA
+##     HLA-DRB5, HLA-DQA2, TCL1A, LINC00926, HLA-DMB, HLA-DMA, CD37, HVCN1, FCRLA, IRF8
+##     PLAC8, BLNK, MALAT1, SMIM14, PLD4, LAT2, IGLL5, P2RX5, SWAP70, FCGR2B
+## Negative:  PPBP, PF4, SDPR, SPARC, GNG11, NRGN, GP9, RGS18, TUBB1, CLU
+##     HIST1H2AC, AP001189.4, ITGA2B, CD9, TMEM40, PTCRA, CA2, ACRBP, MMD, TREML1
+##     NGFRAP1, F13A1, SEPT5, RUFY1, TSC22D1, MPP1, CMTM5, RP11-367G6.3, MYL9, GP1BA
+## PC_ 4
+## Positive:  HLA-DQA1, CD79B, CD79A, MS4A1, HLA-DQB1, CD74, HLA-DPB1, HIST1H2AC, PF4, TCL1A
+##     SDPR, HLA-DPA1, HLA-DRB1, HLA-DQA2, HLA-DRA, PPBP, LINC00926, GNG11, HLA-DRB5, SPARC
+##     GP9, AP001189.4, CA2, PTCRA, CD9, NRGN, RGS18, GZMB, CLU, TUBB1
+## Negative:  VIM, IL7R, S100A6, IL32, S100A8, S100A4, GIMAP7, S100A10, S100A9, MAL
+##     AQP3, CD2, CD14, FYB, LGALS2, GIMAP4, ANXA1, CD27, FCN1, RBP7
+##     LYZ, S100A11, GIMAP5, MS4A6A, S100A12, FOLR3, TRABD2A, AIF1, IL8, IFI6
+## PC_ 5
+## Positive:  GZMB, NKG7, S100A8, FGFBP2, GNLY, CCL4, CST7, PRF1, GZMA, SPON2
+##     GZMH, S100A9, LGALS2, CCL3, CTSW, XCL2, CD14, CLIC3, S100A12, CCL5
+##     RBP7, MS4A6A, GSTP1, FOLR3, IGFBP7, TYROBP, TTC38, AKR1C3, XCL1, HOPX
+## Negative:  LTB, IL7R, CKB, VIM, MS4A7, AQP3, CYTIP, RP11-290F20.3, SIGLEC10, HMOX1
+##     PTGES3, LILRB2, MAL, CD27, HN1, CD2, GDI2, ANXA5, CORO1B, TUBA1B
+##     FAM110A, ATP1A1, TRADD, PPA1, CCDC109B, ABRACL, CTD-2006K23.1, WARS, VMO1, FYB
+</code></pre>
+<ol>
+<li>显示前两个主成分的相关基因:</li>
+</ol>
+<pre><code>print(pbmc[[&quot;pca&quot;]], dims = 1:2, nfeatures = 5)
+</code></pre>
+<pre><code>## PC_ 1
+## Positive:  CST3, TYROBP, LST1, AIF1, FTL
+## Negative:  MALAT1, LTB, IL32, IL7R, CD2
+## PC_ 2
+## Positive:  CD79A, MS4A1, TCL1A, HLA-DQA1, HLA-DQB1
+## Negative:  NKG7, PRF1, CST7, GZMB, GZMA
+</code></pre>
+<ol>
+<li>主成分相关基因热图:</li>
+</ol>
+<pre><code>DimHeatmap(pbmc, dims = 1:2, cells = 500, balanced = TRUE)
+</code></pre>
+<p><img alt="" src="../../images/4fb78a5243a33091.webp"></p>
+<ol>
+<li>使用肘图确定采用的主成分:</li>
+</ol>
+<pre><code>ElbowPlot(pbmc,ndims = 50)
+</code></pre>
+<p><img alt="" src="../../images/45f81f387af6984b.png"></p>
+<p>从这张图可以看到从第10个主成分之后的主成分对数据的解释度基本不变了，因此我们截取到前10个主成分。</p>
+<h1 id="11">11. 聚类及可视化</h1>
+<h2 id="111-snn">11.1 生成SNN图</h2>
+<pre><code class="language-r">pbmc &lt;- FindNeighbors(pbmc, dims = 1:10)
+</code></pre>
+<pre><code>## Computing nearest neighbor graph
+</code></pre>
+<pre><code>## Computing SNN
+</code></pre>
+<h2 id="112-louvainsnn">11.2 louvain算法根据SNN图进行聚类</h2>
+<p>resolution图像清晰度，越高越清晰</p>
+<pre><code class="language-r">pbmc &lt;- FindClusters(pbmc, resolution = 0.5)
+</code></pre>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+##
+## Number of nodes: 2638
+## Number of edges: 95965
+##
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.8723
+## Number of communities: 9
+## Elapsed time: 0 seconds
+</code></pre>
+<h2 id="113">11.3 显示聚类结果</h2>
+<pre><code>head(Idents(pbmc), 5)
+</code></pre>
+<pre><code>## AAACATACAACCAC-1 AAACATTGAGCTAC-1 AAACATTGATCAGC-1 AAACCGTGCTTCCG-1
+##                2                3                2                1
+## AAACCGTGTATGCG-1
+##                6
+## Levels: 0 1 2 3 4 5 6 7 8
+</code></pre>
+<p>结果保存在：pbmc–meta.data–seurat_clusters</p>
+<h2 id="114">11.4 再次降维可视化(降到二维来做数据的展示)</h2>
+<h3 id="1141-umap">11.4.1 umap降维可视化(用的较多)</h3>
+<pre><code class="language-r">pbmc &lt;- RunUMAP(pbmc, dims = 1:10)
+</code></pre>
+<pre><code>## Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+## To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+## This message will be shown once per session
+</code></pre>
+<pre><code>## 15:21:15 UMAP embedding parameters a = 0.9922 b = 1.112
+</code></pre>
+<pre><code>## 15:21:15 Read 2638 rows and found 10 numeric columns
+</code></pre>
+<pre><code>## 15:21:15 Using Annoy for neighbor search, n_neighbors = 30
+</code></pre>
+<pre><code>## 15:21:15 Building Annoy index with metric = cosine, n_trees = 50
+</code></pre>
+<pre><code>## 0%   10   20   30   40   50   60   70   80   90   100%
+</code></pre>
+<pre><code>## [----|----|----|----|----|----|----|----|----|----|
+</code></pre>
+<pre><code>## **************************************************|
+## 15:21:16 Writing NN index file to temp file /tmp/RtmpOD68s0/filecd3a054220417
+## 15:21:16 Searching Annoy index using 1 thread, search_k = 3000
+## 15:21:17 Annoy recall = 100%
+## 15:21:17 Commencing smooth kNN distance calibration using 1 thread with target n_neighbors = 30
+## 15:21:19 Initializing from normalized Laplacian + noise (using RSpectra)
+## 15:21:19 Commencing optimization for 500 epochs, with 105124 positive edges
+## 15:21:23 Optimization finished
+</code></pre>
+<pre><code>DimPlot(pbmc, reduction = &quot;umap&quot;)
+</code></pre>
+<p><img alt="" src="../../images/4d1ada14894df7fa.webp"></p>
+<h3 id="1142-tsne">11.4.2 tsne降维可视化</h3>
+<pre><code class="language-r">pbmc &lt;- RunTSNE(pbmc, dims = 1:10)
+DimPlot(pbmc, reduction = &quot;tsne&quot;)
+</code></pre>
+<p><img alt="" src="../../images/a915d9e9c4ce62f5.webp"></p>
+<h1 id="12">12. 计算差异基因</h1>
+<h2 id="121">12.1 计算某个细胞类群与其他所有细胞类群之间的差异基因</h2>
+<p>用FindMarkers()函数：计算某一个细胞类型相对于其他一个或多个细胞类型的差异基因，ident.1=2:表示计算cluster2相对于其他clusters的差异基因，min.pct=0.25表示：这些差异基因至少在cluster2的25%的细胞中表达，这里0.25也可以更改为其他的值。</p>
+<pre><code class="language-r">cluster2.markers &lt;- FindMarkers(pbmc, ident.1 = 2, min.pct = 0.25)
+</code></pre>
+<pre><code>## For a (much!) faster implementation of the Wilcoxon Rank Sum Test,
+## (default method for FindMarkers) please install the presto package
+## --------------------------------------------
+## install.packages('devtools')
+## devtools::install_github('immunogenomics/presto')
+## --------------------------------------------
+## After installation of presto, Seurat will automatically use the more
+## efficient implementation (no further action necessary).
+## This message will be shown once per session
+</code></pre>
+<pre><code>head(cluster2.markers, n = 4)
+</code></pre>
+<pre><code>##             p_val avg_log2FC pct.1 pct.2    p_val_adj
+## IL32 2.593535e-91   1.322117 0.949 0.466 3.556774e-87
+## LTB  7.994465e-87   1.345038 0.981 0.644 1.096361e-82
+## CD3D 3.922451e-70   1.056210 0.922 0.433 5.379250e-66
+## IL7R 1.130870e-66   1.425694 0.748 0.327 1.550876e-62
+</code></pre>
+<p>结果中的pct.1和pct.2分别表示这个差异基因在该cluster中和在其他clusters中表达？</p>
+<h2 id="122">12.2 计算某两个细胞类群之间的差异基因</h2>
+<pre><code class="language-r">cluster5.markers &lt;- FindMarkers(pbmc, ident.1 = 5, ident.2 = c(0,3), min.pct = 0.25)
+head(cluster5.markers, n = 5)
+</code></pre>
+<pre><code>##                       p_val avg_log2FC pct.1 pct.2     p_val_adj
+## FCGR3A        2.150929e-209   6.832372 0.975 0.039 2.949784e-205
+## IFITM3        6.103366e-199   6.181000 0.975 0.048 8.370156e-195
+## CFD           8.891428e-198   6.052575 0.938 0.037 1.219370e-193
+## CD68          2.374425e-194   5.493138 0.926 0.035 3.256286e-190
+## RP11-290F20.3 9.308287e-191   6.335402 0.840 0.016 1.276538e-186
+</code></pre>
+<h2 id="123">12.3 计算所有细胞类群与其他细胞类群之间的差异基因</h2>
+<p>用FindAllMarkers()函数，only.pos = TRUE：只计算高表达的基因；logfc.threshold = 0.25：差异倍数调整为0.25。</p>
+<pre><code class="language-r">pbmc.markers &lt;- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+</code></pre>
+<pre><code>## Calculating cluster 0
+</code></pre>
+<pre><code>## Calculating cluster 1
+</code></pre>
+<pre><code>## Calculating cluster 2
+</code></pre>
+<pre><code>## Calculating cluster 3
+</code></pre>
+<pre><code>## Calculating cluster 4
+</code></pre>
+<pre><code>## Calculating cluster 5
+</code></pre>
+<pre><code>## Calculating cluster 6
+</code></pre>
+<pre><code>## Calculating cluster 7
+</code></pre>
+<pre><code>## Calculating cluster 8
+</code></pre>
+<pre><code>pbmc.markers %&gt;% group_by(cluster) %&gt;% top_n(n = 2, wt = avg_log2FC)
+</code></pre>
+<pre><code>## # A tibble: 18 × 7
+## # Groups:   cluster [9]
+##        p_val avg_log2FC pct.1 pct.2 p_val_adj cluster gene
+##        &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;   &lt;chr&gt;
+##  1 1.17e- 83       2.37 0.435 0.108 1.60e- 79 0       CCR7
+##  2 3.28e- 49       2.10 0.333 0.103 4.50e- 45 0       LEF1
+##  3 3.10e-139       7.28 0.3   0.004 4.25e-135 1       FOLR3
+##  4 1.63e-121       6.74 0.277 0.006 2.23e-117 1       S100A12
+##  5 2.61e- 59       2.11 0.424 0.111 3.58e- 55 2       AQP3
+##  6 1.94e- 35       1.90 0.267 0.069 2.66e- 31 2       CD40LG
+##  7 2.40e-272       7.38 0.564 0.009 3.29e-268 3       LINC00926
+##  8 2.75e-237       7.14 0.488 0.007 3.76e-233 3       VPREB3
+##  9 4.93e-169       4.37 0.595 0.056 6.76e-165 4       GZMK
+## 10 3.51e- 93       3.59 0.437 0.06  4.82e- 89 4       GZMH
+## 11 1.69e-212       5.43 0.506 0.01  2.32e-208 5       CDKN1C
+## 12 8.23e-168       5.88 0.37  0.005 1.13e-163 5       CKB
+## 13 1.05e-265       6.01 0.986 0.071 1.44e-261 6       GZMB
+## 14 7.57e-183       6.21 0.493 0.014 1.04e-178 6       AKR1C3
+## 15 1.48e-220       7.63 0.812 0.011 2.03e-216 7       FCER1A
+## 16 1.46e-207       8.03 0.5   0.002 2.00e-203 7       SERPINF1
+## 17 0              14.3  0.571 0     0         8       LY6G6F
+## 18 4.36e-206      13.8  0.357 0     5.98e-202 8       RP11-879F14.2
+</code></pre>
+<pre><code>#根据avg_log2FC)进行分组，每组取前两个差异基因
+</code></pre>
+<h1 id="13">13. 差异基因可视化</h1>
+<h2 id="131">13.1 小提琴图</h2>
+<pre><code>VlnPlot(pbmc, features = &quot;MS4A1&quot;)
+</code></pre>
+<p><img alt="" src="../../images/b57204de8864e697.webp"></p>
+<h2 id="132-umapmarker">13.2 在umap图中展示marker基因</h2>
+<pre><code>FeaturePlot(pbmc, features = c(&quot;MS4A1&quot;,&quot;CD3E&quot;))
+</code></pre>
+<p><img alt="" src="../../images/e571d97b24ad3fb3.webp"></p>
+<h2 id="133-4marker">13.3 热图展示所有细胞类群的前4个marker基因</h2>
+<pre><code class="language-r">top4 &lt;- pbmc.markers %&gt;% group_by(cluster) %&gt;% top_n(n = 4, wt = avg_log2FC)
+DoHeatmap(pbmc, features = top4$gene) + NoLegend()
+</code></pre>
+<p><img alt="" src="../../images/fce3b33eccb4593d.webp"></p>
+<h2 id="134-dotplot4marker">13.4 dotplot展示所有细胞类群的前4个marker基因</h2>
+<pre><code>DotPlot(pbmc, features = unique(top4$gene), cols = c(&quot;#008B8B&quot;, &quot;red&quot;), dot.scale = 5) + RotatedAxis()
+</code></pre>
+<p><img alt="" src="../../images/472414f3e083542d.webp"></p>
+<h1 id="14-cluster">14 对各cluster标注细胞类型</h1>
+<p><img alt="" src="../../images/ccd56cfa7a9bb5b6.png"></p>
+<pre><code class="language-r">new.cluster.ids &lt;- c(&quot;Naive CD4 T&quot;, &quot;CD14+ Mono&quot;, &quot;Memory CD4 T&quot;, &quot;B&quot;, &quot;CD8 T&quot;, &quot;FCGR3A+ Mono&quot;,
+    &quot;NK&quot;, &quot;DC&quot;, &quot;Platelet&quot;)
+names(new.cluster.ids) &lt;- levels(pbmc)
+pbmc &lt;- RenameIdents(pbmc, new.cluster.ids)
+DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, pt.size = 0.5) + NoLegend()
+</code></pre>
+<p><img alt="" src="../../images/e15cbbe4d65c31aa.webp"></p>
+<pre><code class="language-r">library(ggplot2)
+plot &lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, label.size = 4.5) + xlab(&quot;UMAP 1&quot;) + ylab(&quot;UMAP 2&quot;) +
+    theme(axis.title = element_text(size = 18), legend.text = element_text(size = 18)) + guides(colour = guide_legend(override.aes = list(size = 10)))
+ggsave(filename = &quot;/home/wangyan/peixun/seurat/Seurat/pbmc3k_umap.jpg&quot;, height = 7, width = 12, plot = plot, quality = 50)
+</code></pre>
+<p><code></code></p>
+<p><strong>单细胞系列教程目录</strong></p>
+<p><img alt="" src="../../images/73d94b6f8a663b6d.webp"> 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500516&amp;idx=1&amp;sn=3c0b9de505fcd232054e38b451fa1742&amp;chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&amp;scene=21#wechat_redirect">scRNA-Seq学习手册2023_R语言版</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504877&amp;idx=2&amp;sn=2b56a9cfa19fcc918ee6c2ed88fed017&amp;chksm=9b3caabdac4b23ab6e28425a4a5eb4d40ee3612e51f84f5d1e53ac91bef93f717e9e754398e3&amp;scene=21#wechat_redirect">scRNA-Seq学习手册Python版</a></p>
+<p>单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499776&amp;idx=2&amp;sn=7fc250d94ed88cfd5e2224f071bb1742&amp;chksm=9b3cb950ac4b30467a082527547b91aec15b7d1f40d44e362894aedeb6a99e014518fa5e4743&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|1.绪论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499795&amp;idx=2&amp;sn=68e6298eb43633c71939c146d90230ff&amp;chksm=9b3cb943ac4b3055e09739d77e037d679f3d9ec68780d1aa8c592f806fcc8d2322eaee78752d&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|2.各类数据结构与读取方法</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;chksm=9b3cb9baac4b30ac6f0ce28a6dd10470e73d1e1d6defece5636939a32a6db9b2cce0ff8688eb&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|3.单样本分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500117&amp;idx=2&amp;sn=cef0b0abec6d73a8c2615980ef68aec1&amp;chksm=9b3cb805ac4b3113fdc820b9c9667f9554b2e39f90c45b5806021a415698b0a5141c521c64dc&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|4.多样本整合</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500167&amp;idx=2&amp;sn=8de136b938e8d4753042d23166a24026&amp;chksm=9b3cb8d7ac4b31c19c843810c7fe4341515df8ba6fff86a0ebff9d830edfcd656a29d18011c9&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|5.细胞类型注释，从入门到入土</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500270&amp;idx=2&amp;sn=d8c4ebf8f63d12bd2ac8e2607864f322&amp;chksm=9b3cb8beac4b31a824e228b486f0d8dd21a8f4113a0a0bcbaf1b20eaade3a83c9c7c1184010b&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|6组间差异分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500357&amp;idx=2&amp;sn=40034079b771c478b482e849ed4b216c&amp;chksm=9b3cbb15ac4b3203d517ff71073ab0520fe144bc108b7a26f6b17e88fb63a78c5777946618e3&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|7基因集富集分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486134&amp;idx=1&amp;sn=e581b8ac20bbc968aeef3f9cf56f3a0f&amp;chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&amp;scene=21#wechat_redirect">Seurat中分类变量处理技巧</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490949&amp;idx=1&amp;sn=b8dbe07d901f7c24f82d078be7a2fc77&amp;chksm=9b3f64d5ac48edc33980363c7bc862a9f6283b78dac407e9c082d80bd7d9669215eecac62347&amp;scene=21#wechat_redirect">沉浸式统计细胞比例</a></p>
+<p>单细胞图片改造计划：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496162&amp;idx=1&amp;sn=598c2920f7cc0697ee5a1fa6cadaee04&amp;chksm=9b3c88b2ac4b01a415feeebbbec6c4891319439dc8dcdafd33cca7a1222e5adc723ae9d3a73d&amp;scene=21#wechat_redirect">改造单细胞降维图| 1.DimPlot的探索</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496239&amp;idx=1&amp;sn=1fe6fd4a7fb88ecc0456b4f5710cb5d6&amp;chksm=9b3c8b7fac4b0269e0abeab951ad6ae0ddd1464dd9d1867280eeb9755fda5ba8f5237d88a7a6&amp;scene=21#wechat_redirect">改造单细胞降维图| 2.ggplot2中的DIY</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498080&amp;idx=2&amp;sn=a9bcf65e3ae34ba201e8d49ee33c0728&amp;chksm=9b3c8030ac4b0926c3f059a9a5d23f1bcdbcaf8e5a562eba2b7e3bec3396c44573269bd08e7b&amp;scene=21&amp;cur_album_id=2707677276481814529#wechat_redirect">改造单细胞降维图| 3.3D降维图与动图绘制</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498191&amp;idx=1&amp;sn=952312a6b26232d460bf787cc276543f&amp;chksm=9b3c809fac4b098972c8c1dd83b9f954a38fe5b5f6bc7e295f3f3a7ba6c4c3d32951679ac24d&amp;scene=21#wechat_redirect">改造单细胞降维图| 4.一些造好的轮子</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503971&amp;idx=2&amp;sn=7dafb1e743ebbb95e488d8d1b7024448&amp;chksm=9b3ca933ac4b2025f922a325ec6893e93613f130ff1d4fd609e2d7274f7f1fdb5134092e28ad&amp;scene=21#wechat_redirect">沉浸式统计细胞比例</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504616&amp;idx=1&amp;sn=f7b4a0e6b25d224380cd803e3463a3e4&amp;chksm=9b3cabb8ac4b22aeb65e0d6ec32a1f8674dcf907da078ccb3b61e06c4aa035864ebec092f571&amp;scene=21#wechat_redirect">改造单细胞FeaturePlot</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504768&amp;idx=1&amp;sn=4fc5eb47037d3a80178e32975488d70b&amp;chksm=9b3caad0ac4b23c61147cfb0f46ecd846568f37ce89c963eb5f069d3e89a8ba285897726bb3d&amp;scene=21#wechat_redirect">VlnPlot用法及ggplot复现</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504843&amp;idx=1&amp;sn=b795a3e36ae092d8f87abb5a87187828&amp;chksm=9b3caa9bac4b238dd33e905c33924b58aa4ff14e83abbf08046fba7fe765ecb0204163cb6acf&amp;scene=21#wechat_redirect">VlnPlot的ggplot改造</a></p>
+<p>SCENIC转录因子分析：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500098&amp;idx=1&amp;sn=8c31241bd259e303a6ac3c9740f298d9&amp;chksm=9b3cb812ac4b31046fd298c8ee5f0bc0de445df62b234bd934c34ca655e61de3da54d81e2053&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|1.绪论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500439&amp;idx=1&amp;sn=d6b4874a8352f5b7a4165629c03058ce&amp;chksm=9b3cbbc7ac4b32d158fd3c5c2f155c54c892d40eaae3718409936fc319f69705da32badf79d6&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|2.学习手册</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500631&amp;idx=1&amp;sn=5d73db4dcc74b66de07dee9db910bb83&amp;chksm=9b3cba07ac4b3311d1820bb305778aea707294f19fd6ff2631cd003da80bdcff8f8bc8ed34de&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|3.软件安装与数据准备</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501260&amp;idx=1&amp;sn=f1e2a165599e753e2959aad7c8a298cb&amp;chksm=9b3cbc9cac4b358a9499654a2f95fa9010309ee4f408ef8b1f31ceb1a0f263ce22e8b511c430&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|4.精简版流程</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501692&amp;idx=1&amp;sn=3f7e263a93942ad03faa1ba5f8694ec4&amp;chksm=9b3cbe2cac4b373af9db74a50ffb08a9b8a3b958fc6385c937385f0f7323bc935cdb0fe5275c&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|5.step1+step2构建共表达网络与regulon</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501989&amp;idx=1&amp;sn=2700bf779d7d261a4d751d1635fdce2c&amp;chksm=9b3cb1f5ac4b38e3014476242fe956cf510cc45b9f4cef86070af8094fd5f884f9d5c3a3363f&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|6.Step3 利用AUCell对Regulon评分</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503995&amp;idx=1&amp;sn=26c7e9ec56af434e62b02853cfe667d6&amp;chksm=9b3ca92bac4b203d7986645ab5a3fb574f44185c7ced8bd47957fa237d436a95bfa2579d052a&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|7.Step4 二元矩阵的计算与可视化</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504024&amp;idx=1&amp;sn=143c0ec4d94b8fca0a4a47d3dc24415b&amp;chksm=9b3ca9c8ac4b20de70a87acb2d3f810b0e1497071b1c6f14f1882a6d844fff016e9ba5581eb3&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|8.Step5 regulon聚类、分群、降维</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505276&amp;idx=1&amp;sn=949c753feb85d5877121433caaa33013&amp;chksm=9b3cac2cac4b253affb587a937d3f5e0576851a4f4e1570cb7510a594d155873961bbd91758d&amp;scene=21#wechat_redirect">SCENIC单细胞转录因子预测|9.下游探索</a></p>
+<p>上游fastq文件处理：
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501751&amp;idx=2&amp;sn=a79512f54db7456ea577de40f1a2d286&amp;chksm=9b3cbee7ac4b37f1ce313d5eeb9a9ac9940640ab599ac5ab5d438fa86a8007796b768e4e68c2&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：cellranger</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501812&amp;idx=2&amp;sn=7feb4d89ebc45ca7d64ad2dd5cd3c832&amp;chksm=9b3cbea4ac4b37b2d2609172d58251076a6ab6a7043600613f0fb2ae0bea427de542b4dcf91e&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：dropseqRunner</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504739&amp;idx=2&amp;sn=e4e6ad0559b9b6a703d6ab37c2a8fdb0&amp;chksm=9b3caa33ac4b23257424184bda44dd600ad98bc0dfdfa90ab0e3ebaf208e598b0b710fbafa4b&amp;scene=21#wechat_redirect">Cellranger报错：Unable to distinguish between [SC5P-R2, SC3Pv2] ...</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506542&amp;idx=1&amp;sn=99cf7af7fc0d56b0d6fe7ea3596df2b6&amp;chksm=9b3ca33eac4b2a28e6682a7cf0b2091a387a06ecf89ee10737cf2194286ec0bba472ef1c2b90&amp;scene=21#wechat_redirect">BD Rhapsody平台单细胞转录组定量流程</a></p>
+<p>细胞通讯B站连续播放起来比较方便：
+https://www.bilibili.com/video/BV1Ab4y1W7qx?p=1<strong>往期推送</strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501282&amp;idx=2&amp;sn=cd37ea80e0b92f5bfbc98ea286e363da&amp;chksm=9b3cbcb2ac4b35a4258d21fe003374795619fc2356376ebbe4ff640233f4b4c6e3e3ead41370&amp;scene=21#wechat_redirect">《细胞通讯》1.概论</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501296&amp;idx=2&amp;sn=fb3e252d95ee8b50cd446e71335b1aa0&amp;chksm=9b3cbca0ac4b35b621b4f51d2c3a130f00461faeeff067396222c2fc2eeb53f3544664d7d9bc&amp;scene=21#wechat_redirect">《细胞通讯》2.1CellChat基础分析教程</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501523&amp;idx=2&amp;sn=6fa803f256c2e0b945f93ae7d8245f50&amp;chksm=9b3cbf83ac4b3695b587e9817840f419104c8680f5ef08ee39aa149b79852f48b179f68e3397&amp;scene=21#wechat_redirect">《细胞通讯》2.2CellChat多组别分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501735&amp;idx=2&amp;sn=35fc792961507f4ae1cbae3a2882fba6&amp;chksm=9b3cbef7ac4b37e1417d4108c8bd378c68c3907431ddfc52ad37c916e85649bb450d761a8e19&amp;scene=21#wechat_redirect">《细胞通讯》CellChat学习手册</a></p>
+<p>拟时序分析B站连续播放起来比较方便：
+https://www.bilibili.com/video/BV1br4y1x7Hf?p=1<strong>往期推送</strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486553&amp;idx=1&amp;sn=b689ec962a17ca1a1ada29ae8ff8c019&amp;chksm=9b3f7509ac48fc1f0f81e288de8f15c86548215a1cd9d5c740dc63f2421371d13890398ab1df&amp;scene=21#wechat_redirect">《拟时序分析》1.概论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487001&amp;idx=1&amp;sn=329129e75f703e3f332e76af9c66871e&amp;chksm=9b3f7749ac48fe5f081248c2a48c56685e3915015036c73f8f67ec3e6acc246ddf815daedb22&amp;scene=21#wechat_redirect">《拟时序分析》2.monocle概论</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487398&amp;idx=1&amp;sn=6621eed90157d8da06ef778c40bd5554&amp;chksm=9b3f76f6ac48ffe081ddfee3a323e0e31c1fda33731012de73168cf2ab30a226cf70c848f769&amp;scene=21#wechat_redirect">《拟时序分析》3.monocle2实操：精简版拟时序</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501684&amp;idx=2&amp;sn=45c8b083e1094718d7fc4b97e370b01d&amp;chksm=9b3cbe24ac4b3732e6eb04084fe3af4419c817755e4eb9a11ba1fb9f68488d12fe7bc865ad0b&amp;scene=21#wechat_redirect">《拟时序分析》4.monocle2实操：完整版</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489044&amp;idx=1&amp;sn=061dbfc34d200b73a8227d0bb28a1d27&amp;chksm=9b3f6f44ac48e65251f7e5ecce84637c05d50ecb92769e8386f221f8e7b9bfeb719232def863&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》5.初识monocle3</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489494&amp;idx=1&amp;sn=44f0a44857c12fcf9a1ab84e4f2cbebf&amp;chksm=9b3f6e86ac48e79026321de2fdca81a139d104d655884ffe87a68e0a1551ddffa5af7919d19e&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》6.monocle3的降维、分群、聚类</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;chksm=9b3f6222ac48eb3450de0b02a34eb5fff2db89ab8f155460d554cbb23be0cd27fd349079e7b2&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》7.monocle3的拟时序分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491083&amp;idx=1&amp;sn=c5697ab024193cb6595d27e4f4d3bfaf&amp;chksm=9b3f675bac48ee4d7244d9819e14fe210f7e42e40fc7a6a8df7b95bfd92f06334d60d226cb93&amp;scene=21#wechat_redirect">解决monocle2的orderCells报错的两种方法</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494479&amp;idx=1&amp;sn=32f39c79c4c9fc07aa829eed49016da3&amp;chksm=9b3c921fac4b1b091efcdd151500b69d19f71d5ca518122af697fc37e87acd915f3be5f63fb8&amp;scene=21#wechat_redirect">一文搞定拟时序分析的下游可视化探索</a></p>
+<p>scFAST系列<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503875&amp;idx=1&amp;sn=2b5ca0c57e17e51abb52adfe199c5736&amp;chksm=9b3ca953ac4b20450f643b94bcfc95aa2b04ded197ce93e455a281901d7ccba099b48cfd03d9&amp;scene=21#wechat_redirect">scFAST分析| 01.绪论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504023&amp;idx=1&amp;sn=4091a22e853242b4aae7a7d3b4008f5c&amp;chksm=9b3ca9c7ac4b20d1bb0389fad5fe85a3c4cf49179747fe97dffaab1087b7d2793668d9f63aa4&amp;scene=21#wechat_redirect">scFAST分析| 02.单细胞分析准备工作</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504044&amp;idx=1&amp;sn=d37991280217dcc29280efa344f856bb&amp;chksm=9b3ca9fcac4b20eab124ccd4ba6ad3f5eee640df314e7d8fec0225035f06178e3a51dbe2033f&amp;scene=21#wechat_redirect">scFAST分析| 03.fast模块</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504435&amp;idx=1&amp;sn=c6a6f7ca00684601f3cda49e53be5339&amp;chksm=9b3cab63ac4b2275d993bbaa64c71652685065fa377be57319fc6a5c47eb958b3644c7459cd5&amp;scene=21#wechat_redirect">scFAST分析| 04.Seurat分析及可视化</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504878&amp;idx=1&amp;sn=2c5d9fc694eaf3e264c38b0691cd3a43&amp;chksm=9b3caabeac4b23a87d201009137572c02ba1ea0dd747bcd8b8c02878b45917b6e235551c41cb&amp;scene=21#wechat_redirect">scFAST分析| 05.mut模块</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505213&amp;idx=1&amp;sn=5f4ed0587dd96149d127a98d36f721f0&amp;chksm=9b3cac6dac4b257bbc00c4647382d27883139bf06ab3071947bf1cccde8d1d501006dabab5f1&amp;scene=21#wechat_redirect">一文学会scFAST-seq数据分析</a></p>
+<p>其他单细胞相关技术贴也在这里：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511622&amp;idx=1&amp;sn=60b35668e569267bab14ec8fbba8bd74&amp;chksm=9b3cd716ac4b5e00122eac47f55085198040a4a0e97c56895bbc39f3a9f1a1eb4eba27048a8f&amp;scene=21#wechat_redirect">scRNA-Seq双细胞过滤手册</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510380&amp;idx=1&amp;sn=0eb2b0c519ef1dc25ee8821b736a0fde&amp;chksm=9b3cd03cac4b592ad93149fb4847e6ba3dd03ab69e1ca594ddc64d323fb7496775789cae245d&amp;scene=21#wechat_redirect">scRNA-Seq学习手册Seurat V4修订版</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509880&amp;idx=1&amp;sn=3b7cd169ccfe688d10cb1ca70dc91e91&amp;chksm=9b3cde28ac4b573ec6d5f4bceafa4294c0e9a001b7d0c0b64f274a9978b1438eeccc747ca0c0&amp;scene=21#wechat_redirect">快速上手Seurat V5</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247509260&amp;idx=1&amp;sn=9ff90a428c3f22d43a31ec864e2d8a94&amp;chksm=9b3cdc5cac4b554a2f7cb2a6368f7df9a9a3f6e406eb070663f53d81841a76e188c0b50727de&amp;scene=21#wechat_redirect">单细胞Figure 1常见图表</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484056&amp;idx=1&amp;sn=4967a054f5241ff3a1bd4a6fe9a502b1&amp;chksm=9b3f7bc8ac48f2deca3141461be035deb8658be184d78597af28f8ba2092d12f020768275248&amp;scene=21#wechat_redirect">细胞的数量由誰决定？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484701&amp;idx=1&amp;sn=ad90680f252d092a2e21f349c8f32cab&amp;chksm=9b3f7c4dac48f55bf1d11337406ab0e1295e8e1731dbac0715eedc99d11beff7f380e42dd49b&amp;scene=21#wechat_redirect">单细胞中应该如何做GSVA？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484280&amp;idx=2&amp;sn=844af02070012a1c2681880596ba51a2&amp;chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&amp;scene=21#wechat_redirect">答读者问（三）：单细胞测序前景</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=2&amp;sn=e8d02fddc80d1137bb64c55541f1651d&amp;chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&amp;scene=21#wechat_redirect">答读者问（四）：如何分析细胞亚群</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485012&amp;idx=1&amp;sn=6007c8d7cb2a236dd7240a678dac0391&amp;chksm=9b3f7f04ac48f612f811c1df9e9450dc8112d343e4bf245be5149c2e2a073d3e339cd0e3ff61&amp;scene=21#wechat_redirect">答读者问（八）：为什么Read10X也会报错?</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485134&amp;idx=1&amp;sn=13f5f8c47d8af2beeca4e103a5f5e26d&amp;chksm=9b3f7f9eac48f688b454a1062ee4e41f7072ac9d58e5466fa7ed4bb05018adbfe167bb3a445a&amp;scene=21#wechat_redirect">答读者问（十）整合后的表达矩阵，如何拆分出分组信息？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485145&amp;idx=1&amp;sn=402cb28c16aba0dc647037c9b7aba8f7&amp;chksm=9b3f7f89ac48f69fe27cd427df3eff2e88c240bf20dfe92d8b522eecd7302d132d880bf29047&amp;scene=21#wechat_redirect">答读者问（十一）如何一次性读取一个目录下的cellranger输出文件？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485730&amp;idx=1&amp;sn=42b9b35026bec5359ac34750dea3bf44&amp;chksm=9b3f7072ac48f964970f673a86e27ecd453a80b953168dc110e0ea6bfa4110eeed3350c9601a&amp;scene=21#wechat_redirect">给你安排一个懂生信的工具人（十）：不学编程 零代码完成单细胞测序数据分析：Loupe Browser</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485798&amp;idx=1&amp;sn=c849bc7a0093af92fc99e13b55842bb2&amp;chksm=9b3f7036ac48f92048d726b38f2dd978d0b0cce779c1a4090aa4da5cb2df3ad30a5c5dbed27e&amp;scene=21#wechat_redirect">什么？不做单细胞也能分析细胞类群和免疫浸润？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485859&amp;idx=1&amp;sn=a014c4cb6034551e57c70820c7781e49&amp;chksm=9b3f70f3ac48f9e52620e3ff197eb98e58836e8bb6baad634387a521fdda1e4a194356517c73&amp;scene=21#wechat_redirect">答读者问 （十三）查看Seurat对象时的ERROR：type='text'</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485925&amp;idx=1&amp;sn=14e08440200f0f5cb4dcc2dc615efeb8&amp;chksm=9b3f70b5ac48f9a37a43cc2a8b2a5e485a3f84b4ef87949dfe99056bc6301b110e80800f6bb1&amp;scene=21#wechat_redirect">各类单细胞对象（数据格式）转换大全（一）</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486045&amp;idx=1&amp;sn=0b6874bcffc8abafb505cabce4c4fc0e&amp;chksm=9b3f730dac48fa1b140ef01c07a7749e69df4fa7d2056deeed0673c668b6246724cd85741125&amp;scene=21#wechat_redirect">批量整理好GEO中下载的单细胞数据</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486259&amp;idx=1&amp;sn=97de5c9e15e48cb62c8a680376a4ee0d&amp;chksm=9b3f7263ac48fb75a91b40416826fe35b340284cf38255925ac447443a62cdc1df082d20fb61&amp;scene=21#wechat_redirect">答读者问 （十五）稀疏矩阵转matrix, as.matrix函数是下下策</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487923&amp;idx=1&amp;sn=15043c6d729b0d5493ab875b0e54a259&amp;chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0&amp;scene=21#wechat_redirect">答读者问 （十六）做单细胞测序到底需要多少内存</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488995&amp;idx=1&amp;sn=7140e0d037671542fb37dff3a3c94b28&amp;chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&amp;scene=21#wechat_redirect">答读者问 （十七）调用的线程越多就算的越快嘛?</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490010&amp;idx=1&amp;sn=24c55fa4bd5d7d829625cb67dbaf321a&amp;chksm=9b3f608aac48e99c9f27e3423c8398034a1819d0ccebbf21170b955461d2c335132d6f3cce25&amp;scene=21#wechat_redirect">答读者问（十八）、一个我至少被问过30遍的monocle报错</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490952&amp;idx=1&amp;sn=364a3941e59e45234795c906a42fc9ab&amp;chksm=9b3f64d8ac48edcec70384cf5c6a91224d0f7841ce3a7cfcade6513500c13673a6695d6f0299&amp;scene=21#wechat_redirect">没有barcode文件的单细胞数据要怎么读取</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491761&amp;idx=1&amp;sn=41f5c1ceaacf6a1c4840567f8a349e06&amp;chksm=9b3c99e1ac4b10f7ca158561e96fec76a49ff32b8412cb146ed3fb7aa9260c75172b4eb16f9a&amp;scene=21#wechat_redirect">单细胞基因集评分之AUCell</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494516&amp;idx=1&amp;sn=cb2d4e6b182428ce7b98e7fff2e8729a&amp;chksm=9b3c9224ac4b1b32c4fe99758960305c4845395cfe03851d70a0407043ee36250e55d20106fc&amp;scene=21#wechat_redirect">粉丝来稿|1. Seurat4相较于Seurat3的几点改动</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494116&amp;idx=1&amp;sn=f3dc577cbb464779062aada313191a05&amp;chksm=9b3c90b4ac4b19a27a17f958e3437337d5b10b6ba7153e4dd43dedcb4df812d8c6b4d86fe970&amp;scene=21#wechat_redirect">如何加快Seurat的计算速度</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493493&amp;idx=1&amp;sn=2cd725b2f04377f218955bafbcbb877d&amp;chksm=9b3c9e25ac4b17330a9b9ff77302ab95a9dc5dc7e6fe7298f28d682112ee066c7d4bc1947982&amp;scene=21#wechat_redirect">一文搞定单细胞基因集评分</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494879&amp;idx=1&amp;sn=c2287ab3684792747dfac53d6704462b&amp;chksm=9b3c958fac4b1c994a4b075c4f8475816e121966fa8c52cb0a2ce8c14987988ab9bdb49bdf69&amp;scene=21#wechat_redirect">答读者问（二十）四个单细胞样本只给了一套文件怎么读</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495019&amp;idx=1&amp;sn=f52ac22ca1ea47ecddaa3503bdc2c0b6&amp;chksm=9b3c943bac4b1d2d521f7155ce8f499389dade23828017572a84cdce71e5d08d37d74e08512b&amp;scene=21#wechat_redirect">人类单细胞测序数据中有哪些以"**-"开头的基因</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495765&amp;idx=1&amp;sn=2ec5e3e26491e28c92e25c40630bffae&amp;chksm=9b3c8905ac4b0013a23f9cda2cccd67cdf3c4a941bac161e3a15a12ab98cd4e5eca8aeedbe96&amp;scene=21#wechat_redirect">为什么总把分辨率调的很高</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495938&amp;idx=1&amp;sn=2258390c97ec14f3cd336defede59cdb&amp;chksm=9b3c8852ac4b01448fd3b84463d5ab6b697495db6ad57746e7f60e32f491547a3e35290c66ee&amp;scene=21#wechat_redirect">Seurat中如何让细胞听你指挥</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496273&amp;idx=1&amp;sn=fd5a92dd7fdc349b1624784ca74b1220&amp;chksm=9b3c8b01ac4b0217cf06d89bfea49c3fa0c9b580957338c0cc8f55ede3e8f65d6d7162ae27e3&amp;scene=21#wechat_redirect">答读者问| 22.object 'CsparseMatrix_validate' not found</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500270&amp;idx=1&amp;sn=11bdf3c7f9042fc03f9ed237a9b9677b&amp;chksm=9b3cb8beac4b31a8bf1d9fb862553ed32ac9a56f4a6e0f2d38c9478132f87327d8c6b6940573&amp;scene=21#wechat_redirect">单细胞数据在R中的读取及存储速度太慢怎么办？这个神包来帮你！</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501241&amp;idx=1&amp;sn=9e15d23f721ad7f4ae1335ce5362031b&amp;chksm=9b3cbce9ac4b35ff43434c0384afbbf5689f5b62a677e55e8a635d4812da57593d85a73cf48b&amp;scene=21#wechat_redirect">单细胞分群分辨率选择困难症</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507210&amp;idx=1&amp;sn=f32037ffefd60b0d1bcca7bf9c3e0823&amp;chksm=9b3ca45aac4b2d4cf0c68299db3a2891130d89d9e0fe2a9ecb34b394736550bcf7d7c51090cc&amp;scene=21#wechat_redirect">一文搞定空间转录组与单细胞测序的整合分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507979&amp;idx=1&amp;sn=e94225b592733f2e22b4b09245027365&amp;chksm=9b3cd95bac4b504df8dc25d9c5cfddf56d3b47e7cc6f33a7ef369bc916c60abb6b49277b79f7&amp;scene=21#wechat_redirect">一文掌握十个单细胞数据库</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247508133&amp;idx=1&amp;sn=297b8fb9cc8f33a1d19167dba1104e97&amp;chksm=9b3cd9f5ac4b50e36df53e3e18bb2990d9635d88a725f1e54fc5eb5967ac9f0934b79cbb8b34&amp;scene=21#wechat_redirect">如何将已经构建好的Seurat空转对象转存为原始文件？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511007&amp;idx=1&amp;sn=e7be3d9775890e5717889714629cfaf5&amp;chksm=9b3cd28fac4b5b9936428d5f74d8b581b5cddc18d0fc42e2a5d75604cce080588d50f1304a17&amp;scene=21#wechat_redirect">一文学会零代码单细胞分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511779&amp;idx=1&amp;sn=23868525d86a9ed7867a3837ed18612c&amp;chksm=9b3cd7b3ac4b5ea502950d0278d68da978f6011b2597c3ec90fb77e79320883fb4a5be2d5399&amp;scene=21#wechat_redirect">SeekSpace| 会单细胞就会空间转录组</a></p>
+<p>单细胞文献阅读：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511886&amp;idx=1&amp;sn=31c712d00377b0f0ed33703b5b4fbfd8&amp;chksm=9b3cd61eac4b5f084fde14a2eb50356f2f40a66c608d38909f12a3d81f48cff029a09ce2ee8c&amp;scene=21#wechat_redirect">13分+文章利用scRNA-Seq揭示地铁细颗粒物引起肺部炎症的分子机制</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495792&amp;idx=2&amp;sn=1aecc80b68f65f8a44a899df524038c0&amp;chksm=9b3c8920ac4b0036b23268331b457a335b22b4fa3aed1db287ab79e7a4613df8d195bd11421a&amp;scene=21#wechat_redirect">测序技术的发展与应用</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489823&amp;idx=1&amp;sn=6a5dddd53870395316d2b2e904c6ce72&amp;chksm=9b3f604fac48e959e97e4b0317643efdcf117da7f8b75f1edbcd64dd8e2f07149e6031a94dd4&amp;scene=21#wechat_redirect">Biomamba助推的第二篇文章!发表了！</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492532&amp;idx=1&amp;sn=cddb4691f23defc80b60da231790c53c&amp;chksm=9b3c9ae4ac4b13f2334cc7f6b16eec1d8223800f6ecef71a93cfba21698ac5f4505dbd64f300&amp;scene=21#wechat_redirect">又来了！Biomamba生信基地助推的第四篇文章!</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497682&amp;idx=2&amp;sn=7ef49191c5e334bb291ccdaa8ea444ae&amp;chksm=9b3c8e82ac4b079425433938c831d528eddb9237efaca49acbc210e9cd715d057541589dc290&amp;scene=21#wechat_redirect">单细胞测序解析糖尿病肾病中肾小球的动态变化</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497713&amp;idx=1&amp;sn=b7f8df758bc4d95b88969378c6dfbeee&amp;chksm=9b3c8ea1ac4b07b7c6a0b5023ebf6c8ecd7d34741ab076baa0b564535d1d753bbf9dc5be5290&amp;scene=21#wechat_redirect">Cell metabolism| 单细胞测序技术解析健康人与T2D患者的胰岛差异</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497713&amp;idx=2&amp;sn=554d6a4e1b28b2e5303695fae5942a34&amp;chksm=9b3c8ea1ac4b07b72323ce25cd49474a9228ec1aaa56243f57dca3f2f668dc42ab9cd58dca21&amp;scene=21#wechat_redirect">Science| 小鼠全肾单细胞测序开篇之作</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497840&amp;idx=2&amp;sn=1dacbfb190e11d2ff104e32f238cf8c4&amp;chksm=9b3c8120ac4b08367bfe3a0dd8d55f21f5d13528826de3144a9a85ce9b1c9f4c710de703edae&amp;scene=21#wechat_redirect">一篇不花钱就能白嫖的文章</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497867&amp;idx=2&amp;sn=caeb8ed06ffd5239b58cebcd90843cf8&amp;chksm=9b3c81dbac4b08cd9eec50978951a1b890ca08edec644ff75205a09ad1f067dff25d6ecb938e&amp;scene=21#wechat_redirect">不会吧不会吧，Nature都能白嫖？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498513&amp;idx=2&amp;sn=79845edf56a3023c59c73403d7b6494b&amp;chksm=9b3c8241ac4b0b57793402686edc8c35aaa3b0959d3096b5122207fbb70ab809d1df5faee0d7&amp;scene=21#wechat_redirect">高氧下小鼠肺发育损伤的ScRNA图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485376&amp;idx=1&amp;sn=02e228d0993d8a653c8bb1d531021cdb&amp;chksm=9b3f7e90ac48f78686d6d5953aeb192db4f28bf577dbebd76d9fabbe797f135b7fb08fb42867&amp;scene=21#wechat_redirect">IgAN &amp; STRT-Seq</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498596&amp;idx=2&amp;sn=8f63f5856cdf90e15f1d19b4cfe6a39e&amp;chksm=9b3c8234ac4b0b221a5d2c417558f0e63f742459c0a3f8c1cbb4cdf74ce25ddcaf0e48f4a7ce&amp;scene=21#wechat_redirect">老树开新花—EGFR、肿瘤、免疫+scRNA-Seq</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498597&amp;idx=2&amp;sn=9f5fee38d0821052c9c6b3753c2b3bed&amp;chksm=9b3c8235ac4b0b238c4902ad7b3944b285baaa0a7ec6f5c7d08a596fdf89735dc7a7afab91f0&amp;scene=21#wechat_redirect">癌前基质细胞驱动BRCA1肿瘤发生</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498668&amp;idx=2&amp;sn=50cb239885bed65d3d3702c813d8e354&amp;chksm=9b3c82fcac4b0beabece692f6e2d89c5fe4adf3a268e2944d8f0df4393cc554de5432086d6c1&amp;scene=21#wechat_redirect">紧跟生信"钱"沿,胰腺癌&amp;免疫多模态图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498644&amp;idx=2&amp;sn=6293493263eeb2b4bf3f82cf526dea36&amp;chksm=9b3c82c4ac4b0bd2a9f48b1326bbfbf2b8270ab79e5877f9bca21aa7883f60fb9cb235df2c36&amp;scene=21#wechat_redirect">原发头颈癌和肿瘤转移微生态</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498860&amp;idx=2&amp;sn=156afeec25201c7baa880af8daac8c60&amp;chksm=9b3c853cac4b0c2a2ca09f44fd487c6d8d9701cb447f318c89f83a53e1a7b712d6f10ff17c43&amp;scene=21#wechat_redirect">《Cell Metabolism》：肾脏疾病&amp;代谢&amp;核受体ESRRA</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498862&amp;idx=2&amp;sn=1ba36b54428198104c5168d84aba6c51&amp;chksm=9b3c853eac4b0c2874eee3d90b5a989fdc2b366c40805b5041a6f1a588e99b45be14469bdd56&amp;scene=21#wechat_redirect">《Nature communication》：PD-1&amp;急性髓细胞性白血病&amp;T Cell</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498926&amp;idx=2&amp;sn=3bbd43812d2dfcbbd9230c8cb50df36b&amp;chksm=9b3c85feac4b0ce8225b6f77eec91ac9c8150bff171ac6874363b2617ccfe6042400777415c3&amp;scene=21#wechat_redirect">单细胞测序揭示鼻咽癌微环境的基质动力学和肿瘤特异性特征</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498939&amp;idx=2&amp;sn=b63958fb8f28af052036f4ffc05e2fc2&amp;chksm=9b3c85ebac4b0cfdf3fda8f7236c50db168de20ff4795db7af9d6a0b45304e3f6fb3ba888694&amp;scene=21#wechat_redirect">《Nature》：MYB调控衰竭性T细胞对检查点抑制的响应</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500846&amp;idx=1&amp;sn=d5e9782c0318e411771e746950f5b5f5&amp;chksm=9b3cbd7eac4b3468ea93a5d6a28cfd05409660a532cc8df72ed9b58f30a76b0a8b6cec79934a&amp;scene=21#wechat_redirect">单细胞都能活检测序了？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493808&amp;idx=1&amp;sn=52c7d330ffdda47c3409d36fe9cbbcd8&amp;chksm=9b3c91e0ac4b18f6edf59d171a0d982b1e3f842148046d8eed19343484feaa84dbd5b7682a11&amp;scene=21#wechat_redirect">文献阅读(二十九)、单细胞测序做到什么程度能毕业|硕士篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494017&amp;idx=1&amp;sn=a2dc4e2eef2bcdb40f5074b665dfa45f&amp;chksm=9b3c90d1ac4b19c79ac5128f96d27789241357c9745bb0389ff5f79f96ab825d3e1c9b29e3af&amp;scene=21#wechat_redirect">文献阅读(三十)、单细胞测序做到什么程度能毕业|博士篇</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494796&amp;idx=1&amp;sn=92c91a65719bdf39658814eb691a780f&amp;chksm=9b3c95dcac4b1cca5547440a5881e650da3ea430bad3e6017cbd2891606b2ec40e3ec343bc0e&amp;scene=21#wechat_redirect">2022年了，都有哪些器官/组织有scRNA-Seq数据|小鼠篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494806&amp;idx=1&amp;sn=1d15ad9cb4d350a164d3b941bc715233&amp;chksm=9b3c95c6ac4b1cd054cedbd3e8c8f57ee88cc59a6ebda2fd11ba8fea79f5e9e8c65d21ff338c&amp;scene=21#wechat_redirect">2022年了，都有哪些器官/组织有scRNA-Seq数据|人类篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496958&amp;idx=1&amp;sn=f34c69e2114d99fa25e2524411c028a2&amp;chksm=9b3c8daeac4b04b80a5629433d5eec4d25b8ba7d2a74fa31cd499b98c36601ddfe436e2196eb&amp;scene=21#wechat_redirect">2023年了, 都哪些物种有scRNA-Seq数据</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496064&amp;idx=1&amp;sn=0be38306f9cd8c6b819d58cc2e779b87&amp;chksm=9b3c88d0ac4b01c6773b6c4f1a063788509baa27c57e2098b16b8ebe38cc625a87b9d89272c7&amp;scene=21#wechat_redirect">终于读到一篇用monocle3做拟时序的文章</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496126&amp;idx=1&amp;sn=8cb6040a38eb844bb215c0d395196e3a&amp;chksm=9b3c88eeac4b01f8dcb8f4c7a19c5a58841d5fe1623f0a4c585c6dcc281cbbdd2830a1150f6a&amp;scene=21#wechat_redirect">单细胞转录组+亚细胞空间代谢组=25分文章</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496237&amp;idx=1&amp;sn=646cd85b62d08c1739a532242c8991ba&amp;chksm=9b3c8b7dac4b026be9e65b64df8e830d1c2c882272165e64eec6eb258e4ed5342cf30f42dda5&amp;scene=21#wechat_redirect">酸了，六个样本的scRNA-Seq+差异分析=9分文章</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498939&amp;idx=1&amp;sn=1b33d219c795f2de8ff66a5c330a3d24&amp;chksm=9b3c85ebac4b0cfd050a7c0abe11dead991a988aa5b790eac6fd57de2f76a85ef2191d8b9ca6&amp;scene=21#wechat_redirect">自测scRNA-Seq+scWGBS=3分三区文章？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499336&amp;idx=1&amp;sn=864c535b38ce630487fccc602d893a80&amp;chksm=9b3c8718ac4b0e0e8a0e2560a83546167a82616d99503606e3ac0ef29e90b01cc762e95d64e6&amp;scene=21#wechat_redirect">百万级单细胞多组学数据集成</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500243&amp;idx=1&amp;sn=b0e513e85a202ec7ca4041a700a7ae10&amp;chksm=9b3cb883ac4b3195cffd0398d880468b12dd068f9a9fd96b7d0f8aed8961be34293e6ff4a2bb&amp;scene=21#wechat_redirect">空间转录组与单细胞转录组整合分析工具大比拼</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503081&amp;idx=1&amp;sn=29890957ab75f050d466ca659292b529&amp;chksm=9b3cb5b9ac4b3cafe279783c49cf7928819c5caeffbc34e52ae0c79f5e701ce8a25dd6f0c913&amp;scene=21#wechat_redirect"><IF=27.4> IgG4相关性疾病中颌下腺和血液中的细胞和分子改变</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488278&amp;idx=1&amp;sn=3662cde0f439a7e7cad7fb0d50082c05&amp;chksm=9b3f6a46ac48e350318b38f1bfe252dd4c315ad058dc4b9aa02fadf2be2291fd0dac50f24cc6&amp;scene=21#wechat_redirect">微生物组研究技术——微生物也能做单细胞</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503498&amp;idx=1&amp;sn=fcf38bd6fd1dbaf80e203926bb63d5c4&amp;chksm=9b3cb7daac4b3ecca9f2dd590fc581f5b1ae67a7f89be6f76eb438a017b5c335d8a01830b6a5&amp;scene=21#wechat_redirect">scRNA-Seq+WGCNA+铁死亡：IF=9.69</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503508&amp;idx=1&amp;sn=72781ff97ecae1c32815fe2c4d71b24e&amp;chksm=9b3cb7c4ac4b3ed2b46c8c22f4ce8f93e3f93004ee76542bdd92039d301cec4a10077bb973db&amp;scene=21#wechat_redirect">《Nature》: 单细胞解析大脑感知流感过程</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503544&amp;idx=1&amp;sn=d563497cc912950d07c2284709f3aede&amp;chksm=9b3cb7e8ac4b3efe66fa4e743f9d6c245a7dd6ea370cd0ee397e92761a2d680cac5c6dd4ea87&amp;scene=21#wechat_redirect">两万字长文|当前单细胞 RNA-seq 分析的最佳实践</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503603&amp;idx=1&amp;sn=c146eec4528f418226f0103030cb803c&amp;chksm=9b3cb7a3ac4b3eb5bd8be7e41c8c440c80e8223fb10634bfc6d523fe389e3aa0bc14e5ea87d5&amp;scene=21#wechat_redirect">数百万级单细胞数据时代的多组学分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503617&amp;idx=1&amp;sn=18389ffe1d201b1c0592ebc923aac851&amp;chksm=9b3cb651ac4b3f4777cb0a6282ad99cd2aad711050d1590f20f970d843f05fb42f8cc02833e2&amp;scene=21#wechat_redirect">《Nature Methods》: NiCheNet, 能够考虑到胞内转录调控的细胞通讯软件</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503664&amp;idx=1&amp;sn=39519d9cfa54e2d5b757f6c249ccbc86&amp;chksm=9b3cb660ac4b3f768c8cfb708d8355c426b2d4ad39538acd5584aa9741ccdf1076b7112492df&amp;scene=21#wechat_redirect">基于scRNA-Seq&amp;空间转录组的AKI研究</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504408&amp;idx=1&amp;sn=da427a6687b06a82d9dd58ae9f9aa474&amp;chksm=9b3cab48ac4b225e8272d0475ae9295c1ea96172419aa604526f1b8a898748cb3897508d95a0&amp;scene=21#wechat_redirect">自测蛋白质组+Bulk RNA-Seq &amp; 挖掘scRNA-Seq=13.6分JASN</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505257&amp;idx=1&amp;sn=a524a42b966007defbb2529d300d4c28&amp;chksm=9b3cac39ac4b252f9f88181b932fdc279507c2affc765b53dbccf73084f86f0de25ab1af39bc&amp;scene=21#wechat_redirect">非监督式聚类在scRNA-Seq应用中的挑战</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505826&amp;idx=1&amp;sn=5b9e4aeb41fc2f2943aeac9e22d4d038&amp;chksm=9b3caef2ac4b27e4d57e75a508f00b5605ab99a7b51024110f54778683e14ed8bbcd743f0588&amp;scene=21#wechat_redirect">Seurat V5的《Nature Biotechnology》</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505721&amp;idx=1&amp;sn=19d02b3858ebcf483d9e071b8ba00092&amp;chksm=9b3cae69ac4b277f5b90fd75819ac8435226ad6daaf744f367d49ceb8099408e097d48656e2f&amp;scene=21#wechat_redirect">当空转遇上单细胞~</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506567&amp;idx=1&amp;sn=e895c0d5a6dde49be76429e9961e61bf&amp;chksm=9b3ca3d7ac4b2ac15dc4e2665e5d624b92bf85d8c94ac70c26e476444451c40a5286c853628f&amp;scene=21#wechat_redirect">人类肾脏参考组织图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506493&amp;idx=1&amp;sn=ed65c6b0738a1fb8492da0b4ecdc9c63&amp;chksm=9b3ca36dac4b2a7b4ca45f169526c6ed51777e20811d50c2892e683eee405c25607a42cc7a66&amp;scene=21#wechat_redirect">有免疫特征的基质细胞，有没有可能是双细胞？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506371&amp;idx=1&amp;sn=a9f44bdfd795a4d04615bc307cd23cf5&amp;chksm=9b3ca093ac4b29853f7f068e3969384ed07cd2cf4d64a55c423cd74bce83b914c96844a4cb3d&amp;scene=21#wechat_redirect">CAR-T治疗急性髓细胞性白血病的scRNA-Seq图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247508744&amp;idx=1&amp;sn=1bc02443acab6d1720fe64e0334ce57a&amp;chksm=9b3cda58ac4b534e3bf7ed2ab225d104d9976c5dc21b8443f88d3a555c5db67449b622ac91b4&amp;scene=21#wechat_redirect">临床样本+单细胞+空转=IF4.8？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510548&amp;idx=1&amp;sn=58048c46e837b1d56dffa282272c6d96&amp;chksm=9b3cd344ac4b5a52369e91b4e61fa0a2c951b82cc21165b99f42ba2c2191d4add803bd73c928&amp;scene=21#wechat_redirect">鼻咽癌的Bulk RNA-Seq与scRNA-Seq联合分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510790&amp;idx=1&amp;sn=b56acf349e417f4ce1a09485256a5f87&amp;chksm=9b3cd256ac4b5b400af5a809c5f595c8e1442513d277501c5bca1c80ce85f18a06a1d8994a9c&amp;scene=21#wechat_redirect">GPTCelltype：玩GPT4玩出Nature</a></p>
+<p>单细胞注释复写<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490504&amp;idx=1&amp;sn=0066b2b33067cedb9d1c28689a53faab&amp;chksm=9b3f6298ac48eb8e12cdc7bdd6263e5feb9039f549f7b9dbf4e258854ee61476d09f702f1447&amp;scene=21#wechat_redirect">单细胞注释复写(一):Human Fetal Kidney</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491642&amp;idx=1&amp;sn=2246fb702277ddc690f056fc8854142e&amp;chksm=9b3c996aac4b107c059a403978eca7be1ae7987659626272c58430910ad75892ad470517aefb&amp;scene=21#wechat_redirect">单细胞注释复写(二): human colorectal</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501145&amp;idx=2&amp;sn=12c2e8d104ad343fc13acb8cda266e6c&amp;chksm=9b3cbc09ac4b351f4ed708a0ed577a21f48ccb0d4173aed94a027b4170147ab85931ee51d1e5&amp;scene=21#wechat_redirect">单细胞复写|3.急性心肌梗塞(AMI)外周血scRNA-Seq分析实战(链接重置)</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503585&amp;idx=1&amp;sn=0035977a80621f09d0774d3c9b0a86cd&amp;chksm=9b3cb7b1ac4b3ea76685ed44abcfb031c698835d9b9b42b269496f6104cd8c9d45467de7eddd&amp;scene=21#wechat_redirect">单细胞复写|4. GSE157783数据集复现及差异分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507012&amp;idx=1&amp;sn=fb01cca63326fd6e8c682434a53fc2ea&amp;chksm=9b3ca514ac4b2c02115ae5dea368190ce74997ac16a07fdc29f76cef815600b1e5b813c71163&amp;scene=21#wechat_redirect">CellRank的教程重现</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507501&amp;idx=2&amp;sn=dec30ee34e483c3695613b3e41488a78&amp;chksm=9b3ca77dac4b2e6b1734f1fd3d0134468b2ca8bc9f9118edc6e114a37f7ceea7dc4fa41b4556&amp;scene=21#wechat_redirect">人类肾脏scRNA-seq图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506900&amp;idx=1&amp;sn=83774f3062e42ca0eee1df2cf19144f0&amp;chksm=9b3ca284ac4b2b9221736162ac44280d6184c9f8b0cc13bbcc4c914c14b707fe13a850c6418e&amp;scene=21#wechat_redirect">小鼠纹状体单细胞基因变化图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506779&amp;idx=1&amp;sn=dc97a74cfac6caeabaa838160385c3b2&amp;chksm=9b3ca20bac4b2b1da51998764b22ac3c08415298a47ded14283337386f18f9548749de70725e&amp;scene=21#wechat_redirect">T Cell单细胞参考图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506754&amp;idx=1&amp;sn=3e3e9b4857bb0371b7c1113df792df2e&amp;chksm=9b3ca212ac4b2b043baf0c72684d186a1c065ff7b3d865c308aff4f3483ab5923638fda8d1ff&amp;scene=21#wechat_redirect">MLP模型鉴定免疫细胞发育和瘤内T细胞耗竭的单细胞染色质图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506684&amp;idx=1&amp;sn=c27703a05d4fffae6a5e9e54b4fa7dfe&amp;chksm=9b3ca3acac4b2abaa1e5d4f4a7e4d0730f2e5c4d72c7b3d3d29a653c3bae6590d90e31908dde&amp;scene=21#wechat_redirect">干细胞样CD4+ T细胞与自身免疫性血管炎</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507501&amp;idx=1&amp;sn=94c2a38b98957a9526d510798f791419&amp;chksm=9b3ca77dac4b2e6b40d37e73f54791d55a919f50992bf62ac557ecbac919fb6415dca468dba4&amp;scene=21#wechat_redirect">小鼠与人类的空间表观单细胞图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507501&amp;idx=2&amp;sn=dec30ee34e483c3695613b3e41488a78&amp;chksm=9b3ca77dac4b2e6b1734f1fd3d0134468b2ca8bc9f9118edc6e114a37f7ceea7dc4fa41b4556&amp;scene=21#wechat_redirect">人类肾脏scRNA-seq图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507450&amp;idx=1&amp;sn=ee9b7d482ad9a88c6da18341c7ec5254&amp;chksm=9b3ca4aaac4b2dbc83fc6cc4c084636fb397e56d0057dfb5b546acf402661ab64d241f985073&amp;scene=21#wechat_redirect">胰腺导管腺癌的内异质性和恶性进展scRNA-seq图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507353&amp;idx=1&amp;sn=f2922ce2337c31a781a690ea59c5abde&amp;chksm=9b3ca4c9ac4b2ddfc267838fe6d794027643e89fe054a5ca4d48e51976ea825af7fed285e26b&amp;scene=21#wechat_redirect">肝脏发育、成熟的单细胞图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507337&amp;idx=1&amp;sn=e23d849663a6cfcad19bacdaeeb85b5f&amp;chksm=9b3ca4d9ac4b2dcf8ce4d9720bf7588a30e932adea4297862927ebfe20c29f8961436f761b8c&amp;scene=21#wechat_redirect">微环境中肿瘤免疫屏障决定了免疫治疗的效果</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507144&amp;idx=1&amp;sn=ed6e95f16601e6196cea7179b88db250&amp;chksm=9b3ca598ac4b2c8ecfd1025246eb79c6aa8bf5703f8698d23f1d1f673121e3bf8168a32dba07&amp;scene=21#wechat_redirect">scRNA揭示T1D骨髓与骨质减少的关系</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507136&amp;idx=2&amp;sn=16f8afe29fb59b9a8e9cac265098709c&amp;chksm=9b3ca590ac4b2c86c9554bf20edd587f5d758636f55cf9e390220249d3338b1fde7717fb3c6e&amp;scene=21#wechat_redirect">肝癌单细胞分群marker</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507096&amp;idx=1&amp;sn=98e42a5768074d2766f2ce64214ac391&amp;chksm=9b3ca5c8ac4b2cdebe68a8519a087e41a4c88a7e465c5ddc107f633a5fbf3fcc8bbff6aa8821&amp;scene=21#wechat_redirect">胶质瘤相关巨噬细胞scRNA图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507792&amp;idx=2&amp;sn=52dc1c2e5a23910ca0d8330ea917b60d&amp;chksm=9b3ca600ac4b2f16a04624c74f2bcd3d24d300a835053a6f76ac4e1421b90c34b2ea01f1e7c8&amp;scene=21#wechat_redirect">人类乳腺癌scRNA-seq数据</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507783&amp;idx=1&amp;sn=6ca5dc13a6aefbe78cce3f938fe04e40&amp;chksm=9b3ca617ac4b2f01fb6e4677668f052f6361282ff394745394d363b54ea4c1eb58d2f30da30a&amp;scene=21#wechat_redirect">肢端黑色素瘤细胞scRNA-seq图谱&amp;免疫治疗</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507783&amp;idx=2&amp;sn=d1e28f5f4bddb3a3e4f1a85db1feac7f&amp;chksm=9b3ca617ac4b2f01b40ae6adbe48e9371e50f9df543638e8c3e8e57bf9312b5daf731041ee16&amp;scene=21#wechat_redirect">皮质神经注释复写</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507757&amp;idx=1&amp;sn=1045b58a64b4602881e9853d2a908012&amp;chksm=9b3ca67dac4b2f6b4d33f10e71da2a6287968512677e77017b3820bf9aedfcd60301bb14d401&amp;scene=21#wechat_redirect">非小细胞肺癌免疫治疗后肿瘤微环境重塑scRNA图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507717&amp;idx=2&amp;sn=1d99c171cbfedc11f11fc827b643c89d&amp;chksm=9b3ca655ac4b2f4360790bde80bc1452e9e314c6a0ae2dc6f9d19edbcc580e81ace3080dbb5f&amp;scene=21#wechat_redirect">小鼠脑动脉瘤模型的scRNA-Seq分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=2&amp;sn=8d45c680ad78f52043d4ce4cbbf3c67a&amp;chksm=9b3ca7bdac4b2eab2405773b5d71ff1f5495250ef813b24429e1b920c1b96a4ee391507d011b&amp;scene=21#wechat_redirect">儿童白血病的单细胞数据读取</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507659&amp;idx=2&amp;sn=a6860bb0eb8d3854a37acd0342777956&amp;chksm=9b3ca79bac4b2e8dc0c3aa83c000894a53e2b316388495703e58d42ab205dd093bf578807b74&amp;scene=21#wechat_redirect">疟疾中免疫细胞亚群的调控响应</a></p>
+<p>硬件准备：
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504843&amp;idx=2&amp;sn=c2ba75edc0382855cfc914c3bb713e7e&amp;chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503618&amp;idx=1&amp;sn=ca47ca985aa8560f6b38f15f210519e2&amp;chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&amp;scene=21#wechat_redirect">独享服务器，生信分析不求人</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247502932&amp;idx=1&amp;sn=401d384d47616029375224b2d0a3c933&amp;chksm=9b3cb504ac4b3c1299aac5c9f0747ccc36777390d2a939e1ed4af37c2836c1f7e8b4af612989&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a></p>
+<p><img alt="" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../../images/acba43cb3408c3d0.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

@@ -10,7 +10,7 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491083&idx=1&sn=c5697ab024193cb6595d27e4f4d3bfaf&chksm=9b3f675bac48ee4d7244d9819e14fe210f7e42e40fc7a6a8df7b95bfd92f06334d60d226cb93#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)此前我们给大家做了一系列monocle的教程用于帮助大家完成**拟时序分析** ，虽然是**边做边骂** monocle语法差、bug多、版本不兼容，但是monocle从**计算效率和效果** 上来看仍然是市面上最优秀的拟时序分析软件之一。
+![](../../images/90fab1387787746b.webp)此前我们给大家做了一系列monocle的教程用于帮助大家完成**拟时序分析** ，虽然是**边做边骂** monocle语法差、bug多、版本不兼容，但是monocle从**计算效率和效果** 上来看仍然是市面上最优秀的拟时序分析软件之一。
 目前从大家的反馈上来看，orderCells这个函数由于版本问题出现bug的频率最多，此前我们已经给大家出了一个推送解决版本问题([答读者问（十八）、一个我至少被问过30遍的monocle报错](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490010&idx=1&sn=24c55fa4bd5d7d829625cb67dbaf321a&chksm=9b3f608aac48e99c9f27e3423c8398034a1819d0ccebbf21170b955461d2c335132d6f3cce25&scene=21#wechat_redirect>))，但是仍有同学不会安装相应的版本，这里我们也提供一种更简单的**修改源码** 方法，并且经验证后确定有效。
 
 **视频教程** :
@@ -18,19 +18,19 @@ B站连播更方便：https://www.bilibili.com/video/BV1br4y1x7Hf?p=11代码与�
 
 https://pan.baidu.com/s/1XRkUW7s2nQxE6HuLjY-VGw?pwd=5652
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzUYItSueicJ8mqHRpHQTHeAwEc2ia1Ob7QEYrZcrrIfxl7WqLze1qEFKYCjIQ8L3xHvGdW6ybjaHQA/640?wx_fmt=jpeg)
+![](../../images/7850e36aab0470f0.jpg)
 
 不要问为什么文件里没有代码啦，已经用Rmarkdown编译成html存在上面的链接里了。用浏览器打开即可，有代码、有结果，大家使用起来更方便不是嘛~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzUYItSueicJ8mqHRpHQTHeAg0eYBhPu7b076SFWCMnFZjibL96l1TXGicibHjMz1Fp1RS6CXlltQtAvg/640?wx_fmt=png)
+![](../../images/97adb7cf9652f7d7.webp)
 
 图文教程：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 # 一、问题
 
-如果你的monocle版本不是2.18.0~2.21.1，你可以能会遇到以下问题 ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzUYItSueicJ8mqHRpHQTHeATs1AoBRvElkBcd02lYye34YQJF2OV1KGEiaA7OnEsFtslCWBKicWHrNQ/640?wx_fmt=png)
+如果你的monocle版本不是2.18.0~2.21.1，你可以能会遇到以下问题 ![](../../images/69d0fdeb25f8f490.png)
 
 # 二、解决方法
 
@@ -67,11 +67,11 @@ mycds1 <- orderCells(mycds)#这里先按修改前的运行(我这个版本本就
 #我们来看一下这两次运行的结果是否相等#显然两个cds格式的文件不能简单通过==来判断，try(mycds1 == mycds2)#我们来看一下orderCells的源码orderCells#最后返回的数据应该存放在pData(cds)$Pseudotime，pData(cds)$State library(dplyr)(pData(mycds1)$Pseudotime == pData(mycds2)$Pseudotime ) %>% table()(pData(mycds1)$State == pData(mycds2)$State )%>% table()#没问题，一模一样
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzUYItSueicJ8mqHRpHQTHeAJxCGicla8KEcdQUPJ77V3YUwH7gFJm9DPiaYIXSalrdYsXbdicibQ6KUew/640?wx_fmt=png)
+![](../../images/5d99f0756f6e85db.png)
 
 **往期回顾：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 单细胞数据分析系列教程：
 
@@ -122,12 +122,12 @@ https://www.bilibili.com/video/BV1br4y1x7Hf?p=1**往期推送**[ 单细胞测序
 非技术帖：[关于单细胞的事 谈谈后面的计划](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484798&idx=1&sn=120eada9b02ea2f81f93cd4cfa5eb964&chksm=9b3f7c2eac48f538e2f95166dbe576b029dcb3ad7d321a4d9f346c9a51416d777f4cffb9aa84&scene=21#wechat_redirect>)[趁机预告一波](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247485614&idx=1&sn=f63ab5d759bdcb933f334be6333f9493&chksm=9b3f71feac48f8e8cece92812e0c26d7c03130359451a89ce7db22b7022506371269e1fc2af0&scene=21#wechat_redirect>)[有关提高"Biomamba 生信基地"运行效率事宜](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486435&idx=1&sn=c61124eb7c0fd6cc0eaefb639b551092&chksm=9b3f72b3ac48fba5c0091fd843c98d504d4aefe0ba01a2fed966f897f58d8924ace8df07955e&scene=21#wechat_redirect>)
 [生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247489314&idx=1&sn=fe66765836fe0d7b3450b30117415ce8&chksm=9b3f6e72ac48e7642725b22bafbece9c37277f56e3958be57d9702240c3b63dbeb1aedf61cf9&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

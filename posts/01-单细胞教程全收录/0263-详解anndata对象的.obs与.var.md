@@ -138,7 +138,7 @@ normalizing counts per cell
     finished (0:00:00)
 ```
 
-**![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMKepWacG4vN95ILnM2WOia0tzBDOWHlZJRL5wDBjicqHzMhqFoT2NFwaA/640?wx_fmt=png&from=appmsg)**
+**![No description has been provided for this image](../../images/878b64963b76f520.webp)**
 
 **
 **
@@ -169,7 +169,7 @@ AnnData object with n_obs × n_vars = 2700 × 13714
 sc.pl.violin(    adata,    ["n_genes_by_counts", "total_counts", "pct_counts_mt"],    jitter=0.4,    multi_panel=True,)
 ```
 
-**![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMJ30Nj9T5yzvhjfnyJtZLQIehWGzM1HJKV1WRloYnA9eeyNhVwr4SuA/640?wx_fmt=png&from=appmsg)**
+**![No description has been provided for this image](../../images/5f855e0a82c0ef48.webp)**
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -190,7 +190,7 @@ AnnData object with n_obs × n_vars = 2638 × 13714
 # 查看过滤后的质量sc.pl.violin(    adata,    ["n_genes_by_counts", "total_counts", "pct_counts_mt"],    jitter=0.4,    multi_panel=True,)
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMzFupur3wMZVvBO4qzObIgMqKEbgqzvlUmxfqiaaIJLWdEoUdF1RjdUg/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/b85d7fa24419825a.webp)
 
 ## **
 **
@@ -235,7 +235,7 @@ extracting highly variable genes
 # 绘制高变基因plt.rcParams['figure.figsize'] = (6, 5)  sc.pl.highly_variable_genes(adata)
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMRHdRdthnGjWMIL9vwXRXfqX5Tvzj7D7KmvwZj5zcfQuJgqeYen7uIA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/5f785d91254550e6.webp)
 
   *   *   *   *   *   *
 
@@ -267,7 +267,7 @@ computing PCA
 # 让我们检查单个 PC 对数据总方差的贡献。这为我们提供了有关我们应该考虑多少 PC 以计算单元格的邻域关系的信息，例如用于聚类函数或 tSNE 。sc.pl.pca_variance_ratio(adata, n_pcs=20)
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMKsKouDkb1d7icticSfzH61iaqjmYE7DBSoibM16GMeC22ia6qReiaLlpkbsA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/c0b24aa6b453ee49.webp)
 
   *   *   *   *   *
 
@@ -301,7 +301,7 @@ computing UMAP
 sc.pl.umap(adata, color="leiden")
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMEEInicmic5JjIlKHMWWbxiavDUmHCl0oJhic2PPwxK4KOSXzZibiaiajotjPg/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/86c59417cafc0a16.webp)
 
 **4\. adata.obs的变化**
 
@@ -331,7 +331,7 @@ scanpy生成的adata对象不仅可以保存表达矩阵，每个细胞（如样
 # 细胞注释信息adata.obs
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMtCOmQDgRIofuEvTmztJbgImZVgfxfuR9FvfWvE7LIGAw5KUorAtCYA/640?wx_fmt=png&from=appmsg)
+![](../../images/dacdf6a119f898b5.webp)
 
   *   *
 
@@ -339,7 +339,7 @@ scanpy生成的adata对象不仅可以保存表达矩阵，每个细胞（如样
 # 基因注释信息adata.var
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMfI5G2M5HM0icicmiaI29I0tPEib7C3kKtGey7wlxibqGEZRVNwGhz4kIhkw/640?wx_fmt=png&from=appmsg)
+![](../../images/c292e3977eb02424.webp)
 
 ## **
 **
@@ -598,7 +598,7 @@ AnnData object with n_obs × n_vars = 2700 × 13714
 adata.var
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnxKiaziaQLpTHVibBzTNBmicpnvDtsGG7ae6h7ribUwibTlD3wgnHFBU5O0P2eHEO0kl8oHLbiaXCZvJaDWch8dHbI7Z43icncQsHPIe8/640?wx_fmt=png&from=appmsg)
+![](../../images/c422af42259be8fe.webp)
 
 分析到这里，我们的第一个主角终于出现了，我们以第一个基因AL627309.1为例，他的mean_counts数值为0.003333。这个其实是比较简单的，我们可以从一个简单的数学上的除法运算计算得到。通过这个列名我们可以推测下mean_counts列应该是计算了当前的基因AL627309.1在所有细胞中的平均counts数目。
 
@@ -695,7 +695,7 @@ AnnData object with n_obs × n_vars = 2638 × 13714
 adata.var
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwEoDVhM9sSUm17UJ7bSibSMTUDspGXkARNAdicg4ecnqg903DS96fpoLcaiatjmt2KW0oLvGnIjxIqw/640?wx_fmt=png&from=appmsg)第二位主角means则出现在sc.pp.highly_variable_genes高变基因计算完成后。means其实也是表示基因在所有细胞的平均counts数目。但是由于这里我们再次基于线粒体基因表达比例对于对于adata对象进行了过滤，所以我们的细胞数目有了新的变化。我们还是以AL627309.1为例，它的means数值为0.003412。
+![](../../images/64ef8bb674ec42d0.webp)第二位主角means则出现在sc.pp.highly_variable_genes高变基因计算完成后。means其实也是表示基因在所有细胞的平均counts数目。但是由于这里我们再次基于线粒体基因表达比例对于对于adata对象进行了过滤，所以我们的细胞数目有了新的变化。我们还是以AL627309.1为例，它的means数值为0.003412。
 
   *   *   *
 
@@ -745,7 +745,7 @@ AnnData object with n_obs × n_vars = 2638 × 13714
 adata.var
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmiaopkToW1FnJqbg7pK1oVa8ibMricKyJgtNp6GRB8FOweGtSOgriapIwy9oMibqRIEr8Ewe7hbREgCWuebgGia3hEkic3nINujoAywU/640?wx_fmt=png&from=appmsg)
+![](../../images/2a8c4ef358d84a8e.webp)
 
 最后一个mean出现在sc.pp.scale计算完成后，那么mean数值应该至少是和sc.pp.scale计算步骤有关。官方解释为Means per gene before scaling。也就是mean为scaled层计算这个基因在所有细胞的表达量的均值，尤其要注意这里的scale由来，我们这里来源于adata.layers["scaled"] = adata.X.toarray()这一步骤的赋值过程。
 
@@ -775,15 +775,15 @@ mean_counts、means和mean分别来源于sc.pp.calculate_qc_metrics、sc.pp.high
 
 一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmhkj45qgWOm55Ls72ZCZf3QPtofxoKMicRbfQbeC83qthvnYHTbfktFwHO2ltlzS4DQiaq20bWGfIbE19hHM1Qa27k8QicPZobib8/640?wx_fmt=png&from=appmsg)
+![](../../images/c78597ce842d2c35.png)
 
 通过网盘分享的文件: https://pan.baidu.com/s/1ou3GyYT44BHWyYHYm0Hpvw
 
 提取码: 1e2d
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmWquhHgdGWKLZvp5qASTJvmC930n0OfFudicn6Xrr6BfnIwmSTPyjCDn8o0KRyhaaX2GHJmxftOSV8V82Aa4Byia5gjib67QraW8/640?wx_fmt=jpeg)
+![](../../images/84684c0a93bc12e2.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=webp#imgIndex=77)
+![图片](../../images/e7d42502e5e05d49.webp)
 
 **欢迎致谢**
 
@@ -816,14 +816,14 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=webp#imgIndex=78)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=8)
+![图片](../../images/b72efad356694eee.webp)![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=9)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=10) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=24)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/5410a3694ae767a6.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

@@ -28,10 +28,10 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 本研究提出一种名为桥接整合（bridge integration）的方法。该方法利用多组学数据集（同时测量不同模式的单细胞数据集）作为桥梁，整合单细胞测序实验中测量的不同模式（"单模态数据集"）。Fig 1a 通过分子桥梁跨模态集成(中间的框列出了可用于生成桥梁数据集的替代多组学技术)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOG00qNgfKZzeX8t1Dyq34ZNwLJHiaxrlBcFiaraIrBPJ9v4V8Ew7kw6Ntw/640?wx_fmt=png&from=appmsg)
+![](../../images/654c5f6ec9e831ec.webp)
 
 例如：scRNA-seq数据和DNA甲基化的两种模态的数据可以利用snmC2T得到的多组学数据集进行映射整合。（nmC2T 是一种单细胞甲基化测序技术，用于分析单个细胞的DNA甲基化模式。该技术结合了单细胞测序和DNA甲基化测序的方法，可以揭示不同细胞之间的DNA甲基化差异，并探索细胞类型和发育过程中的表观遗传调控机制。）
-Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGP91g0qfqr1XwAI4MPlIftBCG7ricrJZPYeWPmeymka4IkfXpOd3iaibIw/640?wx_fmt=png&from=appmsg)
+Fig 1b桥梁集成过程中每个步骤的数学示意图![](../../images/badbcdcf7bed5778.webp)
 
 利用多组学数据集作为桥梁，帮助在不同模态之间进行转换。为了进行这种转换，作者受到了字典学习领域的启发，字典学习是一种常用于图像分析和基因组学中的表示学习形式。在传统字典学习中，原子表示一组特征。与传统字典学习不同的是，在本研究中作者使用单个实例（细胞）作为字典元素。需要注意的是：不对模态之间的关系做任何假设，因为这些关系是从多组学数据集中自动学习的。
 
@@ -41,20 +41,20 @@ Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.
 
 作为人类生物分子图谱计划（Human BioMolecular Atlas Program，HuBMAP）的一部分，作者利用公共数据集构建了一个全面的人类骨髓单个核细胞（BMMCs） 的 scRNA-seq 参考数据（'Azimuth reference'；297,627 个细胞），并仔细注释了 10 个祖细胞和25 个分化细胞状态（图2a）。图b是来自Granja等人的BMMCs scATAC-seq查询数据集的UMAP可视化。利用“桥接整合”技术将人的BMMCs scATAC-seq查询数据集（2b）映射到参考数据集（2a）中，实现了scATAC-seq和scRNA-seq数据的联合可视化（2c）。这里桥接的分子桥梁是一个包含 32,368 个细胞的 10x 多组学数据集。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGAHp22KzpxNG2okKKQuI9fcLBOb1jW0u7LkbiarLdcPibYbMb0ThMIoUQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3be9595255485f6c.webp)
 
 作者发现桥接整合可以注释额外的罕见和高分辨率亚群。例如，作者的注释将单核细胞分为 CD14+ 和 CD16+ 亚群，将自然杀伤细胞分为 CD56bright 和 CD56dim 亚组，将细胞毒性 T 细胞分为 CD8+ 和粘膜相关不变 T（MAIT）细胞亚群。虽然这些细分在无监督的 scATAC-seq 分析中没有被发现，但作者通过在参考数据集的注释下观察到经典位点的差异可及性来确认这些预测结果（图2d、e、f），预测的细胞标签与预期的可及性模式一致。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGx7U5awn3cVhlibFRZHM4k5iagvj8mOurDlHF8YUGm1tBQ8cib4oiaRSARA/640?wx_fmt=png&from=appmsg)
+![](../../images/40b577b358a07729.webp)
 
 通过将多个模态的数据集投影到一个共同的空间中，参考映射过程不仅可以实现注释的转移，还可以探索一个模态的变异如何与另一个模态的变异相对应。例如，在整合后，我们对协调的测量数据应用了扩散映射，以构建跨越髓系分化过程中多个祖细胞状态的联合分化轨迹（图2g）。由于这条轨迹代表了参考和查询细胞，我们可以探索伪时变异在染色质可及性和基因表达之间的相关性，尽管这两种模态是在不同的实验中测量的。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGj0W1dx8U3T96h7M5dBDibsL0DPKfEXGNeaQ5A1vXJOmv0N0XEKVsKfA/640?wx_fmt=png&from=appmsg)
+![](../../images/8e230d4b6ae4a55a.webp)
 
 与先前的研究结果一致，作者发现基因表达的变化在染色质可及性的变异之后出现。例如，虽然髓过氧化物酶（由MPO基因编码）在粒-巨噬细胞祖细胞（GMPs）中表达，并与髓系命运决定相关，但其上游调控区域在淋巴亲和多能祖细胞（LMPPs）中获得可及性（图2h-j）。作者使用基于互相关的指标系统地在该分化轨迹上鉴定了236个“滞后”位点。KEGG通路富集分析显示，这些位点中涉及细胞周期和DNA复制的基因呈强烈富集（图2k）。这些位点在分化的最早阶段（HSCs）具有可及性的染色质特征，但相关基因在转录活性上存在一定的延迟（图2l）。在最早的祖细胞中，这些位点的可及性状态可能代表了一种预先准备，以便在做出分化决策后能够迅速进入细胞周期，并且可能代表了通过模态整合分析可以实现的发现类型。**
 **
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOG4ia6dSPkHdWJhzYAciaEDib4aKIPcKarfguxbbGtlKXCyibUSr5Nkgrsjg/640?wx_fmt=png&from=appmsg)
+![](../../images/27fd80c98d111a2e.webp)
 
 （ Fig 2h：观察到MPO基因表达动态与上游调控区域的可及性动态之间存在“滞后”。（在i中用黄色框标出）。Fig 2i：MPO调控位点的染色质可及性。在多能LMPP阶段，突出显示的区域变得可及。Fig 2j：MPO在RNA水平上在髓系承诺的GMP阶段高度表达。("髓系承诺"（myeloid commitment）指的是造血干细胞（HSC）分化为髓系细胞系（如粒细胞、单核细胞、红细胞等）的决定性步骤。)Fig 2l：六个与细胞周期相关的基因的伪时间函数中的平滑染色质可及性水平（红色）和相关基因的滞后表达（蓝色）。）**2、****桥接整合的稳健性、基准分析和灵活性 (Fig3)**
 
@@ -62,19 +62,19 @@ Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.
 
 按顺序对多组学数据集进行了降采样（ _指通过减少数据样本的数量来减小数据集的规模_ ），重复进行桥接整合，并将结果与原始发现进行比较。结果显示，桥接数据集中至少包含代表给定细胞类型的**50** 个细胞（原子）足以实现稳健的整合（3a）。这一发现提供了在进行多组学实验时协助实验设计的指南。另外，在保持最低阈值的同时，大幅改变桥接数据集中细胞类型的相对组成并不会对性能产生负面影响，这表明桥接整合甚至可以在生成多组学桥接样本时存在明显的组成差异的情况下成功实施（Supplementary Fig 2a-b）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGUcmCFu0ZooqTUtGKdBqtFnianXtQLLZDf7NgR65GvEopWGx07FwdHyA/640?wx_fmt=png&from=appmsg)
+![](../../images/2bdf0ffd63897a16.webp)
 
 ② 将“桥接整合”方法与其他整合方法（MultiVI49、Cobolt50）进行对比
 
 **比较1** : 分别用这3种方法整合scRNA-seq和scATAC-seq数据，结果显示MultiVI49、Cobolt50法未能在相同分辨率上进行匹配（例如，两种方法都未能成功将scATAC-seq数据中的ASDCs与Azimuth参考中的ASDCs进行匹配）。相比之下，桥接整合方法的脊线图显示了两个高脊线，表示ASDCs的可及性在染色质上的变化更为显著。这表明桥接整合方法能够更好地捕捉到ASDCs的可及性异质性或在不同基因组区域的变化。且在比较计算效率时，桥接整合（0.8小时，不包括1.2小时的预处理时间）和Cobolt（3.3小时）是最高效的方法，而multiVI则需要更多的计算资源（15.7小时）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGuYF3wtmDeTF7svibu7pQYCdpian9BkCcI2zpjib1PzlKqVVf3KKWN8vBA/640?wx_fmt=png&from=appmsg)
+![](../../images/9b40009595a3226d.webp)
 
 （脊线图表示细胞的染色质可及性的相对强度或水平。脊线高度越高，表示染色质在该位置上的可及性越强，染色质更加开放。）
 
 **比较2** : 对多组学整合方法（桥接整合、Cobolt和multiVI）进行了定量基准测试**基准测试1** ：结果显示“桥接整合”最一致且最有效地将不同模态下的细胞匹配到相同的生物状态（左上）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGiaYDDK2srfHq4vJBhUd4iclicxdHSrHnjcvJZjcmcx16vqrv1tIeNdT1g/640?wx_fmt=png&from=appmsg)
+![](../../images/b3b1d9f1089c20d2.webp)
 
 **基准测试2** ：采用了最近发表的Paired-Tag数据集，该数据集使用scCUT&Tag同时测量了个体的组蛋白修饰结合谱和RNA转录组。对活性组蛋白修饰标记（H3K27ac）、抑制性组蛋白修饰标记（H3K27me3）和增强子组蛋白修饰标记（H3K4me1）的scRNA-seq和scCUT&Tag进行了跨模态整合。在每种情况下，桥接整合成功地将细胞在不同模态间进行整合，并返回了匹配的scRNA-seq和scCUT&Tag谱之间最高的Jaccard相似性和分类指标（右上及下方2张图）。
 
@@ -82,7 +82,7 @@ Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.
 
 为了进一步展示该方法的灵活性，使用桥接整合来映射和注释一个snmC-seq数据集，该数据集测量了人类皮层中单个细胞的DNA甲基化谱。作为参考，我们使用了Allen脑图谱中的一个数据集，该数据集定义了人类皮层中经过专家精心策划和多级别细胞本体论。使用snmC2T-seq数据集作为桥接，该数据集同时测量了甲基化和基因表达，对snmC-seq谱进行注释。即使基于参考的注释没有提高snmC-seq数据的无监督聚类分辨率，它们仍然增加了相当大的可解释性（Fig 3d-f）。例如，无监督聚类识别出多个层6（L6）神经元亚群（标记为L6-1、L6-2和L6-3），但通过RNA辅助注释，这些聚类被清晰地标记为“近投射”或深层新皮质6b兴奋性神经元（Fig 3f）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGlJCTt8GQTFWxSaPZPMHHicyJbSkPmrYKtr9zQCgaicWWZviauC5HEzVww/640?wx_fmt=png&from=appmsg)
+![](../../images/da47909e5516b7be.webp)
 
 （Fig 3d: 人类运动皮层的scRNA-seq参考数据集；Fig 3e-f: 使用snmC2T-seq多组学数据集作为桥梁将人类皮层细胞的单细胞DNA甲基化轮廓进行映射。细胞按照原始研究中的甲基化注释（e）或桥梁集成得到的scRNA-seq注释（f）进行着色）
 
@@ -97,7 +97,7 @@ Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.
 
 作者受到了先前关于“几何素描”（指的是一种从数据集中选择代表性细胞的方法）的工作的启发。该方法首先在所有数据集中选择一部分代表性细胞（称为“素描”），将它们进行整合，然后将整合结果传播回完整数据集。这种开创性方法大大提高了整合的可扩展性，因为计算量最大的步骤集中在数据的子集上。然而，此方法依赖于首先在完整数据集上进行的主成分分析（PCA）的结果。随着数据集规模的不断增长，进行降维可能成为限制性步骤。因此，作者目标是设计一种策略，能够整合大规模的数据集合，而无需同时分析或对全部细胞进行密集计算。这里作者提出将字典学习与素描技术进行结合：首先从每个数据集中选择了一个代表性的细胞素描（即5,000个细胞代表），将这些细胞作为字典中的原子，利用原子的加权线性组合，可以重建整个数据集（注意这里使用的是杠杆得分采样进行素描）。由于只考虑原子，因此不会带来可扩展性的挑战。将先前学习的字典表示应用于每个数据集的整合原子，并为整个数据集重建整合的配置文件，这一过程称为“原子素描整合”。需要强调的是，这里的“原子”代表数据集本身的一个代表性的细胞子集。相比之下，在桥接整合中，原子指的是来自不同（多组学）数据集的细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGibtXsz9W6Gly9Lzr2VAlplSmgZvTibqsAScaJUOWe5XibKlrSRXMb4xAQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3803e4cf5381af1e.webp)
 
 （原子素描图集成过程的示意图）
 
@@ -109,11 +109,11 @@ Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.
 
 ①与个体分析相比，结果展示了社区级整合的优势。首先，通过在数据集和技术之间匹配生物状态，整合的参考可以帮助标准化细胞本体和命名方案（Fig 4b、c）。（且使用原子素描图集成在55分钟内实现了数据的协调，速度很快）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOG0AkMhlx3mXERSF7qxYTDoenX0ibRFEGr7zqxXSck7ribzqdETMNg9jbg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGLib4WeQ0iauzptiaXBR5CxUwCRjB9dLFWj67bDxRdDUOZSqMQhvXU0bSQ/640?wx_fmt=png&from=appmsg)
+![](../../images/54d701dde813c3b6.webp)![](../../images/a7859307ced6a8cb.webp)
 
 ②社区级整合能够一致地**识别出超稀有的细胞群体** ，尤其是在最近发现的在人类和小鼠肺中表达Foxi1的“**肺离子细胞”群体** （Fig 4d，FOXI1，肺离子细胞的转录标记）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGhJdmmTTwzYqb2iaibopXxEoNCI26xEENL2qwgvkibbPXf5AOkJO2GKjiaA/640?wx_fmt=png&from=appmsg)
+![](../../images/5636c256d3fbe019.webp)
 
 值得注意的是：通过素描或**杠杆得分采样** 选择字典原子对于获得最佳性能是至关重要的；如果使用通过随机**降采样** 确定的原子集进行重复分析，可以成功整合丰富的细胞类型，但无法整合离子细胞，因为它们在字典中的表示不够充分。
 
@@ -121,31 +121,31 @@ Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.
 
 作者按照样本复制品和细胞类型身份对细胞进行分组，并对得到的伪批量（pseudobulk）配置文件进行差异表达分析（Fig 4e）。确定了116个肺离子细胞的阳性标记物，代表了对该细胞类型的最深入的转录特征描述。这些标记物包括转录因子FOXI1等典型标记物，但还揭示了ATP酶（例如ATP6V1G3和ATP6V0A4）和氯离子通道（例如CLCNKA、CLCNKB和CFTR）的显著本体富集，支持了这些细胞在调节肺部化学浓度中的作用（图4f）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGYGXLUbCLz2sNcf0ziaKeqjAfDGI9zwibJz4OAHhib8nGTFdv2ibyIRn05Q/640?wx_fmt=png&from=appmsg)
+![](../../images/8b819aef3d3254a4.webp)
 
 另外，使用伪批量值的一个优点是增加了低水平基因表达的定量准确性。事实上，反复发现使用这种策略找到的顶级差异表达标记物往往能够捕获更多在较低平均表达值范围内的基因（Fig 4g）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGwd6QFXZEoOFw1b57CbfGMeC6reQzwoicMVZOrYJZpnAU5mgjHibP10Mg/640?wx_fmt=png&from=appmsg)
+![](../../images/7ee8aca37139cb2d.webp)
 
 **4、**单细胞RNA测序和质谱细胞成像技术（CyTOF）的社区级整合****
 
 最后，作者对体外周血液细胞进行社区级整合，通过探索公开可用的COVID-19样本或健康对照组的研究，收集了14个包含单细胞RNA测序数据的研究，总共涵盖了639个个体的346万个细胞。其中11个研究的数据是从最近发布的标准化单细胞测序数据集合中获取的。对这些测序数据进行原子素描图整合，鉴定出30个细胞状态（Fig 5a）。并发现与先前的报告一致，COVID-19样本中的单核细胞显著上调干扰素应答基因的表达（Fig 5b）（30个细胞的scRNA测序数据集构建成功）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGFMicPVnG89o85Diatjc2nqPbZboAuY0w5NYY13wHNU2k3Piaq5osBpMhQ/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGyKbLZDETF4G7nec6iaicpEeDC6IWSxhrsKZvYS8hSpzB0HCqoZN1rnVA/640?wx_fmt=png&from=appmsg)
+![](../../images/7c985958ad4d9be6.webp)![](../../images/1ee777f27102eba2.webp)
 
 单细胞测序技术能够在数千个单细胞中测量RNA转录本和细胞表面蛋白，而基于细胞学技术的方法（cytometry-based techniques，例如CyTOF）能够在数百万个细胞中测量细胞外和细胞内蛋白。作者获取了一个包含119个个体和总计5,170,249个细胞的CyTOF（蛋白质水平的飞行细胞术）数据集，利用之前收集的161,764个来自健康捐赠者的外周血单核细胞（PBMCs）的CITE-seq（一种综合了转录组和表位组分析的单细胞测序技术）数据集作为多组学桥梁，将CyTOF数据集映射到scRNA-seq数据集上（注：CyTOF和CITE-seq数据集都共享30个细胞表面蛋白特征，而CyTOF数据集还测量了17个独特的蛋白质，其中包括无法通过CITE-seq测量的细胞内靶标。）：
 
 ①桥接整合将每个CyTOF数据集与scRNA-seq数据集中的聚类标签进行了注释，该数据集包含了3,460,000个细胞，并且能够推断出每个聚类的细胞内蛋白水平（Fig 5c）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGSiavzw9vOupsxMKq4cyvsSibtWVtwBIrKT4iab5ibj5eV0xyia2VNWzYIrA/640?wx_fmt=png&from=appmsg)
+![](../../images/4f833b7f9720c6c3.webp)
 
 ②调节型CD4+ T细胞表达高水平的转录因子FOXP3，而效应T细胞则显示富集的KLRG1水平（Fig 5d）。以及在细胞毒性淋巴细胞群体中，MAIT细胞独特地缺乏细胞毒性蛋白酶粒酶B的表达。这些都说明了这种跨模态映射的准确性。
 
 ③最后，成功地注释了一种罕见的ILC（0.024%），这种细胞在CyTOF数据集中没有独立识别出来，但正确地表现出CD25+ CD127+ CD161+ CD56−的免疫表型（Fig 5d-e）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGnle7wWjQSFgrxibBOqgRXZ11Xju1g0t1OvdmtdYicHUicKT7Q9kfAsdHA/640?wx_fmt=png&from=appmsg)
+![](../../images/655a82ccfdbc5ac5.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprO0mfB6EtRiaVZK4g4bGgUOGjJAJ1BPTu4icvPSH0DgSIMicTQicTpPaCiaB2AicguiaSorugtwpVEEmLPOg/640?wx_fmt=png&from=appmsg)
+![](../../images/8e1853da0c498283.webp)
 
 **D**iscussion****
 
@@ -153,17 +153,17 @@ Fig 1b桥梁集成过程中每个步骤的数学示意图![](https://mmbiz.qpic.
 
 如果大家还是抵触Seurat的更新，可以考虑换回原来的版本：[在Rstudio中使用同一个R包的不同版本](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505248&idx=1&sn=a8ac5af6f8827019c15b30be3490a64d&chksm=9b3cac30ac4b2526697877572b49323d499d705f697135fc2fbd1e6a6c2a77a6041e90056581&scene=21#wechat_redirect>)，或者直接考虑转战Python：[scRNA-Seq学习手册Python版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504877&idx=2&sn=2b56a9cfa19fcc918ee6c2ed88fed017&chksm=9b3caabdac4b23ab6e28425a4a5eb4d40ee3612e51f84f5d1e53ac91bef93f717e9e754398e3&scene=21#wechat_redirect>)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

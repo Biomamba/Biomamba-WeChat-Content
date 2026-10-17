@@ -1,6 +1,5 @@
-# 抓取的原始中间产物，不入仓库
+# 抓取的原始中间产物，不入仓库（脚本与中间预览）
 raw/
-*.html
 
 # Python
 __pycache__/
@@ -13,6 +12,9 @@ Thumbs.db
 
 # 私有：本地工作记忆，不入公开仓库
 .workbuddy/
+
+# 本地推送断点续传标记，不入仓库
+.push_state.json
 
 # 含明文 token 的推送脚本，勿入库
 scripts/git_api_push.py

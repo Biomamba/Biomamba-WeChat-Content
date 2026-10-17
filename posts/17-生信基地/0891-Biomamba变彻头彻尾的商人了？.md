@@ -10,16 +10,16 @@ albums: ["生信基地"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537525&idx=1&sn=5cb1707fd94611113ce41cbdfe145af5&chksm=9b3c2a25ac4ba3332a20930389cd46dc4f9c22f52cc53ce324e01b0588809df72b3f0c48841a#rd
 > 合集：生信基地
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 君子爱财，取之有道
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)最近又被喷了，大概就是要免费拿我们的资料，也不愿意帮我们转转推送，我们提供稿费也不愿意置换。。。怎么说呢，类似情况以前也遇到过：[想钱想疯了？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529315&idx=1&sn=df2cf4c0fa3411889c558229f4068a8c&scene=21#wechat_redirect>)。显然让他免费上班他是不会愿意的。![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnyPps6tUzgDcVSMcRJDev2MLBABY4D2bel8fGyGJfOUEPibZJQiaGibabKCnhF9nxSDE8SMPB5oia4eMRXwwEUBsRe3aSyqsmdYyw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnSvFwYicTNjsKAsoaugsleoVYzDruv2XGpB2SS1zTsBoCs6HTOicx6jBvauVFEfbwYuS3WQoydeSbU4gnJ9ggUS1dhtZ0Ttz4AY/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkDSJBfQgQAFOEDe9U3HVp44DUHPI2rSibcCibxhnL4qEbtcInUMR5yQldkPWsO61DkSMEnWzysNjSdL34DibowBBUfqRxicTt9AzI/640?wx_fmt=png&from=appmsg)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)最近又被喷了，大概就是要免费拿我们的资料，也不愿意帮我们转转推送，我们提供稿费也不愿意置换。。。怎么说呢，类似情况以前也遇到过：[想钱想疯了？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529315&idx=1&sn=df2cf4c0fa3411889c558229f4068a8c&scene=21#wechat_redirect>)。显然让他免费上班他是不会愿意的。![](../../images/e40ce63f7832ef63.webp)![](../../images/7a59a78bf8b876ec.webp)![](../../images/3816466ea507b10b.webp)
 Biomamba生信基地2020年创建，一直以来的初衷就是帮大家降低生信学习门槛——为大家整理系统且详实的干货内容，省去东搜西找的麻烦，最大程度帮大家节省宝贵的时间成本。我们用心打磨的每一份内容，都值得被更多人看见。现目前我们公众号大多数推文和视频是免费的，相信足够你完成很多常见生信流程的学习。我们的B站也有很多手把手的生信教学：
 
 https://space.bilibili.com/484326544
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnRy4IDkiaOCKdgPD7e8ALXFPAM0JrB3KMXsTZ68iaaicFZezqzbKe1T8qXuDTDoPREI4ophBib2qjbfrE16mvTmWH5KFAL0NqUB4Y/640?wx_fmt=png&from=appmsg)
+![](../../images/f76e468fe0f5b024.webp)
 
 平台当然也有付费板块，大家按需下单就好：[培训课程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536399&idx=2&sn=6c73155a0393ed9c246fee69cb06341f&scene=21#wechat_redirect>)、[订阅资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)。
 [培训课程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536399&idx=2&sn=6c73155a0393ed9c246fee69cb06341f&scene=21#wechat_redirect>)实打实的定价，不搞虚的。除配套的学习手册、代码脚本、测试文件与专项练习题外，还提供三年内课程答疑、直播复听，永久回放；同时配备[开箱即用的分析环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)，三个月SHPC共享特惠版[服务器](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535166&idx=2&sn=431238cb95bd4281424130333f6610c3&scene=21#wechat_redirect>)使用权限。我们甚至可以出了[先学习、后补票的支持政策](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537006&idx=1&sn=ce26abe79d33368befb40ae443c94692&scene=21#wechat_redirect>)，不设过高门槛，以学习效果为先，让每一位有需求、肯努力的伙伴都能无压力接触我们优质[生信课程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536399&idx=2&sn=6c73155a0393ed9c246fee69cb06341f&scene=21#wechat_redirect>)。
@@ -29,17 +29,17 @@ https://space.bilibili.com/484326544
 我们始终接纳所有声音，好评与建议我们悉数收下，批评与指正我们也认真反思。甚至还可以给大家提供些小礼物：[单细胞/空转鼠标垫](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536366&idx=2&sn=3026d3901bf0c82677d411366e48b9fa&scene=21#wechat_redirect>)、[进十七群赢工具书《R语言学术图表绘制》](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537463&idx=2&sn=9665b73c8097d2425c48f73473be156a&scene=21#wechat_redirect>)
 
 —Biomamba
-与之对应的，我们收到的更多是感谢支持我们的好评![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnGMI71zGSavVJVgrluuaBBJoZA0keGfNWC0ZVEex6B1t8ib6Eib9C6UkFxNQDcPUJSdmTooQbNl02sUuLY4gZOoE3NRuLqI2PBM/640?wx_fmt=png&from=appmsg)
+与之对应的，我们收到的更多是感谢支持我们的好评![](../../images/4b95c01650982ae6.png)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/f74ae4c6b8127d36.webp)![图片](../../images/c33e327c8d66af99.webp)
 
 培训课程
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)
 
 我们的培训课程主要有：[生信小白入门课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526126&idx=1&sn=ab205f18c19b5b98b4b59b6c89b394ec&scene=21&token=1721358726&lang=zh_CN&poc_token=HKPDT2mjZ1EjCfBM7QtZoCWK39OO-kMAipOkd4-p#wechat_redirect>)、[R语言入门课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528126&idx=2&sn=668c2709891956b567b316f9f2fb26ea&scene=21&click_id=2&token=1721358726&lang=zh_CN&poc_token=HNPGT2mjdx6snIb3sfaprsNlMqyNmwUUEDKM1wpf#wechat_redirect>)、[Python入门课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537399&idx=1&sn=d14c7987d1384fe133094748844b8d59&scene=21#wechat_redirect>)、[R语言scRNA-seq基础课](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=1&sn=e988a2172618fd6f609575294db9a44f&scene=21#wechat_redirect>)、[R语言scRNA-seq小白全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535927&idx=2&sn=86947f0522de0d9785865bd24115b002&scene=21#wechat_redirect>)、[Python scRNA-seq全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533067&idx=1&sn=7ef76058cbcf7bd45f58147766c75854&scene=21#wechat_redirect>)、[Python空间转录组全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21#wechat_redirect>)。这些课程均有回放，可联系客服[Biomamba_zhushou]领取资料并进群，另外还有老师答疑解惑。
 
-[![24164d1738215f8e323ea464b6632704.png](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwgEkmwV5JEjY5eOvRCaqERicXoLvvJglTRJO9ibWOMqncNjvs7f8vIHJ2QsYWRxHYMNyOefiaNnCWmg/640?wx_fmt=other&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536399&idx=2&sn=6c73155a0393ed9c246fee69cb06341f&scene=21#wechat_redirect>)
+[![24164d1738215f8e323ea464b6632704.png](../../images/d144427fc21e75ac.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536399&idx=2&sn=6c73155a0393ed9c246fee69cb06341f&scene=21#wechat_redirect>)
 
 Biomamba 生信基地的培训课程
 
@@ -77,18 +77,18 @@ Biomamba 生信基地的培训课程
 
 三大全程班课程内容
 
-[![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl5J8nXFtwicRFpnloIm0SM35bduYDJFiaIzMxypHnTPxtOoegFicW5lUsjdmRcYU4j0DolXEklBZUZF3Z80ibUAvR5VUPicrd3Dde8/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536399&idx=2&sn=6c73155a0393ed9c246fee69cb06341f&scene=21#wechat_redirect>)
+[![](../../images/6b06dd3d09827784.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536399&idx=2&sn=6c73155a0393ed9c246fee69cb06341f&scene=21#wechat_redirect>)
 
 我们后面将会举办更多的课程，大家可以持续关注我们~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/f74ae4c6b8127d36.webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 订阅资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gBfG3zib3otwk9jB93NiaZpM2PeXN6OIW8LXDs7x44QNDqwhar4So9FtA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=3)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)![图片](../../images/a289f64d85927a46.webp)
 
-经常有用户想要提前订阅资料，看来是真爱粉无疑了。既然氛围都到这了，我们就开放[终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)吧。终身订阅用户可以在获得我们未来每年更新合辑的所有资料，不要担心我们不更新，[生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526229&idx=1&sn=0718f1702150ba77a7f7e3beadd6e0ba&scene=21#wechat_redirect>)还有37年的产权，欢迎随时来看看(南京市江宁区，详询客服微信)。大家只要考虑自己会不会一直学习生信![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/newemoji/Yellowdog.png)。
+经常有用户想要提前订阅资料，看来是真爱粉无疑了。既然氛围都到这了，我们就开放[终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)吧。终身订阅用户可以在获得我们未来每年更新合辑的所有资料，不要担心我们不更新，[生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526229&idx=1&sn=0718f1702150ba77a7f7e3beadd6e0ba&scene=21#wechat_redirect>)还有37年的产权，欢迎随时来看看(南京市江宁区，详询客服微信)。大家只要考虑自己会不会一直学习生信![](../../images/f5474f96e421a44a.png)。
 
 目前已有的五个合集总价为935￥（年均187￥，共54个万字以上教程，平均一篇才13￥），1999￥（按四十年算，年均50￥，预计单篇价格低于5￥）即可获得Biomamba生信基地合集终身订阅权限(暂定价格，随着资料增多、通货膨胀，随时涨价)，比小学生的教辅便宜多了。生信基地的任何业务均支持对公，希望加入终身订阅计划的小伙伴可以尽早联系客服微信[Biomamba_zhushou]。
 
@@ -297,9 +297,9 @@ Biomamba 生信基地的培训课程
 
 终身订阅持续更新中~~~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkUw61M3acrTEt6W3sAPdW6HyeV8tpl4M6C3Hz77DdhyybNKaNIciachhImxePuS7xBU0zib2WYsiaMRJXeP4fd7vpW5SvHjicicMT4/640?wx_fmt=png&from=appmsg)
+![](../../images/f3c4c59af8908d15.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/f74ae4c6b8127d36.webp)![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -334,16 +334,16 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/4ec66ccdb832fd05.gif)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fe8ecb8594a1f419.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

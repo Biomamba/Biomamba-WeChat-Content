@@ -18,11 +18,11 @@ albums: ["文献速递"]
 
 抑郁症作为影响全球近5%人口的致残性精神疾病，其发病机制长期是医学研究的难点。全基因组关联研究(GWAS）已发现200多个MDD 风险位点，但 90%以上位于非[编码](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537664&idx=1&sn=b489d118ff5bccb4f3fd3f77cda0ba26&scene=21#wechat_redirect>)区，无法直接解析功能；早期生活压力等环境因素虽被证实可通过染色质可及性影响基因表达，却不知具体作用的细胞类型和转录因子（TF）通路。此前研究多依赖[bulk 测序](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2959853503529910274#wechat_redirect>)，难以区分细胞类型特异性调控异常，而背外侧前额叶皮层（DLPFC）作为调控高级认知与情绪的核心脑区，是解析 MDD 机制的关键部位。正是基于这些研究缺口，该团队首次通过[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)染色质可及性测序（[snATAC-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531908&idx=1&sn=2f094e390621a57853ba17f59f298ebe&scene=21#wechat_redirect>)）结合单细胞基因表达测序（[snRNA-seq](<https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&mid=2247487337&idx=1&sn=ebecc70545804cfe19a2b54793f50a6f&scene=21#wechat_redirect>)），在单细胞分辨率下揭示了MDD 的细胞特异性[调控网络](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537452&idx=4&sn=aed34fd8a1a3a86d157dd4442a1e3854&scene=21#wechat_redirect>)，为破解抑郁症遗传调控难题提供了全新视角。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprNTmqsLjJq0sAkqGvP44Sr1qRpnWics3mdxsH66mfVdJicW34qHoo5d8l9LpcLAJ4s0whbnXFc4PfSw/640?wx_fmt=png&from=appmsg)
+![](../../images/2dcfcdce1d78afd6.webp)
 
 scATAC最新教程可见：
 
-[![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlGpHK1MdSJwIEHT1mLxE9MiaG04tvUPm6KjQWnQZGQRZSaaKWKDSWMrflaJMAv9uJAUWlQXEqE9lLLr51ujbu5do54gsUTLkbw/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540710&idx=2&sn=d2aa44caf5d0e194fb271787ca8da93a&scene=21#wechat_redirect>)
+[![](../../images/566926f1877c5274.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540710&idx=2&sn=d2aa44caf5d0e194fb271787ca8da93a&scene=21#wechat_redirect>)
 
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21&token=827157490&lang=zh_CN&poc_token=HLe6Q2mjR5L5stXqZGOdzOvf2Vk8eTYi05UUYRRy#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469&token=827157490&lang=zh_CN#wechat_redirect>)、自测数据个性化分析辅导、[实验科研服务](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537678&idx=1&sn=578993fdfa060d38c80e2df6fc200c39&scene=21#wechat_redirect>)和[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537678&idx=2&sn=1d329f22e35586dc794ce30aa6bd0ce4&scene=21#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。
 
@@ -40,13 +40,13 @@ ExN1是MDD中染色质可及性变化最显著的细胞类型（FDR<0.05，|logF
 
 在97个显著风险变异（sSNPs）中，14.4%位于ExN1的标记性cCREs，且89%是DLPFC的eQTL/sQTL（影响基因表达或可变剪接）；ExN1的cCREs对MDD遗传力的富集程度最高（P=0.0005），是遗传风险的核心“载体细胞”。在杂合子供体中，MDD-risk等位基因（如rs10210757-C）使ExN1的cCRE可及性降低28%，直接验证了其调控效应，这也印证了非编码风险变异需结合具体细胞类型的调控背景才能明确其致病作用。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprNTmqsLjJq0sAkqGvP44Sr1NJ3hnOxEULBaqiclro3rfXGONdCVOymPDZ3o5Z2Gt61f9ZacyFH53HQ/640?wx_fmt=png&from=appmsg)
+![](../../images/7f622e94e0cdae3f.webp)
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprNTmqsLjJq0sAkqGvP44Sr14HN2e9AJdOIZYTCiaFflmzSOk1AwyDRgA7rnhwKkBMnl4HS79NickT5g/640?wx_fmt=png&from=appmsg)**
+**![](../../images/e3d7ea6c9d5fd3d7.webp)**
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprNTmqsLjJq0sAkqGvP44Sr1jsCfiaNXZeRmakQE664hxhcrfxVNU65hapH1VNbudTiaqI9rrKLQHfYw/640?wx_fmt=png&from=appmsg)**
+**![](../../images/d4f04408a85a31d8.webp)**
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprNTmqsLjJq0sAkqGvP44Sr1k4Lnl9qMuxs4a7WxGJCL6k5EkfWiaOfqQfXtmuIIWatAEcOj66g8zOA/640?wx_fmt=png&from=appmsg)**
+**![](../../images/a46f54e4df89f8ff.webp)**
 
 **三、研究意义与未来展望**
 
@@ -58,13 +58,13 @@ ExN1是MDD中染色质可及性变化最显著的细胞类型（FDR<0.05，|logF
 
 该研究以单细胞多组学技术为核心，从临床问题出发，揭示了抑郁症中关键细胞类型的调控异常机制，不仅为抑郁症的基础研究提供了全新范式，也为临床转化奠定了基础。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=9)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=10)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=11) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532717&idx=2&sn=eb98e578098b9f432ea6ecbdc3c0d74b&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532717&idx=2&sn=eb98e578098b9f432ea6ecbdc3c0d74b&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=12)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=13) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/0afa34cf8c4b5e66.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

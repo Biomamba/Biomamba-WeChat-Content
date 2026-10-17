@@ -27,7 +27,7 @@ albums: ["文献速递"]
 
 随后，研究团队通过**UMAP可视化技术** ，清晰展示了全局数据中血管细胞与其他细胞类型的分布模式（见图 1b,f）。他们还利用**点图和分层聚类分析** ，详细勾勒出血管隔室中主要细胞状态的标记基因特征，以及各器官ECs亚群的异质性（见图 1g,h）。这一系列发现表明，**血管细胞的分子身份和功能状态在不同器官间差异显著** ，为后续研究提供了坚实的数据基础。总之，这幅多器官血管细胞图谱的绘制，不仅全面描绘了健康成人血管系统的细胞多样性，还为探索血管相关疾病的分子机制提供了宝贵的资源。
 
-![image-20250315103201896](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprORHPsSkfmibsEQUTGnLqb724SzbE0MictHibzD3cFEDbwQrhcL3ALiaXaNAHAVUqQb1blZmgrmSib8A8w/640?wx_fmt=png&from=appmsg)
+![image-20250315103201896](../../images/64dff6dad675bf3b.webp)
 
 图1
 
@@ -39,7 +39,7 @@ albums: ["文献速递"]
 
 为进一步验证这些状态的区域性差异，研究团队开展了**轨迹推断分析** ，揭示出从**aorta_coronary_ec** 到**art_ec_1、art_ec_2** 再到**capillary_ec** 的连续过渡轨迹，与差异表达基因模块高度相关（见图 2h,i 和扩展数据图 3c–f）。他们注意到，**SULF1** 的表达沿区域轴逐渐降低，而**NEBL** 在art_ec_2中达到峰值。这一系列证据有力地证明，**动脉ECs不仅在不同器官间共享共同特征，还沿动脉轴呈现出显著的标记物差异** ，为理解血管系统的动态适应性提供了全新的分子视角。
 
-![image-20250315103349050](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprORHPsSkfmibsEQUTGnLqb72clU3TiaNpddtiaYE9yvyAhRiaGyYSzmAZg6KOqlQJRhvWJPQeONWUpHqA/640?wx_fmt=png&from=appmsg)
+![image-20250315103349050](../../images/6a79b97f090e18ca.webp)
 
 图2
 
@@ -83,7 +83,7 @@ albums: ["文献速递"]
 
 通过**亚聚类分析** ，研究者将**毛细血管内皮细胞** （ECs）细分为12种状态，其中一种状态（cap_ec）在大多数器官中共享，而其余状态则表现出显著的**器官特异性** （见图 3a,b 以及补充表 6）。
 
-![image-20250315103511916](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprORHPsSkfmibsEQUTGnLqb72CPQVcsMkCviak3rWkibxNylZEpcAqU62GyfwAKNia3Ht0MqWCxZcGiarRQ/640?wx_fmt=png&from=appmsg)
+![image-20250315103511916](../../images/e5e9252297bfbd6b.webp)
 
 图3
 
@@ -120,7 +120,7 @@ albums: ["文献速递"]
 
 在周细胞隔室中，一般毛细血管周细胞（cap_pc）在器官间共享，以**ABCC9、KCNJ8** 和**RGS5** 表达及**MYH11缺失** 为特征，并表达**AGT** （血管紧张素原），参与血压调节（见图 4c,d）。**中间表型** （smc_pc_intermediate）同时具备**VSMC** 和**周细胞** 特征（PDGFRB、ACTA2、MYH11），并表达**STEAP4** （炎症相关），smFISH显示其在静脉MYH11+细胞中表达更高（见图 4g,h）。scRNA-seq分析进一步揭示，约20%的STEAP4+细胞共表达MYH11和KCNJ8，支持壁细胞跨血管轴连续性（见图 4i）。其他标记物如PROCR、FGF7和CHRDL1也表明其功能多样性（见图 4d,g）。
 
-![image-20250315103539664](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprORHPsSkfmibsEQUTGnLqb72FVCAwkTZlFmWF8GxxvsfkRia7wZIYQ7mronOdKadIay4OKs2XTXEia8g/640?wx_fmt=png&from=appmsg)
+![image-20250315103539664](../../images/b0e97027efa69eec.webp)
 
 图4
 
@@ -144,7 +144,7 @@ albums: ["文献速递"]
 
 研究者们还描述了前列腺素依赖性通讯的器官型差异，在胰腺中 PTGER1和PTGER3信号从ECs传递至周细胞，而在肌肉和脂肪中 PTGER4信号更显著（见图 5f,g）。总的来说，**这些微血管LR相互作用证明了血管型和器官型差异，反映了ECs与壁细胞对微环境的适应能力** 。
 
-![image-20250315103619246](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprORHPsSkfmibsEQUTGnLqb72LgVwDYBgVdohicHEM94eSwhEsUvd843sPcgNVKHmObALkUJkwVZD3Xg/640?wx_fmt=png&from=appmsg)
+![image-20250315103619246](../../images/4bfdfecb59e12274.webp)
 
 图 5
 
@@ -155,15 +155,15 @@ albums: ["文献速递"]
 **四、学习手册**
 
 对scRNA-seq分析及联合分析感兴趣的同学可参考：
-[scRNA-Seq学习手册Seurat V5更新版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519711&idx=1&sn=d25d4f5daf609bda8367f16db676ecf3&scene=21#wechat_redirect>)[生信基地122篇单细胞教程全索引](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528470&idx=1&sn=7f3ced59b2b97bed1ac9df560b11ddd6&scene=21#wechat_redirect>)[25年最新视频|《手把手教你做scRNA-seq数据基础分析》](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528512&idx=1&sn=d316bffcbe59e676cd22248936f07b69&scene=21#wechat_redirect>)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+[scRNA-Seq学习手册Seurat V5更新版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519711&idx=1&sn=d25d4f5daf609bda8367f16db676ecf3&scene=21#wechat_redirect>)[生信基地122篇单细胞教程全索引](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528470&idx=1&sn=7f3ced59b2b97bed1ac9df560b11ddd6&scene=21#wechat_redirect>)[25年最新视频|《手把手教你做scRNA-seq数据基础分析》](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528512&idx=1&sn=d316bffcbe59e676cd22248936f07b69&scene=21#wechat_redirect>)![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

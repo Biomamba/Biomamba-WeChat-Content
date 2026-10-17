@@ -41,7 +41,7 @@ CBNplot是一个2022年发表在《Bioinformatics》(IF=6.2)上的Bioconductor�
 
 其核心原理是：以表达矩阵为输入，通过bnlearn::boot.strength()(默认爬山算法hc+BIC评分)进行bootstrap结构学习，每条边的强度(strength)代表该边在bootstrap中出现的比例，方向(direction)代表有向边的频率，两者共同评估推断的置信度。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwl0gLhUibzAoGjPNRVeWsel0pm4SPQpBw1sWGWJosPIMSpwSA995aymorKwDVeyOIiczEt9wm7GXcHiaGcLI8icm5TseD1X8ts9sL4/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/90bdc05f2e525e72.webp)
 
 [1]Sato N, Tamada Y, Yu G, Okuno Y. CBNplot: Bayesian network plots for enrichment analysis. Bioinformatics. 2022 May 13;38(10):2959-2960. doi: 10.1093/bioinformatics/btac175.
 
@@ -65,7 +65,7 @@ CBNplot是一个2022年发表在《Bioinformatics》(IF=6.2)上的Bioconductor�
 
 学习手册可视化集锦（文末可获得代码和测试文件）：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlELrNRF0ux7knHWdaaIrupFnRIAUh3tHz9Y7TUetOBYCVa7MQJlw7ia3t1PWYPEqcKibAtJ5vHBtD6QmG2yic7oVSW8TdluOUSt0/640?wx_fmt=jpeg)
+![](../../images/f217c91be8e4858b.webp)
 
 **二、 CBNplot官方demo**
 
@@ -161,7 +161,7 @@ options(timeout = 300)  # 延长R的下载超时时间# 重试包装函数：�
 bngeneplot(  results = pway,      # 富集分析结果  exp = counts,        # 表达矩阵(行为基因、列为样本)  pathNum = 1,         # 绘制结果中按p值排序第1位的通路  expRow = "ENTREZID"  # 表达矩阵行名的ID类型)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkCrVHLybJOThIYcUfFb96FLSVV8C00kMhZo0icA7Aj4GQOhxuzT626rZsWOzUgqQ1BYMCiaZyojkANKHhFT6UgLiclGr3Ekicbvok/640?wx_fmt=png&from=appmsg)
+![](../../images/34bdd07b3ccdfa48.webp)
 
 图中边的粗细代表边强度(strength，该边在bootstrap中出现的比例)，箭头代表推断的方向。returnNet = TRUE可以返回用于推断的原始数据框、强度/方向表(str)以及平均网络(av)：
 
@@ -196,7 +196,7 @@ g <- bnlearn::as.igraph(ret$av)head(sort(igraph::evcent(g)$vector, decreasing = 
 bnpathplot(  results = pway,       # 富集分析结果  exp = counts,         # 表达矩阵  nCategory = 5,        # 纳入推断的通路数量(按p值取前5)  shadowText = TRUE,    # 文字加阴影  expRow = "ENTREZID")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwn8G8laQU60hHKiczS0fPNvenkDACj1gbuibYkMBI9UaValxT7VzF2OQjH3KFmODn6XI2OVJCnHj0iaPaJkrF8iavs7ykCdQlqWyibw/640?wx_fmt=png&from=appmsg)
+![](../../images/066c833a018fcde0.webp)
 
 2.3 Custom版本
 
@@ -206,7 +206,7 @@ bnpathplot(  results = pway,       # 富集分析结果  exp = counts, �
 # 高亮hub通路/基因bnpathplotCustom(results = pway, exp = counts, expRow = "ENTREZID",                 fontFamily = "serif", glowEdgeNum = 1, hub = 1)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkS5Auym6XibvZXCBpIFcRQ23RK4z7UuWa5P44o6YbUSrMz0oGYryo5icicGzc5bibb0bmDtL6vjb0aLswbuCe0XSFtIFmGre8nicd4/640?wx_fmt=png&from=appmsg)
+![](../../images/d5960b2c235f1710.webp)
 
   *   *
 
@@ -214,7 +214,7 @@ bnpathplot(  results = pway,       # 富集分析结果  exp = counts, �
 bngeneplotCustom(results = pway, exp = counts, expRow = "ENTREZID",                 pathNum = 1, fontFamily = "sans", glowEdgeNum = NULL, hub = 1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmrq8no2HyBcCyUc64rRjiaRLIlIblwHXa2J2RZMPaRwNStl20zvNRdqYLcfFrSXoULGyVctHGE7Rbqicz9gT1Ey0xMZ6qIJVyoU/640?wx_fmt=png&from=appmsg)
+![](../../images/093e3ac4c698f0e8.webp)
 
 [3]https://bioconductor.org/packages/release/bioc/vignettes/CBNplot/inst/doc/CBNplot_basic_usage.html
 
@@ -258,7 +258,7 @@ library(Seurat)     # 单细胞分析library(dplyr)      # 数据操作lib
 # 计算线粒体基因比例(人源以MT-开头)scRNA[["percent.mt"]] <- PercentageFeatureSet(scRNA, pattern = "^MT-")# 质控前可视化VlnPlot(scRNA, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size = 0)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnKia6OHbCtR089Nq30EAVIM9lVYalvnsvO1JT1AP0Fh0z6ntB4BvhoFqYwVtRCJhjpxKdvjLdbux6ucLW3rxHdg5bbty39Y0dQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9bc8f2081121ee1f.webp)
 
   *   *   *
 
@@ -280,7 +280,7 @@ library(Seurat)     # 单细胞分析library(dplyr)      # 数据操作lib
 scRNA <- NormalizeData(scRNA, normalization.method = "LogNormalize", scale.factor = 10000) # 对数标准化scRNA <- FindVariableFeatures(scRNA, selection.method = "vst", nfeatures = 2000)           # 找高变基因scRNA <- ScaleData(scRNA)                                   # 缩放scRNA <- RunPCA(scRNA, features = VariableFeatures(scRNA))  # PCA降维ElbowPlot(scRNA, ndims = 30)                                # 肘图选择主成分数量
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmSD4ETXNkEFMpc7kQdyHZ3V1iaU1aUXTkapBXsnrWCEHhjTEnRS79ElsH4ohcfkJYV48oAfyK3IKVlp3zpV4wDTOB7gDk9OUyU/640?wx_fmt=png&from=appmsg)
+![](../../images/97ef6496ee579189.png)
 
   *   *   *
 
@@ -305,7 +305,7 @@ scRNA <- NormalizeData(scRNA, normalization.method = "LogNormalize", scale.fac
 scRNA <- RunUMAP(scRNA, dims = 1:10)DimPlot(scRNA, reduction = "umap", label = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnclDphsST5SfSib8M1bXGIuaKSanRK4tMarHwNSHB8icvedX2dW6rX1TlsJUAOBdsDXUTr72ibWeUrSddeomDrn4Qw0TnsnwYrxU/640?wx_fmt=png&from=appmsg)
+![](../../images/47ccdcf01209ffb0.webp)
 
 2.3 细胞类型[注释](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537859&idx=1&sn=cd3f1fff64f2147afb6222d65db4917f&scene=21#wechat_redirect>)
 
@@ -317,7 +317,7 @@ scRNA <- RunUMAP(scRNA, dims = 1:10)DimPlot(scRNA, reduction = "umap", label 
 # 经典marker的小提琴图VlnPlot(scRNA, features = c("MS4A1", "CD79A",     # B细胞                            "CD3D", "IL7R",       # T细胞                            "CD14", "LYZ",        # 单核细胞                            "NKG7", "GNLY",       # NK细胞                            "FCER1A", "CST3",     # DC                            "PPBP"),              # 血小板        stack = TRUE, flip = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkGhyib5TwY9clHbN5Sxu5lZbntQ1RU1MfOGf4cbNgLWQVzICbYH3pria8EXNpFov07HrzjeiafJkT08HOgXibibT4Yib58XcpMaRaoM/640?wx_fmt=png&from=appmsg)
+![](../../images/2921f61c1d079fbb.webp)
 
   *   *   *   *   *
 
@@ -353,7 +353,7 @@ scRNA <- RunUMAP(scRNA, dims = 1:10)DimPlot(scRNA, reduction = "umap", label 
 # 根据marker表达对cluster重命名(例如cluster 3高表达MS4A1/CD79A，注释为B细胞)new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T",                     "FCGR3A+ Mono", "NK", "DC", "Platelet")names(new.cluster.ids) <- levels(scRNA)scRNA <- RenameIdents(scRNA, new.cluster.ids)DimPlot(scRNA, reduction = "umap", label = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnGhdI6K2hIibib9XhIHK041APCfzROYldG5JVbYI2kHQoGzIftiaEYB4TgXxEWztqWrChjiagNxqKibtjEOMqfibyC5KDFj9uwuriaFo/640?wx_fmt=png&from=appmsg)
+![](../../images/fd2c38a85b92521a.webp)
 
   *
 
@@ -422,7 +422,7 @@ ego <- enrichGO(gene = rownames(B.markers),                OrgDb = or
 # 气泡图看一下富集结果dotplot(ego, showCategory = 10) + ggtitle("GO Biological Process")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmAYPyibwCYLhib4zQRLicZRZd6keU85k9RuPc4oZ9SDImUc6fkx3Udq0gF5xfmR3jmUCdDvGd6rWV95Rno7MYWicdvD6Ic8z4D7sA/640?wx_fmt=png&from=appmsg)
+![](../../images/295a379f1b36411d.webp)
 
 3、bngeneplot：单细胞中的通路内基因网络
 
@@ -481,7 +481,7 @@ ego@result[4, c("ID", "Description", "GeneRatio", "p.adjust")]
 bngeneplot(  results = ego,              # GO富集结果  exp = exp_B_entrez,         # B细胞的归一化表达矩阵  expRow = "ENTREZID",        # 行名ID类型  pathNum = 4,                # 绘制"B cell activation"通路  R = 20,                     # bootstrap次数，越大越稳定但越慢  seed = 1,                   # 随机种子，保证结果可重复  algo = "hc",                # 结构学习算法：hc=爬山算法  scoreType = "bic-g"         # 评分函数：BIC(高斯))
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkXibbKeTth5jnMqBAUoLjicGXwZcCqVLXq9c6ApibFCsZic4esJ3OXcxq6aBjE2jicesOeEsKlb8ADhED6G2icrb10Th9Uvv7fvI1bM/640?wx_fmt=png&from=appmsg)
+![](../../images/8ba522fa30a59425.webp)
 
 可以看到，网络中CD19、MS4A1(CD20)、CD79B等B细胞共受体复合物成员与CD74(MHC II类分子不变链)之间的边强度最高——它们共同介导B细胞对抗原的识别，与”B cell activation”的生物学过程完全吻合。
 
@@ -528,7 +528,7 @@ bngeneplot(  results = ego,              # GO富集结果  exp = exp_
 # hub参数高亮中心性最高的基因，strengthPlot附加边强度柱状图bngeneplotCustom(  results = ego,  exp = exp_B_entrez,  expRow = "ENTREZID",  pathNum = 4,  R = 20,  seed = 1,  hub = 3,             # 高亮前3个hub基因  strengthPlot = TRUE, # 附加边强度柱状图  nStrength = 10       # 展示前10条边)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmJavmAXRibFFvXKhn6WO71buMuHeExGBcD7AmFyBBicx41oib45ltv5QtsQLSOKficgOuF02YYUalCibToAMBJOiapboQ327Nkxia3kg/640?wx_fmt=png&from=appmsg)
+![](../../images/af6ffb553694a0db.webp)
 
 4\. bnpathplot：通路间网络
 
@@ -540,7 +540,7 @@ bngeneplot(  results = ego,              # GO富集结果  exp = exp_
 bnpathplot(  results = ego,  exp = exp_B_entrez,  expRow = "ENTREZID",  nCategory = 10,      # 取p值最小的前10条通路  R = 20,  seed = 1,  shadowText = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkdN3VyPGoQkkG4WyDXBO1phHWiaUEIDP24mdP8ibY4RsYMt3lDNPAorWia9ocZvFBAVQibAeqH2etjbsyQF5AE19yFYZdoMgtKGQA/640?wx_fmt=png&from=appmsg)
+![](../../images/119e727ede10ad02.webp)
 
   *   *   *   *   *   *   *   *   *   *   *
 
@@ -548,7 +548,7 @@ bnpathplot(  results = ego,  exp = exp_B_entrez,  expRow = "ENTREZID",  n
 # Custom版本：高亮hub通路与关键边bnpathplotCustom(  results = ego,  exp = exp_B_entrez,  expRow = "ENTREZID",  nCategory = 10,  R = 20,  seed = 1,  hub = 2,           # 高亮前2个hub通路  glowEdgeNum = 2    # 高亮前2条边)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwn6ypfRHso0UE5yQpwzMU7XcEReNTK43d7nxTNUr5a59WTndau2gluxZDVhaLyZtPJib1rMW6fMWteIZJsj8tGZxkoLWo8zickM0/640?wx_fmt=png&from=appmsg)
+![](../../images/5640e39ad0419104.webp)
 
 5\. 与参考通路数据库比较
 
@@ -594,7 +594,7 @@ library(ReactomePA)# B细胞marker的SYMBOL转为ENTREZIDgene.df <- bitr(rowname
 # 与Reactome参考网络比较(交集部分)bngeneplot(  results = ep,  exp = exp_B_entrez,  expRow = "ENTREZID",  pathNum = 1,  R = 20,  seed = 1,  compareRef = TRUE,             # 与参考通路数据库比较  compareRefType = "intersection", # 交集  pathDb = "reactome"            # 参考数据库)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmqfItYzBJ0eCR0S5TcyfhFdM3pKr08DXSWaICf5998KgUZdt4uzbIwicicEoic5XKVxNRIicxUmu3tVQzoJHYjibthQyKHR3TTMU0Y/640?wx_fmt=png&from=appmsg)
+![](../../images/bc16cbcbf72e59b8.webp)
 
 6\. 结果解读
 
@@ -624,7 +624,7 @@ library(ReactomePA)# B细胞marker的SYMBOL转为ENTREZIDgene.df <- bitr(rowname
 
 本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlMWsia2yI2AMn2fv4FFX5rLurDqKQib3hPYBwib8thCmTckEibIMicQOq7jiatBOgYgP9GnicpOTV9jMk4FmyurPpsxwtL52M5ibQc0a4/640?wx_fmt=png&from=appmsg)
+![](../../images/fd46da1e61fd0505.png)
 
 百度网盘链接: https://pan.baidu.com/s/1sEdiIeK1A3B4zd9dysMyQQ
 
@@ -736,7 +736,7 @@ sessionInfo()
 
 向下滑动查看全部~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -773,9 +773,9 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/4ec66ccdb832fd05.gif)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

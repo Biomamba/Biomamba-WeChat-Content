@@ -10,9 +10,9 @@ albums: ["漫谈胡侃"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538609&idx=1&sn=aa4c3a7e35656f88798edc32096198fe&chksm=9b3c2ee1ac4ba7f771dca656c64e9db8a5ef117bd03d70fd51542c27e49856ea455095226d82#rd
 > 合集：漫谈胡侃
 
-之前做italk教程([iTalk：躺在预印刊的细胞通讯工具](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529428&idx=2&sn=f4a21753d435a90985049b55ddde43cf&scene=21#wechat_redirect>))的时候猛然发现，在你挂上DEG函数时，作者贴心的提示你这一步会花费较长时间，推荐你去冲一杯咖啡。不知道在AI对生信人强冲击的年代([直接让claude code帮我复现单细胞文章](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538182&idx=1&sn=208ab4e0fed3bd49988611ffc95f63ed&scene=21#wechat_redirect>))，加上算力([做生信没服务器？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534639&idx=2&sn=49524e135b3c2a56e061d33b0da5b0e7&scene=21#wechat_redirect>))、算法迭代([fastXXX、rapidXXX系列加速你的单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536940&idx=1&sn=57eea9f64dfeff9231977ab5028c3dcd&scene=21#wechat_redirect>))这些因素。大家的coffee time，是变多了，还是变少了？![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxSYdVUPHgibcL6PSvBD1mO7tu7c052AVibQ3CMGSpI0HZ29UNicg4v7h3nIBz2kpnRIfKeCVpfOstWw/640?wx_fmt=png&from=appmsg)
+之前做italk教程([iTalk：躺在预印刊的细胞通讯工具](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529428&idx=2&sn=f4a21753d435a90985049b55ddde43cf&scene=21#wechat_redirect>))的时候猛然发现，在你挂上DEG函数时，作者贴心的提示你这一步会花费较长时间，推荐你去冲一杯咖啡。不知道在AI对生信人强冲击的年代([直接让claude code帮我复现单细胞文章](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538182&idx=1&sn=208ab4e0fed3bd49988611ffc95f63ed&scene=21#wechat_redirect>))，加上算力([做生信没服务器？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534639&idx=2&sn=49524e135b3c2a56e061d33b0da5b0e7&scene=21#wechat_redirect>))、算法迭代([fastXXX、rapidXXX系列加速你的单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536940&idx=1&sn=57eea9f64dfeff9231977ab5028c3dcd&scene=21#wechat_redirect>))这些因素。大家的coffee time，是变多了，还是变少了？![](../../images/c3d6c174b77ffb53.webp)
 
-**更多单细胞教程![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaIfTxibBcMricPcAiaYRIoJJCWr5Zgva6hriamG3fIC3bKLLwfXNYptnmo4OmNQKyS4KGlteXfTXUJsA/640?wx_fmt=gif&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=5)**
+**更多单细胞教程![图片](../../images/0a512f7c44544e81.webp)**
 
 这里一站式汇总了本号单细胞测序分析的全部干货教程，每一份内容都凝结着实战经验，希望能帮大家解锁生信技能，学有所获！
 
@@ -277,14 +277,14 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 
 向下滑动查看更多
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=35)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

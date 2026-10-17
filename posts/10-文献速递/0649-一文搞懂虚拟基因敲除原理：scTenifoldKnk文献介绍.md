@@ -38,7 +38,7 @@ https://www.sciencedirect.com/science/article/pii/S2666389922000010
 
 **二、主要内容**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlTUvErMaibKjbx18BASbCibVqdkex9SIszXOpFl2yT8T3Xa6nWTLdm4zaxYkelibljJibjG1Xol30Zqy3eFXZibOcG90hhoQ8ZhGCQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6caf2f04b64cc997.webp)
 
 1\. scTenifoldKnk的工作流程
 
@@ -70,7 +70,7 @@ scTenifoldKnk 利用野生型样本的单细胞 RNA 测序（scRNA-seq）数据�
 
 对每个基因 j，**d_j** 为该基因两个投影点之间的**欧氏距离** ；d_j 越大，代表该基因的差异调控程度越显著。按照 d_j 值对所有基因排序，生成排序基因列表，作为**基因集富集分析（GSEA）**的输入。最后，采用** 卡方检验**筛选显著的差异调控基因，即虚拟敲除扰动基因。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwlib7CN7EaIES32NTtzHknyNuRT7THaWtibLsLDv1kARBTaIWc50HqhHuLsjjDicfyR4APk4aHbBgN2SxcBEw3t5WVsXC843xL5lc/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/7db18bb056e619a5.webp)
 
 图1
 
@@ -84,7 +84,7 @@ scTenifoldKnk 利用野生型样本的单细胞 RNA 测序（scRNA-seq）数据�
 
 据此我们得出结论：当一个紧密调控模块中的成员基因被敲除时，scTenifoldKnk 能够有效检出同一模块内的其他成员基因。从算法原理来看，与敲除基因同模块的基因会被检出，是因为它们在野生型网络与伪敲除网络的低维潜在表征中的投影位置，相较于模块外基因发生了更显著的改变（详见实验方法部分）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmWRGXP6ibtXichINibOLsGTmLfyuibM4DByeGKW5ic8Ke3AhAX1Xj4uupMbJA41JUr77JJWm64XkZ39Co1xmmryeMbek7rRf52qhDo/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/65aad85eacecbd48.webp)
 
 图2
 
@@ -126,7 +126,7 @@ Chen 等人利用批量转录组测序，对比分析野生型、Hnf4a 单敲除
 
 有趣的是，Hnf4a 与 Hnf4g 双敲除后的显著扰动基因数量（65 个），低于 Nkx2-1 单敲除（171 个）与 Trem2 单敲除（128 个）。为探究该差异原因，本研究分析了显著扰动基因数量与敲除基因在网络中的**连接度** （即互作数量）的关联（附图 S1），结果显示二者呈正相关（皮尔逊相关系数 r=0.75，P=0.03）。Hnf4a 与 Hnf4g 的网络连接度低于 Nkx2-1 和 Trem2，这可能是其敲除后扰动基因数量更少的原因。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmRLiaC5kWo3NtZqWoiaEnKIWqtT1TmkMomzCxC5wLibbHb8wseFgicO2hib8yQzG8ibXBR8Kkzn4VtqFAucpr3icib2cCWAhkC3EnB8UU/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/98958d35c89ac8f2.webp)
 
 图3
 
@@ -162,7 +162,7 @@ Chen 等人利用批量转录组测序，对比分析野生型、Hnf4a 单敲除
 
 这 211 个共有基因多为 Rest 的靶基因，功能富集于轴突、突触囊泡循环、γ- 氨基丁酸（GABA）的合成、释放、重摄取与降解、突触融合蛋白结合、化学突触传递等。以排序基因列表为输入的 GSEA 分析显示，**BDNF 信号通路** 呈极显著富集（两组重复均 FDR<0.01；图 S3），与既往实验结果一致。例如，已知 Mecp2 敲除引发的基因产物核心改变与突触及突触囊泡蛋白相关；表型层面，Mecp2 敲除会导致 GABA 能突触早期发育缺陷，引发自闭症样刻板行为与雷特综合征表型；突触融合蛋白 - 1 突变也会诱发类似雷特综合征的表型。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkEY5KYh8j9cfauaJESSbe3XAhL7YqdKtrib6xBLfLXmfWvPPAowCUib6pKtIDC51KX2n4XS54qTz1HvYyvIKJW2WcjjD1RM8Cdk/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/71a994c73a7ce873.webp)
 
 图4
 
@@ -180,7 +180,7 @@ Dmd 敲除的结果呈现相同趋势（斯皮尔曼相关系数 ρ=0.53，P<0.0
 
 最后，以小胶质细胞的 Trem2 敲除为例，我们评估了虚拟敲除分析对**细胞抽样的鲁棒性** 。每次随机抽取 500 个细胞，重复 10 次抽样。对每个抽样子集数据，使用 scTenifoldKnk 敲除 Trem2 并获得**扰动谱** （即按差异调控距离排序的基因列表）。结果显示，10 个抽样子集的扰动谱呈**显著正相关** （平均斯皮尔曼相关系数 ρ=0.55；图 S5），且基于这些扰动谱的基因集富集分析（GSEA）得到了高度相似的富集基因集。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwn8NDgMw7NSCoseNHKYWUCmBsRkA1YRxo9ibonoy6XNiawfdbqibgtXQ0IkDtRqFulCUOsvkAs93BlTYKVusR51p9D85bXVerMibfI/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/cb16590393d34329.jpg)
 
 图5
 
@@ -200,7 +200,7 @@ Dmd 敲除的结果呈现相同趋势（斯皮尔曼相关系数 ρ=0.53，P<0.0
 
 上述结果表明，相较于基于其他类型基因谱的分析，**基于基因敲除扰动谱鉴定的基因集更具功能关联性** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmgYmcHoyLttgT5ib9589boou8xMRYNlODN8MRlXmj3mall39OSqVvQJdgHcmnrFr9mQ1JBklqnPbD5WsibM6JohZrgelAjLKgNE/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/c20ce0a3a9a7b937.webp)
 
 图6
 
@@ -216,7 +216,7 @@ scTenifoldKnk 可用于**在不同细胞类型中对某一基因进行系统性�
 
 综上，本节以**MYDGF** 为例，证实**scTenifoldKnk 可在多种细胞类型中对某一基因进行敲除分析** ，进而**同时鉴定出靶基因的共有功能与细胞类型特异性功能** 。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnicJ54lmsqh85FZncZACktU9e7A5PbeAvYCvibumRZosBZeAB9G4F46HJQTXzJ3nSRGz18Bretudd74BYptc6zVtkHic8AkU2xb4/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/acd99b807f243add.webp)
 
 图7
 
@@ -234,14 +234,14 @@ scTenifoldKnk 可用于**在不同细胞类型中对某一基因进行系统性�
 
 尽管虚拟敲除方法存在一定固有局限，我们首先阐述其优势。第一，本研究构建的 scTenifoldKnk 具有物种通用性，可适用于人与模式动物的单细胞转录组测序数据，这一特性使其在针对人源样本的敲除研究中具备显著优势。由于难以直接获取人源基因敲除样本，目前多采用基因敲除动物作为替代模型。通常认为人与模式动物间的进化差异对同源基因功能的影响较小，但实际并非总是如此。研究者可直接将 scTenifoldKnk 应用于人源单细胞数据，从而避免将动物敲除实验结论外推至人类时产生的诸多偏差。第二，只要野生型样本中可检测到基因表达，scTenifoldKnk 即可对任意基因进行虚拟敲除并开展功能分析。研究者可对全部基因或一组靶基因逐一进行敲除，获得每个基因的扰动特征谱；具有相似扰动谱的基因，大概率共享分子功能或参与同一信号通路。功能已知的基因可作为阳性对照，评估 scTenifoldKnk 在待测体系中的效能。第三，scTenifoldKnk 可用于研究基因敲除在多种细胞类型中的效应。常规单细胞转录组测序可获得多种细胞的表达数据，利用 scTenifoldKnk 可预测任意基因在不同细胞类型中的敲除功能，进而挖掘该基因相关的多种表型。第四，该方法可用于研究必需基因的功能。这类基因敲除常导致个体致死，无法构建相应动物模型；将 scTenifoldKnk 应用于野生型样本中这类基因的胚胎期表达数据，可解析其在发育过程中的功能。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=14)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=16) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

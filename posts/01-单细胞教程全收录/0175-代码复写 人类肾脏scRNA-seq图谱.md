@@ -16,7 +16,7 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是14号作品。本作品复写了题为"Single-cell RNA sequencing of human kidney"的论文.**文章链接** ：https://www.nature.com/articles/s41597-019-0351-8**数据原始链接：** https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131685**复现图片集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5hrFz7vhqfibia8Sd1kVcric1TkWBfYJlosmIk1ZxAXg9xBG0AkbnaX3fg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/e9f3b649f7472848.webp)
 
 **文献简介** ：作者未提供
 
@@ -49,41 +49,41 @@ expressed_genes <- row.names(subset(fData(my_cds), num_cells_expressed >= 10)) #
 
 图片输出：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5GD6G2sI7hELjnmXkw0fOtTgp4f14xSAWldX6YoPL5mgBW1ou1T6ZZA/640?wx_fmt=png&from=appmsg)
+![](../../images/d3b00238d85cd398.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5ullbONyz26dx0za70gwMjr1KmeicD9pqnHRNXg8uSCGt5X3rXBiaHLAg/640?wx_fmt=png&from=appmsg)
+![](../../images/d5168c106a291fcd.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5QW0iaiaB9ias9GXWhibzZEy2mN03WfLfRXLETCF6w4XYnGoo8Dm1dFPUeA/640?wx_fmt=png&from=appmsg)
+![](../../images/0c76f57a45e33a6e.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5xR3HdVnMPibuibib9uhN1FSYO8M0kVrCUV6ax6LRYj1QcyBlrfRNxz17g/640?wx_fmt=png&from=appmsg)
+![](../../images/02ae06b8b83e1c40.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5SWtNmFWRKBQIcUbAibR5TWs03rAphxAU8ER8iasPpy6VEA2ibFPkMwyCA/640?wx_fmt=png&from=appmsg)
+![](../../images/cfc4c5dd4823a7fc.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5O4ROtrh0BPAxwWOia49jbHPDyzcKeb7pGZUkETttIrNRWWEa9BkIiasA/640?wx_fmt=png&from=appmsg)
+![](../../images/ad858e4f2abdaa54.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha50fPDZGJgwJYicNRSc5IorSIgPuPk9WaKJay51myEiaicY4FwT7TOq5OBg/640?wx_fmt=png&from=appmsg)
+![](../../images/d5b8e3ccd04737f3.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha56gyyqyLzx39WQVVVU3eXS198kCsflWRr317v5LBGWj8XzUoopbFgxA/640?wx_fmt=png&from=appmsg)
+![](../../images/d69c8de3b49f533b.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5CUZe7cPkct4UxcPr7Sx0Y4SsibYeRj5IT6482TaBiaNniaQtWqNibXgoqg/640?wx_fmt=png&from=appmsg)
+![](../../images/fb04371c800adcb8.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5h1qRAS216QOFFELvV0B3NcGdVxiaXA79OltnMk7t95Fdrg3gNlq05Pg/640?wx_fmt=png&from=appmsg)
+![](../../images/71c3a5083bdbc82f.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5AQoMdYKAic3LN2bAtykfhrf5yMRRPpiaYJeOSicaeiaQmMg3rP8bnicbXng/640?wx_fmt=png&from=appmsg)
+![](../../images/aa5a2b56e0f661a0.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha50PKoKwcLiaicJd7MeG9R0oUDUKCD92ny13flczYEYMqbLeYTohngZ1YA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/af517632f54b42ef.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5ngYKJzTaia6kzf4D9hsp5DKtJQLS4PKMSwI4wVyr1pibSw0DIibiaQRkPQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/b1ab1c29a007ebcd.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5clMtnF2SFOJ7kgBX70y9D7HhObcJerouD8AsNCYHGQ6At3AhL0lsKg/640?wx_fmt=png&from=appmsg)
+![](../../images/c1f772fc8e84dfb4.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5pJdpPtgfU4Vic74GrQqaEweCdayjvmz9qXAHH7mfzYoiarbp5Cksoibyg/640?wx_fmt=png&from=appmsg)
+![](../../images/bc1309a9467ad67d.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5u0xEiaSGfdTuo6mM5cGbNIFu0vnwKuCuTlfTvJJYiaBF0NzIPNiaS1H4g/640?wx_fmt=png&from=appmsg)
+![](../../images/03bb72e427748700.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5YliccMXAS2ESy0MucjNkKLpQRrRQx0ygBRXk4yZGuNtP9Cf3VTl20Iw/640?wx_fmt=png&from=appmsg)
+![](../../images/3293da726b8389d9.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5IkfJyrPDh6loHX0hyZIUYnoSvlrIaeFuGE8DXrjbC1wYB2SRQtCPxw/640?wx_fmt=png&from=appmsg)
+![](../../images/f8c10ae292ed7e6e.png)
 
 01
 
@@ -93,7 +93,7 @@ expressed_genes <- row.names(subset(fData(my_cds), num_cells_expressed >= 10)) #
 
 链接：https://pan.baidu.com/s/1eBQcA4OMrJNsouWWhzK-uw?pwd=n6lj
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwUIPT9T6ngC7JGmhcCcha5RP3DjhfurE9YvYu9YEUZgIHrpibBIA5ZVDibBs5ZgxpiaAM3XI8DJZRvg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/ea742359b922190d.jpg)
 
 02
 
@@ -134,17 +134,17 @@ expressed_genes <- row.names(subset(fData(my_cds), num_cells_expressed >= 10)) #
 
 **本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

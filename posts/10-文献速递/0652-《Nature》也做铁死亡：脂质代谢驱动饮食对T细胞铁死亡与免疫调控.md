@@ -31,9 +31,9 @@ albums: ["文献速递"]
 
 **1、**小鼠标准饮食调控 T细胞铁死亡****
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkYmgT2zLqjickgcibYWxyicdwPOicUjENic9KgofUhwk5P1Vp2oryatUATErhibibtpNo06p5etebdANPiaQPdNqLFlms8xTUdKKticbiaY/640?wx_fmt=png&from=appmsg)
+![](../../images/6d0e797acf1fb6cc.webp)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm1aXvJcKwtLwYOCMel1cO7aTr9ZpX8ib3kIM8Xclic601uiayjaMVretJv8WUaX68FzmjePENDibg6T3SlKNasZO3cBV2hqlvWXyc/640?wx_fmt=png&from=appmsg)
+![](../../images/61f8ce446affe2e4.webp)
 
 Figure1
 
@@ -47,9 +47,9 @@ MDA 是驱动铁死亡的脂质过氧化的关键生物标志物和副产物，�
 
 2、**DEFs 调控T细胞依赖的体液免疫**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm0wnDgaY5Tu8wNQo5QHhh8ZD9RcJoY8qWiaEn20EaVtPV9PWoUsvqIHoQ0teAmXaVcX66RRnAhhDS4icOB9rZiaibI3Woa2z5HQsw/640?wx_fmt=png&from=appmsg)
+![](../../images/52874d8f5c0b9f3b.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkkRIxsCyTgrPsu7TVyEGypWTPuYTnoVOj0WwWNuITiaWjfOetibKCibNzbsw4W9GkJUQiaT959b8K4iblicxMib3hvrUNX5AxcA8W5LU/640?wx_fmt=png&from=appmsg)
+![](../../images/85a923a2bf7fef84.webp)
 
 Figure2
 
@@ -59,9 +59,9 @@ Figure2
 
 3、脂质代谢介导体液免疫中的**DEFs**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmRuebwFZ7Sf9U1Zo2XSurOmJ8C2SwQq4mWL1icBDA8QEvyOXMovYH68zeAGUzVGY0arFmQYscXee1ibS8oYSTJjgwQNibGarP85c/640?wx_fmt=png&from=appmsg)
+![](../../images/290c07215b47b410.webp)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmukKYEianh09CQzySapUVhdGaBAibNqUXQYLKxAkFlNXLjEW7d2wQ8icE5RSMry1ZBs7TNuxdQtnmIZqn1C3CyDQcj9wnW3uOaXI/640?wx_fmt=png&from=appmsg) Figure3
+![](../../images/37a23970b1778e23.webp) Figure3
 
 **接下来作者评估了微生物对****DEFs****的贡献** 。结果显示，来自无特定病原体（SPF）小鼠、无菌（GF）小鼠以及通过与 SPF 小鼠共居获得微生物群的 GF 小鼠（GF→SPF）的 T 细胞，表现出相当的铁死亡抵抗力（Fig.3a）。此外，在喂食灭菌后的 SF-NIH31、SF00-100 或 SF-AIN93G 饲料的无菌小鼠中，CD4+和 CD8+ T 细胞再次出现了 DEFs（Fig.3b）。随后，作者测试了哪些饮食成分决定了 T 细胞中的 DEFs。标准饮食中的候选成分包括半胱氨酸、维生素 E、硒、铁、多不饱和脂肪酸（PUFAs）和单不饱和脂肪酸（MUFAs）（Fig.3f-h）。结果发现三种饮食中的膳食 PUFA/MUFA 比率与脂质的 FRI 呈负相关。与来自 SF-AIN93G 喂养小鼠的细胞相比，来自 SF-NIH31 喂养小鼠的 T 细胞富含 PUFAs 和含 PUFAs 的脂质，而耗竭了 MUFAs 和含 MUFAs 的脂质。**为了直接测试脂质代谢对****DEFs****的贡献** ，作者比较了两种仅在脂质来源上不同的 AIN93G 配方。使用了两种 D-AIN93G 配方：原始的 D-AIN93G 配方与 SF-AIN93G 相同，使用富含 MUFAs 的芥花油（canola oil），下文称为 D-AIN93G (canola)；D-AIN93G (soya) 使用大豆油，具有更高的 PUFA/MUFA 比率，与 XB-NIH31 相似。**血清脂质组学谱分析显示** ，喂食 D-AIN93G (soya) 的小鼠聚类更接近喂食 XB-NIH31 的小鼠（Fig.3d）。而且喂食 D-AIN93G (soya) 或 XB-NIH31 小鼠的 T 细胞表现出同样降低的 FRI，两者均显著低于来自喂食 D-AIN93G (canola) 小鼠的细胞（Fig. 3e-f）。**这些结果表明，膳食脂肪酸组成是****T****细胞中****DEFs****的主要驱动因素。******
 
@@ -71,7 +71,7 @@ Figure2
 
 4、**DEFs 调控T细胞抗肿瘤免疫**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkRmVGpQe1ggIYnDdr96pdJAHWOOU4gK5icuVyGYRnKVxdM2HZS5BhRZmicEXP2MbVsQKCYYPuG4PDXcjUMIicicKSGUteRcQ3iatbA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnIvxd2bLthIlKGZX3W8h7h3Gm9J0gWbSXthkwsibiaicM9LF4pqvp8jOrhWQHjQc0SElvtd4DCGTlMNnrUlezJj5EZ04xK3hHo0M/640?wx_fmt=png&from=appmsg)Figure4
+![](../../images/6ab783667f89456a.webp)![](../../images/9ebe07738a584a5e.webp)Figure4
 
 接下来作者利用对铁死亡具有抵抗力的**B16-F10****黑色素瘤模型** 评估了其对抗肿瘤免疫的影响，从而最大限度地减少了肿瘤内在因素的干扰。结果显示，B16-F10肿瘤在喂食SF-NIH31和SF-AIN93G饲料的小鼠中生长情况相似（Fig.4a-b）。相比之下，表达OVA的B16-F10肿瘤由于OVA抗原增强了免疫原性，其在喂食SF-AIN93G的小鼠中的生长显著慢于喂食SF-NIH31的小鼠（Fig.4c）。来自喂食SF-AIN93G小鼠的肿瘤浸润CD8+T细胞也表现出比喂食SF-NIH31小鼠更低的脂质ROS（Fig.4d）。但肿瘤细胞内的脂质ROS在不同饮食组间几乎没有差异（Fig.4e）。
 
@@ -79,7 +79,7 @@ Figure2
 
 5、**系统性脂质塑造人类 T细胞的铁死亡**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl60MxOjrKrib33INdnQ7s9Zib9TrmslzgVc9EKPR4PibfWCVBb4t3UUV1ypo5sCWe5BFLGTlPRBv6JFJ9WrOgJL1cJtFy2gOhRss/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkq3P0tuvtKZOicv8KP3IvXX0PEpcj38ySFSZWtQn50ACCtabd8Y3ccicIG4PfFUwBoJmBZSWsicrhYjYMN4jfC8NGxVXfXwVqjIM/640?wx_fmt=png&from=appmsg)Figure5
+![](../../images/b41c338a6ef151ff.webp)![](../../images/46dd4b7765977d50.webp)Figure5
 
 **在确定脂肪酸摄入和脂质代谢是小鼠****T****细胞中饮食源性效应（****DEF****）的关键驱动因素后，作者考察了这一机制是否在人类中保守存在** 。首先招募了年轻成年人以尽量减少年龄相关代谢失调的混杂影响，受试者包括超重（BMI > 24）和非超重（BMI < 24）个体（每组 n = 12）。**血浆脂质组学谱分析显示** ，两组之间的整体脂质景观存在大量重叠（Fig.5a），正如预期，年轻成年人血浆磷脂和酰基甘油中的PUFA/MUFA比率与各自的过氧化指数高度相关（Fig.5b）PUFA/MUFA比率还与初始CD4+或CD8+ T细胞中的细胞脂质活性氧（ROS）水平呈正相关，反映了不同程度的细胞铁死亡压力（Fig.5c）。CD4+或CD8+ T细胞的FRI与细胞脂质ROS水平以及血浆PUFA/MUFA比率呈负相关（Fig.5d-e）。
 
@@ -91,14 +91,14 @@ Figure2
 
 在功能层面，这种由脂质代谢驱动的铁死亡敏感性差异深刻影响了多种免疫反应。在抗肿瘤免疫中，富含MUFA的饮食通过降低CD8+ T细胞的脂质过氧化，促进了其在肿瘤微环境中的克隆扩增和效应功能，从而增强了肿瘤控制能力，且使用铁死亡抑制剂可逆转低MUFA饮食导致的免疫缺陷。更重要的是，这一机制在人类中高度保守：人体血浆脂质谱中的PUFA/MUFA比率与T细胞的铁死亡易感性呈正相关，且直接影响CAR-T细胞在体内的持久性和治疗白血病的效果。该研究不仅强调了饮食成分是免疫学和铁死亡研究中常被忽视的混杂变量，也为通过优化脂质代谢来改善疫苗接种、抗肿瘤免疫及细胞疗法疗效提供了新的策略框架。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=14)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=16) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

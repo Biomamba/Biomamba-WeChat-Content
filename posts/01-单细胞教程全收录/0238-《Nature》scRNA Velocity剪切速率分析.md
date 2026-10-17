@@ -18,7 +18,7 @@ La Manno G, Soldatov R, Zeisel A, et al. RNA velocity of single cells. Nature. 2
 
 doi: 10.1038/s41586-018-0414-6 .
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprM0wBjmaJpFqaKs52GnRSKdicsInlGB9bImnu3riakytmU3Wt3PdvQLLz3fOFyNZnzSSyAXpp8kDYyA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/9c169b0ae9834478.webp)
 
 RNA丰度是单个细胞状态的一个强有力的指标。目前，单细胞RNA测序能够以高定量精度、灵敏度和通量揭示RNA丰度。然而，目前这种方法只能捕获到某一时间点的静态快照，这给诸如胚胎发生或组织再生等时间动态变化研究带来了挑战。因此，作者提出了RNA速率的概念(基因表达状态的时间导数)，可以通过区分常见单细胞RNA测序中的未剪接和已剪接mRNA直接估算。RNA速率是一个高维向量，能够在数小时的时间尺度上预测单个细胞的未来状态。作者在神经嵴谱系中验证了其准确性，在多个已发表的数据集和技术平台上展示了其用途。
 
@@ -45,15 +45,15 @@ RNA丰度是单个细胞状态的一个强有力的指标。目前，单细胞RN
 
 **图1:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouS0grSq6WdfFBaGWP8Aftjx72y1ibXYu4ibicBibrnFQfkC87hKxOsXlkWw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/cd6e585f3dc0f47e.webp)
 
 **附录图2:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouoRCd97zYaOLmmLI2c7ceV061IejN3fHfkXy27fiaSiaI24lh5zyyG1sA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/efd918de24493017.webp)
 
 **附录图3:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouVBRiahwneROWWISJibrxYPcyxHV3YDhT5GnAodncG8nV9C6D4utarXoA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/315bea6e8a3deeba.webp)
 
 ###  1.2.2 小鼠嗜铬细胞验证
 
@@ -71,25 +71,25 @@ RNA丰度是单个细胞状态的一个强有力的指标。目前，单细胞RN
 
 **图2:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouibsdjLyNnrZmkcXlJbwIy22qujF9oXb56oOROTEDc7etkOAJZ7sSdlg/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/0e136ca86802ddb6.webp)
 
 **附录图4:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicoukMz9DoVQaOWnpTnU6Z1bBVvP1wMiaT6bPOlQsm7ECW7N8OkNGSaB74Q/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1) **附录图5:**
+![图片](../../images/b84a2001c8c88125.webp) **附录图5:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouQByga9muSiaichnuppAyML2nCmJKbRR1zHr4O9LxA7fgx2QibUKaa6aibw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/d1919794592bf65b.webp)
 
 **附录图6:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5Kjicou6vykzSuJUxru3Auibnw8g0Eh2FxWE9125iaQeOVPGb0B96Wy1Nf40eRg/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/e7ce70cd682dc4ad.webp)
 
 **附录图7:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouTgibGqicX1CZ25EHGg9IHFpthAc7bvF2ibejibwwt2lqbWVZLqFL2KdbrA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/74c9e6b7c63862f6.webp)
 
 **附录图8:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouL1eyickELbqAYm1aUE6OiaibOrdDMDzavJx7uENZGE2LxU6LtXwt2MzxQ/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/deadd352d1e8226b.webp)
 
 ###  1.2.3 小鼠海马体验证
 
@@ -110,15 +110,15 @@ RNA速率显示出朝向每个主要分支的强烈定向流动(图3c，附录�
 
 **图3:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5Kjicouica3GzErPh1gbhsQnN8XGbkCPY2wAQXZd1QtfgThVtyYibIZhsMsias5Q/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/a591a625269c02e2.webp)
 
 **附录图9:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5Kjicoul2excoIoTia4djr80PxkUnvDLLd3AKJ9ia8ibQz9mLnWHttkzGVQo6juA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/097bbba2391535bf.webp)
 
 **附录图10:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouOKibvMdy0DvhVj5twHnyxlRrhcf1x5I8NSq2Q951pfM8D8pyb2JEJZA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/80925bec57a0e9c3.webp)
 
 ###  2.4 人类前脑验证
 
@@ -130,20 +130,20 @@ RNA速率显示出朝向每个主要分支的强烈定向流动(图3c，附录�
 
 **图4:**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprMbXTAIria7BxqJZYk5KjicouUqPNgK3PPcaDwibkpnhGzHDDXPpibKXDyXuQHUqJVObtWQDia3aCB2xYA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/c336610b50d1be6a.webp)
 
 **三、最后聊聊**
 
 综合以上研究内容，我们不难发现基于RNA速率推断可以在没有先验发育过程知识的基础上，实现细胞发育轨迹的推断。同时在不同的物种和组织都得到了有效的认证。其实基于目前的研究，已经开发可用于轨迹推断的软件不止一个。例如我们先前就已经推送过的[拟时序分析| 3.monocle2实操：完整版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497730&idx=2&sn=930dc0e276219d70c937e943119388ff&scene=21#wechat_redirect>)和[Slingshot拟时序分析学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527850&idx=1&sn=f4e2ca5e2e5e71eeaf132375bb8270eb&scene=21#wechat_redirect>)。两款分析软件都可以用于轨迹推断。但是RNA速率推断以其本身的算法特点，目前仍是单细胞数据轨迹推断的重要软件之一。因此，今天我们在本教程中，基于R以及python两款不同的RNA速率推断软件，进行分别演示。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=9az12znb&tp=webp)
+![图片](../../images/ff2f9c666f414f85.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=8ekw618c&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=elc2pysf&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/4cc2e8958f352486.webp)![图片](../../images/06c8456833bdb024.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=ph1nzc94&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/a01140e60e58e65b.webp) 您点的每个赞和在看，我都认真当成了喜欢

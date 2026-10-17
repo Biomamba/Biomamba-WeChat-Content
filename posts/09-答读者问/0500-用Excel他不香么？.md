@@ -14,7 +14,7 @@ albums: ["答读者问", "漫谈胡侃"]
 
 数据如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwWP8pHnUiasLLRK0vTZo5ic1iaPmJB7jusK4OsS1ahhOj8CCXFQG1rPgtM25Scaiaicic02wA2cQanOgibQ/640?wx_fmt=png)
+![](../../images/8a93b4c8c71e8488.webp)
 代码也很简单，仅仅几行：
 
   *   *   *   *   *   *   *   *   *   *   *

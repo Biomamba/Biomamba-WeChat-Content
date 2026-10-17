@@ -14,21 +14,21 @@ albums: ["AI时代，不用就会被淘汰"]
 
 1、直接上结果比对图：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmIk1aNuHWcLQPeicMu3f6exHrWib9KTbbgjqc9HEiaj9icGKQ0n9aZViaJMEHsRp3vdOZ8O4Z0Cricuo8HK7EoshW4DkegZ43OeK7rQ/640?wx_fmt=jpeg)
+![](../../images/f7d973613bbe1a2b.webp)
 
 vs.
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwk87H743icjHicaficevGRMJkI88gMfUmWPPyng3DJbokekBMfANI92ZkITsyB4FVCEDnHkZ4M9icpVYeTfXLQ9CkciaAkoBfbVZXIA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=0)
+![图片](../../images/85dde78a9d55cbe6.webp)
 
 vs.
 
-[![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkh9M70O31lFPXIBKTE5vrKFKJZIz5VJfEFfQQRyaqSXy6Uu5ic1HSSF4ibLRHmf7h0545vgKVMX6o8NRkrJzdRPWdKzk0PQjCos/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538520&idx=1&sn=6858ae5260580c74fd46e658dbc4e49b&scene=21#wechat_redirect>)
+[![](../../images/42c4b3af48b38dcb.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538520&idx=1&sn=6858ae5260580c74fd46e658dbc4e49b&scene=21#wechat_redirect>)
 
 vs.
 
 我们用作[R语言scRNA-seq文献复现专题教学的人工复现结果：](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=7&sn=b716aeb8e86eba4acd50b982beb0c963&scene=21#wechat_redirect>)
 
-[![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzuG7SAX0RGL3Z5CMBpFl34YO4GJqVC1aO7VFTUH8CjjtlOrydr94KlIpuHMiaGKbhF0RbOj5nRjHg/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=5)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530338&idx=1&sn=2d092e76080359f5a169ec14d54d1241&scene=21#wechat_redirect>)
+[![图片](../../images/e7d906b174fc4257.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530338&idx=1&sn=2d092e76080359f5a169ec14d54d1241&scene=21#wechat_redirect>)
 
 之前我们测试过：[试试D老师的单细胞代码分析能力怎么样](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538520&idx=1&sn=6858ae5260580c74fd46e658dbc4e49b&scene=21#wechat_redirect>)和claude code复现单细胞文章，这次我们在codex中输入相同的指令“我希望复现GSE163973数据集对应来源文章的全部单细胞分析相关内容，请在本地运行并给我输出图表和代码”，结果图呈现见上图。
 
@@ -52,7 +52,7 @@ vs.
 
 提取码，联系客服微信[Biomamba_zhushou]领取
 
-此时输入codex，显示的内核就是，然后在光标处输入你的需求并回车就可以啦。![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmqu0MAW4WOg8amtsYXhm8scg1qFaBFtibqTUSokwRfWn93re2yIdd09R4SgjLsRicL0aoJl9tpuFozWp0uHibKxhM05VHibrWic5CY/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkGxOEGyhL3eia2pySBlouXMHcQicbVfOSd5KOtWaVVxvawCKVR3rVxBymumjrj09JDW973WVuwL2G1a1Ka1WFxhxsYUIkRmW0ic8/640?wx_fmt=png&from=appmsg)
+此时输入codex，显示的内核就是，然后在光标处输入你的需求并回车就可以啦。![](../../images/52fedd4e8239d0c8.webp)![](../../images/8a06337cc41d678f.png)
 
 我们来看一下codex的输出结果：
 
@@ -177,8 +177,8 @@ Token消耗的三条省钱小妙招
 缓存命中打一折| AI记住了之前的需求，下次自动调用| 命中缓存能省90%费用
 对话轮数滚雪球| 第10轮会重新看前9轮，越聊越贵| 对话轮数越少越好
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

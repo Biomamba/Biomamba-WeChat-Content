@@ -12,7 +12,7 @@ albums: ["单细胞教程全收录"]
 
 **SeekSpace基础分析**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png)
+![](../../images/07e88994d32c0968.png)
 
 **测试数据下载见文末**
 
@@ -22,9 +22,9 @@ albums: ["单细胞教程全收录"]
 
 关于`SeekSpace`的详细介绍可参考[当空转遇上单细胞~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505721&idx=1&sn=19d02b3858ebcf483d9e071b8ba00092&chksm=9b3cae69ac4b277f5b90fd75819ac8435226ad6daaf744f367d49ceb8099408e097d48656e2f&token=1236677349&lang=zh_CN&scene=21#wechat_redirect>)
 原理流程图如下：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0MkxFosFBY8ibA0VaHrpL0EP9qW7ESytBUOJAJeicgLg5xZicH82nnahkg/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0OHlw6dMJrLqLXJvZUdtNOJLjAdiaRVS7jouk3phicKlxvkhm81Uny7Vw/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0uGe5pfkRiaJpib5Tpd1QW6oLkhuB3dMvyyd6lkYJuicvtNiamkK3IphKIQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a7c259124ea7c3ec.webp)
+![](../../images/ed0fe01131c6732b.webp)
+![](../../images/3ac57f1ba9255a50.webp)
 简而言之，不同于我们以往介绍的空转建库策略，`SeekSpace`利用的其实是一种反向渗透的原理，通过芯片上标记序列的释放向细胞核内做透化，这样带有标记序列的细胞核可以进一步参与后续的单细胞水平建库。换言之，大家最后拿到的是一套结构近似于单细胞测序的数据。这样更能够无缝的衔接到我们此前的单细胞教程中[二十万+播放量的单细胞教程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505219&idx=1&sn=d92cc2048e0568669d32e74c8df76484&chksm=9b3cac13ac4b2505bd4f9e36f38eee4e0fce3aea0e191b18f5cc678995c2ccc883e391132784&token=1236677349&lang=zh_CN&scene=21#wechat_redirect>)，可以直接在[Seurat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500516&idx=1&sn=3c0b9de505fcd232054e38b451fa1742&chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&payreadticket=HNeaBlgHwqYlL4LII2ivonJsty0hf6fDEVnDgLivYXaSonb7m13MeuTY6aCuDDZHQoAQ3wU&scene=21#wechat_redirect>)、[Scanpy](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504877&idx=2&sn=2b56a9cfa19fcc918ee6c2ed88fed017&chksm=9b3caabdac4b23ab6e28425a4a5eb4d40ee3612e51f84f5d1e53ac91bef93f717e9e754398e3&payreadticket=HGF64rY5OHVy0SObeTe5sl-HPukVf33ajBMMx187HIECJ0GDvTNAtar8WEVO85IxpM57-7E&scene=21#wechat_redirect>)等大家常用的单细胞工具中分析`SeekSpace`平台的数据。
 
 ## 1.2 基础分析
@@ -205,7 +205,7 @@ RunUMAP(dims = 1:30)
 DimPlot(mouse_brain)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0146jPKudHtBCPiaBhicJMgod1XJjurg5brU92ziaRuACNR9Dm7J3yEkEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/696af4ebd247016a.webp)
 
 ```
 # 这里就和单细胞没差别啦：
@@ -376,7 +376,7 @@ mindr::mm(
 ## $widget
 ```
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwP23eM9MP3t8luanniaLqMDcCR8fncMeCslFoUyHTrDWUrJJs6iclEP1GL4JpINb5BQT2hX22UBdicQ/640?wx_fmt=png&from=appmsg)**
+**![](../../images/8ce0a3ff84d691a9.webp)**
 
 ## 1.5 可视化
 
@@ -412,14 +412,14 @@ expr_col <- c("#483D8B","#00FFFF","#F8F8FF","#FF69B4","#8B008B")
 DimPlot(mouse_brain, reduction = 'umap',cols = num_col)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0smPvkMU3Lc9ibAtPx3QqhOfvxWWr1gyhAlvX3SVdpPELWUpYsyPK0lg/640?wx_fmt=png&from=appmsg)
+![](../../images/da5276be5d2a08bb.webp)
 
 ```
 # 带有注释信息的umap：
 DimPlot(mouse_brain,cols = num_col) + DimPlot(mouse_brain, group.by = "Main.CellType",cols = celltype_col)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0RAeDeVbrEbbm47HypsXoFVuxCUAdXIote5UMfPRRiajnU71Q9eWnzWg/640?wx_fmt=png&from=appmsg)
+![](../../images/23839350e5007112.webp)
 
 ```
 # 利用空间坐标绘制DimPlot:
@@ -429,7 +429,7 @@ DimPlot(mouse_brain, reduction = 'spatial',
                                               pt.size = 1.5,cols = sub_col,group.by = 'subcluster')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0QiaqaDsI5cceqpGu3F7Ju0OkhwiajJhyFQA6dU4OjTSmkKISCqRLWBGA/640?wx_fmt=png&from=appmsg)
+![](../../images/cc9c03f6bb64aca6.webp)
 
 ### (2)`FeaturePlot`
 
@@ -437,7 +437,7 @@ DimPlot(mouse_brain, reduction = 'spatial',
 FeaturePlot(mouse_brain, reduction = 'umap', features=c('Mbp','Mobp', 'Olig1','Plp1'), pt.size = 1,cols = expr_col)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0w1SXW18MDuJEOiaHdKLtMjEeMqbYmTgDA4BR1icMAT8xjWWMotCKUdMA/640?wx_fmt=png&from=appmsg)
+![](../../images/e3e9c5c79d73e32d.webp)
 
 同样，我们可以在使用`FeaturePlot`函数时，将`reduction`参数设置为`spatial`，来查看基因在空间位置上的表达情况。
 
@@ -445,7 +445,7 @@ FeaturePlot(mouse_brain, reduction = 'umap', features=c('Mbp','Mobp', 'Olig1','P
 FeaturePlot(mouse_brain, reduction = 'spatial', features = c('Gad2','Hpca','Reln','Pvalb','Mbp'),pt.size = 1.5,cols = expr_col)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0qeGbenzVnGqPua4ckQeYvvNoSXVWiakkJzPNOleGB4an0v65zN7Q0yg/640?wx_fmt=png&from=appmsg)
+![](../../images/4aae812d1401162b.webp)
 
 ### (3)带有`Image`信息的可视化
 
@@ -551,7 +551,7 @@ p1_with_img
 
 这是张”活”图哦，大家可以自行探索一下功能：
 
-**![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwP23eM9MP3t8luanniaLqMDo1CjodWs2gy7kQGynv7yk3TG4L5ZA76w0XiaupTWVFZUen0FAd09N3w/640?wx_fmt=gif&from=appmsg)**
+**![](../../images/22736cae44d1837d.webp)**
 
 ## 1.6`marker`计算与展示
 
@@ -597,7 +597,7 @@ top3gene <- mouse_markers %>% group_by(cluster) %>% top_n(n = 3, wt = avg_log2FC
 VlnPlot(mouse_brain, features = unique(top3gene$gene),pt.size = 0,stack = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0SX6QPNribGxJHz8icvmUA5ykJe98ElM2a6oljkhWP0Jx5rSAaSibu4ibfQ/640?wx_fmt=png&from=appmsg)
+![](../../images/10c44434657828ad.webp)
 
 当然你也可以在原始的分群结果上查看`marker`
 
@@ -605,7 +605,7 @@ VlnPlot(mouse_brain, features = unique(top3gene$gene),pt.size = 0,stack = T)
 VlnPlot(mouse_brain, features = unique(top3gene$gene),pt.size = 0,stack = T,group.by = 'RNA_snn_res.0.8')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0J3VDgJT7DzpMzrRRX8SWiapBLqDRr6FQBKsQrYeqLnFMsRVACzlUgww/640?wx_fmt=png&from=appmsg)
+![](../../images/8ffa1902a7a40dd2.webp)
 
 当然，空间特有的算法也可以使用，我们后面的教程会继续介绍
 
@@ -695,13 +695,13 @@ sessionInfo()
 
 **学习手册**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png)
+![](../../images/07e88994d32c0968.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpzno9bxf4KQENuB0yoicAea0a3vWq3TBibdaH1qrDTY1dCpDYDeiaOWjibMg4Z41Cw03eL2QEMLIAPp5g/640?wx_fmt=gif&from=appmsg)
+![](../../images/eae23336d3a269f5.webp)
 
 与以往的教程一样，我们给大家准备了SeekSpace数据分析的学习手册及对应测试文件，大家可以添加企业微信回复关键字"SeekSpace**学习手册** "即领:
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxV2BtzhyGibJN3q0qEFPpyEibJiaE2LXKQJD2udhzcicuZ3KWhoWffEl5GNB7Z3ibAcdqgLrqib0FHEm4A/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/37294870eaaa9e1d.webp)
 
 为了进一步推动单细胞科研的发展，寻因生物推出了“**2024 寻因Space行知计划** ”，愿与行知者携手，一直游到海水变蓝。
 
@@ -713,6 +713,6 @@ sessionInfo()
 
 **3项助力：样本投入及价格活动、送单细胞云平台免费分析**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/pHzHVM2oJO3ISKEsibgPQ0cdss8ibyDdM5hVtbeNER9NCk8tORrKAb4Kwn8s8C6xwzQ75BKqPjmqvewgO95jAyyQ/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c0d7802ef015cacb.jpg)
 
 **填写报名表单，参与行知计划**

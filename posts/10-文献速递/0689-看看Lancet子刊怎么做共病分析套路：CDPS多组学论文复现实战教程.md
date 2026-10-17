@@ -16,17 +16,17 @@ albums: ["文献速递"]
 
 读文献没啥意思啦，我们把论文里**能复现的部分全部实跑了一遍** ：limma做差异分析、基于fgsea的prerank通路富集； 体液层筛选关键蛋白HGFAC； 宏蛋白组下调物种，LASSO+稳定性选择把 _Megasphaera micronuciformis_ 稳稳选进判别特征； 还专门用嵌套交叉验证填上了"特征选择泄漏"AUC虚高到的坑。可视化集锦：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkZvkKEdOCcK5d0Nnb8zNlEV8Ls6aHfOQAjdXemJSAmWFYWOJOgHuNl4JfTibWv4ib7Tc7xF0OJsYTKhTWuyxVgmfiagHkCQgPNzI/640?wx_fmt=png&from=appmsg)
+![](../../images/f38f8c1f547a2054.webp)
 
 # 技术路线图：
 
-# ![CDPS论文生信分析流程图](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkDmKCnqQs9uCicLplX8Z71tOL1MnTM2AfhPmMBLR7icEx95lnLm981yFmntpPNbnuNCubuWaibOO8eRxbnicAJvRoJic7OQD0yhRkA/640?wx_fmt=png&from=appmsg)
+# ![CDPS论文生信分析流程图](../../images/8a8d358f796e477f.webp)
 
 **分析服务上线**
 
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247542671&idx=2&sn=4067bb76c89520cbbe7cb0b1bee2db14&scene=21#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469&token=827157490&lang=zh_CN#wechat_redirect>)、自测数据[个性化分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539480&idx=1&sn=9f1d8a76c0a5ddad4983c3fcf7620622&scene=21#wechat_redirect>)辅导、[实验科研服务](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541567&idx=2&sn=950d0a9ccf24015cea0d5aeef3d68b7b&scene=21#wechat_redirect>)欢迎联系客服微信[Biomamba_zhushou]。
 
-[![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmbpUaYiaF4d8wwQK6tTO7CsK66y1sHfYiapoyUpbLibpTGjbWSzrc8UhHEfZ8rdvibNj15q4oGDTlyIhA47h3wFLBYYecaGiaFHpIo/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541295&idx=1&sn=7e5727030843dffb9c8ee16058637229&scene=21#wechat_redirect>)
+[![](../../images/b8b206f653fa7e51.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541295&idx=1&sn=7e5727030843dffb9c8ee16058637229&scene=21#wechat_redirect>)
 
 #
 
@@ -99,7 +99,7 @@ DOI| 10.1016/j.ebiom.2025.105981
 
 ## 4、主要结论链
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnZ4nqwyjgComJhkdcZYhicV2BWCQzt8t2rmgE1ULDGJWvGjpbfsaechAvDicWtlFPJHJulia4yTUmticibZ4EfdgWLUAMNibIorON9s/640?wx_fmt=png&from=appmsg)
+![](../../images/d43fb69bc86cf172.webp)
 
 > 下面会一步步讲它怎么算出来的。
 
@@ -228,7 +228,7 @@ LOGFC_CUT <-log2(1.2)   # 与原文口径一致: |FC| > 1.2tt2 <- tt %>% tib
 ggplot(tt2, aes(logFC, neglogp, colour = sig)) +  geom_point(alpha = .75, size =1.6) +  geom_hline(yintercept =-log10(0.05), linetype ="dashed", colour ="grey60") +  geom_vline(xintercept =c(-LOGFC_CUT, LOGFC_CUT), linetype ="dotted", colour ="grey70")+  scale_colour_manual(values =c(up ="#D64550", down ="#2E86AB", ns ="grey75")) +  labs(x ="log2 fold change", y ="-log10(P.Value)", colour =NULL,    title ="Demo: limma 火山图 (按 nominal p < 0.05 着色)",    subtitle ="Biobase sample.ExpressionSet, 真实 Affymetrix 数据") +  theme_bw(base_size =11) +theme(legend.position ="bottom")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn9cuhR6Ojtdsclp4fBqNVwaTaLiciaibxdr5MdSsAHX6DEBfCxuoeARER3FKMkLaeCpPv8sNSJP4l0kY68NHJPyzlwkDttuHicq4Y/640?wx_fmt=png&from=appmsg)
+![](../../images/565ec72e0b35976f.webp)
 
 > ****为什么这张图按 nominal p 着色，而不是按 FDR？****
 
@@ -281,7 +281,7 @@ sel_genes <-names(sort(geneList, decreasing =TRUE))[1:300]  # 当作"差异基�
 clusterProfiler::dotplot(ego, showCategory =15) +  ggtitle("Demo: enrichGO 结果 (真实 geneList, top 300 基因)")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmevuahOvkwgq361H2ic3gHT2kokuVsqZu8oz2aoYLxHHB9B2jV7Zc79tIiaxlcp4n3Ricd2giaic2uqB0WiaicNzONBPEf3sKIrxEMe4/640?wx_fmt=png&from=appmsg)
+![](../../images/4d7e6732d70bf82a.webp)
 
 > ****踩雷 3（版本差异，最容易翻车）**** ：本机 clusterProfiler 是 ****4.12.6**** ，原文用的是 4.10.0。`enrichResult@result` 的术语列名从 `Term` 改成了 **`**Description**`** 。老代码里的 `as.data.frame(ego)$Term` 会取到 `NULL`，后续 `fct_reorder()` / `unique()` 连锁报错。Part 2 会给出兼容层 `ego_df()`。
 
@@ -351,7 +351,7 @@ KEGG_HSA04061| 1.9739| 0.0067
 fg_plot <-as.data.frame(fg) %>% arrange(padj) %>% slice_head(n =15) %>%  mutate(pathway = forcats::fct_reorder(pathway, NES))ggplot(fg_plot, aes(NES, pathway, fill = NES >0)) +  geom_col(width = .7) +geom_vline(xintercept =0, linewidth = .3) +  scale_fill_manual(values =c(`TRUE`="#D64550", `FALSE`="#2E86AB"), guide ="none") +  labs(x ="NES (Normalized Enrichment Score)", y =NULL,      title ="Demo: fgsea prerank GSEA (真实 geneList + KEGG GMT)") +      theme_bw(base_size =10)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlnt2kyGpWRNKfQFyYF960J2NauX2Pw78ChjubLAy53tOw8WLb5tVqrKrrpovQ4Vib3C8icUBxxJ78JowGmSVGED8icZBFZ2NDTl0/640?wx_fmt=png&from=appmsg)
+![](../../images/d596b018f0eaa784.webp)
 
 > ****prerank GSEA 的意义**** ：它只吃”基因 → 统计量”的有序表。所以哪怕拿不到表达矩阵，只要作者给了 `logFC / t / p`，就能忠实重跑富集。
 
@@ -401,7 +401,7 @@ Petal.Width| Petal.Width| 6.0348
 # 注意: cv.glmnet 返回的误差带字段是 cvlo / cvup, 不是 cvlo / cvhicv_df <-data.frame(loglam =log(cvfit$lambda), cvm  = cvfit$cvm,        cvlo = cvfit$cvlo,          cvup = cvfit$cvup,        nz   = cvfit$nzero)p1 <-ggplot(cv_df, aes(loglam, cvm)) +  geom_point(size =1.4, colour ="#34495E") +  geom_errorbar(aes(ymin = cvlo, ymax = cvup), width = .05, colour ="grey70") +  geom_vline(xintercept =log(cvfit$lambda.min), colour ="#C0392B", linetype =2) +  labs(x ="log(lambda)", y ="binomial deviance", title ="CV 曲线") +theme_bw(base_size =10)p2 <-ggplot(data.frame(loglam =log(cvfit$lambda), nz = cvfit$nzero), aes(loglam, nz)) +  geom_step(colour ="#16A085") +  geom_vline(xintercept =log(cvfit$lambda.min), colour ="#C0392B", linetype =2) +  labs(x ="log(lambda)", y ="非零系数个数", title ="特征数随 lambda 收缩") +  theme_bw(base_size =10)p1 + p2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlK24YdQVY8HBKJUoVN64IEKy054f5SicUCQIzFicZNgib3u6Dl5D0oNbNO15XvG0Ys7kLDm1CCUUfMiayDXsWrkUkC7cFwkxaBEsI/640?wx_fmt=png&from=appmsg)
+![](../../images/6672b718bfd174cd.png)
 
 > ****踩雷 5**** ：`lambda.min` 给”CV 误差最小”的模型，`lambda.1se` 给”1 个标准误以内最简洁”的模型。****想少而稳用**`**lambda.1se**`**，想贴合原文”选了几个”用**`**lambda.min**`** 。Part 4 里用 `lambda.min` 恰好选出 6 个特征，与原文 Fig.5E 一致。
 
@@ -425,7 +425,7 @@ AUC = 1.000 (95%CI 1.000-1.000)
 ggplot(data.frame(spec = roc_obj$specificities, sens = roc_obj$sensitivities),      aes(1- spec, sens)) +  geom_path(colour ="#C0392B", linewidth =1) +  geom_abline(linetype ="dashed", colour ="grey60") +  annotate("text", x = .62, y = .28, colour ="#C0392B", size =3.6,          label =sprintf("AUC = %.3f", as.numeric(pROC::auc(roc_obj)))) +  coord_equal() +labs(x ="1 - Specificity", y ="Sensitivity",          title ="Demo: SVM ROC (iris, 真实数据)") +theme_bw(base_size =10)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnhzkFCywq4VnGvDP7ibicXgqy8o89xd8Pzib0CP5joOxZMZyKg6Ztnrtviak9pwWbeGETBDNEVEVDibBPlMkdJZU2HwIK6gBMgIk0k/640?wx_fmt=png&from=appmsg)
+![](../../images/74bdbb37eb77e442.webp)
 
 > ****这个 demo 故意让训练集 = 测试集**** ，所以 AUC 接近 1。真实评估不能这么干——****Part 4 会演示这个坑如何把 AUC 从 0.457 虚报到 1.000**** 。
 
@@ -447,7 +447,7 @@ Permutation test for adonis under reduced modelPermutation: freeNumber of permut
 ggplot(sco, aes(PC1, PC2, colour = Species)) +  stat_ellipse(aes(fill = Species), geom ="polygon", alpha = .10, linewidth = .4) +  geom_point(size =1.8, alpha = .8) +  labs(title ="Demo: PCA (vegan::rda)",       subtitle = paste0("PERMANOVA R2 = ", round(ad$R2[1], 3),       ", p = ", ad$`Pr(>F)`[1])) +  theme_bw(base_size =10) +theme(legend.position ="bottom")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmujAicUI6REQYLAHL1Q1yzSuBn3MUphCEC5MWyUVTehn0J9e9tkDIYgUuBGDQEbK17dbTJ3ZO9jlXAWAZ6pg1mvS8w7xKMXXWI/640?wx_fmt=png&from=appmsg)
+![](../../images/7a022abde75f2c89.webp)
 
 > ****踩雷 7**** ：`adonis2` 的 `method` 直接决定结论。Bray-Curtis 对丰度数据稳健，欧氏距离对稀疏/零膨胀数据敏感。****跟着原文口径选**** ，别用默认值。
 
@@ -774,7 +774,7 @@ DEP_M <- intersect_dir(M_HC, M_CD)cat("黏膜差异蛋白:", nrow(DEP_M), "= up
 vol <- M_CD %>%                                  # 火山图用 CDPS vs CD 的统计量  mutate(neglogp = -log10(P.Value),         inDEP   = symbol %in% DEP_M$symbol,         dir     = ifelse(inDEP, DEP_M$dir[match(symbol, DEP_M$symbol)], "ns"))lab <- vol %>% filter(inDEP) %>% arrange(P.Value) %>% slice_head(n = 12)ggplot(vol, aes(logFC, neglogp, colour = dir)) +  geom_point(alpha = .45, size = 1.1, colour = "grey78") +  geom_point(data = filter(vol, inDEP), alpha = .8, size = 1.4) +  geom_hline(yintercept = -log10(P_CUT), linetype = "dashed", colour = "grey50") +  geom_vline(xintercept = c(-LOGFC, LOGFC), linetype = "dotted", colour = "grey65") +  geom_text_repel(data = lab, aes(label = symbol), size = 2.8, max.overlaps = 20,                  colour = "#222222", segment.size = .2, box.padding = .35) +  scale_colour_manual(values = c(up = "#D64550", down = "#2E86AB", ns = "grey78")) +  labs(x = "log2 fold change (CDPS vs CD)", y = "-log10(nominal p)",       colour = NULL, title = "Fig.1D  肠道黏膜 CDPS vs CD",       subtitle = "灰点为未入选; 红色上调 / 蓝色下调 (|FC|>1.2 且 p<0.05, 双对比交集)") +  theme_bw(base_size = 11) + theme(legend.position = "bottom")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmof0VdibEicAnSVQKLWu1pfEwMBMlveKqwCd6Nsjs8R91jZpsNK6KibZJvkUWvWy0KVTlXhSSENLS8EmxA61VtDPTntG8xKSlj1k/640?wx_fmt=png&from=appmsg)
+![](../../images/ac8dcf2778657ff4.webp)
 
 ## 2、Fig.1E UpSet：两个对比的重叠
 
@@ -784,7 +784,7 @@ vol <- M_CD %>%                                  # 火山图用
 library(UpSetR)lst <- list(`CDPS vs HC` = unique(M_HC$symbol[M_HC$change %in% c("up", "down")]),            `CDPS vs CD` = unique(M_CD$symbol[M_CD$change %in% c("up", "down")]))upset(fromList(lst), order.by = "freq", sets.bar.color = c("#2E86AB", "#D64550"),      mainbar.y.label = "intersection size", sets.x.label = "DEP per contrast",      text.scale = c(1.4, 1.3, 1.2, 1.0, 1.3, 1.1))
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmNf5jicUoS3ogdicFwT5cu2V6BfJqcTAO4Qibu93GZ0MgaTmLuxVCRv36suCj5XMC1iaqCJOJCPtI9OgAr188ob0ibVkLAsCDr50nA/640?wx_fmt=png&from=appmsg)
+![](../../images/b3602c78594f2b3b.png)
 
 **读到什么** ：两个对比的交集（1320）远大于各自独有部分，说明 CDPS 相对于健康人和相对于普通 CD 患者的黏膜改变高度一致——这与”CDPS 是在 CD 基础上叠加银屑病”的临床观察相符。
 
@@ -833,7 +833,7 @@ keratinocyte differentiation| 23| 0
 p_up <- if (nrow(ego_df(ego_up))) clusterProfiler::dotplot(ego_up, showCategory = 12) +  ggtitle("上调蛋白 GO (BP)") else NULLp_dn <- if (nrow(ego_df(ego_dn))) clusterProfiler::dotplot(ego_dn, showCategory = 12) +  ggtitle("下调蛋白 GO (BP)") else NULLif (!is.null(p_up) && !is.null(p_dn)) p_up / p_dn else if (!is.null(p_up)) p_up else p_dn
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkzQ7wUzRtnKqAjANlVliaMRiaNiaNQCrzAxSu1va5NpUjnKjNjRWpKyBPxFkCIliaOrDl8icR1G0YL30YnopT2ib6ajeUcNKI2T66p4/640?wx_fmt=png&from=appmsg)
+![](../../images/ea5182c56fc5c05b.webp)
 
 > **踩雷 14** ：`as.data.frame(enrichResult)` 在 4.12.6 下返回的术语列叫 `Description`。老教程里 `df$Term` 取到 `NULL`，后续 `fct_reorder(Term)` 会报 `.f must be a factor`，再往下 `unique() applies only to vectors`——**报错位置和真正的原因差了三层** 。所以跨版本复现别人的代码，**先把` names(slot(x,"result"))` 打一遍**。
 
@@ -874,7 +874,7 @@ cat("通路:", nrow(fgM), "| FDR<0.25:", sum(fgM$padj < 0.25, na.rm = TRUE),�
 fgp <- as.data.frame(fgM) %>% dplyr::filter(padj < 0.25) %>%  dplyr::arrange(NES) %>% dplyr::mutate(pathway = forcats::fct_reorder(pathway, NES))ggplot(fgp, aes(NES, pathway, fill = NES > 0)) +  geom_col(width = .7) + geom_vline(xintercept = 0, linewidth = .3) +  geom_text(aes(label = ifelse(abs(NES) > 1.7, sprintf("%.2f", NES), ""),                hjust = ifelse(NES > 0, -0.15, 1.15)), size = 2.8) +  scale_fill_manual(values = c(`TRUE` = "#D64550", `FALSE` = "#2E86AB"), guide = "none") +  labs(x = "NES", y = NULL, title = "Fig.1G  GSEA (KEGG, prerank by moderated t)",       subtitle = sprintf("FDR<0.25 共 %d 条通路", nrow(fgp))) +  theme_bw(base_size = 9.5) + xlim(-2.6, 2.9)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkZC9D449jv5oU6E3qjW7f9FKJh0wpqSepdiaUAoSBsvpMD6lSxQyKK7tzUEZBs6a83gfRSmZqdTnbN03icHvysEHeppaWgjW1qg/640?wx_fmt=png&from=appmsg)
+![](../../images/ea0020d21c605044.webp)
 
 **与原文生物学结论逐条对照** ：
 
@@ -945,7 +945,7 @@ KRT74| -0.7771| 0.6528| -5.9494| 0.0000| 0.0001
 mk_vol <- function(d, dep, ttl) {  v <- d %>% mutate(neglogp = -log10(P.Value),                    dir = ifelse(symbol %in% dep$symbol,                                 dep$dir[match(symbol, dep$symbol)], "ns"))  lb <- v %>% filter(dir != "ns") %>% arrange(P.Value) %>% slice_head(n = 8)  ggplot(v, aes(logFC, neglogp, colour = dir)) +    geom_point(alpha = .45, size = 1.4, colour = "grey78") +    geom_point(data = filter(v, dir != "ns"), alpha = .85, size = 1.7) +    geom_hline(yintercept = -log10(P_CUT), linetype = "dashed", colour = "grey50") +    geom_vline(xintercept = c(-LOGFC, LOGFC), linetype = "dotted", colour = "grey65") +    geom_text_repel(data = lb, aes(label = symbol), size = 2.6, max.overlaps = 20,                    colour = "#222222", segment.size = .2) +    scale_colour_manual(values = c(up = "#D64550", down = "#2E86AB", ns = "grey78")) +    labs(x = "log2 fold change", y = "-log10(nominal p)", colour = NULL, title = ttl) +    theme_bw(base_size = 10) + theme(legend.position = "bottom")}p_s <- mk_vol(S_CD, serum_dep, "Fig.4B 血清 CDPS vs CD (单对比口径)")p_u <- mk_vol(U_CD, urine_dep, "Fig.4B 尿液 CDPS vs CD (交集口径标注)")p_s + p_u
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwluic02amHAQcrtnqbVmoib58IRGIYSm8b9qbcNPJFibDdM2sjf8oVWpUgGXmuibhlClFlf3HY3C4gW2TagcQ5l1XluSGBz0NTW7n8/640?wx_fmt=png&from=appmsg)
+![](../../images/b000e8407b6647ed.webp)
 
 ## **2、Fig.4C 血清 ∩ 尿液 Venn**
 
@@ -955,7 +955,7 @@ mk_vol <- function(d, dep, ttl) {  v <- d %>% mutate(neglogp = -log10(P.Value)
 library(VennDiagram); library(grid)VennDiagram::draw.pairwise.venn(  area1 = nrow(serum_dep), area2 = nrow(urine_dep), cross.area = nrow(common),  category = c("Serum DEP", "Urine DEP"), fill = c("#C0392B", "#2980B9"),  alpha = .45, cat.cex = 1.5, cex = 1.8, fontface = "bold",  cat.pos = c(-20, 20), scaled = FALSE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmMsUccShku4nicVPmibQsJib7UfVcX6VhqIknevKDeLAxbXYnlVueyAmm1e8bpc0LzNeiaxuSG3b0nNwEjK3qaE77H8C3oF9XriaDU/640?wx_fmt=png&from=appmsg)
+![](../../images/fb0bc31fa99205a7.png)
 ```
 (polygon[GRID.polygon.927], polygon[GRID.polygon.928], polygon[GRID.polygon.929], polygon[GRID.polygon.930], text[GRID.text.931], text[GRID.text.932], text[GRID.text.933], text[GRID.text.934], text[GRID.text.935])
 ```
@@ -981,7 +981,7 @@ urine| vs_CD| -0.3903| 0.0155| 0.8411| down
 ggplot(hg4, aes(contrast, logFC, fill = tissue)) +  geom_col(width = .6) +  geom_hline(yintercept = 0, linewidth = .3) +  facet_wrap(~ tissue, scales = "free_x") +  scale_fill_manual(values = c(serum = "#C0392B", urine = "#2980B9"), guide = "none") +  labs(x = NULL, y = "log2 fold change (CDPS vs ref)",       title = "Fig.4D  HGFAC 在血清与尿液中一致下调") +  theme_bw(base_size = 10)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnKEPg1XIibER87KOJ8dibLOkdNJLWSeELPEcXYk3hiaFiaYiaohF0yo7PsR8ia2vic5nC87dv4licOxVBkv7mI3UbQxvibtFuchM8GsPJw/640?wx_fmt=png&from=appmsg)
+![](../../images/f2e3282e074900f5.png)
 
 ****读到什么**** ：HGFAC 在血清（−0.3791 / −0.3548）与尿液（−0.4321 / −0.3903）中****四个对比全部下调**** ，量级高度一致（约 −0.35 到 −0.43）。HGFAC 编码 hepatocyte growth factor activator，是 HGF/MET 通路的激活酶，其下调意味着组织修复通路受抑——这是原文选它作核心分子的原因。
 
@@ -1029,7 +1029,7 @@ urine up| peptide antigen assembly with MHC protein complex| 3| 0.025
 top_res <- res %>% dplyr::group_by(set) %>% dplyr::arrange(p.adjust) %>%  dplyr::slice_head(n = 8) %>% dplyr::ungroup() %>%  dplyr::mutate(Term = forcats::fct_reorder(Term, -log10(p.adjust)))ggplot(top_res, aes(-log10(p.adjust), Term, fill = set)) +  geom_col(width = .7) +  facet_wrap(~ set, scales = "free_y", ncol = 2) +  labs(x = "-log10(FDR)", y = NULL, fill = NULL,       title = "Fig.4E  体液差异蛋白的 GO (BP) 注释") +  theme_bw(base_size = 9) + theme(legend.position = "none")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmn75te3Qnp8mZ3505PYBQBaMqibvAIuOB2ZlnZCXrk6PSDhjtYeKB4R7ibtuzibMMm0iaCqWHdibMtkf3WSJB8wg7tQB1q2wuEmuAA/640?wx_fmt=png&from=appmsg)
+![](../../images/42605c4592aee919.webp)
 
 * * *
 
@@ -1133,7 +1133,7 @@ Permutation test for adonis under reduced modelPermutation: freeNumber of permut
 ggplot(pcs, aes(PC1, PC2, colour = group)) +  stat_ellipse(aes(fill = group), geom = "polygon", alpha = .12, linewidth = .4) +  geom_point(size = 2.8) +  geom_text_repel(aes(label = sample), size = 2.4, max.overlaps = 40,                  colour = "#333333", segment.size = .2) +  scale_colour_manual(values = c(CDPS = "#C0392B", reference = "#2980B9")) +  scale_fill_manual(values  = c(CDPS = "#C0392B", reference = "#2980B9")) +  labs(x = sprintf("PC1 (%.1f%%)", ve[1]), y = sprintf("PC2 (%.1f%%)", ve[2]),       colour = "group", fill = "group", title = "Fig.5A  PCA of faecal metaproteome",       subtitle = sprintf("PERMANOVA R2 = %.4f, p = %.3f", ad$R2[1], ad$`Pr(>F)`[1])) +  theme_bw(base_size = 11) + theme(legend.position = "bottom")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnZ3tMeX8CcT2YJgaibjEs8yC0urRC4mS3HicKDY0OUb4Siaj7EPFkWpVXia0CcgRoONdBribEqC7YvXCjhI4FcdRtyGZLlUcTs5dmA/640?wx_fmt=png&from=appmsg)
+![](../../images/9c1b84336b5ff2b4.webp)
 
 ****读到什么**** ：PERMANOVA ****R² = 0.2999, p = 0.009**** —— 两组群落结构差异显著，分组能解释约 30% 的变异。
 
@@ -1145,7 +1145,7 @@ ggplot(pcs, aes(PC1, PC2, colour = group)) +  stat_ellipse(aes(fill = group), g
 library(pheatmap); library(RColorBrewer)anno <- data.frame(Group = group); rownames(anno) <- samppheatmap(lgmat_z, annotation_col = anno, scale = "none",         cluster_rows = TRUE, cluster_cols = TRUE,         color = colorRampPalette(rev(brewer.pal(11, "RdBu")))(100),         annotation_colors = list(Group = c(CDPS = "#C0392B", reference = "#2980B9")),         fontsize_row = 9, fontsize_col = 7,         main = "Fig.5B  z-scored log2 abundance")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmCcpp5chsU4zgu6Z4Msicicu7eL2Uwjs8tqXZv9Y8UpJZh5Pk6V4oibZSHeOLqEqSrrxfaXuWWH5cCo6jhIpzElnFiaxTTtdYrXLs/640?wx_fmt=png&from=appmsg)
+![](../../images/b50eaedc4d9d256e.webp)
 
   *   *   *   *
 
@@ -1160,7 +1160,7 @@ vol <- rr %>% mutate(neglogp = -log10(p_mine),                     d
 ggplot(vol, aes(l2fc_mine, neglogp, colour = dir)) +geom_point(aes(size =abs(l2fc_mine)), alpha = .85) +geom_hline(yintercept =-log10(0.05), linetype ="dashed", colour ="grey50") +geom_vline(xintercept =0, linewidth = .3, colour ="grey70") +geom_text_repel(aes(label = species), size =2.8, max.overlaps =40,colour ="#222222", segment.size = .2) +scale_colour_manual(values =c(down ="#2E86AB", up ="#D64550", ns ="grey75")) +scale_size(range =c(2, 6), guide ="none") +labs(x ="log2 fold change (CDPS / reference)", y ="-log10(Wilcoxon p)",colour =NULL, title ="Fig.5C  Differential species",subtitle ="12 / 12 个物种全部下调 (与原文一致)") +theme_bw(base_size =10) +theme(legend.position ="bottom")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmibLV6EdXhBwFlYwV6fFpV19ic7OSr9LhIOhVQvFHjic4vMeAbS9EiaJxqdovtXlR7Gdx6pHkWTa0BDTkTvwticMdxbqribEPmkvPSQ/640?wx_fmt=png&from=appmsg)
+![](../../images/63cd4c49bfbeca06.webp)
 
 ## **4、α 多样性（含边界说明）**
 
@@ -1179,7 +1179,7 @@ Shannon: CDPS vs reference, Wilcoxon p = 0.6009
 alpha %>% tidyr::pivot_longer(c(Shannon, Simpson, Richness)) %>%  ggplot(aes(group, value, fill = group)) +  geom_boxplot(width = .55, alpha = .8, outlier.size = 1) +  geom_jitter(width = .12, size = 1.6, alpha = .7) +  facet_wrap(~ name, scales = "free_y") +  scale_fill_manual(values = c(CDPS = "#C0392B", reference = "#2980B9"), guide = "none") +  labs(x = NULL, y = NULL, title = "α diversity (Shannon / Simpson / richness)") +  theme_bw(base_size = 10)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn4dVct0MlLKhia55ENO70ibj5LibbWPmkYnP7XcgbcqIS7XtYicAU8n9kVbV10uruUAIJibVs5XjqNQXF7HvXmM5V6pVx8s5vJ89XM/640?wx_fmt=png&from=appmsg)
+![](../../images/fae3c85fcd66060a.png)
 
 > ****边界提示**** ：附表只给了这 12 个****差异**** 物种的丰度，不是完整物种谱。所以这里的 α 多样性只能反映****趋势**** （CDPS 的 Shannon 更低，方向与原文一致），绝对值不能与原文直接比较。原文未披露完整物种表。
 
@@ -1242,7 +1242,7 @@ Megasphaera micronuciformis| -1.2859
 ggplot(wgt, aes(reorder(species, weight), weight, fill = weight < 0)) +  geom_col(width = .62) + coord_flip() + geom_hline(yintercept = 0, linewidth = .3) +  scale_fill_manual(values = c(`TRUE` = "#2E86AB", `FALSE` = "#D64550"),                    labels = c(`TRUE` = "protective (negative)",                               `FALSE` = "risk (positive)")) +  labs(x = NULL, y = "LASSO coefficient", fill = NULL,       title = "Fig.5F  LASSO feature weights (lambda.min)",       subtitle = sprintf("%d 个非零特征, 与原文 6 个重合 %d 个",                          nrow(wgt), length(intersect(sel, PAPER6)))) +  theme_bw(base_size = 9.5) + theme(legend.position = "bottom")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmiamzliabLTWORUyWVSlY6EuDX0ZpZWE8mbX7IiaM3kAicdIyL3HiczZaRUDEDmibWibM3bMxGJ7AicfbxNTHeqs1LwoB9vJCjkOTMYbE/640?wx_fmt=png&from=appmsg)
+![](../../images/e8b554c8cbbce8f0.png)
 
 ****读到什么**** ：用****相对丰度**** （不取对数）作为特征时，`lambda.min` 恰好选出 ****6 个**** 非零特征，与原文 Fig.5E 的 “6 nonzero features” 数量一致；其中 `Bacteroides xylanisolvens`、`Blautia hansenii`、`Megasphaera micronuciformis` 与原文点名的 6 个保护菌重合。
 
@@ -1279,7 +1279,7 @@ Anaerosporobacter mobilis| 0.018| TRUE
 ggplot(stab, aes(reorder(species, freq), freq, fill = in_paper6)) +  geom_col(width = .65) + coord_flip() +  geom_hline(yintercept = 0.5, linetype = "dashed", colour = "grey40") +  annotate("text", x = nrow(stab) - 0.5, y = .54, label = "stability 50%",           size = 2.8, colour = "grey30", hjust = 1) +  scale_fill_manual(values = c(`TRUE` = "#C0392B", `FALSE` = "#95A5A6"),                    labels = c(`TRUE` = "原文的 6 个", `FALSE` = "其它")) +  labs(x = NULL, y = "被选中频率 (500 次子抽样)", fill = NULL,       title = "Stability selection — 增量检验") +  theme_bw(base_size = 9.5) + theme(legend.position = "bottom")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkjSfQq7Z4lYeV8yFnBsww8NHO6LDcK439sqlO8qYKVT8Fwtns2mZIqHdNKu5DKvaR4pPrt6WPpWDHFbKNNdAcTkTttcemj7ts/640?wx_fmt=png&from=appmsg)
+![](../../images/31e76d4cda565843.webp)
 
 ****读到什么**** ：只有 `Roseburia intestinalis`（0.630）与 `Blautia hansenii`（0.550）超过 50% 稳定性阈值。原文报告的 6 个”保护性物种”里，多数在重抽样中被选中的频率低于 20%。这不否定原文的生物学结论（动物实验已验证  _M. micronuciformis_ ），但提示****“6 个物种”这个具体名单的统计稳健性有限**** 。
 
@@ -1313,7 +1313,7 @@ set.seed(20251004)pred2 <- numeric(nrow(X))for (i in seq_len(nrow(X))) {  tr
 mk <- function(r, lab, col) data.frame(  spec = r$specificities, sens = r$sensitivities, model = lab, col = col)df <- rbind(mk(roc_l, sprintf("泄漏版 LOOCV (AUC = %.3f)", as.numeric(pROC::auc(roc_l))), "#C0392B"),            mk(roc_n, sprintf("嵌套 CV (AUC = %.3f)", as.numeric(pROC::auc(roc_n))), "#16A085"))ggplot(df, aes(1 - spec, sens, colour = model)) +  geom_path(linewidth = .9) + geom_abline(linetype = "dashed", colour = "grey60") +  scale_colour_manual(values = c("#C0392B", "#16A085"), name = NULL) +  coord_equal() + labs(x = "1 - Specificity", y = "Sensitivity",                       title = "同一个数据、同一个分类器，差别只在特征选择有没有放进 CV") +  theme_bw(base_size = 10) + theme(legend.position = "bottom")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnNL5BxyLL3gVtfshSeVyeyloH5q0aEaWsGFI7xj9biaacRn1IuM0VlFRZsv12cqNqibcaxetgFTGpL9mibTiambZHpMF7wBjdDkds/640?wx_fmt=png&from=appmsg)
+![](../../images/9c8842a99a41eb10.png)
 
 > 泄漏版 AUC = ****1.000**** ，嵌套 CV AUC = ****0.457（95%CI 0.157–0.771）**** ——差了 0.54。 原文 Fig.6F 报告的 AUC 0.675 / 0.750 / 0.830 没有说明是否做了嵌套 CV；考虑到其样本量（UST 组 NR=6 / R=11），这些数值很可能同样偏乐观。 ****凡是”先选特征再评估”的流程，特征选择必须放进 CV 内部。****
 
@@ -1347,7 +1347,7 @@ turquoise| 363| 278| 363| 278| 0.828
 ggplot(mod, aes(MM, GS_PS, colour = module)) +  geom_point(alpha = .7, size = 1.8) +  geom_hline(yintercept = 0, linetype = "dashed", colour = "grey50") +  geom_vline(xintercept = 0.8, linetype = "dotted", colour = "grey60") +  geom_text_repel(data = dplyr::filter(mod, hub) %>%                    dplyr::group_by(module) %>%                    dplyr::slice_max(abs(GS_PS), n = 3),                  aes(label = protein), size = 2.5, max.overlaps = 30,                  colour = "#222222", segment.size = .2) +  scale_colour_manual(values = c(blue = "#2980B9", brown = "#8E44AD",                                 turquoise = "#16A085")) +  labs(x = "Module Membership (MM)", y = "Gene Significance for PS (GS)",       colour = "module", title = "Fig.2E  MM × GS (虚线为原文 hub 阈值: MM > 0.8)") +  theme_bw(base_size = 10) + theme(legend.position = "bottom")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkSnFuibxu9jXLWIk0ibnSgBvDoGeSs30douyE0bIFq48KzYLskV0Vv1wn5L3FxKoRgbPSnp2zpUmUztyRSEAqmhzwqYu4pOSiaiaQ/640?wx_fmt=png&from=appmsg)
+![](../../images/5987f60ab01a774a.webp)
 
 ## **3、KRT7 落在哪、够不够格**
 
@@ -1443,7 +1443,7 @@ stopifnot(nrow(bg5) > 100, all(grepl("^[0-9]+$", bg5$ENTREZID)))go5 <- purrr::m
 go5 %>% dplyr::group_by(module) %>% dplyr::arrange(p.adjust) %>%  dplyr::slice_head(n = 8) %>% dplyr::ungroup() %>%  dplyr::mutate(Term = forcats::fct_reorder(Term, Count)) %>%  ggplot(aes(Count, Term, size = -log10(p.adjust), colour = module)) +  geom_point(alpha = .8) +  scale_colour_manual(values = c(blue = "#2980B9", brown = "#8E44AD",                                 turquoise = "#16A085")) +  facet_wrap(~ module, scales = "free_y", ncol = 3) +  labs(x = "count", y = NULL, size = "-log10(FDR)", colour = NULL,       title = "Fig.2E  三模块的 GO (BP) 注释") +  theme_bw(base_size = 8.5) + theme(legend.position = "bottom")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkJ4l3NF1f2wnZ3gr2LMDp5QdpzBF07ORicn5nsjvrPMtic3ichQriacQtpffv3qL4mN2umXaLDwxic5XoexStuGJzGYYQveibKEQjC4/640?wx_fmt=png&from=appmsg)
+![](../../images/1877babba792baef.webp)
 
 > ****踩雷 17（最隐蔽的一个）**** ：`SYM_MAP`是`names = ENTREZID、value = SYMBOL`的命名向量。写成`ENTREZID = SYM_MAP[match(sym, SYM_MAP)]`时，`match()`返回的是****下标**** ，`SYM_MAP[下标]`取到的是****值（SYMBOL）**** ，于是`ENTREZID`列里装的全是基因名。`enrichGO()`对此****不报错**** ，只 quietly 打印一句`No gene can be mapped.... → return NULL...`，然后返回`NULL`，图就”凭空消失”了。 正确写法是`names(SYM_MAP)[match(...)]`。修好后三个模块分别得到 760 / 818 / 710 条显著 BP 条目。****凡是做 ID 映射，映射完立刻断言一次**** （如上面的`stopifnot(all(grepl("^[0-9]+$", ...)))`），能让这类静默失败立刻暴露。
 
@@ -1473,8 +1473,8 @@ go5 %>% dplyr::group_by(module) %>% dplyr::arrange(p.adjust) %>%  dplyr::slice_
 
 #
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

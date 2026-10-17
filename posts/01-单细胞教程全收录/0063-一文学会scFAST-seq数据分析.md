@@ -12,16 +12,16 @@ albums: ["单细胞教程全收录"]
 
 **学习手册**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png)
+![](../../images/07e88994d32c0968.png)
 
-## ![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpz6UC9xxqIBQjSNjV1tb1J9iayZqicJ8RHXew8LDB6pt4OnsmNicHmtwkPq2lRyjQtlFiaZLFNzIQVPew/640?wx_fmt=gif)
+## ![](../../images/086c3b2d9d29435d.webp)
 
 与以往的教程一样，我们给大家准备了数据分析的学习手册，目前分为scFAST绪论、准备工作、fast模块、Seurat分析与可视化、mut模块等五节内容及对应测试文件(更多章节持续创作中)，大家可以添加企业微信回复关键字"**scFAST学习手册即领** ":
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzY8KfmQFMyKIxcP7NQiaAeGUA1gGep9XicrrsqRibpVleQLrnkwIicthcwQFoetFc5BfMSLeYSTy2PaQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/a1dbb3a25a832fe1.webp)
 
 **一、scFAST绪论**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png)
+![](../../images/07e88994d32c0968.png)
 
 ## 1.1 写在前面
 
@@ -34,39 +34,39 @@ albums: ["单细胞教程全收录"]
 ### 1.2.1 建库流程与特征
 
 具体建库的实验流程的受众比较少，感兴趣的同学可以阅读一下原文的methods(https://www.biorxiv.org/content/10.1101/2023.03.19.533382v1.full)。大致来说，与大家熟悉的`10X Genomics`一样，单细胞悬液会被制备成一个**油包水** 的体系，但`scFAST-seq`使用随机引物而非3’端的oligo-dT去捕获RNA分子参与逆转录，优化后的随机引物`12N7F`能够捕获到更多的转录本与RNA分子：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz6UC9xxqIBQjSNjV1tb1J9byAB4ZMmnqCgI6CrdV5icqr9vIfSuwkwP4iaOFsNzEoicU6Qskmaia3gYg/640?wx_fmt=png)
+![](../../images/9c89850943524424.webp)
 
 以往的`5'`策略在`Bulk RNA-Seq`中被频繁使用，因为Bulk RNA-Seq可以很方便的使用`RNase H`降解`rRNA`，但在单细胞建库中，这就是个难题。因此`scFAST-seq`使用在使用随机引物的同时加入了一种”阻断”探针，能够特异性的 _阻断_`rRNA`与`mtRNA`的逆转录从而大大降低文库中`rRNA(30%→10%)`与`mtRNA(6%→1%)`的占比：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz6UC9xxqIBQjSNjV1tb1J9eaVGDGicGX8BQuBZJqKxw8r9CbdAfZEeEo0I7XCO6xiaud8jZhOJCUnw/640?wx_fmt=png)
+![](../../images/9b3b0b55fd6b58ca.png)
 
 `scFAST-seq`的流程示意图如下所示：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz6UC9xxqIBQjSNjV1tb1J9vo9mz8HejaNbbPkv9Hc7nxgTDexGFhOI8BvsEVcdzvMEp6KKKfzUmQ/640?wx_fmt=png)
+![](../../images/698fda5787b6dbbe.webp)
 
 ### 1.2.2 `scFAST-seq`与`3'`策略的`scRNA-seq`一致性评价
 
-作者对`K562`、`A549`、`HCC827`混合细胞系、乳腺癌、胶质母细胞瘤、小鼠胰腺癌、外周血等样本分别进行了`scFAST-seq`与`3'`策略的`scRNA-seq`的测序，与上文表述的一样，`scFAST-seq`获得的`mtRNA`与`rRNA`数量都更少(图A)。与此同时，`scFAST-seq`的`reads`分布在基因中的位置更加的均匀，而不是像`3'`测序那般主要集中在`RNA`分子的`3'`端(图B)；这显然更有利于 _转录本结构_ 的研究。在基因定量方面，相关性分析(图D)、降维分析(图E)与细胞比例分析(图F)均显示`scFAST-seq`与`3' scRNA-seq`具有极为相似的表达矩阵；`infercnv`分析方面两种技术的一致性极高(图G)。但在转录本的捕获数量上而言，在对应样本中`scFAST-seq`依旧是更胜一筹(图C)。 ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz6UC9xxqIBQjSNjV1tb1J9icQqSVl8xjXS2icibkoSxrS2khN67g9gIrgyELUYoh7KjIgO41R3SonpQ/640?wx_fmt=png)
+作者对`K562`、`A549`、`HCC827`混合细胞系、乳腺癌、胶质母细胞瘤、小鼠胰腺癌、外周血等样本分别进行了`scFAST-seq`与`3'`策略的`scRNA-seq`的测序，与上文表述的一样，`scFAST-seq`获得的`mtRNA`与`rRNA`数量都更少(图A)。与此同时，`scFAST-seq`的`reads`分布在基因中的位置更加的均匀，而不是像`3'`测序那般主要集中在`RNA`分子的`3'`端(图B)；这显然更有利于 _转录本结构_ 的研究。在基因定量方面，相关性分析(图D)、降维分析(图E)与细胞比例分析(图F)均显示`scFAST-seq`与`3' scRNA-seq`具有极为相似的表达矩阵；`infercnv`分析方面两种技术的一致性极高(图G)。但在转录本的捕获数量上而言，在对应样本中`scFAST-seq`依旧是更胜一筹(图C)。 ![](../../images/5c00f8f5ac337397.webp)
 
 ### 1.2.3 `scFAST-seq`与目的区域富集技术的结合
 
 期望简单的通过增大测序量来增大目的区域的`reads`数是不切实际的，因此通过生物素探针或`巢式PCR`可以提升目的区域的捕获效率，例如`EGFR 19del`可通过生物素探针 _提升近一倍_(图A)、巢式PCR也可以在少量的细胞中捕获到更多对应的转录本(图B)。`scFAST-seq`与目的区域富集策略的结合可以用最低的测序成本获取更多的目的信息。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz6UC9xxqIBQjSNjV1tb1J9h4gkFiaPscqXlGpJlUsuNGHqgBsXp7KkqDpANO5ZfWj5blibB8Yf9Krg/640?wx_fmt=png)
+![](../../images/a3ec521598401010.webp)
 
 ## 1.3 小结
 
 作为全序列的产品，相较于3’单细胞测序而言，其有以下优势：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwCXvr5c40oys77wG7vXKmiaK88yld6eibQL1cia1ju7D8DLia5eOnXSwewkzvShjfF7A6oU911wvibfPA/640?wx_fmt=png)
+![](../../images/cb85758a68ebbe1b.webp)
 
 作为一款对标SMART-Seq2的国产测序技术，scFAST-seq的表现十分优秀。scFAST-seq与SMART-Seq2对比可见：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwCXvr5c40oys77wG7vXKmia0V9rwmia1GIYPbrkrH4VITeZGjeKw5QSn0kr5JkLEicBCoArD1ACT1MQ/640?wx_fmt=png)
+![](../../images/af59d4d08f9f1208.webp)
 
 当然，scFAST-seq也并不是没有缺点，其对于低丰度的转录本捕获效率稳定性不足。为寻因生物点赞的同时也期待单细胞领域出现越来越多有竞争力的国产平台！
 
 **二、准备工作**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1189c1178040d051.png)
 
 ##  scFAST学习资料可添加**文末企业微信** 领取，本节的视频教程可见(点击文末阅读原文可跳转)：
 
@@ -476,7 +476,7 @@ tar -zxvf hg38_rRNA.tar
 
 **三、fast模块**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1189c1178040d051.png)
 
 ##  本节视频教程可见B站(文末阅读原文可直接跳转)：
 
@@ -523,7 +523,7 @@ X表示任意碱基，用于占位；
  _接头和PolyA序列剪切_ 在转录组产品中，`Read2`的末端有可能会出现`polyA` `tail`或建库时引入的接头序列。这些序列并没有有效信息。为了节省计算时间和复杂度，我们要这些序列进行切除。剪切完的`read2`长度需要大于设定的最小长度来保证有足够的信息，准确比对到基因组的位置。如果剪切完成后的`read2`长度小于最小长度，我们认为这条`read`为无效`read`。
 
  _指标统计_
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrrYibtdmOClWclLHiaboibgXgfshkDw0ic3l5dsiba08bIb6GG4ap9ccibRzg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/aacbfb49394ba3af.png)
 
 ```
 total: 总共的reads数目
@@ -825,7 +825,7 @@ seeksoultools fast run \
 
 **四、Seurat分析及可视化**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1189c1178040d051.png)
 
 `Seurat`可谓是单细胞数据分析及可视化的神包，利用R语言分析单细胞不可不学的利器。这部分内容阅读有障碍的同学可以查看以下我们以往的教程：
 
@@ -965,7 +965,7 @@ VlnPlot(scFAST,
         ncol = 3)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicr3YGDuia8yhaqoDObOcZibq2XVjmbme699G5fbppmnbtAzA1nELuC6uXA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/8c037cd35a2e523d.webp)
 
 ```r
 #dev.off()
@@ -984,7 +984,7 @@ CombinePlots(plots = list(plot1, plot2)) #高变基因，判断趋势及占比
 ## the patchwork system.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrjDGzV1xUEkvKM34qMmLvJwXtsbbBwEMuDX7gpPxMAWr6c8thstTEqw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/37534b6be2506e37.webp)
 
 ```
 #dev.off()
@@ -1022,7 +1022,7 @@ CombinePlots(plots = list(plot1, plot2))
 ## the patchwork system.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrQ0N4F75dEsodwdXZcibzP7C9iayVSCKQFoFfHmu761L8tLrtzkAUvElQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/b4b881fe5c615beb.webp)
 
 ```r
 # 将数据进行归一化，为后续的PCA分析做准备，数据存在scFAST[["RNA"]]@scale.data
@@ -1117,7 +1117,7 @@ print(scFAST[["pca"]], dims = 1:5, nfeatures = 5)
 VizDimLoadings(scFAST, dims = 1:2, reduction = "pca")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrMmic67t2gxa9jtw3xKQ8gNLVqDSibagtsjYRao6YK7gmjmq8l3a1PMGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/3c5ec41473b61f8f.webp)
 
 ```
 #dev.off()
@@ -1127,7 +1127,7 @@ DimHeatmap(scFAST, dims = 1,
            cells = 500, balanced = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicriatyJyowb8iaGvuENEsicAOmfomOBv8tBrrYBaVUwmssjPQkHhkznYv2g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/061c3383ae3a3520.webp)
 
 ```
 #pdf(file = 'PCA.heatmap.pdf',width = 15,height = 12)
@@ -1137,7 +1137,7 @@ DimHeatmap(scFAST, dims = 1:15,
            cells = 500, balanced = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrMUes7GKBPkfMaeZNjaEDTXricht5Q06I1CtkexbrMUlV3ib1Pl7uibib7Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/b14397331033f394.webp)
 
 ```r
 #dev.off()
@@ -1158,7 +1158,7 @@ JackStrawPlot(scFAST, dims = 1:15)
 ## Warning: Removed 21504 rows containing missing values (geom_point).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrqoz9Gsvodm95lALvAleXqaQ9urLcDEWoZBKO3FLzUSOoMsrxmLyN4A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d64f7f35e771fcd9.webp)
 
 ```
 #dev.off()
@@ -1168,7 +1168,7 @@ JackStrawPlot(scFAST, dims = 1:15)
 ElbowPlot(scFAST)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicribgAHjFaLopLvCE5tmsPwoIIxv0eEpR2X49XLcdkpnNbUj1cTQ2v4fg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/613e5a3529cb0bd0.png)
 
 ```
 #dev.off()
@@ -1260,7 +1260,7 @@ scFAST <- RunTSNE(scFAST, dims = 1:11)
 DimPlot(scFAST, reduction = "umap", label = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicr0WXE8CfETeMthA551o0icQ2CY7Iyo9VJdnFY6IpPOeibFSPYW4A17F6g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cf8d18e98a2ba43.webp)
 
 ```r
 # 计算cluster1相较于其它cluster的marker：
@@ -1310,7 +1310,7 @@ VlnPlot(scFAST, features = unique(top10gene$gene),
         pt.size = 0,ncol = 4)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrKybnibDgrG4hK3ocVpQMibQcPgHweVRsmCUjww1jWDfsm4hFIykwBVLw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2f9fc63a15e206d1.webp)
 
 ```
 # dev.off()
@@ -1319,13 +1319,13 @@ VlnPlot(scFAST, features = unique(top10gene$gene),
         pt.size = 0,stack = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrMlicWANwnCOEUUedAQwjnskSZ2Y76gsgf1oluoptU6QUvAdPD1KkHVQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d6ed100d7681e3d.webp)
 
 ```
 DimPlot(scFAST)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicr7Mu6pvF9s0mODuIp5oSYvznkKI9gwMf9JQHRwu8xCDjqqoc1XVd6WA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/bf2beee2f33d100c.webp)
 
 ```
 # 查看部分marker基因在FeaturePlot(以UMAP作为底图)中的表达情况：
@@ -1333,7 +1333,7 @@ FeaturePlot(scFAST,
             features = unique(top10gene$gene)[1:9])
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrfkkm3jSWicib1MdcXx7S9qFzcEldeaz2m5hTIAOqA8VcLLeqic2Ig34Lg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1c3d3ca0805e3784.webp)
 
 ```
 # 展示cluster标签
@@ -1342,14 +1342,14 @@ FeaturePlot(scFAST,
             label = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicricicAauPtKerib5nrgWSpniae10YSBCDQVEWe0jFFseibCsofhOt7R5KSUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/5351fbebc08d6675.webp)
 
 ```
 FeaturePlot(scFAST,
             features = c("ALDH1A1","AKR1C2","AKR1C3","CYP24A1"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrytvE4xngwia6yL3ibZ2fsVwgFo3S6icfj3kXgTzcpYwHMicX88sBjJMadA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/e20810a3a9f4352e.webp)
 
 ```r
 # 展示前10个标记基因的热图
@@ -1357,7 +1357,7 @@ top10 <- scFAST.markers %>% group_by(cluster) %>% top_n(n = 10, wt = avg_log2FC)
 DoHeatmap(scFAST, features = top10$gene) + NoLegend()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrYpwhI5wZicIGrXwv2vt676hwNNWicicL8ngUAO7VMm8lT8Mib0HWA3LISg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/f2ccf2d6ecc77386.webp)
 
 ```r
 #通过标记基因及文献，可以人工确定各分类群的细胞类型，则可以如下手动添加细胞群名称：
@@ -1409,7 +1409,7 @@ VlnPlot(scFAST,
             stack = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrTtVahY0l4tb8ywFe4d4YCyNur27hXJF7x5BpEPAc5VTpVtBm7loNow/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d8b27f781cb2608c.webp)
 
 ```r
 # 求各个细胞类型基因的平均表达量：
@@ -1433,7 +1433,7 @@ DimPlot(scFAST, reduction = "umap",
         label = TRUE, pt.size = 0.5) + NoLegend()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrRbibWPHocwPZlTficJyaPVWfb7gUkGc58f4nVdHjKMFs1I95mYoDfKog/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/b3db492fd88e9de8.webp)
 
 ```r
 Idents(scFAST) <- 'celltype'
@@ -1442,7 +1442,7 @@ DimPlot(scFAST, reduction = "umap",
         label = TRUE, pt.size = 0.5) + NoLegend()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxDibqibkz5SuXztcRlIhMIicrRbibWPHocwPZlTficJyaPVWfb7gUkGc58f4nVdHjKMFs1I95mYoDfKog/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/b3db492fd88e9de8.webp)
 
 可以如是完成数据的保存与再次读取：
 
@@ -1464,7 +1464,7 @@ scFAST <- readRDS('./scFAST_out/scFAST_fast.rds')
 
 **五、mut模块**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1189c1178040d051.png)
 
 5.1 简介
 
@@ -1472,7 +1472,7 @@ scFAST <- readRDS('./scFAST_out/scFAST_fast.rds')
 
 ## 5.2 模块工作流程
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTjbzICJlbNUgWnH3g9qjebPQZp0e7duvlTvsa9R36FGlxuk5eJVkVoQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ab476826c676fab7.webp)
 
 突变检测模块流程示意图
 
@@ -2056,12 +2056,12 @@ tree cell_line_mutout
 重要输出结果 `*clusters.varscan.snp_indel.hg38_multianno.xls`：是经过barcode UMI vaf 人群频率等过滤的最终位点注释文件
 
 `*.snp_indel.alt_UMI.matrix`：是经过最终过滤的位点在细胞中突变的UMI矩阵，行是突变，列是细胞。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTzia0aichVV4vMM22UOAYbh7aKvKNqshmO4CzpTRIib5oV4ztLdFiaicR4Bg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/e988adaa1abe64fc.webp)
 
 `*.snp_indel.all_UMI.matrix`：是经过最终过滤的位点在细胞中覆盖的UMI矩阵，行是突变，列是细胞。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTPADCK1Y8XXSsuTCVfEWSe3oEGyqj3afcdOdnefE4uEkudOib6bjJSyA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/36cdfce597993cd9.webp)
 
-`mutation_umap/*_snv_markers.xls`结果如下所示： ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTIR4cpDVuI4QcLdbfGxLMolgm790MY5ZLSSjEO5becL9Rfj4JicPKmSQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+`mutation_umap/*_snv_markers.xls`结果如下所示： ![](../../images/9ac89b5181f43af9.webp)
 每列的含义为：
 `SNV`：突变位点
 
@@ -2088,7 +2088,7 @@ scFAST <- readRDS('cell_line_mutout/mutation_umap/cellline_add_snv.rds')
 DimPlot(scFAST)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTI6SaWGbnZj7EUzmPPRHia8lULw5jqkr3LqPouRAaMmCIzOVCaga7MBw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7b1593ddec5f35d8.webp)
 
 ```
 # 比输入的rds文件多出了几列metadata：
@@ -2106,7 +2106,7 @@ colnames(scFAST@meta.data)
 FeaturePlot(scFAST,features = 'nFeature_SNV',label = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDT3picsx9mcx6hsQujoIEHqiawFEx4nqwic7xHaSvTiafQCiaotQ2PNA1MVvQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d8c8f4bfd73ecd0f.webp)
 
 ```r
 # 我们也可以读入本地的其它输出文件(例如这里记录snp信息的矩阵)加入Seurat的注释信息中：
@@ -2174,13 +2174,13 @@ colnames(scFAST@meta.data)
 VlnPlot(scFAST,features = 'HMGA1:chr6-34243515:->A')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTlGOoQM44YhnZkdtne3A0IotT0xqS3WbEdAx25t53mmX7y2Sb2VAHyw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/eb9366cb7511ea33.webp)
 
 ```
 FeaturePlot(scFAST,features = 'HMGA1:chr6-34243515:->A')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTZarCAZbcAg7uia5Lf39iaJKkRcia0ImueGRBfyxcAyynWleyqbXMqANEQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/f45a28e19c35d912.webp)
 
 ```r
 # 如果上述不够直观，可用突变发生的堆积柱状图展示：
@@ -2213,16 +2213,16 @@ guides(fill=guide_legend(title=NULL))+
   ggtitle('HMGA1:chr6-34243515:->A')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzRzUfT5KBO5uXUgvibbmuDTfaeh2yjo8qHwTQF6WIKGEroRbo8MgDFQflRMzRaxabWjyybjyul7yg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d3bb67bf3ef1046a.webp)
 
 # 更多教程，敬请期待！
 
 **scFAST学习手册**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/1189c1178040d051.png)
 
-## ![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpz6UC9xxqIBQjSNjV1tb1J9iayZqicJ8RHXew8LDB6pt4OnsmNicHmtwkPq2lRyjQtlFiaZLFNzIQVPew/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+## ![](../../images/0d65733840fcaed1.webp)
 
 与以往的教程一样，我们给大家准备了数据分析的学习手册，目前分为scFAST绪论、准备工作、fast模块、Seurat分析与可视化、mut模块等五节内容(更多章节持续创作中)及对应测试文件，大家可以添加企业微信回复关键字"**scFAST学习手册** "即领:
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzY8KfmQFMyKIxcP7NQiaAeGUA1gGep9XicrrsqRibpVleQLrnkwIicthcwQFoetFc5BfMSLeYSTy2PaQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/a1dbb3a25a832fe1.webp)

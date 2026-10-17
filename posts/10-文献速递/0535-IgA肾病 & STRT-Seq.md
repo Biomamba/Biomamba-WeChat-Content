@@ -42,7 +42,7 @@ IgA nephropathy (IgAN)是肾衰的原因之一，其发生机制尚未完全解�
 
 ●**1 lgAN** IgAN是一个公认的自身免疫性疾病，主要的并发症为肾小球肾炎，大约30~40%的病人最终会发展成终末期肾病。其最主要的诱因是IgAN在肾小球系膜部位的沉积：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTpGQ4CHN9dcRIXXvibaWVLic2GZicHicp6iaozgd9HspkscdSqz8HzMpJuqw/640?wx_fmt=png)
+![](../../images/5012c551e58ff6bb.webp)
 
 但奇怪的是，系膜细胞并不能表达任何IgA的受体，因此，IgAN真正的发病原因仍不得而知，这是这一领域亟待解决的问题。
 
@@ -50,7 +50,7 @@ IgA nephropathy (IgAN)是肾衰的原因之一，其发生机制尚未完全解�
 
 目前来说，主流的单细胞测序平台有两种，一种是基于液滴捕获（droplet based），这类测序捕获细胞数多但测序深度低；另一种是以SMAT-Seq为代表的技术，一般是经过流式或磁珠分选后进行建库，能对特定的细胞种类进行深度测序，因而捕获细胞数量少，但测序深度极高。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTMJJEyY5WmzqFicIiacnag09qkiaIuTwaRLiavVLaKkwR35gBGOs3k32a7g/640?wx_fmt=png)
+![](../../images/41ba2265a7dc54ee.webp)
 
 **Methods
 **
@@ -65,11 +65,11 @@ IgA nephropathy (IgAN)是肾衰的原因之一，其发生机制尚未完全解�
 
 这些受试对象的主要临床信息如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTglL67YricDLbacecIuKSafEZCvbEF5NQMibPIXbibz3obNP6uMKib8UZwg/640?wx_fmt=png)
+![](../../images/473d75cd3a433675.webp)
 
 ●**2 操作流程** 下面这张图形摘要很好地展示了这篇文章的主要流程，具体的取材、制样过程不多赘述，感兴趣的同学可以去看看原文。大家知晓作者通过磁力分选，利用CD14、EPCAM等标志物分离得到单核/巨噬细胞、并分离肾小球组织用于STRT-Seq即可。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTp5icib4TeX73SUdppTANaSjhoXQBbRc6kqWor2aJ9AiatQYrIHHF5pobg/640?wx_fmt=png)
+![](../../images/771c99624cda938c.webp)
 
 ●**3 分析流程** 首选STRT-Seq与我们之前所介绍的10X Genomics存在一些差异的，具体表现为前者每个细胞的测序深度更高、获得的基因(1000~12000)与分子数量（4000~600000）更多。与一般分析流程不同的是，作者将两组的细胞分别进行分群注释后利用scran包进行去批次整合（主流做法是先整合去批次，再进行分群注释）。在第一轮注释结束后，仍剩下两类细胞未能得到有效注释，因此作者利用了此前的一个snRNA-Seq的数据帮助注释（具体原理和过程可以参考这个：[手把手教你做单细胞测序数据分析（五）、细胞类型注释——从入门到入土](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484198&idx=1&sn=35d70e1f86d212ed3d253d933e98f711&chksm=9b3f7a76ac48f3604ff794f9d0528f4c9152baf066485335c02bc7dc13c51dee0b36429dd886&scene=21#wechat_redirect>)）。
 在细胞通讯的分析之中，作者先在linux中利用cellphonedb进行了细胞互作的计算，后接R语言的igraph进行可视化（有些托大，其实可以通过cellchat、italk等R包一站式搞定，Biomamba后续的课程会出）。富集分析用的是DAVID，一个在线工具，不是很推荐，更新速度要比clusterprofiler慢很多（[手把手教你做单细胞测序数据分析（七）—— 基因集富集分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484738&idx=1&sn=96a7e1d3c7fd249f3a7e4d77e7ea0613&chksm=9b3f7c12ac48f5045fbc2b1cf0ff7d9f0cf5147e170802428a5a17475ad7e8c45faa00e983c4&scene=21#wechat_redirect>)）。
@@ -81,37 +81,37 @@ IgA nephropathy (IgAN)是肾衰的原因之一，其发生机制尚未完全解�
 
 经基本的reads、count质控后，测得的八千多个细胞最终只剩下了3620个
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTuOZ5rBJ34ekNaPoudUwLKkauHbV4bFmPEyPBJyxSCPYU1Eb9omh39A/640?wx_fmt=png)
+![](../../images/bccb58ea2f797367.webp)
 
 两组分开分群的方式确实有一些怪异，并且有些marker表达的特异性并不高，此前我在其他文章的阅读过程中发现过不错的marker展示（小鼠）：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTnM8JIWWLqP2XcnC528CUOuqqdDWfx4ZwoWCyyicJbCfeStPqdG19iaOA/640?wx_fmt=png)
+![](../../images/87606095ac0391d1.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqT7OxmSkOUObJxy82djkcYCuxwHVGFZeljsnEibyJLgAsCeRg1XHicO8EQ/640?wx_fmt=png)
+![](../../images/66015ee1c769c658.webp)
 
 ●**2 J chain** 首先作者对两组间的系膜细胞进行了差异分析，从下面的火山图中我们可以较为明显的看到，JCHAIN在IgAN组中高表达，并且这一结果是可以通过免疫荧光被重复出来的。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTLR0DC6CXMKuJicicqbHVOcPdIViaSG9awejceniciaEtatPDEI2HiaaMJMHQ/640?wx_fmt=png)
+![](../../images/216830cc6cb68a9c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqT2Mxsx5H70JCKqMyDCEz7ia3pBD0l3JAXpHfFk8rkTwD9ic5diaic2mayYg/640?wx_fmt=png)
+![](../../images/2a07b2e5eaa94b81.webp)
 
 我们来了解一下J chain，有免疫背景的同学可能比较熟悉一些，IgA的完整结构如下图所示，一个IgA分子由两个Y型免疫球蛋白组成，而这两个Y连接的部分，正是这个J chain。换句话说，正是系膜细胞高表达JCHAIN，才给此处IgA的沉积带来了可能性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqT9ztsn0ic5icZXFDvGiaWfoBia81tnFeGGw3awsEdCWGjO4iavLKibTTUOSvw/640?wx_fmt=png)
+![](../../images/54ac15ee767488a0.webp)
 
 ●**3 富集分析** 差异基因的富集分析在两组间也有明显不同：在normal中被富集的通路主要与肾脏发育、分化相关，而在IgAN中被富集的通路主要体现在免疫应答和纤维化：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTH7z7t3qRxAkkPuIJVq7gWsEkstxRQWxonbJKtC6dxJxkhYeFCvwrhA/640?wx_fmt=png)
+![](../../images/2f05fe982220c6d7.webp)
 
 ●**4 细胞通讯** 在笔者的概念里，任何一个疾病的发生均是多因素共同作用的结果，基本发生过程中必然存在着细胞与细胞之间的互作。这里对两组分别进行了细胞通讯的预测，并发现由normal（下图左）到IgAN（下图中）的过程中，系膜细胞与其余细胞的互作均上升，而CD-IC与其他细胞的互作均下降（下图右）。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTOt5A6pDnXOwLqlYYyibiaaqNHiaQNeYLcdcEcSEx4aOavBNMaROOuVGcA/640?wx_fmt=png)●**5 免疫** 作为一种自身免疫类的疾病，IgAN的免疫微环境是最值得关注的，这里作者通过GSEA分析发现巨噬细胞的NOTCH通路、及与糖、氨基酸、脂类代谢的通路在IgAN中被显著富集；并且无论是肾脏浸润的巨噬细胞还是外周血中的巨噬细胞（终于提到外周血了）均在IgAN组表现出了激活的现象，因此作者认为巨噬细胞内的代谢通路改变重新编辑了IgAN的免疫微环境（我个人认为这一点有些牵强。。。）。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTYwRDlDL2f4w8QSAavkjJEF4aL3BBiaz7JVOErhkqe9fdiaSJpf3tEqTA/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTPnAQAzYARfzAVicxoxia5M0kxnAbia7e8rv4lDoXTtsjMTibInXuo5l2ug/640?wx_fmt=png)●**6 分群CD-IC的转变** 作为一种自身免疫类的疾病，IgAN的免疫微环境是最值得关注的，此前作者已经发现了CD-IC在IgAN组中与其他细胞的互作全线下降，引起了作者的关注。通过CD-IC、CD-PC这两种细胞marker的展示，作者发现CD-IC中存在着一种特殊的类型——可以高表达CD-IC与CD-PC两种细胞的marker。这在之前的CKD研究中也已经被证实过了。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwibXTiasHh93QwVwJ9vGcuqTmibEadY2bdqArwu4OtZ2C5iagoCWgsOrXgdic8FA89SicRFlfyN9c04fqw/640?wx_fmt=png)
+![](../../images/ce201e45a75053c4.webp)●**5 免疫** 作为一种自身免疫类的疾病，IgAN的免疫微环境是最值得关注的，这里作者通过GSEA分析发现巨噬细胞的NOTCH通路、及与糖、氨基酸、脂类代谢的通路在IgAN中被显著富集；并且无论是肾脏浸润的巨噬细胞还是外周血中的巨噬细胞（终于提到外周血了）均在IgAN组表现出了激活的现象，因此作者认为巨噬细胞内的代谢通路改变重新编辑了IgAN的免疫微环境（我个人认为这一点有些牵强。。。）。![](../../images/a6febd0210b48386.webp)![](../../images/a088e7459df44383.webp)●**6 分群CD-IC的转变** 作为一种自身免疫类的疾病，IgAN的免疫微环境是最值得关注的，此前作者已经发现了CD-IC在IgAN组中与其他细胞的互作全线下降，引起了作者的关注。通过CD-IC、CD-PC这两种细胞marker的展示，作者发现CD-IC中存在着一种特殊的类型——可以高表达CD-IC与CD-PC两种细胞的marker。这在之前的CKD研究中也已经被证实过了。![](../../images/7e797dc5f6f8ada6.webp)
 
-经拟时序分析后，作者发现这些CD-IC能够被分为3类IC1、IC2与纯正的CD-IC：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx0BNdlpiaWLBcMiaic5ZRdUDfqtozC9DLqiay5ELG69om7jr4cMmEiaphiabYibYLhrlZricgmvJF2HwxV8Q/640?wx_fmt=png)
+经拟时序分析后，作者发现这些CD-IC能够被分为3类IC1、IC2与纯正的CD-IC：![](../../images/3ff77057e0f08fa3.webp)
 
-其中IC1与IC2便是上述提到能够表达CD-PC特征Gene的类群：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx0BNdlpiaWLBcMiaic5ZRdUDffZjIia4E1OXqVViceNokg4oKY4nuRZKECzrQw5uz2EqKawJPSENicN7Kw/640?wx_fmt=png)
+其中IC1与IC2便是上述提到能够表达CD-PC特征Gene的类群：![](../../images/7f87370bf45d175a.webp)
 
 这两类细胞能够高表达WNT、FGF信号通路的基因，这是一些与先维护和EMT相关的基因。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx0BNdlpiaWLBcMiaic5ZRdUDfnjlNTMfYT5BiatBIibgkdzFza1sSEDEvdZFts7RnKVHse50JfgcSQSYw/640?wx_fmt=png)
+![](../../images/cf5c8623eeb39d7f.webp)
 
 **Discussion
 **
@@ -122,15 +122,15 @@ IgA nephropathy (IgAN)是肾衰的原因之一，其发生机制尚未完全解�
 
 https://www.bilibili.com/video/BV1ja411t7JL/
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

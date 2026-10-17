@@ -18,7 +18,7 @@ albums: ["单细胞云平台"]
 
 引用: Liu X., Wu C., Pan L., et al. (2025). SeekSoul Online: A user-friendly bioinformatics platform focused on single-cell multi-omics analysis. The Innovation Life 3:100156.
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8ibbl2BdODrl4ydUfcS09gDic5kZ6ymOsb63j9WH72WEicibKicpF5SWiaicCA/640?wx_fmt=png&from=appmsg)**
+![](../../images/b4a75f343175194e.webp)**
 **
 
 完整教程可见合集：
@@ -44,7 +44,7 @@ albums: ["单细胞云平台"]
 
 [SeekSoul Online](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&token=1495874891&lang=zh_CN#wechat_redirect>)大大简化了单细胞多组学数据分析的整个过程，从数据上传、[可视化](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2707677276481814529#wechat_redirect>)、高级分析。没有[编程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528126&idx=2&sn=668c2709891956b567b316f9f2fb26ea&scene=21#wechat_redirect>)技能的用户也可以通过直观的界面轻松完成复杂的数据分析任务。为了保证数据分析的准确性，我们还提供了基于已发表文章和数千个项目的参数模板，以及可发布的配色方案，以确保即使是初学者也能快速准确地实现数据分析和挖掘。该平台还允许用户根据个人需求或期刊要求定制分析参数或配色方案。基于选定的参数模板和配色方案，平台支持从数据过滤、批量效应去除、降维聚类到细胞注释、差异基因表达和富集分析（Fig.1).此外，该平台还提供详细的用户指南、参数描述、视频、常见问题（FAQ）和在线客户服务支持，帮助用户在分析过程中获得必要的帮助和支持。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8jbbx525ia7xJqZUoYaVJI7csbPzSerhZ0L9PAc57ScyySiczBS2hJiccw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/2c150997a46d87d9.webp)
 
 Fig.1
 
@@ -52,22 +52,22 @@ Fig.1
 
 [ SeekSoul Online](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&token=1495874891&lang=zh_CN#wechat_redirect>)为单细胞转录组数据、单细胞免疫库数据和[SeekSpace](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3274738305204781059#wechat_redirect>)单细胞[空间转录组](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505088&idx=1&sn=9f60dca1b21f5ba8c32d09595a512134&scene=21#wechat_redirect>)数据提供了全面的工作流程，涵盖了从数据上传到最终报告生成的所有步骤，确保用户可以在统一的平台上完成所有分析。该过程包括细胞过滤、归一化、批量效应去除、聚类、细胞注释、特征评分、空间位置信息分析和[差异基因表达和](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)[富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)，以及[细胞间相互作用](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=8&sn=bebffda99e0c1763147c3315cfe62676&scene=21#wechat_redirect>)、[伪时间](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=6&sn=53179695312fbf69f8dddc8342c70cfa&scene=21#wechat_redirect>)、TCR、BCR和报告生成等高级分析。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8AJNOk5DCcXR3DmufzUFRPwu39MvFXFNmlQcWk96icYIia4MwPRj3XYVA/640?wx_fmt=png&from=appmsg)
+![](../../images/9b1b84262d1db79e.webp)
 
 Fig.2
 
 [SeekSoul Online](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&token=1495874891&lang=zh_CN#wechat_redirect>)采用模块化设计架构，将单细胞多组学数据分析过程划分为多个独立但相互关联的功能模块。这十个模块包括基本分析、细胞注释、可视化、模块评分、差异富集、交互式分析、子集、高级分析、元数据和报告。每个模块都有独立的功能、输入和输出。用户可以根据自己的具体研究需求构建个性化的数据分析流程。当然，模块之间的无缝连接和统一的接口设计保证了不同模块之间的高效数据传输和协同工作，避免了数据丢失和不一致的问题。例如，用户可以在模块评分模块中对基因集进行评分，然后在可视化模块中可视化评分结果，依此类推。这种模块化设计不仅简化了用户的作过程，还大大增强了平台的可扩展性，允许快速集成新兴的分析工具和算法，从而成为研究人员在单细胞多组学数据分析方面的得力助手（Fig.3).
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8SR1n0g90nLEk8DyL7sgmhy3j3zoWKmEKEN4S9Pq2Mibg5sFZj2gPddQ/640?wx_fmt=png&from=appmsg)**Fig.3****
+![](../../images/57596240476fa7af.webp)**Fig.3****
 ****5.高置信度细胞注释**
 
 为了提高单细胞数据分析的准确性和可靠性，[SeekSoul Online](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&token=1495874891&lang=zh_CN#wechat_redirect>)采用基于已发表文章和先进的人工智能技术构建的高质量参考集进行细胞注释。这些参考集经过严格的质量控制和人工审查，涵盖57种人体组织和46种小鼠组织。然后使用SingleR基于这些参考集执行注释，确保自动注释的准确性。此外，该平台将经典的细胞标记数据库与人工智能技术相结合，通过分析每个簇中特异性表达的基因，自动识别不同的细胞类型及其亚型。这种综合方法不仅提高了标注的自动化水平，还有效提高了结果的精度和准确度。同时，该平台允许用户在自动标注后根据标记表达式进行手动标注（Fig.4).
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8mNwZMgRhcMBhtic07cew5I3SGibSh4uLUvxgNAXGibVyq2qjJFVDdTibDg/640?wx_fmt=png&from=appmsg)**Fig.4****6. 灵活的数据管理和标签定制**
+![](../../images/49aa645ed9aa7e0d.webp)**Fig.4****6. 灵活的数据管理和标签定制**
 
 [SeekSoul Online](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&token=1495874891&lang=zh_CN#wechat_redirect>)在单细胞多组学分析中展示了出色的元数据管理(metadata)能力。该平台支持用户根据个人需求定制细胞标签。此外，它还有效地管理单细胞数据的元数据，允许用户根据自己的研究目标或实验设计上传、编辑、过滤、合并和定制细胞标签。例如，在[SeekSpace](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3274738305204781059#wechat_redirect>)中进行肿瘤微环境分析时，用户可以将疾病组中的特定细胞类型或定位于特定空间区域的细胞定义为新的细胞亚型，实现对疾病特征和细胞功能的更精确分析。此外，我们还可以合并主组和子组的注释结果，以确保数据的完整性，这使得下游分析（例如细胞间通讯）能够在完整的细胞图谱上进行。这种灵活高效的元数据管理能力不仅提高了数据分析的深度和准确性，还显著增强了平台对多样化研究需求的适应性和实用性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT87o0o4fxyt4oib9LpPZic5j5kXlBwh0HDvtj9PlcW8pAiaGSzsic0icl7eCw/640?wx_fmt=png&from=appmsg)**Fig.5****7. 交互式分析和可共享报告**
+![](../../images/219d2ff60ccbee86.webp)**Fig.5****7. 交互式分析和可共享报告**
 
 [SeekSoul Online](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&token=1495874891&lang=zh_CN#wechat_redirect>)的交互式分析和报告生成功能显著增强了分析过程中实时参数调整、结果汇总和沟通的便利性。在数据分析阶段，用户可以将多个分析结果进行组合和比较，以可视化不同的分析方法和参数设置对结果的影响。可视化模块集成了多种动态图表和可视化图，包括散点图、点图、小提琴图、热图、饼图和堆积条形图。用户可以实时调整绘图参数，例如颜色和比例，以生成发表级的高质量图像。此外，[SeekSoul Online](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&token=1495874891&lang=zh_CN#wechat_redirect>)的交互式报告生成功能允许用户对分析结果进行总结和组织，以创建个性化的报告，这极大地方便了结果的共享和沟通。这些特征的整合不仅提高了数据分析的透明度和可解释性，还促进了研究团队之间的协作和知识共享。
 
@@ -96,7 +96,7 @@ Fig.2
 
 （4）亚型分析：使用“子集”模块，可以选择T细胞和NK细胞进行额外的降维、聚类和注释。然后可以使用文章中的基因集进行特征分析，以探索细胞亚型的功能和特征（Fig.6E-F）。结果表明，该平台成功再现了原文的主要发现，包括人食管鳞状细胞癌微环境中细胞的组成特征及其改变的细胞状态（Fig.6).用户可以通过“报告”模块导出完整的分析报告，以支持对结果的进一步解释和共享。此外，我们还可以在[SeekSpace](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3274738305204781059#wechat_redirect>)数据中显示基因表达和细胞类型的空间分布的可视化（Fig.6G-H).
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxiaGNh8PvnWgB2hfONrkIT8r69yha8M14BN1GKEdeOEhKWrHAxncNIIagZRe1BcecqrMiaC1GtlUQg/640?wx_fmt=png&from=appmsg)
+![](../../images/0c4abbc10ff408d8.webp)
 更多实战复现可见：[零代码复现《Genome Medicine》|scRNA-seq解析CXCL16/CXCR6驱动驻留T细胞促进突触消除](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528493&idx=1&sn=d7e31fc84bef96bbad9e9fde06e55726&scene=21#wechat_redirect>)[零代码复现| scRNA-seq解析胃癌患者器官特异性转移](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528326&idx=1&sn=1979536cb00756f263031d5e640177d3&scene=21#wechat_redirect>)[零代码复现《NC》+1](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527812&idx=1&sn=26745eb65570f442bab31ef617818c78&scene=21#wechat_redirect>)[《Nature Nanotechnol》都在用的零代码云平台](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519130&idx=1&sn=2a72fdc55dd1e53d4fec30f265114956&scene=21#wechat_redirect>)[《Natrue Nanotechnol》单细胞零代码复现](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247518227&idx=1&sn=182a59a03bc700a3d968352e1f78e4c2&scene=21#wechat_redirect>)[NC文章1:1复现｜食管鳞状细胞癌的免疫抑制图谱](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247512313&idx=1&sn=a1d446cbce73dc73a9d98dd6ab3878c6&scene=21#wechat_redirect>)[世纪大和解](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247524160&idx=1&sn=c8abc0d0ca039fea2c8c8cd1cfb56700&scene=21#wechat_redirect>)
 
 **五、最后聊聊**
@@ -107,14 +107,14 @@ Fig.2
 
 看到这里是不是手痒了？赶紧上线试试吧：https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

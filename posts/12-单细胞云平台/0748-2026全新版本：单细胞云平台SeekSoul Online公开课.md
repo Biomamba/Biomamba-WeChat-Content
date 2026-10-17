@@ -14,19 +14,19 @@ albums: ["单细胞云平台"]
 
 从2024年的[1.5天学会单细胞分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522889&idx=1&sn=d70f64a6624825b80c70362483ebd637&scene=21#wechat_redirect>)到2025年的[听说你想两天学会单细胞分析？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530824&idx=1&sn=3778953bc37fec93b90e6fb99821f856&scene=21&token=1383482277&lang=zh_CN&poc_token=HCeJu2qjnQYCYSO1x2CQvJspGWT8iyh3dwyCMGJV#wechat_redirect>)，这一路走来，感谢每一位同学的陪伴与认可，单细胞云平台课程视频在B站的播放量已经达到了1.8w+，收到了大量的好评，感谢大家的支持。另外这三年间SeekSoul Online单细胞云平台的功能在不断的迭代和更新。今天，我们带着2026全新版本的内容回归啦~🎉
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl5l1pHUw85iamp8ANCIJdHXsianaaScacFet9wavG7jV34mzGcSumkpqgNGibr9h0yTL5LlqlIc7mXxMJBh2MOaibGOUtle0XhGsA/640?wx_fmt=png&from=appmsg)
+![](../../images/b2d0267dd023e60b.webp)
 
 花费短短四天内学会[scRNA-seq代码，从小白到大神](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541709&idx=1&sn=a8e2d9d285904cdfc47d576867ca572a&scene=21#wechat_redirect>)是不太可能的，我们的代码教程一直持续了两个月咧。不过忽略编程的学习成本(听到最多的吐槽就是，我要上门诊/做实验，哪有时间学编程)，在拥有[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)背景知识的情况下，花四天时间掌握云平台后，还是能够获得很多单细胞分析能力的。所以，这次就带大家一起学习[《Nature Nanotechnol》都在用的零代码云平台](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530664&idx=5&sn=b04e502af08f7eca5455a26868764fb2&scene=21#wechat_redirect>)，全新课表如下：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnlhx7OdibopzmRoasCWdfJj0nUzdSCw8e4cwb41n7NzouRnvGxOoGORmuzl3Jo7LLueMapn7cUE9DgN5BrjxG30LfymsduIL4c/640?wx_fmt=png&from=appmsg)
+![](../../images/a786faedd5423cba.webp)
 
 [SeekSoul® Online单细胞云平台](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115#wechat_redirect>)，注册链接：[https://seeksoul.online/t_static/Biomamba/Biomamba.html]，注册即免费获得一个月分析权限。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwjmG7ju2Ycz9EGrjKqCCTmXDnZYgVs4mJB2P6hnkkB3LT5S30L9slEb7QjvyeXmtv8heOLUF6YiaA/640?wx_fmt=png&from=appmsg)
+![](../../images/9cff253a41335ab9.webp)
 
 报名方式：联系客服微信[Biomamba_zhushou]
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)
+![图片](../../images/fe8ecb8594a1f419.webp)
 
 报名费用：免费免费免费！
 
@@ -40,13 +40,13 @@ albums: ["单细胞云平台"]
 
 视频号
 
-B站![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmAjNDsTFJbr0bP6vjya8ek5E9GOyKkjIz4CfqZqO9CtPaM7SbqLKGV062ib5dG2utDbmdInwRDDXoogh9kibMNtibTW9nribKJhq4/640?wx_fmt=jpeg)
+B站![](../../images/7792ce3c2763c0c9.webp)
 
 课程资料下载：https://pan.baidu.com/s/1W0WRNaqQGZcL6lykds0nEg?pwd=2kee
 
 SeekSoul Online课程主要内容
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmnENEv502CNzN30AtJJ9ibpWSJhPWS2Nhh52VLQMZHpRJavNFD7JAAaNYibuPfzCFd7icV645xNgDw6t78tzrAnC9hlQOIPpQdWU/640?wx_fmt=png&from=appmsg)
+![](../../images/99764f559ac352bb.webp)
 
 一、云平台介绍与scRNA分析
 
@@ -86,7 +86,7 @@ SeekSoul Online课程主要内容
 
 持续更新中，敬请期待~欢迎入群潜水
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkW0MrxfT1ZxiajoIMYywjGVQVaOCtlxkhs1oYwD0SoOictz6qia95ISG85vLygce98xJgXNiamz04QQwS3G9icic8oQrMJOowFB3JYU/640?wx_fmt=jpeg)
+![](../../images/2b75dc8090976704.webp)
 
 更多SeekSoul Online课程
 
@@ -133,9 +133,9 @@ SeekSoul Online课程主要内容
 
 往期SeekSoul 单细胞分析特训班
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxMmElgTC2vxVFXRhp6cN9gyAjRrTpUof1AqpQib9ENuTG3Fb7SBGqz4bRBwJ9YKaz5TTQjHxwRvLg/640?wx_fmt=jpeg)上课ing
+![](../../images/52a98100b5cfcfe6.webp)上课ing
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTJBFK3VicGPmAqicxO5qvVOTRU3llPCjgBw09FkStwTSCPS6siaOgWzibmQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/90d93c0482dac871.webp)
 
 **课后合影**
 
@@ -155,13 +155,13 @@ SeekSoul Online课程主要内容
 
 (1)如下图的文章展示 进行大群注释、组间umap图、各细胞类型marker基因小提琴图展示、细胞类型占比分布
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTNNbWAsBWhibj9SEhQl3ALDpJQFLeWkiawdeZkIR8Gtv8Vt2USaFicPVWw/640?wx_fmt=png&from=appmsg)
+![](../../images/367e6b96fb5413ed.webp)
 
 (2)对肿瘤细胞（就是上皮细胞，拷贝数变异已确定）完成细胞亚群分析（图a），
 
 对个样本上皮细胞EMT基因集打分（图b）；对HN251、HN279样本的肿瘤细胞进行组间拟时序分析（图c、d）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTmTIqfIormxhR6UKEsl1VSbuydF0wan8QkjzZX4K44GmLrvib2VMgj3Q/640?wx_fmt=png&from=appmsg)
+![](../../images/bd87109012673b12.webp)
 
 **
 **
@@ -178,18 +178,18 @@ SeekSoul Online课程主要内容
 
 ① 如下图的展示 进行大群聚类注释（图A）、各细胞类型marker基因气泡图（图b）按照样本分组展示umap降维图（图c），展示组间的tsne图（图d）、以小提琴图展示各样本三个基因表达，代替山脊图
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTa8RzrOFQf1VjgRiaLzEEApwibRLDdTMEGjsWa1icrIjQgKxZ62tziaOic6g/640?wx_fmt=png&from=appmsg)
+![](../../images/eae27e5a6edcee82.webp)
 
 ②对肝细胞进行亚群分析，展示各样本的umap降维图、和scd2基因的featureplot图
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTSOpWXCDRzt4bmoAKpFZa0kMG0kmXSTyb5PICXYGkGCN94GDWVYGfHA/640?wx_fmt=png&from=appmsg)
+![](../../images/abb9051e67edc5a5.webp)
 
 ③对不同发育的肝细胞进行拟时序分析，得到如下图类似结果
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTibpwIA97Jks4cjib0OnERvnlCbt8BeqOsgDg12ibhEInHxbQ4aowiaF4RQ/640?wx_fmt=png&from=appmsg)
+![](../../images/8b2c314fb84cff85.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

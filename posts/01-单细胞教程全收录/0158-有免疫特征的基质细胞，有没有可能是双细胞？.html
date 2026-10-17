@@ -1,0 +1,37 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0158-有免疫特征的基质细胞，有没有可能是双细胞？</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">有免疫特征的基质细胞，有没有可能是双细胞？</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506493&amp;idx=1&amp;sn=ed65c6b0738a1fb8492da0b4ecdc9c63&amp;chksm=9b3ca36dac4b2a7b4ca45f169526c6ed51777e20811d50c2892e683eee405c25607a42cc7a66#rd
+合集：单细胞教程全收录 / 空间转录组 / 文献速递</p>
+</blockquote>
+<p><strong>写在前面</strong></p>
+<p>读到一篇立题依据、分析技巧、美观程度、科研思路都很顶级的《Cell》文章，题为'patiotemporal insight into early pregnancy governed by immune-featured stromal cells'。作者发现一种具有<strong>免疫特征的蜕膜基质细胞</strong>(immune-featured decidual stromal cells,iDSC)，顾名思义，这是一种既能够表达免疫细胞marker且具有作为基质细胞的DSCs特征的细胞类型。<strong>正常的</strong> iDSCs能够分别在免疫细胞组装和血管枢纽处募集和抑制免疫细胞募集和抑制，控制血管形成，并促进细胞溶解，从而在后期建立蜕膜稳态；而<strong>功能失调</strong> 和空间紊乱的 iDSC 会导致血管中枢中免疫细胞的异常积累，从而破坏蜕膜枢纽规格，并最终导致 DBA/2 交配的 CBA/J 小鼠出现妊娠并发症。</p>
+<p><strong>主要内容</strong></p>
+<p>我非生殖口研究者，背景知识大家直接看原文的Introduction。作者分别对各组样本进行了10X Genomcis平台的单细胞(Figure 1)与华大stereo-seq平台的空间转录组(Figure 2)测序。完成了细胞注释、亚群分析、功能富集、基因集评分、空转梯度分bin、空间共表达、免疫荧光校验等分析/操作，初步揭示了胚胎、卵黄囊、胎盘和蜕膜等组织的细胞组成与生物学功能。</p>
+<p><img alt="" src="../../images/2d286fb7785cc43b.webp"></p>
+<p><strong>Figure 1</strong></p>
+<p><img alt="" src="../../images/f4d64fad75d96c09.webp"></p>
+<p><strong>Figure 2</strong></p>
+<p>免疫细胞对于蜕膜稳态至关重要。然而，在对免疫细胞进行重新聚类后，作者意外地发现了一个同时表达免疫细胞相关和典型DSC标记基因的细胞簇(Figure 4A-B)。通过使用 <strong>DoubletFinder</strong> ，作者<strong>排除</strong> 了这些细胞是<strong>双细胞</strong> 的可能性(Figure S4A)。基于转录表达矩阵的聚类和基因富集分析表明，与免疫细胞相比，这些细胞与DSC（血管生成DSC）的<strong>相关性更高</strong>(Figure 4C)。因此，作者将其命名为iDSCs，这是一种特殊类型的DSC，具有免疫细胞相关基因的富集和某些免疫反应激活活性。通过对 iDSC的<strong>亚群分析</strong> ，作者进一步发现三个具有不同转录组学特征的亚簇，参与各种生物学过程(Figure 4 D、4E和 S4E)。iDSC0（Angpt2、Runx1、Jcad 和 Adam12）与脉管系统发育有关，iDSC1（Clec4a2、Cxcl2、Ccl6 和 Aif1）与炎症反应相关，iDSC2（Prf1、Gzma/e、Tnfrsf9 和 Spp1）参与细胞溶解和细胞凋亡（图 4E 和 S4E; 表S3）。此外，基于差异表达基因 （DEG） 的细胞相关性分析显示，iDSC0 具有与血管生成 DSC 相似的特征，而 iDSC1 和 iDSC2 分别具有<strong>髓样细胞和 NK 细胞特征</strong> （Figure 4F）。值得一提的是，这三个亚群在样本中具有不同的空间分布特征(Figure G-I)。</p>
+<p><img alt="" src="../../images/309b580656f995cf.webp"></p>
+<p><strong>Figure 4</strong></p>
+<p><img alt="" src="../../images/fe310685f2f5b6eb.webp"></p>
+<p><strong>Figure S4</strong></p>
+<p>在对iDSC的进一步研究中，作者发现iDSCs可以通过激活<strong>颗粒酶介导的凋亡信号通路</strong> 诱导细胞溶解我们进一步研究了不同iDSC子簇之间的功能差异。配体受体信号转导分析显示，NK细胞和高表达Tnfrsf2的iDSC9均可通过CD137通路被血管生成DSC激活（Figure 4K），从而导致<strong>穿孔素和颗粒酶</strong> 基因表达。随后，作者将 iDSC 与人白血病细胞系 K562 一起孵育，能够观察到 iDSC 能够诱导<strong>癌细胞细胞溶解</strong> （Figure 4L）。因此，我们提出，血管生成 DSC 通过 CD2 信号传导激活 iDSC（主要是 iDSC137）可能会触发颗粒酶介导的细胞凋亡途径，这可能有助于中间体区域胎盘生长的空间清除。</p>
+<p>蜕膜血管形成和免疫细胞募集和抑制对于成功怀孕至关重要。 E7.5 着床部位的中间体区域，增殖和静脉 EC 分别与 iDSC 和血管生成 DSC 共定位。在 E8.5 之后，几个 uEC 亚簇与血管生成 DSC、iDSC0 和 iDSC2 聚集在一起，最终形成血管中枢。动脉EC分布在E9.5的免疫细胞组装和血管中枢（Figure 2C，2D，5 A，S2 C和S2E）。这些结果表明，各种ECs的动态空间分布和状态跃迁与<strong>血管生成</strong> DSCs和iDSCs高度相关，可能在驱动中体区血管枢纽的形成中发挥关键作用。此外，作者观察到 ANGPT（L）/CALCR 和 CHEMERIN 信号的配体主要在血管生成 DSC 和 iDSC0 中表达（Figure 5B 和 S5C）。这些配体与静脉和动脉内皮细胞上表达的受体相互作用，可能触发肾小管生成和血管舒张，并在成功妊娠中起关键作用。值得注意的是，与uEC类似，免疫细胞也始终与iDSCs、eSFs和pre-DSCs共定位，在妊娠早期显示出动态改变（Figure 2C、2D、5A、S2C和S2E）。，当iDSCs出现在中体区域时，免疫细胞，包括NK细胞、单核细胞和增殖的巨噬细胞，以及血管生成DSCs和uECs也开始在那里聚集。与正常妊娠小鼠相比，DBA/2 配对的 CBA/J 小鼠中与免疫细胞募集和血管形成相关的信号通路的改变。有趣的是，作者发现流产<strong>易患小鼠的 iDSC1 的 Ccl7/8/12 和 Cxcl1 表达增加</strong> 。</p>
+<p><img alt="" src="../../images/ae731ed1e1956f19.webp"></p>
+<p><strong>Figure 5</strong></p>
+<p>此外，异常的 iDSC2 通过激活 Ccl4/6/8 和 Cxcl2 获得免疫细胞募集能力，而其颗粒酶诱导的凋亡功能可能由于颗粒酶表达降低而受到抑制（图Figure 7D、7E、S7 和 S8C）。因此，iDSC1的空间紊乱以及<strong>iDSC2</strong> 通过CXCL/CCL信号获得<strong>募集能力</strong> ，导致流产易感小鼠血管中枢内各种免疫细胞的异常组装。</p>
+<p><img alt="" src="../../images/31bbd295b81c63bd.webp"></p>
+<p><strong>Figure 7</strong></p>
+<p>参考：
+Yang M, Ong J, Meng F, Zhang F, Shen H, Kitt K, Liu T, Tao W, Du P. Spatiotemporal insight into early pregnancy governed by immune-featured stromal cells. Cell. 2023 Sep 28;186(20):4271-4288.e24.</p>
+<p><strong>最后聊聊</strong></p>
+<p>看到文章标题时我原本是有些怀疑的，“具有免疫特征的基质细胞”听起来很容易让人联想到双细胞，<strong>即使</strong> 作者通过doubletFinder进行了双细胞的鉴定(懂的都懂，参数失之毫厘、结果差之千里；<strong>且</strong> doubletFinder的双细胞鉴定需要依赖分群结果，此时组织中其它cluster的特征也会影响双细胞的鉴别)。深入到文章中，iDSCs总与免疫细胞类型发生<strong>共定位</strong> 更免不了让人怀疑加重。<strong>但</strong> 作者解析了iDSCs通过Ccl4/6/8等招募免疫细胞的分子机制并通过<strong>CD45</strong>(免疫细胞marker)<strong>阴性</strong> 的流式筛选接Bulk RNA-Seq的结果中也观察到了iDSCs的存在，这些证据打消了我的顾虑。另一方面，作者证明了iDSCs各亚群在正常妊娠中免疫细胞招募中不可或缺的作用且发现在流产易感小鼠的着床部位存在着的异常 iDSC，算是从<strong>正反两方面</strong> 为iDSC的生物学功能正名。所以，呼应本推送开头，这是一篇立题依据、分析技巧、美观程度、科研思路都很<strong>顶级</strong> 的文章，值得大家阅读原文。更多空转的分析技巧可见：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505088&amp;idx=1&amp;sn=9f60dca1b21f5ba8c32d09595a512134&amp;chksm=9b3cad90ac4b2486820dd335d997d2a96b77beb6ad463b1df6a2f307e47ebe8d7de3304ebf7c&amp;scene=21#wechat_redirect">空间转录组学习手册合辑</a></p>
+<p><img alt="" src="../../images/d0a809a43821e1e5.png"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/feb9903c31c83e08.png"><img alt="" src="../../images/349b3050f055aa44.gif"> 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504843&amp;idx=2&amp;sn=c2ba75edc0382855cfc914c3bb713e7e&amp;chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

@@ -12,11 +12,11 @@ albums: ["单细胞教程全收录"]
 
 ****
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 学习手册
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1) 拟时序分析（Pseudotime Analysis） 是一种在单细胞转录组学中常用的方法，它通过对细胞在特定生物过程中的转录组数据进行排序，推断其发展或变化的时间顺序。尽管单细胞数据通常是静态的（在一个时间点采集），拟时序分析通过基因表达的变化模式来重建细胞的发育轨迹或动态过程，从而模拟细胞随时间推移的变化，揭示细胞在不同状态下的演变路径和关键转折点。
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png) 拟时序分析（Pseudotime Analysis） 是一种在单细胞转录组学中常用的方法，它通过对细胞在特定生物过程中的转录组数据进行排序，推断其发展或变化的时间顺序。尽管单细胞数据通常是静态的（在一个时间点采集），拟时序分析通过基因表达的变化模式来重建细胞的发育轨迹或动态过程，从而模拟细胞随时间推移的变化，揭示细胞在不同状态下的演变路径和关键转折点。
 拟时序分析可以推断细胞的发育阶段（通过分析基因表达变化，将处于不同分化阶段的细胞排序，模拟出一个拟时间轴），识别关键的基因调控事件（通过比较不同拟时间阶段的细胞，识别在特定转折点上调或下调的基因，找出与细胞分化或功能转换相关的关键分子），推断细胞状态转换（分析细胞从一种状态向另一种状态过渡的动态变化，尤其在干细胞分化或疾病模型中应用广泛）。在单细胞转录组分析中，使用R语言进行拟时序分析时，有多种工具包可供选择，如**Monocle，TSCAN，Slingshot** 。 Slingshot是一个用于单细胞数据的拟时序分析工具，它通过聚类和轨迹推断来揭示细胞群体之间的关系和潜在的发育路径。它使用最小生成树（MST）来识别全局谱系结构，并构建平滑的谱系轨迹。Slingshot能够处理多个轨迹，并允许用户指定起点和终点，以确保分析结果与已知的生物学信息一致。
 本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：
 [足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511780&idx=1&sn=3acc0874f7d2fa75f1abbe7a9a9b4069&chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&scene=21#wechat_redirect>)
@@ -26,17 +26,17 @@ albums: ["单细胞教程全收录"]
 
 本教程可视化**集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzSGw6fB1OGddQUQatPnbpnEicP01CrAFfnb9jvjCBhHaOMBdIRcKAKOEP2K8dTGL322RiaymQDXWKQ/640?wx_fmt=jpeg&from=appmsg) **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ce008255b000c47c.webp) **-Biomamba**
+![](../../images/7d247e6c6ef19f87.png)
+![](../../images/399758fa7d6941c2.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpzSGw6fB1OGddQUQatPnbpnEwrcjR8wicviaYxv0LBLXT9e3DZfwJdpTxOYbCnmnUb3CcR1wOtqS1wA/640?wx_fmt=gif&from=appmsg)
+![](../../images/251271056d6d1796.webp)
 
 ‍
 
@@ -81,12 +81,12 @@ albums: ["单细胞教程全收录"]
 
 文末下载链接中包含的内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzSGw6fB1OGddQUQatPnbpnvrhAWfgjwla1v43l8PyCqls0YiaI5HBI6AhbQRmuwT7VKxnGW7ZudjA/640?wx_fmt=png&from=appmsg)
+![](../../images/fe9628492eb6e432.webp)
 
 测试文件约**3.63GB** ，大家注意按需下载！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 解锁前需阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 订阅后获取学习手册下载链接：

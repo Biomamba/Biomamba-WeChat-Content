@@ -16,7 +16,7 @@ albums: ["AIDD & CADD"]
 
 **结构可视化** 是展示分子结构和相关科研成果的重要手段，清晰、美观的图像能够更直观地传达研究结论。在过去相当长的一段时间里，研究人员普遍使用**PyMOL** 进行分子结构的展示与绘图。然而，由于该软件开发时间较早，其材质系统、光照模型以及整体渲染效果在现代图形标准下显得相对陈旧，在复杂场景或高质量图像输出方面存在一定局限。
 
-![未标题-5](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwko7RbuNicPvFaTC4ib5fBicWbaUgKJSSRN42Dh4xyrnRIUzcDeqwaOxzO7NbcSAWcvTiamqRQlfRvBElwgxqYAQdWt5Ea9bYoDqMI/640?wx_fmt=png&from=appmsg)
+![未标题-5](../../images/51f252bb43910dd5.webp)
 
 近年来，由加利福尼亚大学开发的 **UCSF ChimeraX** 逐渐成为结构可视化领域的重要工具。ChimeraX 采用了更现代的图形渲染框架，支持高质量的实时光照、阴影与透明效果，并能够更加高效地处理大型结构体系。此外，该软件在界面设计、脚本自动化以及与结构数据库的整合方面也进行了显著优化，使研究人员能够更加便捷地进行结构分析与图像生成。凭借更先进的渲染能力和丰富的可视化功能，**ChimeraX 近年来被越来越多的高水平期刊文章用于制作结构图（上图均为使用chimeraX的绘图）** 。
 
@@ -28,11 +28,11 @@ albums: ["AIDD & CADD"]
 
 在https://www.cgl.ucsf.edu/chimerax/download.html选择符合电脑版本的进行下载安装
 
-![截屏2026-03-11 14.59.38](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlO81OicicRBh0yzohIwdmRstMWoLkn5ZGtLtyhhwNnSsYrpz8dk1gDJRRf1Y9Mv9NRSK8jR7dl6MvVmcz2G3ewNZIibahG1hrUGA/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-11 14.59.38](../../images/5ee50b3d28f83f2d.webp)
 
 ## 2\. 界面组成
 
-![截屏2026-03-12 11.44.34](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlI9vcNmd3rFCQkbSmiarHrfrgIpkFpFtJ0iaISDjXnibSiaSkkQZKFVeuB9HuCRl6QJ4lgibAADLN0Eyn7FvbN4B83ggrU0s4LIXhQ/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-12 11.44.34](../../images/3483e3d8390470c0.webp)
 
 相比与PyMol,ChimeraX的界面ui比较现代化，主要分为上述五个区域
 
@@ -46,7 +46,7 @@ albums: ["AIDD & CADD"]
 
 视角转动：
 
-![截屏2026-03-12 14.27.30](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkFazlMHF9PkN3I9OWzMf4K8NItI7JIVGZcI7icrES4WibIv0ZtJqCdibckGwo1IH60N98J4mk0rWen3tQ43hdHjxP39uKnJWzuwo/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-12 14.27.30](../../images/8a2f78844e32e87a.webp)
 
 左键：旋转视角，在chimerax的可视化窗口中**在靠近中心的位置（红框框住位置）按住左键** 可以上下左右拖动，会以结构的x或y轴调整视角，如果是靠近**窗口边缘（红框以外位置）按住左键左右拖动** ，会以z轴调整视角。
 
@@ -60,7 +60,7 @@ albums: ["AIDD & CADD"]
 
 **（4）对象列表窗口**
 
-![未标题-4](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmxVtpBziaHt8ywnvk59trwGcwLgn5dQQc6ibwayAiag4ERmDyib95bgM79q7C08SL4rhcQQWfP6bEJIzM74Pvic04oYUIicrn498BEg/640?wx_fmt=png&from=appmsg)
+![未标题-4](../../images/19963c7579eb5796.webp)
 
 类似于“图层”面板。加载的所有 PDB 文件都会列在这里。可以通过勾选/取消勾选前面的小方框，来控制某个蛋白的显示与隐藏。
 
@@ -116,35 +116,35 @@ albums: ["AIDD & CADD"]
 
 最后带大家实际操作一下，绘制如下的结合蛋白的展示图
 
-![未标题-2](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlUlibC1YhIa2yXmhxuXPnlPzjmNibOYQEdUK91KLN3iblckSbQ21S33gFd3XTfVCbD9BHqicK6mRz55kMT1HicpPVGVV3slWebzPFI/640?wx_fmt=png&from=appmsg)
+![未标题-2](../../images/4560ba3872edca5c.webp)
 
 首先导入所需蛋白的结构文件,点击上方的`White`换为白色背景，点击**右下方颜色方块** 将整体颜色改为粉色
 
-![截屏2026-03-12 15.45.03](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkF2HBucG4KuuaKhf1YK4H7tQOh2n0ZaeS6K64ibuIxc3cPU8XcAlG6ctxm5YvsoP7oUIBEUztLTVWIS6oicBB46umleRBcps6ibw/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-12 15.45.03](../../images/a47fb8e1b562669b.webp)
 
 接着选中下方的PD1受体并点击左上方`Molecule Display`中的**Surfaces** 的show
 
-![截屏2026-03-13 09.35.00](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlCOoE5h3RicmyKUbtU5y9vryibEZfibVQI3xSt6libRZybWZ7nlcfg1bbMJRP1sN5fiapurXAScAS6dfy0G2lAAnvjkLichsel4ULxw/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-13 09.35.00](../../images/c95e284318ebdb03.webp)
 
 展示出Surfaces后右下方对象列表会出现小箭头，**点击箭头可以单独操作Surfaces对象** ，点击Surfaces对象的**颜色方块** 进行着色
 
-![截屏2026-03-12 15.55.20](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwn0cX4YX5n67p8hjibe0mPa0BrQq71tjo93APLHGpTyKLSnIvL679tS8m3H9eSw2uwZvMMnU2JUDTia3grNfKeAXJVygtDqQIj1w/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-12 15.55.20](../../images/0848c3d98967b1f0.webp)
 
 点击`Graphics`下的**Soft** 和**Silhouettes** 切换一下**材质和描边**
 
-![截屏2026-03-12 16.18.37](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnr3ibZ0pLAgGTmqgbxMPNYdh5xM0rj7CwD1ficdCCGNWDlpgQLgMhUPuP5qtm61DQP9DM153OrBuMGTetiavkBvnH8XWGoc1Jjxg/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-12 16.18.37](../../images/71a8c911c6f1c8ef.webp)
 
 接着就可以调整角度进行保存了，需要注意的是在保存tif格式的文件时需要选择靠下的**TIFF image** ,上面的**TIFF Map** 是另一种格式
 
-![截屏2026-03-12 16.09.31](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkLbHDNLVYOAibStibvhDQV6wLZ8Z5eiaoIDZgCicAyuyIicUPxiaOujECibzyYwTiaVwo7FvYySJpuBTsZpak0kMNzjMrCu47Cpn5Lplo/640?wx_fmt=png&from=appmsg)![截屏2026-03-12 16.09.23](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkkPibj7JzGnvyFcUmoFX6dgQMHNQkicUW27JkAcKDQ9prGjl5blj8DEnZvRuEqqsv764ibpjib4r7kxJyLdHVnKOgcWjg0ico7v4fo/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-12 16.09.31](../../images/855154335b479184.webp)![截屏2026-03-12 16.09.23](../../images/b21a741b5cddd67f.webp)
 
 调整角度后就可以在AI中添加标注和标题，本次绘图就完成了。
 
-![未标题-2](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlDcDFTfSLqXpr5GeWQicIHB4sFA5MynKrPuPP8ZgTSmHjg6CNKrawMTZRTx1clZYCAticJV9CxV5zLHSEuPb8ic4qfnhTeBZzJ5I/640?wx_fmt=png&from=appmsg)
+![未标题-2](../../images/654914719bedb160.webp)
 
 对结构可视化感兴趣的同学可以继续关注我们，后续会继续推出**复刻顶刊中的结构绘图** 的教程。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -181,15 +181,15 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/4ec66ccdb832fd05.gif)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

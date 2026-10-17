@@ -10,15 +10,15 @@ albums: ["文献速递", "漫谈胡侃"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495643&idx=1&sn=e2bf17757dd4fa770cafc4e8d79983c3&chksm=9b3c968bac4b1f9d29460c867a1f88c95e8fd75f3ab9a3dd6ea90b9fef110ec39d5007cd457d#rd
 > 合集：文献速递 / 漫谈胡侃
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/bL2iaicTYdZn5FrCicgNyssZ75icSDqIzB0fX6rUkvsK0E10ZDuVAgMx2EX5h1o6MzomiclgLIXSiaeC11YquZLhuvbw/640?wx_fmt=gif)
+![](../../images/c934ec2ae8c423bb.webp)
 
 **写在前面**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxVZeqzufIuypluEgG6tg8T0zE6mibdMicvyHyZ1IldicvTtE1E2icsS32fibiaPEqHfezts9DWLiaYkfOrA/640?wx_fmt=png)
+![](../../images/de77d38c6987c458.webp)
 
 这几天有一篇发表在《Nature》题为“FXR inhibition may protect from SARS-CoV-2 infection by reducing ACE2”[1]的文章引起了大家广泛的关注。主要内容是**熊去氧胆酸(ursodeoxycholic acid, UDCA)可能有预防新冠的作用** 。很多媒体称其是新冠终结者、可以预防所有冠状病毒，我认为这种说法**为时尚早** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/bL2iaicTYdZn5FrCicgNyssZ75icSDqIzB0fX6rUkvsK0E10ZDuVAgMx2EX5h1o6MzomiclgLIXSiaeC11YquZLhuvbw/640?wx_fmt=gif)
+![](../../images/c934ec2ae8c423bb.webp)
 
 **研究内容**
 
@@ -26,17 +26,17 @@ albums: ["文献速递", "漫谈胡侃"]
 
 作者首先通过CHIP-QPCR证明了在小鼠体内FXR会结合在ACE2基因的启动子部分(Figure1 a-b)，正向调控ACE2基因的表达(Figure 1c)。而通过UDCA和ZGG对FXR的抑制会导致感染**小鼠体内肺部、胆管、肠道** 的新冠病毒RNA含量与刺突蛋白的减少(Figure 1e-f & Figure 2)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxVZeqzufIuypluEgG6tg8TO4ueHiaKal5SNURH6bv24DNj0VA4m9lmm8A0gicVKcwJjic2Dzwleuy4w/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxVZeqzufIuypluEgG6tg8T3J9x828dTIsQTD0ksnypoQUaqcDAt2UCYNicygV2rwDicCiacibibka38ug/640?wx_fmt=jpeg)
+![](../../images/60a3bb66a05544b0.webp)![](../../images/fd67be8a45f508de.webp)
 
 显然作者觉得在实验动物的胆管与肠道中的结果说服力不足，因此使用了一对未被接受的待移植**人类肺脏** ，在体外进行灌注与机械通气。经UDCA的灌注后可以**显著降低肺实质、肺血管、气道中的ACE2** 表达和减少灌注液中的ACE2活性。在病毒侵染实验中也没有让大家失望，新冠病毒的RNA含量确实在UDCA灌注的肺中降低(Figure 3)。在体外实验中几乎下结论：通过UDCA的补给可以抑制FXR信号并下调肺实质、支气管、血管、胆囊、肠道中的ACE2，从而起到减少COVID-19感染的作用。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxVZeqzufIuypluEgG6tg8ThKs3QYfhVtDoqKRVLVRAPVN1ur84fLibqrdibsDC6554LZ174oGasFlg/640?wx_fmt=png)
+![](../../images/55234cbe8d99b0e0.webp)
 
 再看看体内实验，由于UDCA已经是上市多年的**非处方药**(原被批用于原发性胆管炎的治疗)，因此其安全性和副作用方面的顾虑基本可以忽略。因此作者招募了8名志愿者，经15mg/kg/d的UDCA补给5天后。鼻拭子(主要是上皮细胞)中的ACE2含量明显降低（Figure4 a-b）。由于拿新冠病毒感染这八名志愿者不太符合伦理，而新冠病毒中具有慢性肝病的患者是一类很好的研究对象；作者通过**数据挖掘** 发现接受过UDCA治疗的新冠患者与未接受UDCA者相比，即使在排除其他干扰因素(性别、年龄、糖尿病等)后也仍能表现出更好的预后(Figure 4)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxVZeqzufIuypluEgG6tg8TPQylSfkQ71fnzKFqFDAibWxZ5x5n012vJkG3PqlahJEwWNbyyxKbhlg/640?wx_fmt=png)
+![](../../images/165651e631b57baa.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/bL2iaicTYdZn5FrCicgNyssZ75icSDqIzB0fX6rUkvsK0E10ZDuVAgMx2EX5h1o6MzomiclgLIXSiaeC11YquZLhuvbw/640?wx_fmt=gif)
+![](../../images/c934ec2ae8c423bb.webp)
 
 **我来胡侃两段**
 
@@ -44,15 +44,15 @@ albums: ["文献速递", "漫谈胡侃"]
 但即使这项高水平研究令大家十分兴奋，但我个人认为现在就声称UDCA是新冠终结者还**为时尚早** 。作者也承认，由于该研究不涉及真正的临床试验、缺少双盲，因此现阶段并**不建议** 在新冠患者身上直接使用UDCA。另外，UDCA的原理是阻断新冠病毒进入人体。其虽然能一定程度上改善患者预后，但**不能抑制病毒的复制** 。因此这种药物并不能用作新冠感染治疗的主力军，更适合用作预防药物。另一个需要考虑的方面是，目前发表在PubMed中的新冠相关研究高达32万篇[2]，而目前能用于临床的药物屈指可数；即使是发表在《Nature》上的**基础研究** ，在看到完整的三期临床试验数据前，我都建议对UDCA保留观望态度(当然比某些发了四区文章声称有新冠预防作用而大捞特捞的药物好上千倍万倍)。毕竟原来氯喹、羟氯喹、瑞德西伟、各类抗病毒中成药都曾短暂的当过一段时间的新冠终结者，而现它们的现状无需多言。参考：
 [1]Brevini T, Maes M, et. al. FXR inhibition may protect from SARS-CoV-2 infection by reducing ACE2. Nature. 2022 Dec 5. [2]https://pubmed.ncbi.nlm.nih.gov/?term=COVID+19
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

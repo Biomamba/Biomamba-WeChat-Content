@@ -12,7 +12,7 @@ albums: ["答读者问"]
 
 **一、写在前面**
 
-总有同学抱怨自己分析数据时配置不够用，内存不够根本玩不转，又或者每次分析都要花费大量的时间。一方面大家可以看看[入手足够完成硕博生涯的生信环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530226&idx=2&sn=0522eb4eae67efeea2b96404474af611&scene=21#wechat_redirect>)，另一方面，`downsample`下采样操作可以帮助大家节省大量的计算配置和时间。下采样的核心目标是在减少数据规模的同时，尽可能地保留原始数据的关键特征(如细胞类型比例、样本结构、质量分布等)，以便于达到提升计算效率、平衡样本/分组差异等目的。例如我们之前的[压力测试合集](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3771935244480249861&scene=173&subscene=&sessionid=svr_16a5d7c4b65&enterid=1754616568&from_msgid=2247528468&from_itemidx=1&count=3&nolastread=1#wechat_redirect>)中我们对[基础分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247525849&idx=1&sn=aa48c5e9405afcf28ffccb7bb4312e70&chksm=9b3c1c89ac4b959faa1e531dd134995b6345a896fefa2b0f82b55acfb3528850ed924ac43cde&scene=21&cur_album_id=3771935244480249861&search_click_id=#wechat_redirect>)、[拟时序分析monocle2](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528216&idx=1&sn=a12e276a7dac4df56d24b5a92dd78a24&chksm=9b3c1648ac4b9f5e08379a1d5a5d8aa80f93373da2e6d057b219d732168707ac830002267c03&scene=21&cur_album_id=3771935244480249861&search_click_id=#wechat_redirect>)、[细胞通讯CellChat分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528468&idx=1&sn=ad6493b1e7e0284c4cb84e1d79eb446b&chksm=9b3c0944ac4b8052cbbe4b39d07d0af443b4515da99533f95ee4efcf86b1e4c4abf2dc44a847&scene=21&cur_album_id=3771935244480249861&search_click_id=#wechat_redirect>)分别进行了30w细胞以及下采样20w、10w、5w、2.5w分析时的内存、时间占用情况。总体来说，细胞数与计算时间、占用内存呈现正相关关系：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqW7KBBXLsYF3iaKYNRhUCSAsTpm1tS4u1tORkQhSUibFrXv6BeyOqfPaew/640?wx_fmt=jpeg&from=appmsg)本文将颜色是几种常见的下采样逻辑和方式，系统性单细胞教程可见：[scRNA-seq，从小白到文献复现大神！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529435&idx=1&sn=cc7e9ff271f0ce0157008532ef4829c3&scene=21#wechat_redirect>)。本文基于[Linux中的Rstudio环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530189&idx=2&sn=6468b124c872a83ccaa8614067de2d20&scene=21#wechat_redirect>)制作。
+总有同学抱怨自己分析数据时配置不够用，内存不够根本玩不转，又或者每次分析都要花费大量的时间。一方面大家可以看看[入手足够完成硕博生涯的生信环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530226&idx=2&sn=0522eb4eae67efeea2b96404474af611&scene=21#wechat_redirect>)，另一方面，`downsample`下采样操作可以帮助大家节省大量的计算配置和时间。下采样的核心目标是在减少数据规模的同时，尽可能地保留原始数据的关键特征(如细胞类型比例、样本结构、质量分布等)，以便于达到提升计算效率、平衡样本/分组差异等目的。例如我们之前的[压力测试合集](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3771935244480249861&scene=173&subscene=&sessionid=svr_16a5d7c4b65&enterid=1754616568&from_msgid=2247528468&from_itemidx=1&count=3&nolastread=1#wechat_redirect>)中我们对[基础分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247525849&idx=1&sn=aa48c5e9405afcf28ffccb7bb4312e70&chksm=9b3c1c89ac4b959faa1e531dd134995b6345a896fefa2b0f82b55acfb3528850ed924ac43cde&scene=21&cur_album_id=3771935244480249861&search_click_id=#wechat_redirect>)、[拟时序分析monocle2](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528216&idx=1&sn=a12e276a7dac4df56d24b5a92dd78a24&chksm=9b3c1648ac4b9f5e08379a1d5a5d8aa80f93373da2e6d057b219d732168707ac830002267c03&scene=21&cur_album_id=3771935244480249861&search_click_id=#wechat_redirect>)、[细胞通讯CellChat分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528468&idx=1&sn=ad6493b1e7e0284c4cb84e1d79eb446b&chksm=9b3c0944ac4b8052cbbe4b39d07d0af443b4515da99533f95ee4efcf86b1e4c4abf2dc44a847&scene=21&cur_album_id=3771935244480249861&search_click_id=#wechat_redirect>)分别进行了30w细胞以及下采样20w、10w、5w、2.5w分析时的内存、时间占用情况。总体来说，细胞数与计算时间、占用内存呈现正相关关系：![](../../images/b85d94abe1713678.webp)本文将颜色是几种常见的下采样逻辑和方式，系统性单细胞教程可见：[scRNA-seq，从小白到文献复现大神！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529435&idx=1&sn=cc7e9ff271f0ce0157008532ef4829c3&scene=21#wechat_redirect>)。本文基于[Linux中的Rstudio环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530189&idx=2&sn=6468b124c872a83ccaa8614067de2d20&scene=21#wechat_redirect>)制作。
 
 **二、Downsample实操**
 
@@ -60,7 +60,7 @@ DimPlot(scRNA)
 ## To disable this behavior set `raster=FALSE`
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqWHhK1uh2ibyoRziaLChvSv9zwDOllc452MicM5CMzCZZRQlHuOGodSNw8w/640?wx_fmt=png&from=appmsg)
+![](../../images/dd2c3b8b1ca57511.webp)
 
 ## 2.2 利用`subset`进行`downsample`
 
@@ -80,7 +80,7 @@ ncol(obj_1.5k)
 DimPlot(obj_1.5k)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqWs0zDgHKmGKquX5YgeY9BgHEQ2ciaTVzw2k7oDSGFagfvttux4NE5Gbw/640?wx_fmt=png&from=appmsg)
+![](../../images/1ae4b9f77e95759c.webp)
 
 如果你想按照其它[分类变量](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486134&idx=1&sn=e581b8ac20bbc968aeef3f9cf56f3a0f&scene=21#wechat_redirect>)进行抽取，可以做相应的调整。例如这里可以换一种默认的分类变量。
 ```
@@ -372,7 +372,7 @@ radius =1.0,clockwise=T,
 main ="抽样前",col = cols)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqWUQb5DZnaZ3puIXj9rFfNmzHlXt0scW7iaSJ5TNDcce2brA1qZTDWmicw/640?wx_fmt=png&from=appmsg)
+![](../../images/a8e33f54abbc0c80.webp)
 ```r
 # 按固定细胞数抽样
 obj_num <-downsample_stratified(
@@ -416,7 +416,7 @@ radius =1.0,clockwise=T,
 main ="按数量抽样后",col = cols)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqWNia5UticKXnR7kRR4Sz4EZT1HDWxWxhwQEUBErGZYEVcGgIXrESs9xQQ/640?wx_fmt=png&from=appmsg)
+![](../../images/48d4f8ed5458dadc.webp)
 ```r
 # 按细胞比例抽样：
 obj_prop <-downsample_stratified(
@@ -464,7 +464,7 @@ radius =1.0,clockwise=T,
 main ="按比例抽样后",col = cols)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqWcNQILmpaicecZUZ4X2gRZEI7IcFzahwoG7znIxaAj12R8icozNntJ7Dw/640?wx_fmt=png&from=appmsg)
+![](../../images/81a38f520dc73fda.webp)
 
 ok，相信足够满足大家主流的下采样需求了，当然，有更多想法也欢迎随时在留言区许愿。
 
@@ -556,17 +556,17 @@ sessionInfo()
 
 提取码: 2ti4
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqW4jHRMj3UgJzic0uH2odiaeloOpZBgHgNwicgJ28SwS2UcPoYsCRjU7Y4g/640?wx_fmt=jpeg)
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzLQyOLghg4VUwGxjuDaPqWyia2PWIt2nicPeL6icZ7WYHNrDrkoOqx476FgH6rqaCSRNdIgXJxvQJ8g/640?wx_fmt=png&from=appmsg)
+![](../../images/872c43df322f7a56.webp)
+![](../../images/6e6f55662ef67fbe.png)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

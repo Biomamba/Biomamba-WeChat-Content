@@ -12,7 +12,7 @@ albums: ["单细胞教程全收录"]
 
 **写在前面** 经过几节课的铺垫，SCENIC的运行流程其实非常简单，大部分内容均被SCENIC包高度封装，最核心的内容其实只有四行。本次教程文末快速地和大家一起过一遍流程。当然，输出文件的含义及利用方式还需要通过我们后续的详解视频来解析。学习手册与测试文件不断更新，可在文末解锁或联系客服微信Biomamba领取。学习手册：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyu18ShpajyL1fUdXxZSg5wFP3HiaQpNaQ9NbUA3ialKSzu8hQFRUHSgqENUdpDNSl2WAowteMuqe7A/640?wx_fmt=png)
+![](../../images/b569a9cedcee02e3.webp)
 
 当然更推荐大家去作者的Github学习：https://github.com/aertslab/SCENIC[](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497382&idx=1&sn=95586ea6dc381f8b8941cbd50f914c34&chksm=9b3c8ff6ac4b06e0a44df58181c3c85ea856fbc1b02e819640f7d9963fb598a4c4abb84f000f&scene=21#wechat_redirect>)
 **视频教程**
@@ -323,7 +323,7 @@ viewMotifs(tableSubset)
 `
 `
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxudr8bicRHtqrKtVEoWEjfxwDTjsibcic8O9PnuDNIXiczIw35TLcHFTrXkmT303ocqDI4liabiaIMicQ0g/640?wx_fmt=png)
+![](../../images/55fad2a75042c458.webp)
 
 ```r
 #查看motif和对应基因：
@@ -333,7 +333,7 @@ tableSubset <- regulonTargetsInfo[TF=="Stat6" & highConfAnnot==TRUE]
 viewMotifs(tableSubset)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxudr8bicRHtqrKtVEoWEjfxCtz4KGticSqwM6LcHSPPsicqw1mcbrhbicVQ8dUS1NMuvaX3TvxjT5RNQ/640?wx_fmt=png)
+![](../../images/25416e30aa8b61ca.webp)
 ```r
 #计算并展示每种细胞类型特异性的(celltype Cell-type specific regulators (RSS))，类似于拿RGN的活性来计算调控
 regulonAUC <- loadInt(scenicOptions, "aucell_regulonAUC")
@@ -374,7 +374,7 @@ rssPlot <- plotRSS(rss)
 plotly::ggplotly(rssPlot$plot)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxudr8bicRHtqrKtVEoWEjfxbJW0VvXa22t0MsGeCWzicmP0SC4sbk3FUORrwcphib3Vic1iaVDQDaXW4w/640?wx_fmt=png)
+![](../../images/679eca98a9af9495.webp)
 
 ## 3.4 输出文件
 

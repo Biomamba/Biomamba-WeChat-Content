@@ -14,7 +14,7 @@ albums: ["文献速递"]
 
 5月16号新鲜online的《NC》，题为"Dissecting epigenetic heterogeneity in single-cell DNA methylomes with a unified framework"，由南开大学和[北京寻因生物](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247524500&idx=1&sn=bb3b9a15785d2a8095eb59eb7a417f14&scene=21#wechat_redirect>)共同发表。还没正式出版，大家可以看看抢先版。 不知道scMethCraft会不会像[Seurat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=1&sn=e988a2172618fd6f609575294db9a44f&scene=21#wechat_redirect>)、[Scanpy](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=2&sn=f1b479a1469dfe46bd8bb0b0bd1b470d&scene=21#wechat_redirect>)这些包一样成为版本答案呢。
 
-[scRNA-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535927&idx=2&sn=86947f0522de0d9785865bd24115b002&scene=21#wechat_redirect>)现在卷的没边，考虑转移阵地的话，单细胞DNA甲基化（scDNAm）测序为剖析表观遗传异质性和基因调控机制新见解。然而，现有的分析方法大都是从scRNA-seq框架改编的，并不能说明scDNAm数据的独特特征。为了能够以单细胞分辨率系统地探索DNA甲基化衍生的表观遗传变异，该文章提出了scMethCraft，一个多功能的分析工具包。scMethCraft通过混合神经网络集成了多视角的基因组序列特征和甲基化区域的位置信息，并迭代量化细胞间关联，实现scDNAm数据准确建模。scMethCraft支持一系列下游分析，包括细胞嵌入，多源数据整合、细胞类型注释、表观遗传信号增强和差异甲基化区域的鉴定。scMethCraft能够与互补分析工作流程的整合，包括生物学功能富集、组织特异性表达分析和分区遗传性评估。当然，你如果对单细胞甲基化分析思路感兴趣的话，不妨免费领个学习"蓝皮书"![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwk9kpj3P9micT3jZOE1bcpnicibG6weVXhoxPicfDAsHmIgQpBwPSz4SqM9yhJQtiad7cNO5W8SO9W8MCKZtzeHlPNdzn0Cw6kPz5GU/640?wx_fmt=jpeg&from=appmsg)![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwn7tXBmGpXQaicmWm1IzIWWmvpCZhTgqs0tuPHm0yXmcAw92JicHD6pqW9wVS2pzlsoibHCfZ2xyPamU4TUOt0NfKBaKza9wGzy4s/640?wx_fmt=jpeg&from=appmsg)
+[scRNA-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535927&idx=2&sn=86947f0522de0d9785865bd24115b002&scene=21#wechat_redirect>)现在卷的没边，考虑转移阵地的话，单细胞DNA甲基化（scDNAm）测序为剖析表观遗传异质性和基因调控机制新见解。然而，现有的分析方法大都是从scRNA-seq框架改编的，并不能说明scDNAm数据的独特特征。为了能够以单细胞分辨率系统地探索DNA甲基化衍生的表观遗传变异，该文章提出了scMethCraft，一个多功能的分析工具包。scMethCraft通过混合神经网络集成了多视角的基因组序列特征和甲基化区域的位置信息，并迭代量化细胞间关联，实现scDNAm数据准确建模。scMethCraft支持一系列下游分析，包括细胞嵌入，多源数据整合、细胞类型注释、表观遗传信号增强和差异甲基化区域的鉴定。scMethCraft能够与互补分析工作流程的整合，包括生物学功能富集、组织特异性表达分析和分区遗传性评估。当然，你如果对单细胞甲基化分析思路感兴趣的话，不妨免费领个学习"蓝皮书"![](../../images/1e3bdade21f49689.webp)![](../../images/c1d2cc20d3ce61d7.webp)
 
 参考文献：Tang S, Li S, Zhang G, Lyu A, Li H, Chen S. Dissecting epigenetic heterogeneity in single-cell DNA methylomes with a unified framework. Nat Commun. 2026 May 15.
 
@@ -40,7 +40,7 @@ albums: ["文献速递"]
 
 scMethCraft的序列特征提取模块利用混合神经网络(卷积神经网络（CNN）和全连接神经网络（FCNN）)有效地捕获DNA序列特征（图1b）。此外，引入Kolmogorov-Arnold网络（KAN）来融合CNN和FCNN模块生成的特征嵌入，并将位置信息合并到最终的特征嵌入中。该混合神经网络为每个区域生成50维特征嵌入，随后将其带入具有加载矩阵的密集线性层，以预测给定基因组区域的不同细胞中的DNA甲基化水平（方法）。作为一个全面的scDNAm数据分析工具包，scMethCraft提供了广泛的适用性，如降维、可视化、细胞聚类、批量集成、细胞类型注释、数据增强、和DMR的识别（图1d）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnVBSodaH8CyiaRgFt8p4L7Lt9WkeBciciaj08sltPm4jXn4Nr4OOahumaFATRRtOK4LODriaIVDUYqHj7ER3eH7haIUiaKJ5dDty64/640?wx_fmt=png&from=appmsg)
+![](../../images/53fb64cd0cf8b8f0.webp)
 
 图1
 
@@ -54,15 +54,15 @@ scMethCraft的序列特征提取模块利用混合神经网络(卷积神经网�
 
 除了在脑组织中的卓越表现，为了验证模型在解析不同组织系统表观遗传异质性上的广泛适用性，作者还引入了由[寻因生物（SeekGene）](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536784&idx=1&sn=35754d32e7acbb0208a05917c7a1590b&scene=21#wechat_redirect>)提供的外周血单核细胞（PBMC）数据集。该数据集具备寻因独有的“[高通量一胞双组”（单细胞DNA甲基化 + 转录组）技术特性](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534762&idx=1&sn=08d8c49dbc901dc56c22ab2d77db3b88&scene=21#wechat_redirect>)。作者首先利用转录组完成了高置信度的细胞注释，并通过单细胞 Barcode 将真实标签精准映射至甲基化维度，以此作为客观的评估基准。结果表明，即便面对高度复杂的免疫系统，scMethCraft在仅输入甲基化数据的情况下，依然展现出优异的细胞分群能力。它能有效提取甲基化特征，准确区分各类免疫细胞亚型，高效捕捉细微的表观遗传差异，将高度复杂的细胞间异质性清晰地剥离与展现。这一结果不仅充分印证了scMethCraft算法强大的降维与异质性解析能力，也凸显了[寻因“一胞双组”技术](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534762&idx=1&sn=08d8c49dbc901dc56c22ab2d77db3b88&scene=21#wechat_redirect>)在为前沿算法提供高质量基准测试及复杂样本表观图谱深度解析中的核心应用优势。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnkDZHZBkCgNoXibQxACcvHGahmMOLKvX6I7Z2qGhvC6d3kglqlAHibRRUQcicxQJPZLfXAYwWxKYFKUwe3RRqLHp5GYxQlNbIQ6c/640?wx_fmt=png&from=appmsg)
+![](../../images/c3165618877233c8.webp)
 
 scMethCraft 与主流基线方法甲基化数据降维聚类效果对比
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlRlibU1wMs0NwXvyUgEWLEKibDTo0w1d88icib9wEnylxDSAPdS9AqLoj1T2H9mQMzobUbibAiaAeoXWWx0nr8QnKqV67m13RjXnUvA/640?wx_fmt=png&from=appmsg)
+![](../../images/5c3db33a3a75cc91.webp)
 
 寻因生物一胞双组数据分群注释结果展示（PBMC）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmOhgHL0unHJUibkbPR9vE6juWTVXChoHtCOqIll7D6CdqCLoyb8BGPLa8qLRQichpSsEEZWzFt9N6OQDR1rsPssbaATPGF8aayg/640?wx_fmt=png&from=appmsg)
+![](../../images/1631a5c92492c0d1.webp)
 
 图2
 
@@ -84,7 +84,7 @@ scMethCraft 与主流基线方法甲基化数据降维聚类效果对比
 
 对于主要类型的注释，所有方法都取得了良好的性能然而，当使用A5 -A7数据集作为参考时，某些主要细胞类型（例如MGC）的注释由于它们在参考中的相对低丰度而变得困难。即使是替代方案中表现最好的基线模型SVM，如图3 m所示，SVM错误地将大多数MGC分配给L2/3 -IT或Pvalb细胞，并将丰富的OPC细胞错误地分类为ODC。相反，scMethCraft受益于其迭代优化的相似性表示，实现了OPC和MGC的近乎完美的注释，导致注释准确性的显著提高（图3n）。scMethCraft表现出实质性更优的性能，在所有六个评估中实现了最高的准确度（图3 o）。总之，scMethCraft在不同水平的注释粒度下在批次中实现了高注释准确度，使得能够从DNA甲基化的角度稳健地鉴定细胞身份。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkDPicqkehTmvU4TYQWNHrtZNlppsBbsBnUl4uiar6STrWQM7u7xbQNISXy5o1yPLcDkDPiapqm9HmkC1yP3BUjRFNia7E3YvoiaKsM/640?wx_fmt=png&from=appmsg)
+![](../../images/04e728ab4fc0480c.webp)
 
 图3
 
@@ -96,7 +96,7 @@ scDNAm矩阵通常包含噪声和相当大比例的NA值，这显著阻碍了DNA
 
 为了直观地可视化原始scDNAm矩阵，可以通过scMethCraft有效地估算生成原始矩阵的热图（图4B）和scMethCraft增强矩阵（图4c）。显然，原始数据显示出大量的NA值和技术噪声（NA值在热图中显示为白色），导致不同细胞类型之间的图案模糊。不同细胞类型的DNA甲基化模式变得清晰可辨。相比之下，scMethCraft在多个数据集上的表现始终优于这些基线方法，强调了其数据增强能力的鲁棒性和普遍性（图4d）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlyu13Ca5Mqia2FK6p5o2r81bQkr2x9ibLFXtBhicxNdsicyriaetpUiaedXbUj54KbLq4jgkYggOJQ9icobgTTA6x64IiawV79Y6XvwyM/640?wx_fmt=png&from=appmsg)
+![](../../images/5c7e22b0aefc5ba6.webp)
 
 图4
 
@@ -110,7 +110,7 @@ scDNAm矩阵通常包含噪声和相当大比例的NA值，这显著阻碍了DNA
 
 作者评估了scMethCraft和EpiScanpy的低DMR鉴定性能。以ACC数据集和ODC为例，EpiScanpy鉴定了142个ODC特异性低DMR（图5a），而scMethCraft鉴定了771个这样的区域（图5 b）。为了评价通过不同方法鉴定的低DMR是否捕获细胞类型特异性基因调控模式，作者找到了转录位点与这些低水平的基因重叠的基因，使用UCSC Genome Browser提供的基因组注释的DMR。为了定性评估这些基因与ODC的相关性，作者根据CellMarker和GeneCards数据库中的广泛搜索将它们分为三组：（1）在Cellmareker被明确注释的ODC基因（2）GeneCards中未被注释为ODC基因，但收录为ODC相关基因，其在GeneCards数据库中未被注释为ODC标记，但已被报道与神经细胞、脑发育或脑相关疾病密切相关;和（3）其他基因。作者生成了一个单词云，在这些基因中，8个基因被确认为ODC标记基因，19个基因被归类为ODC相关基因，根据查阅的数据库，只有8个基因缺乏与ODC相关的有力证据。尽管在所查阅的两个数据库中CHD7基因未被注释为标记基因或与ODC相关，但现有的研究已经证实CHD7可能是人类中枢神经系统髓鞘形成所需的功能，并且对ODC的成熟至关重要。此外，尽管其具体功能仍不清楚，人类蛋白质图谱数据库显示，CUEDC 1在ODC中表现出高表达。这些潜在相关基因的鉴定表明，scMethCraft可以捕获具有生物学意义的甲基化模式，并可能有助于探索基因从表观遗传学的角度来研究调控机制。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl9v4ianTWsGuZszNwStGq5ZVr9ibgGPSLdXEjcMFQtqUIvoic4j9hFoQsVqwP8qXxXwb9UrPkpo0MkmnUicq177YIDic0U9jEjFBMk/640?wx_fmt=png&from=appmsg)
+![](../../images/cdd64e2d4566b1aa.webp)
 
 图5
 
@@ -124,7 +124,7 @@ scMethCraft设计原则从序列和细胞两个角度对scDNAm数据进行建模
 
 作者验证了相似性加权模块是否有效地捕获了细胞间的相似性信息，如细胞间相似性矩阵所示（图6e），与其他区域相比，沿着主对角线的区域表现出明显更高的值，这表明相同类型的细胞在矩阵内倾向于具有更高的相似性值。为了获得更精细的细胞亚型信息，作者将细胞按照亚型进行分类。图6f表明，即使对于具有细微差异的类型，scMethCraft的相似性加权模块仍然能够捕获这些细胞类型之间的生物异质性和相似性。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkR9dYIdHJUcoiauCRAfKlaLA1YdTIgfYpMfOdAicstKImhKdNkh36dJ0TfiaJGqYqagdmRwubaib7LDujNv06HnPyX5gSKib2PNXnA/640?wx_fmt=png&from=appmsg)
+![](../../images/8d87426a89773d28.webp)
 
 图6
 
@@ -132,14 +132,14 @@ scMethCraft设计原则从序列和细胞两个角度对scDNAm数据进行建模
 
 相较于scRNA-seq分析生态的成熟，单细胞DNA尤其是单细胞甲基化数据的分析仍有较大的空白有待填补。scMethCraft在降维、可视化、细胞聚类、批量集成、细胞类型注释、数据增强、和DMR的识别方面展现出了此前基于scRNA与scATAC迁移开发的包具有较大的性能提升。不知道会不会成为单细胞甲基化数据分析的版本答案。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=7)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=8)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=9) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYc2iaBU5PHFRGicesPwlJAYZjqVMGdYRGTxHe9oMUGVo6aIpmwQiabcvpzQ/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=10)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=11) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/8c35a80aa61ccf75.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

@@ -77,7 +77,7 @@ m3.reduce_dimension(adata, cores=1)
 m3.plot_cells(adata, label_groups_by_cluster=False, color_cells_by='cell.type')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwkFia6JTCegL0qJemGtYezsO7RBboXqib6SiafBsgXVy4UHyYVWBKYPjFhto7WtVdl6dwhcTeA4BicR6INWR0C3fC1YoNGSt01G2YM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/b0d1fea9d0b935ec.webp)
 
 按 Packer 给的 `cell.type` 上色, 能直接看到胚层之间的连续过渡, 这是后面 SimplePPT 要在上面铺 principal graph 的底图。
 
@@ -91,7 +91,7 @@ m3.cluster_cells(adata, resolution=5e-6)
 m3.plot_cells(adata, group_cells_by='partition', color_cells_by='partition')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmBiapvF9Uiazic4M9MWhSJe8yrtrscQibkjb1TPAgf9DCiaEbnIcdBNItzrFckMiaC340diatIRTKficX3DtP9bfccwPyMgmRIicQT7AsY/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/218ed1f854a23fb1.webp)
 
 在这个 resolution 下整套数据落到一个 partition 里, 后面学到的 principal graph 也就是单连通的一棵树 (允许有环)。
 
@@ -125,7 +125,7 @@ m3.plot_cells(
 )
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ry2k0NQt1qQG34qARcY5nlSBEvRMiaLqLLe3NWsXicq97pXVW7jeqU0wToQOPpmjNFRqvJhVCU4bQt3kvFImXNWdLyCCol2n7Dmu1JLa5gBLg/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=2)
+![](../../images/562ba5dbe13da852.webp)
 ```
 m3.plot_cells(
     adata, color_cells_by='embryo.time.bin',
@@ -135,7 +135,7 @@ m3.plot_cells(
 )
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ry2k0NQt1qRL9kS3J5PhJ8aFagWX879stRMq4sfWicErF4GkZE1u6L4op2C5j9L509OlFJXA9QKZ785Ribiasibrj7LzM338PaS7ibXyzDvSfFNg/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=3)
+![](../../images/e0bc6b7106a69e23.webp)
 
 第二张图上标出了所有 leaf (终端 cell type) 和 branch point (命运分歧节点), 黑色折线段就是学到的 principal graph。配合 `embryo.time.bin` 的颜色, 能直接看出"早期时段聚集在中间, 沿着分支向 leaf 推进"的 trajectory 形状, 这就是接下来要量化的 pseudotime 走向。
 
@@ -163,7 +163,7 @@ m3.plot_cells(
 )
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ry2k0NQt1qRogo1wmB5683BuuWW2HjelTVru0xmathhw5rfdO3qA8QKQJRITJavR6L9dGqTFrMYlBC0zMlcRXbsBmKhHJen8A2hF0tC1ibIs/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=4)
+![](../../images/7c9c4366fc883895.webp)
 
 `order_cells` 内部对每个 root `Y_k` 找到 UMAP 空间里最近的实际细胞, 把这些细胞作为 source, 在 `pr_graph_cell_proj_tree` 上调 `igraph.distances(weights='weight')` 算所有节点 (centroid + cell) 到 source 的最短路径, pseudotime 写到 `obs['monocle3_pseudotime']`。一个值得知道的坑: 如果 `use_partition=True` (默认), 每个 partition 的 principal graph 是断开的, 不在 root 所在 partition 里的细胞会拿到 `inf`。这种情况下 port 会显式 `UserWarning` 提示用 `use_partition=False` 或者每个 partition 都给一个 root (`order_cells.py:156-172`)。我们这里只有一个 partition, 所以不会触发。
 
@@ -179,7 +179,7 @@ m3.plot_cells(
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ry2k0NQt1qR2MgXav7sFe97ujFHTFnXBGtKueBmXTp0AQNuFMDG3PiaxibO89z3757ZiagOZc6gMDRNl2bVGO3QSrUCjLS1rpWfrUgiaK2RD7wM/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=5)
+![](../../images/4bf11bd476f50ced.webp)
 
 `plot_percent_cells_positive` 把每个时间点上 marker 阳性 (`X > min_expr`) 的细胞比例画成 barplot, 比直接看表达均值更稳健 —— 在 dropout 严重的 scRNA-seq 数据上, "几个细胞高表达 vs 多数细胞低表达"的差异往往比均值更有生物学意义。
 ```
@@ -196,7 +196,7 @@ gene_mask = adata.var['gene_short_name'].astype(str).isin(ciliated_genes)
 )
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ry2k0NQt1qSUlwtL1E9fGrPqOEqDSgmb1iaZSDyU0ibIM0aczicWATBF2hJkAPXSViap3icpG0tk7WgqyTsbnbkjkWkfH7FJQgfTf6TONvziaTDG4/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=6)
+![](../../images/ad98a0cee581f658.webp)
 
 ## per-gene GLM 差异表达: `fit_models`
 
@@ -220,7 +220,7 @@ fit_coefs = m3.coefficient_table(gene_fits_time)
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ry2k0NQt1qRegTox6Jybw3jj4MUbujz1DlPg8ltWOZSOgddicXhLnCT8YhrY6jSxOOY7ce7tkJL6yDAD0kIZb2nAzo7g5qy1L7NamNsILceE/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=7)
+![](../../images/5451d88598e408ef.webp)
 ```
 violin_mask = adata.var['gene_short_name'].astype(str).isin(
     ['che-1', 'nhr-6', 'dmd-6', 'ceh-36']
@@ -302,14 +302,14 @@ pheatmap.pheatmap(
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ry2k0NQt1qSJNFodEibn3YZPibiaWk9yALulExuaLWiaYJODluAxrYyU6krsibvoX1LU7ptGL295rDHlcunqY4MonNicyEkUYibV9ofYpaSXE4jaz0/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=8)
+![](../../images/6ad97e7c1e73857e.webp)
 
 `find_gene_modules` 把 `graph_test` 选出来的显著基因 (`q < 0.05`) 在 PCA loading 空间 (`SVD.v @ diag(SVD.sdev)`) 上跑一遍 UMAP, 然后跑 Leiden 聚类, 得到 (gene_id, module) 表 (`monocle3/cluster_genes.py:97`)。`aggregate_gene_expression` 把它和 `cell_group_df` (这里按 `cell.type` 分组) 一起做成 module × cell_type 的 z-score 矩阵, 喂给 `pheatmap` 画出 module 在不同细胞类型上的特异性 —— 这就是 Monocle3 论文里那张著名的"细胞类型 × 基因模块"热图。
 ```
 m3.plot_cells(adata, genes=gene_module_df, label_cell_groups=False, show_trajectory_graph=False)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ry2k0NQt1qQlwib3co2OWCSBCqSAuKicxoRuwIuHibBVWMJibXfBhuOtmCNXJiastL4aePoaR3SOy0ucqVsI8MD26CtlDBTWVYOnn0ria8Tvavf5Q/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=9)
+![](../../images/098b0433dcfa765d.webp)
 
 把 `gene_module_df` 直接传给 `plot_cells(genes=...)`, 就能在 UMAP 上每个 module 一个 panel 把"哪些细胞 module-X 整体高表达"可视化出来, 是 module 解读最直观的视图。
 
@@ -333,7 +333,7 @@ m3.plot_genes_in_pseudotime(
 )
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ry2k0NQt1qRS8GIUNCLSico1n0a6wpdCw2MkCG3yxZLeIhu3LUeuqRbPPyrzVHibez3Fj4GK9whZI4OAF47sjDRKWwJSArmrVvOVKOp31sXWU/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=10)
+![](../../images/6e760930444b9918.webp)
 
 `plot_genes_in_pseudotime` 内部对每个基因在 pseudotime 上拟合一条平滑曲线 (loess 或 spline, 看参数), 把表达 (`> min_expr` 的细胞) 按 pseudotime 排开画 scatter + 拟合曲线。从这张图能直接读到"这个 marker 在 AFD lineage 上是早期高、晚期消失, 还是反过来"的时间走向, 是把 trajectory 落回到具体基因的最后一步。
 
@@ -345,13 +345,13 @@ m3.plot_genes_in_pseudotime(
 
 代码: `https://github.com/Bio-Babel/Monocle3-python`. 示例数据: `packer_embryo.h5ad` (Zenodo). 上游 R 包: `https://github.com/cole-trapnell-lab/monocle3`.
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=10)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=11)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=12) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=14) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

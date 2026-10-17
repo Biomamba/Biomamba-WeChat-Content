@@ -1,0 +1,47 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0477-Biomamba也离下岗不远了，直接让Claude帮我配置环境并制作教程</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="biomambaclaude">Biomamba也离下岗不远了，直接让Claude帮我配置环境并制作教程</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539308&amp;idx=1&amp;sn=c1b2915aac125f4fa31bd50ffb8b98b9&amp;chksm=9b3c233cac4baa2a7f092d46cbc237d0e4f1ccd4481d469a21fdbafcb23e23f33cc2e4f573fd#rd
+合集：AI时代，不用就会被淘汰</p>
+</blockquote>
+<p><img alt="图片" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><strong>一、写在前面</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&amp;mid=2247488149&amp;idx=1&amp;sn=220b0f8b225919e46b7b3cba223c3f4b&amp;scene=21#wechat_redirect"> openClaw、Claude Code、Codex算是彻底改变了生信时代，我们之前也</a><a href="https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&amp;mid=2247488116&amp;idx=1&amp;sn=7a5628157f1aec2306e19e6c4e220108&amp;scene=21#wechat_redirect">直接让claude code帮我复现单细胞文章。众所周知，我们课程与教程开发的过程其实就是一部踩</a><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2453318094304673794#wechat_redirect">坑实录史</a><a href="https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&amp;mid=2247488116&amp;idx=1&amp;sn=7a5628157f1aec2306e19e6c4e220108&amp;scene=21#wechat_redirect">。如果说AI Agent能够直接帮我部署好</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538845&amp;idx=2&amp;sn=4f2984867981df3d282b9f5405c85c09&amp;scene=21#wechat_redirect">服务器环境</a><a href="https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&amp;mid=2247488116&amp;idx=1&amp;sn=7a5628157f1aec2306e19e6c4e220108&amp;scene=21#wechat_redirect">解决好软件bug、把测试数据与流程跑通，那简直可太可以让我下岗了。比如我们此前做过，</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535112&amp;idx=1&amp;sn=95a6b88cd49fb2bbb7aa091a00e09e2c&amp;scene=21#wechat_redirect">风靡一时的scTenifoldKnk单细胞虚拟基因敲除,准不准?</a><a href="https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&amp;mid=2247488116&amp;idx=1&amp;sn=7a5628157f1aec2306e19e6c4e220108&amp;scene=21#wechat_redirect">。，现在可以直接让AI做一个姊妹篇：虚拟干扰scGen教程。</a></p>
+<p>如果你的计算机不足以支持大规模的计算，且不希望花太多￥在买电脑上，可按需选用适合自己的计算资源：共享(经济实惠)：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=2&amp;sn=4708fac31ac8f4e347847e4b7f2a4fed&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的共享服务器</a>独享(省电省心)：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534670&amp;idx=2&amp;sn=b4296f98e4f8e171a8833a202bd9f926&amp;scene=21#wechat_redirect">如何拥有一台服务器，且不用自己搭建维护</a></p>
+<p>访问链接：https://biomamba.xiyoucloud.net/</p>
+<p>更多内容可咨询客服微信[<strong>Biomamba_zhushou</strong>]</p>
+<p><img alt="图片" src="../../images/06077bf834ad4007.webp"></p>
+<p><img alt="图片" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><strong>二、让AI干活</strong></p>
+<p>配置过程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538520&amp;idx=1&amp;sn=6858ae5260580c74fd46e658dbc4e49b&amp;scene=21#wechat_redirect">试试D老师的单细胞代码分析能力怎么样</a>(代部署可联系客服微信[Biomamba_zhushou])。</p>
+<p>我的提示词为：</p>
+<p>*</p>
+<pre><code>https://github.com/theislab/scgen这个是scGEN的链接，https://scgen.readthedocs.io/en/stable/这是官方的教学文档，参考这两文档编写一个中文的scGEN的教学，教学从配置环境开始，我的系统是linux显卡是3090,以ipynb的形式和md文件两个交付结果，给我能运行的教程手册，整个流程需要结构清晰，代码拥有注释。
+</code></pre>
+<p>当然，有时候实测结果也会有点问题，比如测试流程时并没有在我已有的conda环境里操作，而不是新建一个纯净的conda环境。教程中的测试数据也是模拟的数据，而非真实数据，看来需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539062&amp;idx=2&amp;sn=6fd50e106bf2ebd5fb517a35676097a4&amp;scene=21#wechat_redirect">Skills</a>规范一下。<img alt="" src="../../images/f3a39aad22efba16.webp">
+最终，我们测试了3种模型，包括GPT5.5、Opus4.8、DeepSeek V4 Pro，给大家保存好了jupyter文件，AI Agent甚至能把测试的环境也给我提交到<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531443&amp;idx=2&amp;sn=eb26532ba3998955bf46d9d9529ed8d9&amp;scene=21#wechat_redirect">jupyterhub</a>当中。实际测试过程中也遇到一些问题，例如字体不能正常显示的时候AI没法敏锐的察觉到并解决这个问题，还是需要进一步的交互。在修改新的一版文档时有可能会继承上一版的其它bug，或者忘记了你之前交代过的其它前提或SKILLS。不过总体上还是节省了很多时间，尤其是省去了疯狂检索怎么解决安装依赖关系这个环节。<img alt="" src="../../images/c75361d4b88cd8e8.webp">
+<img alt="图片" src="../../images/06077bf834ad4007.webp"></p>
+<p><img alt="图片" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><strong>三、手册与文件</strong></p>
+<p>通过网盘分享的文件：</p>
+<p>链接: https://pan.baidu.com/s/19ay9wAAB22FfigZUjSz-gw</p>
+<p>提取码:请联系客服微信[Biomamba_zhushou]领取</p>
+<p><img alt="" src="../../images/61951f55c21c9ad5.png">
+大家可以预览一下生成的手册，GPT 5.5生成的比较简短GPT5.5：<img alt="" src="../../images/3e13b3f8524231b2.webp">
+Opus 4.8：<img alt="" src="../../images/fc16875f46f1ebcc.webp">
+DeepSeek V4 pro<img alt="" src="../../images/152eed5f37a68809.webp">
+<img alt="图片" src="../../images/06077bf834ad4007.webp"></p>
+<p><img alt="图片" src="../../images/0ffc03dd3fbc9e2f.webp"></p>
+<p><strong>四、生信新时代</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538520&amp;idx=1&amp;sn=6858ae5260580c74fd46e658dbc4e49b&amp;scene=21#wechat_redirect"> 所以理论上来说</a><a href="https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&amp;mid=2247488149&amp;idx=1&amp;sn=220b0f8b225919e46b7b3cba223c3f4b&amp;scene=21#wechat_redirect">Claude</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538520&amp;idx=1&amp;sn=6858ae5260580c74fd46e658dbc4e49b&amp;scene=21#wechat_redirect">+</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538845&amp;idx=2&amp;sn=4f2984867981df3d282b9f5405c85c09&amp;scene=21#wechat_redirect">西柚云服务器</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538520&amp;idx=1&amp;sn=6858ae5260580c74fd46e658dbc4e49b&amp;scene=21#wechat_redirect">+几块钱的DS tocken就足够测通任何开源的流程(需要代部署可以滴滴微信[Biomamba_zhushou])。</a>另外需要可接入AI的超强性价比服务器？可参考：访问链接：https://biomamba.xiyoucloud.net/</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21&amp;token=1904068475&amp;lang=zh_CN#wechat_redirect">足够支持你完成硕博生涯的生信环境</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529475&amp;idx=1&amp;sn=10827e982a637e0fc36e4b6e857736c8&amp;scene=21&amp;token=1904068475&amp;lang=zh_CN&amp;poc_token=HF-eN2mj01zsfxe_I4r8D5pfZx80xO2AVYSB6qtT#wechat_redirect">忘记宣传了，独享用户连技术支持都是独享的</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21#wechat_redirect">RTX5090、4080S、5070显卡上机</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=2&amp;sn=4708fac31ac8f4e347847e4b7f2a4fed&amp;scene=21&amp;poc_token=HD30QWqjyfz9w8kaP4lTzV2TrwmmFWeikVE7vHza#wechat_redirect"><img alt="图片" src="../../images/bb64da6d0197c4e8.webp"></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534707&amp;idx=2&amp;sn=2844377758ce00e07435a5dd376b4715&amp;scene=21#wechat_redirect"><img alt="图片" src="../../images/b2f06246ca98fb72.webp"></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534707&amp;idx=2&amp;sn=2844377758ce00e07435a5dd376b4715&amp;scene=21#wechat_redirect"><img alt="图片" src="../../images/5e8cec6cc1a63959.webp"></a>
+<img alt="图片" src="../../images/06077bf834ad4007.webp"></p>
+<p><img alt="图片" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../../images/3b8e21da777157f9.webp"><img alt="图片" src="../../images/7a5130b05d387a24.webp"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../../images/e43581b4f5118aad.webp"><img alt="图片" src="../../images/acba43cb3408c3d0.webp"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

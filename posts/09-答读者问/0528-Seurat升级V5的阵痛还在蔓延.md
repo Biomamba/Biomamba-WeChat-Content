@@ -12,7 +12,7 @@ albums: ["答读者问"]
 
 **一、Seurat升级带来的DoubletFinder报错**
 
-[ SeuratV4升级V5算是个单细胞史上的大事件，函数和数据存储对象框架迎来了巨巨巨巨大改动。这一改不但影响原有的Seurat代码，还会影响其它依赖Seurat或其对象开发的包，例如](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[CellChat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501735&idx=2&sn=35fc792961507f4ae1cbae3a2882fba6&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[NicheNetR](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503617&idx=1&sn=18389ffe1d201b1c0592ebc923aac851&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[monocle3](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490418&idx=1&sn=18ae0b6139fe1a2436dcf6cc47850297&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[slingshot](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527850&idx=1&sn=f4e2ca5e2e5e71eeaf132375bb8270eb&scene=21#wechat_redirect>)[、singleR、scType、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[SoupX](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537531&idx=1&sn=e5f08c08b352287ddfda069a20019afb&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[UCell](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497831&idx=2&sn=82fa51c76a381fba0b444e9b6b23eb5f&scene=21#wechat_redirect>)[等等等等，它们都或多或少能够直接处理Seurat对象或接受Seurat对象转化为自己的分析数据对象。我们去除双细胞用到的](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[DoubletFinder就是其中之一，如果你用的是V2.0.6或之前的版本，但Seurat却是V5的话，那么你大概率在运行parampSeep时会遇到这个报错。](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537531&idx=3&sn=c02a04fcecf0df66a7e544a821a62493&scene=21#wechat_redirect>)![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlRWuMxydTLXZrlbq1SmqoDGw5bQ5mib4ibCNNv37XqfjWQe1lOlwEDvNNDm0UPW5dcOTEeNc4Q0tx5pJWPEvJp0icYZI9kZz3aPY/640?wx_fmt=png&from=appmsg)
+[ SeuratV4升级V5算是个单细胞史上的大事件，函数和数据存储对象框架迎来了巨巨巨巨大改动。这一改不但影响原有的Seurat代码，还会影响其它依赖Seurat或其对象开发的包，例如](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[CellChat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501735&idx=2&sn=35fc792961507f4ae1cbae3a2882fba6&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[NicheNetR](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503617&idx=1&sn=18389ffe1d201b1c0592ebc923aac851&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[monocle3](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490418&idx=1&sn=18ae0b6139fe1a2436dcf6cc47850297&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[slingshot](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527850&idx=1&sn=f4e2ca5e2e5e71eeaf132375bb8270eb&scene=21#wechat_redirect>)[、singleR、scType、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[SoupX](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537531&idx=1&sn=e5f08c08b352287ddfda069a20019afb&scene=21#wechat_redirect>)[、](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[UCell](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497831&idx=2&sn=82fa51c76a381fba0b444e9b6b23eb5f&scene=21#wechat_redirect>)[等等等等，它们都或多或少能够直接处理Seurat对象或接受Seurat对象转化为自己的分析数据对象。我们去除双细胞用到的](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509880&idx=1&sn=3b7cd169ccfe688d10cb1ca70dc91e91&scene=21&poc_token=HMLMn2qjfenqha151z8ZwUIRbEVnyT6YMFxzwlvT#wechat_redirect>)[DoubletFinder就是其中之一，如果你用的是V2.0.6或之前的版本，但Seurat却是V5的话，那么你大概率在运行parampSeep时会遇到这个报错。](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537531&idx=3&sn=c02a04fcecf0df66a7e544a821a62493&scene=21#wechat_redirect>)![](../../images/2a0cd8d5b01bd005.png)
 问题是怎么发生的——DoubletFinder与Seurat版本的兼容性
 
 Seurat在**v5版本** 对数据结构进行了重大改动：assay类由`Assay`升级为`Assay5`，表达矩阵的存储方式由传统的**slot**(`counts`/`data`/`scale.data`)变为**layers**(如`counts`、`data`、`scale.data`可以按样本拆分为`counts.Sample1`、`counts.Sample2`…)。而`DoubletFinder`旧版本(CRAN归档版v2.0.4以及2023-11-21之前的GitHub版本)的源码中仍然直接通过`seu@assays$RNA@counts`这样的方式访问slot，在`Assay5`对象上自然就会报错。
@@ -93,7 +93,7 @@ sweep.stats_conv <-summarizeSweep(sweep.res.list_conv, GT =FALSE) # GT:是否�
 bcmvn_conv <-find.pK(sweep.stats_conv)                             # 计算BCmvn选择最优pK
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlXomHibREFIWRwzorBaLsibT1y6orXR1akOktjw2JtoDKupnbCDLcA3pCAPdrxBpQZ4NQhBVWjhlO8PdpZVibWiaeEeq4K8wFEm18/640?wx_fmt=png&from=appmsg)
+![](../../images/77bca8ebb758debd.png)
 ```
 ## NULL
 ```
@@ -265,7 +265,7 @@ head(sweep.stats)
 bcmvn <-find.pK(sweep.stats)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkTE92hR8oZxPmY3orVGn0hiblXbo10D17bbmrCDWkwauDppX8tZic4Xj4yibpHrddkbia0TOTMFxDed8bTQwNbYQib0U6W9j0xx9gw/640?wx_fmt=png&from=appmsg)
+![](../../images/6fc3498d472cd218.png)
 ```
 ## NULL
 ```
@@ -308,7 +308,7 @@ ggsave('data/Figure_bcmvn_pK_selection.png', p_bcmvn, width =6, height =4, dp
 p_bcmvn
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmzwKkYS4dw7p2tJh9qy0YHotiaWfp0B2fqgesLfSPCNlaqHr11II8rEWpduaibg2ib6lvrLRiasRxQw0pexibqVgRLkiaNhdIyOWyWo/640?wx_fmt=png&from=appmsg)
+![](../../images/7b4b50b8fd6ef0f2.webp)
 
 ## 2、估计预期双细胞数(nExp)
 ```r
@@ -396,7 +396,7 @@ ggsave('data/Figure_pANN_distribution.png', p_pann, width =6, height =4, dpi 
 p_pann
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmnPeTMCzwboWic1dGHAmgHGO1Qh3ib2vZ143yCSZwicDBicKuiaVhZFxt3l5mhvDATDcXmgQibwZlz8G1Dm7ZZ4yicsGZ1qGGicAjzYGI/640?wx_fmt=png&from=appmsg)
+![](../../images/52b9f96d2ec532d9.webp)
 
 ## 4、去除双细胞并展示最终效果
 ```r
@@ -459,20 +459,20 @@ ggsave('data/Figure_UMAP_before_after_doublet_removal.png', p_compare, width =1
 p_compare
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnIawaKK78dNVdrL4zImp5JoGtosiaU3ZMaMJAfbS4GhDED8U8GFWS37ibGvfFTAVRZmH5TEjzzJpZEcI7xNIE2xQegbv5RArbqY/640?wx_fmt=png&from=appmsg)
+![](../../images/fad77e6150b769f1.webp)
 ```
 # 双细胞在UMAP中的分布(红色为被判定的双细胞):
 DimPlot(Blood, reduction ='umap', group.by = class_col, cols =c('Singlet' = 'grey85', 'Doublet' = 'firebrick'), pt.size =0.8) +
 ggtitle('Doublets highlighted')
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlCRHgK2ibz3iaZdbicF4jwSxgRw4rlq490HSaibffb7B3RJ0yYjcrjfJcibG6TIOFCzXdwd5PtZFTUQpLKOjHY1n4Sk3lO2U3LT6Lw/640?wx_fmt=png&from=appmsg)
+![](../../images/53ee16701b4f2d1b.webp)
 
 从最终效果可以看到：pbmc3k的2700个细胞中，经`DoubletFinder`鉴定出**150个双细胞**(占比约5.6%)，与10x平台在该细胞数下的预期双细胞率相当。这些双细胞多位于UMAP上两个细胞群之间的“中间地带”，去除后聚类边界更加清晰，避免了它们被误判为新的细胞群。
 
 **四、资料下载**
 
-完整演示手册下载![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnSDibA7V6eVnLaJqiazhIMtOMQ2w24bu7fSqcicoeVLVO8LACnrEyyJaHrUM96lNm2ziag6HibRicReVKYxCdhD4kJaODwZ6p36jaaM/640?wx_fmt=png&from=appmsg)
+完整演示手册下载![](../../images/d0207b0e2d2d6cc9.webp)
 
 通过网盘分享的文件：SeuratV5_DoubletFinder双细胞去除debug
 
@@ -480,8 +480,8 @@ ggtitle('Doublets highlighted')
 
 提取码: jtvs
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmqdmyxv8uPgt1G2SSAIvZ6cescuVRPWTvHo5fEjEUiaEtCEK5IDn3UgVIOHibdwQeeJLkkEVhVIVSROlKibleYyws7j2ib5BiaXwDk/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=10)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/a565d9f1d91c5a6e.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

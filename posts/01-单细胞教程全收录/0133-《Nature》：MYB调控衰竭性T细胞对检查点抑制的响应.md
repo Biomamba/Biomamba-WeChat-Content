@@ -32,7 +32,7 @@ https://www.nature.com/articles/s41586-022-05105-1
 
 对慢性病毒感染或癌症作出反应的**CD8+ T** 细胞的特征是抑制受体的表达，如程序性细胞死亡蛋白1 **(PD-1)** 和**细胞因子** 的产生受损。这种受抑制的功能状态被称为**T细胞衰竭** 状态，是由表达转录因子T细胞因子1 (TCF1)的T细胞(TPEX)前体维持的，它自我更新并产生TCF1−耗尽的效应T细胞3 – 6。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxor2N5wibmSVg9geUP15pMskmDyxrQVBYESMf3faIa4eIHoMC72RwsbY4k1QgsTBreicp4kkHowdew/640?wx_fmt=png)
+![](../../images/76fefc68c5e4e192.webp)
 
 **● 文中发现的现象**
 
@@ -86,7 +86,7 @@ https://www.nature.com/articles/s41586-022-05105-1
 
 **● 总结：** 这些结果表明，CD62L+ TPEX细胞代表了一个转录不同的群体，具有干细胞样发育能力，在慢性感染期间维持耗尽的CD8+ T细胞的反应（这个是如何维持的？）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxor2N5wibmSVg9geUP15pMslbdwOAlIbzPuR7HSCzcckI4MfUlwj9V4JiaRj9ibOg49385oia0frm1CQ/640?wx_fmt=png)
+![](../../images/07a08d9c268d9dc4.webp)
 
 Fig. 1 | CD62L marks transcriptionally distinct and functionally superior TPEX cells during chronic infection.
 
@@ -118,7 +118,7 @@ Fig. 1 | CD62L marks transcriptionally distinct and functionally superior TPEX c
 
 ● 结论：MYB在急性期介导CD62L+ TPEX细胞的发育和CD8+ T细胞的功能衰竭，维持长期增殖能力，并在慢性感染期防止抗原特异性T细胞的消耗。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxor2N5wibmSVg9geUP15pMsmZZ320x4j9S9j3LyKXs5ofiauQuFMuhfd8f0TFM7u7NGr5fnOiaGicibaA/640?wx_fmt=png)
+![](../../images/e34b6f0020a77d70.webp)
 
 Fig. 2 | The transcription factor MYB is required for the generation of CD62L+ TPEX cells and the functional exhaustion of T cells during chronic infection.
 
@@ -152,7 +152,7 @@ CD62L+ TPEX细胞表达更高水平的转录本，编码与淋巴结归巢相关
 
 ● **结论：** MYB是T细胞衰竭的核心转录协调器，它介导CD62L+ TPEX细胞的发育，并抑制耗尽的T细胞的终末分化。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxor2N5wibmSVg9geUP15pMsvYTt7mgZCuY2Qs4Ycf8xkXJUuTGsPicuSMMxiaJiaZHOHOc4XicR2ob36w/640?wx_fmt=png)
+![](../../images/7104f8e5ed6fdac5.webp)
 
 Fig. 3 | MYB regulates the expression of genes that are critical for the function and maintenance of exhausted T cells.
 
@@ -182,7 +182,7 @@ Fig. 3 | MYB regulates the expression of genes that are critical for the functio
 
 ● 结论3：以上结果揭示了myb依赖的CD62L+ TPEX细胞在PD-1检查点抑制的反应中只会促进增殖爆发，因此决定了治疗性检查点封锁的成功。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxor2N5wibmSVg9geUP15pMsH43ja4BahZJ6s391YkCgdYX87ibZ8BmvJrBVu0AXlflgbABSL5qn55Q/640?wx_fmt=png)
+![](../../images/b11b7cd5171f0f61.webp)
 
 Fig. 4 | CD62L+ TPEX cells show enhanced potential for effector cell generation and selectively mediate responsiveness to PD-1 checkpoint blocking therapy.
 
@@ -200,15 +200,15 @@ Fig. 4 | CD62L+ TPEX cells show enhanced potential for effector cell generation 
 
 **●** （2）TSLEX细胞优越的增殖和发育潜力使它们成为过继T细胞移植和嵌合抗原受体(CAR) T细胞治疗的主要靶点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

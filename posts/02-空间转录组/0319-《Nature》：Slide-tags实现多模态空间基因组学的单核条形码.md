@@ -24,7 +24,7 @@ Slide-tags 方法使用作者先前开发的密集排列的10 μm DNA条码磁�
 
 Fig.1
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx8zeFc4XvbRUPaZolf3djBS93qtaHlnXWkUiaIA94lwY3zjEPKCSPTukCKbnqKrqW9edBONIXw63w/640?wx_fmt=png&from=appmsg)
+![](../../images/51fd64f33b1c85ca.webp)
 
 2.**在人类大脑皮层中应用 Slide-tags的snRNA-seq。******
 
@@ -32,7 +32,7 @@ Fig.1
 
 Fig.2
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx8zeFc4XvbRUPaZolf3djB4Z9uQmtLgTH4sh3LFTNrHKyxEibq1DurCGRYEGOMmeYw9axt7Eziaibiaw/640?wx_fmt=png&from=appmsg)
+![](../../images/bf390a6fb8220c30.webp)
 
 3.**在人类扁桃体中应用 Slide-tags的snRNA-seq。******
 
@@ -40,7 +40,7 @@ Fig.2
 
 Fig.3
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx8zeFc4XvbRUPaZolf3djBIGovAIl1D2guniaVHGcNEm1UE3Gquwj9XKFNicMYxyV8vt0MKcLpDvxA/640?wx_fmt=png&from=appmsg)
+![](../../images/8b29ff02bd180157.webp)
 
 4.**在人类黑色素瘤中应用 Slide-tags的多组学分析。******
 
@@ -48,7 +48,7 @@ Fig.3
 
 Fig.4
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx8zeFc4XvbRUPaZolf3djBibshMPWFvqB7bXNM5ibaGSmvicYWibNywQcLt0RF6kshys0Z6xMlxaNTxg/640?wx_fmt=png&from=appmsg)
+![](../../images/f96ba0ca8f24cd7c.webp)
 
 **三、最后聊聊**
 
@@ -61,11 +61,11 @@ Fig.4
 [scRNA-Seq学习手册Seurat V5更新版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519711&idx=1&sn=d25d4f5daf609bda8367f16db676ecf3&scene=21#wechat_redirect>)
 [一文搞定空间转录组与单细胞测序的整合分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507210&idx=1&sn=f32037ffefd60b0d1bcca7bf9c3e0823&scene=21#wechat_redirect>)[CellChat空转细胞通讯合辑](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247512011&idx=1&sn=fbd41832c5995d79fead016931d3bfbd&scene=21#wechat_redirect>)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -74,4 +74,4 @@ Fig.4
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/7ef00c45433a7bde.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

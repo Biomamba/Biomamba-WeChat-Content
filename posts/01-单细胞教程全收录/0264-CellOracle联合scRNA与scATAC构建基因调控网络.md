@@ -100,7 +100,7 @@ sc.pp.log1p(adata)# 对标准化后的矩阵取对数sc.pp.scale(adata)# 缩放�
 sc.pl.dotplot(adata,markers,groupby='louvain')
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlTW6bHEZiaBLe2PIWIgXp2OFe2HC8W94DmvtXjeYGk5hQu2ichvmblKxMzQjmSerOibrRaCSC5iaLlibMRvXQpoM7LenxGia0hhHeiaw/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/71ca340d25898201.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -115,7 +115,7 @@ sc.pl.dotplot(adata,markers,groupby='louvain')
 ... storing 'cell_type' as categorical
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlljULibdpv07NonBD0sPUDhJk3Fy585wuST8ujS7Je2Rr5kGzsI1xkpyWz1pbNXrYfWnvRRibpicUhBLrneBbupyMTUuq8jziag0c/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/3f58f5e3437e20f2.webp)
 
 ## **2.3 PAGA拟时序**
 
@@ -127,7 +127,7 @@ PAGA拟时序分析，不理解这一块内容的同学可参考：[轨迹分析
 sc.tl.paga(adata, groups='louvain')# 进行PAGA计算plt.rcParams["figure.figsize"] = [6, 4.5]# 设置绘图参数sc.pl.paga(adata)# PAGA结果可视化
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk0R09b1ZEroeNBh0ohQBneRHCaBWCT0dFgO3jzTgC2akiaibnzkvgDEe3lUyvaZ3lBfaOJQ51RQCjxaFtBvrNJicmCFJicOgfYnhs/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/ccece55b6dcc6af6.webp)
 
   *   *
 
@@ -141,7 +141,7 @@ sc.tl.paga(adata, groups='louvain')# 进行PAGA计算plt.rcParams["figure.figsiz
 # 力导向图可视化：sc.pl.draw_graph(adata, color='louvain', legend_loc='on data')# 跟大家熟悉的monocle轨迹图类似，把有时序关系的细胞在降维中进行排序
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlYM94b9Kb1VqOQLURP9khODibib3LEOAC1fFAsLqk49jS43Oqibs2PSJdULCmYeNRzKQtDBuUZfOfIzGsOmZ7tSbDUlAziasOoyEU/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/c13ac867da179813.webp)
 
   *
 
@@ -187,7 +187,7 @@ mm10 installation:  True
 # celloracle支持的其它参考基因组可在这个列表中查看ma.SUPPORTED_REF_GENOME
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmhC8M5IoZhyIk1BqmO20Wq2JxC1QqgtyjWqB5lZENyJpvfrqUTxJ1JGz8ZyUr6Yq8JZc52ib6dHT8MV400icJE9ciakM7Zz3Micv4/640?wx_fmt=png&from=appmsg)
+![](../../images/00b4bb12f41c3bce.png)
 
 如果在上面的判断中你发现自己没有安装对应基因组，也可以通过这种方式安装：
 
@@ -206,7 +206,7 @@ mm10 is installed.
 # 下载测试scATAC数据的peaks文件!wget https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv -O data/processed_peak_file.csv
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlic59AJMfNNNoFWos0fm3FSqOglpYibROL1q2vK3FibV2fRicqmUslYeg5jdw4I47N90WBzD8QAM9N8PgzYLUG2AC6rBrsQ0A6nJY/640?wx_fmt=png&from=appmsg)
+![](../../images/eee77d0b2233954c.png)
 
   *   *   *   *   *
 
@@ -214,7 +214,7 @@ mm10 is installed.
 # 读取peaks信息peaks = pd.read_csv("data/processed_peak_file.csv", index_col=0)peaks.head()# 除了行名，这个文件一共两列，第一列是peak的名称，格式为染色体编号_起始位点_终止位点# 第二列是这个peaks对应的基因名
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnriboDyYbHibITmTveGKLHf4gjgW4ibdH3oEhUlSCXEPEHlUhjPGXW3bgr5Qibvr4LJLGL9PY2ar2BIKHzrF2GraeNpZjbQ3MJ3Y4/640?wx_fmt=png&from=appmsg)
+![](../../images/516fa19c643892ac.png)
 
   *   *
 
@@ -258,7 +258,7 @@ Wall time: 1min 34s
 # 把TFI实例保存为hdf5文件tfi.to_hdf5(file_path="data/test1.celloracle.tfinfo")# 查看GRNA包含的信息tfi.scanned_df.head(
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnL0AaD74gs1EaibL6AhbLhWxLZY5P7m7p4DsgICPyrGFXMzTJOTatLs7eNETm4naMaehuQ0TT0C7JvuYYU4MVOdM6Om1hgW3Ak/640?wx_fmt=png&from=appmsg)
+![](../../images/d2e60c11f730f2cd.png)
 
   *   *   *   *   *   *   *   *
 
@@ -282,7 +282,7 @@ Filtering finished: 892798 -> 169196
 # 将GRN数据转换为数据框df = tfi.to_dataframe()df.head()# 将这个数据框保存到本地：df.to_parquet("base_GRN_dataframe.parquet")# 这就是下文调控网络里分析中用到的GRN_base
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkRZGPf8pkqA93V4HBz03AyR8lWGic8Al7VpVZuvia8miaywRHHe7FqL8fJfhZ3S3ibibvia7G4tOjfmEYj1cP3d7sIJsk0EDh3IBRDE/640?wx_fmt=png&from=appmsg)
+![](../../images/f51d5bbbb5e6fa74.webp)
 ```
 5 rows × 1094 columns
 ```
@@ -358,7 +358,7 @@ Cell number is :2500
 # 检查数据：base_GRN.head()# 其实就是我们上文保存的df.to_parquet("base_GRN_dataframe.parquet")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlUqNCA5syvdf46wgXxtygJdlvqEP0JL5gUlcQRFkQWkrVUXEX7Xe8QWHCicHbibXYMgLJTZ2GAwTpUHfKhibaU9Rwk2LGCMXNTGU/640?wx_fmt=png&from=appmsg)
+![](../../images/b101444e3e344773.webp)
 
 5 rows × 1095 columns
 
@@ -406,7 +406,7 @@ Saving to: ‘./data/paul15/TF_data_in_Paul15.csv’
 # 读取TF与靶基因的对应关系：Paul_15_data = pd.read_csv("./data/paul15/TF_data_in_Paul15.csv")Paul_15_data
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnh8zpfSSib0iaLs36ukK1quDjdD1ZpdIwKrojO6fup1zzeBCc7JmIotsmKT9VbBzEMtdszdbgjae0dKnr4gU7cY0gnTkQwibTlb0/640?wx_fmt=png&from=appmsg)
+![](../../images/b59dec6399a1f0e5.png)
 
   *   *   *   *   *   *   *   *
 
@@ -558,7 +558,7 @@ dict_keys(['DC', 'Erythroids', 'GMP', 'Granulocytes', 'Lymphoid', 'MEP', 'Megaka
 # 例如获取DC细胞的GRN列表：links.links_dict["DC"]
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlia4XNfOMud81HfJQLoCOy7r1X3zznh7gVwhNzGibiaPV1rRvLDC00BgFh8CysLf2HmajiaOIMuzFHM4ibkaRpK3ymDzfB8VWiamBCU/640?wx_fmt=png&from=appmsg)
+![](../../images/0628d17af1b770a9.webp)
 
 74429 rows × 6 columns
 
@@ -574,7 +574,7 @@ dict_keys(['DC', 'Erythroids', 'GMP', 'Granulocytes', 'Lymphoid', 'MEP', 'Megaka
 # 设定细胞类型颜色顺序：order = ['DC', 'Erythroids', 'GMP', 'Granulocytes', 'Lymphoid',          'MEP', 'Megakaryocytes', 'Monocytes', 'late_GMP']links.palette = links.palette.loc[order]links.palette
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnSgP4l8atcNqj9zfRgSrVz1FomYGiaumxOJ9AqlGDtPUeicyAOYhcnDRMZf6AGIALk7Akib0fU4wTG479BAWP1iaLIGwVIK5SIM98/640?wx_fmt=png&from=appmsg)
+![](../../images/61fd38c1efb75448.png)
 
   *   *
 
@@ -598,7 +598,7 @@ dict_keys(['DC', 'Erythroids', 'GMP', 'Granulocytes', 'Lymphoid', 'MEP', 'Megaka
 DC
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmI4kNEQ36kRiaVJwmVEl0pPjov0tL4fVJzquXnGuzAuI4sy9yiboLPYZWQ9YsMDsAUXPO6U6EyicQzc9T8CcFV1EJxr8Xf0ibpicHk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f8996e3b3a20038e.webp)
 
 ```
 Erythroids
@@ -610,43 +610,43 @@ Erythroids
 GMP
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm4JXLWrqHxjbE2yxVP5uWLKoPvTfQics5abyXk7ZvnV3qeCULjIFOMickWicVUfCLO1UjmEodtOInyMbv2qhqN15E9zWGyvTxiaXc/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/de695857c9094ed4.webp)
 
 ```
 Granulocytes
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmOOdHknSJWXh3icAMMRP7RITNCoQydRAzZjLvMibwuahRHQKSLXwjBjVxQDNuWGImUc0ibF53ro1vQJUicbyTNU5hDoTjeDvpZgAg/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/d038c922de550dee.webp)
 
 ```
 Lymphoid
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmcWwNM6mAPZXtTztrB06DdDDnicXP4yM8sicuEDibj1GdmH050eNaMjHQUtmicWyD4PmrRzygicsw4uMVG2iap3cTPklIQx31DVMJYg/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/cb88231531358c3c.webp)
 
 ```
 MEP
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn0MtDKUOnyokNnQAJlYO8aBJDcpS01DMzbdUTYBXgYlog9a84UjUV1IvTU5cATuTVNoeibeMrEXHItg53n3Ajg9r2WAibZ4tYtQ/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/bd6e06f449ad3098.webp)
 
 ```
 Megakaryocytes
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkc0HpyGyqAl8bbwcnZic3u1aNkpUjCUqefdaxYialibW3FIl1rqGUl9wyUnqhGVC2s6eYibVcpz7sGZlXMBRysmcmVOV0OKV8DECk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/c23cc1aada43f74c.webp)
 
 ```
 Monocytes
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmJcUoDam9qFLY65LtbREUricZS2OW9pGlpSm1gnGjdeOPO1kVx9OZUDF0shW6F64tCIp86k8OcyUwH40emTdJ6cPmFcAjelia7A/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/222721c4fe6ed401.webp)
 
 ```
 late_GMP
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkZKEKVy8mHxYMmNzTDouJe1qrPLJqrUUibblVic8CnfjTYvUfMlowAbALysWVttfY75umQDicYtYXYqAeuALhepxX1lrvAWV9ScQ/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/00edfe727c69b97b.webp)
 
   *   *   *   *
 
@@ -677,15 +677,15 @@ late_GMP
 # 每个指标排名前30的基因links.plot_scores_as_rank(cluster="DC", n_gene=30                         # save=f"{save_folder}/ranked_score",                         )
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm1lIfEjYbk1kwyunx49DNXgETmgGYzncNSvv2yKeibiamn3qG8bLqFLuzaj9SLVRXSibbeuB1SvDKH65lQNu1BBU1oCx66e9deU8/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/bce4850a8be175a7.png)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmWgSQg2b9XDAicObcRPgEcv4hQjJECJTjmRBQhVmCpMOMk6w0UNQaSZnyAPU3cA5Uc2ouEvtmHCFQ5gIQewDwHDXooVNQcGvqo/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/a3a25939484b09b0.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm9xf7opSsbjIrNAMpJdOx32zU5qjuBX9alwicmsrQic6xAjZDHkMluNTv16x4bFJYXVX16PrY3N9eJVslXBQYTpwp94c1DbZlH4/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/593c444799eedf47.png)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm3w1CaIwfXp65o8KM8xUSHGcznfopWg80uibichwH3ErxnnJSYQhdHJ9zQbp9dEakRGicIR6voAxSTj0YWdelelicnxhAfymVmaN4/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/0dc98eedfc5cc655.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnWZNHReZfRJOqKAfHWlEW07v1EGrwKzwqsicnFiaKUwjmsCNcFGZdFa9LnuFKibUKJbhyqVtuSlGq1afPbGcRskU7SCUUfVk5QyA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/939a9defc798c3f0.png)
 
   *   *   *   *   *   *   *
 
@@ -693,7 +693,7 @@ late_GMP
 # 两种细胞类型之间的基因比较links.plot_score_comparison_2D(value="betweenness_centrality",                               cluster1="DC",                                cluster2="Monocytes",                                percentile=98                               #,save=f"{save_folder}/score_comparison"                              )
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkTRk7YPw1OyYdIf26O0FaLzdaibhMC90bXCT6ppPvDOcsWUgX1NDT420wSqsiaRKoMthMpSDLnc20wZBGpT6O80AjQPHRicIWLQo/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/6b3e39e1652a730a.png)
 
   *   *   *   *   *   *
 
@@ -701,7 +701,7 @@ late_GMP
 # 两种细胞类型间的GRN eigenvector_centrality分值比较：links.plot_score_comparison_2D(value="eigenvector_centrality",                               cluster1="DC", cluster2="Monocytes",                                percentile=98                               #,save=f"{save_folder}/score_comparison"                              )
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnOvcDQicCDK0TPoPF5OXDNOwVZjyDRwbxCVvuMTCO7m8s06vFzA1nIkM3VJNqRUOo4Jd1tazXskaJhxOH66vOz950BZUv9c6MM/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/1b35f85901f5aa5c.webp)
 
   *   *   *   *   *   *   *
 
@@ -709,7 +709,7 @@ late_GMP
 # 两种细胞类型间的GRN degree_centrality_all分值比较：links.plot_score_comparison_2D(value="degree_centrality_all",                               cluster1="DC",                                cluster2="Monocytes",                                percentile=98                               #,save=f"{save_folder}/score_comparison"                              )
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlgEnDicKlBiaFIwM3bKvlRWHTnOsezMTTBZkWCXHsQzRyuTOUkvedm0hWrLicAD4ibm2baxWEibKU189s7Ty4PETAXX59bHqyrkjSA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/4773bdd1b0909c0f.webp)
 
   *   *   *   *
 
@@ -717,7 +717,7 @@ late_GMP
 # 指定基因的调控网络评分links.plot_score_per_cluster(goi="Gata2"                             #, save=f"{save_folder}/network_score_per_gene/"                            )
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnz4qBmZwUXCatQnicqX9KjrhuZCyaOYRxLfjhFz5quicB68waibJMBWF6cyHTkI2aF9Gliafs2b46vXGV0XZ0txuibLicqng0s97LrQ/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/99a2217e4392f790.webp)
 
   *
 
@@ -725,7 +725,7 @@ late_GMP
 links.plot_score_per_cluster(goi="Cebpa")
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnciadUVUmpccsp8n0KYUtM9UVUh5m3sWXGU5bMN7etibW9icalFN8PD5WMXkdiaJkBKQbadMEmUaKRM8F8dETaSEJvtygJt7neyibs/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/86483b418c71a0e0.webp)
 
   *   *   *   *
 
@@ -733,7 +733,7 @@ links.plot_score_per_cluster(goi="Cebpa")
 # 过滤特定细胞的linkcluster_name = "DC"filtered_links_df = links.filtered_links[cluster_name]filtered_links_df.head()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlialTKPicEZmVL5PXricSrafsX4OEFQqeASEZiaJvzxpvO80bROY7mEDeLlBnrQdbgibUW8QwogS46ibCxx94Kxaz0SoOHA2x0699NE/640?wx_fmt=png&from=appmsg)
+![](../../images/48a6b8b66397d891.png)
 
   *   *
 
@@ -741,7 +741,7 @@ links.plot_score_per_cluster(goi="Cebpa")
 # 按照特定sourece过滤linksfiltered_links_df[filtered_links_df.source == "Cebpa"]
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlFsbn0F1rFIxMiat2GARMeUSyKju0RzBQkPDdOujALACwKuyYfnbszKYdmLItw7k1ffPJF8u3VXuxGibcqIiaoLepRTgrC5At1c8/640?wx_fmt=png&from=appmsg)
+![](../../images/da250d05e210b312.png)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -756,13 +756,13 @@ plt.subplots_adjust(left=0.15, bottom=0.3)links.plot_network_entropy_distributio
 degree_centrality_all
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkUxy19ujI9mlhtoy38wSbrSJ0G56ic8IrPXeuKdFfpLIsDHn33hB4hOfXsFGLktiaeEicyU34GpUY3E9cE8ZIYRAgRics6jxwqsrI/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/15d02be6bcc33467.png)
 
 ```
 eigenvector_centrality
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnxxibDEfcwtU1t6HbHHqdY50JMFzDqgAOjQt05l6QK5FkAwkKnk84DJFFD7OfYkd4eTQhfu6vTD4XUCyGeqGRu9SytuSFgfVKY/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkkrly87asa7GODpCKnbtCN0pcmKDjiaE140G0jS96ibjGWJ1Itkl390gQ1T3fNU4Hf5MLySE2X5OnPAHXUhTz1LhcJAjicw3dUzQ/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/517cdffbbfd52c3d.png)![No description has been provided for this image](../../images/e59f361a78b1ef66.webp)
 
 **三、参考**
 ```
@@ -776,21 +776,21 @@ eigenvector_centrality
 
 一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmsKU5icpRdfQDXlwZlicdyNeYluOfI4cSzDia8zmc2fNB4LYbnH8kLum2PSLvXMUjwc3UOWHlw2hVsW547IH0gibhVkDeI3DXdQws/640?wx_fmt=png&from=appmsg)
+![](../../images/65ce9a0aaeece57c.webp)
 
 通过网盘分享的文件: https://pan.baidu.com/s/1lApJi1fRGmwMGrlvZAJGmg
 
 提取码: ij5g
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnOibeibQULNQZfnYBZLXqfQSvFL43XAYRbIOib3cw19qAHvA6MjJSRiaG7JH5XV15n1ofdeHFBBUhG4vO5M409lns7gL6axBZf6M4/640?wx_fmt=jpeg)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![](../../images/34cbf89a4d2ca903.webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

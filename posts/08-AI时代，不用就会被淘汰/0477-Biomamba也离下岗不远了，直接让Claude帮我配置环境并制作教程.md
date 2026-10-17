@@ -10,7 +10,7 @@ albums: ["AI时代，不用就会被淘汰"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539308&idx=1&sn=c1b2915aac125f4fa31bd50ffb8b98b9&chksm=9b3c233cac4baa2a7f092d46cbc237d0e4f1ccd4481d469a21fdbafcb23e23f33cc2e4f573fd#rd
 > 合集：AI时代，不用就会被淘汰
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=0)
+![图片](../../images/0ffc03dd3fbc9e2f.webp)
 
 **一、写在前面**
 
@@ -22,9 +22,9 @@ albums: ["AI时代，不用就会被淘汰"]
 
 更多内容可咨询客服微信[**Biomamba_zhushou**]
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=5)
+![图片](../../images/06077bf834ad4007.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=0)
+![图片](../../images/0ffc03dd3fbc9e2f.webp)
 
 **二、让AI干活**
 
@@ -38,11 +38,11 @@ albums: ["AI时代，不用就会被淘汰"]
 https://github.com/theislab/scgen这个是scGEN的链接，https://scgen.readthedocs.io/en/stable/这是官方的教学文档，参考这两文档编写一个中文的scGEN的教学，教学从配置环境开始，我的系统是linux显卡是3090,以ipynb的形式和md文件两个交付结果，给我能运行的教程手册，整个流程需要结构清晰，代码拥有注释。
 ```
 
-当然，有时候实测结果也会有点问题，比如测试流程时并没有在我已有的conda环境里操作，而不是新建一个纯净的conda环境。教程中的测试数据也是模拟的数据，而非真实数据，看来需要[Skills](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539062&idx=2&sn=6fd50e106bf2ebd5fb517a35676097a4&scene=21#wechat_redirect>)规范一下。![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkpZ2uhD9tAKRqbHrmNQSzpqqgKbJ8IhOV3Er4ABGzLI0y1MLEPBEl1iaDyhxWVH8nchJFPmksUl0ibNH16jyPVbsfufvQLtKees/640?wx_fmt=png&from=appmsg)
-最终，我们测试了3种模型，包括GPT5.5、Opus4.8、DeepSeek V4 Pro，给大家保存好了jupyter文件，AI Agent甚至能把测试的环境也给我提交到[jupyterhub](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531443&idx=2&sn=eb26532ba3998955bf46d9d9529ed8d9&scene=21#wechat_redirect>)当中。实际测试过程中也遇到一些问题，例如字体不能正常显示的时候AI没法敏锐的察觉到并解决这个问题，还是需要进一步的交互。在修改新的一版文档时有可能会继承上一版的其它bug，或者忘记了你之前交代过的其它前提或SKILLS。不过总体上还是节省了很多时间，尤其是省去了疯狂检索怎么解决安装依赖关系这个环节。![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn8LAYXp9P4B3usEhibicliaqzxfIE98f4HxbUiad8cf7jh0DUWbPVqCcRas3FCO0OgTUZswlLYYX9mdKIJ3AkYicopIWLSBPQuTXss/640?wx_fmt=png&from=appmsg)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=5)
+当然，有时候实测结果也会有点问题，比如测试流程时并没有在我已有的conda环境里操作，而不是新建一个纯净的conda环境。教程中的测试数据也是模拟的数据，而非真实数据，看来需要[Skills](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539062&idx=2&sn=6fd50e106bf2ebd5fb517a35676097a4&scene=21#wechat_redirect>)规范一下。![](../../images/f3a39aad22efba16.webp)
+最终，我们测试了3种模型，包括GPT5.5、Opus4.8、DeepSeek V4 Pro，给大家保存好了jupyter文件，AI Agent甚至能把测试的环境也给我提交到[jupyterhub](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531443&idx=2&sn=eb26532ba3998955bf46d9d9529ed8d9&scene=21#wechat_redirect>)当中。实际测试过程中也遇到一些问题，例如字体不能正常显示的时候AI没法敏锐的察觉到并解决这个问题，还是需要进一步的交互。在修改新的一版文档时有可能会继承上一版的其它bug，或者忘记了你之前交代过的其它前提或SKILLS。不过总体上还是节省了很多时间，尤其是省去了疯狂检索怎么解决安装依赖关系这个环节。![](../../images/c75361d4b88cd8e8.webp)
+![图片](../../images/06077bf834ad4007.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=0)
+![图片](../../images/0ffc03dd3fbc9e2f.webp)
 
 **三、手册与文件**
 
@@ -52,13 +52,13 @@ https://github.com/theislab/scgen这个是scGEN的链接，https://scgen.readthe
 
 提取码:请联系客服微信[Biomamba_zhushou]领取
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmjEwTM1AjFOusvGLvtAwxOGgKHkDPeruF6txTZG7a5GnbzOcfDjoTqiciaQluMzoicboxc0fQQQpcxap52GqGibFhPGKgZ0Eia0TuY/640?wx_fmt=png&from=appmsg)
-大家可以预览一下生成的手册，GPT 5.5生成的比较简短GPT5.5：![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwnM6F29SH1TKRK4tvwxqqnpLibq1tF2icuByHsrJyn3gia5MXP56MMwVVRWWrkA5CepuqDHd340m1nptyiakRJ0XOgToicyuFTpEebc/640?wx_fmt=gif&from=appmsg)
-Opus 4.8：![](https://mmbiz.qpic.cn/mmbiz_gif/buxFNhaTGwmiaoJuxetYvcxDc9jutwODbZZrU3IXF9sulkgb5FrRgzkcLJnxturXOiazD56Bdb0EcuOL0ZzyuldcGWY4TAp6FfdlZMELbyFGo/640?wx_fmt=gif&from=appmsg)
-DeepSeek V4 pro![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwlA760FCgS4aVDr0UPQXzKfsBo0QPxZt9TXrIjU5Of9ia4hFIG2px5BRNGUj3FtibDycRXHpAM82pmmQzJc2xcKHr0upSnib5udTI/640?wx_fmt=gif&from=appmsg)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=5)
+![](../../images/61951f55c21c9ad5.png)
+大家可以预览一下生成的手册，GPT 5.5生成的比较简短GPT5.5：![](../../images/3e13b3f8524231b2.webp)
+Opus 4.8：![](../../images/fc16875f46f1ebcc.webp)
+DeepSeek V4 pro![](../../images/152eed5f37a68809.webp)
+![图片](../../images/06077bf834ad4007.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=0)
+![图片](../../images/0ffc03dd3fbc9e2f.webp)
 
 **四、生信新时代**
 
@@ -69,17 +69,17 @@ DeepSeek V4 pro![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwlA760FCgS4aVDr0U
 [忘记宣传了，独享用户连技术支持都是独享的](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529475&idx=1&sn=10827e982a637e0fc36e4b6e857736c8&scene=21&token=1904068475&lang=zh_CN&poc_token=HF-eN2mj01zsfxe_I4r8D5pfZx80xO2AVYSB6qtT#wechat_redirect>)
 
 [RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21#wechat_redirect>)
-[![图片](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkEiaabZYz9w8SyaqMzicYfQic4ml2gRq474VKGXLynQXmIOuD1R3ufPlU3pKwgfH3Kkte3PwIwUGA5ibZlu4H7nwkib6icpp4Fxp62c/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=21)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21&poc_token=HD30QWqjyfz9w8kaP4lTzV2TrwmmFWeikVE7vHza#wechat_redirect>)[![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmrA678PDSEaEHesNLVKRPCZuJrp6iaQvdpEjNJenIyufia7YghlMQ0RkHqHyD2788DDNQW2icyK67359gU3oCehwichB10PiaaqCFU/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=22)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)[![图片](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwknX2Ro8vWeYMnbV91jXf3QsDGVuibXrq9pygru3KicibnIiaKoWloZplkqwFNyCTG6RHoSxVZR8b7kRhY3AmGHyomTrUiaeiaooPCck/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=23)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=5)
+[![图片](../../images/bb64da6d0197c4e8.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21&poc_token=HD30QWqjyfz9w8kaP4lTzV2TrwmmFWeikVE7vHza#wechat_redirect>)[![图片](../../images/b2f06246ca98fb72.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)[![图片](../../images/5e8cec6cc1a63959.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)
+![图片](../../images/06077bf834ad4007.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=13)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=14)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=15) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=16)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=17) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

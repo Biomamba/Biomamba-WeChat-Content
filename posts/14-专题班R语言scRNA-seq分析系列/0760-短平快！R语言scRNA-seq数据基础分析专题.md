@@ -10,12 +10,12 @@ albums: ["专题班/R语言scRNA-seq分析系列"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=1&sn=e988a2172618fd6f609575294db9a44f&chksm=9b3c3455ac4bbd438faabe1bfb0dd4a583c5238facd8d454200379f467f73401950d378250aa#rd
 > 合集：专题班/R语言scRNA-seq分析系列
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 手把手教你做scRNA-seq数据基础分析
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)去年推出的[25年最新视频|《手把手教你做scRNA-seq数据基础分析》](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528512&idx=1&sn=d316bffcbe59e676cd22248936f07b69&scene=21#wechat_redirect>)今年限时回归（如图所示），现课程做了全面升级，新增了亚群分析、基因集评分、另外可视化单独设置另外一个板块：进阶可视化，内容更系统、实操性更强；课程在[生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526229&idx=1&sn=0718f1702150ba77a7f7e3beadd6e0ba&scene=21#wechat_redirect>)（线上/线下均可参与），全程“手把手”的带大家完成scRNA-seq数据基础分析学习。![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwny3Y1nka1Nlerz74z5rog8cQVicGkQnMLtia8onplIjc49Agt3cgeb6hHyrayQrbx5bxrX44KLPVC4VJDu0AH8krNeZ8RvDFIVc/640?wx_fmt=png&from=appmsg)
-教单细胞，我们是专业的！Biomamba的单细胞教程播放量已经50w+。小伙伴们的发文致谢可见：[致谢合辑](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3425248581018714114#wechat_redirect>)。![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnicbiazWVjuRKQ7H3Gv4xA72fmd4Mq1jIn7womfpyFEmI10M2FtDGicztbC3ENUpWbScA5wBcOMRsVnNouhibbBNtVo4gPof6XNas/640?wx_fmt=png&from=appmsg)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)去年推出的[25年最新视频|《手把手教你做scRNA-seq数据基础分析》](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528512&idx=1&sn=d316bffcbe59e676cd22248936f07b69&scene=21#wechat_redirect>)今年限时回归（如图所示），现课程做了全面升级，新增了亚群分析、基因集评分、另外可视化单独设置另外一个板块：进阶可视化，内容更系统、实操性更强；课程在[生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526229&idx=1&sn=0718f1702150ba77a7f7e3beadd6e0ba&scene=21#wechat_redirect>)（线上/线下均可参与），全程“手把手”的带大家完成scRNA-seq数据基础分析学习。![](../../images/467e1bbeb4b92de6.webp)
+教单细胞，我们是专业的！Biomamba的单细胞教程播放量已经50w+。小伙伴们的发文致谢可见：[致谢合辑](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3425248581018714114#wechat_redirect>)。![](../../images/e4b049339a20cfe7.png)
 
 https://www.bilibili.com/video/BV1S44y1b76Z/
 
@@ -41,23 +41,23 @@ https://www.bilibili.com/video/BV1S44y1b76Z/
 
 教程部分图片集锦：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkiaQATth8allUBAGtEB6vYTosnxyckVrqiayO1ibcb1RlvlPiaz3G2PG5btFLHCP5TqkdjJg9sBlgiaP0aCicvIj1xFQlSHicF7bpQD8/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/748063a5f76c0b7c.webp)
 
-**![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnaSUuJtYoJXWtKOmslO952iby3ICZYVFYuvwh0f4NCn3lOsHn3L7KFQBoZVv0pamhYAXECq6KRicibBHJSLqVUz4QRTibTquaaluU/640?wx_fmt=jpeg&from=appmsg)**
+**![](../../images/17966db10711f5a7.webp)**
 
 **
 **
 
 **报名联系客服微信[ Biomamba_zhushou]：**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/eff615a0a49ee4ca.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/f74ae4c6b8127d36.webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 内容计划&大纲
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkOZL12E6UxibyxUmedWF454zianh1r1mGV0LibjuInMXDSpzFZV7AkMXGYvgKoL4qNibfXNCGfP6TQLP7Kicn4twxjaCWrQxGlia4hI/640?wx_fmt=png&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)![](../../images/76ab482a79f0df02.webp)![图片](../../images/f74ae4c6b8127d36.webp)
 
 **学习资料一览**
 
@@ -65,11 +65,11 @@ https://www.bilibili.com/video/BV1S44y1b76Z/
 
 R语言入门
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/buxFNhaTGwlRcZRUMvTtxtJbiaS7M90KmxZ7VEiaUnnrx3z1r7rcp9UF2EBVRGhw1FDetj142TudNpZtHicbicdSHicSroTRgiauLD5GpefYAeiaa0/640?wx_fmt=gif&from=appmsg)
+![](../../images/8b8ed978e5444dc4.webp)
 
 R语言教程目录：
 
@@ -167,11 +167,11 @@ R语言教程目录：
 
 4.2.3 保存图形
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/f74ae4c6b8127d36.webp)
 
 Linux入门
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：![](https://mmbiz.qpic.cn/mmbiz_gif/buxFNhaTGwktKUKEXMWLhu93O0GRibq2wwnFhibrFKxFSvsiaXZp61LyKyIKEWKdEvmLkkYiaXcicBEwLCQlUyKXhDqR8zYFPOSF92NGdH6UMdZU/640?wx_fmt=gif&from=appmsg)
+![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：![](../../images/7666ab3e158cb9f4.webp)
 Linux教程目录：
 
 一、写在前面
@@ -258,24 +258,24 @@ Linux教程目录：
 
 5.5 主要输出文件
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=13&wx_lazy=1&wx_co=1&tp=wxpic)
+![图片](../../images/baa38cc067455bc1.png)
 
 单细胞基础分析
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkiaQATth8allUBAGtEB6vYTosnxyckVrqiayO1ibcb1RlvlPiaz3G2PG5btFLHCP5TqkdjJg9sBlgiaP0aCicvIj1xFQlSHicF7bpQD8/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/748063a5f76c0b7c.webp)
 
 # **
 **
 
 # **单细胞基础分析学习手册**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/buxFNhaTGwlVRWWBrM5c7IhibPwIwbs9EMtmJANYMvJ4buQdZntWluv7Wibqw0GTjBffpCAyjXtXmEhhM40N1mXRIXDXoL1rbm5yOtLqRxyzM/640?wx_fmt=gif&from=appmsg)**单细胞基础分析教程目录** ：一、写在前面二、单细胞绪论2.1 课程安排2.2 视频及测试文件2.3 学习版服务器使用教程三、各类型数据读取3.1 简介3.2 视频及测试文件3.3 环境准备3.4 代码四、单样本分析4.1 R包安装与加载4.2 数据读入并创建Seurat对象
+![](../../images/8bcd1832602cf4b1.webp)**单细胞基础分析教程目录** ：一、写在前面二、单细胞绪论2.1 课程安排2.2 视频及测试文件2.3 学习版服务器使用教程三、各类型数据读取3.1 简介3.2 视频及测试文件3.3 环境准备3.4 代码四、单样本分析4.1 R包安装与加载4.2 数据读入并创建Seurat对象
 
 4.3 质控数据及可视化
 
@@ -305,17 +305,17 @@ Linux教程目录：
 
 9.2 基因集评分
 
-**十、本教程用到的环境****十一、单细胞教程全收录****十二、欢迎致谢**![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkql2N6bC5tibXp5xB5FicqVicdAXQxckIIdQWF2lUwLhJ6oew79Y8V4bjdz7ZPCrcRXtiaD9V4p19gX9FbVaLddyb9kFP30NBQorY/640?wx_fmt=png&from=appmsg) 测试文件，总大小5.44GB
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+**十、本教程用到的环境****十一、单细胞教程全收录****十二、欢迎致谢**![](../../images/b2a3658efe985b6f.webp) 测试文件，总大小5.44GB
+![图片](../../images/f74ae4c6b8127d36.webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 单细胞进阶可视化
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：教程图片集锦：
+![图片](../../images/3ff4011fef611c1c.webp)![](../../images/556752da2b520ff6.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：教程图片集锦：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnaSUuJtYoJXWtKOmslO952iby3ICZYVFYuvwh0f4NCn3lOsHn3L7KFQBoZVv0pamhYAXECq6KRicibBHJSLqVUz4QRTibTquaaluU/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/17966db10711f5a7.webp)
 
-单细胞进阶可视化学习手册![](https://mmbiz.qpic.cn/sz_mmbiz_gif/buxFNhaTGwle97rxHBM3xyowZB0VHmYdItxVuRutzmriaaZdBRzHgSzic0LjlU6niaZyYNHiaAic9Kv05tW0f5j14Bk2MyT2vszc1cAgOiaxu6mc4/640?wx_fmt=gif&from=appmsg)
+单细胞进阶可视化学习手册![](../../images/2d9ddb47b40ed1b9.webp)
 
 单细胞进阶可视化教程目录：
 
@@ -397,43 +397,43 @@ Linux教程目录：
 
 十、欢迎致谢
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm3PuibSrxZUswWFJxco3peibiaXS0NHsfKngC74fwhfKVKFribBKiaFlg36PibIRbubbHLNMo52xgK1y3tphqabYqlT8nwgqKBMhrRg/640?wx_fmt=png&from=appmsg)测试文件，总大小67.68MB
+![](../../images/f58ea514aebac8f8.png)测试文件，总大小67.68MB
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/3536da08710707f3.png)
+![图片](../../images/c33e327c8d66af99.webp)
 
 报名费用
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)
 
 8天满满的课程只要1199￥，相信比小学生补课班还便宜。支持对公！也欢迎看看我们的价值观：[想钱想疯了？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529315&idx=1&sn=df2cf4c0fa3411889c558229f4068a8c&scene=21#wechat_redirect>)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/f74ae4c6b8127d36.webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 线下学习环境
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)**地点** ：南京市江宁区，详细地址咨询客服微信[Biomamba_zhushou]
-**往期活动现场：****![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzlCHzM8BicyYndroTyAQWjdruGL35Ag8TpUeJAQzletw5eYbMYeTOyyQSF3t55PV3YyjZZqMa2aFg/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)**
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)**地点** ：南京市江宁区，详细地址咨询客服微信[Biomamba_zhushou]
+**往期活动现场：****![图片](../../images/865753b014594285.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTJBFK3VicGPmAqicxO5qvVOTRU3llPCjgBw09FkStwTSCPS6siaOgWzibmQ/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/12c0fb2583392c36.webp)
 
 除了知识之外，现场还能够给大家提供：
 
-**茶水吧、咖啡机、零食柜**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyJTurcWOC9GGd5VvBqk9u2PaQSvDhnu7UJibZ5RibWO6RpkHjQH9kAtbU9miaGlhuZRQlqDYRwa3yTA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+**茶水吧、咖啡机、零食柜**![图片](../../images/cfb629a079c6214b.webp)
 
 **各类饮料、零食小吃**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpznttzoqtuQBeRAM4tHRweMzv4icM7ia0OzZS1VashvPOYmuWOVuGhpvRsGibakVZPf6HQjMgEXagiaxQ/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/e865bd94adee0a2e.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/f74ae4c6b8127d36.webp)![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

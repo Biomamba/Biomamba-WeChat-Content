@@ -12,7 +12,7 @@ albums: ["单细胞教程全收录"]
 
 # **一、写在前面：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 有些同学在使用服务器的时候([生信分析为什么离不开服务器](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493231&idx=2&sn=6ca55bd540fd12686da05a3ac2a40e33&chksm=9b3c9f3fac4b1629940794a6974a033cc78db1ac5c391fc02b66d299db29319415a5dd9cdfc7&token=239324761&lang=zh_CN&scene=21#wechat_redirect>))发现自己使用服务器的时候计算速度甚至还不如本地的电脑。在沟通的过程中我们发现，有一部分同学不太会在自己运行任务时调用多线程并行计算来加速自己的计算(48线程的机器只用1个线程当然很亏啦)。我们此前就以`monocle`为例跟大家讨论过并行计算的问题([答读者问 （十七）调用的线程越多就算的越快嘛?](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488995&idx=1&sn=7140e0d037671542fb37dff3a3c94b28&chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&scene=21#wechat_redirect>))，这次我们就以`Seurat`官方教程[1]教大家如何通过`future`的并行策略加快`Seurat`的计算。
 
@@ -20,17 +20,17 @@ albums: ["单细胞教程全收录"]
 
 # **二、并行计算**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 ## **0 测试代码和数据**
 
 不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开，真的失效了再提醒客服更换链接哦。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw1iaU2Vvcj9zsGVYWvqIdzpJDRNskZcQBduON0q4ZUbwxbKPCq4aJgicGlE8pyT0iaBQAPZ4ar7ribiag/640?wx_fmt=png)
+![](../../images/4a3e774aa427c222.png)
 
 链接: https://pan.baidu.com/s/13-1p-2wzZDzTW7TbgeQiKQ?pwd=mw3f
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw1iaU2Vvcj9zsGVYWvqIdzpLd50UnHwzM9dry15t0HiaSnHVzibSY59rgV8zSS12PrFHhRibbUoWHk1w/640?wx_fmt=jpeg)
+![](../../images/14c4cb07c58f379f.jpg)
 
 若链接失效可以文末联系客服领取~
 
@@ -101,7 +101,7 @@ pbmc <- readRDS("pbmc.rds")
 DimPlot(pbmc)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxPxTUlEQTEDoiaYib9sWC4ZVZW1hKun8zsdv4ibBLUfmMu96I8flRhhclVibsYM2ZhPAoxFhiaicI1lcibw/640?wx_fmt=png)
+![](../../images/dea57248b4599a0e.webp)
 ```r
 timing.comparisons <- data.frame(fxn = character(), time = numeric(), strategy = character())
 plan("sequential")
@@ -233,13 +233,13 @@ ggplot(timing.comparisons, aes(fxn, time)) + geom_bar(aes(fill = strategy), stat
     ylab("时间(s)") + xlab("函数") + theme_cowplot()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxPxTUlEQTEDoiaYib9sWC4ZVMSYVaYibicGh3v2qbZH9FmibO8Iiaicicn3buiaj3hdSIW6xVExn5rHohf7jQ/640?wx_fmt=png)
+![](../../images/22a5159e44fd62f8.webp)
 
 能节省一些时间，但是这个测试数据比较小，等大家计算更大队列的单细胞数据时，能够为你节省更多的时间。
 
 # **三、内存问题**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 并行计算时有默认调用内存的上限，你可能会遇到以下报错：
 ```
@@ -268,7 +268,7 @@ makecore(4,1)#这里以4线程,1GB为例，
 
 # **四、版本信息**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 大概1/3很多报错的发生都是因为版本问题：
 ```
@@ -344,6 +344,6 @@ sessionInfo()
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

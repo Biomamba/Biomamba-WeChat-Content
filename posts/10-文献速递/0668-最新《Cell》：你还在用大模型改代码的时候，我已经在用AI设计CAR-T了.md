@@ -16,7 +16,7 @@ albums: ["文献速递"]
 
 DOI：**10.1016/j.cell.2026.06.002**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwniczmCnstPQ4dJTsiawNn2q4vW6ADelbSOHl0YvibByDJ3D5XCmym2yHcaGIsVXibgGslnmx4s4bvp9HlRvuD6wCialezq8ZWOmuGQ/640?wx_fmt=png&from=appmsg)
+![](../../images/e20efde31e17fc84.webp)
 
 CAR-T细胞疗法通过对T细胞进行基因工程改造，使其能够特异性识别并杀伤肿瘤细胞，已在血液系统恶性肿瘤的治疗中取得了突破性进展，部分患者甚至实现了临床治愈。然而，CAR-T疗法向实体瘤及非恶性疾病的拓展仍面临严峻挑战，**其中最核心的制约因素在于安全靶点抗原的严重匮乏** 。理想的CAR-T靶点需同时满足在肿瘤细胞表面高度富集、在正常组织中低表达或不表达等条件，以避免on-target/off-tumor毒性的发生。此外，CAR-T细胞产品的高度个体化和制备流程的复杂性，也极大地限制了其在临床转化中的可及性。因此，开发一种能够跨多种适应症通用的CAR-T产品，具有极为重要的临床价值。
 
@@ -36,7 +36,7 @@ CAR-T细胞疗法通过对T细胞进行基因工程改造，使其能够特异�
 
 为评估作者AI驱动的CAR-T细胞靶点优先排序框架的生物学相关性，他们采用了多种正交验证方法，包括**[bulk转录组](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2959853503529910274#wechat_redirect>) 数据分析、免疫荧光显微镜检测以及流式细胞术的细胞表面蛋白确认**（Fig.1J）**。** 鉴于CAR-T细胞疗法需要靶点在细胞表面表达才能实现有效靶向，作者进一步采用非通透化[流式细胞术](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529204&idx=1&sn=dc70f79b6460e9a134d8dbee531fc3c7&scene=21#wechat_redirect>)验证了这些抗原的表面呈递情况（Fig.1K）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm67KiaFPCrymx9tOMZK69df1vm0Z8CXAwtV8k1bSmDVqNNuAsBEEmOrQp15ickgibf8ZhqpDLiamq8AInnBZicK9xp532ENkx6oUBA/640?wx_fmt=png&from=appmsg)
+![](../../images/b2f4734fc0c059ee.webp)
 
 **Figure 1.**
 
@@ -50,7 +50,7 @@ GPNMB是一种I型跨膜糖蛋白，参与细胞黏附、迁移、组织修复�
 
 为评估GPNMB CAR-T细胞在血液系统恶性肿瘤中的体内疗效，**作者建立了人源****ML****异种移植模型。** 将肿瘤细胞经静脉注射至免疫缺陷小鼠体内，2天后将小鼠随机分组，分别输注对照T细胞或GPNMB CAR-T细胞（Fig.2J）。为评估[CAR-T](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531106&idx=2&sn=e1382bff779571f606544e7067c361a7&scene=21#wechat_redirect>)细胞在体内的抗原依赖性扩增情况，在T细胞输注后第13天检测小鼠外周血。**流式细胞术结果显示** ，接受GPNMB CAR-T细胞治疗的小鼠外周血中人源CD45阳性细胞显著扩增，与靶点结合的发生相一致（Fig.2K）。虽然通过外周血监测肿瘤负荷，但未在外周血中检测到肿瘤负担，这可能是由于肿瘤主要在骨髓中定植和增殖所致。然而，接受对照T细胞的小鼠出现了快速的疾病进展，在移植后数周内即达到人道终点。与之形成鲜明对比的是，接受GPNMB CAR-T细胞治疗的小鼠存活数月且无任何疾病迹象（Fig.2L）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlicb1uXNgicNtiagm9ZcqVLDBE6gK3k4TibggQVLElSPbp3lAdZLqWeI1ibfS8fUJNW2V6mZOq74Kt0a0M1k53FOfj1RNb5MmEyJws/640?wx_fmt=png&from=appmsg)
+![](../../images/dbf2dcc03a740c94.webp)
 
 **Figure 2.**
 
@@ -60,7 +60,7 @@ GPNMB是一种I型跨膜糖蛋白，参与细胞黏附、迁移、组织修复�
 
 搞定血液瘤之后，作者们开始向**实体瘤** 发起挑战。首先是黑色素瘤——**体外实验** 里，GPNMB CAR-T对黑色素瘤细胞的杀伤呈明显的剂量依赖性，效果还不错（Fig.3A）。体内实验用的是经典的**皮下异种移植模型** ，肿瘤种下去22天后再输注CAR-T细胞。结果显示注后21天，治疗组小鼠外周血里人源T细胞大量扩增，血清细胞因子水平也显著升高（Fig.3C-D）。更重要的是，GPNMB CAR-T组的肿瘤体积出现了大幅缩小，**大多数小鼠实现了完全缓解** ，总体生存期也显著延长（Fig.3E-F）。鉴于GPNMB在各种实体瘤里表达都挺广泛，作者们顺势测了更多癌种。体外实验显示，GPNMB CAR-T对结直肠癌、胰腺癌、肾癌来源的细胞系均有明显的杀伤活性（Fig.3G）。之后，进行结直肠癌的体内实验，结果显示**所有接受****GPNMB CAR-T****治疗的小鼠全部完全缓解，没有一例复发** ，生存期也全面碾压对照组（Fig.3K-L）。综合所有数据来看，GPNMB CAR-T细胞不仅能在结直肠癌中实现持久应答，更有潜力对多种实体瘤产生广泛的治疗效果——这个靶点的"通用性"还是相当令人期待的！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnYEfMXLdR8shEDH3dAU63QJOn03iaJNVQBwuicpDian7yIcLXHFic2wXAicvcET4ljfeiawo0vOdvMXROiaTnAbV1ExzA0pS5ux1iaHLg/640?wx_fmt=png&from=appmsg)
+![](../../images/25f4d2b6a8ae2e5e.webp)
 
 **Figure 3.**
 
@@ -72,13 +72,13 @@ GPNMB是一种I型跨膜糖蛋白，参与细胞黏附、迁移、组织修复�
 
 在实验验证层面，GPNMB作为AI框架提名的首位候选靶点，展现出了令人印象深刻的跨癌种治疗潜力。无论是血液系统恶性肿瘤（单核细胞白血病、急性髓系白血病），还是实体瘤（黑色素瘤、结直肠癌），GPNMB CAR-T细胞均表现出强效且特异的抗肿瘤活性，多个模型中实现了完全缓解。尤其值得关注的是，GPNMB在正常组织中表达极低，这在一定程度上降低了on-target/off-tumor毒性的风险。当然，不同肿瘤模型间CAR-T细胞扩增能力和疗效持久性的差异也提示我们，肿瘤微环境对CAR-T疗法的影响仍需深入探索，未来临床转化中如何优化给药方案、克服实体瘤免疫抑制微环境将是关键挑战。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=35)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

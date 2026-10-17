@@ -36,7 +36,7 @@ albums: ["单细胞教程全收录"]
 
 更多单细胞分析技巧可见：
 
-[![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwniaDJ0aKcPIOIUheqrSYttfdUwa1Cg3KhD9v1gh34lHFJ2lwM7iab8a6Ijnp2lcDKZDexiaicb7fPdRiau7WXAuO1XTPSxIWllOpKE/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=3)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
+[![图片](../../images/837c622fca9b9d8a.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
 
 **二、 LogNormalize vs SCTransform**
 
@@ -44,7 +44,7 @@ albums: ["单细胞教程全收录"]
 
 LogNormalize 是 Seurat 最早提供、也是目前使用最广泛的[标准化流程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492295&idx=1&sn=d4e81588c0ac2906849c8bc44d079209&scene=21#wechat_redirect>)，由三个连续步骤组成：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnicNJUPd9g3hAUUWvAmhZFNZIZg5xKibUIWeapyqDjicUJQlFZxqG5hibSPsGTEDAzaw7URWDiau3YPkDjMlUkfBxLiaJuGZD7a6k9k/640?wx_fmt=png&from=appmsg)
+![](../../images/5c10b9a7a4179350.png)
 
 这套流程存在一个核心局限：对数变换 log(y/s × 10000 + 1) 将技术噪声和生物学变异混在一起处理，缺乏对测序深度效应的精细建模——LogNormalize 是全局线性缩放，每个基因共享同一个 scale factor，无基因特异性的离散度参数建模。
 
@@ -62,7 +62,7 @@ SCTransform 用一个函数替代了传统三步。其本质是一个正则化�
 
 两种方法的核心差异对比：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkBicw58kuWkEyCibqqhyh11oxQaDDVRcPm8VjiaUbKveaT7r4JoHOXzGlKfC6iaI42MW9icQI6UY3w4CNiafZS0fzSC6jg3OtMxsxrg/640?wx_fmt=png&from=appmsg)
+![](../../images/c12b2556aee1ea50.png)
 
 3、代码对比
 
@@ -96,7 +96,7 @@ merged_obj <- SCTransform(merged_obj)
 
 4.1 测序深度（Size Factor）混杂效应
 
-![Extended Data Fig 1（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransform 几乎消除了测序深度带来的 PCA 分层。同质 RNA 混合液 PCA，颜色深浅 = 测序深度。左：对数变换组，深浅细胞明显分离（ρ = 0.7~0.95）；右：GLM 残差组，深浅细胞充分混合（ρ = 0.15~0.49）。](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnzujRwnIgS3QYtLiafibqVibh5qU7DngI1cEMAVyVBW47H8G35FYE8nzyJwNPPMMysxwzrMgIkdz5rhibUzmqIu48zQUUnfN4kJrQ/640?wx_fmt=other&from=appmsg)
+![Extended Data Fig 1（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransform 几乎消除了测序深度带来的 PCA 分层。同质 RNA 混合液 PCA，颜色深浅 = 测序深度。左：对数变换组，深浅细胞明显分离（ρ = 0.7~0.95）；右：GLM 残差组，深浅细胞充分混合（ρ = 0.15~0.49）。](../../images/60ef84268c61a80e.webp)
 
 Extended Data Fig 1（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransform 几乎消除了测序深度带来的 PCA 分层。同质 RNA 混合液 PCA，颜色深浅 = 测序深度。左：对数变换组，深浅细胞明显分离（ρ = 0.7~0.95）；右：GLM 残差组，深浅细胞充分混合（ρ = 0.15~0.49）。
 
@@ -106,7 +106,7 @@ Extended Data Fig 1（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransfor
 
 4.2 均值-方差稳定效果（Mean-Variance 关系）
 
-![Extended Data Fig 2（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransform 实现全表达区间方差均衡，低表达基因不再被压制。左：对数变换组，方差随均值攀升，低表达基因方差 → 0；右：GLM 残差组，曲线大幅扁平化。](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwn62jIPf3bMatQUt4l4eHLn0kRY537yg4t4SRZhrAGYuhiaBaT6eo0Cu1ibKsJJysHMO1ehEJNa9JU0oWpPX1F43S2SibPse53SmU/640?wx_fmt=other&from=appmsg)
+![Extended Data Fig 2（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransform 实现全表达区间方差均衡，低表达基因不再被压制。左：对数变换组，方差随均值攀升，低表达基因方差 → 0；右：GLM 残差组，曲线大幅扁平化。](../../images/24cb79829792a93c.webp)
 
 Extended Data Fig 2（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransform 实现全表达区间方差均衡，低表达基因不再被压制。左：对数变换组，方差随均值攀升，低表达基因方差 → 0；右：GLM 残差组，曲线大幅扁平化。
 
@@ -116,7 +116,7 @@ Extended Data Fig 2（Ahlmann-Eltze & Huber, 2023）。核心结论：SCTransfor
 
 4.3 双峰标记基因的表达分布（以 Sftpc 为例）
 
-![Extended Data Fig 3（Ahlmann-Eltze & Huber, 2023）。核心结论：LogNormalize 对双峰标记基因的区分可视化更出色。Sftpc 表达直方图，紫红 = II 型肺泡细胞，灰 = 其余。左：对数变换，两峰界限清晰；右：GLM 残差，阳性细胞弥散、峰重叠。](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwk3KePGeRyib1wEwGNicfFIF5OfZrThapg4WicRSc9eqxf0XEEibeLichu0tIlia7Nb1fa7CMd93tsQtxosstJ0h0Gx3t37GdThjjjx8/640?wx_fmt=other&from=appmsg)
+![Extended Data Fig 3（Ahlmann-Eltze & Huber, 2023）。核心结论：LogNormalize 对双峰标记基因的区分可视化更出色。Sftpc 表达直方图，紫红 = II 型肺泡细胞，灰 = 其余。左：对数变换，两峰界限清晰；右：GLM 残差，阳性细胞弥散、峰重叠。](../../images/55dddbb19b303434.webp)
 
 Extended Data Fig 3（Ahlmann-Eltze & Huber, 2023）。核心结论：LogNormalize 对双峰标记基因的区分可视化更出色。Sftpc 表达直方图，紫红 = II 型肺泡细胞，灰 = 其余。左：对数变换，两峰界限清晰；右：GLM 残差，阳性细胞弥散、峰重叠。
 
@@ -152,7 +152,7 @@ Sftpc 是肺泡 II 型上皮细胞的经典标记基因，呈现典型的双峰�
 
 计算资源开销（速度梯队）：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmecNkN3fUt0Js58jOK5nGvMpYnOb1ERDdXR4m4Iw5rS9mk0AkcWVVdb0VkFicWpHtcrhGJAHVtC31NicpyqaQc7gIQgxn2V56RA/640?wx_fmt=png&from=appmsg)
+![](../../images/a373ddef83e23958.png)
 
 注意：LogNormalize 和 SCTransform 的复杂度均接近线性，可扩展至百万级细胞。
 
@@ -205,7 +205,7 @@ Sftpc 是肺泡 II 型上皮细胞的经典标记基因，呈现典型的双峰�
 
 陈聪
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -242,10 +242,10 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/4ec66ccdb832fd05.gif)![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢
 
 CoCo

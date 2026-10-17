@@ -12,7 +12,7 @@ albums: ["文献速递"]
 
 **一、写在前面**
 
-今天我们要深入剖析一篇今年7月发表在《Nature》上的重磅研究 ——《Cross-tissue multicellular coordination and its rewiring in cancer》，影响因子48.5。本文构建了覆盖35种健康组织 \+ 29种癌症的[单细胞](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530022&idx=2&sn=5c6aa081663719ce2f0f9b7f4d173c93&scene=21#wechat_redirect>)图谱，开发了多细胞模块分析工具 CoVarNet，揭示了多细胞协作的普适规律，并为癌症研究提供了新的标志物，是典型的“数据+方法+科学发现” 三位一体的顶刊成果。通讯作者是大家熟知的["单细胞院士"](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505275&idx=1&sn=1ed0f9e1142bbdd8f554cedb6b1d515a&scene=21#wechat_redirect>)——**张泽民 老师。**这篇文章从多组织单细胞图谱构建到癌症微环境重构，系统性揭示了健康与疾病状态下多细胞生态系统的组织规律，无论是研究思路还是技术方法，都对我们生信领域的硕博研究极具启发意义。原文链接:https://pmc.ncbi.nlm.nih.gov/articles/PMC12240829/DOI: 10.1038/s41586-025-09053-4![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx5ezmJYOS4RKk36ClDoTgYjaM8zSibUWwmVyp0unicHYdaWMA9Am7WppS20YJIGiazSrQbnz9sn9q4g/640?wx_fmt=png&from=appmsg)**如果需要[ 单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530022&idx=2&sn=5c6aa081663719ce2f0f9b7f4d173c93&scene=21#wechat_redirect>)**教学** 、生信热点**[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)** 、自测数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]**
+今天我们要深入剖析一篇今年7月发表在《Nature》上的重磅研究 ——《Cross-tissue multicellular coordination and its rewiring in cancer》，影响因子48.5。本文构建了覆盖35种健康组织 \+ 29种癌症的[单细胞](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530022&idx=2&sn=5c6aa081663719ce2f0f9b7f4d173c93&scene=21#wechat_redirect>)图谱，开发了多细胞模块分析工具 CoVarNet，揭示了多细胞协作的普适规律，并为癌症研究提供了新的标志物，是典型的“数据+方法+科学发现” 三位一体的顶刊成果。通讯作者是大家熟知的["单细胞院士"](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505275&idx=1&sn=1ed0f9e1142bbdd8f554cedb6b1d515a&scene=21#wechat_redirect>)——**张泽民 老师。**这篇文章从多组织单细胞图谱构建到癌症微环境重构，系统性揭示了健康与疾病状态下多细胞生态系统的组织规律，无论是研究思路还是技术方法，都对我们生信领域的硕博研究极具启发意义。原文链接:https://pmc.ncbi.nlm.nih.gov/articles/PMC12240829/DOI: 10.1038/s41586-025-09053-4![](../../images/9df508fd8b7431ed.webp)**如果需要[ 单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530022&idx=2&sn=5c6aa081663719ce2f0f9b7f4d173c93&scene=21#wechat_redirect>)**教学** 、生信热点**[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)** 、自测数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]**
 
 #
 
@@ -88,7 +88,7 @@ albums: ["文献速递"]
 
 **3、关键结论** ：健康组织的细胞组成具有组织特异性，且细胞亚群存在 “通用 - 特异” 分层，尤其是成纤维细胞和免疫细胞的组织偏好性显著。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrlBzo4KMVuwtMfNSPVxIODwW97pKS878h8dn69ZILVsE8OxbE1bmialA/640?wx_fmt=png&from=appmsg)
+![](../../images/db3f6c841771c5ca.webp)
 
 Figure 1
 
@@ -99,7 +99,7 @@ Figure 1
 
 **3、关键结论** ：健康人体存在 12 个跨组织多细胞模块，每个模块具有明确的细胞组成、组织偏好性和功能定位，且可通过 GTEx bulk 数据复现。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5Tr7KvpIV3hWqNrLvSyIPMQTdz2LbTJtdcicuzeKcWLNgJ6CgiaaWpUibB6A/640?wx_fmt=png&from=appmsg)
+![](../../images/6edace3252f4f753.webp)
 
 Figure2
 
@@ -109,7 +109,7 @@ Figure2
 **2、分析方法** ：[空间转录组](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505088&idx=1&sn=9f60dca1b21f5ba8c32d09595a512134&scene=21#wechat_redirect>)（Visium/Xenium）、[细胞互作分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247512011&idx=1&sn=fbd41832c5995d79fead016931d3bfbd&scene=21#wechat_redirect>)（CellPhoneDB）、细胞因子响应分析；
 **3、关键结论** ：CM 内细胞存在严格的空间共定位，且细胞互作模式与细胞谱系组成相关（淋巴细胞依赖接触互作，内皮 / 基质细胞依赖长距离信号），细胞因子是模块功能的核心调控因子。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5Tr2XBiczB1PX3mxX8D9xXyVSJBZyugYqBQuG5N82kD22pj80k8iaEuMUVg/640?wx_fmt=png&from=appmsg)
+![](../../images/dc7a3f2a092c9b8c.webp)
 
 Figure 3
 
@@ -119,7 +119,7 @@ Figure 3
 **2、分析方法** ：年龄分层分析、绝经状态关联分析、[调控网络推断](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529410&idx=1&sn=9bbaf955d93ddce60874e1cdc2f16115&scene=21#wechat_redirect>)（[SCENIC](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530488&idx=1&sn=e0c57d42b1ecb73e8b7b9f6caecbb81d&scene=21#wechat_redirect>)）、[轨迹分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528666&idx=1&sn=d29545d296bac3e41de322e43fde80dd&scene=21#wechat_redirect>)（PHATE/Palantir）；
 **3、关键结论** ：CM 的动态变化与生理状态紧密关联 —— 脾脏 CM05/06 随年龄呈现 “此升彼降” 的协同变化，核心调控子为 AP-1 和 NR4A1；乳腺 CM12 随绝经呈现 “炎症下调、成纤维细胞减少” 的轨迹，成纤维细胞是绝经相关组织重构的关键载体。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrDtdfniaCZDM8ibiav7INiao0TeicdWXhHmRMicLOtJ3OxbhpNUgLA4IDk4ibg/640?wx_fmt=png&from=appmsg)
+![](../../images/831319ac5f89da23.webp)
 
 Figure 4
 
@@ -129,7 +129,7 @@ Figure 4
 **2、分析方法** ：泛癌单细胞数据整合、cCM 鉴定（CoVarNet）、临床样本验证（TCGA / 癌前病变）；
 **3、关键结论** ：癌症会同时重构两种多细胞生态 —— 健康组织特异性 CM 的丢失，以及泛癌共有的 cCM（如 cCM02）的出现；cCM02 不仅是癌症进展的标志物，还可预测癌前病变的恶性转化，具有重要临床价值。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrT63PcsJ7PJchUdNEwzhImxObECGHfOicgKIn96IibgxgUUCggcy3lXWA/640?wx_fmt=png&from=appmsg)
+![](../../images/259f7e054ba0c683.webp)
 
 Figure 5
 
@@ -149,14 +149,14 @@ Figure 5
 
 [1]: Shi Q, Chen Y, Li Y, Qin S, Yang Y, Gao Y, Zhu L, Wang D, Zhang Z. Cross-tissue multicellular coordination and its rewiring in cancer. Nature. 2025 Jul;643(8071):529-538. doi: 10.1038/s41586-025-09053-4. Epub 2025 May 28. PMID: 40437094; PMCID: PMC12240829.
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

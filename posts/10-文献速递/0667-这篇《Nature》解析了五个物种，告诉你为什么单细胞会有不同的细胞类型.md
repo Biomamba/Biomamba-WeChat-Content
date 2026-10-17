@@ -44,7 +44,7 @@ albums: ["文献速递"]
 
 [SeekSoulOnline云平台](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532560&idx=2&sn=b3c7594029f7d5dca7b402a376193212&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl5jjQ6zp0O40EokCvXLHaMxmWOBznQpIyzk2156dAyrRZUgYQzZWjeo679faB26ObKNUEibXAak97cRP8eLvJia1zW1uzV2Qelg/640?wx_fmt=png&from=appmsg)
+![](../../images/971c433c7a03e7df.webp)
 
 **
 **
@@ -54,7 +54,7 @@ albums: ["文献速递"]
 **
 **
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl7lIn7uicy5shZVE26Eg6vBh8jdrcgPFc4EiaJIiadEGj5hqgiafkZ1RtoeNybZicTdXcmaHJxMcxvlo5B3Afe4jp23cxicFhhNvjbk/640?wx_fmt=png&from=appmsg)
+![](../../images/70e7cf10d49545d0.webp)
 
 **
 **
@@ -67,7 +67,7 @@ albums: ["文献速递"]
 
 但目前学界对脊椎动物祖先的神经细胞类型库、调控细胞的核心[转录因子调控程序](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537452&idx=3&sn=ea4814848dda464baaa045d85db95980&scene=21#wechat_redirect>)，以及早期脊椎动物神经细胞类型的起源依旧认知匮乏。同时，全基因组复制与小规模片段复制产生的旁系同源基因在脑细胞类型演化中发挥的潜在作用，也尚未明确。本文想要探究的，便是这个问题。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnWfFDWhNZicibytTjPjCPibxzmTJ7tdS85sC0pu8MtictGwW0kOqfvp8sH1K5qD2ziaVWLmkdopOxjHsapWde7nnFdmJKic4Uc3ZZVg/640?wx_fmt=png&from=appmsg)
+![](../../images/a9169438f2e906cd.webp)
 
 Figure 1
 
@@ -85,7 +85,7 @@ Figure 1
 
 经统计，人、小鼠、鬃狮蜥、海七鳃鳗汇总得到的全基因组复制同源基因数量分别为6206、6344、5616、4273个；人、小鼠、鬃狮蜥、海七鳃鳗、文昌鱼汇总得到的小规模片段复制旁系同源基因数量分别为5977、6265、5007、6783、11083个。随后在细胞类型家族层面，分别判定两类复制同源基因是否属于细胞标记基因。旁系同源基因与差异表达基因的富集分析结果显示：在所有脊椎动物中，ohnologues显著富集为细胞标记基因；而在所有脊索动物中，SSD呈现完全相反的富集规律（Figure 2a、扩展数据图 4a）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlt7qDVXSyt2cogAu6Pib7dwcT4r8Smiao8hibPRdr5K7OHNm1bkopJnH4j9RWtM2OnoiaOa8XC4VB4VvwMnGe0iaPHPv3HMDEDXibvk/640?wx_fmt=png&from=appmsg)
+![](../../images/3183ac4fc36bc0a0.webp)
 
 Figure 2
 
@@ -97,7 +97,7 @@ SSD是连续出现的，而2R的WGDs则发生在特定的进化窗口，这意�
 
 为了探究全基因组复制与细胞类型演化之间的因果关系，研究者提出了两种对立模型：细胞复杂性优先模型（认为新细胞类型先通过新功能化产生，WGD随后发生并被动分配同源基因）与WGD优先模型（认为祖先调控元件已存在保守转录因子，WGD后通过剂量选择和亚功能化将这些同源基因分离到不同细胞类型中，从而驱动细胞类型的分化，Fig.3a）。通过分析文昌鱼这一关键外群，发现其中分离姐妹细胞类型的关键保守转录因子普遍表达，这一结果与WGD优先模型一致。跨头索动物图谱绘制和调控子分析显示，胶质细胞家族的分化比神经元更清晰（Fig.S8），因此研究者聚焦于大胶质细胞进行详细分析。在跨物种胶质细胞演化树中，星形胶质细胞先与室管膜细胞聚类，再与少突胶质细胞聚类，而文昌鱼的星形胶质细胞4/12簇则归入室管膜-星形胶质细胞分支（Fig.3b）。研究鉴定出在星形胶质细胞与少突胶质以及星形胶质细胞与室管膜细胞间的差异基因，其中多个转录因子是分离姐妹细胞类型的终端选择子，例如SoxE同源基因家族中Sox9驱动星形胶质细胞命运、Sox10调控少突胶质细胞分化、Sox8短暂早期表达，而Olig2指定少突胶质细胞前体细胞、Olig1和Nkx6-2促进其分化（Fig.3B）。在文昌鱼胶质细胞簇中，这些保守的祖先调控元件基因呈现共表达（Fig.3c），仅有一个簇中有少量细胞同时表达SoxE和OligB；但对整个成体神经管补充测序（19140个细胞，Fig.S6a）后发现两者共定位显著增强（Fig.S6b）。进一步分析文昌鱼胚胎和七鳃鳗胚胎神经管的单细胞数据，同样证实胶质细胞中SoxE与Olig存在广泛共定位（Fig.S6 c-e），并通过实验验证了共表达（Fig.3d，Fig.S6f），还识别出从高Olig表达向低Olig表达胶质细胞簇的定向轨迹，与多能性分析结果一致（Fig. 3e,f，Fig.S6 g,h）。这些数据表明文昌鱼拥有相当于放射状胶质细胞的细胞类型，可能作为前体产生星形胶质细胞。研究者构建了文昌鱼SoxE突变体（Fig.3g），与脊椎动物中Sox9和Sox10突变导致的严重表型不同，文昌鱼SoxE突变在胚胎期未引起明显形态缺陷，但表现出发育延迟、幼虫鳃裂发育异常及存活率下降；然而，对野生型和SoxE−/−胚胎在N4和T1发育阶段的转录组比较发现，与SoxE共表达的胶质标记基因（包括关键转录因子）在突变体中显著下调（Fig.3h），表明SoxE对文昌鱼胶质分化至关重要。综上，这些数据揭示了文昌鱼胶质细胞共表达脊椎动物大胶质细胞姐妹细胞类型分离所需的转录因子，据此推断这是大胶质细胞的祖先状态，而文昌鱼这些细胞相当于放射状胶质细胞；在脊椎动物中，这些转录因子的同源基因通过WGD得以分离并分别控制不同的大胶质细胞亚型。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnpXzcsib44fVMSyxOsK6Q85Oxiaj5VbfR12Pic6Eq8Mu9Frhicue1B6NxGEAPXrg0B5d16ic5XAI0oexiclyBqO7MRn9e5DeSTPVuvo/640?wx_fmt=png&from=appmsg)
+![](../../images/abd311709785577d.webp)
 
 Figure 3
 
@@ -105,7 +105,7 @@ Figure 3
 
 通过对旁系同源基因在不同细胞类型中表达模式的系统分析，研究者旨在确定亚功能化与新功能化这两种机制在全基因组复制和小规模复制产生的旁系同源基因演化中究竟何者占据主导地位（Fig.4a）。通过将表达二值化为“标记”或“非标记”，并以至少在四种脊椎动物中的三种中有一个旁系同源基因作为标记的最小细胞类型组作为脊椎动物的祖先状态，研究构建了1872个同源基因正交群、1050个SSD旁系同源正交群和2693个旁系同源正交群（其中339个重叠）。对每个物种相对于推断祖先状态的标记使用变化进行计算后发现，在所有变化中，约78%可归因于亚功能化，约21%归因于新功能化，而功能丧失（该细胞类型中所有拷贝均失去标记状态）占比不足1%（Fig.4b,c）。无论对于旁系同源、SSD旁系同源还是同源基因正交群，这一比例均保持相对一致，且在所有物种和复制类型中，由亚功能化解释的变化数量和每个基因的变化数量均显著高于新功能化；仅分析羊膜动物或使用基于Trinarization评分的二值化表达矩阵也得到相似趋势（Fig.S7a-e）。这一发现表明，脊椎动物演化过程中旁系同源基因用于细胞类型特化的过程主要受亚功能化驱动，为重复-退化-互补模型提供了最强有力的支持。研究者进一步探究旁系同源正交群中的基因表达在不同物种间是否发生相似程度的偏移，通过在 homologous 细胞类型家族水平上基于Trinarization评分定义表达域并计算每个正交群内旁系同源基因间的平均表达分化度（dT），发现大多数旁系同源基因在两物种中均已广泛分化，部分则主要在一个物种中发生偏移（Fig.4d，Fig.S7f）。例如，T-box基因的Tbr1亚家族在脊椎动物基部通过WGD产生有颌类中的Tbr1、Eomes和Tbx21，在人类、小鼠和蜥蜴中dT=1，在七鳃鳗中dT=0.67（Fig.7g）；在数据集中，Tbr1专一表达于端脑谷氨酸能神经元，而Eomes则表达于羊膜动物菱脑谷氨酸能神经元（Fig.4e）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkibCnbNwLkD1pOeH4rkOt9Wv9zicMVSprjlNTD43ZibKQToTyOu6iasoLZQvicYSCWvfcJ9poFcYGQLgfSHjaMWibibWtgNWDBSjLCsY/640?wx_fmt=png&from=appmsg)
+![](../../images/38d9882fd37bd57e.webp)
 
 Figure 4
 
@@ -121,7 +121,7 @@ Figure 4
 
 即使对于WGD1之后至少1.5亿年才明确出现的小脑核细胞类型也是如此。脊椎动物演化中，原型小脑核及其保守的细胞亚型组合发生了多次复制（图5a）。聚焦于小脑核兴奋性神经元，分析结果再次确认同源基因与差异表达基因之间的正相关性（图5b），且20个实验验证的标记基因中有13个为同源基因（补充表7）。差异表达基因富集于轴突发生、轴突导向、迁移及突触组织等功能（图5c）。通过层次聚类构建细胞类型树并鉴定分支事件中的关键转录因子，发现Lmx1a、Tbr1、Lhx9、Prox1、Foxp1、Foxp2、Nr2f1和Nr2f2等在多个羊膜动物中保守，这些基因多为同源基因并在不同细胞亚型中呈现特异的表达模式（图5d,e）。值得注意的是，鲨鱼在小脑核发育早期共表达Lhx9和Tbr1，而小鼠中Lhx9的表达域扩展至形成外侧核的区域。此外，许多编码轴突导向分子的同源基因也呈现差异表达（图5f）。这些发现共同表明，古老的同源基因在WGD发生很久之后，仍然持续参与姐妹细胞类型的复制与分化过程。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnjf5JEMO8Vf94QdMX6n1qE4UJCtBjImvhRd7k4HshD4TIHicthgHq2SDeokgMiauPgPrW0gQNBdzdCWgXzbeMtqGoCJiawSAicGXY/640?wx_fmt=png&from=appmsg)
+![](../../images/1b504f0cef8cc811.webp)
 
 Figure 5
 
@@ -135,14 +135,14 @@ Figure 5
 
 Zhu Y, Zhang S, Wei J, Dolgetta-Garcia D, Jindrich K, Liu H, Shi C, Pan R, Chen Y, Xu Y, Li Q, Wagner GP, Holland PWH, Li G, Shimeld SM. Whole-genome duplication shaped cell-type evolution in the vertebrate brain. Nature. 2026 Jun 10.
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=13)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=14)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=15) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=16)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=17) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

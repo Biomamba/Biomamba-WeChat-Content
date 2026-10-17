@@ -306,4 +306,4 @@ Dm_msigdbr[1:5,1:5]
 ## 5 C3     MIR:MIR_Legacy AAACCAC_MIR140 Adam9             11502
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzhOjJnPt16zKDPSDUCaBosbuSere58q7O3sWmyH3a7Rpe6expIHm0uT08TqHgnFGGMG0nlHRg8dQ/640?wx_fmt=png)
+![](../../images/d81b8bed6684c5bc.webp)

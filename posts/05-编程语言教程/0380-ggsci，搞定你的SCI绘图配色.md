@@ -12,7 +12,7 @@ albums: ["编程语言教程"]
 
 # **一、视频教程：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 前段时间分析数据绘图时总为选图片的**配色** 而烦恼，经人提醒学习了一手`ggsci`，果然药到病除。`ggsci`中收录了来自于**科研文献** ，**可视化数据库** 、**科幻电影** 、**电视节目** 的配色方案。此外 **ColorBrewer** 和**viridis** 也能提供优秀的配色方案，感兴趣的同学可以试一试。
 
@@ -28,11 +28,11 @@ https://www.bilibili.com/video/BV1miNVeWEkw
 
 # **二、离散型数据**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 ggsci具体收录的配色方案有：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9JKAFDJlNiakoOLyUSaOTUatBiaOe2AkP0ibNeOv2EuA3VALoS6Kj7ygSg/640?wx_fmt=jpeg)
+![](../../images/e2d292b0b685828f.webp)
 
 ## **2.0 装包**
 
@@ -57,7 +57,7 @@ p2 = ggplot(subset(diamonds, carat > 2.2 & depth > 55 & depth < 70),    
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9r1aMBycG708WBkHu4ksnov5nNFClBNxkpAUsykuvUssfsKoica11ljA/640?wx_fmt=png)
+![](../../images/2ab6f8db3f51ab95.webp)
 
 ## **2.1 离散型数据可视化**
 
@@ -77,7 +77,7 @@ p1_npg = p1 + scale_color_npg()+labs(title = 'npg配色')p2_npg = p2 + scale_f
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9OsBjaAzxnvWRhn4Ik1BUoUibRmPZeRFzJL0IBMCrvsDGq3tEHozZqHg/640?wx_fmt=png)
+![](../../images/953cf9df3f5802ad.webp)
 
 ## **2.2.2 AAAS**
 
@@ -95,7 +95,7 @@ p1_aaas = p1 + scale_color_aaas()+labs(title = 'aaas配色')p2_aaas = p2 + sca
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9wsicoyt1aECErO9Ftc7t4ibDNxm23Yk19zrBTQ3ax4KtYgZ7qtp5hOmA/640?wx_fmt=png)
+![](../../images/4c76102c108936f5.webp)
 
 ## **2.2.3 NEJM**
 
@@ -113,7 +113,7 @@ p1_nejm = p1 + scale_color_nejm()+labs(title = 'nejm配色')p2_nejm = p2 + sca
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9FiaiaYrbfEH9xTdS3iamo6EaBdy7Pc0Q3UFvBkuibYu8k8ic2ksVDT7P4YA/640?wx_fmt=png)
+![](../../images/27a8838acf1378a2.webp)
 
 ## **2.2.4 Lancet**
 
@@ -129,7 +129,7 @@ p1_lancet = p1 + scale_color_lancet()+labs(title = 'lancet配色')p2_lancet = 
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9yFYgRz916P4PvICFaNKUCAA509TpxsibKbVbfFtPyApUdY2sp7Fy35w/640?wx_fmt=png)
+![](../../images/697a14b76f77d0e9.webp)
 
 **2.2.5 JAMA**
 
@@ -159,7 +159,7 @@ p2_jama = p2 + scale_fill_jama()+labs(title = 'jama配色')grid.arrange(p1_jam
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9ZcFAJ6ibeSmq8jRjTXicuPc6IxBicwGxbiaKHpNpYGrpsuLhN7eUKUR9kA/640?wx_fmt=png)
+![](../../images/21583cf69f75a2aa.webp)
 
 **2.2.6 JCO**
 
@@ -177,7 +177,7 @@ p1_jco = p1 + scale_color_jco()+labs(title = 'jco配色')p2_jco = p2 + scale_f
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9V1cpu0kK8ZasCZLz8RcRL4kbXbUcMFib1RibGhvtKGZy1MZzvsYn9l2A/640?wx_fmt=png)
+![](../../images/70193c11cade4739.webp)
 
 **2.2.7 USCGB**
 
@@ -195,7 +195,7 @@ p1_ucscgb = p1 + scale_color_ucscgb()+labs(title = 'ucscgb配色')p2_ucscgb = 
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9zPJqSAXib9xia2u4s02GbvBtia7p4MibIhVOGWDrT8lmEWuYgUIAuPn6jg/640?wx_fmt=png)
+![](../../images/69f54264e408e626.webp)
 
 ## **2.2.8 LocusZoom**
 
@@ -211,7 +211,7 @@ p1_locuszoom = p1 + scale_color_locuszoom()+labs(title = 'locuszoom配色')p2_
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9lutzaryNjV5g570CZkyfuJzGCI7s9mqweoOfMicZQyB99V7f18viawhw/640?wx_fmt=png)
+![](../../images/e814b2d44de2cd19.webp)
 
 ## **2.2.9 D3**
 
@@ -229,7 +229,7 @@ p1_d3 = p1 + scale_color_d3()+labs(title = 'd3配色')p2_d3 = p2 + scale_fill_
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z98oadvSqf348pyu4S1daGe82SNdNSficoVjUohceeABSqyLzMNTyYSRQ/640?wx_fmt=png)
+![](../../images/6618f6cf1dc98c4b.webp)
 
 ## **2.2.10 IGV**
 
@@ -247,7 +247,7 @@ p1_igv_default = p1 + scale_color_igv()+labs(title = 'igv_default配色')p2_ig
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9dYLdCs2h9bqAX9dl9dlHuBAUwmPl5BKd9euNAsI5iaICPXNzaQBqG5g/640?wx_fmt=png)
+![](../../images/993e77ef7fea81df.webp)
 
 ## **2.2.11 UChicago**
 
@@ -265,7 +265,7 @@ p1_uchicago = p1 + scale_color_uchicago()+labs(title = 'uchicago配色')p2_uch
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9crBdn4EqB2o8qQZQGXXb0aG2J2NzB3sSNVUP1IyI8ibSBicG833yc09Q/640?wx_fmt=png)
+![](../../images/16a4020a2226c790.webp)
 
 ## **2.2.12 Star Trek**
 
@@ -283,7 +283,7 @@ p1_startrek = p1 + scale_color_startrek()+labs(title = 'startrek配色')p2_sta
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9N8ZnCGns6OeeOePMmrTiaciarPpVMAWWgg478xq2c7WJIaf7KFfgxbSQ/640?wx_fmt=png)
+![](../../images/ca8ce70e97a4e550.webp)
 
 ## **2.2.13 Tron Legacy**
 
@@ -299,7 +299,7 @@ p1_tron = p1 + theme_dark() + theme(    panel.background = element_rect(fill 
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9DcdN4hgsPZKjib1LdEhicNcgZB5puXvEuibD4bbLgTNhYjtnxysWRtibBg/640?wx_fmt=png)
+![](../../images/671731da7aaa6906.webp)
 
 ## **2.2.14 Futurama**
 
@@ -317,7 +317,7 @@ p1_futurama = p1 + scale_color_futurama()+labs(title = 'Futurama配色')p2_fut
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9cfzXibfOEHkIxC9SVibEVicV8nAOH8WlGVicaXxHViaxliaxHDVkf4ticvf3Q/640?wx_fmt=png)
+![](../../images/6ef0ed03c3f1a58a.webp)
 
 ## **2.2.15 Rick and Morty**
 
@@ -333,7 +333,7 @@ p1_rickandmorty = p1 + scale_color_rickandmorty()+labs(title = 'rickandmorty�
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9Coz8rI35slWVCY3YXIh0NuyfpwYsEMiaWWJJQVNkl20xhtz9p8QibVSw/640?wx_fmt=png)
+![](../../images/e172bcf6afca2a47.webp)
 
 ## **2.2.16 The Simpsons**
 
@@ -351,11 +351,11 @@ p1_simpsons = p1 + scale_color_simpsons()+labs(title = 'simpsons配色')p2_sim
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z96QaP19QT1A13898xLe0ibB2uiavJ5GhicJEn0EpMrelJeeyZUUhTfk84w/640?wx_fmt=png)
+![](../../images/87813d247a1b10d3.webp)
 
 # **三、连续性数据**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 ## **3.1 准备工作**
 
@@ -389,7 +389,7 @@ data("mtcars")cor = cor(unname(cbind(mtcars, mtcars, mtcars, mtcars)))cor_melt =
 p3 = ggplot(cor_melt,            aes(x = Var1, y = Var2, fill = value)) +  geom_tile(colour = "black", size = 0.3) +  theme_bw() +  theme(axis.title.x = element_blank(),        axis.title.y = element_blank())p3#看看原图
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9oZia7Jo0oZehK323TbHa92RS07SSCDmjFxyhdBaYAKcF19TZ2aGofXw/640?wx_fmt=png)
+![](../../images/8247eb3878cf5f3c.webp)
 
 ## **3.2 连续性数据可视化**
 
@@ -405,7 +405,7 @@ p3_gsea     = p3 + scale_fill_gsea()p3_gsea_inv = p3 + scale_fill_gsea(reverse
 
 Hide
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9UADzvaSgIdfQzvPjwEziaGdmlSkRCVMxMLer1dNDhXtEp4Tphm2A9vQ/640?wx_fmt=png)
+![](../../images/a7cd70292680f5c5.webp)
 
 ### **Material Design**
 
@@ -422,7 +422,7 @@ p4 = ggplot(x_melt, aes(x = Var1, y = Var2, fill = value)) +  geom_tile(colou
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9mXyfDSzfOuUpibjQDGxb5LesO8YN9ia195FgSyZWDzP2YOaozC3DOQmg/640?wx_fmt=png)
+![](../../images/fcb13a8328ec875a.webp)
 Material Design主要用于生成色系：
 
   *   *   *   *   *   *   *   *   *   *   *   *
@@ -431,13 +431,13 @@ Material Design主要用于生成色系：
 grid.arrange(  p4 + scale_fill_material("red"),         p4 + scale_fill_material("pink"),  p4 + scale_fill_material("purple"),      p4 + scale_fill_material("deep-purple"),  p4 + scale_fill_material("indigo"),      p4 + scale_fill_material("blue"),  p4 + scale_fill_material("light-blue"),  p4 + scale_fill_material("cyan"),  p4 + scale_fill_material("teal"),        p4 + scale_fill_material("green"),  p4 + scale_fill_material("light-green"), p4 + scale_fill_material("lime"),  p4 + scale_fill_material("yellow"),      p4 + scale_fill_material("amber"),  p4 + scale_fill_material("orange"),      p4 + scale_fill_material("deep-orange"),  p4 + scale_fill_material("brown"),       p4 + scale_fill_material("grey"),  p4 + scale_fill_material("blue-grey"),  ncol = 6)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9j0eBwP6Bwia1b4of1df94FZZIDWU2vsicialDiasRQCNbmsf60KUsH9FyQ/640?wx_fmt=png)
+![](../../images/4b4afa8c31d88833.webp)
 
 # **四、****非ggplot2图形**
 
 # ****
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 上面我们用` scale_fill_pal`和`scale_fill_pal`调整图片的色系，若需要在其它可视化软件中使用`ggsci`，则可使用`pal_pal名`的形式生成rgb颜色调用
 
@@ -459,11 +459,11 @@ mypal = pal_npg("nrc", alpha = 0.7)(9)#调整透明度mypal
 library("scales")show_col(mypal)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z9a9twaLiccMSnPticsjBNC7Uxjo4ufTzRQn7UXT12CqKPfyWJOFDcUSZw/640?wx_fmt=png)
+![](../../images/c4899525c3017415.webp)
 
 **大家更喜欢哪一款呢**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
   *   *   *   *
 
@@ -471,16 +471,16 @@ library("scales")show_col(mypal)
 library(patchwork)p1+p1_npg+p1_aaas+p1_nejm+p1_lancet+p1_jama+p1_jco+  p1_ucscgb+p1_locuszoom+p1_d3+p1_igv_default+  p1_uchicago+p1_startrek+p1_tron+p1_futurama+p1_rickandmorty+p1_simpsons
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxS51hPhgj7OtaFByFX3z94hYibKZ6g6KLAgoCQu6SJGu68ibS5godVgkAicWLUlDZSMYU7MQWZl1aQ/640?wx_fmt=png)
+![](../../images/48e7a6fafc39a7fc.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=7)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=8)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=9) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=11) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

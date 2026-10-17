@@ -42,18 +42,18 @@ Tao Q, Xu Y, He Y, Luo T, Li X, Han L. Benchmarking mapping algorithms for cell-
 
 **三、主要结果**
 
-如Figure1 A的流程图所示，作者通过已注释的snRNA-seq数据生成了一个拟空间数据作为background，然后收集了八个包含对应脑区位置(例如海马体、小脑、嗅球、皮质等)的snRNA-seq数据与stereo-seq数据。作者主要从square bin 50(大约25μmX25μm)与cell bin(利用ssDNA划分生成的细胞单位)的各算法效果，可以明显看出，Bin50的spot数量要明显小于Cellbin，但nFeature和nCount方面前者更高，换句话说，在这些数据中Bin50的尺寸要大于Cellbin(Biomamba目前处理过的数据也基本都是这个情况)。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2horbLoLrmUaEyUbicsfa6D4jxZ8nVAlRCw23QKlaGbib49vmLxC0D49Q/640?wx_fmt=png&from=appmsg)Figure 1在完成了四个脑区数据的注释(Figure 2A-B)之后，使用各mapping算法工具处理拟空间数据与stereo-seq空转数据，并对每个spot中**细胞比例** 进行皮尔森相关系数计算(Figure 2C)，肉眼可见Cell2location(基于Python)与RCTD(基于R)的相关系数又高又稳(这两个包的教程可见：[一文搞定空间转录组与单细胞测序的整合分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507210&idx=1&sn=f32037ffefd60b0d1bcca7bf9c3e0823&chksm=9b3ca45aac4b2d4cf0c68299db3a2891130d89d9e0fe2a9ecb34b394736550bcf7d7c51090cc&scene=21#wechat_redirect>))。在合并相同细胞类型的表达矩阵后，作者对stereo-seq细胞表达矩阵与snRNA-seq的细胞表达矩阵进行相关性系数分析(Figure 2D)，可以看出RCTD这次遥遥领先，其余软件除了Tangram外表现都很差。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2TLo3phERltzicOlaPxcRnODlSqO99QhBkgBWviaVvUCGklpUl719lzrg/640?wx_fmt=png&from=appmsg)Figure 2
+如Figure1 A的流程图所示，作者通过已注释的snRNA-seq数据生成了一个拟空间数据作为background，然后收集了八个包含对应脑区位置(例如海马体、小脑、嗅球、皮质等)的snRNA-seq数据与stereo-seq数据。作者主要从square bin 50(大约25μmX25μm)与cell bin(利用ssDNA划分生成的细胞单位)的各算法效果，可以明显看出，Bin50的spot数量要明显小于Cellbin，但nFeature和nCount方面前者更高，换句话说，在这些数据中Bin50的尺寸要大于Cellbin(Biomamba目前处理过的数据也基本都是这个情况)。![](../../images/da8aad103f112b54.webp)Figure 1在完成了四个脑区数据的注释(Figure 2A-B)之后，使用各mapping算法工具处理拟空间数据与stereo-seq空转数据，并对每个spot中**细胞比例** 进行皮尔森相关系数计算(Figure 2C)，肉眼可见Cell2location(基于Python)与RCTD(基于R)的相关系数又高又稳(这两个包的教程可见：[一文搞定空间转录组与单细胞测序的整合分析](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507210&idx=1&sn=f32037ffefd60b0d1bcca7bf9c3e0823&chksm=9b3ca45aac4b2d4cf0c68299db3a2891130d89d9e0fe2a9ecb34b394736550bcf7d7c51090cc&scene=21#wechat_redirect>))。在合并相同细胞类型的表达矩阵后，作者对stereo-seq细胞表达矩阵与snRNA-seq的细胞表达矩阵进行相关性系数分析(Figure 2D)，可以看出RCTD这次遥遥领先，其余软件除了Tangram外表现都很差。![](../../images/a2d2682f041a3446.webp)Figure 2
 
 接下来作者开始了实战部分，成年脑矢状面脑组织HIP的snRNA-seq与stereo-seq的运行结果如图3A所示，通过作者的生物学知识基础，可以发现RCTD与SpatialDWLS对主要的细胞类型如CA1、CA2、CA3分布的预测较为精准，而其它软件存在边界不清晰、注释不准确的现象。作者引入了ASS来评估细胞距离及相关性，结果显示RCTD(在多个数据集及分bin方法中均表现上乘)与SpatialDWLS表现最优，而Spatial-ID与DestVI垫底(Figure 3B-C)。在注释结果的细胞类型中可见，RCTD与SpatialDWLS能够预测到占比非常小的细胞类型，而DestVI这种仅能够预测到占比比较大的细胞类型。ASS公式如下，感兴趣的同学可以看一下原文了解详细参数含义：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2Ct225EpEcJaI0v5uCDMKNuGzSHxQIyo0CppPcVIu9LPicRAQHvLGy6Q/640?wx_fmt=png&from=appmsg)
+![](../../images/378721e646af8871.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2iameTiccJ7sDXicTgxA9q3t9iaX4u1ibXvbhXy5FxML1jpDu3pB7ewI7IBw/640?wx_fmt=png&from=appmsg)
+![](../../images/30f0007f4e0a0f18.webp)
 
 Figure3
 
 在小脑数据的layer的识别上来说，RCTD与SpatialDWLS无论是在cell bin还是在bin50均能够精准的分配出符合其空间位置的细胞类型（Figure 4A），而其它工具都或多或少的丢失了一些layer，例如Cell2location没有识别出Purkinje cell layer。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzthfro2dk2t3nJtLA5eTR2Ay2xicLBWNz9Mia4qAibDZ31QQYmibDaOtahbEicaHibaEvT6ztI8hHiazjOA/640?wx_fmt=png&from=appmsg)
+![](../../images/0e47f68f8ba3526a.webp)
 
 Figure 4
 
@@ -66,14 +66,14 @@ Figure 4
 
 更多内容可咨询客服微信[**Biomamba_zhushou**]
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

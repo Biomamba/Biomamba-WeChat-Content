@@ -14,7 +14,7 @@ albums: ["答读者问"]
 
 scATAC教学持续进行中：
 
-[![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlGpHK1MdSJwIEHT1mLxE9MiaG04tvUPm6KjQWnQZGQRZSaaKWKDSWMrflaJMAv9uJAUWlQXEqE9lLLr51ujbu5do54gsUTLkbw/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=5)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541071&idx=2&sn=211c95ecf8e7f28418eb0938c8e32695&scene=21#wechat_redirect>)
+[![图片](../../images/c74696d3c6efe4b0.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541071&idx=2&sn=211c95ecf8e7f28418eb0938c8e32695&scene=21#wechat_redirect>)
 
 1、先上报错
 
@@ -103,7 +103,7 @@ CoveragePlot 作用：根据 Fragment 信息，统计目标基因区域每个[�
 
 ### （1）peaks Assay 结构
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm9wYiaHf9ULSytV7WdiaqmZoRy3vPq5rc5ekhzTbziaS8MjP2LvuQkGoSW0hLN1WKkL71cWiapovfT70TMHTQu5cjjwEWF3HnUXts/640?wx_fmt=png&from=appmsg)
+![](../../images/e055a63d8fef66e9.png)
 
 Fragment 对象（重点！）
 
@@ -231,7 +231,7 @@ Fragments(pbmc[["ATAC"]])[[1]]@path
 try({p1 <- CoveragePlot(object = pbmc,  region = "MS4A1",  features = "MS4A1",  expression.assay = "SCT",  idents = idents.plot,  extend.upstream = 500,  extend.downstream = 10000  )})p1
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlVuiclCXhP2fV2m1MSDUR8oaraeNM39IWxIlchY63iba3ib0tTJ0IRB4yRoAnEelsXFVa5m9V1WYRLUt3qcJg0gnJkOUc7qUUOLo/640?wx_fmt=png&from=appmsg)
+![](../../images/3784b602dfb3f683.webp)
 
 现在就不报错啦，前期出错的原因其实是因为我们的文件路径发生了变化，只要及时修改成新的路径就可以啦~ 后续大家遇到类似问题可以参考我们前面思路一步一步进行排查哈~
 
@@ -247,7 +247,7 @@ try({p1 <- CoveragePlot(object = pbmc,  region = "MS4A1",  features = "MS4A
 
 scATAC最新教程可见：
 
-[![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnvI9PjhDciaSjZlmcicWAB4VPNdP1h5iarBaShGlib9KklCl5IhZNuQaNJQePzhEHfiaWrpSIsZANLjxRZicSzFxHNku8YCicLwaR5YA/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541071&idx=2&sn=211c95ecf8e7f28418eb0938c8e32695&scene=21#wechat_redirect>)
+[![](../../images/faf16642c63c760d.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541071&idx=2&sn=211c95ecf8e7f28418eb0938c8e32695&scene=21#wechat_redirect>)
 
 **二、打铁还需自身硬**
 
@@ -550,10 +550,10 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 
 向下滑动查看更多
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢
 
 Lucky

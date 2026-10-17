@@ -1,0 +1,132 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0466-告别命令行！在VSCode中直接使用Claude Code编程</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="vscodeclaude-code">告别命令行！在VSCode中直接使用Claude Code编程</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539068&amp;idx=2&amp;sn=9ec591f5e91c5e13fe6024f7e99dab29&amp;chksm=9b3c202cac4ba93a30cf1649b305e1b2cc8993cbab43b43857322e39ab88b2d4f33c738c5137#rd
+合集：AI时代，不用就会被淘汰</p>
+</blockquote>
+<h1 id="_1">前言</h1>
+<p>在前面的教程里，我们学习了如何在VSCode中通过Codex插件实现AI辅助编程，覆盖本地与远程两种使用场景：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536883&amp;idx=1&amp;sn=8fbf4b133e87049cdab88571807027ea&amp;scene=21#wechat_redirect">OpenAI编程助手插件，把Codex装进VSCode！</a>，也介绍了命令行中使用ClaudeCode：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539059&amp;idx=2&amp;sn=89b483b2951982383f60daf49c1accf3&amp;scene=21#wechat_redirect">ClaudeCode基本使用教程</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539062&amp;idx=2&amp;sn=6fd50e106bf2ebd5fb517a35676097a4&amp;scene=21#wechat_redirect">skill使用方法</a>。如果不想使用命令行工具，我们还可以在IDE中通过插件来使用ClaudeCode。今天这篇文章向大家介绍在VSCode中通过Claude Code插件使用AI辅助编程（涵盖本地与远程两种场景），一起来学习一下吧~。如果需要Claude Code在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537798&amp;idx=1&amp;sn=558542e091ec6a4d6a8a963efa4e1f65&amp;scene=21#wechat_redirect">服务器</a>中代为部署，也欢迎联系后台。</p>
+<p>另外需要可接入<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536263&amp;idx=1&amp;sn=18bdb5f3158358be29563575566cbffa&amp;scene=21#wechat_redirect">小龙虾</a>和其它AI的服务器？可参考：访问链接：https://biomamba.xiyoucloud.net/</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21&amp;token=1904068475&amp;lang=zh_CN#wechat_redirect">足够支持你完成硕博生涯的生信环境</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529475&amp;idx=1&amp;sn=10827e982a637e0fc36e4b6e857736c8&amp;scene=21&amp;token=1904068475&amp;lang=zh_CN&amp;poc_token=HF-eN2mj01zsfxe_I4r8D5pfZx80xO2AVYSB6qtT#wechat_redirect">忘记宣传了，独享用户连技术支持都是独享的</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21#wechat_redirect">RTX5090、4080S、5070显卡上机</a></p>
+<h1 id="_2">本地使用</h1>
+<h2 id="claude-code">安装Claude Code插件</h2>
+<ol>
+<li>打开VSCode，本地安装Claude Code插件（认准anthropic）</li>
+</ol>
+<p><img alt="" src="../../images/bc32326eb5c8705f.webp"></p>
+<ol>
+<li>安装完成后，右侧活动栏会出现Claude图标</li>
+</ol>
+<p><img alt="" src="../../images/dd3b220cf862a9ee.webp"></p>
+<ul>
+<li>此时点击图标会出现下图界面，由于还未进行环境配置，无法正常使用，我们需要进行下面的环境配置</li>
+</ul>
+<p><img alt="" src="../../images/27ba8b59218a6742.webp"></p>
+<h2 id="_3">配置环境</h2>
+<ol>
+<li>新建settings.json文件</li>
+</ol>
+<p>Windows用户可以在C:\Users\你的用户名\.claude\目录新建settings.json文件，也可以在项目目录下新建.claude\settings.json文件，新建settings.json文件后，填入下面的内容</p>
+<pre><code>{  &quot;env&quot;: {    &quot;ANTHROPIC_AUTH_TOKEN&quot;: &quot;sk-xxx 你的令牌&quot;,    &quot;ANTHROPIC_BASE_URL&quot;: &quot;https://api.0daysci.com&quot;  }}
+</code></pre>
+<p>在用户目录下创建</p>
+<p><img alt="" src="../../images/27fabd8f17f2e827.png"></p>
+<p>在项目目录下创建</p>
+<p><img alt="" src="../../images/5027c9d7b99baa98.webp"></p>
+<ol>
+<li>保存之后重启VSCode，即可调用成功</li>
+</ol>
+<p><img alt="" src="../../images/642b9243b8868f02.webp"></p>
+<h1 id="_4">服务器使用</h1>
+<h2 id="vscode">使用VSCode连接远程服务器</h2>
+<p>先按照教程通过VSCode连接服务器：https://blog.csdn.net/zhaxun/article/details/120568402</p>
+<h2 id="claude-code_1">安装Claude Code插件</h2>
+<ol>
+<li>在VSCode左侧扩展图标搜索Claude Code并安装，认准anthropic。</li>
+</ol>
+<p><img alt="" src="../../images/05f4f00e9c928cf4.webp"></p>
+<ul>
+<li>此安装是在远程主机上安装，安装完成之后会显示已在远程主机启用扩展，且左侧扩展界面会显示远程主机已经安装的插件</li>
+</ul>
+<p><img alt="" src="../../images/ce587835347dc2bf.webp"></p>
+<ol>
+<li>安装完成后，右侧活动栏出现Claude图标</li>
+</ol>
+<p><img alt="" src="../../images/c744ad19b9cb9cec.webp"></p>
+<ul>
+<li>点击图标会出现下图界面，由于还未进行环境配置，无法正常使用，服务器使用具体如何配置，请继续往下看</li>
+</ul>
+<p><img alt="" src="../../images/03c009a05f37cecb.webp"></p>
+<h2 id="_5">配置环境</h2>
+<ul>
+<li>在远程服务器创建配置文件</li>
+</ul>
+<pre><code># 在远程服务器执行mkdir -p ~/.claudevim ~/.claude/settings.json
+</code></pre>
+<ul>
+<li>填入如下信息，把令牌替换成你自己的API Key，令牌获取参考本篇后面的内容</li>
+</ul>
+<pre><code>{  &quot;env&quot;: {    &quot;ANTHROPIC_AUTH_TOKEN&quot;: &quot;sk-xxx 你的令牌&quot;,    &quot;ANTHROPIC_BASE_URL&quot;: &quot;https://api.0daysci.com&quot;  }}
+</code></pre>
+<ul>
+<li>保存后重启VSCode，使配置生效。</li>
+</ul>
+<h1 id="_6">使用测试</h1>
+<ul>
+<li>点击右侧Claude图标→对话框出现</li>
+</ul>
+<p><img alt="" src="../../images/f23b934bef183547.webp"></p>
+<ul>
+<li>直接描述任务，例如："请生成一个R脚本，使用DESeq2对一个假想的表达矩阵进行标准化，并输出前10个最差异表达的基因"，生成之后点击Yes可保存该脚本</li>
+</ul>
+<p><img alt="" src="../../images/879600e330ab9fed.webp"></p>
+<ul>
+<li>根据提示运行脚本，能够运行成功</li>
+</ul>
+<p><img alt="" src="../../images/442e86f554126d77.webp"></p>
+<ul>
+<li>生成的文件也可以正常打开查看（如果有提示需要安装插件，根据提示安装即可）</li>
+</ul>
+<p><img alt="" src="../../images/302dcf85fd44ffdb.webp"><img alt="" src="../../images/a93dcbe25dde7d50.webp"></p>
+<h1 id="token">怎么购买Token</h1>
+<h2 id="_7">注册/登录账号</h2>
+<p>访问链接：https://biomamba.xiyoucloud.net/</p>
+<h2 id="ai">打开西柚云AI服务平台</h2>
+<p><img alt="" src="../../images/44d84f1639bc96ee.webp"></p>
+<h2 id="_8">充值</h2>
+<ol>
+<li>点击右上角个人中心，点击钱包管理。</li>
+</ol>
+<p><img alt="" src="../../images/c51a227ee66f2b14.webp"></p>
+<ol>
+<li>
+<p>点击跳转购买对应的商品，购买后系统将自动充值Token。</p>
+</li>
+<li>
+<p>免费体验版：5百万Token。</p>
+</li>
+<li>正式版：1千万Token/18元。</li>
+</ol>
+<p><img alt="" src="../../images/e0f8f4c489f82e37.webp"></p>
+<h2 id="_9">令牌管理</h2>
+<ol>
+<li>进入令牌管理</li>
+</ol>
+<p><img alt="" src="../../images/cdbb0c935e212cc2.webp"></p>
+<ol>
+<li>
+<p>创建令牌</p>
+</li>
+<li>
+<p>名称：填便于自己识别的名称</p>
+</li>
+<li>令牌分组：选择默认分组</li>
+</ol>
+<p><img alt="" src="../../images/e89cd196c86f7c85.webp"></p>
+<ol>
+<li>复制令牌配置到对应的配置文件</li>
+</ol>
+<p><img alt="" src="../../images/abdc13537c63547b.webp"></p>
+<h1 id="_10">西柚云在售算力</h1>
+<p>我们长期提供GPU、CPU算力，欢迎大家联系后台。访问链接：https://biomamba.xiyoucloud.net/<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=2&amp;sn=4708fac31ac8f4e347847e4b7f2a4fed&amp;scene=21&amp;poc_token=HD30QWqjyfz9w8kaP4lTzV2TrwmmFWeikVE7vHza#wechat_redirect"><img alt="" src="../../images/6e693f923fe6589b.webp"></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534707&amp;idx=2&amp;sn=2844377758ce00e07435a5dd376b4715&amp;scene=21#wechat_redirect"><img alt="" src="../../images/7639767d80b412ae.webp"></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21&amp;poc_token=HGz0QWqjtxRcZEO9_FZ7U2waArXDSPexP98oXbem#wechat_redirect"><img alt="" src="../../images/18e6a4a68f9e0cb6.webp"></a></p></article></body></html>

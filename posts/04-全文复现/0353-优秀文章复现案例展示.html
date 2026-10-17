@@ -1,0 +1,136 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0353-优秀文章复现案例展示</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">优秀文章复现案例展示</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526557&amp;idx=1&amp;sn=b5860857bf2fcf1b74209771faef8d07&amp;chksm=9b3c11cdac4b98db7b49d1d4e14ddab4560a04b415d8054e79104e0d53aa6f48fd05d1ce7e54#rd
+合集：全文复现 / 单细胞云平台</p>
+</blockquote>
+<p><strong>写在前面</strong></p>
+<p>此前我们在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522649&amp;idx=1&amp;sn=a3a3df860fd162691403281356dcbf1d&amp;scene=21#wechat_redirect">生信基地</a>举办了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522889&amp;idx=1&amp;sn=d70f64a6624825b80c70362483ebd637&amp;scene=21#wechat_redirect">生信基地第一课| 1.5天学会单细胞分析</a>的交流活动，经过1.5d的学习，我们布置了如下文献结果复现作业，代码复现可见<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247525649&amp;idx=1&amp;sn=6145f50422ef8680be2a7ffd6c66f5f3&amp;scene=21#wechat_redirect">《NC》代码复现| scRNA-seq揭示人纤维化皮肤病中的成纤维细胞异质性和间充质成纤维细胞增加</a>：</p>
+<p><strong>文章标题</strong> ：Single-cell RNA-seq reveals fibroblast heterogeneity and increased mesenchymal fibroblasts in human fibrotic skin diseases</p>
+<p><strong>文章中文标题</strong> ：单细胞 RNA-seq 揭示了人纤维化皮肤病中的成纤维细胞异质性和间充质成纤维细胞增加</p>
+<p><strong>文章链接</strong> ：https://www.nature.com/articles/s41467-021-24110-y</p>
+<p><strong>发表期刊</strong> ：《Nature Communications》</p>
+<p>1、如下图的展示 进行大群聚类注释（图b）、各细胞类型占比分布（图f）、各细胞类型高表达基因热图（图d）各细胞类型marker基因的featureplot图（图e）。</p>
+<p><img alt="" src="../../images/0fd140bba6d5521b.webp"></p>
+<p>2、对成纤维细胞亚群进行重新聚类（图a）、每个样本的细胞亚型的数量占比（图c）、展示每个样本的umap降维图（图b）、做下列图中基因的小提琴图（图g）（小提琴可分开展示）。</p>
+<p><img alt="" src="../../images/b32a5250ae071c25.webp"></p>
+<p>3、 高级分析细胞通讯 展示不同分组的各细胞类型的细胞通讯数量热图；</p>
+<p><img alt="" src="../../images/27fe0a07b7bafea1.webp"></p>
+<p><strong>复现结果</strong></p>
+<p>学完了1.5d的课程后，这位同学已经可以输出以下内容啦，其实很多复现的内容相差无几，甚至图片要比原文更加美观~</p>
+<p>复现流程：</p>
+<p>1. 导入数据，初始化</p>
+<p><img alt="" src="../../images/5a72240f69c42028.webp"></p>
+<p>2. 参数过滤</p>
+<ol>
+<li>
+<p>过滤基因：min.cells =3 过滤基因。</p>
+</li>
+<li>
+<p>过滤细胞：umi.range = 200~35000，feature.range = 100~6500， 线粒体相关基因：Mitorelatedgenes基因集(17) ，使用MAD方法进行过滤。</p>
+</li>
+</ol>
+<p>过滤后数据如下：</p>
+<p><img alt="" src="../../images/7ec1ba6455e32c4c.webp"></p>
+<p><img alt="" src="../../images/696ae99197602a60.webp"></p>
+<p><img alt="" src="../../images/3f222a7ccf2075bd.webp"></p>
+<p>对NF1的count重新过滤（503~ 25973）：</p>
+<p><img alt="" src="../../images/9f56e0e50ac7180a.webp"></p>
+<p><img alt="" src="../../images/ee4f8053936b9b79.webp"></p>
+<p>3. 整合数据</p>
+<p>使用vst方法寻找高变基因（数目2000），整合方法采用Harmony。</p>
+<p><img alt="" src="../../images/d1d9f19982a54c91.webp"></p>
+<p><img alt="" src="../../images/712cbbf48954e666.png"></p>
+<p>4. 聚类 以三种阈值对数据进行测试，最终得出分辨率：0.5，PCA维数15符合原文章。</p>
+<p><img alt="" src="../../images/fcd7dc7af91626b2.webp"></p>
+<p><img alt="" src="../../images/b4ef47630f2b4810.webp"></p>
+<p>5. 注释 Marker Gene （原文获取总结）</p>
+<p><img alt="" src="../../images/3d607ff9f59ca3bf.webp"></p>
+<p>分群图：</p>
+<p><img alt="" src="../../images/26bc659ca39fa21a.webp"></p>
+<p>详细featureplot：</p>
+<p>ENDO: 1.5.6群定义为ENDO, 分别为ENDO_1, ENDO_2, ENDO_3。</p>
+<p><img alt="" src="../../images/6eccc3bf4f459393.webp"></p>
+<p>FIB: 0.4.7.15 群定义为 FIB，分别为FIB_1, FIB_2, FIB_3, FIB_4。</p>
+<p><img alt="" src="../../images/d5445b7e45654d60.webp"></p>
+<p>SMC: 2.12群定义为SMC，分别为SMC_1, SMC_2。</p>
+<p><img alt="" src="../../images/a83db7fd6171d8d7.webp"></p>
+<p>KRT: 3.8.13.18.19 群定义为KRT，分别为KRT_1, KRT_2, KRT_3, KRT_4。</p>
+<p><img alt="" src="../../images/855ae869f142a20d.webp"></p>
+<p>IMM：9群定义为IMM。</p>
+<p><img alt="" src="../../images/09ac83e898874413.webp"></p>
+<p>LYME：11群定义为LYME。</p>
+<p><img alt="" src="../../images/e476ea4fff130789.webp"></p>
+<p>NEU：14群定义为NEU。</p>
+<p><img alt="" src="../../images/907d52b3a0059fa7.webp"></p>
+<p>SGC：20群定义为SGC。</p>
+<p><img alt="" src="../../images/1cda512006d6aab3.webp"></p>
+<p>MELA：14群定义为MELA。</p>
+<p><img alt="" src="../../images/3f41754401a9b267.webp"></p>
+<p>根据上图 Marker 可以看出 14 群有明显的分离，但是并没有很好的分成两群。无 法对MELA和NEU进行分类。对比原文，证明分群参数不够合理。进行调整后，分辨率保持0.5，PCA20可以得到很好的分离。由于原本流程中已经 进行了PCA20的聚类，故继续使用。</p>
+<p>不再重复展示上述辅助定位的流程，详细分群有差异：21 群增至 23群（0-22） （这里的分离参数和分群不一致有多种可能，包括平台和原文作者使用的聚类方 法，不同人不同次分析也会存在差异，主要目的是尽可能复现原文的分群，允许 存在一定范围内的数据漂移。）</p>
+<p>修正后降维图（23clusters）：</p>
+<p><img alt="" src="../../images/d0b689af767053c0.webp"></p>
+<p>大群细分结果：</p>
+<p><img alt="" src="../../images/2f6643c0e7995e16.webp"></p>
+<p>细节注释结果：</p>
+<p><img alt="" src="../../images/4c589b55719ed4c9.webp"></p>
+<p>大群结果</p>
+<p><img alt="" src="../../images/a6f2830f1b0aaa8c.webp"></p>
+<p>6. 大群可视化</p>
+<p><img alt="" src="../../images/e873902458b0cd6c.webp"></p>
+<p>通过对比原文图和复现图，基本符合比例（此处选择个人喜欢的颜色，颜色偏浅，仅 作展示；在正式发文时应注意考虑色弱，和红绿色盲）</p>
+<p>Feature Plot</p>
+<p><img alt="" src="../../images/55a786c6b2e77552.webp"></p>
+<p>Heatmap(右侧注释为AI手动添加)</p>
+<p><img alt="" src="../../images/33b5ab5521e9459a.webp"></p>
+<p>7. 亚群细分（FIB组）</p>
+<p><img alt="" src="../../images/54aad2f05c10467c.webp"></p>
+<p>8. FIB_subtype 细胞注释</p>
+<p>Marker gene</p>
+<p><img alt="" src="../../images/2d43ec6eaeb590fa.webp"></p>
+<p><img alt="" src="../../images/d3c2789439ec9186.png"></p>
+<p>降维注释图</p>
+<p><img alt="" src="../../images/f22d07f94f418e23.webp"></p>
+<p>分样本降维UMAP</p>
+<p><img alt="" src="../../images/0cd30f78333ed948.webp"></p>
+<p>9. 高级分析-细胞通讯（Cellphonedb） 首先合并大群和亚群的celltype（在辅助信息中的添加标签，通过合并meta.data数据实 现合并），随后则可在一个数据中对亚群和大群进行细胞通讯分析。分为normal scar &amp; keloid 两组分别对细胞通讯的数量进行热图展示 通讯结果：</p>
+<p><img alt="" src="../../images/d3d8eb5e048ef54b.webp"></p>
+<p>原文通讯结果：</p>
+<p><img alt="" src="../../images/a71955d75588cf8a.webp"></p>
+<p>原文中的细胞通讯结果显示出在疤痕状态中有更多的mesenchymal_fib,ecretory_papillary_fib,secretory_reticular_fib间的通讯。 在本次的分析结果中也表现了相对一致的结果：</p>
+<p><img alt="" src="../../images/517c89d8082db12a.webp"></p>
+<p>Seeksoul 单细胞平台使用感受</p>
+<p>整体都很<strong>方便快捷</strong> ，相对本地进行代码编辑和图文修改有很大优势。为 R 语言等 零基础的科研人员提供了更好的分析平台。据我所知，做单细胞全长分析的公司也有几家，但能够提供如此<strong>技术支持</strong> 和<strong>指导</strong> 的并无一二。后续本人课题也会优先选择 Seeksoul进行合作。但在使用过程中仍有一些不足（仅根据个人使用体验进行阐述）：</p>
+<ol>
+<li>
+<p>在培训和使用过程中发现许多未接触过生信技术的临床医生，医药专业类学生都无 法快速上手平台的使用。并且大部分知识对于大部分人来说进行网上检索也不是一件易事。建议在针对平台使用的客户新开辟一个简短的基础教学模块，提前录制好 相关操作和知识的短视频，嵌入在平台网页或相关程序中，可以更高效地解决客户 的基础问题（在某个角度上，人工在群里答疑也并非易事，因为每个人的水平，乃 至理解能力都有很大的偏差，如果能够优先观看相关知识讲解也许可以解决大多数 问题）。</p>
+</li>
+<li>
+<p>在有些分析模块中，出图个性化设置可以再拓展一些，也许大多数人对于文章发表 没有很高的美化要求；但是至少我，或者说我的同门都更加偏好对于文章图片进行 二次优化。在平台如果可以一次性进行更多样的调整将会更好。、</p>
+</li>
+<li>
+<p>在上传自有数据时（已整合数据）发现要求需要 tsne/umap 两种降维结果，但大多 数人只选择了一个方法进行降维。</p>
+</li>
+<li>
+<p>如果可以针对意向用户下发短期多样本体验权限将会更好帮助客户进行操作的理解。因为没有使用过平台的客户也需要摸索调试方法，用R进行分析的客户在平台进行 分析时也会因为方式方法不同产生疑惑。</p>
+</li>
+</ol>
+<p>最后，感谢Biomamba，师兄带领Biomamba生信基地联合Seeksoul寻因生物，提供学习分析平台的机会，以及在培训过程中的耐心解惑。希望 Biomamba生信 基地和寻因生物做大做强，越来越好！<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_1006a9b5456&amp;enterid=1729128003&amp;from_msgid=2247522176&amp;from_itemidx=2&amp;count=3&amp;nolastread=1#wechat_redirect"></a></p>
+<p><strong>视频教程</strong></p>
+<p>本系列视频我们将进行拆解动作，完整视频教程可见合集：</p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_1006a9b5456&amp;enterid=1729128003&amp;from_msgid=2247522176&amp;from_itemidx=2&amp;count=3&amp;nolastread=1#wechat_redirect">SeekSoul® Online单细胞云平台</a></p>
+<p>总是有小伙伴在学我们的单细胞<strong>代码</strong> 教程(<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522475&amp;idx=1&amp;sn=84dd9a65348528be9aa2b8d2711d776c&amp;scene=21#wechat_redirect"><strong>两百篇单细胞知识帖</strong></a>)时深感头疼，密密麻麻的代码、繁琐的流程、巨大的数据量，这些都是劝退大家的门槛。这对这一现象，<strong>Biomamba</strong> 联合<strong>寻因生物</strong> 发布了科研利器——<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_69f8cb7b2da&amp;enterid=1713928791&amp;from_msgid=2247510401&amp;from_itemidx=1&amp;count=3&amp;nolastread=1&amp;token=1053256417&amp;lang=zh_CN#wechat_redirect"><strong>SeekSoul Online单细胞云平台</strong></a>及对应的**《<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_69f8cb7b2da&amp;enterid=1713928791&amp;from_msgid=2247510401&amp;from_itemidx=1&amp;count=3&amp;nolastread=1&amp;token=1053256417&amp;lang=zh_CN#wechat_redirect">2周教你学会单细胞生信全套分析</a>》<strong>课程，准备好</strong>零代码** 发单细胞文章吧！</p>
+<p>云平台访问链接：https://seeksoul.online/t_static/Biomamba/Biomamba.html</p>
+<p>往期云平台使用视频教程可参考：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_69f8cb7b2da&amp;enterid=1713928791&amp;from_msgid=2247510401&amp;from_itemidx=1&amp;count=3&amp;nolastread=1#wechat_redirect">单细胞云平台教程全收录</a></p>
+<p>体验反馈问卷链接：https://www.wjx.cn/vm/QIX0xRI.aspx#</p>
+<p>各位同学需要<strong>联系您的专属在线客服，获取demo数据后，进行操作学习。</strong></p>
+<p><strong><img alt="" src="../../images/e34b68182a999499.webp"></strong></p>
+<p><img alt="" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../../images/7ef00c45433a7bde.webp"></p>
+<p><img alt="" src="../../images/acba43cb3408c3d0.webp"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

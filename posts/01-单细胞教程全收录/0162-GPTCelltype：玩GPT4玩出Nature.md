@@ -18,10 +18,10 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 **二、主要内容**
 
-细胞注释是single-cell RNA suquencing(scRNA-seq)的基本步骤，这一步基本不能直接产生对文章论题有用的信息与图表，但是却十分耗时、耗力、耗专业知识。GPT-3.5与**GPT-4** 可以说在近年的大语言模型中独领风骚，并被迅速的应用在生物医药领域。考虑到GPT-4可以高效、无缝的整合到现有的单细胞分析流程中去，因此作者开发了**GPTCelltype** 并系统性评估了GPT-4在十个数据集(包含正常细胞与肿瘤细胞)中的细胞注释表现情况。从示意图(Figure 1a)可以看出，依赖GPT4进行scRNA-Seq的细胞注释**好处有** ：无需生物学专业知识、无需代码知识、无需参考数据集、人工成本低、分析流程适配性高、无组织类型限制、注释分辨率/粒度高。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzia8OSMUPNUXCXkVqc4Wj3KMUX7t4z0MUqnKakUBnsfZs9Av9WB0TFvVBIC5VV9YafGH9Tjgvo29A/640?wx_fmt=png&from=appmsg)
+细胞注释是single-cell RNA suquencing(scRNA-seq)的基本步骤，这一步基本不能直接产生对文章论题有用的信息与图表，但是却十分耗时、耗力、耗专业知识。GPT-3.5与**GPT-4** 可以说在近年的大语言模型中独领风骚，并被迅速的应用在生物医药领域。考虑到GPT-4可以高效、无缝的整合到现有的单细胞分析流程中去，因此作者开发了**GPTCelltype** 并系统性评估了GPT-4在十个数据集(包含正常细胞与肿瘤细胞)中的细胞注释表现情况。从示意图(Figure 1a)可以看出，依赖GPT4进行scRNA-Seq的细胞注释**好处有** ：无需生物学专业知识、无需代码知识、无需参考数据集、人工成本低、分析流程适配性高、无组织类型限制、注释分辨率/粒度高。![](../../images/f8bad6e12a80f386.webp)
 在研究过程中，作者重点考察了Top差异基因(marker)来源与数量、数据来源、数据集大小等因素对GPT-4的细胞注释能力进行了**评估** ，并用数据集原先的人工注释结果作为参考进行准确率计算。结果显示在利用Top10marker进行细胞注释时准确性最高(Figure 2a)。在大部分数据集与组织中，GPT的细胞注释及亚群注释结果能保证大于**75%** 的准确率(这个下限其实不高)，且对于**免疫细胞** 的注释比其它细胞类型更加精准。在肺癌与结肠癌数据集中，其能够精准的识别肿瘤细胞，但在B淋巴瘤细胞的识别上有些不足，建议结合**拷贝数变异分析** 进一步推断。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzia8OSMUPNUXCXkVqc4Wj3KI3eLYDpZ8n8KIaqePLssBiborNlcqicU4rp8FRK7f2dibsoRgRc8DMJYw/640?wx_fmt=png&from=appmsg)
+![](../../images/a06ebe43175d374f.webp)
 
 在GPT-4与ScType、CPT3.5、SingleR的横向比较中，无论是**准确性** 还是**计算速度** ，GPT-4均**大幅领先**(Figure 2d&2e)。GPTCelltype的计算效率高得益于其依赖[Seurat](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510380&idx=1&sn=0eb2b0c519ef1dc25ee8821b736a0fde&chksm=9b3cd03cac4b592ad93149fb4847e6ba3dd03ab69e1ca594ddc64d323fb7496775789cae245d&scene=21#wechat_redirect>)进行Top marker的计算，而另外几种工具需要自行对表达矩阵进行处理。此外，作者还使用了包含93%真实细胞与7%混合细胞的模拟数据集进行了测试，结果显示GPTCelltype对于已知和未知细胞类型的注释准确率高达99%(Figure.2g)。在重现性表现方面，GPTCelltype同样表现优秀(Figure 2H&I)。
 
@@ -29,17 +29,17 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 https://winnie09.github.io/Wenpin_Hou/pages/gptcelltype.html
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

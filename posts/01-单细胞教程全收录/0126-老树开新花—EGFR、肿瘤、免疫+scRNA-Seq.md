@@ -57,33 +57,33 @@ https://pubmed.ncbi.nlm.nih.gov/33144684/
 
 作者对手术切除的7例含有EGFR突变的肺腺癌患者进行单细胞测序。共有7个肿瘤样本和匹配的5个癌旁样本。通过标准的单细胞测序处理流程，得到了125，674个细胞用于后续分析。通过对单个细胞进行无监督聚类，得到了32个Cluster。然后作者通过典型的marker基因和差异基因富集分析，将细胞分为8类，分别是肿瘤细胞，支气管/肺泡上皮细胞，骨髓细胞，T淋巴细胞，B淋巴细胞，癌症相关成纤维细胞，内皮细胞和肥大细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTTElwAGFwWdkNuBIwmX7ERPfv6e3vY8aDR6AH3TTPtWgEZ8bx3IdNWdIqb5MMs2fcYZjJa8T31Q/640?wx_fmt=png)
+![](../../images/cf2e170fae60fc19.webp)
 
 ******●********2.********肿瘤相关巨噬细胞（TAM）**
 
 作者先前的研究表明，骨髓细胞是肿瘤组织和肺组织中浸润最丰富的免疫细胞。进一步将骨髓细胞进行聚类分析，分为14个亚群，结果发现大多数的骨髓细胞是表达CD68的巨噬细胞，同时本研究发现早期携带EGFR突变的肺腺癌中，TAM表达了促进肿瘤发生的基因，但它们还没有明显的M1和M2极化。(既往研究认为，肿瘤中的TAM在表型上与抗炎M2极化巨噬细胞相似)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTTElwAGFwWdkNuBIwmX7EB1kFtcjG2epDhOlQMhNMe8oe3n1lboy4k5ticdDmDgUj5tBgRVqmdJw/640?wx_fmt=png)
+![](../../images/5e59af6b2308eebd.webp)
 
 **● 3\. 早期 LUAD 具有免疫抑制性 T 淋巴细胞和树突状细胞群**
 
 T细胞占所有非恶性细胞群的约20-60%。肿瘤样品和正常组织具有相同的T细胞簇。进一步亚组分析，发现肿瘤浸润的T细胞具有高度表达的调节和耗尽的标志物，如TIGIT，LAYN，FOXP3，CTLA4，而正常组织中的T细胞具有高度表达的效应物和幼稚的T细胞标志物。这表明早期LUAD存在免疫抑制性肿瘤微环境（TME）。本研究还发现，早期LUAD的DC主要是CD1C，这意味着它们在抑制效应T细胞和促进调节性T细胞方面的作用。这些结果都表明：携带EGFR突变的早期LUAD具有免疫抑制性TME。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTTElwAGFwWdkNuBIwmX7ElVG2BBmibLldfKjP3Vk10A1nwHbOUf8wgWJsgV7ahYsALlZhicuMunJQ/640?wx_fmt=png)
+![](../../images/8d55e8f23ecef9aa.webp)
 
 ****● 4\. **肿瘤细胞**
 
 作者将具有异常CNV的细胞被鉴定为恶性细胞。根据差异基因的富集分析，将其分为八个Cluster，这些Cluster分别在缺氧，糖酵解，氧化磷酸化，翻译起始，细胞周期和抗原呈递等途径中富集。与正常肺上皮细胞相比，恶性细胞中的 TM4SF1 和 SCGB3A2 表达升高。作者的研究结果揭示了不同的肿瘤细胞簇，其中DEG在不同的途径中富集，这意味着它们之间存在进展异质性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTTElwAGFwWdkNuBIwmX7EfzNzQ1YAzFsob08yPh2ruwEbBKeic3vcJDSmicJzJsvVUW8hcOpIl5hg/640?wx_fmt=png)
+![](../../images/26eca11106c2f97e.webp)
 
 **● 5\. 拟时序分析鉴定与LUAD进展后不良预后相关的基因**
 
 通过拟时序分析，作者鉴定了拟时间轨迹内更高级细胞中上调的基因，并关注了那些与癌症进展，TME信号和预后不良相关的基因。最终作者选择ELF3基因作为后续研究的对象。首先作者应用TCGA数据库中的LUAD的bulk数据分析了ELF3在肺腺癌和正常组织中的表达差异，结果发现ELF3在肺腺癌中明显高表达。进一步通过细胞实验证明ELF3在IL1B诱导后通过LUAD细胞中的PI3K / AKT / NF-κB信号通路促进肿瘤生长。这些结果表明：LUAD肿瘤细胞中的ELF3可以作为预防肿瘤生长的新型治疗靶点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTTElwAGFwWdkNuBIwmX7Eg74USzB1Y1BfTt0ahiboJWFy6ib4w5WCGPibWewVYlnPsayESKM0TGEIQ/640?wx_fmt=png)
+![](../../images/a85073d97d12fb41.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTTElwAGFwWdkNuBIwmX7Eq20tpuRibLENic7TtuXtGNQC66UkK8x4q8qA4s6HYwvScFfXtZbicbBfw/640?wx_fmt=png)
+![](../../images/8fbe2aa0fd6b7117.webp)
 
 **Discussion**
 
@@ -93,15 +93,15 @@ T细胞占所有非恶性细胞群的约20-60%。肿瘤样品和正常组织具�
 
 本文从临床问题入手，选择携带EGFR突变的早期LUAD为研究对象，对LUAD 和正常肺组织进行单细胞转录组分析。文章的前半部分为常规的单细胞分析流程，并通过拟时序分析找到了与早期肺腺癌进展相关的基因，后半部分进行了细胞实验，进行功能验证和调控通路验证，提出ELF3可能是早期肺腺癌药物治疗的靶点。本文逻辑清晰，生信分析结合实验验证，值得借鉴，可复制性强。局限之处：本文的单细胞分析为常规分析，可进一步加入高阶分析，同时如果能加入动物成瘤实验和药物干预，有可能冲击影响因子更高的文章。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

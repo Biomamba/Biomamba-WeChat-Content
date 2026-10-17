@@ -12,8 +12,8 @@ albums: ["单细胞教程全收录"]
 
 **一、写在前面**
 
-之前给大家测评过[风靡一时的scTenifoldKnk单细胞虚拟基因敲除,准不准?](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535112&idx=1&sn=95a6b88cd49fb2bbb7aa091a00e09e2c&scene=21#wechat_redirect>)。似乎大家都单细胞虚拟敲除很感兴趣，这里我们又测试了一个虚拟敲除工具GeneKI。并且完成了以下流程：**1、官方demo** 小胶质数据虚拟敲除TUBG1，TUBG1的dis排名第一(似乎是废话)；**2、 TREM2敲除实战**虚拟敲除TREM2，预测结果与真实Trem2 KO的差异基因显著重合(Fisher p=1.6e-3)，并再现APOE、补体C1Q等Trem2相关通路；**3、 NKX2-1实战2**这次我长了个心眼，不能只拿开发者自己的数据来进行测试。AT1细胞虚拟敲除NKX2-1([scTenifoldKnk](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535112&idx=1&sn=95a6b88cd49fb2bbb7aa091a00e09e2c&scene=21#wechat_redirect>)的测试数据)，预测结果与真实Nkx2-1 mutant的差异基因高度重合(Fisher p=2.0e-26)，SFTPC/SFTPB等Nkx2-1经典靶基因名列前茅；这与[scTenifoldKnk](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535112&idx=1&sn=95a6b88cd49fb2bbb7aa091a00e09e2c&scene=21#wechat_redirect>)结果较为一致。**[4、 GPU加速](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537769&idx=3&sn=ba4234ca47a3c4a7f3442859653b14b2&scene=21#wechat_redirect>)**：VGAE训练与置换检验全程GPU加速(用RTX 3090训练仅需~28s)；需要显卡的小伙伴可以参考：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537769&idx=3&sn=ba4234ca47a3c4a7f3442859653b14b2&scene=21#wechat_redirect>)TREM2敲除效果：![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkwux33ady1ruLiccyUqlrfFJv2Oqw8Kyb18rr8icyYNyIMicLmXGERLkGD00LfiaR30GUrYhdGEH7ZNV5nKwHLX663DDNGXlDvSbg/640?wx_fmt=png&from=appmsg)AT1细胞中NKX2-1敲除效果：![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwly3wMbFuEiblHTdnzuy8qQW4aV4fqiaH5yk78mDcbazIo56roFSqwIPBicrw1Loxt8B1uc5I9Bbtyia842KsJAIQS70RbrJYLcDuU/640?wx_fmt=png&from=appmsg)
-如果你有一些生信分析想法需要落地，不妨看看：![图片](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlbhJBZUWETbvcnbPOFRPgeAjpejHqTtDDY02HLicESwu6FDqHdumppiafjyX03DFaNTU4lVNoQchMtuRaG4v47TiaBBzV8pmwGds/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=0)
+之前给大家测评过[风靡一时的scTenifoldKnk单细胞虚拟基因敲除,准不准?](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535112&idx=1&sn=95a6b88cd49fb2bbb7aa091a00e09e2c&scene=21#wechat_redirect>)。似乎大家都单细胞虚拟敲除很感兴趣，这里我们又测试了一个虚拟敲除工具GeneKI。并且完成了以下流程：**1、官方demo** 小胶质数据虚拟敲除TUBG1，TUBG1的dis排名第一(似乎是废话)；**2、 TREM2敲除实战**虚拟敲除TREM2，预测结果与真实Trem2 KO的差异基因显著重合(Fisher p=1.6e-3)，并再现APOE、补体C1Q等Trem2相关通路；**3、 NKX2-1实战2**这次我长了个心眼，不能只拿开发者自己的数据来进行测试。AT1细胞虚拟敲除NKX2-1([scTenifoldKnk](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535112&idx=1&sn=95a6b88cd49fb2bbb7aa091a00e09e2c&scene=21#wechat_redirect>)的测试数据)，预测结果与真实Nkx2-1 mutant的差异基因高度重合(Fisher p=2.0e-26)，SFTPC/SFTPB等Nkx2-1经典靶基因名列前茅；这与[scTenifoldKnk](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535112&idx=1&sn=95a6b88cd49fb2bbb7aa091a00e09e2c&scene=21#wechat_redirect>)结果较为一致。**[4、 GPU加速](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537769&idx=3&sn=ba4234ca47a3c4a7f3442859653b14b2&scene=21#wechat_redirect>)**：VGAE训练与置换检验全程GPU加速(用RTX 3090训练仅需~28s)；需要显卡的小伙伴可以参考：[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537769&idx=3&sn=ba4234ca47a3c4a7f3442859653b14b2&scene=21#wechat_redirect>)TREM2敲除效果：![No description has been provided for this image](../../images/ab986517596940ee.webp)AT1细胞中NKX2-1敲除效果：![No description has been provided for this image](../../images/ead7b8484b86fafb.webp)
+如果你有一些生信分析想法需要落地，不妨看看：![图片](../../images/072d3283fb739f9c.webp)
 
 **二、虚拟敲除背景介绍**
 
@@ -77,12 +77,12 @@ PS：虚拟KO结果应结合真实KO数据(如有)或富集分析验证，避免
 
 联系小助手绿泡泡[Biomamba_zhushou]获取提取码
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwl9W18c7AbvgxiaviaiaiawMXEyRILM73vMR0l4aZbdTaeEr6xcW8svvVmzW2nMJdpCLd9HO2Y2HHRxV5Qy02raNvUTLO0Sg4ewMvM/640?wx_fmt=jpeg)
+![](../../images/4eb7059b5c3e0625.jpg)
 
 学习手册教程目录可见：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmnMSJxibMocU2kXtvCIxm7g5AoicWt9GD5yS2gEzxrgTKvKlIcDr1NaVZewXiblYdcr4hbvhOFnpqwjypxmNmMka4bloT2ic0CISg/640?wx_fmt=png&from=appmsg)
-更多单细胞教程可见：[![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwniaDJ0aKcPIOIUheqrSYttfdUwa1Cg3KhD9v1gh34lHFJ2lwM7iab8a6Ijnp2lcDKZDexiaicb7fPdRiau7WXAuO1XTPSxIWllOpKE/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=3)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
+![](../../images/9b63bb6f18131248.webp)
+更多单细胞教程可见：[![图片](../../images/837c622fca9b9d8a.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
 
 **四、参考文献**
 
@@ -98,8 +98,8 @@ PS：虚拟KO结果应结合真实KO数据(如有)或富集分析验证，避免
 
 [6] scTenifoldKnk GitHub仓库: https://github.com/cailab-tamu/scTenifoldKnk
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

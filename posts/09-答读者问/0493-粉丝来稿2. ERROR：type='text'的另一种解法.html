@@ -1,0 +1,121 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0493-粉丝来稿2. ERROR：type='text'的另一种解法</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="2-errortypetext">粉丝来稿|2. ERROR：type='text'的另一种解法</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497842&amp;idx=1&amp;sn=5d109d3cfc74c64c4499fce90febeabb&amp;chksm=9b3c8122ac4b0834157220d5c21f1f88dfa7a4eeb5ff44454df126b75648e41a8621833fb8e2#rd
+合集：答读者问 / 粉丝来稿</p>
+</blockquote>
+<p>写在前面</p>
+<p>我们在“<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484086&amp;idx=1&amp;sn=7346a09ba350d6fb7c806dcb7509a1ef&amp;chksm=9b3f7be6ac48f2f02cb948140381ad2a0e3818cc0eefc53cb7a1ad7459aacdc1e90a1ce0af8b&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（二）——各类输入文件读取</a>”的文末教过大家如何查看Seurat对象的数据结构，后台中运行最后一行时会有以下报错。我们此前已经告诉大家版本问题可以解决这一报错(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485859&amp;idx=1&amp;sn=a014c4cb6034551e57c70820c7781e49&amp;chksm=9b3f70f3ac48f9e52620e3ff197eb98e58836e8bb6baad634387a521fdda1e4a194356517c73&amp;scene=21#wechat_redirect">答读者问 （十三）查看Seurat对象时的ERROR：type='text'</a>)。</p>
+<p><img alt="" src="../../images/52912b943f572e12.png"></p>
+<p>另一种解法</p>
+<p>让我们来看看粉丝朋友的智慧：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">pbmc&lt;- readRDS('pbmcrenamed.rds')if(!require(tidyverse))install.packages(&quot;tidyverse&quot;)
+out2 &lt;- str(pbmc)  %&gt;%    capture.output(.) %&gt;%   gsub(    pattern = &quot;\\.\\. &quot;,    replacement = &quot;#&quot;,    x = .  ) %&gt;%   gsub(    pattern = &quot;\\.\\.@&quot;,    replacement = &quot;# &quot;,    x = .  ) %&gt;%   gsub(pattern=&quot;^\\s+#&quot;,replace=&quot;#&quot;)
+if(!require(mindr))install.packages(&quot;mindr&quot;)mindr::mm(  from = out2,  input_type = &quot;markdown&quot;,  output_type = &quot;widget&quot;,  root = &quot;Seurat&quot;)
+</code></pre>
+<p>搞定，是可以成功运行的，撒花~</p>
+<p><img alt="" src="../../images/88313df7e1f8b14c.webp"></p>
+<p>测试文件：</p>
+<p>不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开，真的失效了再提醒客服更换链接哦。</p>
+<p><img alt="" src="../../images/df2d4bf952841b6d.png"></p>
+<p>链接：https://pan.baidu.com/s/1nzsDcz2ao98yPhjTeqH0jQ?pwd=zshn</p>
+<p><img alt="" src="../../images/25b134609fe51b6e.jpg"></p>
+<p><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>欢迎来稿</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png">总是我一个人在推送里做代码整理和分享实在是有点枯燥，并且有一点闭门造车的感觉。学术嘛，众人拾柴火焰高，而且大家讨论起来也热闹些。我这里有很多idea和想做的教程，欢迎大家联系文末客服<strong>领作业/话题</strong> ，或者自行提交相关学习笔记，整理好之后反馈给客服，可以酌情给予<strong>稿费</strong> ~<img alt="" src="../../images/7d247e6c6ef19f87.png"><img alt="" src="../../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/fdb4c49c78e6216c.webp"></p>
+<p><img alt="" src="../../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

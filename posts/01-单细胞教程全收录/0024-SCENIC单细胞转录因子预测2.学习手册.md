@@ -14,11 +14,11 @@ albums: ["单细胞教程全收录"]
 
 最近智齿脸肿了，先把学习手册与测试文件发放给大家，待我拔了牙消肿后开冲！计划给大家做一个**精简版** 流程的教程以及**详细拆解** 的分析流程。以下为主要分析结果：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxJwANH002Bia9BicBkibRDIwbUZSuLiagpoiaa1ZeYLc00RiaVibLJRibrLCMnuW8vEKmVYVP6v3U8ArPYyg/640?wx_fmt=jpeg)
+![](../../images/65570e77bfdcfced.webp)
 
 学习手册：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxJwANH002Bia9BicBkibRDIwbQVrf6pnLBUEvXwibgN8WmJprR2RyPMv8Hd74tNFiaiaxOdDNFeN3DBKRA/640?wx_fmt=png)
+![](../../images/be8d55f77b2b9830.webp)
 
 **视频教程**
 

@@ -80,13 +80,13 @@ library (dplyr)
 # 包含两个组别的数据：DimPlot(scRNA,split.by = 'Group')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmJCnehfTWrImRRQP1yqwsZ8x5UgNezogHX9Eic1JL0qPuzj9icIX5wRCEf1szHgaib9GnBsu7hjkFgPUYc7QlgvAbVZkuvwwkgWJM/640?wx_fmt=png&from=appmsg)
+![](../../images/bcf41c889cdb3199.webp)
 
 ```r
 # 取五种细胞类型用于下游演示：select_ct <- paste0('celltype',1:5)scRNA <- scRNA[,scRNA$cell_type %in% select_ct]DimPlot(scRNA,split.by = 'Group')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmIQwzUe0MM1wNcibKDaLqUzib2B5b1qK6ibH8x6Ik6oBDT8eV2f3XyBbBan7siczgbibn6l92FsIVVRUpribxJb1xibwoibKbWnxewzkVA/640?wx_fmt=png&from=appmsg)
+![](../../images/5e47e3d414b64f07.webp)
 
 2、循环添加细胞类型专属变量
 ```r
@@ -373,7 +373,7 @@ bulk <- AggregateExpression(scRNA, return.seurat = T, slot = "counts", assays 
 # 更改默认标签为细胞类型Idents(bulk) <-  bulk$cell_type                               # 小提琴图看看我们拟bulk获得的基因效果如何：VlnPlot(bulk,top3_mk$gene,stack = T)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmKJribmFpWcbCbI46c7Y4aTsibVRdqk3wYuHOVR3YSMJjQpwsTN5Ev45UhT5my2Lh7bgkgJmG3gyb6MVaDibGPwWLIU1vUjrg5BPg/640?wx_fmt=png&from=appmsg)
+![](../../images/3e6a0aa6796108e1.webp)
 
 4、热图绘制
 
@@ -389,13 +389,13 @@ bulk <- AggregateExpression(scRNA, return.seurat = T, slot = "counts", assays 
 avg <- as.data.frame(avg)library(pheatmap)# 绘制热图pheatmap(avg[,select_ct],         cluster_rows = F,cluster_cols = F, #行和列的聚类都关掉，方便我们按顺序观察结果           show_colnames = T,#展示横坐标的细胞分群         color = colorRampPalette(c("navy", "white", "firebrick3"))(50), #修改渐变色         scale = "row"         )
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmLb0TuN9HbiarlhdPKzB3ibLW9ISOfW0mG9ibNlKcmkWI6icj2wovkAnkPfgPog0XP8zGPvwcmjVwVtx4bBkuibibyxuCj2OtD1J7Lt0/640?wx_fmt=png&from=appmsg)
+![](../../images/93387d550023a728.webp)
 
 **三、演示环境**
 
 一切不给测试文件和分析教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmIYkicxRQcxgzoqQ3biaGGB7h7YMM2ChOQ8Fa1R8PzpByy7LChibPuVnV1D2T2fDc4MxGWTtYMbmic0MaicjicfvMmHWQGVoHB5uOo74/640?wx_fmt=png&from=appmsg)
+![](../../images/eb1271506672717c.webp)
 
 通过网盘分享的文件：
 
@@ -403,7 +403,7 @@ avg <- as.data.frame(avg)library(pheatmap)# 绘制热图pheatmap(avg[,select_ct
 
 提取码: yxr9
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/hRkOoB5ZTmKmvDa3zSaciaDrUxkXicS7rStCGBibDuvg5tsKhdV91L2Af7ZGNDXqfhRrnwtc0vafI3IKlQcibV2AsTEQJEuKWicNibRoIECwicv02Y/640?wx_fmt=jpeg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![](../../images/3bcc10313b2d9d36.webp)![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -436,14 +436,14 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](../../images/4ec66ccdb832fd05.gif)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=9)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=10) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=12) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

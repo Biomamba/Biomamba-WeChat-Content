@@ -13,9 +13,9 @@ albums: ["求职/求学/招聘"]
 The Cluster of Excellence ImmunoSensation2 is inviting applications for **8 PhD student positions** (m/f/d) (65%) at the Bonn Graduate School of Immunosciences and Infection.
 Positions are initially limited to **3 years**.
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxkvYlxf2A2nVcBHKfnf6YqnWUXIna4GeHIDSJm1OwLib3vDibJgiaW27bSpstmCcbAuKKKWo0LZCibQg/640?wx_fmt=jpeg)![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxkvYlxf2A2nVcBHKfnf6YqmMIictUoaRY1ibAUl0LbOPlF1XW8UcQOO2sQiaMIJX0tOjibJe28u92Ocg/640?wx_fmt=jpeg)
+![](../../images/9ef5d03d257c989e.jpg)![](../../images/b7c0214d18d07a7f.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2c562ef3d26044d9.jpg)
 ************I. the Introduction of ImmunoSensation2************
 
   * ImmunoSensation2 is a Cluster of Excellence funded by Germany’s Excellence Strategy at the University of Bonn. Participating scientists are dedicated to investigating innate immunity beyond the boundaries of classical immunology. In a joint effort, immunologists, neuro-biologists, systems biologists and mathematicians of the University of Bonn and the German Center for Neurodegenerative Diseases (DZNE) of the Helmholtz Association aim to connect the status of the immune system, the metabolism and the nervous system to disease states.
@@ -53,9 +53,9 @@ Link:
 
 https://www.immunosensation.de/opportunities/open_positions.html
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxkvYlxf2A2nVcBHKfnf6Yqet3VVZhUP6oy67nscrHMnlD8VuSXjTRGsGnzNlJ39ichRG15eNiao3CQ/640?wx_fmt=png)
+![](../../images/4f655ddf2877db58.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/2c562ef3d26044d9.jpg)
 ************往期回顾************
 
 **[歪!?来"Biomamba 生信基地"兼职？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)**[](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)
@@ -70,4 +70,4 @@ https://www.immunosensation.de/opportunities/open_positions.html
 [北京大学张泽民实验室诚聘生物信息学Co- PI](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247494380&idx=2&sn=99e71c056ecc026a794ae01d55d06426&chksm=9b3c93bcac4b1aaa0da4f25923f1071b9a545baf1e48abad6f90cffc2af12344bcb40f3e7e3e&scene=21#wechat_redirect>)**[](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247494380&idx=2&sn=99e71c056ecc026a794ae01d55d06426&chksm=9b3c93bcac4b1aaa0da4f25923f1071b9a545baf1e48abad6f90cffc2af12344bcb40f3e7e3e&scene=21#wechat_redirect>)**[](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247494380&idx=2&sn=99e71c056ecc026a794ae01d55d06426&chksm=9b3c93bcac4b1aaa0da4f25923f1071b9a545baf1e48abad6f90cffc2af12344bcb40f3e7e3e&scene=21#wechat_redirect>)
 ****
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞，我都认真当成了喜欢
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/0694eb4925c4700f.gif)您点的每个赞，我都认真当成了喜欢

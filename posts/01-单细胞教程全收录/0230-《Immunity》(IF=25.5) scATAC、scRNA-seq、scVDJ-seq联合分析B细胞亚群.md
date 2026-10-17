@@ -12,7 +12,7 @@ albums: ["单细胞教程全收录"]
 
 **一、写在前面**
 
-`` 记忆B细胞（Memory B Cells）是适应性免疫系统中的关键组成部分，它们在体液免疫反应中扮演着至关重要的角色，当机体再次遇到相同的病原体时，记忆B细胞能够迅速增殖和分化，快速产生抗体，以应对再次感染。然而，慢性病毒感染如HIV、丙型肝炎和巨细胞病毒会干扰MBC的发育和抗体生产，导致不完全或无效的免疫保护。在这篇文章中作者通过单细胞ATAC测序（[scATAC-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521636&idx=1&sn=208907010f3f7412c1c91343d7dfb0d3&scene=21#wechat_redirect>)）和单细胞RNA测序（[scRNA-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522475&idx=1&sn=84dd9a65348528be9aa2b8d2711d776c&scene=21#wechat_redirect>)），比较了急性和慢性淋巴细胞性脉络丛脑膜炎病毒（LCMV）感染期间的MBC。主要探讨了慢性病毒感染如何改变MBC的发育，以及这些改变是否可逆，最终鉴定出了一个在慢性感染期间存在的记忆亚群，该亚群富集干扰素刺激基因（ISG）且不同于通常与慢性感染相关的T-bet+亚群。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheImhcdAazVvm348OibgU7TaHMkKUor1WDKxGNjDP0fEFlJfE6ibK8Ppibqg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheIOq5UZubfBfU19uHR3r0j8JaibtWPtZGq3Qf1oaDF7qia0suoARNfap3A/640?wx_fmt=png&from=appmsg)文章链接：https://pubmed.ncbi.nlm.nih.gov/38593796/
+`` 记忆B细胞（Memory B Cells）是适应性免疫系统中的关键组成部分，它们在体液免疫反应中扮演着至关重要的角色，当机体再次遇到相同的病原体时，记忆B细胞能够迅速增殖和分化，快速产生抗体，以应对再次感染。然而，慢性病毒感染如HIV、丙型肝炎和巨细胞病毒会干扰MBC的发育和抗体生产，导致不完全或无效的免疫保护。在这篇文章中作者通过单细胞ATAC测序（[scATAC-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521636&idx=1&sn=208907010f3f7412c1c91343d7dfb0d3&scene=21#wechat_redirect>)）和单细胞RNA测序（[scRNA-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522475&idx=1&sn=84dd9a65348528be9aa2b8d2711d776c&scene=21#wechat_redirect>)），比较了急性和慢性淋巴细胞性脉络丛脑膜炎病毒（LCMV）感染期间的MBC。主要探讨了慢性病毒感染如何改变MBC的发育，以及这些改变是否可逆，最终鉴定出了一个在慢性感染期间存在的记忆亚群，该亚群富集干扰素刺激基因（ISG）且不同于通常与慢性感染相关的T-bet+亚群。![](../../images/946a0f3fdbbcac95.webp)![](../../images/d3c4c8b464eb0f7e.webp)文章链接：https://pubmed.ncbi.nlm.nih.gov/38593796/
 scATAC分析教程可参考：[scATAC分析学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521636&idx=1&sn=208907010f3f7412c1c91343d7dfb0d3&scene=21#wechat_redirect>)
 
 scRNA-seq分析教程可参考：
@@ -32,7 +32,7 @@ scRNA-seq分析教程可参考：
 
 **Fig.1**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheIMkRM29QR7QdvNwsEM6pn6sMJqZlnfPYaiaRH125tra0md7NlFjhNYtw/640?wx_fmt=png&from=appmsg)
+![](../../images/03718dd50cbe4588.webp)
 
   1. **2. ****LCMV-Docile****感染改变抗原特异性****MBC****的形成。******
 
@@ -44,7 +44,7 @@ scRNA-seq分析教程可参考：
 
 **Fig.2**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheI7U4pe3DrLicCqnRlCEEicUeINYnMYMXHpJJOcZRiaUjhvzMPOIoFa6qEw/640?wx_fmt=png&from=appmsg)
+![](../../images/11959e1506bf2bf1.webp)
 
   1. **3. ****慢性****LCMV****感染诱导了富含****ISG****的****MBC****群体。******
 
@@ -52,7 +52,7 @@ scRNA-seq分析教程可参考：
 
 Fig.3
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheIMibk2ibQC0erZ5ibYeD5IBgia4C4loc8hu0Y9yGNAZvIf1f4ZY7IPTD3sQ/640?wx_fmt=png&from=appmsg)
+![](../../images/81b41d2e32d3e125.webp)
 
   1. **4. ****慢性病毒诱导的****MBCs****在体外反应能力降低。******
 
@@ -60,7 +60,7 @@ Fig.3
 
 **Fig.4**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheIOeqpthTD2uZK42ibQibTW36MCPR743Fq3xXQWqB4n1NfgVxd3jffCicgQ/640?wx_fmt=png&from=appmsg)
+![](../../images/afff23a7ef1a1047.webp)
 
   1. **5. ****IFN-I****是驱动慢性病毒感染期间****MBC****表型和表观遗传变化的关键因素。******
 
@@ -68,7 +68,7 @@ Fig.3
 
 **Fig.5**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheIcupYJqiaUI8x7A1g1OZmiaAkgJNJIiaMxaCJnCcmJz9icJxRbNXFWZGTMA/640?wx_fmt=png&from=appmsg)
+![](../../images/8b3530ea34bb8c0d.webp)
 
   1. **6. ****病毒载量不是慢性****MBC****表型的唯一驱动因素。******
 
@@ -76,7 +76,7 @@ Fig.3
 
 **Fig.6**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheImTsQxUf5dwRJEvFK3HX6CeujMvv4Ezziaia9OxLo2td9OV4ws8VhiaoJA/640?wx_fmt=png&from=appmsg)
+![](../../images/4ab4749d3d65bb05.webp)
 
   1. **7. ****慢性病毒感染期间，****IFN-I****是影响****MBC****染色质景观建立的关键时间窗口。**
 
@@ -84,20 +84,20 @@ Fig.3
 
 **Fig.7**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyD8sQgCbGibjhdHGeWrNheIsrVIO17PlQesKFOzg8YicwMghWBkYn0VBicRxPWn7D0fLlW5g1QeCD9g/640?wx_fmt=png&from=appmsg)
+![](../../images/e1007dca96aa1620.webp)
 
 **三、最后聊聊**
 
 ``**总而言之，这篇文章通过scATAC-seq和scRNA-seq的联合分析和相互验证，通过将scRNA-seq的聚类标签转移到scATAC-seq数据中，计算基因活性来分析每个基因在每个细胞中的表达水平，并识别不同条件下的显著差异基因区域和基序活性。结果揭示了慢性病毒感染期间，IFN-I如何通过改变MBC的表型和表观遗传特征，影响其功能和免疫记忆。****scATAC-seq和scRNA-seq能够分别提供细胞核染色质可及性和基因表达的信息。这两种数据的联合分析可用于探索和理解单细胞水平上的基因表达和染色质可及性之间的复杂关系。**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

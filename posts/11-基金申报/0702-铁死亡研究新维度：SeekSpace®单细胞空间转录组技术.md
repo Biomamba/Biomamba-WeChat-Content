@@ -10,7 +10,7 @@ albums: ["基金申报"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247525650&idx=2&sn=3b96ff98786a778be5167cd398a58244&chksm=9b3c1c42ac4b95546ba8557fe9350f9d44873f33147d77ceea9469f0623b9b10612826ca457a#rd
 > 合集：基金申报
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_gif/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicxfcJy4C8HdIym8b2dxNGrHpIvpew7aelOiagic08WN9eqowoQcvaDIVg/640?wx_fmt=gif&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/63f4641a52b5e779.webp)
 
 **导语 .**
 
@@ -22,21 +22,21 @@ albums: ["基金申报"]
 
 **国自然宝典纸质版和视****频回看可添加小寻领取：**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZqh9cm68DpicZyIZ0bKG4UuibGribjTVq01ia2KcBoygftR7Z5vxynzicGc7I1wQT8DmUq622icJ3ibeOA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzMoWbIoS1ibudnHicUzDv8foC7QAE7yXtwsNZI5JQVfgsWthCu36zZkx5Yp8u0jIgmLQVBj9eecD1Q/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/26471894aac621f4.webp)![](../../images/2e59781a8ac52286.webp)
 
 我是小寻
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicZEg7FAyoUXDv3rk0hsgydicYIrFSyd0ZicctKFEgc3OotqT2DuQ0wujQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/816f8b48a5f72f80.webp)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicqXGxsibNjEGskDWdezoQZtZxVncVF0E2ztAhcmCDMHgPPicKfE10PDtQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)图1.PubMed检索铁死亡相关发表文章
+![](../../images/b98a91f6bb7fe022.webp)图1.PubMed检索铁死亡相关发表文章
 
 铁死亡研究方向主要研究领域主要涉及机制和调控、疾病关联、抗氧化剂和药物筛选以及检测和评估方法等方向，从2023年铁死亡研究的国自然中标项目来看，研究方向主要涉及疾病关联、其中肿瘤研究占比将近30%，通过疾病种类高频词汇云图，可以看出，肿瘤占比非常突出。其次抗氧化剂和药物筛选，机制和调控方面项目数相对比较少。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmibOcDVkoRsxtF6bCBNVzQLRNwcbAibVbuWAohoqsuShqtBlSQrR3Eb3g/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/4b3d66a9edd8ecb1.webp)
 
 图2.2023年铁死亡国自然中标项目分析
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmjvK7icyK8la96kmKaaibialkWU4cicQaHwuQ8naOfvvLwEdIeGXtfup3IA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/398ebb5f8f9d1f56.webp)
 
 图3.疾病种类高频词汇云图
 
@@ -48,7 +48,7 @@ albums: ["基金申报"]
 
 2012年，铁死亡（Ferroptosis）被首次发现，并命名的铁离子依赖的新型程序性细胞死亡方式。铁死亡由磷脂过氧化驱动，主要依赖于代谢产物活性氧（reactive oxygen species, ROS）、含有多不饱和脂肪酸链的磷脂（phospholipid containing polyunsaturated fatty acid chain, PUFA-PL）和铁积累的增加。细胞内和细胞间的信号事件以及环境压力可以通过调节细胞代谢和ROS水平来影响铁死亡。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnic0rianDAwXFrR9cTeVz5zmnl6j7ibO3ibJSXyGeQQTg4JZuO9vbLOOEibSQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d689a5efc64763a0.webp)
 
 图4.铁死亡概述
 
@@ -58,7 +58,7 @@ albums: ["基金申报"]
 
 铁死亡参与了人体生理功能和病理功能，一方面铁死亡参与了许多生理过程，肿瘤抑制和免疫功能、发育和衰老以及抗病毒免疫，另一方面铁死亡涉及多种系统性疾病，包括癌症、神经系统疾病、心血管疾病、呼吸系统疾病、肝病、消化系统疾病、泌尿生殖系统疾病、内分泌系统疾病、铁超载疾病、肌肉骨骼系统疾病和自身免疫性系统疾病，以及视觉系统疾病。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicYUYBXPUy2qLvgHgJM4iaVHrO7zm2IHDTbefAsSer6xYRe6EZI9g21Pg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/43e1b886cf5e7067.webp)
 
 图5.铁死亡与疾病关系
 
@@ -70,11 +70,11 @@ albums: ["基金申报"]
 
 表1.不同疾病中铁死亡的关键机制和调节因子
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicecaXQEDyet29ewNje69FDBJpSkyia79qn6fJBiaxichz5yuYrSrUNuyMg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c4454894446f0d32.webp)
 
 目前一些铁死亡诱导剂已经应用于肿瘤抑制和免疫治疗，铁死亡抑制剂也在多种疾病模型中表现出良好的治疗效果，靶向铁死亡发生的小分子虽有较多理论结果支撑，较差的药代动力学，靶向性以及可能产生的副作用等都是阻碍这些小分子成药的绊脚石，因此，利用纳米技术构建这些小分子的传递系统可能是小分子成药的有力助推器。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicefENpZ42HnNibk3QRfhhTQicYIPxlZkrhLib6LLN1FIBv1RNZibgF6vSuA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ee9923393caecc96.webp)
 
 图6.铁死亡相关通路及调节剂
 
@@ -84,7 +84,7 @@ albums: ["基金申报"]
 
 铁死亡检测方法，涉及四个方面，包括形态学检测、生物学特征检测、细胞活力检测和分子检测，其中，生物学特征检测包括铁代谢物检测和脂质过氧化物检测，分子检测包括铁死亡相关基因和蛋白质检测。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicg69yt4ibicKibMOTfLGehI1HJqYYDcOASbbQPTlDsLJwjD1t5pLpBfqxg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/411ddc0686d198b5.webp)
 
 图7.铁死亡检测方法
 
@@ -94,9 +94,9 @@ albums: ["基金申报"]
 
 截止2024年11月，PubMed检索单细胞空间转录组测序研究铁死亡相关的文献大约210+篇，空间转录组发表文章12篇+，发表文章数逐年增长，其中，国内发表文章占比将近87%，主要涉及肿瘤、感染性疾病、器官损伤、自身免疫疾病、心血管疾病、神经退行性疾病及缺血再灌注损伤等等，其中，肿瘤占比将近50%。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmAVVTKZr2VibdfiaKxVibk55CRd7gxv16zicLzxb23XOTBXfN2mIOfRIqOA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c631987764649dee.webp)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmZvUqSEetVF8XVy6pLKmo3ptTzmIqcibKwdnlNWLVBJTlahsvFWdG7iag/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/30ddd6861b76c635.webp)
 
 图8.单细胞&空间转录组铁死亡方向发表文章
 
@@ -106,7 +106,7 @@ albums: ["基金申报"]
 
 铁死亡在多种肿瘤细胞中均可发生，并受基因转录、能量代谢等多种因素的调控。铁死亡在肿瘤研究方向主要涉及肿瘤发生发展、转移、治疗及耐药机制以及早期诊断和预后研究。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicqmiaSiaHkibvTJDLVAibwhmSw9ZwFYwkvFIbCJt32oPJUZUG9pQ2tFtaiaw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/f64bb42256f87fca.webp)
 
 图9.单细胞&空间转录组肿瘤铁死亡方向
 
@@ -128,7 +128,7 @@ albums: ["基金申报"]
 
 **研究思路：**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmOeSS48P3fPtgaf5ywsyTgHT2FFBCZQe7Y4cAkSYtXnhP57mMic8icFtg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c872339be4e42ae4.webp)
 
 **方向二：肿瘤转移**
 
@@ -144,7 +144,7 @@ albums: ["基金申报"]
 
 **研究思路：**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmsLBpeNrAAkCgMFkKOOXZFDTw9NlhvM3afj40kWdpAelTwuAO3bz6sw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7bbdec1ca64a03a5.webp)
 
 **方向三：肿瘤治疗及耐药机制**
 
@@ -160,7 +160,7 @@ albums: ["基金申报"]
 
 **研究思路：**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmDibyDvAeutzUkGMUcxSljuoUFPf9zukOs3acxtCpVr47iboCuQ93libcQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/68db6cee9d3a7d90.webp)
 
 **方向四：肿瘤预后研究**
 
@@ -176,13 +176,13 @@ albums: ["基金申报"]
 
 **研究思路：**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmjeEqoib21886Bv7ZlLp5MFqTIuStHO0Vrc1As9fUNl0smupRrLdwxlg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fce96815390e65d8.webp)
 
 **寻因生物解决方案——SeekSpace ®单细胞空间转录组**
 
 SeekSpace®单细胞空间转录组技术以可断裂的位置探针反向标记单个细胞，然后通过SeekOne®DD油包水平台进行细胞标记，利用共有的细胞标签将单细胞表达信息与空间位置信息一一对应，真正实现一份组织单细胞分辨率空间转录组信息的检测。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EATU6OcfFRjQiabKI2sFibeBgmibTEBM5OkibxJpQxFrUqRSFkWFibUuArL6fnb4TaRg2uWfvZDlUFORVCw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7a5aa0b0ccaca511.webp)
 
 图10.技术原理
 
@@ -198,13 +198,13 @@ SeekSpace®单细胞空间转录组技术以可断裂的位置探针反向标记
 
 （5）搭配云平台实现空间分析可视化，空间轨迹分析、细胞通讯分析、拟时序分析等高级分析也可以轻松实现。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnict9EyuEibCibE4xg7XDGiadGOoxaiat4Jw9kUDptCOacKRtgmm8mWf25sHw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/352d36901e0257a2.webp)
 
 **寻因生物解决方案——肿瘤铁死亡研究思路**
 
 通常可以根据不同的研究方向、纳入不同的患者或者小鼠模型、细胞系或者类器官，采集不同的组织类型，通过SeekSpace®单细胞空间转录组技术，同时获得表达谱和空间定位，同时可以联合其它多组学分析，筛选肿瘤铁死亡相关关键基因、细胞亚群和信号通路，再通过基础实验、功能实验和多组学验证，多个维度解析铁死亡参与肿瘤发生、发展及治疗响应的调控机制，从而为肿瘤诊断和精准治疗提供依据。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicl4cxyUmlicibA14e3lT5ZWDiaxOU7vfLiaibPLv6ZKW2yFY3VPIJCG9EibHg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/36bff17358f20d97.webp)
 
 图11.SeekSpace®单细胞空间转录组在肿瘤铁死亡的研究思路
 
@@ -220,7 +220,7 @@ SeekSpace®单细胞空间转录组技术以可断裂的位置探针反向标记
 
 （4）采用SeekSpace®单细胞空间转录组联合其它组学分析，可进行多个肿瘤细胞间的多维数据分析，解析解析铁死亡参与肿瘤发生、发展及治疗响应的调控机制，为肿瘤诊断和精准治疗提供依据。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_gif/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmniccGxn0WDoPuV1DcJRcC7uvYK98CTTsqXCUK2tdwYI58XZxk9kMySI0w/640?wx_fmt=gif&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/3bbd18fdaf64bf7e.webp)
 
 **参考文献：**
 
@@ -244,7 +244,7 @@ SeekSpace®单细胞空间转录组技术以可断裂的位置探针反向标记
 
 **关于寻因生物**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnic1NEtJZLFKO3DN009fiaSbpy9mHf5u1kfAhDaZzrIlN0EPbTuSSphyeQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/c3dbe78d05c12cb0.webp)
 
 北京寻因生物科技有限公司（简称寻因生物）——专注单细胞测序技术自研、创新的国产技术平台。秉承“用技术温暖生命，预见未来”的企业愿景，致力成为您身边最值得信赖的单细胞创新合作伙伴。
 
@@ -262,4 +262,4 @@ SeekSpace®单细胞空间转录组技术以可断裂的位置探针反向标记
 
  _**END**_
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmniccydK3NQ0xx0SibUBUiataafYuzlmfQctujtnRh3t554ySWqql0Rwfj2w/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicGtSfORmFBETuiajHzI4TRrH59CxLXNib3tVBTSO2ycmAoJop9smey7Bg/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicLsNWfkRFl9BCd9XuOiarNicY1fib3qvXEw5OGu4icsnbgxjWDcZvp3kP0A/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnic2ib91YBmg1viahGLdKQico9ufiaIIzJmpp8lwXDqbqgPAT9S6h8DXPZmIQ/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicUtAv1RTGMDGRK4oEXC0Qc5EsjTPJqba1DXOT58aZAPYmve6jTXjgaw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicF0Rr9ndD2D9yw3fhZpv2vGBIndWa9Fd7OpsWqu5icIgOzvOLLGJlJPw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicUcSjdvcgnoPmpQm9T5EVbnt4U5w50Q2XkRibGaTibsSQD3zw6Bmh1wJA/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/sz_mmbiz_png/N0VMNpQ8EAQtMTjKb6UPoXp9LjiaSmmnicLaYdR5zZyNtBnjibk1xNZKzC87F5sic55NrFMw3QfWic5sPKTYrS314kw/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2475e93501d21bdc.webp)![](../../images/e183bb0900cf1413.webp)![](../../images/da0d9e8db4a8d781.webp)![](../../images/8039b942e1dde119.webp)![](../../images/3172e48ed9b82c55.webp)![](../../images/1ca31db32868a157.webp)![](../../images/d5a26c73145dded8.webp)![](../../images/4b22cee4a00e8978.webp)

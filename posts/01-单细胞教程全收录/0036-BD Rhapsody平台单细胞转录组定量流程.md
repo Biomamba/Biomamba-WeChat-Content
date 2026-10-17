@@ -29,7 +29,7 @@ albums: ["单细胞教程全收录"]
 
 大陆的小伙伴大概率在使用docker时会失败，由于长城的问题可能会timeout：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpytPwIVdVia2R0nnIASGQyb9GruicAiabp6eqUHXezOm6Yy8LxibNzR4gFX9jaWdBtmSnMWkRibiaZm0Viag/640?wx_fmt=jpeg)
+![](../../images/4cb6d76e3b28ff72.webp)
 
 这时就需要借助一下阿里的官方镜像加速链接[3]，注册后在个人实例→镜像仓库→镜像加速器中申请获取加速器地址，完成如下配置(vim教程可见：[Linux| 25. 文件编辑器 vim](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500900&idx=1&sn=f8e41737d22588beaeb6cfeea8865a7d&chksm=9b3cbd34ac4b3422ded73466e862117a5b4989eb0ca2125f2c1f45b67f9ca3772d40a1bb6835&scene=21#wechat_redirect>))：
 
@@ -54,7 +54,7 @@ vim /etc/docker/daemon.json
 
 安装过程一直敲回车、遇到询问均填写yes后敲击回车即可，安装时间需要花费5~10分钟，如果选择安装 Microsoft VSCode部分，会额外花费一部分时间。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwRnuia0k8S3dYJrjS6vR7ag3Zlia3LNNKicO6IM1nRakN89pLP3PibzxyDfWUwkfGWmzEdQsoEl8iaPEw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/4759aca6ad90f8f6.webp)
 
   *   *
 
@@ -62,7 +62,7 @@ vim /etc/docker/daemon.json
  source ~/.bashrc#重启一下环境配置，否则无法直接定位到conda which conda#返回完整路径即为安装成功
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwRnuia0k8S3dYJrjS6vR7agqrhibzITUcHgMllibe95tucDKP56iavgScUScTrT0kjdmXAx2As4vYHrw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/6368a3aeae73b4d3.webp)
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -87,13 +87,13 @@ pip install cwlref-runnersudo apt install nodejs
 
 https://bitbucket.org/CRSwDev/cwl/src/master/v1.9.1/
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpytPwIVdVia2R0nnIASGQyb9zSD8cDvU1JIoz5diaCMaXLAAXNK2faRrkGlicyic7dqcxAnFaI3h1OMibg/640?wx_fmt=png)
+![](../../images/7e5dfbb528a45488.webp)
 
 无法访问的同学可以从我的百度云盘里下载，链接无提取码、不会失效，若无法打开请更换浏览器尝试：
 
 https://pan.baidu.com/s/17NpUin4N0UgcxW7LhCVegQ?pwd=et22
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpytPwIVdVia2R0nnIASGQyb9XtYt754CibWPKepZt7tjfXZ8tK9cpHWvOZXzrhAUR1fiaib23TKzx2e0A/640?wx_fmt=jpeg)
+![](../../images/7dcf5e8758148692.jpg)
 
 yml文件中的收录内容为(有#号的代码不用管，直接修改参考基因组路径与fastq文件路径即可使用)：
 
@@ -137,7 +137,7 @@ cwl:tool: rhapsody
 
 也可以直接在这个页面中点击下载：http://bd-rhapsody-public.s3-website-us-east-1.amazonaws.com/Rhapsody-WTA/Pipeline-version2.x_WTA_references/
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpytPwIVdVia2R0nnIASGQyb9aSd2dZFT6Ujm6icUX6ravbww3kjAV5gzQpickuictZldwlKibhOzpkibpug/640?wx_fmt=png)
+![](../../images/1b64f0d45b786835.png)
 
 四、运行
 
@@ -152,7 +152,7 @@ cwl:tool: rhapsody
 
 五、输出文件可参考源文档[1]，所以CRR152994_Expression_Data.st就是我们所需要的稀疏矩阵，可以参考这个教程读入：[没有barcode文件的单细胞数据要怎么读取](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490952&idx=1&sn=364a3941e59e45234795c906a42fc9ab&chksm=9b3f64d8ac48edcec70384cf5c6a91224d0f7841ce3a7cfcade6513500c13673a6695d6f0299&scene=21#wechat_redirect>)(需要好好理解数据格式)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyPBbs8jLicrjIoMw2SRnnPWk5biaJicFESCdCj65NZibZAXMObUeVPh8zkFIBhTYMweEFMpn3sNsHgCA/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyPBbs8jLicrjIoMw2SRnnPWLIpIY2FETRZ0VbaZosqtCOwvFa9KQiczLxHzFqKmNLYJ22cFa4Z329Q/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyPBbs8jLicrjIoMw2SRnnPW8PQHSzgic7yoyNdDDibYVl9k7SmuddS7vrh6SOwHZickc3nOzricibSjRgg/640?wx_fmt=png)
+![](../../images/55bb9e614053bb4b.webp)![](../../images/31e107f0ee334923.webp)![](../../images/7f2e7d18e11b5551.webp)
 
 **往期回顾**
 
@@ -168,17 +168,17 @@ cwl:tool: rhapsody
 [1]:https://www.bdbiosciences.com/content/dam/bdb/marketing-documents/BD_Single_Cell_Genomics_Analysis_Setup_User_Guide_v2.pdf
 [2]:https://docs.docker.com/engine/install/ubuntu/[3]:https://help.aliyun.com/document_detail/60750.html
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

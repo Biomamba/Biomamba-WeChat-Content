@@ -1,0 +1,477 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0022-改造单细胞DotPlot</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="dotplot">改造单细胞DotPlot</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527750&amp;idx=1&amp;sn=55f4645a82ac055cc0bfdbed3375fc06&amp;chksm=9b3c1416ac4b9d004ff72fa21006598211570ddfd6f0cde32d78f67388d260c00a5414a8980a#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
+<p>写在前面</p>
+<p><img alt="" src="../../images/90fab1387787746b.webp">随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些<strong>改进的可视化</strong> 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样<strong>信达雅</strong> 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2707677276481814529#wechat_redirect"><strong>单细胞测图片改造计划</strong></a>的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
+这次的内容为对DotPlot的改造，主要DIY的地方是加上了顶部的Celltype注释条与侧面的基因聚类树。本教程需要有一定的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506720&amp;idx=1&amp;sn=fe897ba3c33a8e63bf6a4e35aeac1896&amp;scene=21#wechat_redirect">R语言基础</a>方可放心食用。本周末<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527337&amp;idx=1&amp;sn=6893269670fc98b41d6bb1decf5abadb&amp;scene=21#wechat_redirect">R语言学习计划启动</a>！</p>
+<p><img alt="" src="../../images/d177e2eb51b3b086.webp"></p>
+<p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
+<p>视频教程</p>
+<p><img alt="" src="../../images/90fab1387787746b.webp">B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1S44y1b76Z?p=19</p>
+<p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
+<p>代码及测试文件</p>
+<p><img alt="" src="../../images/90fab1387787746b.webp">不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或<strong>扫码打开</strong> ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：</p>
+<p><img alt="" src="../../images/b1e5f33320c540b9.png"></p>
+<p>通过网盘分享的文件：改造单细胞DotPlot</p>
+<p>链接: https://pan.baidu.com/s/1Hfu_ROTeVg8xKRH5vZ-fdg?pwd=gdvk</p>
+<p>提取码: gdvk</p>
+<p><img alt="" src="../../images/9f681d6a794eff65.webp"></p>
+<p>若链接失效可以文末联系客服领取~</p>
+<p><img alt="" src="../../images/ceac53a8b65f5faf.png"></p>
+<p>图文教程</p>
+<p><img alt="" src="../../images/90fab1387787746b.webp"></p>
+<h1 id="_1">一、测试数据处理</h1>
+<p>经典的pbmc3k数据集 下面预处理的步骤看不懂的同学可以先补一下基础知识手把手教你做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487976&amp;idx=1&amp;sn=8edd929256e609e4210a40df63fc1427&amp;chksm=9b3f68b8ac48e1aefd3ff38dd5744c485cde5d7f28d79745b66863928d4614fafb2928b3f617&amp;payreadticket=HMoAY_v8_rICSU7SWHmvxC0_zLzxhvZtkSG6IE0gCGU29Swy8TC2jTa2hBv3oc4ktoOPfGo&amp;scene=21#wechat_redirect">单细胞测序数据分析（三）——单样本分析</a></p>
+<pre><code class="language-r">suppressMessages({
+  library(Seurat)
+  library(ggplot2)
+  library(dplyr)
+  library(tidyr)
+  library(aplot)
+  library(ggtree)
+})
+# 加载数据
+sce = Read10X(&quot;./data/pbmc3k_filtered_gene_bc_matrices/filtered_gene_bc_matrices/hg19&quot;)
+sce_final &lt;- sce %&gt;% CreateSeuratObject(min.cells = 3, min.features = 200) %&gt;% PercentageFeatureSet(pattern = '^MT',col.name = 'percent.mt')
+select_c &lt;- WhichCells(sce_final,expression = nFeature_RNA &gt; 200 &amp; nFeature_RNA &lt; 2500 &amp; percent.mt &lt; 5)
+sce_final = subset(sce_final,cells = select_c)
+dim(sce_final)
+</code></pre>
+<pre><code>## [1] 13714  2626
+</code></pre>
+<pre><code class="language-r">sce_final &lt;- sce_final %&gt;%
+NormalizeData() %&gt;%
+FindVariableFeatures() %&gt;%
+ScaleData() %&gt;% RunPCA() %&gt;%
+FindNeighbors(dims = 1:10) %&gt;%
+FindClusters(resolution = 0.5) %&gt;%
+RunTSNE(dims = 1:10) %&gt;%
+RunUMAP(dims = 1:10)
+</code></pre>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+##
+## Number of nodes: 2626
+## Number of edges: 95233
+##
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.8722
+## Number of communities: 9
+## Elapsed time: 0 seconds
+</code></pre>
+<pre><code># 展示机械分群信息
+DimPlot(sce_final, label=T)
+</code></pre>
+<p><img alt="" src="../../images/398ad19c0c3d8d2c.webp"></p>
+<pre><code class="language-r">#参考seurat官网添加细胞标签
+new.cluster.ids &lt;- c(&quot;TCells&quot;, &quot;Myeloid&quot;, &quot;TCells&quot;, &quot;BCells&quot;, &quot;TCells&quot;, &quot;Myeloid&quot;, &quot;TCells&quot;, &quot;Myeloid&quot;, &quot;Platelet&quot;)
+names(new.cluster.ids) &lt;- levels(sce_final)
+sce_final &lt;- RenameIdents(sce_final, new.cluster.ids)
+sce_final@meta.data$celltype &lt;- Idents(sce_final)
+DimPlot(sce_final, label=T)
+</code></pre>
+<p><img alt="" src="../../images/c7edc38b6c1dc8c3.webp"></p>
+<pre><code class="language-r"># 计算每个机械分群的差异基因，并提取top3基因
+Idents(sce_final) &lt;- &quot;seurat_clusters&quot;
+pbmc.markers &lt;- FindAllMarkers(sce_final,only.pos = TRUE)
+top3 &lt;- pbmc.markers %&gt;%
+    group_by(cluster) %&gt;%
+    dplyr::filter(avg_log2FC &gt; 1) %&gt;%
+    slice_head(n = 3) %&gt;%
+    ungroup()
+marker &lt;- unique(top3$gene)
+</code></pre>
+<h1 id="dotplot_1">二、DotPlot参数</h1>
+<pre><code>DotPlot(
+  object, #Seurat对象
+  features, #需要展示的向量，例如基因名称组成的向量
+  assay = NULL, #assay名称, 默认是active assay
+  cols = c(&quot;lightgrey&quot;, &quot;blue&quot;), #绘图颜色，可以是RColorBrewer包中的调色板名称，也可以是自定义的渐变,默认是lightgrey到blue渐变
+  col.min = -2.5, #缩放后平均表达的颜色最小阈值
+  col.max = 2.5, #缩放后平均表达的颜色最大阈值
+  dot.min = 0, #绘制最小点的细胞分数（默认为0），所有表达给定基因的细胞组少于此分数的将不绘制点
+  dot.scale = 6, #气泡大小的缩放比例，类似于CEX参数，默认是6，可以通过这个参数调节各个气泡大小之间差异程度
+  idents = NULL, #挑选idents中的部分展示
+  group.by = NULL, #细胞分组信息
+  split.by = NULL, #在group.by分组的基础上进一步划分子类
+  cluster.idents = FALSE, #是否根据给定的特征按层次聚类排序标识，默认为FALSE
+  scale = TRUE, #确定数据是否缩放，TRUE为默认
+  scale.by = &quot;radius&quot;, #通过'size'或'radius'两种方式缩放点的大小，默认为&quot;radius&quot;
+  scale.min = NA, #设置缩放的下限，使用NA为默认值
+  scale.max = NA #设置缩放的上限，使用NA为默认值
+)
+</code></pre>
+<h1 id="dotplot_2">三、DotPlot及其自带参数美化</h1>
+<pre><code># 默认参数效果
+DotPlot(sce_final, features = marker)
+</code></pre>
+<p><img alt="" src="../../images/257871bb6366a3a3.webp"></p>
+<pre><code># 修改参数展示
+# 一般比较常用的调整参数包括以下：idents / group.by / cols / features
+# （1） 挑选部分细胞类型展示
+DotPlot(sce_final, features = marker, idents = c(&quot;0&quot;, &quot;2&quot;,&quot;4&quot;,&quot;6&quot;))
+</code></pre>
+<p><img alt="" src="../../images/151e5cdb311d15a9.png"></p>
+<pre><code># （2） 按照指定列作为分组信息展示，例如使用seurat_clusters分组
+DotPlot(sce_final, features = marker, group.by = &quot;celltype&quot;)
+</code></pre>
+<p><img alt="" src="../../images/bef9ccdacfd24288.webp"></p>
+<pre><code># （3） 修改渐变色
+DotPlot(sce_final, features = marker, cols = c(&quot;white&quot;, &quot;red&quot;))
+</code></pre>
+<p><img alt="" src="../../images/01013c9525402505.webp"></p>
+<pre><code class="language-r"># （4） 不同类别的features，分类展示
+marker_split &lt;- list(TCells=c(&quot;IL32&quot;,&quot;CD3D&quot;,&quot;CD3E&quot;,&quot;MALAT1&quot;,&quot;LDHB&quot;),Myeloid=c(&quot;LST1&quot;,&quot;TYROBP&quot;,&quot;FCER1G&quot;,&quot;CST3&quot;,&quot;AIF1&quot;),BCells=c(&quot;CD79A&quot;,&quot;MS4A1&quot;,&quot;CD79B&quot;,&quot;LINC00926&quot;,&quot;TCL1A&quot;),Platelet=c(&quot;GP9&quot;,&quot;AP001189.4&quot;,&quot;ITGA2B&quot;,&quot;TMEM40&quot;,&quot;LY6G6F&quot;))
+DotPlot(sce_final, features = marker_split )
+</code></pre>
+<p><img alt="" src="../../images/473fe644354f53dc.webp"></p>
+<h1 id="dotplotggplot2">四、DotPlot联合ggplot2美化</h1>
+<pre><code># 在绘图过程中我们也可能遇到几十个基因同时绘制的情况，这时候避免出现字符重叠的情况，我们可以利用Seurat自带修饰主题或者ggplot2这个好帮手
+# （1）Seurat自带修饰主题，调整坐标轴字符倾斜角度
+DotPlot(sce_final, features = marker) + RotatedAxis()
+</code></pre>
+<p><img alt="" src="../../images/df86729bd79446a8.webp"></p>
+<pre><code># （2）ggplot2的theme函数，调整坐标轴字符倾斜角度
+DotPlot(sce_final, features = marker) + theme(axis.text.x=element_text(angle=45, hjust = 1))
+</code></pre>
+<p><img alt="" src="../../images/df86729bd79446a8.webp"></p>
+<pre><code># （3）ggplot2的coord_flip函数，坐标轴翻转
+DotPlot(sce_final, features = marker) + coord_flip()
+</code></pre>
+<p><img alt="" src="../../images/788a61c76f2f6844.webp"></p>
+<h1 id="ggplot2dotplot">五、ggplot2复现DotPlot</h1>
+<p>DotPlot函数源码</p>
+<pre><code class="language-r">DotPlot &lt;- function(
+  object,
+  features,
+  assay = NULL,
+  cols = c(&quot;lightgrey&quot;, &quot;blue&quot;),
+  col.min = -2.5,
+  col.max = 2.5,
+  dot.min = 0,
+  dot.scale = 6,
+  idents = NULL,
+  group.by = NULL,
+  split.by = NULL,
+  cluster.idents = FALSE,
+  scale = TRUE,
+  scale.by = 'radius',
+  scale.min = NA,
+  scale.max = NA
+) {
+  assay &lt;- assay %||% DefaultAssay(object = object)
+  DefaultAssay(object = object) &lt;- assay
+  split.colors &lt;- !is.null(x = split.by) &amp;&amp; !any(cols %in% rownames(x = brewer.pal.info))
+  scale.func &lt;- switch(
+    EXPR = scale.by,
+    'size' = scale_size,
+    'radius' = scale_radius,
+    stop(&quot;'scale.by' must be either 'size' or 'radius'&quot;)
+  )
+  feature.groups &lt;- NULL
+  if (is.list(features) | any(!is.na(names(features)))) {
+    feature.groups &lt;- unlist(x = sapply(
+      X = 1:length(features),
+      FUN = function(x) {
+        return(rep(x = names(x = features)[x], each = length(features[[x]])))
+      }
+    ))
+    if (any(is.na(x = feature.groups))) {
+      warning(
+        &quot;Some feature groups are unnamed.&quot;,
+        call. = FALSE,
+        immediate. = TRUE
+      )
+    }
+    features &lt;- unlist(x = features)
+    names(x = feature.groups) &lt;- features
+  }
+  cells &lt;- unlist(x = CellsByIdentities(object = object, cells = colnames(object[[assay]]), idents = idents))
+  data.features &lt;- FetchData(object = object, vars = features, cells = cells)
+  data.features$id &lt;- if (is.null(x = group.by)) {
+    Idents(object = object)[cells, drop = TRUE]
+  } else {
+    object[[group.by, drop = TRUE]][cells, drop = TRUE]
+  }
+  if (!is.factor(x = data.features$id)) {
+    data.features$id &lt;- factor(x = data.features$id)
+  }
+  id.levels &lt;- levels(x = data.features$id)
+  data.features$id &lt;- as.vector(x = data.features$id)
+  if (!is.null(x = split.by)) {
+    splits &lt;- FetchData(object = object, vars = split.by)[cells, split.by]
+    if (split.colors) {
+      if (length(x = unique(x = splits)) &gt; length(x = cols)) {
+        stop(paste0(&quot;Need to specify at least &quot;, length(x = unique(x = splits)), &quot; colors using the cols parameter&quot;))
+      }
+      cols &lt;- cols[1:length(x = unique(x = splits))]
+      names(x = cols) &lt;- unique(x = splits)
+    }
+    data.features$id &lt;- paste(data.features$id, splits, sep = '_')
+    unique.splits &lt;- unique(x = splits)
+    id.levels &lt;- paste0(rep(x = id.levels, each = length(x = unique.splits)), &quot;_&quot;, rep(x = unique(x = splits), times = length(x = id.levels)))
+  }
+  data.plot &lt;- lapply(
+    X = unique(x = data.features$id),
+    FUN = function(ident) {
+      data.use &lt;- data.features[data.features$id == ident, 1:(ncol(x = data.features) - 1), drop = FALSE]
+      avg.exp &lt;- apply(
+        X = data.use,
+        MARGIN = 2,
+        FUN = function(x) {
+          return(mean(x = expm1(x = x)))
+        }
+      )
+      pct.exp &lt;- apply(X = data.use, MARGIN = 2, FUN = PercentAbove, threshold = 0)
+      return(list(avg.exp = avg.exp, pct.exp = pct.exp))
+    }
+  )
+  names(x = data.plot) &lt;- unique(x = data.features$id)
+  if (cluster.idents) {
+    mat &lt;- do.call(
+      what = rbind,
+      args = lapply(X = data.plot, FUN = unlist)
+    )
+    mat &lt;- scale(x = mat)
+    id.levels &lt;- id.levels[hclust(d = dist(x = mat))$order]
+  }
+  data.plot &lt;- lapply(
+    X = names(x = data.plot),
+    FUN = function(x) {
+      data.use &lt;- as.data.frame(x = data.plot[[x]])
+      data.use$features.plot &lt;- rownames(x = data.use)
+      data.use$id &lt;- x
+      return(data.use)
+    }
+  )
+  data.plot &lt;- do.call(what = 'rbind', args = data.plot)
+  if (!is.null(x = id.levels)) {
+    data.plot$id &lt;- factor(x = data.plot$id, levels = id.levels)
+  }
+  ngroup &lt;- length(x = levels(x = data.plot$id))
+  if (ngroup == 1) {
+    scale &lt;- FALSE
+    warning(
+      &quot;Only one identity present, the expression values will be not scaled&quot;,
+      call. = FALSE,
+      immediate. = TRUE
+    )
+  } else if (ngroup &lt; 5 &amp; scale) {
+    warning(
+      &quot;Scaling data with a low number of groups may produce misleading results&quot;,
+      call. = FALSE,
+      immediate. = TRUE
+    )
+  }
+  avg.exp.scaled &lt;- sapply(
+    X = unique(x = data.plot$features.plot),
+    FUN = function(x) {
+      data.use &lt;- data.plot[data.plot$features.plot == x, 'avg.exp']
+      if (scale) {
+        data.use &lt;- scale(x = log1p(data.use))
+        data.use &lt;- MinMax(data = data.use, min = col.min, max = col.max)
+      } else {
+        data.use &lt;- log1p(x = data.use)
+      }
+      return(data.use)
+    }
+  )
+  avg.exp.scaled &lt;- as.vector(x = t(x = avg.exp.scaled))
+  if (split.colors) {
+    avg.exp.scaled &lt;- as.numeric(x = cut(x = avg.exp.scaled, breaks = 20))
+  }
+  data.plot$avg.exp.scaled &lt;- avg.exp.scaled
+  data.plot$features.plot &lt;- factor(
+    x = data.plot$features.plot,
+    levels = features
+  )
+  data.plot$pct.exp[data.plot$pct.exp &lt; dot.min] &lt;- NA
+  data.plot$pct.exp &lt;- data.plot$pct.exp * 100
+  if (split.colors) {
+    splits.use &lt;- unlist(x = lapply(
+      X = data.plot$id,
+      FUN = function(x)
+      sub(
+        paste0(&quot;.*_(&quot;,
+               paste(sort(unique(x = splits), decreasing = TRUE),
+                     collapse = '|'
+                     ),&quot;)$&quot;),
+        &quot;\\1&quot;,
+        x
+        )
+      )
+      )
+    data.plot$colors &lt;- mapply(
+      FUN = function(color, value) {
+        return(colorRampPalette(colors = c('grey', color))(20)[value])
+      },
+      color = cols[splits.use],
+      value = avg.exp.scaled
+    )
+  }
+  color.by &lt;- ifelse(test = split.colors, yes = 'colors', no = 'avg.exp.scaled')
+  if (!is.na(x = scale.min)) {
+    data.plot[data.plot$pct.exp &lt; scale.min, 'pct.exp'] &lt;- scale.min
+  }
+  if (!is.na(x = scale.max)) {
+    data.plot[data.plot$pct.exp &gt; scale.max, 'pct.exp'] &lt;- scale.max
+  }
+  if (!is.null(x = feature.groups)) {
+    data.plot$feature.groups &lt;- factor(
+      x = feature.groups[data.plot$features.plot],
+      levels = unique(x = feature.groups)
+    )
+  }
+  plot &lt;- ggplot(data = data.plot, mapping = aes_string(x = 'features.plot', y = 'id')) +
+    geom_point(mapping = aes_string(size = 'pct.exp', color = color.by)) +
+    scale.func(range = c(0, dot.scale), limits = c(scale.min, scale.max)) +
+    theme(axis.title.x = element_blank(), axis.title.y = element_blank()) +
+    guides(size = guide_legend(title = 'Percent Expressed')) +
+    labs(
+      x = 'Features',
+      y = ifelse(test = is.null(x = split.by), yes = 'Identity', no = 'Split Identity')
+    ) +
+    theme_cowplot()
+  if (!is.null(x = feature.groups)) {
+    plot &lt;- plot + facet_grid(
+      facets = ~feature.groups,
+      scales = &quot;free_x&quot;,
+      space = &quot;free_x&quot;,
+      switch = &quot;y&quot;
+    ) + theme(
+      panel.spacing = unit(x = 1, units = &quot;lines&quot;),
+      strip.background = element_blank()
+    )
+  }
+  if (split.colors) {
+    plot &lt;- plot + scale_color_identity()
+  } else if (length(x = cols) == 1) {
+    plot &lt;- plot + scale_color_distiller(palette = cols)
+  } else {
+    plot &lt;- plot + scale_color_gradient(low = cols[1], high = cols[2])
+  }
+  if (!split.colors) {
+    plot &lt;- plot + guides(color = guide_colorbar(title = 'Average Expression'))
+  }
+  return(plot)
+}
+</code></pre>
+<p>从中可以看到，DotPlot函数主要依赖于下面这段代码绘图，使用到的主要绘图函数是ggplot2</p>
+<p><img alt="" src="../../images/15ab82b62876cc78.jpg"></p>
+<p>接下来我们尝试用终极大法“ggplot2”还原DotPlot的结果</p>
+<pre><code class="language-r"># DotPlot绘图数据获取
+p1 &lt;- DotPlot(sce_final, features = marker)
+p1
+</code></pre>
+<p><img alt="" src="../../images/257871bb6366a3a3.webp"></p>
+<pre><code class="language-r">data &lt;- p1$data
+# 添加cluster对应细胞类型名称
+data$celltype &lt;- as.character(new.cluster.ids[data$id])
+# 数据查看
+head(data)
+</code></pre>
+<pre><code>##           avg.exp   pct.exp features.plot id avg.exp.scaled celltype
+## LDHB   13.9713527 91.654880          LDHB  0      1.5238116   TCells
+## CCR7    2.9733578 43.988685          CCR7  0      2.0519729   TCells
+## CD3D   10.6762348 85.714286          CD3D  0      1.2302176   TCells
+## S100A8  0.4270673  8.628006        S100A8  0     -0.5937361   TCells
+## LGALS2  0.1687629  3.536068        LGALS2  0     -0.6288274   TCells
+## FCN1    0.5448712 10.891089          FCN1  0     -0.6319525   TCells
+</code></pre>
+<pre><code class="language-r"># 设置展示顺序，将相同细胞类型的cluster放在一起展示
+data$id &lt;- factor(data$id, levels=c(&quot;0&quot;,&quot;2&quot;,&quot;4&quot;,&quot;6&quot;,&quot;1&quot;,&quot;5&quot;,&quot;7&quot;,&quot;3&quot;,&quot;8&quot;))
+# ggplot2绘图
+p2 &lt;- ggplot(data , aes(x = features.plot, y = id, size = pct.exp, color = avg.exp.scaled)) +
+  geom_point(shape=16) +  #默认sahpe = 16实心圆
+  theme_bw()+ #设置背景为更加简洁的黑白主题
+  scale_colour_gradient2()+  #设置映射的颜色
+  xlab(NULL) + ylab(NULL)+  #横纵坐标标题名称
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+ #字体倾斜45°，并且对其方式为右对齐
+  theme(panel.grid.major=element_blank()) + #删除背景灰色分割线
+  geom_hline(yintercept=c(4.5,7.5,8.5),linewidth=.5) + #按照注释细胞类型划分区域
+  theme(panel.border = element_rect(fill=NA,color=&quot;black&quot;, linewidth=1.5, linetype=&quot;solid&quot;)) + #外框分割线颜色为黑色，宽度为1.5， 线型为实心线
+  coord_flip()
+p2
+</code></pre>
+<p><img alt="" src="../../images/68e48cec1c6a4934.webp"></p>
+<pre><code class="language-r">#绘制细胞类型注释条
+anno1 &lt;- data.frame(new.cluster.ids)
+anno1 &lt;- anno1[c(&quot;0&quot;,&quot;2&quot;,&quot;4&quot;,&quot;6&quot;,&quot;1&quot;,&quot;5&quot;,&quot;7&quot;,&quot;3&quot;,&quot;8&quot;),,drop=F]
+anno1$cluster &lt;- rownames(anno1)
+anno1$cluster &lt;- factor(anno1$cluster, levels=c(&quot;0&quot;,&quot;2&quot;,&quot;4&quot;,&quot;6&quot;,&quot;1&quot;,&quot;5&quot;,&quot;7&quot;,&quot;3&quot;,&quot;8&quot;))
+anno1$other &lt;- &quot;anno1&quot; #辅助生成热图
+anno1
+</code></pre>
+<pre><code>##   new.cluster.ids cluster other
+## 0          TCells       0 anno1
+## 2          TCells       2 anno1
+## 4          TCells       4 anno1
+## 6          TCells       6 anno1
+## 1         Myeloid       1 anno1
+## 5         Myeloid       5 anno1
+## 7         Myeloid       7 anno1
+## 3          BCells       3 anno1
+## 8        Platelet       8 anno1
+</code></pre>
+<pre><code class="language-r">p2_anno &lt;- ggplot(anno1,aes(x=cluster,y=other,fill=new.cluster.ids))+
+  geom_tile()+
+  scale_fill_manual(values = c(&quot;TCells&quot; = &quot;#5c9dbf&quot;, &quot;Myeloid&quot; = &quot;#d32629&quot;, &quot;BCells&quot; = &quot;#727995&quot;,&quot;Platelet&quot;=&quot;#ed7a6e&quot;))+
+  scale_y_discrete(position = &quot;right&quot;)+
+  theme_bw()+
+  theme(panel.grid.major=element_blank(),panel.border = element_blank()) +
+  theme(axis.text.x = element_blank(),axis.text.y = element_blank(),
+        axis.ticks.x=element_blank(), axis.ticks.y = element_blank())+
+  labs(x=&quot;&quot;,y=&quot;&quot;)
+p2_anno
+</code></pre>
+<p><img alt="" src="../../images/e1e878c89d297d16.png"></p>
+<pre><code># 合并dotplot和细胞注释条
+p2 %&gt;% insert_top(p2_anno,height = .05)
+</code></pre>
+<p><img alt="" src="../../images/82e53147ba109adc.webp"></p>
+<pre><code class="language-r">#列（基因）聚类树
+#根据细胞-基因表达矩阵对基因进行聚类
+expr &lt;- as.data.frame(sce_final@assays$RNA$data[marker,])
+hc &lt;- hclust(dist(expr))
+ggtree(hc)
+</code></pre>
+<p><img alt="" src="../../images/569690570ec74f7c.png"></p>
+<pre><code>#查看所有的节点编号
+ggtree(hc)+geom_text(aes(label = node), hjust = -0.3, vjust = -0.3)
+</code></pre>
+<p><img alt="" src="../../images/96ce04bd4e8a5335.png"></p>
+<pre><code class="language-r">#美化聚类树
+hcc1 &lt;- ggtree(hc) + geom_nodepoint(color=&quot;#b5e521&quot;, alpha=1/4, size=10) + geom_tippoint(color=&quot;#FDAC4F&quot;, shape=8, size=3)
+hcc1
+</code></pre>
+<p><img alt="" src="../../images/2346af68955d90cb.png"></p>
+<pre><code class="language-r">#每个分支加不同的颜色区分
+hcc2 &lt;- ggtree(hc) +
+          geom_point(aes(shape=isTip, color=isTip), size=3)+
+          geom_hilight(node=28, fill=&quot;steelblue&quot;, alpha=.1) +
+          geom_hilight(node=30, fill=&quot;darkgreen&quot;, alpha=.1) +
+          geom_hilight(node=32, fill=&quot;#5c9dbf&quot;, alpha=.1) +
+          geom_hilight(node=35, fill= &quot;#d32629&quot;, alpha=.1) +
+          geom_hilight(node=36, fill=&quot;#ed7a6e&quot;, alpha=.1)
+hcc2
+</code></pre>
+<p><img alt="" src="../../images/6d90090b097ca4d9.png"></p>
+<pre><code># 合并dotplot、细胞注释条和基因聚类树
+p2 %&gt;% insert_top(p2_anno,height = .05) %&gt;%
+  insert_left(hcc1, width = 1)
+</code></pre>
+<p><img alt="" src="../../images/f4b1343965435774.webp"></p>
+<pre><code>p2 %&gt;% insert_top(p2_anno,height = .05) %&gt;%
+  insert_left(hcc2, width = 1)
+</code></pre>
+<p><img alt="" src="../../images/a6b2ffcea2d25a28.webp"></p>
+<p><img alt="图片" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../../images/3b8e21da777157f9.webp"><img alt="图片" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../../images/52dfc495fd16977e.webp"><img alt="图片" src="../../images/acba43cb3408c3d0.webp"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

@@ -12,7 +12,7 @@ albums: ["文献速递"]
 
 **一、写在前面**
 
-本次分享的是2018年发布于《BMC Genomics》的文章****，**** 感兴趣的同学可以看看原文：Kelly Street ,Davide Risso,  Russell B Fletcher,et al."Slingshot: cell lineage and pseudotime inference for single-celltranscriptomics" ，BMC Genomics, 2018 Jun 19;19:477.doi: 10.1186/s12864-018-4772-0 ![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprP7HLKMGwibjUIGjsMOY76eImrngdLcrquNQGhQkibGHqfREYRpTIN56rziaa8XibFe3vCA9FumRe3SJg/640?wx_fmt=png&from=appmsg)
+本次分享的是2018年发布于《BMC Genomics》的文章****，**** 感兴趣的同学可以看看原文：Kelly Street ,Davide Risso,  Russell B Fletcher,et al."Slingshot: cell lineage and pseudotime inference for single-celltranscriptomics" ，BMC Genomics, 2018 Jun 19;19:477.doi: 10.1186/s12864-018-4772-0 ![](../../images/18aed3d5deed8120.webp)
 
 单细胞转录组技术能够解析复杂细胞群体的异质性，尤其在干细胞分化、发育轨迹等研究中具有重要价值。然而，准确推断多分支细胞谱系（如发育过程中的分化路径）和伪时间（pseudotime）（反映细胞分化进程的连续变量）仍是计算生物学中的挑战。传统方法如Monocle、TSCAN等在处理多分支或噪声数据时存在局限性。
 
@@ -118,7 +118,7 @@ OE数据集包含616个成年小鼠嗅上皮细胞，追踪静止干细胞发育
 
 首先使用人类骨骼肌成肌细胞（HSMM）数据集的子集对一些知名方法的稳定性进行了检验。其中，Monocle 方法在单个细胞上构建 MST，并根据 PQ 树沿着 MST 的最长路径对细胞进行排序，是所比较的方法中最不稳定的。其绘制的路径高度可变，甚至对少量噪声也很敏感。相比之下，基于簇的 MST 方法和主曲线方法在类似自举的样本上表现出稳定性。基于簇的 MST 由于分段线性路径的顶点，多个细胞通常会被分配相同的伪时间，对应于顶点的值。主曲线方法是最稳定的方法，但在更复杂的数据集上，它有明显的局限性，即只能表征单个谱系。这也是将主曲线扩展以适应多个分支谱系的原因。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprP7HLKMGwibjUIGjsMOY76eIFUgMeDUB6yBanoOFkZkAbNb3kyHSCwj8monYKzt5GHQ9EANQiaBOuDg/640?wx_fmt=png&from=appmsg)
+![](../../images/96516be56d22c0bf.webp)
 
 注：图a展示了三种不同的谱系推断方法在原始数据集和50个数据子样本上的细胞排序情况：
 
@@ -144,7 +144,7 @@ OE数据集包含616个成年小鼠嗅上皮细胞，追踪静止干细胞发育
 
 Slingshot还允许使用一种形状敏感的距离度量，这种度量受到马氏距离的启发，它根据两个簇的协方差结构来缩放簇中心之间的距离。这与Waterfall和TSCAN中使用的基于簇中心的标准欧几里得距离不同，后者未能利用簇的形状，导致在HBC分化的早期错误地识别了一个虚假的分支事件。而Slingshot能够正确识别与先前生物学知识一致的谱系，而其他谱系检测方法则没有。例如，Monocle 2只识别出两个谱系，其中一个以球状基底细胞（GBC）为终点，这是一个已知的过渡状态，而两个谱系都包含支持细胞和微绒毛细胞，这些是已知的独立谱系的终点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprP7HLKMGwibjUIGjsMOY76eI2nYCTonommZIVvGGUvdbfl9HfJyTNzXvWAhNCibDfAfIldmMAusUMDQ/640?wx_fmt=png&from=appmsg)
+![](../../images/355de3735fc01eff.webp)
 
 注：嗅觉上皮（OE）数据集。在三谱系 OE 数据集上，Slingshot 和 Monocle 2 推断出的每个谱系的伪时间变量。图（a）：细胞类型之间已知的生物学关系。图（b）：对于 Monocle 2，我们使用 DDRTree 算法获得数据的二维表示，并根据 HBC 细胞簇中细胞占比最高的情况选择起始状态。图（c）：对于 Slingshot，我们使用前五个主成分（PCs）并通过 RSEC 对细胞进行聚类。将 HBC 细胞簇指定为起点，mSus 细胞簇指定为一个终点；其他终点在无监督的情况下确定。
 
@@ -162,7 +162,7 @@ Slingshot还允许使用一种形状敏感的距离度量，这种度量受到�
 
 对所有真实谱系的这些值求平均，得到特定方法在特定数据集上的准确度分数，肯德尔等级相关系数值在 - 1 到 1 之间，越接近 1 表明推断和真实伪时间之间一致性越好。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprP7HLKMGwibjUIGjsMOY76eI7AxaDtNE9Iv86N4lUNLGGQCVDRCcf31EcDmd36mVib5gmGUBDakwWgA/640?wx_fmt=png&from=appmsg)
+![](../../images/add07ca4746d0cc9.webp)
 
 注：图a展示了两谱系情况下的分支结构。图b展示了五谱系情况下的更复杂分支结构。图c和图d：这两个图展示了不同方法在两谱系和五谱系数据集上的准确性得分分布。每个密度图旁边的条形图表示在该方法返回错误数据集的百分比。
 
@@ -212,7 +212,7 @@ K过大：可能引入虚假分支
 
 研究通过两系谱拓扑模拟数据验证，当初始聚类能大致捕捉发育轨迹时，Slingshot通过主曲线实现了对局部聚类波动的强容错能力，这使其在单细胞轨迹推断中具有更优的实用价值。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprP7HLKMGwibjUIGjsMOY76eIFBCoicYXia4yWMiaEKgzslZFINWWs57l7F8Q8iaRzAhO4nG8RY5xwACXHw/640?wx_fmt=png&from=appmsg)
+![](../../images/9dd6278812768732.webp)
 
 注：在模拟的双谱系数据集上，Slingshot的伪时间推断对不同的聚类方法表现出良好的稳健性。研究使用了分层聚类、k-means和高斯混合建模（GMM）等不同的聚类方法，并在不同的聚类数量（K）下进行了测试。
 
@@ -254,14 +254,14 @@ Slingshot在处理单细胞基因组学数据的谱系和伪时间推断中表�
 
 Slingshot是一种强大且灵活的工具，适用于单细胞基因组学数据的谱系和伪时间推断。它结合了处理噪声数据所需的稳定性以及识别复杂结构的灵活性，能够为动态基因表达分析提供关键的谱系推断步骤。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

@@ -12,14 +12,14 @@ albums: ["求职/求学/招聘"]
 
 有意者可直接联系pi或微信号：su306314724
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpygHO2NibOCT9ma3eK4PwZqVarZfWqj9azZHGfrauBusj84HIHvFwRmkLQU06TwqzHrBGLgxicCRbPw/640?wx_fmt=jpeg)
+![](../../images/f8dac2abd9d0aded.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2c562ef3d26044d9.jpg)
 The laboratory of Arjun Deb, at the University of California Los Angeles is seeking staff scientists in **computational biology** (https://deblab.med.ucla.edu). Candidates will be primarily assigned towards analysis of large genomics and GWAS/metabolomic data sets as well as single cell seq and spatial transcriptomic analysis. Candidates should have demonstratable expertise and publication record in computational biology projects. The University of California is an equal opportunity employer. If interested please send personal statement, curriculum vitae and names of three referees (one must be doctoral supervisor).
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpygHO2NibOCT9ma3eK4PwZqV9kicDHz0RUZtiakSF4T48MKe14fN6Z0nWAAJWDV1Nl2OIlNAIjlDWpOQ/640?wx_fmt=jpeg)
+![](../../images/76b063251be6a61f.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/2c562ef3d26044d9.jpg)
 ************往期回顾************
 
 **[歪!?来"Biomamba 生信基地"兼职？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)**************
@@ -47,4 +47,4 @@ The laboratory of Arjun Deb, at the University of California Los Angeles is seek
 [带你们做了那么久的单细胞，也带你们找找工作](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499186&idx=1&sn=f85842f9976dd91b20ddb648d0ca4a59&chksm=9b3c84e2ac4b0df42740339b8399527f9afccf5fd36a2955eee7a80dbf9826c59a23ced099f9&scene=21#wechat_redirect>)
 [浙大医学院生物信息学 博士招生 调剂信息](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499333&idx=2&sn=e603166054c5586f4b29c2ef5a88e8c4&chksm=9b3c8715ac4b0e03e94544e61713aca27a76a61f6a818fa0a505418f5e302d9fc5d108093391&scene=21#wechat_redirect>)
 [浙江大学招聘博士后&科研助理](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500503&idx=1&sn=341e046f5d7674ad7a518c5c7322f8fc&chksm=9b3cbb87ac4b329145a383d9b07b472d19114ffc85c8c8d85873701263f98ed764c93e9baf6f&scene=21#wechat_redirect>)
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞，我都认真当成了喜欢
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/0694eb4925c4700f.gif)您点的每个赞，我都认真当成了喜欢

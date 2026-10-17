@@ -16,7 +16,7 @@ albums: ["文献速递"]
 
 此研究于2025年3月5日在 _iMeta_ （IF=23.8）在线发表，题为“Specificity landscapes of 40 R2R3-MYBs reveal how paralogs target different cis-elements by homodimeric binding”。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/9kSbvic4eewGfvibibDb1ibhNHsdZuzD0Y2bHSjSnGJDl7nKv6yQdOwQlmLcNNxLicrt3ve8aMTiayL9alxiaibAR42hibg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/9110ed61dec90253.webp)
 
 **亮点：******
 
@@ -32,11 +32,11 @@ albums: ["文献速递"]
 
 二聚体序列特异性分析表明，当两个MYB分子单体结合邻近位点时，其识别的DNA序列（序列特异性）可能发生显著变化。其中AtMYB2同源二聚体模式ER0s和ER1s的序列特异性变化最为显著（图2，红框）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/9kSbvic4eewGfvibibDb1ibhNHsdZuzD0Y2bln4DoWNOAgIUOgfOOv64icmmN0VEYjoPRMQoycUeRzFu95E0GsShnYw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/e4e5d16b971d87cf.webp)
 
 图1：第VIII亚家族R2R3-AtMYBs的单体序列特异性。与其他AtMYBs相比，CCWAA-box AtMYBs（蓝框）的具有更高的序列特异性。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/9kSbvic4eewGfvibibDb1ibhNHsdZuzD0Y2bg0MQIxcXnzOpbx0bW2mOk3h7RsmPEP9wKFqAFJLd9aVB2rEZkv3LVg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/3ff048f8ed1a4965.webp)
 
 图2：AtMYB2的单体和同源二聚体基序。其中ER1a（红色命名）的序列特异性与单体基序Ma/Mb差异显著。
 
@@ -44,13 +44,13 @@ albums: ["文献速递"]
 
 本工作进一步验证了ER0s和ER1s结合模式使AtMYB2能够识别其他旁系同源AtMYBs无法结合的顺式调控元件（CREs）。旁系同源因子AtMYB2、57、79均为CCWAA-box MYBs，其单体基序极为相似（图1）；然而，机器学习建模发现ER0s和ER1s同源二聚体基序仅可高效预测AtMYB2的DAP-seq信号，而无法预测AtMYB57/79的DAP-seq信号。相应地，在AT2G16760、AT1G7655和AT1G08060基因前均鉴定到AtMYB2独有的结合位点。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/9kSbvic4eewGfvibibDb1ibhNHsdZuzD0Y2b2ice0oIxc22H7jbXurRroGfDPnnwD9Nicxfs7xrgsQmibrGgaa05a8CQQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/897d9408d52425b8.webp)
 
 图3：在DAP-seq peak中，AtMYB2特异性富集ER0s和ER1s。
 
 AtMYB2特异结合的顺式调控元件，使其可调控独特的下游靶基因。双荧光素酶报告实验和原生质体瞬时过表达实验均表明，启动子区含ER0s与ER1s顺式元件的基因，仅在AtMYB2过表达时转录被激活（图4），而在过表达其旁系同源因子AtMYB57/79时无法激活。尽管ER0s与ER1s仅被AtMYB2识别，其对应的顺式元件在进化中保守，证实了这些同源二聚体顺式元件在多种植物中均具有功能性。此外，通过与MNase-seq数据联合分析，发现AtMYB2可结合被核小体占据的顺式元件，表明其可能为“先锋”因子。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/9kSbvic4eewGfvibibDb1ibhNHsdZuzD0Y2bQiafibF1wWkAYc4UrJcU29iaoAwsVssA6NKnp3CbVL2tiazV7d2iaOXxcNg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/acac0a2c679b3ff5.webp)
 
 图4：AtMYB2靶向并激活特异下游基因表达。
 

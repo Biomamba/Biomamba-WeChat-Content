@@ -10,8 +10,8 @@ albums: ["漫谈胡侃"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534978&idx=1&sn=fd5e5f25883faba6717bfeb2dc858b53&chksm=9b3c30d2ac4bb9c4d82d88b75764254152098fe99d1d5e90d61f33ac2d76586db36f1563b7cf#rd
 > 合集：漫谈胡侃
 
-相信各位和Biomamba一样，经常会有[糟糕的学习体验](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503524&idx=1&sn=e7afa36766a3a3504d084d3adad47459&scene=21#wechat_redirect>)，今天又踩雷了。contrastiveVI是一种生成模型，旨在从一组“目标”细胞（例如来自患有特定疾病的样本）中分离出特定的变异因素，与一组“背景”细胞（例如来自健康样本的细胞）中共享的变异因素区分开来[1]。本想着给大家做个教程，丰富一下生信基地的[python单细胞生态](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534702&idx=1&sn=f1531163f8f620b59cf63dfaa1c03e67&scene=21#wechat_redirect>)。谁曾想官方的实例中居然还包含error。作者都解决不了依赖关系，那我们读者不是更困难![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/newemoji/2_05.png)。
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk8Mfy0kibEEnsgTH5YlASiazKIuzcmRoaQov3eQNibI5k8ME1RlibtoeTXD7ZzReRrarZBKX4PnHrcGJVHzZ4Z8ibbfqM4icWNPmJX8/640?wx_fmt=png&from=appmsg)
+相信各位和Biomamba一样，经常会有[糟糕的学习体验](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503524&idx=1&sn=e7afa36766a3a3504d084d3adad47459&scene=21#wechat_redirect>)，今天又踩雷了。contrastiveVI是一种生成模型，旨在从一组“目标”细胞（例如来自患有特定疾病的样本）中分离出特定的变异因素，与一组“背景”细胞（例如来自健康样本的细胞）中共享的变异因素区分开来[1]。本想着给大家做个教程，丰富一下生信基地的[python单细胞生态](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534702&idx=1&sn=f1531163f8f620b59cf63dfaa1c03e67&scene=21#wechat_redirect>)。谁曾想官方的实例中居然还包含error。作者都解决不了依赖关系，那我们读者不是更困难![](../../images/68bac71b484f05d6.png)。
+![](../../images/ef0960891ba66c40.webp)
 
 我当然可以一个个的查询每行命令无法运行的解决办法、解决各软件的版本依赖问题，只是这样有些索然无味。作者没有义务服务于用户，但对于我们来说，一个包的优秀程度不单限于其背后支撑的文章、强大的功能、计算性能，还在于它是否便于安装、是否有能让其他用户方便落地的教程。所以很遗憾，这个优秀的作品不能为我所用。我们在制作教程时也会留意大家是否能“跟着跑通”，因此我们做了几方面的努力：
 
@@ -19,20 +19,20 @@ albums: ["漫谈胡侃"]
 
 2、教程结尾都会附上版本环境信息与测试文件，例如[挑战用Python分析一百万个单细胞数据](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534670&idx=1&sn=7178b77f1efe4ca253f90b9121231204&scene=21#wechat_redirect>)的文末。甚至我们还做过[Biomamba的单细胞分析环境大公开！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529901&idx=1&sn=3e9cb1075a3b0b4c253ca19addf8b387&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnHibMNsKWFIQsTqndDWAyYC5MxQkeKUxPj6cpDibAMuIWmib3bN70n1RzC5UsMBa6Owboyr017NstIKS58LJ747cYticn2ibVvvFI8/640?wx_fmt=png&from=appmsg)3、针对[共计251小时视频教程，保姆级单细胞&空转教学](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534674&idx=2&sn=864480ec769a9932da5fdc7f20ee34ba&scene=21#wechat_redirect>)，我们还封装打包了镜像，能够做到[开箱即用](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=2&sn=ff2f23c988bb2e96038671f713f62807&scene=21#wechat_redirect>)，感兴趣的小伙伴可以联系我们领取。![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnyoXsyELUcAP7WE6mUzU7mliclBEJqHSq7nS1Snml0JrNCH9zgv2Km6M3ZeyF2upuZESzTHTqlo68c5qIibu79kEhf5GUvS1icOk/640?wx_fmt=jpeg)![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkAeh6ibkwlic3ic4TWDVjmk4kpCuwh05qrhkEZdQiaaVQ70fJrhgX3NcKosPvibYyib41yphkdPg62bWso8JInqsM5URZEm7UcSTWsU/640?wx_fmt=png&from=appmsg)
+![](../../images/f66f391f84674acb.png)3、针对[共计251小时视频教程，保姆级单细胞&空转教学](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534674&idx=2&sn=864480ec769a9932da5fdc7f20ee34ba&scene=21#wechat_redirect>)，我们还封装打包了镜像，能够做到[开箱即用](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=2&sn=ff2f23c988bb2e96038671f713f62807&scene=21#wechat_redirect>)，感兴趣的小伙伴可以联系我们领取。![](../../images/8be751ae0a95ac97.webp)![](../../images/6d70d03152b03a9e.webp)
 
 [1]https://github.com/suinleelab/contrastiveVI
 
 [2]https://colab.research.google.com/drive/1z0AcKQg7juArXGCx1XKj6skojWKRlDMC?usp=sharing
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=wxpic#imgIndex=20)
+![图片](../../images/95968d673495ca4c.png)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=wxpic#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=wxpic#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/b36f05f29bee05ab.png)![图片](../../images/0667abfe3cfb054d.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=wxpic#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=wxpic#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/8fc0ebc5e462a3e8.webp)![图片](../../images/735cbbf3b51b2cbf.gif) 您点的每个赞和在看，我都认真当成了喜欢

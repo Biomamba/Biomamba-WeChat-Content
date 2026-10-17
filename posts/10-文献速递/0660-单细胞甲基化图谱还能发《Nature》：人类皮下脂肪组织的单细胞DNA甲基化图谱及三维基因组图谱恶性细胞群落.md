@@ -22,7 +22,7 @@ albums: ["文献速递"]
 
 单细胞核[甲基化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535047&idx=6&sn=2939e5c0e58f2d00df312c57cb1fa40e&scene=21#wechat_redirect>)-3C 测序（snm3C-seq）已成为一种在细胞分辨率下研究 DNA 甲基化和染色质构象的创新方法。近期的研究鉴定出了人类多种复杂组织（如卵母细胞、前额叶）等细胞类型层面的表观基因组特征。采用类似的方法，先前的研究也全面评估了小鼠脑细胞类型的表观基因组。然而，人类 SAT脂肪细胞类型层面的表观基因组特征却鲜有研究。这篇文章中，作者主要展示了 SAT 中细胞层面的 [DNA 甲基化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535047&idx=6&sn=2939e5c0e58f2d00df312c57cb1fa40e&scene=21#wechat_redirect>)、染色质构象和基因表达特征，评估了甲基化相关基因在 SAT 细胞中的动态模式，鉴定了与细胞低甲基化区域相关的[转录因子](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537452&idx=2&sn=c57457860e83b4302641b38e894c3dbe&scene=21#wechat_redirect>)（TF）结合基序，并研究了 SAT 细胞表观基因组位点中的遗传变异对腹部肥胖及其相关炎症标志物（血液 C 反应蛋白，CRP）的影响。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkvSRL4l2Tiao5IxwN7RdrlRaju753oYib4SQ3vXjkD8eZz3zoTv1lB1meuZ20UperMt4V0SkG7Lqp94gNIBNmkdExGHkPUrKK8w/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/d17e9435aa9f2644.webp)
 
 新课程，赴新程
 
@@ -36,7 +36,7 @@ albums: ["文献速递"]
 
 直播课表及日程安排：
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmaMxKuDlZBc2VP5icLu8uRIBfoD6sBRu9m7j7iafm0aNSBU5ee47B2kia0E0tSklsXN1ekfJr8nZYcmdlneVQWeERan2su84kDSY/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=0)
+![图片](../../images/4c2ece7882108c66.webp)
 
 报名领取学习资料与服务器：
 
@@ -44,7 +44,7 @@ albums: ["文献速递"]
 
 联系客服微信[Biomamba_zhushou]
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYccG1Cah2GcWO0d7AfeLr4eLQYElRu7oFsmO3BINPl6P2vfuuadKiaGWg/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=1)
+![图片](../../images/d7b2a78b9bfa8f4e.webp)
 
 活动时间：2026年6月1日-14日
 
@@ -58,7 +58,7 @@ albums: ["文献速递"]
 
 视频号
 
-B站![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnhiclpwjnsgW3iaE650QcrX7cTTOyt5J4kC1iadDgf7jUbmqHxhtEoYjnv0iclhkrEDz0WQ4ZDo292ywjkbicvxtKZNsIXcC6rGmhs/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=2)
+B站![图片](../../images/b1b534297c950ad6.webp)
 
 直播课程资料下载： https://pan.baidu.com/s/178VMmt14Q04kaEFWDB7_VQ?pwd=1r2a
 
@@ -68,11 +68,11 @@ B站![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnhiclpwjnsgW3iaE650Qc
 
 **1、 人类皮下脂肪组织（SAT）细胞的多模态图谱分析**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmLiacuGqichWOoRwicwWIKGQvUHPxEQ15xE8vQIDKqfuNF2zleMrAiaXFpiaWLFW3ib5nj466BdBz2MI8gs1DL8yiaqZ5CKdrwWTicXDPM/640?wx_fmt=png&from=appmsg)
+![](../../images/c1ac95bd95896e92.webp)
 
 Figure1
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmKGArSR3krjzlKhcxb0MHQh54ICdeffq6bsgiaOYZIuiao6ZFPHBZTw2ia4ymAczeIByEwJ8b6jXf2nDxLhp2LzD3mBhLCxRjwMoo/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmJ9Po98yE5vib2jvqOlic6WNXnq6hDfUgOCwkGLx4ElcRUUTt8dezP3q1ILjs7PFjq21icAociaxABRv0DaeyCo0r3TmYNNISKkicjo/640?wx_fmt=png&from=appmsg)
+![](../../images/ca0a62a40c12114b.webp)![](../../images/104776be997a04e3.webp)
 
 Figure2
 
@@ -80,7 +80,7 @@ Figure2
 
 **2、模态特异性与模态共享的分子机制**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmJ5sB9Q5SZyMU0VjnGly78XUZjQ2Lf51N3srStInr7rbhumQo3n93D0az5vJg3aanbwibNYUsXxQZzLGuz0TA9OvcyaExwIj1Sw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmLocUdnSWwIFSA7dibp4G2DibgycWCyiceictaBmUroQKxUrURgX9icddZfdjHCxiazgmhPIkNkHvReaeF1B30SU8sxymOgcMT8Kqg98/640?wx_fmt=png&from=appmsg)
+![](../../images/38faec637912c5ec.webp)![](../../images/82fe23886f4e0f3f.webp)
 
 Figure3
 
@@ -88,9 +88,9 @@ Figure3
 
 3、SAT脂肪细胞中基因的相互作用
 
-![](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmJK8DnZksHUwp4DEPmuDIAZXlBpCicz9yjBloe3xWj0r5nltbYiatCwic6g4ZDUiafibzAzcEjsQepNeUx4iciamva2hsBrSIgfQzovO4/640?wx_fmt=png&from=appmsg)
+![](../../images/ca27268b5ce076b6.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmKnGgsJJ5rpAYsSicsNs4sBsNicxH3zicoQ1thwt3TsMiaS5fT37m0C2mCttKBkN4wKpGbknjgicvFHvnptVTZzvPtNuiaBib6qjWp5V8/640?wx_fmt=png&from=appmsg)Figure4
+![](../../images/11dc144aba9aa611.webp)Figure4
 
 细胞核内 DNA 的紧密包装导致了基因组区域之间发生物理接触，从而影响基因的表达机制。作者观察到，在通过 snm3C-seq 分析的细胞中，不同基因组距离下的近距离和远距离相互作用接触的分布存在显著差异。在与其他细胞类型的成对比较中，除了过渡型细胞外，脂肪细胞中短程相互作用（100 kb 至 2 Mb）的比例显著高于长程相互作用（10 Mb 至 100 Mb）（Fig.4a-b）。这一观察结果与所有利用不同分辨率染色质构象信息进行的细胞水平[聚类分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520721&idx=1&sn=5f35f0e23d1fc60c357fb35ae6137881&scene=21#wechat_redirect>)相一致，这些分析表明过渡型细胞与脂肪细胞具有更高的相似性（Fig.4c-d）。
 
@@ -100,13 +100,13 @@ Figure3
 
 4、**DNMT3A 和 TET1 作用于 DMR 模式**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmIaX0DRia7ZHy85mAUKfWhAfO2wRSJeGn2VTeSTTtFsAJMdR9vQlkZRcEtcARffRtT9FCiajUiaibzETeFBaCdAC6I43bfMiaM6PJ7o/640?wx_fmt=png&from=appmsg) Figure5
+![](../../images/39d8defddbe16a2e.webp) Figure5
 
 DNA 甲基化涉及甲基基团的添加及去除，这一过程由 DNA 甲基转移酶（如 DNA 甲基转移酶 3α，DNMT3A 和 DNA 甲基转移酶 3β，DNMT3B）催化完成。相反，DNA 去甲基化则涉及通过 ten-eleven translocation (TET) 家族蛋白（具体为 TET1、TET2 和 TET3）从 DNA 上移除该甲基基团（Fig.5a-b）。这进一步表明，这些转录因子很可能是驱动GBM中单核细胞向TAM5-GPNMB转化的关键转录调控因子。其中，TET1 在脂肪细胞中呈优先表达，这与作者之前的观察结果一致——即脂肪细胞中低甲基化区域（56.3%）显著多于高甲基化区域（Fig.5c-d）。且作者发现在人类原代前脂肪[细胞分化过程中](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528666&idx=1&sn=d29545d296bac3e41de322e43fde80dd&scene=21#wechat_redirect>)，TET1 与已知的脂肪生成基因存在时间上的[共表达](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537452&idx=4&sn=aed34fd8a1a3a86d157dd4442a1e3854&scene=21#wechat_redirect>)（Fig.5e-f）。综上所述，作者发现 SAT 中基因表达模式变化与DNMT3A 在髓系细胞中以及 TET1 在脂肪细胞中的细胞中的表达密切相关。
 
 5、**DMR 和染色质区室中的变异富集了 CMD 风险**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmKWabutDDibqGBJK0ibscmxnUWSEL2gypQIFMAV6ETQ6cfcc5OPiagtvO7dmccja772Vyxr4DA6aH6xX6eWVxd1O4jLibNibnx3oRZ0/640?wx_fmt=png&from=appmsg) Figure6
+![](../../images/7b70841fe23083d8.webp) Figure6
 
 接下来，作者关注了细胞水平区室和 DMR 中的遗传变异对与SAT 相关的心血管代谢疾病的影响，使用经体重指数调整后的腰臀比 WHRadjBMI 作为腹部肥胖的指标，结果显示A 区室（活性区室）中的 WHRadjBMI均显著（P < 0.05）且为富集预测因子（Fig.6a-b）。此外，作者发现由髓系细胞的 A 区室和低甲基化区域构建的 PRS 是 CRP 的富集预测因子，这表明该免疫细胞类型在低度炎症中发挥作用（Fig.6c）。总体而言，作者的结果凸显了 SAT 细胞类型水平的甲基化和空间构象图谱是心血管代谢疾病（CMD）遗传风险的重要潜在背景，其中**脂肪细胞的低甲基化区域和活性****A****区室对腹部肥胖风险的信号最强，而髓系细胞的****A****区室则更能提示炎症风险** 。
 
@@ -116,13 +116,13 @@ DNA 甲基化涉及甲基基团的添加及去除，这一过程由 DNA 甲基�
 
 研究进一步将表观遗传数据与**英国生物样本库（****UKB****）** 的遗传变异数据整合，发现位于脂肪细胞低甲基化区域和活性A区室中的**全基因组关联研究（****GWAS****）变异位点** ，与腹部肥胖风险显著相关。这表明细胞类型特异性的表观基因组特征在心血管代谢疾病（CMDs）的遗传易感性中起着关键作用。尽管研究受限于样本量、人群单一性以及仅分析了顺式[染色质相互作用](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510114&idx=1&sn=f7e8b1df1804a6bba0d79b1ffec2467c&scene=21#wechat_redirect>)，但其提供的高分辨率表观遗传图谱为未来探索脂肪组织异质性、精准解析肥胖遗传机制及开发细胞类型特异性生物标志物奠定了重要基础。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=14)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=16) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

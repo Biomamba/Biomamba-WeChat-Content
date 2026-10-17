@@ -17,7 +17,7 @@ albums: ["文献速递"]
 
 **Doi： https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75607**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk7jw40JKZBn1K3zvlKmAnZpHZjQZ8qA3TXzicywXcePnH5VHiaibDyXh98WAHtickBh2ywGLkq09Pj2nRg5QOABiaicvWJa5CaSgqmo/640?wx_fmt=png&from=appmsg)
+![](../../images/9966eb115ea541af.webp)
 
 [空间转录组学](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2879312479804489730#wechat_redirect>)（ST）虽然能让我们在组织架构中直观地分析基因表达，但受限于目前主流技术的分辨率，单个测序点往往包含多个细胞的混合信号，难以直接解析单细胞层面的细节。因此，利用[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)数据作为参考进行“计算去卷积”成为了破局的关键。
 
@@ -27,7 +27,7 @@ albums: ["文献速递"]
 
 值得一提的是，本文的测试数据有一个我们熟悉的组学：[SeekSpace](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536784&idx=1&sn=35754d32e7acbb0208a05917c7a1590b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlT2u6LNKEut0fQNHibAu8zdFq9eQ5paSWISY9zPLusLCAzpxaO7QFabexcuQu1Cetb7NCzsrLxpqAfRUu977SAOgoue433Gf8k/640?wx_fmt=png&from=appmsg)
+![](../../images/bbcaf06deead315c.webp)
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21&token=827157490&lang=zh_CN&poc_token=HLe6Q2mjR5L5stXqZGOdzOvf2Vk8eTYi05UUYRRy#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469&token=827157490&lang=zh_CN#wechat_redirect>)、自测数据个性化分析辅导、[实验科研服务](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537678&idx=1&sn=578993fdfa060d38c80e2df6fc200c39&scene=21#wechat_redirect>)和[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537678&idx=2&sn=1d329f22e35586dc794ce30aa6bd0ce4&scene=21#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。
 
 **二、主要内容**
@@ -40,7 +40,7 @@ albums: ["文献速递"]
 
 总的来说，STAID通过引入**图信号处理** 和**迭代伪点优化** 机制，成功解决了传统方法中训练数据失真和基因关系忽略的问题。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnmmcJJUNssBHGUCDel293MAwvQPiak0M3GRRaEru7DVYwuhRUmgDzE2lFuRCiaEArsTNHibJcRGDcGPezcbj4ib8n8D8ZjmzJnHpU/640?wx_fmt=png&from=appmsg)
+![](../../images/44f3e45790b04a05.webp)
 
 **Fig.1**
 
@@ -50,19 +50,19 @@ albums: ["文献速递"]
 
 以Ependyma（一种形成脑室上皮衬里的神经支持细胞，在作者的数据集中呈现线状分布模式）为例，STAID准确地推断出了这种线性分布，其预测结果与“金标准”最为吻合。其他方法（除了DSTG和CLPLS）虽然也捕捉到了线状模式，但其结果与真实分布存在不同程度的偏差（Fig.2f）。且作者发现这些性能的提升归功于STAID的**迭代训练策略** （Fig.2g-k）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnnJAcKdVyf5bdzeGzSpfyI4qahPHibRs3S417QuvPO8lrjGvMkNCV96icNbgB7MtrnibicQ6758JDCGdmseZCgSvoeCoToqBUmLsk/640?wx_fmt=png&from=appmsg)
+![](../../images/023f119db83e3b14.webp)
 
 **Fig.2**
 
 此外，为了弥补传统低分辨率空间转录组缺乏真实细胞比例标准答案（Ground Truth）的不足，并验证模型在不同技术平台上的泛化能力，作者在两个具备单细胞分辨率的前沿空间转录组平台（MERFISH 和 寻因生物 SeekSpace，图S4a和S5a）上进一步评估了 STAID。依托[SeekSpace](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536784&idx=1&sn=35754d32e7acbb0208a05917c7a1590b&scene=21#wechat_redirect>)提供的真实单细胞空间分布作为高质量基准，在所有评估指标（RMSE、MAE、JSD和PCC）中，STAID始终表现优于其他竞争方法，几乎所有比较中均有统计学显著提升（见图S4b–i和S5b–i）。这些结果表明 STAID 在多种空间转录组平台上具有极强的稳健性和高准确性。(SeekSpace 数据来源：OMIX016242, https://ngdc.cncb.ac.cn/omix/release/OMIX016242 )
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmaSJOqASy7jOp6fnojogZ4uAKqjQKBAw2Pwu2qI0F10A8cxaJBwW0n4VYL3biaMgwJDs8C5icqiaptdxVDkNOxY4pbCia4XLHIiaAY/640?wx_fmt=png&from=appmsg)
+![](../../images/5c4f376506a1f419.webp)
 
 Fig.S4 SeekSpace单细胞空转数据的细胞类型分布与关键指标评分
 
 最后，作者通过考察**[细胞类型共定位](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534453&idx=2&sn=b6e2150b75e22b9c42a7536dd5785e06&scene=21#wechat_redirect>) （cell-type co-localization）**，评估了细胞类型预测的生物学相关性，这是许多空间转录组分析中的一个关键环节。在空间点（spot）尺寸相对较大、更适合进行共定位分析的**场景 2**中，作者使用斯皮尔曼相关系数（Spearman’s coefficient）计算了合成空间数据中的成对空间相关性。结果显示，**STAID** 和**SpatialDWLS** 得出的结果与“金标准”最为一致，从而更好地保留了真实的**细胞间空间关联模式** （Fig.3a-b）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnERtvdNOGHRTNTIeKamCyJxjMxZZCzQclztc60T5dqicgptOAtalyw0enox1ibNaGfOfdK20IcKsMC2jmnbXxxxpYo2N21mqXxY/640?wx_fmt=png&from=appmsg)
+![](../../images/7896c97f33fad3f7.webp)
 
 **Fig.3**
 
@@ -70,7 +70,7 @@ Fig.S4 SeekSpace单细胞空转数据的细胞类型分布与关键指标评分
 
 为了进一步展示STAID在空间转录组癌症研究中的实用价值，作者将其应用于两个乳腺癌Visium样本（CID4535，雌激素受体阳性ER+；以及CID44971，三阴性乳腺癌TNBC）的分析中。这个案例可以评估STAID在解析细胞组成的同时，捕捉异质性肿瘤微环境（TME）空间组织的能力，首先进行细胞类型注释（Fig.4a），发现其可以精准识别肿瘤上皮细胞（Fig.4b-e），之后发现其还可以解析**肿瘤 -[免疫微环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507337&idx=1&sn=e23d849663a6cfcad19bacdaeeb85b5f&scene=21#wechat_redirect>)****， 当聚焦于****“ 浸润性癌+淋巴细胞”区域****时 ，**在CID4535中，该区域主要由肿瘤上皮细胞、髓系细胞、癌症相关成纤维细胞（CAFs）、B细胞和T细胞组成（Fig.4f,g）；而CID44971还额外包含了内皮细胞和浆母细胞（Fig.4h,i）这些差异凸显了不同患者间肿瘤微环境固有的异质性。同时GO分析还可以**揭示 T细胞的功能程序**（Fig.4I-k）**。****总而言之， STAID不仅以高精度重建了空间细胞组成，还为理解肿瘤异质性和免疫微环境提供了深刻的见解，突显了其在癌症空间转录组学研究中的重要价值。**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkBKd4SLb44cMia8iarO19icNBrCdfF9ugSCeZyddaqUSbWLE6ibWGpicn9kLLSTzxP2paqJuWt8lkHPia4ss0s4tIDCIXxDJ6cEde54/640?wx_fmt=png&from=appmsg)
+![](../../images/0888de8e89724cfc.webp)
 
 **Fig.4**
 
@@ -81,7 +81,7 @@ Fig.S4 SeekSpace单细胞空转数据的细胞类型分布与关键指标评分
 
 人类肢体芽在受孕后第4周（PCW）末开始出现，并在妊娠前三个月逐渐发育成手臂和腿。肢体发育是一个高度动态且复杂的过程，其中相对均一的肢体芽会分化为多种[细胞类型](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532178&idx=1&sn=2cc8f5453765bd68b8ddacf2c2e3d5e7&scene=21#wechat_redirect>)，进而形成各种肢体组织。因此，对空间转录组数据进行精准的去卷积，对于绘制细胞类型分布图以及理解这一发育过程至关重要。接下来，作者将STAID应用于**两个分别为 5.6和6.2 PCW的人类肢体Visium数据集**，并使用了带有细胞类型注释信息的匹配单细胞参考数据。分析结果的空间模式与原始研究中选取的标记基因表达高度吻合（Fig.5a-d）。同时作者还观察到胚胎肢体中几种细胞类型呈现出有序的空间排列（Fig.5e）。最后，作者评估了基于点的细胞类型组成是否可以作为点聚类（spot clustering）的特征，分别基于基因表达信息和细胞类型组成信息进行了点聚类，结果发现基于细胞类型组成信息的[聚类](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532641&idx=1&sn=c8422ab7c1cd70751fb3109a84cb64ea&scene=21#wechat_redirect>)也能有效地重现组织结构（Fig.5f-i）。**总而言之， STAID准确地重建了人类胚胎肢体中关键祖细胞群体的空间组织，不仅捕捉到了它们具有生物学意义的分布，还解析了其有序的空间排列。**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlxmKEHv8TCUgwscB3NibUKQicK7TfGMxmfvOAiahyPQpgYy9r7aKfQCZyozl58HfSE725FtPdty1sxRaU3IdCtYSFbWdjN8gzfwM/640?wx_fmt=png&from=appmsg)
+![](../../images/32ff1353fb2c32d0.webp)
 
 **Fig.5**
 
@@ -89,7 +89,7 @@ Fig.S4 SeekSpace单细胞空转数据的细胞类型分布与关键指标评分
 
 克罗恩病（CD）是一种慢性炎症性肠病，其特征是肠道反复发炎、细胞外基质进行性沉积以及不可逆的狭窄形成。在这项研究中，作者应用STAID来刻画一位CD患者的两个狭窄组织切片（V10A14-143_C, V10A14-143_D）和一个相邻的非狭窄组织切片（V10A14-143_A）的空间细胞组成。为了验证去卷积结果的准确性，作者将主要细胞类型的预测空间比例与其经典标记基因的表达模式进行了比对（Fig.6a-d）。在两个狭窄样本中，STAID揭示了B细胞和T细胞的大量积聚，这表明存在**类三级淋巴结构（ TLS-like）的免疫微环境**。这类结构曾在慢性发炎的组织中被报道，并可能促成克罗恩病中持续的局部免疫反应。作者根据已验证的特征基因集的平均对数表达量计算了TLS评分，并据此勾勒出类TLS区域（Fig.6l-m）。在这些区域内，B细胞和T细胞均高度富集（Fig.6n），这与淋巴组织的经典细胞组成相一致。此外，对与B细胞和T细胞空间分布高度相关的基因进行**[功能富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500357&idx=2&sn=40034079b771c478b482e849ed4b216c&scene=21#wechat_redirect>)** （Fig.6o-p），其结果也与这些细胞的生物学功能高度契合。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkWNahubfePf4FumO4IUs1ZNbb2JeHpiaTfuprp4fUd4fc0RgNEXE1Ciby3p7ibriafiaaJVD6N5ol8GgcoZqjFOrPmhpplpKCd88ia4/640?wx_fmt=png&from=appmsg)
+![](../../images/7b06202987b65226.webp)
 
 Fig.6
 
@@ -99,14 +99,14 @@ Fig.6
 
 整体而言，该研究提供了一个强大的计算框架，能够将“空间位置”与“细胞身份”精准对应，从而在[单细胞分辨率](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501241&idx=1&sn=9e15d23f721ad7f4ae1335ce5362031b&scene=21#wechat_redirect>)下重构组织的生理与病理结构。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=7)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=8)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=9) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYc2iaBU5PHFRGicesPwlJAYZjqVMGdYRGTxHe9oMUGVo6aIpmwQiabcvpzQ/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=10)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=11) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/8c35a80aa61ccf75.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

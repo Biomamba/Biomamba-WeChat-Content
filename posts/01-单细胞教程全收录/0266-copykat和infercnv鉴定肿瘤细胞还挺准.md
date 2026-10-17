@@ -12,21 +12,21 @@ albums: ["单细胞教程全收录"]
 
 **一、写在前面**
 
-我们此前的[scRNA-seq拷贝数变异学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)，演示数据来源于转移性肺腺癌的单细胞转录组谱，共包含从44例正常组织或早期到转移期癌症患者的208,506个细胞。该数据集的原文发表在《Nature communication》上[1]。数据GSE131907可以从GEO数据库中直接下载[2]，原文是作者手搓了个函数，通过染色体区段的表达量滑动平均推断 CNV[3]，鉴定出来的肿瘤细胞与正常上皮(AT1、tS1)与infercnv鉴定出来的肿瘤细胞和正常上皮分布高度一致。更多单细胞技巧教程可见：[限时回归！两个月时间，手把手教会你scRNA-seq数据分析！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535408&idx=1&sn=1f3b4b99bab378887d11dd83fd87feb7&scene=21#wechat_redirect>)专题教程可见：[R语言scRNA-seq拷贝数变异分析专题](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=6&sn=6b2682106ed9a84c5bf57dadec45a0d3&scene=21#wechat_redirect>)原文的分群：![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwniaE7qtibFOic5RUeUoEfqLToRyOoicJVLqPKDsU0D0USTHUSrFiaBES3MMu8wHUXbt9JFC3l7qpEMvtAdO2FP8gJAe0lIuPKQAaRM/640?wx_fmt=png&from=appmsg)经infercnv预测通过CNV score聚类、注释得到的结果，可以看出与作者注释的肿瘤细胞分布基本一致，当然也存在少量难以界定的"transition cells"：![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmamSKIjTI5wJZuibdT8JbqjZ4zaQnsm66ZNnXLFJzls3ic8a5MB5FtQyDde7n3TwfJoAdutnFMlGhoTgbQjtMv5M6d921mIecZQ/640?wx_fmt=png&from=appmsg)
-infercnv热图如下，可以理解为白色区域不发生拷贝数变异，途中可以明显发现原文作者标注的Malignant cells包含大量的拷贝数变异事件:![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmicebWBXNzXcbsRRjJHK5hHzDgicmAKMN2lRGJnxGWyeUpSQ2IPapia1xx6ksL2RiavABu7uMGKVGdw8rD6PD4xp82b8TxXzbHVF8/640?wx_fmt=png&from=appmsg)小提琴中也可以观察到Malignant cells的CNV score明显高于身为正常上皮细胞的AT1与tS1。![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlSjhXnIVdDL5h78JcpFlkOgFgDezIIa82PsugIbicoYNe6HsyRllPMqskwq2LXFu3mlKENgQEhAtz9q8icX8nocicOfdY1qZmwKA/640?wx_fmt=png&from=appmsg)
-再看看copykat，值得一提的是copykat的计算是不需要像infercnv那样选定参考细胞群体的。并且在返回的预测数据框中能够直接给出包含diploid和aneuploid的标签：![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlSnyc0DjWw0vOsWvh13f5YCnM0wrT9GuVOWFplUabnQmKykIiaia9RlFL1iawtdTbPjZswc2oVBa1lpplux7dZ1LiboJxXGoeMwk0/640?wx_fmt=png&from=appmsg)
-热图可以看出diploid(双倍体，绿色侧栏标注)和aneuploid(非整倍体，红色侧栏标注)之间的cnv score差别非常大：![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlYqek8OhoicN6SniaDdMxrNruj3GOQufLV2nibiacrH9tlzVEyASWibqJXueaHpHS2AXtDG2ppica8H2S91KOOdwibQGIfXfc7GL2wjE/640?wx_fmt=png&from=appmsg)我们实际测试的时候混入了Naive CD4+ T Cell观察效果，可以看出T Cell的CNV score非常接近1，且没有一个 T Cell被标注为aneuploid，不过Malignant Cell当中出现了部分diploid，可以看出Copykat并非"贪心算法"。![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm5gt6PD2ab5lXT7Jzw7gMfibIttzK13e6lhZgZZZIhofict9rNozDUHaLEibptLAdaSQDxic4U1phnM1bH2n1urRCd14KIWRibN9QY/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlepLBVySIBOgnAPVaZNjNq621ibV5RialUm54Tibx8IlB7aKSdkhNj3Nmb74DV3fJLzibBDqgJWKZibFyW7yVwvpsxqu9iaCMpdLqlg/640?wx_fmt=png&from=appmsg)
+我们此前的[scRNA-seq拷贝数变异学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)，演示数据来源于转移性肺腺癌的单细胞转录组谱，共包含从44例正常组织或早期到转移期癌症患者的208,506个细胞。该数据集的原文发表在《Nature communication》上[1]。数据GSE131907可以从GEO数据库中直接下载[2]，原文是作者手搓了个函数，通过染色体区段的表达量滑动平均推断 CNV[3]，鉴定出来的肿瘤细胞与正常上皮(AT1、tS1)与infercnv鉴定出来的肿瘤细胞和正常上皮分布高度一致。更多单细胞技巧教程可见：[限时回归！两个月时间，手把手教会你scRNA-seq数据分析！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535408&idx=1&sn=1f3b4b99bab378887d11dd83fd87feb7&scene=21#wechat_redirect>)专题教程可见：[R语言scRNA-seq拷贝数变异分析专题](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535877&idx=6&sn=6b2682106ed9a84c5bf57dadec45a0d3&scene=21#wechat_redirect>)原文的分群：![](../../images/74314bd2a7dc4d3d.webp)经infercnv预测通过CNV score聚类、注释得到的结果，可以看出与作者注释的肿瘤细胞分布基本一致，当然也存在少量难以界定的"transition cells"：![](../../images/37fea49e90ab8b9f.webp)
+infercnv热图如下，可以理解为白色区域不发生拷贝数变异，途中可以明显发现原文作者标注的Malignant cells包含大量的拷贝数变异事件:![](../../images/06a6ffbba9fd1443.webp)小提琴中也可以观察到Malignant cells的CNV score明显高于身为正常上皮细胞的AT1与tS1。![](../../images/3d869b556e6f07e3.webp)
+再看看copykat，值得一提的是copykat的计算是不需要像infercnv那样选定参考细胞群体的。并且在返回的预测数据框中能够直接给出包含diploid和aneuploid的标签：![](../../images/58a758e5d98a7471.png)
+热图可以看出diploid(双倍体，绿色侧栏标注)和aneuploid(非整倍体，红色侧栏标注)之间的cnv score差别非常大：![](../../images/f2ba4efa952d0d8b.webp)我们实际测试的时候混入了Naive CD4+ T Cell观察效果，可以看出T Cell的CNV score非常接近1，且没有一个 T Cell被标注为aneuploid，不过Malignant Cell当中出现了部分diploid，可以看出Copykat并非"贪心算法"。![](../../images/b1154b328f350668.webp)![](../../images/3a11a8fd3132cc6e.png)
 更多拷贝数变异教程可见：[空间转录组数据拷贝数变异分析学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532924&idx=1&sn=46b87151e30163e393cf2c1751360bac&scene=21#wechat_redirect>)[肿瘤异质性分析必备| 一文学会四种scRNA-seq拷贝数变异分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529921&idx=1&sn=93f8ad6655ee6d2b036cd557a6a74be6&scene=21#wechat_redirect>)
 
-如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)、自测数据个性化分析辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)、自测数据个性化分析辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。![](../../images/399758fa7d6941c2.png)
 
 联系客服微信获取学习资料
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwy0hBvqfSTsLLNTrk36j0gC12BcO8p0qflUJeZjYG84FgegiaVgSmAdLRYHXGzmL2MpsTc6KwAJbA/640?wx_fmt=gif&from=appmsg)
+![](../../images/72dc5b2b4d98badc.webp)
 
 ‍
 
@@ -107,23 +107,23 @@ infercnv热图如下，可以理解为白色区域不发生拷贝数变异，途
 
 文末下载链接中包含以下内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwsZLxicFFC4gUXuoBfB0icOB1sWmh7riaudYqCbTADNMkJUoHXmDDWlFdxibWQWY1knm36ictcAiawKvfQ/640?wx_fmt=png&from=appmsg)
+![](../../images/69b4cb61ee653655.webp)
 
 测试文件约**55.57GB** ，大家注意按需下载！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 参考：[1]https://pmc.ncbi.nlm.nih.gov/articles/PMC7210975  /[2]https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131907
 
 [3]https://github.com/SGI-LungCancer/SingleCell/blob/master/R/calInferredCNA_for_CEP.R
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=35)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

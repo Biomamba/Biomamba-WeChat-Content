@@ -17,7 +17,7 @@ albums: ["文献速递"]
 
 **Doi：10.1016/j.cell.2026.04.049**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkLAd5BEtVkOW8Fp56BDnvI0AnYfNZuRAibXmGMBgVmzA1vB4nom9sGH31I3RtXD9iatYiazO4aQDhfWiafEg3XWld24k4e2ia6llco/640?wx_fmt=png&from=appmsg)
+![](../../images/ffa3edab6bea7492.webp)
 
 随着单细胞分辨率[空间转录组技术](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535143&idx=1&sn=e386278a7212555500c159a0eff9c152&scene=21#wechat_redirect>)的出现，研究人员现在能够对组织生态系统（如肿瘤微环境）进行全转录组层面的精细剖析，从而深入研究组织结构、基因表达模式及细胞社群。然而，尽管空间组学提供了详尽的“图谱”，但目前仍缺乏有效的工具来建立基因表达与其空间表型功能效应之间的因果联系，也未能充分揭示驱动这些过程的调控通路。
 
@@ -37,9 +37,9 @@ albums: ["文献速递"]
 
 之后，作者进行了**体内肿瘤模型的****CRISPR****筛选验证，** 在 MC38 皮下移植瘤模型中进行了体内功能基因筛选，体内空间转录组测序结果与传统 gDNA 测序之间保持了极高的相关性，且成功发现关键靶点（Fig.1H-J）。同时，将 SPAC-seq 应用于Visium HD 和 Stereo-seq 两种具有单细胞分辨率的空间转录组平台后，也展现出卓越的捕获效率（Fig.1K-O），能够检测到**高比例的****sgRNA****和良好的空间重现性** ，最后，作者还展示了此方法的**单细胞分辨率** ，在所有细胞中，有 44.58% 的细胞被明确分配了单一且无歧义的 sgRNA（Fig.1P-T）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkd4DAo6iadpHzSIKvPHtecib6WRKWT12YFVLw5ib69BkjQjZxhIjI3B91ZN8B5zKzlyRvlEYvNj1oozTDI1ibkhH77lq5ibkq7iaUsY/640?wx_fmt=png&from=appmsg)
+![](../../images/61d38bef836aae71.webp)
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnZiayZdCibuLc4qI7D40r9leq88VGLL0opFyFFTQ9dkoP9MmRcnC0siaK6t9sWtsdMFBPbgJFV65L3ic4QAlbB2GKC0Gj2YHeV4uM/640?wx_fmt=png&from=appmsg)**
+**![](../../images/79ee9828cabb2502.webp)**
 
 **Fig.1**
 
@@ -49,9 +49,9 @@ albums: ["文献速递"]
 
 首先，作者发现sgRNA主要集中于肿瘤灶（Fig.2C），之后作者进行了**GSEA****分析**[ 富集](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500357&idx=2&sn=40034079b771c478b482e849ed4b216c&scene=21#wechat_redirect>)了其相关信号通路（Fig.2D-E），值得注意的是，作者发现，ICAM1敲降的肿瘤细胞高度扩增（Fig.2F）。接下来，作者检查了不同基因敲降肿瘤区域的空间定位和[细胞类型](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503971&idx=2&sn=7dafb1e743ebbb95e488d8d1b7024448&scene=21#wechat_redirect>)组成（Fig.2G-H）。sg _Icam1_ 肿瘤区域的免疫组成存在显著差异（Fig.2H）。与 sgNon-targeting 相比，sg _Icam1_ 肿瘤区域表现出 T 细胞贫乏、巨噬细胞丰富的表型（Fig.2J）。 **GSEA****结果显示** ，与细胞分裂和肿瘤生长相关的通路上调，而 IFN 信号通路的下调（Fig.2M-N）。**综上所述，这些结果验证了****_Icam1_ ****敲降增加了肿瘤细胞在转移和逃避免疫监视过程中的优势。**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnmjI1Ux2tDo690jArh5Que3vnamiaAyxaB1IVXYDBDCuWwwZOJB1nN0BcFvn4QibZYH6BHW2obE0K2zsIjxCEMBhDzChcWvMelg/640?wx_fmt=png&from=appmsg)
+![](../../images/fde252b11d8337d1.webp)
 
-**![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm1PdeclibUs9ibR3Uh3AFD3SCg3iaG9eDroMbRue2QFZQJDCsEXA2wpzIsyBoaNVjCuMj0D3ab0xGOS4ibM1xLgrCR7icCIBtxHAGc/640?wx_fmt=png&from=appmsg)**
+**![](../../images/0c722aef621c107e.webp)**
 
 **Fig.2**
 
@@ -59,7 +59,7 @@ albums: ["文献速递"]
 
 为了了解T细胞如何与环境刺激相互作用，从而影响其在肿瘤内的空间定位和功能，作者利用SPAC-seq技术鉴定了控制CD8+T细胞瘤内定位的功能基因（Fig.3A）。筛选成功回收了9,040个sgRNA中的9,006个（99.62%），每个sgRNA对应超过600个细胞，从而确保了结果的稳健性。之后作者使用**MAGeCK 算法**，鉴定出了在肿瘤浸润T细胞中富集的sgRNA（Fig.3B-C）。SPAC-seq同时从六个肿瘤切片中对扰动文库和高分辨率转录组进行了测序（Fig.3D）。之后，作者利用**CellCharter** 进一步检测了定义并注释了12个[空间肿瘤生态位](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532641&idx=1&sn=c8422ab7c1cd70751fb3109a84cb64ea&scene=21#wechat_redirect>)（Fig.3E）。GSEA分析显示了肿瘤原位的功能性富集（Fig.3F），**[拟时分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532806&idx=1&sn=7d7ecf4977cb2cc9ace0e4e31941a1ac&scene=21#wechat_redirect>)** 显示了肿瘤进展过程中的显著转变，干扰素（IFN）应答和抗原呈递通路逐渐衰退，而与肿瘤核心相关的通路（包括氧化应激和活性氧（ROS）应答）则日益占据主导地位（Fig.3G），分析过程中，作者关注到了最为显著的Cd44基因，发现其能够影响IFN和ROS通路，且其能够调节T细胞的空间定位（Fig.3H-K）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnqTavP1aWhcWQSA4pUv3IW5RNUe8o7aNPbOWYoib5oWwKbncMzeOzQnwoRibpYEcm82JmfPia7uyk1zseXZiaDG7uthxsXvFuq5Qo/640?wx_fmt=png&from=appmsg)
+![](../../images/e74a78bf340ec7f9.webp)
 
 **Fig.3**
 
@@ -77,7 +77,7 @@ albums: ["文献速递"]
 **
 **
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlyg4IL8R4BPlAn2eXRhUYDl0Q5b4L7mcxiap4coPfx8rIZLqurPKbLqMCnxuQYYRxezfs1j0LzqYD3ukicUf1FkXndOxcnc7rB0/640?wx_fmt=png&from=appmsg)
+![](../../images/918a052e1bbbfcb5.webp)
 
 **Fig.4**
 
@@ -90,7 +90,7 @@ albums: ["文献速递"]
 
 **综上所述，这些多维度的体内外证据充分证明，****SPP1 必须依赖与T细胞表面CD44受体的结合，才能发挥其诱导T细胞功能耗竭和抑制抗肿瘤免疫的作用。**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlBaPia7JoEt1s4hKE7aNGOlMPlUjNn5HxuHMRACIp0A3a6FiahLJ7Lxfibia0ic6wRdLkq3onz5E3yyVPInMn9RFz1DTQnPztxxutg/640?wx_fmt=png&from=appmsg)
+![](../../images/8ed7432407ae3454.webp)
 
 **Fig.5**
 
@@ -99,7 +99,7 @@ albums: ["文献速递"]
 
 ****最后，****作者进一步关注了最具空间特异性的转录因子以及****CD8+ T****细胞表达的趋化因子受体对** 。靶向32个特异性转录因子和趋化因子受体的70个sgRNA被混合在一起，用于体内Perturb-seq和SPAC-seq筛选(Fig.6A-C）。结果显示Bhlhe40与CXCR4存在拮抗调控关系，[转录因子](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537452&idx=2&sn=c57457860e83b4302641b38e894c3dbe&scene=21#wechat_redirect>)Bhlhe40与趋化因子受体CXCR4之间形成了一条相互抑制的负向调控轴。敲除Bhlhe40会导致T细胞表面CXCR4表达上调(Fig.6D-G）。且CXCL12感知主导空间定位，由于CXCR4的上调，缺乏Bhlhe40的T细胞更容易受到肿瘤微环境中CXCL12信号的吸引。这使得它们大量聚集在富含CXCL12的肿瘤纤维化边缘区域，从而限制了其深入肿瘤内部发挥杀伤作用(Fig.6I-P）。**综上所述，作者的分析揭示了一个以前未被认识的转录因子****-****趋化因子受体轴，该轴通过将细胞内在状态与环境趋化线索相耦合，把内在转录调控与空间定位联系起来** 。**
 
-**![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkEZOWic7opfjYeFdOFziacDCKgaewWBGPJOok7kk8QUlNqScPuwyjmKKA3IYHojgibedZWLtzlibjzdpH9icJc0Z9vZOTTw1UaFkso/640?wx_fmt=png&from=appmsg)**
+**![](../../images/9865dca6a62647b0.webp)**
 
 **
 
@@ -113,14 +113,14 @@ Fig.6
 
 在具体应用中，该研究系统揭示了肿瘤微环境中免疫细胞空间行为的关键调控机制：阐明了ICAM1缺失如何重塑免疫抑制微环境并促进肿瘤转移；发现了SPP1-CD44轴介导的巨噬细胞对T细胞的免疫抑制作用；并证明了Bhlhe40通过拮抗CXCR4-CXCL12趋化信号轴决定T细胞的瘤内浸润能力。这些发现不仅纠正了以往非空间筛选方法可能忽略“细胞定位”影响的认知偏差，也为改进过继性细胞治疗（ACT）和开发新型联合免疫干预靶点提供了全新的理论依据。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=7)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=8)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=9) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYc2iaBU5PHFRGicesPwlJAYZjqVMGdYRGTxHe9oMUGVo6aIpmwQiabcvpzQ/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=10)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=11) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/8c35a80aa61ccf75.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

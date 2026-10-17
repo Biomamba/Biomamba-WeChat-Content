@@ -14,7 +14,7 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 突发奇想，现在生信数据的存储主要阵地——GEO数据库所收录的第一篇SCI论文做了怎样的工作？于是我们在GEO数据库中进行了检索(https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE000001)并找到了这篇文章。这是一篇2000 年 8 月 1 日爱荷华大学N. Hayward**& J. Trent*团队在《Nature》上在线发表了题为“Molecular classifcation of cutaneous malignant melanoma by gene expression profling”的letter，主要包含了**38个样本** 的**探针数据** 并进行了黑色素瘤的分型。站在**上帝视角** 的我们显然觉得探针的数据分析起来非常的简单([相关性分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491702&idx=1&sn=5b786a572142e66fa8b0a1a7f71ff6ee&scene=21#wechat_redirect>)、[层次聚类](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520721&idx=1&sn=5f35f0e23d1fc60c357fb35ae6137881&scene=21#wechat_redirect>)谁不会啊)，这类探针数据在如今单细胞、空转等多组学数据满天飞的现在显得有些小儿科(时代的一粒沙，个人的一座山)。但原本**计划两天** 完成的复现工作，实际分析过程我们来回拉扯了**一个月** 。其中许多工具、可视化方法现如今已经逐渐的退出了历史舞台，但大牛们当年能够迈出GEO数据库的第一步，初步提出了表达矩阵的肿瘤分型思想，不可谓不是**跨时代**(永远可以相信《Nature》的含金量)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNmsmoibYBwjRZWyrg186hxMCt3q1EQ6vfjiaTQpmOx9FtiaPuJXeicetQWg/640?wx_fmt=png&from=appmsg)
+![](../../images/21353e257bf3f6a8.webp)
 
 简介：人类最常见的一种皮肤相关的癌症是皮肤恶性肿瘤。**皮肤黑色素瘤** 的发病率正在急剧上升，但在晚期疾病的非手术治疗方面几乎没有进展。尽管付出了大量努力试图识别黑色素瘤预后的独立预测因子，但目前(当时，**2000年以前**)没有公认的组织病理学、分子或免疫组织化学标志物能够定义这种**肿瘤的亚型** 。因此，文章报告通过对一系列样本的基因表达进行分析发现了一种黑色素瘤的亚型。令人惊讶的是，许多用于定义这一亚型的基因在体外形成**原始管状网络** 的侵袭性黑色素瘤中表现出差异性调控，而这种特征出现在某些高度侵袭性转移性黑色素瘤中。转录组分析可以识别出未被认识的皮肤黑色素瘤亚型，并预测可能对疾病进展重要的、可通过实验验证的表型特征。往期复现工作：[《NC》代码复现| scRNA-seq揭示人纤维化皮肤病中的成纤维细胞异质性和间充质成纤维细胞增加](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247525649&idx=1&sn=6145f50422ef8680be2a7ffd6c66f5f3&scene=21#wechat_redirect>)
 [单细胞复写|3.急性心肌梗塞(AMI)外周血scRNA-Seq分析实战(链接重置)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501145&idx=2&sn=12c2e8d104ad343fc13acb8cda266e6c&scene=21#wechat_redirect>)
@@ -25,17 +25,17 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 文章收集了38例皮肤样本的转录组数据，包括3**1例黑色素瘤样本** 和**7例对照样本** 。fig1展示了几种分析方法的整合，以可视化皮肤黑色素瘤肿瘤样本之间的整体**表达模式** 关系。通过使用所有肿瘤样本的**皮尔逊相关系数** 矩阵，将31个黑色素瘤样本以**层次聚类树状图** 的形式展示出来（fig1a），同时通过多维尺度分析（MDS）展示31例样本的三维分布（fig1b）。分层树状图表明，19个样本紧密聚类在树状图的底部，处于相似度最高的区域。目前还没有一种既定的方法来评估通过聚类预测技术获得的分群关系的可靠性。因此，文章使用两种独立的方法进一步进行测试。第一种方法通过检查强**分类基因的频率** 与此类基因的**预期频率** （如果表达是随机变化的）以及与将相同样本随机划分为19个和12个新分组时强分类器的频率进行比较，来检查单个基因区分19个主要聚类与其余样本的能力。聚类结果的非随机性是显而易见的。具体而言，许多基因的表达模式在初始样本聚类之间有很大差异，因此可以作为良好的分类器（fig1c，红色三角形）。然而，当样本被分组为相同大小的随机分区时，很难找到对样本进行分类的表达模式（fig1c，蓝线）。因此，在随机形成的簇中，表达行为与基因相对于这些簇的真正随机行为基本上没有区别（fig1c，比较蓝线与空心圆）。第二种方法是基于向数据集引入随机扰动后评估聚类成员资格。对于每个样本，通过引入均值为0、标准偏差为0.15的随机高斯噪声来扰动每个基因的对数比（这是通过计算所有31个样本中单个基因的对数比的中位标准偏差得出的变化估计值）。然后对扰动后的数据集进行层次聚类，并对原始树（fig1a）和扰动树进行比较。比较包括原始树和扰动树分割成k个聚类，然后计算原始树中成对样本聚类在一起但在扰动树中不聚类在一起的配对样本的比例（将此度量称为差异对的比例加权，因为它对较大的聚类给予更大的权重）。对于每个可能的分割，在多个扰动数据集上重复进行比较。给定k（k=2：30），随后对扰动数据集中差异对的有权比例进行平均，从而确定了**加权平均差异对** （WADPk）。将原始树分割成9组或更少组所得到的聚类具有很强的可重复性（fig1d）。值得注意的是，WADPk的增加几乎与主要包含19个元素的聚类分裂成较小的子聚类完全重合。这些结果有力地支持了这样一种观点，即在本研究中识别出的黑色素瘤样本的主要聚类代表了一个真实且高度可重复的分组。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNXCPUbMMy4T78on440f1j1gbY0L9QvXlloGtS7IeicrNKatZ15k0fpsw/640?wx_fmt=png&from=appmsg)
+![](../../images/9ae980e4ee4597ec.webp)
 
 ### （2）两组患者肿瘤倾袭性比较
 
 文中还纳入了两对来自同一患者的标本。它们是M92-001和M93-007（来自同一患者的两个不同样本，分别在手术切除后一年获得），以及TD-1376-3和TC1376-3（同一肿瘤的活检样本和细胞培养物在体外传代三次）。尽管细胞传代次数与聚类组之间没有显著关联，但纳入了TD-1376-3/TC-1376-3这对样本作为细胞培养效果的另一个对照。基于fig1中全部基因表达的线性相关性，fig2和fig3展示了用于指导“基因簇”解释的经验方法。fig2a描绘了用于提取单个基因“加权列表”的统计方法，这些基因在所有实验中的变化方差正确地定义了给定样本簇的边界。fig2b沿垂直轴按降序排列了在19个样本（fig1a和b）中定义主要黑色素瘤簇最有力的基因列表。样本沿水平轴按簇包含情况排序，**颜色饱和度与测量到的基因表达比率的幅度成正比** 。加权基因列表也可用于指导对**更大规模** 的基因表达数据集的分析。fig3a展示了本研究中皮肤黑色素瘤样本的所有数据，以彩色图像的形式呈现，基因按照表达模式的相似性沿垂直轴排列。fig3b-e展示了使用fig2b中“加权列表”中的四个基因（MART-1、CD63、 tropomyosin和WNT5A）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNicDxkoq3Fe5uKMVQc4M0iaRE8zJVyv7Scia06Kvo3riaKbwU4Zx3e1kIeg/640?wx_fmt=png&from=appmsg)
+![](../../images/4046d4c6241e793d.webp)
 
 最后，在对皮肤黑色素瘤的微阵列分析的同时，研究了一系列具有转移相关特征的葡萄膜黑色素瘤标本，包括侵袭能力和体外血管生成模拟能力。令人惊讶的是，高度侵袭性葡萄膜黑色素瘤细胞与皮肤黑色素瘤样本主要簇列中的相同基因呈强烈负相关（fig2b）。这一观察结果，结合加权列表中基因的已知生物学功能，表明被分配到主要皮肤黑色素瘤簇列中的样本具有较低的**运动性和侵袭能力** ，因为它们下调了与细胞扩散或迁移相关的基因。在主要聚类之外的样本中基因表达趋势则是相反的，这些与其他文献报道一致。进一步使用一系列细胞检测来表征皮肤黑色素瘤迁移性和侵袭性区别。正如对它们基因表达模式的分析所预测的那样，与主要簇组外的黑色素瘤相比，主要簇组内的黑色素瘤的迁移性、侵袭能力和血管生成模拟能力都有所降低。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNmxC4B1rDe2SxTsN1ViaibOKfU7tQGBuaOvl2sG9KN5rYBZickWadbYtrg/640?wx_fmt=png&from=appmsg)
+![](../../images/ef9802ce33066941.webp)
 
 **
 **
@@ -48,7 +48,7 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 1.复现集锦
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNQKIsRVIbzGibia92eaib7jCJ5r5ibnibuWU8vibnWTbNO6W7ic6akv90C3Q5w/640?wx_fmt=jpeg)
+![](../../images/48aadba7844d45ac.webp)
 
 2.数据下载和预处理
 
@@ -86,7 +86,7 @@ sample_all <- cli$title# 筛选出肿瘤样本用于后续分析sample_mali <- c
 # fig1a# 方法1：基于表达矩阵聚类（与原文一致性最低）dist1 <- dist(t(exp_mali), method="euclidean") clust1 <- hclust(dist1,method="average")plot(clust1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNyZ8e0AIf6dbbAZCB7ds7xPMHhibiavor94VDwbLXRVB2WfJjVzBuVLXQ/640?wx_fmt=png&from=appmsg)
+![](../../images/23a499131e5390fe.webp)
 
   *   *   *   *   *
 
@@ -94,7 +94,7 @@ sample_all <- cli$title# 筛选出肿瘤样本用于后续分析sample_mali <- c
 # 方法2：基于所有基因表达矩阵先计算样本之间的相关性矩阵，基于相关性，进行聚类划分（与原文一致性最高）cor2 <- cor(exp_mali, method = "pearson")dist2 <- dist(cor2, method="euclidean") clust2 <- hclust(dist2,method="average")plot(clust2)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKN83CupIbicXF0Nm2Q6F2Via6tcVT7bia7RpmypbRfY7OwxCgd9lTOKm6Fg/640?wx_fmt=png&from=appmsg)
+![](../../images/54e82b860fcfe02f.webp)
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -102,7 +102,7 @@ sample_all <- cli$title# 筛选出肿瘤样本用于后续分析sample_mali <- c
 # 方法3：unique使用剩下的4902个基因表达矩阵先计算样本之间的相关性矩阵，基于相关性，进行聚类划分（与原文一致性次之）exp_mali_new <- exp[,c(sample_mali,"Gene symbol")]exp_mali_new <- exp_mali_new[!duplicated(exp_mali_new$'Gene symbol'), ] rownames(exp_mali_new) <- exp_mali_new$'Gene symbol'# 去掉Gene symbol列exp_mali_new <- exp_mali_new[,-32]cor3 <- cor(exp_mali_new, method = "pearson")dist3 <- dist(cor3, method="euclidean") clust3<-hclust(dist3, method="average")plot(clust3)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNFfrASzMnwqJT5bv8TwRHdmr9ia8oQwibStzmiczeMGhE9sicOHibLibDgL3A/640?wx_fmt=png&from=appmsg)
+![](../../images/62836f6707217b05.webp)
 
 4.31例黑色素瘤样本三维空间分布
 
@@ -112,7 +112,7 @@ sample_all <- cli$title# 筛选出肿瘤样本用于后续分析sample_mali <- c
 # fig1b：# 执行MDS，将距离矩阵转换为三维坐标# k 是目标维度数，这里设为3mds <- cmdscale(dist2, k = 3) mds <- as.data.frame(mds)# 给坐标轴命名colnames(mds) <- c("MDS1", "MDS2", "MDS3") # 定义样本所属的两个簇, Cluster 1 有 19 个样本，Cluster 2 有 12 个样本group <- c("1","2","1","1","1","2","1","2","1","1","1","1","1","1","2","1","2","1","1","2","1","2","1","1","1","1","2","2","2","2","2") names(group) <- sample_maliscatterplot3d(mds, color = as.numeric(group), pch = 19)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNdlkHG6EadeHkLtmTbnwkVRTSllJXub8SvsPSXjppTFC85hppcVxKxg/640?wx_fmt=png&from=appmsg)
+![](../../images/4788cad04b4bd6e7.webp)
 
 ##  5.基因与TNOM评分函数
 
@@ -189,7 +189,7 @@ tnf <- update(tn)
 plot(tnf)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNtLJCrSyVeW7Bl79NMuu7SR6ffp1uENRHZZibmLuuBuVSibCUiaeAudTqg/640?wx_fmt=png&from=appmsg)
+![](../../images/9a66bd2027faa9fd.webp)
 
 ##  6.WADP与K值
 
@@ -201,7 +201,7 @@ plot(tnf)
 # 对不同的k值进行计算，并绘制WADP与k的关系calculate_and_plot_WADP <- function(data, max_k) {  dendrogram <- hclust(dist(t(data)))    k_values <- 2:max_k  WADP_values <- numeric(length(k_values))    for (i in seq_along(k_values)) {    k <- k_values[i]    WADP_values[i] <- compute_WADP(k, data, dendrogram, sigma_squared)  }    # 绘制散点图  WADP_df <- data.frame(k = k_values, WADP = WADP_values)  ggplot(WADP_df, aes(x = k, y = WADP)) +    geom_point() +    geom_line() +    labs(title = "WADP vs k", x = "Number of clusters (k)", y = "WADP") +    theme_minimal()}calculate_and_plot_WADP(exp_mali, max_k = 30)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKN7pZLYRHI1r3C9V2picNwVsqoXlPC4LghkyibwU8Zk7tZG9TNicVadaHyw/640?wx_fmt=png&from=appmsg)
+![](../../images/f2fd0d0af055f91b.png)
 
 ##  7.top22权重基因筛选
 
@@ -211,7 +211,7 @@ plot(tnf)
 # fig2b# top权重基因计算，根据原文公式w = dB / (k1dw1 + k2dw2 + α)# α 参数参考原文赋值alpha <- 0.1# 定义函数计算权重 wcalculate_gene_weight <- function(gene_expression, cluster_labels, alpha) {  # 1. 计算簇 1 和簇 2 的样本  cluster1 <- gene_expression[cluster_labels == 1]  cluster2 <- gene_expression[cluster_labels == 2]  # 2. 计算簇的质心  center1 <- mean(cluster1)  center2 <- mean(cluster2)  # 3. 计算 d_B：两个簇质心之间的欧几里得距离  d_B <- abs(center1 - center2)  # 4. 计算 d_w1 和 d_w2：每个簇内样本对的平均距离  d_w1 <- mean(dist(cluster1,method = "euclidean"))  # 簇 1 内距离  d_w2 <- mean(dist(cluster2,method = "euclidean"))  # 簇 2 内距离  # 5. 计算 k1 和 k2  # choose 函数用于计算组合数，即从n个不同元素中取出k个元素的组合方式的数量。  t1 <- choose(length(cluster1), 2)  # 簇 1 样本对数  t2 <- choose(length(cluster2), 2)  # 簇 2 样本对数  k1 <- t1 / (t1 + t2)  k2 <- t2 / (t1 + t2)  # 6. 计算 w  w <- d_B / (k1 * d_w1 + k2 * d_w2 + alpha)  return(w)}# 对表达矩阵中的每个基因计算权重gene_weights <- apply(exp_mali, 1, calculate_gene_weight, cluster_labels = group, alpha = alpha)# 将基因按照权重排序gene_weights_sorted <- sort(gene_weights, decreasing = TRUE)# 查看权重最大的前n个基因# 权重top22基因和原文top22重叠数有5个：AXL、CD63、MLANA、SNCA、WNT5Atop22 <- names(head(gene_weights_sorted, 22))order <- c("NHGRI_TC-F027","NHGRI_UACC-2873","NHGRI_UACC-1012","NHGRI_UACC-1529","NHGRI_UACC-647","NHGRI_WM1791C","NHGRI_UACC-827","NHGRI_HA-A","NHGRI_UACC-930","NHGRI_UACC-903","NHGRI_UACC-1097","NHGRI_M93-047","NHGRI_TD-1720","NHGRI_TD-1638","NHGRI_TD-1730","NHGRI_TD-1376","NHGRI_TC-1376","NHGRI_TD-1348","NHGRI_UACC-1022","NHGRI_A-357","NHGRI_UACC-3093","NHGRI_UACC-383","NHGRI_UACC-457","NHGRI_M92-001","NHGRI_UACC-2534","NHGRI_UACC-1273","NHGRI_UACC-1256","NHGRI_UACC-502","NHGRI_UACC-091","NHGRI_M91-054","NHGRI_M93-007")# 注意：这里原文是通过实验的方法参考了“Gene Expression Profiling of Alveolar Rhabdomyosarcoma with cDNA Microarrays”文献得到基因比率后绘制热图，具体是通过扫描微阵列，使用激光激发Cy3和Cy5的荧光，分别测量每个基因位置的荧光强度。Cy3和Cy5的信号强度将与各自的基因表达量成正比。在本流程是利用了基因表达矩阵绘制的热图pheatmap(exp_mali[top22,order], cluster_row = T, cluster_col = F, scale="row", border_color = NA)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNDjGlPmyo6Pb0cwFZJ1RLkC820Q0E7JxxZUmZibvopEFN8BAqJ07icQVQ/640?wx_fmt=png&from=appmsg)
+![](../../images/d176dce47c048c41.webp)
 
   *
 
@@ -219,7 +219,7 @@ plot(tnf)
 pheatmap(exp_mali[top22,order], cluster_row = T, cluster_col = F, scale="row", color = colorRampPalette(c("green", "black", "red"))(100), border_color = NA)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNHC97RG8p8cTsL1aJ05QBtdwPBfYcguic6BlN4toF4ZBtpT6ug3jXia2Q/640?wx_fmt=png&from=appmsg)
+![](../../images/393bf1362134ab76.webp)
 
 ##  8.其他基因表达模式展示
 
@@ -229,7 +229,7 @@ pheatmap(exp_mali[top22,order], cluster_row = T, cluster_col = F, scale="row", c
 #fig3 样本*所有基因矩阵的热图pheatmap(t(exp_mali[,order]), cluster_row = F, cluster_col = T, scale="column", show_colnames=F, show_rownames=F, border_color = NA)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNBY4N6solDUuUeZ9K4KrN4nWicfx2iaT23Qpo9U5CSaQa7qV3In9qROcQ/640?wx_fmt=png&from=appmsg)
+![](../../images/aa3dfbf0f859dbde.webp)
 
   *
 
@@ -237,7 +237,7 @@ pheatmap(exp_mali[top22,order], cluster_row = T, cluster_col = F, scale="row", c
 pheatmap(t(exp_mali[,order]), cluster_row = F, cluster_col = T, scale="column", show_colnames=F, show_rownames=F, color = colorRampPalette(c("green", "red"))(100), border_color = NA)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKN16E9rFF6z4YqZRzXC20uiatHWjdI7AnxAHibl3Ria6Vkh69OB17I8KbWQ/640?wx_fmt=png&from=appmsg)
+![](../../images/e4717cc048d3e685.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -245,7 +245,7 @@ pheatmap(t(exp_mali[,order]), cluster_row = F, cluster_col = T, scale="column", 
 # 计算基因和基因之间的相关性，原文是按照每个基因所在簇进行定位,但是尝试将基因分成不同簇后，没有得到关注基因合适的聚类分群，因此调整策略计算关注基因相关性高的基因用于后续展示cor4 <- cor(t(exp_mali), method = "pearson")focus_genes <- c("MLANA","CD63","TPM1","WNT5A")cor_gene <- c()# 筛选出与每个关注基因最相似的 10 个基因for (i in focus_genes){  # 提取与关注基因的相关性  col <- colnames(cor4)[grepl(i, colnames(cor4), ignore.case = TRUE)]  gene_cor <- cor4[, col, drop=F]  # 按相关性从高到低排序，选出最相似的前 top_10 个基因  # 使用 for 循环依次对每列进行排序  for (i in col) {    gene_cor <- gene_cor[order(gene_cor[, i],decreasing = T),,drop=F]  }  gene <- rownames(gene_cor)[1:10]  cor_gene <- c(cor_gene, gene )}#准备热图注释条，对每一个组的基因分别命名name <- rep(c("Group1", "Group2", "Group3", "Group4"),each=10)anno_row <- data.frame(Group=name)rownames(anno_row) <- cor_genepheatmap(exp_mali[cor_gene,order], cluster_row = F, cluster_col = F,scale="row", annotation_row = anno_row, border_color = NA)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNdMpI7U53uML7zhOCtEBlUeJyV5yWUXI3kMRRVolib8tos4mNKm7Z4tQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3bb52804c49e6808.webp)
 
   *
 
@@ -253,7 +253,7 @@ pheatmap(t(exp_mali[,order]), cluster_row = F, cluster_col = T, scale="column", 
 pheatmap(exp_mali[cor_gene,order], cluster_row = F, cluster_col = F,scale="row", annotation_row = anno_row, color = colorRampPalette(c("green", "black", "red"))(100), border_color = NA)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwky0XeVMfJLegjhKxz0YKNp4gwUXzEWfDj5FBDPlO8tg7uhoElcMxrDj2VOP9Yz76boSbmFos90w/640?wx_fmt=png&from=appmsg)
+![](../../images/ac7b92cedb07d63d.webp)
 
 ********五、环境版本信息********
 
@@ -315,11 +315,11 @@ sessionInfo()
 **六、参考**
 
 https://www.nature.com/articles/35020115https://cran.r-project.org/web/packages/ClassComparison/ClassComparison.pdf
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流(别问在么，添加时直接说来意)。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流(别问在么，添加时直接说来意)。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -328,6 +328,6 @@ https://www.nature.com/articles/35020115https://cran.r-project.org/web/packages/
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/7ef00c45433a7bde.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

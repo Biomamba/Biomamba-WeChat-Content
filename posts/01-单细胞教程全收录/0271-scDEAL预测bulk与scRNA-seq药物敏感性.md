@@ -61,11 +61,11 @@ scDEAL能够通过整合[Bulk](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mz
 
 激活成功后在你的终端命令行前会多出(scDEALenv)字样：
 
-![image.png](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkqdTWWBofuPg2NibDhOePx6dSRLPiaOE0w4THcdFM2DNBbXSWs5JPQ5YzGepden7SoAQQYtPmP4ZHnn0vcC6zL1024bPjQibQbQ4/640?wx_fmt=png&from=appmsg)
+![image.png](../../images/92cd2e328fed4f7c.webp)
 
 测试数据也在本地给大家准备好了这个包。其中包含的数据概况如下：
 
-![image.png](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl2Nw5rJm4soxMvURSdShYmh8qlMRNhqrfqDI7dGtNhusIicibZ8GZjpQuicO4RibnNWOiaOhn3dDza3b71Nz0ebTgROwAkIl2ibTfSY/640?wx_fmt=png&from=appmsg)
+![image.png](../../images/586cf560ce53181e.webp)
 
   *   *   *   *
 
@@ -99,7 +99,7 @@ integrate_data_GSE110894_drug_I.BET.762_bottle_512_edim_256,128_pdim_128,64_mode
 
 data/GSE110894/GSE110894_CellInfo.xlsx
 
-![image.png](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnMOxooQ2S5jx49oDbKuCF2LsIib26JzvOujfqjDeIqHoLeraia1UySH3K0v0g7LcbmSoqUuDIvvAicbIx0uLbckLx4wxgYOic9LkM/640?wx_fmt=png&from=appmsg)
+![image.png](../../images/6358287075e8889c.png)
 
 data/GSE110894/GSE110894.csv包含的就是单细胞count矩阵
 
@@ -261,7 +261,7 @@ AnnData object with n_obs × n_vars = 1419 × 6644
 # 查看adta的注释信息：adata.obs.head()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlzdiaJ5rnw0qicJ6mg4q5wJ6zMmyibc7foicCxiakSu3aBLBKiacpsOUMWhgibkN1YsiauCDxCXxZblzcO1LDBsfhJSOXIJguYLNse4ib8/640?wx_fmt=png&from=appmsg)
+![](../../images/89bfff1788df8e60.webp)
 
   *
 
@@ -269,7 +269,7 @@ AnnData object with n_obs × n_vars = 1419 × 6644
 sc.pl.umap(adata,color='sensitivity')
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnSygYOIkyfc6w7cPd71icyq2V6dlY3XGw0N1lYmJbGAEzNjO3eOBwfGDL9ye6GUJ1svyWD5nS2oImqmVpFKLFic15S1IDDXZD4g/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/a8459742c2c4461b.webp)
 
   *
 
@@ -277,7 +277,7 @@ sc.pl.umap(adata,color='sensitivity')
 sc.pl.umap(adata,color='Sensitive_score')
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmTOFPtjNj28Qib46YXFjufGYu3pwMK4zmxfnhORNepujqWUKaTdvtuv3JCDXTeVz2PbfzdRkKK8ibKZ5ATc4aAwIW9LmFdgRYwk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/387cd1421cf56da6.webp)
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -308,7 +308,7 @@ WARNING: adata.X seems to be already log-transformed.
 de_genes_all.head()
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlQicuuiaFTPrfFJtZ8JUwibZIeA4ib4DWX8LeicxFaOAkonR2qDCUDxVZrLLZK8ia1XibOSOq9SrRZsBH2zXIU6aqJemD6w3ChticP2JE/640?wx_fmt=png&from=appmsg)
+![](../../images/c86afc84b7f1d34d.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -343,7 +343,7 @@ de_genes_all.head()
 sc.pl.violin(adata,  'ENSMUSG00000026581',groupby='sensitivity')
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmopKHkpeLkPSgdDibsx60IvaicMsSPuoA22WrgEMkukTJtddwhgruLubwibgKMibpZoL74icia68YRpsnPy2rs9EnibOOj07Q2LbhmiaA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/1e802f71c516708b.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -351,7 +351,7 @@ sc.pl.violin(adata,  'ENSMUSG00000026581',groupby='sensitivity')
 # -------------------------- 5. 可视化差异基因 --------------------------plt.rcParams["font.size"] = 10 # 设置字体大小plt.rcParams["figure.figsize"] = (10, 8)# 设置图片大小# 5.1 火山图fig, ax = plt.subplots(1, 1, figsize=(10, 8))# 绘制所有基因ax.scatter(    de_genes_all["logfoldchanges"],    -np.log10(de_genes_all["pvals_adj"].fillna(1)),  # 填充NA为1，避免log(0)    s=10, c="lightgray", alpha=0.5, label="Non-significant")# 绘制上调基因ax.scatter(    de_genes_up["logfoldchanges"],    -np.log10(de_genes_up["pvals_adj"]),    s=20, c=colors["Sensitive"], alpha=0.8, label=f"Up ({len(de_genes_up)})")# 绘制下调基因ax.scatter(    de_genes_down["logfoldchanges"],    -np.log10(de_genes_down["pvals_adj"]),    s=20, c=colors["Resistant"], alpha=0.8, label=f"Down ({len(de_genes_down)})")# 标注阈值线ax.axvline(x=log2fc_cutoff, c="black", linestyle="--", lw=1)ax.axvline(x=-log2fc_cutoff, c="black", linestyle="--", lw=1)ax.axhline(y=-np.log10(padj_cutoff), c="black", linestyle="--", lw=1)# 美化ax.set_xlabel("Log2(Fold Change) (Sensitive / Resistant)")ax.set_ylabel("-Log10(Adjusted P-value)")ax.set_title("Resistant vs Sensitive Differential Genes", fontsize=12)ax.legend()ax.grid(alpha=0.2)plt.tight_layout()plt.show()plt.savefig("volcano_plot_Resistant_vs_Sensitive.pdf", dpi=300, bbox_inches="tight")plt.close()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkKfWGcMSrBBQ8NRQMG0jFFic9sib2CSuiakiazCvTjKqddw17qPJlkxMC4wZEprgdKXEJvJenSqpW9FJdQygQW4TXBrbQCZ8Vdwf8/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f3b5884bde4f19ea.webp)
 
 有点诡异，没有发现下调基因，大家有更多关于scDEAL的使用心得，欢迎在评论区交流。
 
@@ -372,13 +372,13 @@ sc.pl.violin(adata,  'ENSMUSG00000026581',groupby='sensitivity')
 
 一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn2CSibSRgku6HWFqgyBoMxvE8oiaT1Gpsox7ZeJADLd3KcpsKVdUGa8SMCe8U7EsshBt71sc3q0ENriaWI0Hd9hAHIgRGXNfTHdQ/640?wx_fmt=png&from=appmsg)
+![](../../images/c1f71d9f2c745eff.png)
 
 链接: https://pan.baidu.com/s/1v5xKSRMsBrHpf94RuD6ryw
 
 提取码: 24ix
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkdiaos9ibg64BRTQ1QkibTHhGmXZrGRia9LyFrnN74ownyqgtUJVbfncrnsSYTsAyEQ6rK7icutJV93ficd1kBibfWmJBlsWpUAlMFsE/640?wx_fmt=jpeg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![](../../images/ba3ec1a57ffd77d7.webp)![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -413,15 +413,15 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](../../images/4ec66ccdb832fd05.gif)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

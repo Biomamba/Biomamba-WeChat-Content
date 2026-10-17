@@ -1,0 +1,96 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0751-云平台怎么不算一种布置好的Vibe-coding呢</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="vibe-coding">云平台怎么不算一种布置好的Vibe-coding呢</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247543121&amp;idx=1&amp;sn=98b556777127f7dd340ef52e4e629d20&amp;chksm=9b3c5001ac4bd9171ef2b170431376e7b8dd11065976aaa13359ac74d4513820a8b6f6037106#rd
+合集：单细胞云平台</p>
+</blockquote>
+<p>Biomamba有话说</p>
+<p>近期恰好在做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247543067&amp;idx=2&amp;sn=b2d5fcea3db8517794c057a5194ffcb3&amp;scene=21#wechat_redirect">SeekSoul Online云平台</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247543076&amp;idx=2&amp;sn=49130acecc31a5b41f361d9978a70b5e&amp;scene=21#wechat_redirect">直播教学</a>，一个成熟的云平台，本质上就是一个已经帮你把 prompt、MCP、skills 和执行环境全配好的 AI Agent——而且它还自带算力，还给你出结题报告。<img alt="图片" src="../../images/238d0aeb252c9a62.webp">
+云平台学习资料下载：</p>
+<p>https://pan.baidu.com/s/1W0WRNaqQGZcL6lykds0nEg?pwd=2kee</p>
+<p>提取码:2kee</p>
+<p>一、vibe coding在生信分析中也有点尴尬</p>
+<p>各个大厂都在开发自己的大模型和cli帮助大家做vibe-coding，让大家无代码、无痛分析数据。其实这事云平台类工具一直在做，并且现阶段做的比vibe-codding要好一点。首先叠个甲，我个人是很倾向于学习并使用AI地，我并不是反智者，但现在vibe-coding的确存在一些尴尬的局面：1、AI幻觉和无用造成了安全性和正确性的问题：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247541857&amp;idx=2&amp;sn=cec87bcaf19205bd73cfc555f7608d95&amp;scene=21#wechat_redirect">《PNAS》误用AI撤稿，不怕被坑，那就把所有工作都丢给AI就好了</a>2、频繁的交互：需要对AI Agent精准描述你想要什么，然后看结果对不对，不对还得再说一遍3、搭Agent：大模型只能当大脑，怎么高效准确地干活还得挂一堆MCP让它能内设工具和数据，写一堆<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247541830&amp;idx=1&amp;sn=0cd452b179b0098c1de25c8f0988424a&amp;scene=21#wechat_redirect">skills</a>或者reference把领域知识封装进去，再配一个能跑代码的环境。有AI也不代表不用造轮子，搭了一圈环境发现也没比原来省多少时间。4、它每次给的代码不一样。 同一句话问两遍，出来的脚本可能不同，跑出来的图也就不同。你要写进论文方法学的时候，没法写"我们用AI生成了一段代码"。5、它只写代码，不给你机器。脚本给你了，动辄数百GB内存这件事它解决不了，现在各Agent的云电脑很少有能达到这么大的，算力还得你自己找。6、通用大模型在生信这种垂直的专业领域还不够聪明，不是大模型的问题，而是生信还不配引起大模型的关注。</p>
+<p>二、云平台其实就是封装好的AI Vibe-coding</p>
+<p>看懂这张表，你就明白为什么说云平台是"预装好的 Agent"了：你以为你在点按钮，其实你是在用一套别人已经调好、验证过、并且跑得动的专业能力。就很像一个已经被调教好的vibe-coding生态。</p>
+<table>
+<thead>
+<tr>
+<th>AI Agent 的组件</th>
+<th>云平台里对应的东西</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>prompt</strong> （你怎么下指令）</td>
+<td>向导式参数面板：初始化 → 过滤 → 整合 → 聚类 → 注释，每一步都是"勾几个选项、填几个数"</td>
+</tr>
+<tr>
+<td><strong>MCP</strong> （能碰到哪些工具和数据）</td>
+<td>数据接入层直接读 RDS / Matrix / <strong>H5AD</strong> / H5 / Loom / HD，你不用预先转格式</td>
+</tr>
+<tr>
+<td><strong>skills</strong> （封装好的领域能力）</td>
+<td><strong>27 种高级分析模块</strong> + 一整套基础分析流程 + 画图工具箱</td>
+</tr>
+<tr>
+<td><strong>领域知识库</strong></td>
+<td>自建"人 57 种组织""小鼠/大鼠 46 种组织"细胞注释参考集，内置 SingleR</td>
+</tr>
+<tr>
+<td><strong>执行环境</strong> （代码在哪跑）</td>
+<td>云端算力，本地不需要内存、不需要装环境</td>
+</tr>
+<tr>
+<td><strong>交付物</strong></td>
+<td>交互式 HTML 报告 + PDF + 全部图表 + <strong>软件版本表（SessionInfo）</strong></td>
+</tr>
+</tbody>
+</table>
+<p>三、skills才是云平台最大的优势</p>
+<p>和以前分享代码不同，AI时代最爱聊的是skills——把领域常用的技能、参考、注意事项等封装成可复用的能力包。<strong>大模型懂语言，不懂组学</strong> ，你得把组学知识喂给它，它才能在这一垂直领域内更好的发挥。这就意味着你在和AI交互时，不仅需要精准的描述提示词，还得为每个执行单元设写好skills来让AI根号的工作，内心：我都用AI了，你还让我造轮子？</p>
+<p>而云平台这一层已经堆到什么程度了？这次课程我们实打实跑完了七个项目，下面这些高级分析模块<strong>不是"支持"，是已经跑完、状态全部 Success、图已经出好了</strong> ：</p>
+<p><img alt="图片" src="../../images/5d4314b934fc6d90.webp"></p>
+<p><strong>单细胞转录组（常规）</strong><code>monocle3</code>拟时序 ·<code>CytoTRACE</code>干性评分 ·<code>hdWGCNA</code>共表达网络 ·<code>scenic</code>转录因子 ·<code>Augur</code>扰动响应 ·<code>scMetabolism</code>代谢通路 ·<code>cellphonedb</code>细胞通讯 ·<code>infercnv</code> 拷贝数 · 基因集评分（预定义基因集）</p>
+<p><strong>scFast 全长转录组</strong><code>LncCoExpression</code>（lncRNA 共表达） · <code>Fusion</code>（融合基因） · <code>rMATS</code>（可变剪切） · <code>mut</code>（突变）</p>
+<p><strong>一胞双组 RNA + ATAC</strong> 的<code>ATAC_DiffEnrich</code> · <code>ATAC_Peak2Gene</code> · <code>ATAC_Monocle3</code> · <code>SCENICplus</code> 多组学调控网络 · <code>GeneActivity</code> · <code>Trios</code> · <code>epiAneufinder</code></p>
+<p><strong>一胞双组 RNA + 甲基化</strong><code>RNA_MET</code></p>
+<p><strong>一胞双组 RNA + 空间转录组</strong><code>stlearn</code> · <code>Banksy</code> 空间聚类 · <code>SpaGene</code> · <code>COMMOT</code> 空间通讯 · <code>CellCharter</code> · <code>cellphonedb_spatial</code></p>
+<p><strong>一共 27 种不同的高级分析模块。</strong></p>
+<p>这里面随便拎一个出来，比如 <code>SCENICplus</code>——它要在同一批细胞里同时用 RNA 表达和ATAC开放程度两个证据去验证转录因子调控关系，流程是：转h5ad → <code>pycisTopic</code> 主题建模 → <code>cisTarget</code> 建motif库 → 推断TF-调控元件-靶基因 → eRegulon 评估与可视化。</p>
+<p>你要是自己搭，即使是配上Agent，光这些环境和依赖也非常可能够你折腾一周的。所以，这些折腾的功夫，我们已经替你睬过坑了，你完全可以省略这个步骤。</p>
+<p>四、所以云平台还是有点优势的</p>
+<p>1、确定性：同样的输入，永远同一条流程</p>
+<p>Agent 每次生成的代码不一样，这对造轮子、学新工具是好事，对<strong>发论文 就</strong>是灾难了，毕竟科研论文的可重复性直接反应了你的论文真实性与学术道德。</p>
+<p>而云平台的每一份报告尾部都带一张软件版本表（SessionInfo），写清楚这一步用的是什么工具、什么版本。方法学那一段你可以照抄，审稿人问起来你有据可查。这次七份报告里，每一份都有。SeekSoul Online 这个平台本身是有正式论文背书的：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247543067&amp;idx=2&amp;sn=b2d5fcea3db8517794c057a5194ffcb3&amp;scene=21#wechat_redirect">终于可以引用SeekSoulOnline啦！</a>。你引用的不是一个网页，是一篇同行评议过的文章。</p>
+<h3 id="2">2、你不需要有能力判断代码对不对</h3>
+<p>在云平台里，你根本不需要去接触代码。AI生成的内容太长了，给你一段几百行的单细胞脚本，里面某个参数写错了，你大概率看不出来，甚至你根本不会去看。</p>
+<p>云平台的流程是<strong>预先验证过的 ，并且是真人验证过的</strong>。你不需要判断"这行代码对不对"，你只需要考虑"这个参数对我的样本合不合适"——比如质控阈值怎么定、整合选CCA还是 Harmony、聚类分辨率在 0.1–2 之间取多少。<strong>判断的难度，从"看得懂代码"降到了"了解自己的数据"。</strong></p>
+<h3 id="3">3、算力直给，不需要你辗转筹备算力</h3>
+<p>Agent 能帮你把代码写出来，但它不会给你那台<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247540790&amp;idx=2&amp;sn=3e34a111e77e0cf29ee21b48a7940a9a&amp;scene=21#wechat_redirect">256GB内存的机器</a>。云平台把这个沉默成本解决了：<strong>数据在云端、计算在云端、结果在云端</strong> ，你本地只需要一个浏览器，能连网就能分析。提交完分析之后关掉电脑去<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538609&amp;idx=1&amp;sn=aa4c3a7e35656f88798edc32096198fe&amp;scene=21#wechat_redirect">去冲咖啡</a>就好。</p>
+<h3 id="4-ai">4、 交付物是论文级的，AI更像聊天记录</h3>
+<p>Agent给你的是一段代码和输出结果，相信大家都拿到过画外音很多、结果很多错误、图片不能正常显示的分析结果。使用云平台给你则科研得到：</p>
+<ul>
+<li>
+<p>交互式 HTML（点基因名直接跳 NCBI，双击基因看 FeaturePlot，降维方式随时切换）<img alt="" src="../../images/e1d2a96a8793baab.webp"></p>
+</li>
+<li>
+<p>一份排版好的 PDF</p>
+</li>
+<li>全部图表（降维图、堆叠柱形图/饼图、featureplot、vlnplot、dotplot、heatmap，颜色还能自己调）</li>
+<li>软件版本表 + 引用致谢模板</li>
+</ul>
+<p>这套东西是可以直接进补充材料、直接拿去和导师/合作者讨论的。而且它支持<strong>项目管理和多用户协作</strong> ——一个课题组可以共用，Agent是你的私人物品，离开了你搭建地环境就玩不转了。</p>
+<h3 id="5">5、学习成本低</h3>
+<p>搭一个能用的科研Agent，你要会配环境、会写MCP、会调prompt、会管理skills、还得有计算设备。这套前置技能本身，比单细胞分析还难，或者说又给你额外增加了学习成本。云平台把这些前置技能全部吞掉了。<strong>你要会的只有一件事：明确你想分析什么。emm， 这不就是Vibe Coding的定义吗？</strong></p>
+<p>五、凡事没有绝对的，云平台也不是万能的</p>
+<p>吹太过就没意思了。云平台确实也有些短板：</p>
+<p><strong>第一，预置模块之外的事它做不了。</strong> 27个模块听着多，但你如果有一个非常定制化的分析思路——比如自己设计的一个评分体系、一个还没人做过的新算法，云平台是不能像AI那样去即时获取的。云平台做的更像是通用分析。</p>
+<p><strong>第二，参数你得自己懂。</strong> 云平台把"怎么写代码"替你做了，但"参数怎么设"没替你做，也替不了。质控阈值、去批次方法、聚类分辨率，这些决定会影响你所有的下游结论。平台当然也会给你些建议作为提示信息，不过<strong>云平台降低的是执行门槛，不是判断门槛</strong> 。</p>
+<p><strong>第三，它给的是标准答案，不是发现。</strong> 云平台能告诉你"这一群是成纤维细胞""这群和那群之间有这些通讯信号"，但"这个发现意味着什么"这件事，的确不能像AI那样替你思考。</p>
+<p>所以真正有些创新性的分析或者流程，还得看AI或者人工，无论你选哪条路，也许Biomamba都可以给你提供一些帮助：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539480&amp;idx=1&amp;sn=9f1d8a76c0a5ddad4983c3fcf7620622&amp;scene=21#wechat_redirect"><img alt="" src="../../images/de9e1332807ae9a6.webp"></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247541362&amp;idx=1&amp;sn=aa987d7569fa3892a65adb616fe9a73e&amp;scene=21#wechat_redirect"><img alt="" src="../../images/152f1082a5526925.webp"></a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247540790&amp;idx=2&amp;sn=3e34a111e77e0cf29ee21b48a7940a9a&amp;scene=21#wechat_redirect"><img alt="图片" src="../../images/8b3ca60d14dd31e9.webp"></a></p>
+<p><img alt="图片" src="../../images/2b97050f06208e7a.webp"></p>
+<p><strong>欢迎交流</strong></p>
+<p><img alt="图片" src="../../images/fb7650d03b8755cc.webp"><img alt="图片" src="../../images/ec72a80f59849127.webp"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532585&amp;idx=1&amp;sn=e265d2846ec66e5faaaf21403d274d2f&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家一起讨论。<img alt="图片" src="../../images/e43581b4f5118aad.webp">
+<img alt="图片" src="../../images/4ccf87cacd1143af.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

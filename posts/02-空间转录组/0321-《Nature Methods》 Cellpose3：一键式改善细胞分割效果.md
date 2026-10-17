@@ -12,7 +12,7 @@ albums: ["空间转录组", "文献速递", "粉丝来稿"]
 
 **一、写在前面**
 
-本次分享的是2025年2月发布于《Nature Methods》的题为"Cellpose3: one·click image restoration for improved cellular segmentation"的文章。Cellpose3 方法针对显微镜成像中常见的图像降质问题（如噪声、模糊和欠采样）进行了专门设计，旨在提升细胞分割的准确性和图像质量。传统的图像修复方法在处理这类降质图像时存在局限性，尤其是在缺乏配对干净图像的情况下。Cellpose3 通过结合一个可训练的修复网络和一个预训练的 Cellpose 分割网络，实现了对降质图像的有效处理。修复网络被训练以最小化分割网络的成本函数，并引入感知损失以保持重建图像与干净图像的感知相似性。这种方法不仅提高了图像质量，还显著提升了细胞分割的开箱即用性能。此外，Cellpose3 在大量不同的数据集上进行了训练，确保了良好的泛化能力。通过图形用户界面 (GUI) 和 Cellpose API 提供的“一键式”按钮，用户可以轻松应用这些工具进行细胞分割和图像修复。感兴趣的同学可以看看原文：![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprNXPl2T26hxiaeP5kffHxb0h2TZ8btR2LmqkJQKiaEXKeGE078viaYG7OhcH89aO4bg9vc7kbfWBHypg/640?wx_fmt=png&from=appmsg)Stringer C, Pachitariu M. Cellpose3: one-click image restoration for improved cellular segmentation. Nat Methods. 2025 Feb 12. 更多空间转录组教程可见：[空间转录组学习手册合辑](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505088&idx=1&sn=9f60dca1b21f5ba8c32d09595a512134&scene=21#wechat_redirect>)
+本次分享的是2025年2月发布于《Nature Methods》的题为"Cellpose3: one·click image restoration for improved cellular segmentation"的文章。Cellpose3 方法针对显微镜成像中常见的图像降质问题（如噪声、模糊和欠采样）进行了专门设计，旨在提升细胞分割的准确性和图像质量。传统的图像修复方法在处理这类降质图像时存在局限性，尤其是在缺乏配对干净图像的情况下。Cellpose3 通过结合一个可训练的修复网络和一个预训练的 Cellpose 分割网络，实现了对降质图像的有效处理。修复网络被训练以最小化分割网络的成本函数，并引入感知损失以保持重建图像与干净图像的感知相似性。这种方法不仅提高了图像质量，还显著提升了细胞分割的开箱即用性能。此外，Cellpose3 在大量不同的数据集上进行了训练，确保了良好的泛化能力。通过图形用户界面 (GUI) 和 Cellpose API 提供的“一键式”按钮，用户可以轻松应用这些工具进行细胞分割和图像修复。感兴趣的同学可以看看原文：![](../../images/01f7ea795065583c.webp)Stringer C, Pachitariu M. Cellpose3: one-click image restoration for improved cellular segmentation. Nat Methods. 2025 Feb 12. 更多空间转录组教程可见：[空间转录组学习手册合辑](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505088&idx=1&sn=9f60dca1b21f5ba8c32d09595a512134&scene=21#wechat_redirect>)
 
 **二、背景知识**
 
@@ -32,7 +32,7 @@ albums: ["空间转录组", "文献速递", "粉丝来稿"]
 
 为了保持对地面实况图像的整体视觉保真度，我们的目标是重建图像的抽象特征，而不是直接重建像素值。这可以通过感知损失来实现，感知损失可用于重建预训练神经网络中特征激活的协方差矩阵。我们没有使用标准的 ImageNet 预训练模型，而是使用了 Cellpose 模型本身，该模型包含关于细胞外观在其层次结构中不同级别的抽象信息（图 1e）。结合感知损失和分割损失，我们得到了最终的去噪网络 Cellpose3（图 1i,j ）。作为进一步的比较，我们直接在噪声图像上重新训练了原始 Cellpose 模型，以输出分割，而无需中间去噪步骤。这种方法的效果不如分割由 Cellpose3 去噪的图像（图 1j）。该模型受益于 Cellpose 训练集的大尺寸，因为性能随着训练图像数量的增加而持续提高（扩展数据图 1b）。我们还发现 Cellpose3 去噪提高了其他分割算法（如 Stardist）的分割质量（扩展数据图 1d）。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprNXPl2T26hxiaeP5kffHxb0hFyKhzFebGbNicz39WIU7MyhqQ5ObSoMpupCUBzGAmM4qAyWtUXyKPkg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/cc56ead05ebc4350.webp)
 
 ### ** _图 1 | 通用去噪模型。a，来自 Cellpose 测试集的原始（干净）图像。b，相同的图像添加了泊松噪声（左）和分割（右）。报告了 IoU 阈值为 0.5 时的 AP(ϖ=0.5)。 _c，b 中的噪声图像使用 Noise2Void 去噪（左），然后进行分割（右）。d，使用 Noise2Void 或 Noise2Self 去噪后，68 个测试图像的分割性能提升。e，Cellpose3 去噪网络的训练协议。f，与 d 相同，用于使用重建损失网络（青色）或分割损失网络进行去噪。g-i,_使用不同损失训练的网络的去噪图像（左）和分割（右）。j，对于噪声和去噪图像，跨 68 个测试图像，IoU 阈值的函数关系的平均 AP 分数；虚线显示了直接训练以分割噪声图像的模型。IoU，交并比。___**
 
@@ -42,13 +42,13 @@ albums: ["空间转录组", "文献速递", "粉丝来稿"]
 
 ### ** __接下来，我们使用从参考文献 16 获得的实验采集的具有散粒噪声的数据以及在我们实验室中收集的数据对 Cellpose3 进行了基准测试。我们使用了来自参考文献 16 的果蝇翅膀上皮细胞数据集，该数据集由使用旋转盘共聚焦显微镜以不同激光功率采集的视野组成。为了执行此基准测试，我们首先使用原始 Cellpose1 获得了以非常高的激光功率采集的图像的分割，通过目视检查几乎是完美的（图 2b）。我们使用这些分割作为地面实况，用于评估以低激光功率采集的图像的重建。我们发现 Cellpose3 大大提高了这些图像的分割质量，并且比以前的方法在更大程度上提高了分割质量，跨越了一系列激光功率（图 2b,c）。为了生成另一个地面实况数据集，我们使用双光子成像来记录表达 jGCaMP8s 的小鼠视觉皮层中的神经元，在 30 Hz 下记录了 300 个时间点。我们平均了时间点以创建或多或少的噪声数据，使用在所有帧上平均的数据作为干净样本（图 2d）。Cellpose3 的应用也提高了该数据集中的分割性能，无论是在密集表达区域还是稀疏表达区域（图 2d,e）。__**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprNXPl2T26hxiaeP5kffHxb0hEOYAUJyeoFPETp4IC3MlBSiaH3dicl711VibANQHZPFUhosIzE67kh5Yg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/30893ed9b7a23f60.webp)
 
 ### ** ___图 2 |a 去噪示例（测试集） powers (right). Error bars represent s.e.m., n!=!26 test images. d, 与 b 相同，用于皮质神经元的体内成像，平均超过 300 帧（左），超过 4 帧（中），然后去噪（右）。e，跨 12 个测试图像的平均 AP 分数，原始图像或使用各种方法去噪（左）。AP 分数在 IoU 阈值为 0.5 时作为平均帧数的函数（中和右）。误差条表示 s.e.m., n=12 _测试图像（中）和 n,{=},8 测试图像（右）。____**
 
 最后，我们想问一下 Cellpose3 在测试时可以获得许多相同类型图像的情况下表现如何。在这种情况下，与在单个测试图像上进行训练相比，重新训练盲去噪方法（Noise2Self 和 Noise2Void）可能会表现更好，我们在包含 100 个相似图像的 Cell Image Library 数据集 CCDB:6843 上证实了这一点 [39]（扩展数据图 3a）。尽管如此，Cellpose3 方法在视觉质量和分割质量方面仍然优于以前的这些方法（扩展数据图 3b,c）。此外，我们使用来自专门数据集 [16] 的训练数据中的噪声和干净训练图像对 CARE（内容感知图像修复；方法）进行了训练（方法）。Cellpose3 也优于这种方法（扩展数据图 3b,c）。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprNXPl2T26hxiaeP5kffHxb0h8Po9fhvYIt4FjcEicZyvoT37Bx36utiaTBx0RHcCPggxfpHpSD081S0Q/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/e2b3c0d9722de1f5.webp)
 
  _图 3 | 去噪核。a，来自核测试集的示例地面实况图像裁剪（顶部），添加了泊松噪声（中部）和去噪（底部）。报告了整个未裁剪图像的AP@0.5 _。b，在 111 个测试图像上平均的噪声和去噪图像的平均 AP 分数；虚线显示了直接训练以分割噪声图像的模型。c，发育期间的 Tribolium 核的图像 。__
 
@@ -64,7 +64,7 @@ albums: ["空间转录组", "文献速递", "粉丝来稿"]
 
 总之，用于去噪、去模糊和上采样的 Cellpose3 网络提高了各种成像方式的分割性能（扩展数据图 8）。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprNXPl2T26hxiaeP5kffHxb0hiciauvbySgzm6Yd7XlMMUXQXGibJYGdp08azGDwCXpR4xia7ZfPfP3sLEg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/bc612f67d6cac829.webp)
 
  __图 4 | 去模糊和上采样细胞图像。a，与图 2a 中显示的相同干净图像裁剪，具有高斯模糊（顶部）和使用 Cellpose3 去模糊（底部）。b，跨 68 个测试图像的平均 AP 分数，模糊或去模糊。c,d，与 a,b 相同，用于使用 Cellpose3 网络上采样的下采样图像。__
 
@@ -74,13 +74,13 @@ albums: ["空间转录组", "文献速递", "粉丝来稿"]
 
 跨所有数据集训练单个恢复模型首先需要训练一个超通用“cyto3”分割网络，用于计算分割和感知损失（图 5）。与 Cellpose2 论文 类似，我们观察到在所有数据集上训练的网络性能略有但一致的损失（例如，对于数据集特定模型与超通用“cyto3”模型，Cellpose 测试集上的 0.786 对比 0.771）。该结果与最近的一项研究 显着不同，该研究发现通用 Cellpose 模型与专用 Cellpose 模型的性能下降幅度更大，这可能是由于那里使用的次优训练方案（有关更多详细信息，请参见方法）。在这里，我们调整了训练期间数据集的采样概率，以防止像 TissueNet 和 LiveCell 这样的大型但同质的数据集主导成本函数的统计数据。我们还测试了 Cellpose 的 Transformer 主干，发现它没有提高性能 ；事实上，它的性能与标准的残差 U-net 主干几乎相同，这表明泛化性能受到数据集多样性的限制，而不是模型架构的限制。进一步证明了训练数据集的重要性，我们发现对于我们测试的所有算法，分布外泛化非常有限（扩展数据图 9）。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprNXPl2T26hxiaeP5kffHxb0hHRicjVWBWPHl77yOXrNjdzb5eTHfevpictelqRPmQq0iblMDEm0FcRNIw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/57cefbbe976abb48.webp)
 
  __图 5 | “超通用”模型在干净图像上的分割性能。训练了一个单一模型来分割九个细胞和核图像数据集。a，来自每个测试集的三个示例图像（YeaZ 明场和相衬组合在一起），地面实况分割以紫色叠加，超通用模型分割以黄色叠加。AP@0.5 _是IoU 阈值为 0.5 时分割的 AP。b，超通用模型、数据集特定模型和在所有数据集上训练的 Transformer 模型在不同测试集上的分割性能，在所有测试图像上取平均值。___
 
  __我们首先训练了单独的网络来对来自组合的九个数据集（“降质特定”模型）的所有训练图像进行去噪、去模糊和上采样。这导致网络在所有情况下都表现得与数据集和降质特定模型一样好，除了核的去模糊和上采样（图 6a–c）。我们还跨所有降质类型训练了模型，但分别针对 Cellpose 数据集和核数据集（“数据集特定”模型），实现了接近最佳的性能。最后，我们训练了一个在所有降质类型和所有数据集上的模型。我们将其称为“一键式”模型，因为无需指定降质或数据集类型即可运行它。该模型在 Cellpose 和核测试集上的性能与降质特定模型相似。该模型在其他七个数据集上也表现良好（图 6d 和扩展数据图 10）。我们在图形用户界面 (GUI) 中提供了该模型以及数据集特定和降质特定模型，这对于去模糊和上采样特别有用。__
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprPgUIYC1ZcTic0rrwoD4Mf3G4ND3SWics66G8LEk0J70exFnCU9GS0jSVrd7Po2dLIKyyuQqL1TxUoQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/723aaf9decff4cae.webp)
 
  __图 6 | 用于去噪、去模糊和上采样的一键式模型。a，不同网络的训练数据集和降质类型的示意图。b，使用“cyto2”分割模型在图像上去噪（左）、去模糊（中）或使用一键式模型与数据集特定模型相比上采样（右）时，Cellpose 测试集上的分割性能，降质特定模型以及数据集和降质特定模型。c，与 b 相同，用于核测试集和“核”分割模型。d，来自其他数据集的示例图像及其分割，添加了泊松噪声（顶部）并使用一键式模型去噪（底部）。__
 
@@ -96,15 +96,15 @@ albums: ["空间转录组", "文献速递", "粉丝来稿"]
 
 （2）一种更自由的方法，其中所有分析都在去噪图像上进行。我们认为应尽可能使用更保守的方法。当这不可能时，如果有匹配良好的对照图像来验证该方法，则可以使用自由方法。例如，可以为一小部分数据获得成对的高/低质量图像，以用作内部对照。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/7ef00c45433a7bde.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

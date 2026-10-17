@@ -12,7 +12,7 @@ albums: ["单细胞教程全收录"]
 
 # **一、写在前面：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 此前已经给大家简单介绍过了五种单细胞基因集打分方法，包含`AddModuleScore`、`ssGSEA`、`GSVA`、`PercentageFeatureSet`、`AUCell`：[**一文搞定单细胞基因集评分**](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490658&idx=1&sn=3460a09ef4ad2916aabfaa13e195c7b1&chksm=9b3f6532ac48ec249e974aa5bfcca2f5d441e64bbd353fe9dd45a50b47599663bf0334def7d4&scene=21#wechat_redirect>)。但最近在做SCENIC(用于单细胞转录因子调控网络预测)的教程，其中用到了AUCell这一R包/算法来计算**regulon** 的活性，本以为AUCell是其他的哪位大佬开发的，没想到是作者在设计SCENIC时顺手写的基因集打分方法，看来硬生信和软生信之间的鸿沟是真实存在的，AUCell值得我们用单独的版面来介绍。
 
@@ -23,7 +23,7 @@ albums: ["单细胞教程全收录"]
 
 # **二、教程：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 1.0 AUCell简介AUCell可以在单细胞测序数据种鉴定/识别激活的基因集，主要实现方式是通过曲线下面积(Area Under the Curve, AUC)去计算每个细胞中是否存在富集的关键基因集(signature)。输出的**AUC scores** 类似于GSVA score，可以用于反应**signature** 的相对表达量。值得一提的是，由于GSVA score的计算方式基于排序和AUC，因此计算过程并不受基因表达量的**单位** 以及**normalization** 的影响；并且AUC scores是以**每一个细胞为单位** 进行计算的，因此处理大数据内存吃紧时，对每个子集计算AUC score再合并也无妨。
+![](../../images/90fab1387787746b.webp) 1.0 AUCell简介AUCell可以在单细胞测序数据种鉴定/识别激活的基因集，主要实现方式是通过曲线下面积(Area Under the Curve, AUC)去计算每个细胞中是否存在富集的关键基因集(signature)。输出的**AUC scores** 类似于GSVA score，可以用于反应**signature** 的相对表达量。值得一提的是，由于GSVA score的计算方式基于排序和AUC，因此计算过程并不受基因表达量的**单位** 以及**normalization** 的影响；并且AUC scores是以**每一个细胞为单位** 进行计算的，因此处理大数据内存吃紧时，对每个子集计算AUC score再合并也无妨。
 
 ## 2.0. 分析前准备
 
@@ -130,7 +130,7 @@ library(AUCell)library(GSEABase)gmtFile <- paste(file.path(system.file('examples
 
 这个数据的结构大概是这样:
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpscMLggdicz8A3obcHHQk2ds6C7KqKDYcVnDJEPia9SpNYT2eswBswBuQ/640?wx_fmt=png)
+![](../../images/96e578482440e0e0.webp)
 
 ```
 rownames(exprMatrix)[1:5]
@@ -214,7 +214,7 @@ cells_AUC <- AUCell_run(exprMatrix, geneSets)#1.16.0版本的AUCell没有AUCell_
 save(cells_AUC, file="cells_AUC.RData")#画个热图看一下：suppressMessages(if(!require(pheatmap))install.packages('pheatmap'))pheatmap(cells_AUC@assays@data$AUC,show_colnames = F)#没错，确实是连续性数值，因为AUCell score是一个积分，所以也不会像GSVA那样有负值啦。
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZprMIBlxibM9OQg5cPCYwVWTGOhxopjGuv2MjSkWaxKoTticzHvUsic8Pkg/640?wx_fmt=png)
+![](../../images/9c230ef38626310c.webp)
 
 ### 2.3.2 拆解计算步骤
 
@@ -228,7 +228,7 @@ plotGeneCount(as.matrix(exprMatrix))#可以先看一下每个细胞中表达的�
 ## (Non-detected genes are shuffled at the end of the ranking. Keep it in mind when choosing the threshold for calculating the AUC).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZprUk5SrKgYl0H7KFJgS2cJN6xZVoGx0UztylCKNVej9FJX6ghPokXQw/640?wx_fmt=png)
+![](../../images/5660673fbfa69706.webp)
 ```
 ##     min      1%      5%     10%     50%    100%
 ##  193.00  271.08  364.20  447.40  921.00 2056.00
@@ -281,7 +281,7 @@ cells_AUC <- AUCell_calcAUC(geneSets, cells_rankings)
 if (!requireNamespace("mixtools", quietly=TRUE))BiocManager::install("mixtools") set.seed(123)par(mfrow=c(3,3)) cells_assignment <- AUCell_exploreThresholds(cells_AUC, plotHist=TRUE, assign=TRUE)#计算阈值并绘制柱状图
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpqmVmq845TsrECEWMjpTYeYFZAX6LIFsFzJSHyuWCrhcRQLwPZovlzA/640?wx_fmt=png)
+![](../../images/ad9730e282b2e952.webp)
 
 ```
 #返回的数据结构包含软件选择的最佳阈值，其他阈值的返回结果(阈值参数与当前阈值下"on"的细胞数量)，软件返回的commentcells_assignment$`Astrocyte_Cahoy (526g)`$aucThr
@@ -377,13 +377,13 @@ warningMsg <- sapply(cells_assignment, function(x) x$aucThr$comment)#把comment�
 #画出对应geneset处于on状态下的细胞geneSetName <- rownames(cells_AUC)[grep("Oligodendrocyte_Cahoy", rownames(cells_AUC))]par(mfrow=c(1,1)) AUCell_plotHist(cells_AUC[geneSetName,], aucThr=cells_assignment$`Oligodendrocyte_Cahoy (469g)`$aucThr$selected)abline(v=cells_assignment$`Oligodendrocyte_Cahoy (469g)`$aucThr$selected)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpUelcQJiaiamiazWOEC8cQa3DFp39eSND909QT8NetPJzhQl6lOD8JIATA/640?wx_fmt=png)
+![](../../images/38169f78b1c22a0a.webp)
 
 ```r
 #解放劳动力，还是得靠写循环展示出所有geneset的情况par(mfrow=c(3,3)) for(i in 1:length(cells_assignment)){  temp.name <- gsub(' (.*)','',names(cells_assignment)[i])  temp.cellname <- rownames(cells_AUC)[grep(temp.name, rownames(cells_AUC))]  AUCell_plotHist(cells_AUC[temp.cellname,], aucThr=cells_assignment[[i]]$aucThr$selected)  abline(v=cells_assignment[[i]]$aucThr$selected)}
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpN7hbAKS4zjq0nicyBicV4LsJbiaiaAtxGzdEXSa6cvB4uKIVZH4wBxBdWw/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpKm6cpicXGibCRtUWsMjLWh2dbez1WOHW5TAGzfsp67QhyicO8hlWKpb5Q/640?wx_fmt=png)
+![](../../images/815a787a0f3d9d2a.webp)![](../../images/68047827c8fc34f1.webp)
 
 ### 2.3.3 进一步分析
 ```r
@@ -422,7 +422,7 @@ assignmentMat <- table(assignmentTable[,"geneSet"], assignmentTable[,"cell"])ass
 set.seed(123)suppressMessages(library(NMF))aheatmap(assignmentMat, scale="none", color="black", legend=FALSE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpR3tKo1BwlXwuQJNlOflBzWarTu1qz8MDnQ7hIbdOMYhIh08tEDdgZw/640?wx_fmt=png)
+![](../../images/6e28ce8551b9de9b.webp)
 
 ### 2.3.4 实测一下AUCell score对单细胞分群的帮助
 
@@ -436,7 +436,7 @@ mouseBrainExprMatrix[1:4,1:4]#表达矩阵sumByGene <- apply(mouseBrainExprMatri
 load('cellsTsne.RData')cellsTsne <- cellsTsne$Yplot(cellsTsne, pch=16, cex=.3)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpEy4mWrM3HPibrAzQUicZ05OT04Diaj9WExh4XLLHey3rHtacALt0ibyiamw/640?wx_fmt=png)
+![](../../images/c8037a97048a9095.webp)
 
 ```r
 library(DT)datatable(assignmentTable, options = list(pageLength = 10), filter="top")
@@ -491,19 +491,19 @@ selectedThresholds <- getThresholdSelected(cells_assignment)#好吧，原来有�
 par(mfrow=c(2,3)) # Splits the plot into two rows and three columnsfor(geneSetName in names(selectedThresholds)){  #处于off状态下的物种颜色：  colorPal_Neg <- grDevices::colorRampPalette(c("black","blue", "skyblue"))(5)  #处于on状态下的物种颜色：  colorPal_Pos <- grDevices::colorRampPalette(c("pink", "magenta", "red"))(5)    # 将细胞按照on和off拆开  passThreshold <- getAUC(cells_AUC)[geneSetName,] >  selectedThresholds[geneSetName]  if(sum(passThreshold) >0 )  {    aucSplit <- split(getAUC(cells_AUC)[geneSetName,], passThreshold)        # Assign cell color    cellColor <- c(setNames(colorPal_Neg[cut(aucSplit[[1]], breaks=5)], names(aucSplit[[1]])),     setNames(colorPal_Pos[cut(aucSplit[[2]], breaks=5)], names(aucSplit[[2]])))        plot(cellsTsne, main=geneSetName,    sub="Pink/red cells pass the threshold",    col=cellColor[rownames(cellsTsne)], pch=16)     #这里的绘图方式其实也给我们DIY featurePlot提供了思路  }}
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpLAZyCibfKKWSvYcdUtpBqNNYOaKVT37IbCSRzPFNrBBDNW9fVlDt0hA/640?wx_fmt=png)
+![](../../images/73fa4cb2731f2d69.webp)
 
 ```
 #还有一个更简单的方法：par(mfrow=c(2,3))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpANClpM6R1Y1oxT2q6HUpoiammKQtMygIEMibribYkiavia8TbMSyHicVzRhA/640?wx_fmt=png)
+![](../../images/383f326482fc8577.webp)
 
 ```
 AUCell_plotTSNE(tSNE=cellsTsne, exprMat=exprMatrix, cellsAUC=cells_AUC[1:2,], thresholds=selectedThresholds[1:2])
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpooMR44uE6tzBpqsRHJV5bBAKjlFHYmK6GuRPqzYwT6AfCW732zS2VQ/640?wx_fmt=png)
+![](../../images/bf2d00c02d7ed435.webp)
 
 ```
 #AUCell_plotTSNE三联分布展示了AUCell score的分布柱状图、TSNE原位展示通过阈值筛选的点、TSNE原位展示AUCell score
@@ -526,14 +526,14 @@ library(shiny); library(rbokeh)exprMat <- log2(mouseBrainExprMatrix+1) # (back t
 logMat <- log2(exprMatrix+2)meanByGs <- t(sapply(geneSets, function(gs) colMeans(logMat[geneIds(gs),])))rownames(meanByGs) <- names(geneSets)colorPal <- grDevices::colorRampPalette(c("white", "red"))(5)par(mfrow=c(3,3))for(geneSetName in names(geneSets)){  cellColor <- setNames(colorPal[cut(meanByGs[geneSetName,], breaks=5)], names(meanByGs[geneSetName,]))  plot(cellsTsne, main=geneSetName, axes=FALSE, xlab="", ylab="",  sub="Expression mean",  col=cellColor[rownames(cellsTsne)], pch=16)}
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZpEw1Z7Dw5yUT0aMhoK8NhMF8B1TFY4AGDjniaF4l0Rdlcx3VHfemKZPg/640?wx_fmt=png)
+![](../../images/01e890ca17096106.webp)
 
 这是AUCell score的展示:
 ```
 par(mfrow=c(3,3))AUCell_plotTSNE(tSNE=cellsTsne, exprMat=exprMatrix, plots = "AUC",cellsAUC=cells_AUC[1:9,], thresholds=selectedThresholds)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwTOdQWfZIn0UGffHPhHXZp9czjjgLmwHzA3dIkPg4yD4ajrianwku4NPYv53xXI5IMo0aG3NlKRZg/640?wx_fmt=png)
+![](../../images/7ee91733731edb94.webp)
 
 还有一个点是，这类基因集打分的软件大都是打个分即完事，而不仅AUCell自己创立了一套判断`on/off`的方法，可以帮助大家判断基因集是否被激活；还会为基因集的治疗做出评估，例如上面随机抽样的基因集就被**AUCell** 发现符合正态分布，不适用于`on/off`的评价体系。
 
@@ -543,7 +543,7 @@ par(mfrow=c(3,3))AUCell_plotTSNE(tSNE=cellsTsne, exprMat=exprMatrix, plots = "AU
 
 # **最后、单细胞教程全收录：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 单细胞数据分析系列教程：
 
@@ -596,12 +596,12 @@ https://www.bilibili.com/video/BV1br4y1x7Hf?p=1**往期推送**[ 单细胞测序
 非技术帖：[关于单细胞的事 谈谈后面的计划](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484798&idx=1&sn=120eada9b02ea2f81f93cd4cfa5eb964&chksm=9b3f7c2eac48f538e2f95166dbe576b029dcb3ad7d321a4d9f346c9a51416d777f4cffb9aa84&scene=21#wechat_redirect>)[趁机预告一波](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247485614&idx=1&sn=f63ab5d759bdcb933f334be6333f9493&chksm=9b3f71feac48f8e8cece92812e0c26d7c03130359451a89ce7db22b7022506371269e1fc2af0&scene=21#wechat_redirect>)[有关提高"Biomamba 生信基地"运行效率事宜](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486435&idx=1&sn=c61124eb7c0fd6cc0eaefb639b551092&chksm=9b3f72b3ac48fba5c0091fd843c98d504d4aefe0ba01a2fed966f897f58d8924ace8df07955e&scene=21#wechat_redirect>)
 [生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247489314&idx=1&sn=fe66765836fe0d7b3450b30117415ce8&chksm=9b3f6e72ac48e7642725b22bafbece9c37277f56e3958be57d9702240c3b63dbeb1aedf61cf9&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

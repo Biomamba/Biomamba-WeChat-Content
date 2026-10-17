@@ -14,7 +14,7 @@ albums: ["文献速递", "粉丝来稿"]
 
 **这是一篇发表于《nature》的文章，****影响因子64.8****。 作者回顾了空间转录组学技术，并描述了可用于结果数据分析路径的操作库，阐述了空间转录组学也可用于假设检验，使用比较时间点或条件(包括遗传或环境扰动)的实验设计。作者表明，空间转录组数据自然易于与其他数据模式整合，为深入了解组织组织提供了一个可扩展的框架。可以说是想要入门、了解空转的****必读****之作。**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwCJQy2Af72zialg1LJLy6E1o88DyWKUPE1qe9iaHAicdMIj0Kk6GHrdy8j2QAc9Mqcazkvnnb4zoJNA/640?wx_fmt=png&from=appmsg) 原文链接：https://doi.org/10.1038/s41586-021-03634-9
+![](../../images/d09ad06d63e9dce8.webp) 原文链接：https://doi.org/10.1038/s41586-021-03634-9
 更多空转教程可见：[空间转录组学习手册合辑](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505088&idx=1&sn=9f60dca1b21f5ba8c32d09595a512134&chksm=9b3cad90ac4b2486820dd335d997d2a96b77beb6ad463b1df6a2f307e47ebe8d7de3304ebf7c&scene=21#wechat_redirect>)[Seurat空间转录组学习手册](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505213&idx=2&sn=6b9aad43c273009c3d7f80c63bb9f619&chksm=9b3cac6dac4b257b8fca1980fd5437ce131dd26377eeef8614d09c11a7ee22ed771cbf323a60&scene=21#wechat_redirect>)
 [Scanpy空间转录组学习手册](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505248&idx=2&sn=18995c7248ca6f13b61edfef24208ae1&chksm=9b3cac30ac4b2526050f91dd431bef96ab3dfbdc1a20b3dac32daa5138c11ceb8781b14a2bcd&scene=21#wechat_redirect>)
 [Stereopy空间转录组学习手册](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505686&idx=2&sn=925ce770136ec3e964b954c639eed29e&chksm=9b3cae46ac4b2750f4c9f6d249d82257047334d7a7d5642288f5c2f909c51c934d692032eaa0&scene=21#wechat_redirect>)
@@ -31,7 +31,7 @@ albums: ["文献速递", "粉丝来稿"]
 
 空间转录组技术主要分为以下几类:(1)基于下一代测序(NGS)，在下一代测序之前将位置信息编码到转录本上;(2)基于成像的方法，包括基于原位测序(ISS)的方法(在组织中扩增转录本并进行测序)和基于ISH的方法(在组织中按顺序杂交成像探针)(图1a-c)。这种分类并不总是明确的，方法可能包含两类中的元素。这些不同的技术可以被视为汇聚在一个基因表达矩阵上(图1d)，该矩阵捕获每个点(即一个像素、一个细胞或一组细胞)的转录组。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwCJQy2Af72zialg1LJLy6E1tNZIQa3MZBpeo6y17FdLE0bU9Ay8RJwFn9afcGHbqW6nIn4zOftzHw/640?wx_fmt=png&from=appmsg)
+![](../../images/a7ee0f237ba453a2.webp)
 
 图1
 
@@ -49,15 +49,15 @@ albums: ["文献速递", "粉丝来稿"]
 
 **● 3、 利用空间转录组数据集进行探索性数据分析**
 
-空间转录组学技术产生了一个基因表达矩阵，分析它既可以检验现有的假设，也可以通过探索性分析产生新的观察结果。在这种由John tukey倡导的探索性数据分析模式中，一个分析的结果指导下一个分析的选择，就像一个实验的结果指导下一个实验的设计一样。这并不是说先验知识和假设被忽略了，而是说它们被用来解释结果和指导分析。分析空间转录组数据通常需要排除低质量的数据，并对基因表达矩阵进行初始转换以提高信噪比，这可以使用诸如Giotto、Seurat、stutiliy和stLearn等分析包来完成。在一个点检测到的转录本总数提供了数据技术和生物属性的第一指示。每个点相对较低的转录本数量可能表明存在技术假象，例如某些区域的通透性不足，或者在基于NGS的方法中存在细胞密度差异。另外，生物变异，如细胞类型之间的转录活性差异或死亡或坏死细胞的存在，这种信号可能会混淆下游分析。平滑算法可以应用于数据，以提高灵敏度，并消除不必要的技术和生物变异来源。为了比较基因在不同位点上的表达，转录组通常通过除以转录本总数(每百万份转录本(TPM))或使用正则化负二项回归来标准化。类似地，通过将数据缩放到具有相同的平均值和方差(z-score)来辅助跨基因的比较。归一化的基因表达矩阵为在单个基因或点水平上的初始观察提供了基础(图1)。在数据中揭示结构（如细胞类型属性或连贯的基因模块）需要进一步处理矩阵。目前，我们将用于研究空间转录组数据的操作分为五类，即聚类，选择，评分，描述和联系 (图2a)。虽然对数据应用任何一种操作可能不会立即产生结果，但根据对每个阶段结果的解释，连续使用操作符可以生成一个结果的路径(图2b)。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwCJQy2Af72zialg1LJLy6E1IwtyCIN0XFksxuIVdJFVL6ib4uy5xUBzoWScibMj6ZDUKm8yP3Iia4Vfw/640?wx_fmt=png&from=appmsg)图2
+空间转录组学技术产生了一个基因表达矩阵，分析它既可以检验现有的假设，也可以通过探索性分析产生新的观察结果。在这种由John tukey倡导的探索性数据分析模式中，一个分析的结果指导下一个分析的选择，就像一个实验的结果指导下一个实验的设计一样。这并不是说先验知识和假设被忽略了，而是说它们被用来解释结果和指导分析。分析空间转录组数据通常需要排除低质量的数据，并对基因表达矩阵进行初始转换以提高信噪比，这可以使用诸如Giotto、Seurat、stutiliy和stLearn等分析包来完成。在一个点检测到的转录本总数提供了数据技术和生物属性的第一指示。每个点相对较低的转录本数量可能表明存在技术假象，例如某些区域的通透性不足，或者在基于NGS的方法中存在细胞密度差异。另外，生物变异，如细胞类型之间的转录活性差异或死亡或坏死细胞的存在，这种信号可能会混淆下游分析。平滑算法可以应用于数据，以提高灵敏度，并消除不必要的技术和生物变异来源。为了比较基因在不同位点上的表达，转录组通常通过除以转录本总数(每百万份转录本(TPM))或使用正则化负二项回归来标准化。类似地，通过将数据缩放到具有相同的平均值和方差(z-score)来辅助跨基因的比较。归一化的基因表达矩阵为在单个基因或点水平上的初始观察提供了基础(图1)。在数据中揭示结构（如细胞类型属性或连贯的基因模块）需要进一步处理矩阵。目前，我们将用于研究空间转录组数据的操作分为五类，即聚类，选择，评分，描述和联系 (图2a)。虽然对数据应用任何一种操作可能不会立即产生结果，但根据对每个阶段结果的解释，连续使用操作符可以生成一个结果的路径(图2b)。![](../../images/0a70b5e6ff8d28c5.webp)图2
 
 **● 4、 利用空间转录组生成假设并测试**
 
-健康或病变组织的空间转录组学图谱有助于正确的探索和假设生成。即使是那些用于研究特定生物过程的空间转录组数据集，如时间过程研究或扰动实验，也可以探索揭示意想不到的变化并制定新的假设（图3）。数千个斑点或基因可以一起进行研究，从而利用数据集的高维性来产生稳健的生物学推断。这些观察结果——一种细胞类型的存在，一种基因表达的模式或两种细胞状态的共定位——可能会导致一个新的可验证的假设。它们也应该被独立验证，例如，通过免疫荧光或ISH（图3a）。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwCJQy2Af72zialg1LJLy6E1ibBUBjka8y5WE2d8tO6nf1Cd5jefAgaEeBrno31McHZhiaUblD4COl5g/640?wx_fmt=png&from=appmsg)
+健康或病变组织的空间转录组学图谱有助于正确的探索和假设生成。即使是那些用于研究特定生物过程的空间转录组数据集，如时间过程研究或扰动实验，也可以探索揭示意想不到的变化并制定新的假设（图3）。数千个斑点或基因可以一起进行研究，从而利用数据集的高维性来产生稳健的生物学推断。这些观察结果——一种细胞类型的存在，一种基因表达的模式或两种细胞状态的共定位——可能会导致一个新的可验证的假设。它们也应该被独立验证，例如，通过免疫荧光或ISH（图3a）。![](../../images/87ca17121d446089.webp)
 
 图3（a）
 
-另外，空间转录组数据可以被纳入经典的假设驱动的实验设计中，通过一个足够强大的实验来测试一个良好的预测。事实上，随着空间转录组学技术变得越来越容易获得，它将被用作常规分析，与流式细胞术或RNA测序一样。在实验设计的指导下，空间转录组学在扰动或时间过程实验中作为读数时，可以证实或证伪一个假设。每个样本都可以通过一个单独的数据点进行总结，以便在重复和条件下进行比较，因此需要收集足够数量的数据，以确保统计的严谨性和威力。研究可以纳入来自同一样本的几个部分的空间转录组学，以解释技术变异性，或每个条件下的多个生物复制。该假设可以在模型系统中、体外、体内或临床数据中得到进一步的验证（图3b）。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwCJQy2Af72zialg1LJLy6E1iba4OScvtbAV3Ve4ibuws4J1JjAAhZMvFopcxlotLlpeVJLoXcicLetKA/640?wx_fmt=png&from=appmsg)图3（b）
+另外，空间转录组数据可以被纳入经典的假设驱动的实验设计中，通过一个足够强大的实验来测试一个良好的预测。事实上，随着空间转录组学技术变得越来越容易获得，它将被用作常规分析，与流式细胞术或RNA测序一样。在实验设计的指导下，空间转录组学在扰动或时间过程实验中作为读数时，可以证实或证伪一个假设。每个样本都可以通过一个单独的数据点进行总结，以便在重复和条件下进行比较，因此需要收集足够数量的数据，以确保统计的严谨性和威力。研究可以纳入来自同一样本的几个部分的空间转录组学，以解释技术变异性，或每个条件下的多个生物复制。该假设可以在模型系统中、体外、体内或临床数据中得到进一步的验证（图3b）。![](../../images/1854dea3c4008f86.webp)图3（b）
 
 **● 5、 空间转录组与其他模式的整合**
 
@@ -70,17 +70,17 @@ albums: ["文献速递", "粉丝来稿"]
 [Stereopy空间转录组学习手册](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505686&idx=2&sn=925ce770136ec3e964b954c639eed29e&chksm=9b3cae46ac4b2750f4c9f6d249d82257047334d7a7d5642288f5c2f909c51c934d692032eaa0&scene=21#wechat_redirect>)
 [Squidpy空间转录组学习手册](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505844&idx=2&sn=5756c0702d080d6e602c504e7d461013&chksm=9b3caee4ac4b27f268c5f7cd39b6a1cbc138e465a6375c26c9a49b31697b63a4af2f702ec6b2&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

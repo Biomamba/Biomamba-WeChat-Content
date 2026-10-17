@@ -18,7 +18,7 @@ albums: ["文献速递"]
 
 值得一提的是，该文的Figure3中用到了一种单细胞(核)空转平台，众所周知，[Cell bin](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535002&idx=1&sn=4c4317415f342f89b419f6eeb4c14028&scene=21#wechat_redirect>)浑身难受，我们此前介绍的SeekSpace也是一种类似的单细胞(核)空转平台，至少在细胞身份确认上优于sqaure bin、平均Feature数上要优于[Cell bin](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535002&idx=1&sn=4c4317415f342f89b419f6eeb4c14028&scene=21#wechat_redirect>)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm800rVIYJpcg3eh5icL6CibicVkibIZf5HibSRK7FZtOhLhtS3mibEz3hoTrukVaHaGQDY8dzHkZj0O7quPjZlTeYKmn4viapiasEicPDA/640?wx_fmt=png&from=appmsg)
+![](../../images/b134e66b3380b54a.webp)
 
 (二)、单细胞空间转录组核心相关技术及发展脉络
 
@@ -28,7 +28,7 @@ albums: ["文献速递"]
 
 Slide-tags与Stamp-seq作为单细胞空间转录组的代表性技术，均以解决真实科研痛点为出发点，通过底层技术创新与高效商业化落地，共同推动单细胞空间转录组从 “概念突破” 走向 “广泛可用”。它们不仅补齐了单细胞测序与传统空间转录组之间的技术短板，更以高分辨率、高保真、高适用性的特点，成为探索组织微环境、细胞命运调控、疾病病理机制的标配工具。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl8TCRh6y5t34scl05GHiaqnwxpjs7ibwLrlQniakSYuXZjMyK3iaYVXAj9TdLAUvZ8gAAf9L9DbCTmcyjuwdWW1cuevCjEDwia7yuA/640?wx_fmt=png&from=appmsg)
+![](../../images/a9ebf77f45632f49.webp)
 
 (三)、文章研究背景
 
@@ -36,7 +36,7 @@ Slide-tags与Stamp-seq作为单细胞空间转录组的代表性技术，均以�
 
 此研究通过研发一种鼻内脂质体疫苗制剂，结合TLR4/7/8配体与模型抗原卵清蛋白（OVA），通过鼻内给药方式接种小鼠，观察其对多种呼吸道病原体的防护效果，并深入探究免疫机制。利用单细胞测序和空间转录组技术，作者发现这种广谱保护实际上依赖于疫苗诱导的抗原特异性T细胞与先天免疫及肺部结构细胞（如肺泡巨噬细胞、上皮细胞）的深度协同，而非单纯的先天免疫重编程。基于此，作者提出了“整合器官免疫”这一新概念，强调适应性免疫、先天免疫与组织细胞共同构成了一个复杂的局部防御网络，这为设计下一代能够增强大流行防范能力的通用型黏膜疫苗奠定了关键的理论与策略基础。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwnQB9rSWGxzpCJGqGxsBycTt2dbwq10XWr3icpQoLs4Yjt3RSCKUBpIW0WbVrymgFLTVcaQ9uFyIiapiaKyibhNEqVvYsbHs2ryeaY/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/9763c101ebeba4e9.webp)
 
 更多课程：
 
@@ -50,7 +50,7 @@ Slide-tags与Stamp-seq作为单细胞空间转录组的代表性技术，均以�
 
 作者评估了一种鼻内疫苗，该疫苗结合了TLR4激动剂GLA和TLR7/8激动剂3M-052-LS，并与卵清蛋白（OVA）联用。小鼠共接受四次鼻内接种，并在不同时间点评估了其对多种呼吸道病原体的抵抗力（Fig.1A）。结果发现在疫苗接种后第21天、第42天和第3个月进行SARS-CoV-2攻毒实验时，与未接种的对照组相比，接种组小鼠的体重减轻显著减少（Fig.1B）,感染后第3天的**肺组织病理学分析** 显示，接种组动物的炎症反应和肺泡损伤均有所减轻（Fig.1C）,此外，接种组小鼠对金黄色葡萄球菌（ _Staphylococcus aureus_ ）和鲍曼不动杆菌（ _A. baumannii_ ）的细菌感染也表现出持久的保护作用，至少在疫苗接种后3个月内，其肺部细菌载量较低（Fig.1D-F）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl7NuQMUWibnDqbeCkHSNkd2QgSibpnBLhAyBR3sUu6WEviaib26EoDsaw3Y4jTAG9e8he5lW74zsk0KNZS2OSu4kOGahruwT4gttE/640?wx_fmt=png&from=appmsg)Fig.1
+![](../../images/9c8a36547c2c340c.webp)Fig.1
 
 （2）**疫苗接种建立了持久的抗原特异性组织驻留记忆 T细胞（TRM）反应，并通过表观基因组重塑重编程了肺泡巨噬细胞**
 
@@ -60,7 +60,7 @@ Slide-tags与Stamp-seq作为单细胞空间转录组的代表性技术，均以�
 
 作者对总共96,834个肺细胞进行了[scATAC-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528624&idx=2&sn=9709c1335e7523daf0763758d4d458df&scene=21#wechat_redirect>)，揭示了接种后0天、接种后21天组和90天组之间独特的[染色质可及性模式](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510114&idx=1&sn=f7e8b1df1804a6bba0d79b1ffec2467c&scene=21#wechat_redirect>)（Fig.2D），发现在接种后至少3个月内AM细胞中抗原提呈基因、干扰素刺激基因、炎症调节基因以及膜脂质转运蛋白相关等基因的染色质可及性很高（Fig.2E）。且[转录因子](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530488&idx=3&sn=687d43475eee9023cc711bca6a677537&scene=21#wechat_redirect>)（TF）motif分析显示，AP-1家族（包括Fos, Fosb, Jund, Jun, Junb）在多种细胞群（包括T细胞、AM、中性粒细胞、纤毛细胞和单核细胞等）中富集（Fig.2F）。以上结果表明GLA-3M-052-LS + OVA疫苗接种诱导了强效且持久的免疫反应，其特征是诱导了抗原特异性TRM细胞，并对上皮细胞和先天细胞（特别是AM）进行了持久重编程，表现为促进抗原提呈和抗病毒状态的持续表观遗传和转录变化。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkmGahfzaA8rpRAdGHSVOuibjtAJyPxw4cl5iaOcGz35JFjGDdGvUqHv1CyADNayWs758ov4XTOib81BLCFPfMtMacEfw2NvUxs24/640?wx_fmt=png&from=appmsg)
+![](../../images/f89c2897720f0c56.webp)
 
 Fig.2
 
@@ -70,13 +70,13 @@ Fig.2
 
 之后，作者对未接种小鼠、接种小鼠以及在免疫过程中清除了CD4+和CD8+ T细胞的接种小鼠的肺组织进行了[单核空间转录组分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532717&idx=1&sn=af944a655ad4e8d04f774f6dbdf0146a&scene=21#wechat_redirect>)。UMAP分析揭示了多样的肺细胞群，包括肺泡上皮细胞、AM、间质巨噬细胞（IM）、DC、T淋巴细胞和B淋巴细胞（Fig.3C）。转录特征的空间聚类和映射显示，各组之间的组织结构和细胞组成存在显著差异，其中接种后的肺部出现了明显的空间重构（Fig.3D）。且分析结果显示接种小鼠中AM中抗原提呈、吞噬作用和抗病毒免疫激活通路明显上调（Fig.3E），[细胞间通讯](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532763&idx=1&sn=f6e4df9242f1341d2dc7e6154c33aa46&scene=21#wechat_redirect>)强度分析显示接种后的肺部相互作用全局增强（Fig.3F）。以上结果证实适应性免疫（特别是T细胞）是诱导先天免疫“训练”并实现广谱保护的绝对必要条件。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmO7aY6xSYkh8pod8XNpicrZylkNquJ0uYTzweLeBoFow0KkfHAIPKG7GM71Oam0soaMmm4YRRCCfibLJhFvmLkHclhiaJJoI9Cjs/640?wx_fmt=png&from=appmsg)Fig.3
+![](../../images/ac808f57abd33fe1.webp)Fig.3
 
 （4）肺泡巨噬细胞协调整体疫苗诱导的非特异性保护
 
 进一步地，作者旨在评估AMs 的表观遗传变化在介导非特异性保护中的作用。首先在攻毒前短时间内，通过鼻内给药氯膦酸盐脂质体（clodronate liposomes）清除 AMs，结果发现这削弱了 GLA-3M-052-LS + OVA 对金黄色葡萄球菌（S. aureus）的保护作用，表现为肺部病原体载量升高（Fig.4A），为了确定AMs 的功能变化，作者量化了其针对多种靶标的吞噬能力（Fig.4B）,包括AF594 标记的金黄色葡萄球菌（Fig.4C）, 凋亡和坏死的嗜中性粒细胞（Fig.4D）和PR8（流感病毒）感染的肺上皮细胞（Fig.4E）。结果发现与未接种小鼠的 AMs 相比，接种小鼠的 AMs 表现出更强的体内摄取能力。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm1iaVOCS0EicE4WmvXfqZ5HXMgC4aKAYhn7h0s3wKxf7kFz18WEuPIz37O1LwrIzHicZcZUmmXZiaibR4nwwYYDEZyx9dnVWx9BsoU/640?wx_fmt=png&from=appmsg)
+![](../../images/b26f13b56db6192c.webp)
 
 Fig.4
 
@@ -84,13 +84,13 @@ Fig.4
 
 为了研究感染后的空间组织和免疫动力学，作者对接种和未接种小鼠在接触SARS-CoV-2后的肺组织进行了多重空间蛋白成像和组织病理学分析。分析结果显示病毒感染后三天，接种小鼠肺部表现出明显的空间重编程，如基于RSN的t-SNE聚类所示（Fig.5 A-C）。且接种小鼠肺部富集的区域特征为免疫密集微环境频率增加，包括区域3和区域5，这些区域富含辅助性（CD4+）和细胞毒性（CD8+）[T细胞](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532453&idx=1&sn=d9cce237c0ff8e1d58d0596b0975ecce&scene=21#wechat_redirect>)、B细胞、调节性T细胞和[巨噬细胞](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529353&idx=2&sn=2dc1406e0d153849f4e23c1a80ed5697&scene=21#wechat_redirect>)（Fig.5D）,同时，免疫组化显示TLS与SARS-CoV-2核蛋白（N蛋白）共定位（Fig.5E）, 空间分布分析显示，富含TLS的区域（区域3）主要定位于气道周围，这表明疫苗接种使肺组织做好了准备，以便在感染时进行快速且结构化的免疫参与。与这些发现一致，接种小鼠表现出抗原特异性NP四聚体+ CD8+ T细胞在肺部的加速积累（Fig.5F-G），且支气管肺泡灌洗液（BAL）中HA特异性总IgG和IgG2c的增加（Fig.5H）。这些免疫反应伴随着BAL液中促炎细胞因子表达的降低（Fig.5I），此外，动态组织病理学分析显示，疫苗接种显著减少了肺部病理损伤，并促使免疫细胞在6小时内早期募集到支气管区域（Fig.5j）
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmGYE3GsAmzaxkvwjGx2iauDzibIP9MvoOKBQ4u3icI3JliaOToZlRrZfaFYdSeTjLIdIU5oicNBI15RiaSru6Rd8iaCgODygpC5Jy978/640?wx_fmt=png&from=appmsg)
+![](../../images/7467c9aec41b457c.webp)
 
 （6）GLA-3M-052-LS + OVA 疫苗接种提供针对过敏性哮喘的长期保护
 
 鉴于组合使用 TLR4 和 TLR7 激动剂能驱动强效的 Th1 偏向性免疫反应（39, 40），作者假设这种黏膜疫苗接种策略也可能抑制由 Th2 驱动的超敏反应性疾病，例如屋尘螨（HDM）诱导的哮喘。流式细胞术结果显示与未接种的对照组相比，接种小鼠表现出嗜酸性粒细胞和 2 型先天淋巴样细胞（ILC2）的浸润减少；表达 IL-4、IL-5 和 IL-13 的 Th2 细胞减少；血清 IgE 水平降低（Fig.6A-I）。对于肺切片进行的PAS分析进一步证实了黏液过度分泌的减少（Fig.6A-i），确认了 GLA-3M-052-LS + OVA 能有效缓解过敏性哮喘。以上数据表明疫苗诱导的免疫重塑具有持久性。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnTCsWaR0My5IcF0Z651NibpIcice3BibYvSeDbRicjoEMM8kUo0UGdVmdbfO1RHjPZIwZCLKweqQrWpsw4BYib7XqDb3zDBsTEACuQ/640?wx_fmt=png&from=appmsg)
+![](../../images/60cad98bde344c86.webp)
 
 **三、总结与讨论**
 
@@ -98,14 +98,14 @@ Fig.4
 
 这种“通用防御”模式具有双重核心价值：一方面，它能针对流感、新冠等多种呼吸道病毒及细菌提供异源保护，甚至可作为大流行早期的应急手段；另一方面，它通过确立Th1免疫优势有效抑制Th2反应，显著预防过敏性哮喘。尽管人类复杂的免疫暴露史带来了转化挑战，但该研究为开发无需等待毒株匹配、能同时应对传染病与过敏性疾病的下一代通用疫苗奠定了坚实的理论与实验基础。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=14)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=16) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

@@ -12,7 +12,7 @@ albums: ["文献速递"]
 
 **一、写在前面**
 
-本次分享的文章题为“SCPANDA: PAN-Blood Data Annotator with a 10-Million Single-Cell Atlas”。作者整合了超千万级的单细胞数据用于泛血液数据注释工具的构建，相信如此数据规模孕育出的工具，训练结果可信度一定在线~DOI:10.1016/j.xgen.2025.100774![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDhOlnj27PYrf5ohhriasX7foQaDdIPFEKjAMxJibYfEn4qVE21WX3Tm5bGVffNrgnJTJ4NicnH9oKg/640?wx_fmt=png&from=appmsg)
+本次分享的文章题为“SCPANDA: PAN-Blood Data Annotator with a 10-Million Single-Cell Atlas”。作者整合了超千万级的单细胞数据用于泛血液数据注释工具的构建，相信如此数据规模孕育出的工具，训练结果可信度一定在线~DOI:10.1016/j.xgen.2025.100774![](../../images/1c83e480e19f06df.webp)
 
 免疫细胞在人体的生理和病理状态下都发挥着重要作用。单细胞技术的进步使得研究人员能够以前所未有的精确度观察细胞动态，解决了传统批量测序方法无法解决的细胞异质性问题，这些技术进步极大地推动了血液学和免疫学的研究。目前的注释方法主要分为三类：1.基于标记基因的方法（例如CellAssign）：通过特定基因标记和分类细胞，从而确定细胞类型。**2.****基于相似性的方法** （例如SingleR）：根据细胞与预定义参考细胞的相似性来进行注释。**3.****基于机器学习的方法** （例如CellTypist）：利用概率预测，从降维空间中进行无偏特征选择来进行细胞分类，但目前缺乏专门用于血液系统细胞注释的工具。
 
@@ -28,7 +28,7 @@ albums: ["文献速递"]
 
 之后，作者 通过自下而上的方法，将1030种细胞类型划分16个细胞大类，然后再细分54个细胞亚类。为了实现对1000万细胞图谱的更精细划分，在每个细胞类别（cell class）内部，作者使用scanpy.tl.leiden进行了两次Leiden聚类，每次的分辨率都设置为1.0。**第一轮聚类****，** 识别出粗粒度的细胞亚群，捕捉较大的细胞亚群；**第二轮聚类** 进一步细化这些粗粒度的聚类，通过检测初始聚类中更细微、更均匀的细胞亚群来实现，分为**低层次聚类****和****高层次聚类****，** 经过筛选和优化后，最后血液图谱规模为9,841,765个细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDhOlnj27PYrf5ohhriasX7ZEiaAjiaEFRyxBLemGyBBRYHoxWls1vWHJZx3yWdbvIKqbsRJo0qdH6w/640?wx_fmt=png&from=appmsg)
+![](../../images/47a1ecdef8681a7d.webp)
 
 Fig.1****
 
@@ -38,7 +38,7 @@ Fig.1****
 
 同时，通过分析作者发现“妊娠”T 细胞簇中最常见的差异表达基因为STMN1、CD38和SH2D1A（Fig.2D）; “80-99岁”T细胞聚类中最常见的差异表达基因为RPS29、RPL27A和RPL13A（Fig.2E），且KEGG富集分析显示妊娠期T细胞聚类主要富集于与细胞应激反应和刺激响应相关的通路，反映了妊娠期细胞对环境变化的高度敏感性。80-99岁”T细胞聚类则富集于与细胞老化、核糖体功能和COVID-19相关的通路，反映了老年细胞的生物学特征。除此之外，作者还展示了属于男性（蓝色）、女性（粉色）和性别中性（紫色）的细胞分布（Fig.2H），且男性聚类中HLA-B、B2M和IL32差异最明显，女性聚类中HSP90AA1、PTP4A1和RPS29差异最明显（Fig.2I-J）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDhOlnj27PYrf5ohhriasX7jrlA395JvJRRMTKxn1PE4GTlVIoX4eK3bLWETce1ju0SAo8sG0W9pg/640?wx_fmt=png&from=appmsg)
+![](../../images/b5a03db7e678e8d0.webp)
 
 Fig.2
 
@@ -46,7 +46,7 @@ Fig.2
 
 接下来，作者探究了分析**结果与疾病之间的关联** ，首先展示了不同疾病在图谱中的分布情况，突出了COVID-19在呼吸系统疾病中的主导地位，以及肝细胞癌（HCC）在癌症中的显著地位（Fig.3A）。之后，作者聚焦于三种呼吸系统疾病（流感、呼吸系统紊乱和COVID-19）的细胞簇，GO分析显示了与每个细胞簇相关的最重要的生物过程、分子功能和细胞组分，KEGG分析突出了每个细胞簇中富集的关键代谢和信号通路（Fig.3B）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDhOlnj27PYrf5ohhriasX7u4lQ3eB6pJCIqwUcBUDEqa0MZH9SllxmHLrqrf6d2sTuF8iagLTicXTw/640?wx_fmt=png&from=appmsg)
+![](../../images/820098a9d0dd3a52.webp)
 
 Fig.3
 
@@ -54,13 +54,13 @@ Fig.3
 
 在应用上，作者 在3个独立数据集中（PMID:32561858、35389779、38213787）验证注释的准确性，将原始的一般细胞类型与scPANDA推断出的低水平细胞簇进行了对应。结果显示，每种原始细胞类型都能很好地匹配到相应的低水平细胞簇（Fig.4A-C）；表明scPANDA在处理复杂数据集时具有较高的准确性和鲁棒性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDhOlnj27PYrf5ohhriasX7HlBoCR8ZwYQsfuV3lK3UOhJLZAtezjleBHjRSBxGib21wkShQYaRueQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a86b99a448ae3ff7.webp)
 
 Fig.4
 
 除此之外，scPANDA不仅能处理血液来源的细胞数据，还能扩展到多组织数据集，例如在肾细胞癌（RCC）数据集中，scPANDA能够将来自血液和肾脏组织的混合细胞类型精确地映射到低水平细胞簇（Fig.5A-B），并通过富集分析和差异表达基因分析揭示其功能特征（Fig.5C）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDhOlnj27PYrf5ohhriasX7I3HibdJuEVCzcNP3Ic2JItW3icKnS9OsGPtu9aoIznsOBYFBw3QhEJicA/640?wx_fmt=png&from=appmsg)
+![](../../images/c3e8f9fa933bf6b6.webp)
 
 Fig.5
 
@@ -68,7 +68,7 @@ Fig.5
 
 **s****cPANDA 工具不仅能够用于人类单细胞数据的注释，还可以跨物种应用于小鼠（Mus musculus）和猕猴（Macaca fascicularis）的细胞类型注释**（Fig. 6A-B）。作者通过scPANDA分析，将小鼠的原始细胞类型映射到人类对应的细胞类型，并计算了相关性分数以反映推断的置信度（Fig. 6C-D）,聚焦小鼠与人类之间五个可能保守的细胞簇的顶部基因本体（GO）和KEGG通路，以及相关的差异表达基因（DEGs），结果显示差异基因与适应性免疫反应、先天防御机制等特定的生物学过程和通路相关（Fig. 6E）。****
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyDhOlnj27PYrf5ohhriasX73aSlGNH3wx452h4ibjE4iczwzkL5PNcX12Ad2w6gyada2cPKnWMNSfUQ/640?wx_fmt=png&from=appmsg)
+![](../../images/54c7b1c9a99d01bc.webp)
 
 Fig.6
 
@@ -80,14 +80,14 @@ Fig.6
 
 这篇文章中，作者开发了scPANDA，一个专门用于注释单细胞转录组测序（scRNA-seq）数据中细胞类型的工具，特别是在血液系统中。但也存在某些局限性，比如scPANDA的准确性和有效性高度依赖于血液图谱的质量和全面性，参考数据中的任何缺口或偏差都可能影响工具的性能。未来，作者将进一步拓展参考图谱，注释更多疾病模型，提升注释的全面性。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

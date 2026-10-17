@@ -14,30 +14,30 @@ albums: ["文献速递"]
 
 本研究探讨了急性心肌梗塞（AMI）患者外周血单核细胞的**单细胞RNA测序** 。研究人员招募了10名AMI患者，并根据光学相干断层扫描（OCT）的结果将他们分为斑块破裂（PR）和非斑块破裂（NPR）两组。研究人员分析了82550个单细胞的转录组特征，发现了27个细胞簇和6种细胞类型，包括单核细胞、T细胞、NK细胞、B细胞、巨核细胞和CD34+细胞。本次推送我们先介绍大致分析流程与主要结果，下期会用示例数据带领大家**复现** 本文的主要图表。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiadrK7zah9KaAQjw9Flt40t3BhfCWK4A5IG5XAnuex9U2fsdX7ibGkEag/640?wx_fmt=png)
+![](../../images/50c9a0c3007ea1c7.png)
 
 **技术路线**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaxrHlgR9uLlSUJjdfO7xXHsKbyIEXZnz46ZCHh1VeO7KZRicw8KXxygQ/640?wx_fmt=png)
+![](../../images/488e0f29ef250634.webp)
 
 **Results
 **
 
 ##  斑块破裂（PR）和非斑块破裂（NPR）的急性心肌梗塞患者的循环免疫细胞景观
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaTu48we8GlbvSKpAea7L47hB9oYEsPicIlk1dH1KxnoZMicKnhUVB0umA/640?wx_fmt=png)
+![](../../images/7a6e0fb6d2a2cbf1.webp)
 
 fig.1
 
 ## ●细胞鉴定，通过SingleR 和主要标记基因对细胞进行鉴定，初步区分了T、B、NK、monocytes、megakaryocytes等细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaTPwBWLk4DxJMIWlpxicgRet0spIqGqE6tc5t6N3EVicyRIhVM90H3G9A/640?wx_fmt=png)
+![](../../images/14b756eaf2c79b66.webp)
 
 ## ●在NPR和PR组中各种免疫细胞比例和数量（组间无显著性差异），以及每个患者的细胞比例、每个簇的 UMI 数量和tSNE降为聚类图（证明数据处理无批次差异）
 
 ## PR患者的循环单核细胞显示出更活跃的炎症状态
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJia9uqZ6Ys87yMyU1DlXWB4LVMF1zr0u1fBu0icWP6P4106DvnfRHLaQ8A/640?wx_fmt=png)
+![](../../images/55b75a82c01bb09d.webp)
 
 ## ●循环单核细胞根据其功能和表型可分为三种亚型：
 
@@ -45,23 +45,23 @@ fig.1
 
 ●提取单核细胞数据，tSNE降为聚类分群得到了11个细胞簇，根据CD14、FCGR3A（CD16）表达，细分为classical、intermediate和non-classical monocytes 三类细胞。展示细胞比例、组间细胞分布（tSNE降维图）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaK7TW7GysYNLq0Qok0nLglwALtIcvenA6Nfyf0Rcia1xeKwkibgoqr4rA/640?wx_fmt=png)
+![](../../images/8144f04a0841a6f1.webp)
 
 ●展示单核细胞的11个细胞簇的标记基因，及其GSEA富集热图
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaYCQEyXibicF5HwRfiazZtJuYzwGIKvw8DLpUlvpf7KGicY0u28yoiabdukw/640?wx_fmt=png)
+![](../../images/245dfa7537e2f85b.webp)
 
 ●对 PR 患者的三种单核细胞类型进行了转录组分析，取前 100 个上调的差异表达基因（DEG）进行比较，以找到共同的 Hub 基因。结果发现，典型的促炎基因，如 CCL5、TLR7 和 CX3CR1 在来自经典和非经典单核细胞的 PR 患者中均显着上调。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaO6lk6MMFk3nG1EoaAEicAdWpSJiaDTo6CjzmrQic0QlHxPovG5GcZBPBA/640?wx_fmt=png)
+![](../../images/b7e249421135abb2.webp)
 
 ●经过对 PR 患者的经典和非经典单核细胞共识上调基因的GO富集分析发现，这些基因主要富集在“炎症反应”和“NF-kappaB信号通路的正向调节”两个信号通路。这进一步确定了来自 PR 患者的经典和非经典单核细胞中明显增加的炎症分子。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaerCTIiboFkZRMB1f7ctK1njB5yT2q9iciapyqLoHX8xp77tv8ou3tCsibw/640?wx_fmt=png)
+![](../../images/3b9201f9cfab9b2d.webp)
 
 ●相对于经典和非经典单核细胞，中间单核细胞在NPR患者中的比例更高。对来自NPR患者的中间单核细胞中上调的基因进行GO富集分析，结果发现它们与"中性粒细胞脱颗粒"、"中性粒细胞激活"和"中性粒细胞介导的免疫"等相关通路有关。例如，FPR2、MMP9、CLEC4D、CAMP、ARG1和CXCR2这些中性粒细胞激活和脱颗粒的基因，在来自NPR患者的中间单核细胞中被显著表达。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiadQSjcia9IgSXBfiajic3Cc7jGYLIDnVsGDDcE3RNWORqm34np0qcQPSibw/640?wx_fmt=png)
+![](../../images/5c7820c3bdf325e3.webp)
 
 **● 伪时间轨迹分析**确定单核细胞发育不同阶段的转录特征，以确定与功能变化相关的基因表达轨迹。经典和中间型单核细胞主要处于发育轨迹的起点，而非经典单核细胞主要处于伪时间轨迹的终点，图F（这里可以加一个CytoTRACE分析验证发育期起始位点）。
 
@@ -81,15 +81,15 @@ fig.1
 
 **● 细胞通讯分析**。为了系统地研究循环免疫细胞的相互作用，作者构建了一个基于CellChat的细胞-细胞通信网络。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiaFn5sCpqoVfSbola8dSsPxHtkkFWxkHPXWAZrS3TkzhjiclicBqKLC7UA/640?wx_fmt=png)
+![](../../images/55161955c6375bec.webp)
 
 ●PR 和 NPR 患者细胞间通讯的总体分析相似，因此作者重点关注 PR 中的细胞间通讯
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiabIWOYmnkCfia8orxgabVFhIG9b9OxMRb0iaYpIUD1TlQDtiahicaibPcu9g/640?wx_fmt=png)
+![](../../images/ba2d4e7022e1bbc6.webp)
 
 ●CellChat检测到一些重要的信号通路，这些通路包括MIF，GALECTIN，ANNEXIN，CCL，IL16，BAFF，RESISTIN，PARs，GRN，CD40，BTLA，VISFATIN和BAG通路。这些通路可能在细胞间的相互作用和通讯中发挥着重要的作用。左图为细胞接受信号，右图为细胞输出信号。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx4gZ8cgU9opR1AS3ln2LJiac8vfvvvQ6oyRVJN9PKgQD3yM08DiakI3xds9wOTTf16iavetLU6uupGA/640?wx_fmt=png)
+![](../../images/f3b49a1b528b1411.webp)
 
 ●巨噬细胞迁移抑制因子（MIF）是动脉粥样硬化中一个重要的促炎症因子。据报道，MIF通过与趋化因子受体CXCR2和CXCR4相互作用来促进动脉粥样硬化白细胞的招募和病理性炎症。
 
@@ -98,15 +98,15 @@ fig.1
 **总结**
 
 作者发现PR组的单核细胞和T细胞表现出更强的炎症活性，而NPR组的中间型单核细胞和CD8+效应T细胞与**中性粒细胞活化和凋亡有关** 。作者还探讨了不同细胞类型之间的**相互作用网络** ，发现MIF和GALECTIN信号通路在PR组中起重要作用。这些发现可能为AMI的精准治疗提供新的靶点。
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器([有root权限的共享服务器,注册即送200￥](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500273&idx=1&sn=f600f10077f6298ea957e459b5f8a375&chksm=9b3cb8a1ac4b31b702838076dbceb077e9c8980d9cffe5c4ab10ebbeceaf5fe3e658003e66c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器([有root权限的共享服务器,注册即送200￥](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500273&idx=1&sn=f600f10077f6298ea957e459b5f8a375&chksm=9b3cb8a1ac4b31b702838076dbceb077e9c8980d9cffe5c4ab10ebbeceaf5fe3e658003e66c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

@@ -1,0 +1,225 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0109-30w单细胞数据会吃掉多少内存？</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="30w">30w单细胞数据会吃掉多少内存？</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247525849&amp;idx=1&amp;sn=aa48c5e9405afcf28ffccb7bb4312e70&amp;chksm=9b3c1c89ac4b959faa1e531dd134995b6345a896fefa2b0f82b55acfb3528850ed924ac43cde#rd
+合集：单细胞教程全收录 / 答读者问</p>
+</blockquote>
+<p><strong>写在前面</strong></p>
+<p><img alt="" src="../../images/8908217adc07dcf8.webp"></p>
+<p>因为<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520958&amp;idx=1&amp;sn=82be529830901f313089c19803361acd&amp;scene=21#wechat_redirect">不推荐用自己的电脑做生信</a>，我们一致致力于给大家提提供高性价比的计算设备：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>。很多同学问我们特惠版的<strong>256GB</strong> 内存和专业版的<strong>512GB</strong> 内存分别能够分析多少个样本的单细胞数据。</p>
+<p><img alt="" src="../../images/49f53481ac984af9.webp"></p>
+<p>显然当前单细胞平台众多的背景下，不同单细胞数据的细胞数、基因数/Counts数均不相同；按照样本量去估测分析硬件需求是不科学的，用细胞的数量去评估内存的占用情况更加的合理。因此我们用<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;scene=21#wechat_redirect">共享服务器</a>进行了一个<strong>2.5w</strong> 细胞-<strong>30w</strong> 单细胞数据的基础分析(R语言版参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519711&amp;idx=1&amp;sn=d25d4f5daf609bda8367f16db676ecf3&amp;scene=21#wechat_redirect">scRNA-Seq学习手册Seurat V5更新版</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;scene=21#wechat_redirect">，</a>Python版参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504877&amp;idx=2&amp;sn=2b56a9cfa19fcc918ee6c2ed88fed017&amp;scene=21#wechat_redirect">scRNA-Seq学习手册Python版</a>)流程所需要花费的内存与时间。初步测试结果为：</p>
+<p><strong>内存</strong> 消耗：</p>
+<p><img alt="" src="../../images/91f7b0db8e5289a6.webp"></p>
+<p><strong>时间</strong> 消耗：</p>
+<p><img alt="" src="../../images/c0e1f1159bb470b9.webp"></p>
+<p>我们测试的30W个细胞已经是比较大的数据了，可以看出基础流程占用的内存空间在R(Seurat)中大约占据40GB，在Python(Scanpy)中大约占据10GB。当然我们的服务器现在最多有512GB的内存，远达不到内存的极限。单从基础流程来看，完成<strong>约100W</strong> 数量级单细胞的基础分析应当不在话下。需要注意的是，就单细胞而言，数据集之间的整合或者下游的进阶分析会更加的占据内存(例如<strong>五万个细胞</strong> 的monocle2拟时序分析峰值内存占用可能达到<strong>300GB+</strong>)。如果只进行基础分析的同学无脑选择特惠版(256GB)即可，需要进阶分析或者百万级单细胞数据分析的同学建议选择专业版(512GB)。另外，从性价比的角度来说，无论是考虑计算时间还是内存占用，都推荐大家学好python：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499921&amp;idx=1&amp;sn=dcd6f95596e3de9bf378d850c217fe78&amp;scene=21#wechat_redirect">生信Python速查手册</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504877&amp;idx=2&amp;sn=2b56a9cfa19fcc918ee6c2ed88fed017&amp;scene=21#wechat_redirect">scRNA-Seq学习手册Python版</a></p>
+<p><strong>测试过程</strong></p>
+<p><img alt="" src="../../images/8908217adc07dcf8.webp"> 如果你对下面的教程比较迷茫，那么你可以先行学习编程教程：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505777&amp;idx=1&amp;sn=f3efae390566b838a445ab9f832323c8&amp;chksm=9b3cae21ac4b2737f5923b246470d699474c041bb78de50d2b71b99d537f9f44ca2938002cda&amp;scene=21#wechat_redirect">十小时学会Linux</a>
+<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2980604042328702978#wechat_redirect">生信Linux及服务器使用技巧</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506720&amp;idx=1&amp;sn=fe897ba3c33a8e63bf6a4e35aeac1896&amp;scene=21#wechat_redirect">R语言基础学习手册</a></p>
+<p>如果你的计算机不足以支持下面流程的计算，可按需选用适合自己的计算资源：共享(经济实惠)：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503869&amp;idx=1&amp;sn=142f8c7ba8620815a8770773df077f12&amp;chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&amp;scene=21#wechat_redirect">有root权限的共享服务器,报我名字立减200￥</a>独享(省电省心)：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247508226&amp;idx=1&amp;sn=69e0eea720ac6aecc0362bcb9ac339ba&amp;chksm=9b3cd852ac4b51445651a091be0fb6f638bd8cf5eb399af1c54804631fe3047706cf1d4044de&amp;scene=21#wechat_redirect">生信分析不求人</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247508226&amp;idx=1&amp;sn=69e0eea720ac6aecc0362bcb9ac339ba&amp;chksm=9b3cd852ac4b51445651a091be0fb6f638bd8cf5eb399af1c54804631fe3047706cf1d4044de&amp;scene=21#wechat_redirect"></a>实体(稳定高效)：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506028&amp;idx=2&amp;sn=3b479a92f0c6119c4584efbc23b8c32a&amp;chksm=9b3ca13cac4b282a9ffe1fc4f4ab1a50b14688c6490f859ef714b84a755c286cb8a585054486&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a></p>
+<p>访问链接：https://biomamba.xiyoucloud.net/</p>
+<p>更多内容可咨询客服微信[<strong>Biomamba_yunying</strong>]</p>
+<p>一、准备工作</p>
+<p>加载包、配置环境：</p>
+<pre><code class="language-r">setwd(&quot;~/project/02_mem_test/&quot;)
+suppressMessages({
+  library(Seurat)
+  library(pryr)
+  library(dplyr)
+  library(sceasy)
+  library(anndata)
+  library(data.table)
+  library(Matrix)
+  library(SeuratDisk)
+  library(peakRAM)
+  library(ggplot2)
+})
+reticulate::use_condaenv(&quot;/home/cwj/miniconda3/envs/sceasy&quot;, required = TRUE)
+use_python(&quot;/home/cwj/miniconda3/envs/sceasy/bin/python&quot;)
+</code></pre>
+<h2 id="11">1.1单细胞数据集准备</h2>
+<p>数据来源于GEO数据库中的GSE131907和GSE222318，具体下载链接如下：
+（1）人类（肺癌）:https://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131907/suppl/GSE131907%5FLung%5FCancer%5Fraw%5FUMI%5Fmatrix.txt.gz（2）人类（主动脉夹层）：https://ftp.ncbi.nlm.nih.gov/geo/series/GSE222nnn/GSE222318/suppl/GSE222318%5FRaw%5Fgene%5Fcounts%5Fmatrix.csv.gz
+此次教程使用了前两个数据集，两个数据集整合后将矩阵重新划分为五个矩阵，分别对应了30万、20万、10万、5万和2.5万细胞数。</p>
+<pre><code class="language-r">count_20w &lt;- fread(&quot;~/project/02_mem_test/data/GSE131907_Lung_Cancer_raw_UMI_matrix.txt&quot;, data.table = F)
+rownames(count_20w) &lt;- count_20w[,1]
+count_20w &lt;- count_20w[,-1]
+
+count_10w &lt;- fread(&quot;/home/cwj/project/02_mem_test/data/GSE222318_Raw_gene_counts_matrix.csv&quot;,data.table = F)
+rownames(count_10w) &lt;- count_10w[,1]
+count_10w &lt;- count_10w[,-1]
+
+#基于共有基因合并矩阵
+inter_gene &lt;- intersect(rownames(count_10w),rownames(count_20w))
+count_30w &lt;- cbind(count_10w[inter_gene,],count_20w[inter_gene,])
+obj_30w &lt;- CreateSeuratObject(counts = count_30w)
+obj_30w_final &lt;- obj_30w %&gt;%
+  NormalizeData() %&gt;%
+  FindVariableFeatures() %&gt;%
+  ScaleData() %&gt;% RunPCA() %&gt;%
+  FindNeighbors(dims = 1:50) %&gt;%
+  FindClusters(resolution = 1.2) %&gt;%
+  RunTSNE(dims = 1:10) %&gt;%
+  RunUMAP(dims = 1:10)
+# saveRDS(obj_30w_final, &quot;/home/cwj/project/02_mem_test/result/obj_30w.rds&quot;)
+obj_30w_final &lt;- readRDS(&quot;/home/cwj/project/02_mem_test/result/obj_30w.rds&quot;)
+obj_30w_final[[&quot;RNA&quot;]] &lt;- as(obj_30w_final[[&quot;RNA&quot;]], &quot;Assay&quot;)
+# sceasy::convertFormat(obj_30w_final, from=&quot;seurat&quot;, to=&quot;anndata&quot;, outFile=&quot;/home/cwj/project/02_mem_test/result/obj_30w.h5ad&quot;)
+
+#矩阵downsample,同时将rds文件转换为H5AD文件
+obj_20w &lt;- subset(obj_30w_final,downsample=5000)
+# saveRDS(obj_20w, &quot;/home/cwj/project/02_mem_test/result/obj_20w.rds&quot;)
+# sceasy::convertFormat(obj_20w, from=&quot;seurat&quot;, to=&quot;anndata&quot;, outFile=&quot;/home/cwj/project/02_mem_test/result/obj_20w.h5ad&quot;)
+obj_10w &lt;- subset(obj_30w_final,downsample=2000)
+# saveRDS(obj_10w, &quot;/home/cwj/project/02_mem_test/result/obj_10w.rds&quot;)
+# sceasy::convertFormat(obj_10w, from=&quot;seurat&quot;, to=&quot;anndata&quot;, outFile=&quot;/home/cwj/project/02_mem_test/result/obj_10w.h5ad&quot;)
+obj_5w &lt;- subset(obj_30w_final,downsample=800)
+# saveRDS(obj_5w, &quot;/home/cwj/project/02_mem_test/result/obj_5w.rds&quot;)
+# sceasy::convertFormat(obj_5w, from=&quot;seurat&quot;, to=&quot;anndata&quot;, outFile=&quot;/home/cwj/project/02_mem_test/result/obj_5w.h5ad&quot;)
+obj_2.5w &lt;- subset(obj_30w_final,downsample=400)
+# saveRDS(obj_2.5w, &quot;/home/cwj/project/02_mem_test/result/obj_2.5w.rds&quot;)
+# sceasy::convertFormat(obj_2.5w, from=&quot;seurat&quot;, to=&quot;anndata&quot;, outFile=&quot;/home/cwj/project/02_mem_test/result/obj_2.5w.h5ad&quot;)
+</code></pre>
+<h2 id="12">1.2 数据导入</h2>
+<p>导入前面保存好的矩阵，检查矩阵信息</p>
+<pre><code class="language-r">obj_30w &lt;- readRDS(&quot;~/project/02_mem_test/result/obj_30w.rds&quot;)
+obj_20w &lt;- readRDS(&quot;~/project/02_mem_test/result/obj_20w.rds&quot;)
+obj_10w &lt;- readRDS(&quot;~/project/02_mem_test/result/obj_10w.rds&quot;)
+obj_5w  &lt;- readRDS(&quot;~/project/02_mem_test/result/obj_5w.rds&quot;)
+obj_2.5w &lt;- readRDS(&quot;~/project/02_mem_test/result/obj_2.5w.rds&quot;)
+</code></pre>
+<h1 id="seurat">二、Seurat时间和内存统计</h1>
+<pre><code class="language-r">obj &lt;- c(obj_2.5w,obj_5w,obj_10w,obj_20w,obj_30w)
+for (i in obj){
+  print(peakRAM({
+  rds &lt;- i %&gt;%
+    NormalizeData() %&gt;%
+    FindVariableFeatures() %&gt;%
+    ScaleData() %&gt;% RunPCA() %&gt;%
+    FindNeighbors(dims = 1:10) %&gt;%
+    FindClusters(resolution = 1.2) %&gt;%
+    RunTSNE(dims = 1:10) %&gt;%
+    RunUMAP(dims = 1:10)
+  }))
+}
+</code></pre>
+<p><img alt="" src="../../images/7e0d0359c2e6fe13.png"> <img alt="" src="../../images/4a114b72d7b13e0e.png"> <img alt="" src="../../images/42cf642f7627012f.png"> <img alt="" src="../../images/ce7a5cd78032f028.png"> <img alt="" src="../../images/4d5937d806818fa5.png"></p>
+<h1 id="scanpy">三、Scanpy时间和内存统计</h1>
+<p>注意这里因为scanpy和reticulate不兼容这个问题无法解决，所以在Rmarkerdown无法展示python脚本的运行结果，单独在终端激活独立的scanpy环境后（conda activate scanpy_env）后执行下面的脚本</p>
+<pre><code class="language-python"># scanpy_env环境创建流程
+# conda create -n scanpy_env
+# conda activate scanpy_env
+# conda install -c conda-forge scanpy python-igraph leidenalg
+import numpy as np
+import pandas as pd
+import scanpy as sc
+import seaborn as sns
+import tracemalloc
+import time
+
+sc.settings.verbosity = 3
+sc.settings.set_figure_params(dpi=80)
+
+obj_30w = sc.read(&quot;/home/cwj/project/02_mem_test/result/obj_30w.h5ad&quot;)
+obj_20w = sc.read(&quot;/home/cwj/project/02_mem_test/result/obj_20w.h5ad&quot;)
+obj_10w = sc.read(&quot;/home/cwj/project/02_mem_test/result/obj_10w.h5ad&quot;)
+obj_5w = sc.read(&quot;/home/cwj/project/02_mem_test/result/obj_5w.h5ad&quot;)
+obj_2_5w = sc.read(&quot;/home/cwj/project/02_mem_test/result/obj_2.5w.h5ad&quot;)
+# 测试不同数量级细胞时间和内存消耗
+adata = obj_2_5w
+adata.var_names_make_unique()
+# 启用 tracemalloc 以跟踪内存分配
+tracemalloc.start()
+# 计时开始
+start_time = time.time()
+sc.pp.normalize_total(adata, target_sum=1e4)
+sc.pp.log1p(adata)
+sc.pp.highly_variable_genes(adata, n_top_genes=2000)
+sc.tl.pca(adata)
+sc.pp.neighbors(adata, n_neighbors=10)
+sc.tl.umap(adata)
+sc.tl.leiden(adata, flavor=&quot;igraph&quot;, n_iterations=2, resolution=1)
+sc.pl.umap(adata, color=[&quot;leiden&quot;])
+end_time = time.time()
+current, peak = tracemalloc.get_traced_memory()
+
+elapsed_time = (end_time - start_time)/60
+current_memory_usage = current / 10**6  # 转换为 MB
+peak_memory_usage = peak / 10**6  # 转换为 MB
+print(f&quot;运行时间: {elapsed_time:.0f} 分&quot;)
+print(f&quot;当前内存使用量: {current_memory_usage:.2f} MB&quot;)
+print(f&quot;峰值内存使用量: {peak_memory_usage:.2f} MB&quot;)
+</code></pre>
+<p><img alt="" src="../../images/efb1efc6452a26a5.webp"> <img alt="" src="../../images/3ba24da715d23e89.webp"> <img alt="" src="../../images/f525cfc82334603c.webp"> <img alt="" src="../../images/d7b3af511201fd3c.webp"> <img alt="" src="../../images/715858bf2415d4b5.webp"></p>
+<h1 id="_1">四、总结、可视化</h1>
+<pre><code class="language-r">sum &lt;- data.frame(matrix(NA, nrow = 10, ncol = 3))
+colnames(sum) &lt;- c(&quot;time&quot;,&quot;total_mem&quot;,&quot;peak_mem&quot;)
+row.names(sum) &lt;- c(&quot;2.5w_seurat&quot;,&quot;2.5w_scanpy&quot;,&quot;5w_seurat&quot;,&quot;5w_scanpy&quot;,&quot;10w_seurat&quot;,&quot;10w_scanpy&quot;,&quot;20w_seurat&quot;,&quot;20w_scanpy&quot;,&quot;30w_seurat&quot;,&quot;30w_scanpy&quot;)
+sum[&quot;2.5w_seurat&quot;,] &lt;- c(9,1024,4457)
+sum[&quot;2.5w_scanpy&quot;,] &lt;- c(13,280,990)
+sum[&quot;5w_seurat&quot;,] &lt;- c(19,861,8140)
+sum[&quot;5w_scanpy&quot;,] &lt;- c(16,461,1835)
+sum[&quot;10w_seurat&quot;,] &lt;- c(50,1994,16870)
+sum[&quot;10w_scanpy&quot;,] &lt;- c(20,869,3729)
+sum[&quot;20w_seurat&quot;,] &lt;- c(114,3299,27905)
+sum[&quot;20w_scanpy&quot;,] &lt;- c(37,1513,6695)
+sum[&quot;30w_seurat&quot;,] &lt;- c(225,4292,39005)
+sum[&quot;30w_scanpy&quot;,] &lt;- c(43,2310,10328)
+sum$Category &lt;- rownames(sum)
+sum$Category &lt;- factor(sum$Category, levels=sum$Category)
+sum$group &lt;- c(&quot;seurat&quot;,&quot;scanpy&quot;,&quot;seurat&quot;,&quot;scanpy&quot;,&quot;seurat&quot;,&quot;scanpy&quot;,&quot;seurat&quot;,&quot;scanpy&quot;,&quot;seurat&quot;,&quot;scanpy&quot;)
+sum$group &lt;- factor(sum$group, levels=c(&quot;seurat&quot;,&quot;scanpy&quot;))
+ggplot(sum, aes(x = Category , y = time, fill= group)) + geom_bar(stat = &quot;identity&quot;)+
+labs(x = &quot;Category&quot;, y = &quot;Time(min)&quot;, title = &quot;Seurat and Scanpy Time Compare&quot;) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title = element_text(size = 14, face = &quot;bold&quot;),
+        plot.title = element_text(size = 16, face = &quot;bold&quot;, hjust = 0.5),
+        legend.title = element_text(size = 12, face = &quot;bold&quot;),
+        legend.text = element_text(size = 10))
+</code></pre>
+<p>计算时间比较：</p>
+<p><img alt="" src="../../images/c0e1f1159bb470b9.webp"></p>
+<pre><code>ggplot(sum, aes(x = Category, y = peak_mem, fill= group)) + geom_bar(stat = &quot;identity&quot;)+
+labs(x = &quot;Category&quot;, y = &quot;peak_mem(MB)&quot;, title = &quot;Seurat and Scanpy Peak Mem Compare&quot;) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title = element_text(size = 14, face = &quot;bold&quot;),
+        plot.title = element_text(size = 16, face = &quot;bold&quot;, hjust = 0.5),
+        legend.title = element_text(size = 12, face = &quot;bold&quot;),
+        legend.text = element_text(size = 10))
+</code></pre>
+<p>计算过程中占用峰值内存比较：</p>
+<p><img alt="" src="../../images/91f7b0db8e5289a6.webp"></p>
+<p>变量对象占据总内存比较：</p>
+<pre><code>ggplot(sum, aes(x = Category, y = total_mem, fill= group)) + geom_bar(stat = &quot;identity&quot;)+
+labs(x = &quot;Category&quot;, y = &quot;total_mem(MB)&quot;, title = &quot;Seurat and Scanpy Total Mem Compare&quot;) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title = element_text(size = 14, face = &quot;bold&quot;),
+        plot.title = element_text(size = 16, face = &quot;bold&quot;, hjust = 0.5),
+        legend.title = element_text(size = 12, face = &quot;bold&quot;),
+        legend.text = element_text(size = 10))
+</code></pre>
+<p><img alt="" src="../../images/d007ec3daf30a670.webp"></p>
+<p><strong>测试文件</strong></p>
+<p><img alt="" src="../../images/8908217adc07dcf8.webp"></p>
+<p>测试文件链接:</p>
+<p>https://pan.baidu.com/s/1RkIOtJqHvvtFqFpB2vLwpw?pwd=pksm</p>
+<p>提取码: pksm</p>
+<p><img alt="" src="../../images/b769e47e30fbd30a.webp"></p>
+<p><img alt="" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下客服<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../../images/7ef00c45433a7bde.webp"></p>
+<p><img alt="" src="../../images/acba43cb3408c3d0.webp"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

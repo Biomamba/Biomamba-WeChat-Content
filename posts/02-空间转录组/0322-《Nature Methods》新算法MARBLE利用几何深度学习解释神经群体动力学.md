@@ -12,7 +12,7 @@ albums: ["空间转录组", "文献速递"]
 
 **一、写在前面**
 
-本次分享的是2025年2月发布于《Nature Methods》的题为"MARBLE:interpretable representations of neural population dynamics using geometric deep learning"的文章。在神经科学和机器学习领域交汇的今天，我们不断探索如何从复杂的神经活动中提取有意义的信息。这篇介绍 MARBLE 方法的文章，巧妙地利用几何深度学习，以无监督的方式分解神经流形上的动力学，并映射到统一的潜在空间中。MARBLE 为我们提供了一个强有力的工具，用于比较不同系统和个体间的神经动力学，并以此揭示神经计算的潜在规律，相信会启发神经科学、机器学习等领域的研究者在数据分析和模型构建方面的新思路。感兴趣的同学可以看看原文：![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOSkb5picXKGkZo5ibIWUjq3HdPRhu0Yaw2ZgJWTQKNt1wx1EErY44IJ5KFqXzl1iaeicdiakJlpia6RdxA/640?wx_fmt=jpeg&from=appmsg)Gosztolai A, Peach RL, Arnaudon A, Barahona M, Vandergheynst P. MARBLE: interpretable representations of neural population dynamics using geometric deep learning. Nat Methods. 2025 Feb 17. 机器学习基础教程可见：[机器学习基础手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510121&idx=1&sn=87b53d350d9aedd5b3205d59e51356a0&scene=21#wechat_redirect>)[生信Python速查手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499921&idx=1&sn=dcd6f95596e3de9bf378d850c217fe78&scene=21#wechat_redirect>)
+本次分享的是2025年2月发布于《Nature Methods》的题为"MARBLE:interpretable representations of neural population dynamics using geometric deep learning"的文章。在神经科学和机器学习领域交汇的今天，我们不断探索如何从复杂的神经活动中提取有意义的信息。这篇介绍 MARBLE 方法的文章，巧妙地利用几何深度学习，以无监督的方式分解神经流形上的动力学，并映射到统一的潜在空间中。MARBLE 为我们提供了一个强有力的工具，用于比较不同系统和个体间的神经动力学，并以此揭示神经计算的潜在规律，相信会启发神经科学、机器学习等领域的研究者在数据分析和模型构建方面的新思路。感兴趣的同学可以看看原文：![](../../images/6a01de009e8a9096.webp)Gosztolai A, Peach RL, Arnaudon A, Barahona M, Vandergheynst P. MARBLE: interpretable representations of neural population dynamics using geometric deep learning. Nat Methods. 2025 Feb 17. 机器学习基础教程可见：[机器学习基础手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510121&idx=1&sn=87b53d350d9aedd5b3205d59e51356a0&scene=21#wechat_redirect>)[生信Python速查手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499921&idx=1&sn=dcd6f95596e3de9bf378d850c217fe78&scene=21#wechat_redirect>)
 如果大家需要数据库搭建、分析**指导** 、生信热点**全文复现** 、自测数据**个性化分析** 辅导等合作，欢迎联系客服微信[**Biomamba_yunying**]
 
 **二、主要内容**
@@ -23,7 +23,7 @@ albums: ["空间转录组", "文献速递"]
 
 针对上述挑战，MARBLE 采用了一种新的方法。它将每个条件 c 下的一组试验 {**x**(_t_ ;  _c_)} 作为输入，并在共享潜在空间中表示底层未知流形上的局部动力学流场（图 1a 显示了一个流形）。这种方法旨在揭示跨条件的动力学关系。为了应对这些挑战，MARBLE 将每个条件 c 下的一组试验 {**x**(_t_ ;  _c_)} 作为输入，并在共享潜在空间中表示底层未知流形上的局部动力学流场（图 1a 显示了一个流形）。这种方法旨在揭示跨条件的动力学关系。为了利用流形结构，我们假设对于固定的 {**x**(_t_ ;  _c_)} 在动态上是一致的，即由相同但可能随时间变化的输入所控制。。这允许将动力学描述为一个向量场 **F** c = (**f** 1(_c_), …, **f** n _(_ c _))，该向量场锚定到一个点云**X**_ c = (**x** 1(_c_), …, **x** n _(_ c))，其中  _n_ 是采样的神经状态的数量（图 1b）。我们通过构建 **X** c 的邻近图来近似未知流形（图 1b），并使用它来定义每个神经状态周围的切空间以及附近向量之间平滑性（平行移动）的概念（补充图 1 和公式 (2)）。这允许定义一个可学习的向量扩散过程（公式 (3)），以降低流场噪声，同时保留其固定点结构（图 1c）。流形结构还允许将向量场分解为局部流场 (LFF)，对于每个神经状态  _i_ ，LFF 被定义为向量场，其距离在图上最多为  _p_ （图 1d），其中  _p_ 也可以被认为是局部逼近向量场的函数的阶数。这会将  _d_ 维神经状态提升到  _O_(_d_ p+1)-维空间，以编码神经状态的局部动力学环境，从而提供关于扰动的短期动力学效应的信息。请注意，时间信息也被编码，因为连续的神经状态通常在流形上是相邻的。正如我们将要展示的，这种更丰富的信息大大增强了我们方法的表征能力。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOSkb5picXKGkZo5ibIWUjq3HYzSnx4EqetQAA6clZDR1AMzBvrFflzkg0DW7rIibE4pRsgS4DtuU5Nw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fa56e57b6745808b.webp)
 
 **图1：MARBLE 方法：流形上动力学的无监督表征。a，不同试验（颜色）中的神经活动在潜在流形上演变。b，动力学的向量场表示。神经状态之间的最近邻图近似于未知的流形。c，向量场通过可训练的向量扩散进行可选的降噪，该向量扩散对齐（通过平行移动）附近的向量，同时保留固定点结构。d，动力学被分解为 LFF（局部流场，代表神经元活动在短时间内的变化）。e，LFF 通过几何深度神经网络逐个映射到潜在空间。该模型根据相似的 LFF 推断跨数据集的动力学重叠。f，该模型有三个步骤：使用 p 阶梯度滤波器从 LFF 中提取特征；（可选）转换为旋转不变特征以实现与嵌入无关的表征（否则，表征与嵌入相关）；以及使用多层感知器将特征映射到潜在空间。g，使用流形上的连续性，网络使用无监督对比学习进行训练，将相邻的 LFF 映射得较近，而非相邻的 LFF（在流形内部和跨流形）映射得较远。**
 
@@ -35,7 +35,7 @@ albums: ["空间转录组", "文献速递"]
 
 **内积特征（图 1f）允许两种操作模式。例如，考虑图 2a 中二维 (2D) 平面（ _d_ = 2，平凡流形）上的线性和旋转动力流场。稍后将显示，MARBLE 还可以捕获复杂的非线性动力学和流形。我们将这些动力流场标记为不同的条件（将它们视为不同的流形），并使用 MARBLE 来发现生成它们的一组潜在向量。**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOSkb5picXKGkZo5ibIWUjq3HT9013D8HjiaKEicRRVne0mtdzo8KKfv3L4eyzxHz2VxXiav739TVNtTnA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/01ba5e7fdd9d959a.webp)
 
 图2：跨条件和流形的联合 MARBLE 潜在表征的说明性示例。a，在由图（黑线）近似的平坦（平凡）流形上均匀随机采样的四个玩具向量场。两个恒定场（顶部）和两个旋转场（底部）。b，与嵌入相关的表征区分 LFF 中的旋转信息（左）。潜在空间中的环形流形参数化角度变化（插图）。与嵌入无关的潜在表征仅学习向量场的扩展和收缩（右）。潜在空间中的一维 (1D) 流形参数化 LFF 的径向变化（插图）。c，范德波尔振荡器在不稳定 (*μ* = −0.25) 和稳定 (*μ* = 0.25) 状态下，在变量曲率抛物面上的向量场，从随机初始化的轨迹中采样。插图显示了红色极限环和垂直投影视图中的代表性轨迹。d，基于相应 MARBLE 表征之间的最优传输距离的跨条件相似性。聚类表明在 *μ* = 0 处发生了突变的动力学变化。e，分布距离矩阵的 2D MDS 嵌入恢复了参数 *μ* 在两个弱连接的一维流形上的排序。
 
@@ -51,7 +51,7 @@ albums: ["空间转录组", "文献速递"]
 
 我们首先询问 MARBLE 是否可以推断神经动力学与任务性能损失的相关性，因为刺激增益会降低到决策阈值以下。对于给定的增益，由于随机性，我们模拟了 200 个不同持续时间的试验，采样了非线性动力流场的不同部分（扩展数据图 6）。我们通过在刺激开始和结束时细分试验来形成动态一致的数据集，以获得四个时期。然后，我们形成了两个组，一组来自刺激打开的时期，另一组来自刺激关闭的时期（图 3b）。针对不同的增益重复此操作，我们获得了 20 组不同增益的刺激时期和另外 20 组非刺激（无增益）时期。我们将后者用作阴性对照，因为动力流场在它们之间变化是由于采样可变性而不是增益调制。然后，我们训练与嵌入相关的 MARBLE 将所有 40 个组（标记为不同的条件）映射到共享潜在空间中。所得的条件之间的表征相似性矩阵表现出块对角结构（图 3f）。左上角的块表示非刺激对照之间的距离，并且包含消失的条目，这证明了 MARBLE 对采样可变性的鲁棒性。分层聚类识别的两个右下角子块表明动力学发生了定量变化，这尤其对应于任务性能从 1 突然下降（图 3g）到 0.5（随机）。因此，MARBLE 能够检测可以根据全局决策变量解释的动力学事件。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOSkb5picXKGkZo5ibIWUjq3HNoubgpWCQvOia8JSoFPzsltRjm9drTlibc1U9bOM7SwpW30TqcIMb7NA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/1b3b960b8f80b6d0.webp)
 
 **图3： 比较循环神经网络中的动态过程。a， 低秩 RNN 接收两个刺激作为输入，并产生一个决策变量作为读出。**b，** 延迟匹配样本任务的两个代表性刺激模式（仅显示一个刺激）和决策结果。在刺激时期（红色）输入幅度由“增益”控制，否则为零（灰色）。**c，** 训练好的秩为 2 的 RNN 的神经动力学在一个随机方向的平面上演化。场动力学的相图叠加了试验期间的轨迹（橙色）。**d，** 训练好的 RNN 中输入权重的空间。颜色表示 k-means 聚类，具有两个亚群，分别专门处理一个或另一个输入。椭圆表示拟合的高斯分布的 3 × 标准差。**e，** 增益为 0、0.32 和 1.0 时的平均场动力学。**f，** 基于相应嵌入感知 MARBLE 表征之间的最优传输距离，增益条件（阴影表示从 0 到 1 的增益）之间的相似性。层次聚类表明非零增益子块中有两个簇，表明存在一个质变点（红色虚线）。**g，** 预测的变化点对应于分岔，导致任务性能下降。**h，** 从不同初始化训练的网络可能在不同嵌入的流形上具有不同的动力学（解 I、II）。从相同权重分布采样的网络在不同嵌入的流形上产生相同的固定点结构（解 I/1、I/2）。**i，** 基于嵌入无关表示，跨网络和增益（左）或无增益（对照，中）的相似性。我们将其与 CCA (典型相关分析)（右）进行比较。阴影表示从 0 到 1 的增益。**j，** 距离矩阵的 MDS 嵌入显示了增益调制期间潜在状态的连续变化（左），无增益条件下的无变化（中）以及跨网络解决方案的聚类。对于 CCA，相同的图显示了跨网络解决方案的聚类，但没有由于增益调制引起的变化。**
 
@@ -61,7 +61,7 @@ albums: ["空间转录组", "文献速递"]
 
 神经动力学的最先进的表征学习使用神经和行为信号的联合嵌入；然而，最好将生物学发现建立在对神经表征的事后解释的基础上，这些表征不会基于行为信号在神经状态和潜在表征之间引入相关性。为了证明这一点，我们重新分析了猕猴执行延迟的中心向外手臂抓取任务的电生理记录（“方法”）。在任务期间，训练有素的猴子将手柄移动到从起始位置径向位置处的七个不同的目标。该数据集包括来自前运动皮层的 44 个记录会话（图 4b 显示了一个会话）中使用 24 通道探针同时记录的手部运动学（图 4a）和神经活动。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOSkb5picXKGkZo5ibIWUjq3H2551uG9S2HszYJDtycWjGlHGkbyG9xmBMbI3rIeyjAJaQxzIvH2ehQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/e3acb7b23285d731.webp)
 
 **图4：手臂抓取期间神经活动的可解释表征和解码a，猕猴在七个抓取条件下真实的手部轨迹。猴子图像由 Andrea Colins Rodriguez 改编自 https://www.scidraw.io/drawing/445, CCBY 4.0。b，三种抓取条件下前运动皮层中的单次试验尖峰序列（每种颜色中 24 个记录通道）。阴影区域显示了 GO 提示后的分析轨迹。c，在抓取条件下（向上）PCA 嵌入在三个维度中的放电率轨迹，用于可视化。d，从放电率轨迹获得的向量场。e，单个会话中跨条件的神经数据的潜在表征。CEBRA 行为与抓取条件作为标签一起使用。MARBLE 表征揭示了潜在的全局几何排列（圆形和时间顺序），跨越反映物理空间的所有抓取，作为涌现属性。f，从潜在表征中对手部轨迹进行线性解码。g，通过地面实况和所有会话的最终位置（左）和瞬时速度（右）之间的解码轨迹测量的解码精度 R2。双侧 Wilcoxon 检验（配对样本），**P** < 1 × 10-2;  _P < 1 × 10-3_；****** ******_P < 1 × 10-4_; NS，不显著。水平和垂直条分别显示平均值和 1 × s.d., 分别 (_n_ = 43)。
 
@@ -77,7 +77,7 @@ albums: ["空间转录组", "文献速递"]
 
 **鉴于 MARBLE 可以产生跨 RNN 的可比较的潜在表征（图 3h, i）并且可以在 RNN（图 3e-g）或动物（图 4h-j）中解释，我们最终询问它是否可以产生跨动物的一致可解码的潜在表征。为此，我们重新分析了大鼠在导航线性轨道时，从大鼠海马体中记录的电生理数据 （图 5a 和“方法”）。仅从神经数据中，MARBLE 可以推断出可解释的表征，包括神经状态空间中的一维流形，表示动物的位置和行走方向（图 5b）。值得注意的是，无监督 MARBLE 表征比使用 CEBRA 时间（由神经状态上的时间标签监督）获得的表征更具可解释性，并且与使用行为（位置和运行方向）作为标签的 CEBRA 行为相当（图 5b）。这一发现通过使用 k 均值解码器的显著更高的解码精度得到证实（双侧 Wilcoxon 检验， _P_ < 1 × 10-4）（图 5c, d）。**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOSkb5picXKGkZo5ibIWUjq3Hwr7a8LvkvOPUwVrcIU4r8OcqoDgicgRg5RoCvsnGEPicv7Rb8brlTrMQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/e206581af63b87d9.webp)
 
 **图5：大鼠在直线性迷宫导航期间，海马神经活动的可解释表征和跨动物解码a，大鼠在直线性迷宫中导航的实验设置，其中跟踪运动的位置和方向（顶部）。栅格图显示了单个会话中 120 个神经元的尖峰活动（底部）。大鼠图像来源：[designer_an]/stock.adobe.com。b，无监督 MARBLE 与自监督（仅时间标签）和监督（时间、位置和方向标签）CEBRA 的潜在表征 (** E* = 3) 的比较。颜色阴影在 a 中定义。c，大鼠 1 中线性解码的动物位置的时间轨迹 (_E_ = 32，来自 CEBRA 解码笔记本示例的默认设置）。d，同一动物内的解码精度。双侧 Wilcoxon 检验（配对样本），****** ******_P < 1 × 10-4_。水平和垂直条分别显示平均值和 1 × s.d. (n = 2,000)。e，跨动物一致性，通过将源动物的优化对齐的 3D 潜在表征线性拟合到目标动物的 R2 来衡量。
 
@@ -94,15 +94,15 @@ albums: ["空间转录组", "文献速递"]
 
 总而言之，MARBLE 的 LFF 学习方法利用神经流形上的上下文信息，丰富了神经状态的表征。 这种方法能够提供可解释且一致的潜在表征，而在此之前，只有通过使用额外行为信息的监督学习方法才能实现。这表明，不同动物的神经动力流场可以被视为常见潜在动力学的投影，并且可以作为局部流场的保留相似性嵌入的涌现属性来重建。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/7ef00c45433a7bde.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

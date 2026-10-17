@@ -22,11 +22,11 @@ albums: ["全文复现"]
 
 该数据集共包含 4 个 scRNA-seq 样本（GSM）：
 
-![image.png](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibt7lR70tLMwZMpLRGHa3yR77D0nDQqxdeaUBwDEpW4ic5zLAyaQZrgf9g/640?wx_fmt=png&from=appmsg)
+![image.png](../../images/b18f802ba928fe82.png)
 
 **数据集基本信息一览：**
 
-**![image.png](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtZCDU7u4B8JTsicQJPsxJPLmMCIZC22YPfEuK6dyKSkVMVTpgDCJSIxg/640?wx_fmt=png&from=appmsg)**
+**![image.png](../../images/c89740271db8644b.png)**
 
 **三、实操**
 
@@ -40,7 +40,7 @@ albums: ["全文复现"]
 
 **数据下载链接** https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE270583
 
-![image.png](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtlO99lZVoyvOqnZksad5EbSfqGzibBLOV7zRN9dj6khwMjOhDpTahQjg/640?wx_fmt=png&from=appmsg)
+![image.png](../../images/66d8a38bc2b346db.png)
 ```
 ‍
 ```
@@ -161,7 +161,7 @@ multi_panel=True,
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtFqODzbiaG4HlOaziabrK8Biaz0bnbAn5icQvswH4ngzK9BRGmy5oh95x0w/640?wx_fmt=png&from=appmsg)
+![](../../images/3a3a97d9a14d798c.webp)
 ```
 # 绘制散点图，查看每个细胞的总 counts vs 检测到的基因数，颜色表示线粒体基因占比
 sc.pl.scatter(
@@ -174,7 +174,7 @@ alpha=0.6# 点透明度，方便观察密集区域
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtEDibJjtMqqQcTibsdxNGXYO1icD6Yib95AiaU57Q7NXWRltdpYQWQTXnlCg/640?wx_fmt=png&from=appmsg)
+![](../../images/efc5b678c0c3c11d.webp)
 ```
 # 按阈值过滤细胞
 adata_all=adata_all[
@@ -266,7 +266,7 @@ size=2,
 
 WARNING: adata.X seems to be already log-transformed.
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtyicNSx089SNWOiaWJKunNg9IibaxBhbhUqcSEPoyaa8OX4fSgrY6g7icWQ/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtWFesNRapHZ3RqSETKo8QpPXwtTDVz7hY7CZrhJCyAkdgEVtmxFk6Pw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtMeOS9A2NCiaWVUVtqcU7GAbpDRib2p92sHibXz9thQMGlrxfzgaRibGMzA/640?wx_fmt=png&from=appmsg)
+![](../../images/f8d4d32b1d1b4276.webp)![](../../images/56a2ba001befe84a.png)![](../../images/58c8dd2a232b7177.webp)
 ```
 # 1. 构建最近邻图（基于 PCA 空间）
 sc.pp.neighbors(
@@ -288,7 +288,7 @@ size=2
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibttQd8HV0ZX5GXI3TEj22u3jDqOnSIQb3DOvhHnmkWc0SwzHvn9tVfbg/640?wx_fmt=png&from=appmsg)
+![](../../images/f5498a1bd1d4a1f5.webp)
 ```
 # 仅指定使用 PCA 多少个主成分
 sc.tl.tsne(
@@ -305,7 +305,7 @@ size=2
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtHQFMJlM8kK2LnesPN1gL0w7xn1pYB7rfmEFiaE1qlrZDT2YyohemGxw/640?wx_fmt=png&from=appmsg)
+![](../../images/46c9147a252ca1df.webp)
 ```
 # -------------------------
 # 1. Leiden 聚类
@@ -325,7 +325,7 @@ size=2
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibto8X04YYp6hiaa0QXxAz5TCSCkdBV5cr6hAZibiaLeCtdMCGHBaEezeInQ/640?wx_fmt=png&from=appmsg)
+![](../../images/cc7601aebe68cb25.webp)
 ```
 # -------------------------
 # 1. Leiden 聚类（保持不变）
@@ -353,7 +353,7 @@ size=20# 点的大小，可根据需要调整
 )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibt6mKt9xicKl3att9CeWE9sgic2HZMbqZm4CO3bLiaxJSdFMQRPOfV4bMgA/640?wx_fmt=png&from=appmsg)
+![](../../images/2557ce4c62d3fdce.webp)
 
 # 4、批次效应
 ```
@@ -398,7 +398,7 @@ sc.pl.umap(adata_all,color=["sample","leiden"],size=2)
 2025-12-23 22:14:09,044 - harmonypy - INFO - Converged after 5 iterations
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtFcBWDJzrMUOaHP6mptaMpGkqg7cRV2BibMEzR66BAQ3ia8Yic2fqtEw3A/640?wx_fmt=png&from=appmsg)
+![](../../images/a31899af394fc1bb.webp)
 ```
 # -------------------------
 #  计算 t-SNE（基于校正后的 PCA）
@@ -419,7 +419,7 @@ sc.pl.tsne(adata_all,color=['sample','leiden'],size=2)
 # adata_all.obsm['X_tsne'] 已经包含 t-SNE 坐标
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtoG4Sict8xdYlSicCIY3ATfQ0vIqGMlfge1Pa04ic1D7Hp552FTjzrqOmg/640?wx_fmt=png&from=appmsg)
+![](../../images/3da27034fe0851fe.webp)
 ```
 adata_all
 ```
@@ -467,7 +467,7 @@ AnnData object with n_obs × n_vars = 19528 × 23055
     obsp: 'connectivities', 'distances'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtOCWS3N8GMian5u7ywHvkMBUWnibPkcjAnutvA39sX8PTvRWicP18XlOFw/640?wx_fmt=png&from=appmsg)
+![](../../images/a1e5b61bbdad4883.webp)
 ```
 # 3. 提取每个 cluster 的 top5 基因
 all_markers = sc.get.rank_genes_groups_df(adata, group=None)
@@ -505,7 +505,7 @@ Top 5 marker genes per cluster: ['Scp2' 'Alb' 'Fabp1' 'Hmgcs2' 'Mat1a' 'Tox' 'Nk
   plt.tight_layout()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibt8jzKrIibObcF5KfAicwiblbcibzuG4YK8PqGNctha4XqLHbbk3ypRR0waw/640?wx_fmt=png&from=appmsg)
+![](../../images/e91b98f140905bb2.webp)
 
 ```
 markers_df = sc.get.rank_genes_groups_df(
@@ -615,7 +615,7 @@ plt.show()
   plt.tight_layout()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtGN3icjXQhsKSlVvSI65hLsPDLoEUCRYLJIfrCyYCvbhX7qSqmeIGoaA/640?wx_fmt=png&from=appmsg)
+![](../../images/0d40061b4c1e77aa.webp)
 ```python
 import scanpy as sc
 import matplotlib.pyplot as plt
@@ -661,7 +661,7 @@ AAACCCACAGCACGAA-1       4         cDC2
 AAACCCACATGTAACC-1       7  Neutrophils
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtemFVcasDQtEtDt3UZkWCNrarwIK7ofib19ibO40ggFMSic5hs3EiaLwy7Q/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtvxsRVxr95m2gpy7qK8WeNtiaMiaMmnkHA2M1Cibic7sWDNxEhChjvwhiadQ/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/56df0c55966e2118.webp)![](../../images/de0acd0ed502cba3.webp)
 ```
 <Figure size 640x480 with 0 Axes>
 ```
@@ -674,13 +674,13 @@ adata.write("GSE270583_adata_annotated_v2.h5ad")
 
 一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibtu1C6bia3oGlXnEWITWpsxLTSHtm440N0ibrAqqtFCgFiap8G5bIS9yw1w/640?wx_fmt=png&from=appmsg)
+![](../../images/a81ab395a5594b3c.png)
 
 通过网盘分享的文件: https://pan.baidu.com/s/1n9sVVVc7EYW-Yq-h8ad1AQ
 
 提取码: 48vp
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzicGthkGORDBlBDdwW1x3ibt7iavtcGhTqD12bucQnw5Er0ibxV0yQrLEUiaHuQdWARI1kQE2XGnM7y6Q/640?wx_fmt=jpeg)
+![](../../images/3377f769996a1525.webp)
 
 R语言演示环境([开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>))：
 ```
@@ -752,14 +752,14 @@ sessionInfo()
 ## [121] MASS_7.3-64sessionInfo()
 ```
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

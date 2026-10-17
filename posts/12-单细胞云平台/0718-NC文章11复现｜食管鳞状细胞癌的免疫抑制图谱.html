@@ -1,0 +1,149 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0718-NC文章11复现｜食管鳞状细胞癌的免疫抑制图谱</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="nc11">NC文章1:1复现｜食管鳞状细胞癌的免疫抑制图谱</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247512313&amp;idx=1&amp;sn=a1d446cbce73dc73a9d98dd6ab3878c6&amp;chksm=9b3cc9a9ac4b40bfe3fbca1f35606b6d4bb8803a84dd9a1fdc035ce87c7d697411030f38abff#rd
+合集：单细胞云平台</p>
+</blockquote>
+<p>大家可以先瞅一眼复现效果集锦：<img alt="" src="../../images/abdcfbf887ff0f32.webp"></p>
+<p>详细教程可加群交流</p>
+<p><img alt="" src="../../images/330257e8da136c0b.webp"></p>
+<p>点击下方链接<strong>抢先</strong> 注册，即刻<strong>赶超</strong> 同行，<strong>率先</strong> 发文：</p>
+<p>https://seeksoul.online/index.html#/login?from=Biomamba</p>
+<p><strong>扫码</strong> 添加客服(<strong>备注Biomamba有优惠</strong>)，参加<strong>云平台精</strong><strong>彩活动</strong> （文末可了解活动详情）～</p>
+<p>群聊二维码过期可添加客服：</p>
+<p><img alt="" src="../../images/78d0bd7a235562b0.webp"></p>
+<p>扫一扫 添加客服</p>
+<p><strong>文献背景</strong></p>
+<p><strong>标题：</strong> Immune suppressive landscape in the human esophageal squamous cell carcinoma microenvironment</p>
+<p><strong>中文标题：</strong> 人类食管鳞状细胞癌的免疫抑制微环境</p>
+<p><strong>期刊：</strong> Nature Communications</p>
+<p><strong>影响因子：</strong> 16.6</p>
+<p><strong>DOI：</strong> 10.1038/s41467-020-20019-0</p>
+<p><strong>分析路线和结果</strong></p>
+<p><strong>方向：</strong> 肿瘤免疫</p>
+<p><strong>数据来源：</strong> GEO数据库 GSE145370</p>
+<p><strong>分析方案：</strong></p>
+<p><img alt="" src="../../images/8ea9cbda32524662.webp"></p>
+<p>该文章通过<strong>单细胞RNA测序</strong> 对<strong>7例</strong> 食管鳞状细胞癌患者的癌/癌旁组织分析，绘制其免疫细胞图谱，研究发现：</p>
+<p>1. 单细胞RNA测序揭示食管鳞状细胞癌(ESCC)的免疫细胞图谱，主要包括T细胞，NK细胞，单核细胞/巨噬细胞，树突状细胞（DC），B细胞，浆细胞和肥大细胞和其他细胞；</p>
+<p>2. 对T和NK细胞亚型分析表征ESCC免疫微环境中T和NK细胞状态的改变；</p>
+<p>3. T细胞受体(TCR)测序分析揭示了CD8 T细胞从预耗尽到耗尽的进展过程；</p>
+<p>4. 髓系细胞的亚型分析表征ESCC中单核细胞/巨噬细胞和树突状细胞的不同功能。</p>
+<p><strong>文章结果</strong></p>
+<p>单细胞样本数据分析通常需要经过<strong>细胞/基因过滤→多样本整合→降维聚类等步骤的初步分析准备</strong> ，因此在复现文章结果之前，在云平台上同样需要这些步骤的初步分析，让我们现在开始！</p>
+<p>其中的<strong>分析原理</strong> 吧。下面我们就将分<strong>四个部分</strong> 进行详细地介绍。</p>
+<p><strong>01: 云平台分析前准备</strong></p>
+<p><strong>Step1 上传文章样本数据</strong></p>
+<p>云平台分析前，我们需要将原文GEO数据库 GSE145370编号的单细胞数据下载到本地。通过【资源总览】下【我的数据】中<strong>将每个样本的rds数据文件上传到云平台上。</strong> 数据上传成功后，会在【我的数据】中看到上传的单细胞数据。</p>
+<p><img alt="" src="../../images/aaaa9a16e5e35688.webp"></p>
+<p>图1.1 通过【资源总览】→【我的数据】→【数据上传】上传文章数据</p>
+<p><strong>Step2 在云平台上新建项目</strong></p>
+<p>数据上传成功后，需要在【我的项目】下新建一个项目，后续的任何操作和结果都会呈现在该项目中。</p>
+<p><img alt="" src="../../images/79b281a23abf6ade.webp"></p>
+<p>图1.2 点击【资源总览】→【我的项目】→【新建项目】构建新项目</p>
+<p><strong>Step3 新建分析流程</strong></p>
+<p>任何单细胞RNA数据进行细胞注释前均需要进行细胞/基因过滤→多样本整合→降维聚类等步骤对样本数据进行初步分析，用于评估样本的质量。</p>
+<p>那么我们首先在新建项目下新建一个分析流程“多样本大群整合聚类”，填写流程名称，选择文章中的样本数据，点击开始分析。</p>
+<p><img alt="" src="../../images/494390a608939e36.webp"></p>
+<p>图1.3 填写流程名称→选择文章数据→点击开始分析</p>
+<p>任务结束后，会展示每个样本的基因数、UMI数、线粒体基因数的小提琴图，可以用于评估样本的数量。</p>
+<p><img alt="" src="../../images/834a88b548634dc9.webp"></p>
+<p>图1.4 每个样本的基因数、UMI数、线粒体基因数的小提琴图</p>
+<p><strong>Step4 按细胞/基因数过滤</strong></p>
+<p>上步分析完成后，可以获得nFeature_RNA、nCount_RNA和mito_RNA数评估样本质量。进入【过滤】步骤，过滤可分为按基因过滤和按细胞过滤两种，可以选择填写下图中的参数。点击【过滤】。</p>
+<p><img alt="" src="../../images/1fddd75d6963a272.webp"></p>
+<p>图1.5 填写过滤参数后，点击过滤，过滤掉不在参数范围内的细胞</p>
+<p><strong>Step5 多样本整合</strong></p>
+<p>数据过滤完成后，需要对数据进行多样本整合，去除样本间的批次效应，目前平台支持CCA、Harmony和Merge，其中merge不去除批次效应,CCA整合效果高，但可能出现过校正的结果，Harmony整合效果适中，这里选择<strong>Harmony的整合方案</strong> ，点击【整合】按钮。</p>
+<p><img alt="" src="../../images/91c8c48757c48740.webp"></p>
+<p>图1.6 选择Harmony方法，点击整合，实现多样本的整合</p>
+<p><strong>Step6 降维聚类</strong></p>
+<p>多样本整合完毕，会通过【聚类】步骤实现细胞聚类。具有相似基因表达模式或其他生物学特性的细胞会被聚集在一起，分辨率越高，细胞类群越多。按照下图中的参数设定，完成后点击聚类。初步分析已完成，跳转到【细胞注释】部分，可开始文章图表内容复现。</p>
+<p><img alt="" src="../../images/63dc8ba28724f9a2.webp"></p>
+<p>图1.7 填写相应的分辨率和PCA维数，点击聚类，实现细胞聚类</p>
+<p><strong>02: 文章细胞大群分析结果复现</strong></p>
+<p>聚类完成后会跳转到细胞注释页面，该界面可以根据每个细胞cluster中表达的marker来判定细胞类型，具体操作步骤如下：</p>
+<p><strong>Step1 细胞注释</strong></p>
+<p>初步分析完成后会跳转到细胞注释页面，左侧为聚类结果，共聚类到22个cluster。右侧展示每个cluster的top5 marker的气泡图、小提琴图和热图。根据每个cluster的marker基因来定义细胞类型，注释完成后，点击【新建注释】，输入相应的细胞标签完成细胞类型注释。</p>
+<p><img alt="" src="../../images/08e8a758e27a6496.webp"></p>
+<p>图2.1 云平台注释各种细胞类型</p>
+<p><strong>step2 复现结果比对</strong></p>
+<p>使用典型的marker对这些群体进行注释，并成功地鉴定了肿瘤浸润免疫细胞的主要类型，包括T细胞、NK细胞、单核/巨噬细胞、树突状细胞(DC)、B细胞、浆细胞和肥大细胞，以及一小部分非免疫细胞(图2.2)，对于细胞类型的umap降维图（按患者和按分组绘图）可以通过云平台的【画图工具】进行绘制和美化,文章图表的复现，大多数依据云平台的【画图工具】模块，后面会展开讲解。</p>
+<p><img alt="" src="../../images/d58fa10aed7f750d.webp"></p>
+<p>图2.2 云平台复现文献细胞注释结果，结果高度一致</p>
+<p><img alt="" src="../../images/392c16ed5096bb0d.webp"></p>
+<p>图2.3 云平台复现各细胞类群marker的featureplot图</p>
+<p><img alt="" src="../../images/906c20e0fe4a5c07.webp"></p>
+<p>图2.4 云平台复现各细胞类群的细胞数量占比条形图和饼图</p>
+<p>以上呈现的Uamp图、基因表达热图、小提琴图、气泡图、feature plot图以及占比图等均可以使用云平台【画图工具】模块完成。</p>
+<p>例如复现按照癌/癌旁的样本分组的，选择云平台的【画图工具】模块，选择“分组统计图”，图形类型选择“饼图”，分组因子选择注释好的细胞类型结果，拆分因子选择“Adjacent和Tumor”的分组，提交即可绘制上述的细胞占比饼图。</p>
+<p><img alt="" src="../../images/5a45700450bb0556.webp"></p>
+<p>图2.5 云平台复现各细胞类群的细胞数量占比条形图和饼图的操作步骤</p>
+<p><strong>03: 文章T和NK细胞亚群分析结果复现</strong></p>
+<p><strong>Step1 亚群选择筛选T和NK细胞</strong></p>
+<p>文章提及T 和 NK 细胞是 TME 中主要的细胞毒性免疫细胞，因此对T和NK细胞联合进行细胞亚群聚类和注释后，表征不同T细胞亚群在ESCC中行使的功能。</p>
+<p>通过云平台复现该部分结果，首先需要通过【亚群选择】模块将T和NK细胞筛选出来，具体操作步骤如下：</p>
+<p><img alt="" src="../../images/46061ba093824774.webp"></p>
+<p>图3.1 点击【亚群选择】→填写T和NK细胞信息→点击提交→分析完成后点击+开始从头分析</p>
+<p>注：该步骤相当把T和NK细胞筛选出来重新从质控分析，后续所有分析结果都基于T和NK细胞</p>
+<p><strong>Step2 T和NK细胞细胞亚群注释</strong></p>
+<p>通过已知的marker基因来注释CD4 T细胞群，包括naïve、记忆T细胞、效应T细胞、耗尽T细胞和Tregs。这些标记还可以识别CD8 T细胞群，包括记忆T细胞、效应T细胞、细胞毒性T细胞和耗竭T细胞(Fig2B)。</p>
+<p><img alt="" src="../../images/b07f4ea616a2865b.webp"></p>
+<p>图3.2 云平台复现T细胞和NK细胞的注释结果</p>
+<p><strong>Step3 特征集打分分析</strong></p>
+<p>文章中同时对CD4和CD8 T细胞按照细胞毒性、耗竭、naïve和Treg特征富集发现CD4-C4-IFIT3富集细胞毒性特征，CD4-C5-STMN1富集在耗竭特征，CD4-C1-CCR7富集在naïve特征，CD4-C6-FOXP3富集在Treg特征。CD8T细胞同样（图3.4）。</p>
+<p>云平台可以通过【特征分析】模块对基因集合进行打分，我们可以自定义基因集上传并保存。</p>
+<p><img alt="" src="../../images/10a404f806063be6.webp"></p>
+<p>图3.3 找出文章附表的基因集数据，并将细胞毒性、耗竭、naïve和Treg的基因集建在云平台中</p>
+<p>我们将公共的细胞毒性、耗竭、naïve和Treg特征基因集应用于CD4和CD8 T细胞簇，计算转录评分，结果发现在CD4 T细胞中，CD4-C4-IFIT3在细胞毒性特征上富集，CD4-C5-STMN1具有最强的衰竭信号，CD4-C6-FOXP3具有最强的Treg信号，CD4-C1-CCR7和CD4-C2-TCF7都具有较强的naïve信号。</p>
+<p>在CD8T细胞中CD8-C1-NKG7是最活跃的细胞毒性CD8 T细胞， CD8-C5-CCL5和CD8-C6-STMN1的衰竭评分低于CD8-C7-TIGIT，而CD8 T细胞簇中naïve得分非常低，未发现naïve CD8 T细胞簇(图3.4)。这一结果表明，在ESCC中，大多数浸润肿瘤的CD8 T细胞处于活跃、记忆或耗尽状态。</p>
+<p><img alt="" src="../../images/24210de63d9352f8.webp"></p>
+<p>图3.4 云平台复现CD4和CD8 T细胞亚型的基因集打分</p>
+<p>注：该气泡图通过云平台【画图工具】绘制，具体参数选择见（图3.5）</p>
+<p><img alt="" src="../../images/575287842fa0cddc.webp"></p>
+<p>图3.5 CD4 T细胞的细胞毒性、耗竭、naïve和Treg特征基因集打分参数选择</p>
+<p><strong>Step4 CD4-C6-FOXP3与CD4-C5-STMN1的差异表达基因小提琴图对比</strong></p>
+<p>为表征ESCC中CD4和CD8 T细胞亚群的细胞状态和基因表达，文献中深入分析了CD4和CD8 T细胞亚群的基因表达。Tregs (CD4-C6-FOXP3)与CD4 细胞耗竭T(CD4-C5-STMN1)的基因表达较为相似，但深入比较发现CD4-C5-STMN1表达的CCL5、CCL4、IFI6、CXCL13、IFNG和ID2的水平高于CD4-C6-FOXP3。</p>
+<p><img alt="" src="../../images/6b2ae51b639f8b1e.webp"></p>
+<p>图3.6 云平台复现 CD4-C6-FOXP3与CD4-C5-STMN1的基因表达对比，结果高度一致</p>
+<p><strong>04: 文章单核细胞/巨噬细胞亚群分析结果复现</strong></p>
+<p><strong>Step1 髓系细胞亚群选择</strong></p>
+<p>文献中对髓系细胞进行细胞亚群深入分析表征，同T细胞亚群分析类似，云平台通过“亚群选择”将髓系细胞提取出来，具体操作如下：</p>
+<p><img alt="" src="../../images/9012ff9460642241.webp"></p>
+<p>图4.1 点击【亚群选择】→填写髓系细胞信息→点击提交→分析完成后点击+开始从头分析</p>
+<p><strong>Step2 髓系细胞亚群细胞注释和基因集打分</strong></p>
+<p>完成后点击操作+按钮，进行细胞亚群聚类实现髓系细胞的亚群聚类，跳转到“细胞注释”模块。共鉴定出14个细胞簇，包括9个单核/巨噬细胞簇和5个DC细胞簇，利用公共的单核细胞、M1型巨噬细胞、M2型巨噬细胞和髓源性抑制细胞(MDSCs)的基因特征集，对这些髓系亚群进行功能分析(云平台【特征分析】模块)。Macro-C1-IL6，代表M1型巨噬细胞；Macro-C3-CSF1，代表M2型巨噬细胞；Macro-C2-IL1RN可能代表中间状态；Mono-C1-VCAN表现出强烈的单核细胞特征（图4.1）。</p>
+<p><img alt="" src="../../images/d61a0a75e7a439f9.webp"></p>
+<p>图4.2 云平台复现髓系细胞亚群umap图和特征集打分分析，结果与文章一致</p>
+<p><strong>Step3 髓系细胞亚群细胞拟时序分析</strong></p>
+<p>文献通过拟时序分析探究髓系细胞亚群的状态转变，云平台通过“高级分析”模块中的monocle2构建髓系细胞亚群的发育轨迹，具体操作如下：</p>
+<p><img alt="" src="../../images/80929ae980748a65.webp"></p>
+<p>图4.3 云平台髓系细胞亚群细胞拟时序分析的参数填写</p>
+<p>云平台分析结果显示单核细胞(Mono-C1-VCAN)、M1 (Macro-C1-IL6)、M2 (Macro-C3-CSF1)位于分支末端，Macro-C2-IL1RN位于分支中间，提示ESCC中巨噬细胞的极化现象，文献的拟时序分析结果基本一致（图4.4）。</p>
+<p><img alt="" src="../../images/05476cf408e312f3.webp"></p>
+<p>图4.4 云平台复现Mono-C1-VCAN/Macro-C1-IL6 → Macro-C2-IL1RN → Macro-C3-CSF1的拟时序分析</p>
+<p><strong>结语</strong></p>
+<p>由于篇幅有限，<strong>转录因子分析和肿瘤细胞判定等</strong><strong>高级分析云平台也同样可以实现</strong> ～如果有对以上复现内容有任何疑问，或者对我们的云平台分析感兴趣的小伙伴，可以<strong>添加文末客服微信咨询</strong> 哦～下方更有视频教学的链接，立即扫码观看，开启您的单细胞分析之旅吧！</p>
+<p><strong>视频教学链接：</strong></p>
+<p>https://space.bilibili.com/1209053733/channel/collectiondetail?sid=2881928&amp;spm_id_from=333.788.0.0</p>
+<p><img alt="" src="../../images/1942831bb4c7edcf.webp"></p>
+<p>扫码观看视频教程</p>
+<p><strong>云平台周年大促</strong></p>
+<p><strong>此外，我们还准备了精彩纷呈的活动，让大家无需代码困扰，全心解决问题！</strong></p>
+<p>活动一：限时 <strong>3</strong> 折，<strong>600</strong> 元/例/<strong>2</strong> 年，限时疯抢！</p>
+<p>活动二：活动期间文章发圈集赞<strong>20</strong> 个，立送<strong>4</strong> 例样本 <strong>1</strong> 个月<strong>免费</strong> 分析！活动参与截图，反馈给企业微信客服即可～</p>
+<p>活动三：2024 年合作寻因自研单细胞产品，云平台已投入金额直接<strong>项目抵扣</strong> ！</p>
+<p>活动时间：<strong>2024年6月19日-7月7日</strong></p>
+<p>别再犹豫，赶紧<strong>扫码添加客服</strong> 咨询～抓住这难得机遇，尽情享受云平台的便捷与优惠吧！</p>
+<p><img alt="" src="../../images/78d0bd7a235562b0.webp"></p>
+<p>扫码咨询客服</p>
+<p><img alt="" src="../../images/63bd2aa879a837ef.webp"></p>
+<p>扫码进交流群</p>
+<p><img alt="" src="../../images/21edee591259e622.webp"></p>
+<p><img alt="" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/3b8e21da777157f9.webp"><img alt="" src="../../images/7a5130b05d387a24.webp"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/157c2d556eb4f9c8.webp"></p>
+<p><img alt="" src="../../images/acba43cb3408c3d0.webp">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

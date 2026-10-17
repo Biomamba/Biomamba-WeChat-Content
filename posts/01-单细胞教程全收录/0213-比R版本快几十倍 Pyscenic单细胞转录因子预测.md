@@ -28,7 +28,7 @@ SCENIC（Single-Cell Regulatory Network Inference and Clustering）是一个专�
 
 本文分析集锦如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9iciaDDSDJ3R09PibUWPymcmzZPrE4J2EPW4kulAm0JANBZWofibc7QnXuUw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/5986f48928da7b99.webp)
 **
 ****二、测试文件**
 
@@ -42,7 +42,7 @@ https://pan.baidu.com/s/1S-e6-PEWV-e-a15m2661OQ?pwd=6kdf
 
 提取码: 6kdf
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9ic7hdOhpeM4oiah23rAgt9mlibaFbx1XZCxsibb0cohOEEre8NX1jKgMQcg/640?wx_fmt=png&from=appmsg)
+![](../../images/ce9094a99d5dc72e.webp)
 
 **三、软件安装**
 
@@ -109,7 +109,7 @@ import os,sysimport loompy as lpimport numpy as npimport pandas as pdo
 pbmc3k_sub <- readRDS("/home/cwj/project/09_pyscenic/result/pbmc3k_sub.rds")DimPlot(pbmc3k_sub, label=T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9icmFMgicIdGQB1AfZR50ibs9cSf7a62I4MFDQNsU3NYhIVOPjl7docbypg/640?wx_fmt=png&from=appmsg)
+![](../../images/8891a37bd2eed324.webp)
 
   *   *   *   *   *   *   *   *   *   *   *
 
@@ -126,7 +126,7 @@ loom <- open_loom("./result/aucell.loom")#获取调节因子矩阵：regulons_i
 #每个细胞的aucell值添加到seurat对象的meta.data中pbmc3k_sub@meta.data = cbind(pbmc3k_sub@meta.data ,t(sub_regulonAUC@assays@data$AUC))#指定关注的转录因子绘图VlnPlot(pbmc3k_sub, features = c("SP2(+)","ZNF44(+)"),pt.size = 0)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9icWiahlr5tmR5mEpGwtX3sRIlmMJNtUVZnpJxCakQibW8j86frmcVhLhdw/640?wx_fmt=png&from=appmsg)
+![](../../images/4cb4c3081f2da35f.webp)
 
   *
 
@@ -134,7 +134,7 @@ loom <- open_loom("./result/aucell.loom")#获取调节因子矩阵：regulons_i
 FeaturePlot(object = pbmc3k_sub,features = c("SP2(+)","ZNF44(+)"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9ic8K6YNp0Wq8ibZbcicO4fe0BPdXk3OMibv9nDI46eQTSfpS5P3IC9etstg/640?wx_fmt=png&from=appmsg)
+![](../../images/7eb517f9c774a674.webp)
 
   *   *   *   *
 
@@ -142,7 +142,7 @@ FeaturePlot(object = pbmc3k_sub,features = c("SP2(+)","ZNF44(+)"))
 # regulon特异性分数(Regulon Specificity Score, RSS)rss<-calcRSS(AUC=getAUC(sub_regulonAUC),cellAnnotation=pbmc3k_sub@meta.data$celltype)rssPlot <- plotRSS(rss)rssPlot$plot
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9icSRrfOqVRzBjMf7HnKxILa4mEUJIhU5My9hNITBMFxWd1gib8xfiaibnBg/640?wx_fmt=png&from=appmsg)
+![](../../images/575a8625e8703b51.webp)
 
   *   *   *   *   *   *
 
@@ -150,7 +150,7 @@ FeaturePlot(object = pbmc3k_sub,features = c("SP2(+)","ZNF44(+)"))
 #分细胞类型展示regulon特异性分数p1 <- plotRSS_oneSet(rss,'BCells')p2 <- plotRSS_oneSet(rss,'Myeloid')p3 <- plotRSS_oneSet(rss,'TCells')p4 <- plotRSS_oneSet(rss,'Platelet')grid.arrange(p1, p2, p3, p4, ncol = 2, nrow = 2)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9icfHpvAVpD5pCPNkibHpt1Af9qL2x8vJmKxOC5pUicpKJ4zEedkadtibDpg/640?wx_fmt=png&from=appmsg)
+![](../../images/7fd295526e8247ab.webp)
 
   *   *   *
 
@@ -158,7 +158,7 @@ FeaturePlot(object = pbmc3k_sub,features = c("SP2(+)","ZNF44(+)"))
 # 热图展示每个细胞中每个转录因子的aucll分值auc <- getAUC(sub_regulonAUC)pheatmap::pheatmap(auc, show_colnames = F)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9icJYGIVB9ENpPN6TpmYxXYia3rTnxCn9g1cMFDBDcGBrMEviaib2EbeBqicQ/640?wx_fmt=png&from=appmsg)
+![](../../images/37fb6692533a90af.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -166,17 +166,17 @@ FeaturePlot(object = pbmc3k_sub,features = c("SP2(+)","ZNF44(+)"))
 # 热图展示每个细胞类型中top转录因子的aucll均值auc_avg <- data.frame(t(auc))auc_avg[,"group"] <- pbmc3k_sub@meta.data$celltypeauc_avg <- auc_avg %>%  group_by(group) %>%  summarise_all(mean)auc_avg <- as.data.frame(auc_avg )rownames(auc_avg ) <- auc_avg$groupcolnames(auc_avg) <- c("group",rownames(auc)) #计算后+号会因为R要求变成点，重新赋予原来的名称top3_reg <- c("SP2(+)","DEAF1(+)","IRF8(+)","CEBPD(+)","MAFB(+)","STAT6(+)","ZNF44(+)","LEF1(+)","TCF7(+)","TFDP1(+)","YY1(+)","GATA2(+)")auc_avg_sub <- auc_avg[c("BCells","Myeloid","TCells","Platelet"),top3_reg]rownames(auc_avg) <- factor(rownames(auc_avg) , levels = )pheatmap::pheatmap(t(auc_avg_sub), show_colnames = T, cluster_rows = F, cluster_cols = F,scale = "row")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUAvYdQqckDCmrZsPJFib9iciaaMsfecznpWBEYAz5VTiaFrw64diavZffLXr963UvqOiaIUCGdibZEP3ZA/640?wx_fmt=png&from=appmsg)
+![](../../images/744b14cd919b85a7.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([免费两周学习版上架啦~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([免费两周学习版上架啦~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

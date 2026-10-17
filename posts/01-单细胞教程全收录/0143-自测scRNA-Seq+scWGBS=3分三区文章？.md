@@ -14,41 +14,41 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 最近在捣鼓**表观遗传学** ，处理了一批Bulk RNA-Seq和WGBS(Whole Genome Bisulfite Sequencing)的数据。熟悉我风格的粉丝都知道，我一般会读几篇文献再下手，遂于PubMed中检索了几篇文章，发现一个2022年发表的题为"WGBS combined with RNA-seq analysis revealed that Dnmt1 affects the methylation modification and gene expression changes during mouse oocyte vitrification"似乎能给我带来一些分析思路上的启示，一读摘要，其中赫然写着**scRNA-Seq**(single cell RNA sequencing)和**scWGBS**(single cell whole genome bisulphite)，但是一看<<Theriogenology>>期刊的影响因子才**2.92** ，在生物类分区里属第**三区** ，这文章必有蹊跷，值得一读。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricSpcRCCydqSKbUhRh8ribcMYC3Ex93ibXJDaEN9d0MAjIolE7uFAHwY8Q/640?wx_fmt=png)
+![](../../images/00528c468a44b9e1.webp)
 
 **具体内容**
 
 生殖医学的内容不是我们研究的重点，此处不作介绍，简单来说现在有一种玻璃化(vitrification)冻存法可用于低温冻存卵母细胞，利用这种方法保存的卵母细胞虽然存活率和受精能力已经较传统方法大大提升。但与新鲜的卵母细胞仍存在差异，而此前的研究发现二者之间在转录组水平与基因组甲基化水平上差异甚微(Introduction是这么说的)，作者遂著此文。点进来之前我是很好奇的，我的记忆中卵母细胞体积较大，并且即便使用一些雌激素促进超数排卵，也不能够获得足够的细胞数量，所以理应不太适合做单细胞水平的建库。我们来看看Methods，作者通过对6-8周龄的ICR小鼠使用PMSG、HCG促进排卵后，获取了117个卵母细胞用于玻璃化冻存与复苏。scRNA-Seq方面，作者依托的技术是SMART-Seq2，而WGBS方面似乎是直接将细胞裂解用于DNA提取并经重亚硫酸盐处理后直接走Illumina的建库流程。具体内容还需要通过Results来了解一下。在经过基本的数据处理后作者对WGBS获得的甲基化评分与SMART-Seq2的log2(normalized counts)分别进行了各样本的相关性分析(A-B)与UMAP降维分析(C)，初步证明了组内的一致性与组间的异质性。但是我有一个小小的疑惑，说好的SMART-Seq和scWGBS呢？为何这些图看起来都是以生物学重复为基本单位而不是单细胞水平展现的。相关性分析以生物学重复为单位尚可理解，UMAP图不以单细胞为分辨率作展示就很奇怪了。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricr5iaC7bQnwunkJOzUr6laovRW2t2U802wd6qib758WZca8NaBOCxfMAg/640?wx_fmt=png)
+![](../../images/2bdc0e8119714811.webp)
 
 与此同时，作者发现与以往的报道不同，玻璃化冻存的卵母细胞(A组)与新鲜的卵母细胞(B组)之间不仅存在转录组水平基因表达量与基因组水平甲基化评分的差异(玻璃化冻存后的卵母细胞基因甲基化水平整体降低)，在基因的各个区域中，intergenic、intron、promoter中也展示出了极显著的差异。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricoF85fxWmKyHVY0mYS8QHqaG10qJa65FgPA3jzicV7U4Lnu73tRhqkHg/640?wx_fmt=png)
+![](../../images/33510a2417d3cafb.webp)
 
 此后作者对比了甲基化程度高低区域的序列长度，发现高甲基化序列的DMR(differentialy methlyated regions)长度更短(A)，且包含的DMR区域更少(B)。这里我稍微有些疑惑，难道不是**应该比较组间的DMR分布差异或甲基化区域长度差异** ，为何做起了高甲基化区域与低甲基化区域的对比？
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricQYWAxPloHSzoSVWBRicFc6icl7E7DahEviaibgDzy3veUtrscvibBNhgMLw/640?wx_fmt=jpeg)
+![](../../images/c15242490671d68e.webp)
 
 接下来作者进行了转录组的差异分析(A-B)，发现下调(对比是Vitrified vs Fresh，这里为什么又换回组间差异分析了，这不就和上面的甲基化分析对不上号了吗)的基因数量要远多于上调的基因，这里我也有个小小的疑惑，一般来说甲基化水平的上升不利于基因的表达，为何Vitrified组甲基化水平降低了，总体的差异基因确实下调的。随后的GO富集分析显示A组(就是Vitrified组，一张图一个说法，无力吐槽)下调的基因主要富集在mitochondrial organization、ATP metabolic process等能量代谢相关通路，上调的基因主要富集在histone H2A monoubiquitination、histone monoubiquitination、endoplasmic reticulum tubular metwork等染色质、细胞质结构相关的通路。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricJhoTpCD45gJUKpVfrQGB2MGYUB4ic6n58yH5FicV2YHdrd88XMlC4Ohg/640?wx_fmt=png)
+![](../../images/bd3db61689481ebc.webp)
 
 此后作者展开了甲基化数据的组间差异研究，发现雌鼠的20条染色体上均有不同数量的DMR分布(A)。在包含的1285个DMR中大都属于非基因编码区域，仅97个DMR坐落在RNA-Seq差异基因的启动子或基因编码区域(B)。这97个基因中的上调基因富集于cell-cell adhesion mediated by integin、regulation of presynaptic cytosolic calciumion concentration、lipoprotein等通路，下调基因富集于cellular responses to gonadotropic stimulus、follicle stimulating hormone通路(C)。之后作者关注了几种与甲基化形成相关的酶在组间(E)以及高低甲基化样本中的表达量差异，组间差异仅Dnmt1具有显著的差异，在A组(即Vitrified组)中明显下调。这是一种既能维持DNA原有的甲基化水平(具甲基转移活性)、又能对DNA进行从头甲基化的酶，这能在一定程度上解释Vitrified组整体甲基化水平下调的现象。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricwo4dx1rQJhrjVGgibmUpRzJk2ic48RWt5Df3zWcsLLeYMDpVb2AZduXg/640?wx_fmt=png)
+![](../../images/8684eb1bfd94a216.webp)
 
 此后作者通过SCENIC的转录因子预测(这一工具的教程我们后续会出)发现 _Dnmt1_ 具有531个下游基因，而 _Kcnq1ot1_(很好奇这个基因又是从哪来的)可作为51个转录因子的下游基因(A)。这两种基因的相关基因集也被用于富集分析(B-C)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricazk99enBP2PKLRNCx6qNKzFz3oyM7dB7oG67EUhIaCtukibGcCcGz2A/640?wx_fmt=png)
+![](../../images/f26966c90c19c581.webp)
 
 紧接着作者又展示了 _Dnmt1_ 与 _Kcnq1ot1_ 相关DMR在基因不同区域由甲基化程度高低带来的数量差异(D)。随后由展示了两组间与Dnmt1与Kcnq1ot1所属regulon的差异基因(E)，这里我又有一点小小的疑惑， _**Kcnq1ot1**_**为何又不见了** ？
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricD7VwxltrKic8xXHNLBnuZTE3B8eM2EQgOPbrY5NM5Xcgib3TS6gTFibmg/640?wx_fmt=png)
+![](../../images/a2f19994b610701d.webp)
 
 随后作者做了在我看来唯一与其研究目的相符的分析——卵母细胞相关(D)及受精能力相关基因(E)的表达量组间差异，发现这些相关基因均在Virified组中下调，所以导致了Virified组受精能力与胚胎发育能力的减弱(啊这不是写文章前就知道的麽。。。)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricrMbmricI4TMPjCXiady2Y0ADibW7qJVlKk4E8JVR9XRt03NY3825DoHAw/640?wx_fmt=png)
+![](../../images/bdfdad775cbfe2b2.webp)
 
 **聊聊读后感**
 
@@ -68,17 +68,17 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 7、一模一样的作者声明居然**重复了两次** ，这就没办法吐槽了，不知道是作者的锅还是编辑的锅：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwomSrF0wVpGSquP1RkqSricCwibamTdGt6eSkODqCaxeNWBWt2ogCTWvDq66eFffL5KEynRQicjTmTQ/640?wx_fmt=png)
+![](../../images/0c147ccb0db9c0e2.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

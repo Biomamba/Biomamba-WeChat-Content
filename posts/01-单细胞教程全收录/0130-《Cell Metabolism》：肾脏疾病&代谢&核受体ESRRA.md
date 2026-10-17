@@ -86,17 +86,17 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 结果1：scRNA-seq结果表明纤维化肾脏细胞异质性增加，在上皮细胞中，PT细胞显示出最多的差异表达基因。在疾病组的PT细胞中，表达水平较低的Slc（与细胞分化相关）、FAO、OXPHOS相关基因。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTum9cibg7K9JhqhribzJ5zUSqicRVdlwXwXmBYAvJpKlS4XlcDxWyl33bhA/640?wx_fmt=png)
+![](../../images/b74e4a71e33064ac.webp)
 
 ● 结果2：bulk RNA-seq结果表明免疫相关基因在疾病组中上调，代谢相关基因下调，且下调的基因大多富集在PT细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuXCZfEdJw2sEsuQHWy8icIoCkzE0wVRlnZTPibQ0ibm7hAXCZCQbUN9dSw/640?wx_fmt=png)
+![](../../images/d6f126d531eeb9db.webp)
 
 ● 结果3：bulk RNA-seq与scRNA-seq结果对比表明细胞组分变化对测序有强烈影响，在疾病中高表达的基因与免疫细胞比例的变化有关，而不是与细胞异质性变化有关。于是，根据细胞比例调整数据后，得到真正显著变化的基因。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuKYyxDfu9ibL7OZvy1GopyI3ZKB5kCHKwicWcLGOeS1RJiblldl8dZDibkA/640?wx_fmt=png)
+![](../../images/eb70db21a0b7a544.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu7Y8300ceZ4jHyFRpYyWkHzvXrrAcaOlqaPan2bts3OL5OFzpnicxAfg/640?wx_fmt=png)
+![](../../images/39a4ecf2f8b12008.webp)
 
 **● 2\. 分化改变在纤维化过程中驱动PT反应**
 
@@ -104,11 +104,11 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 结果1：发现了新的细胞类群（PT细胞起源于一种前体细胞）。并且PT细胞分化并不需要细胞增殖。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu3iaANz0Ocmx0ia4IB8iaesM2P7gSiaIfSI8WhXFG8ZgicyGib2iaPZibzicDXtA/640?wx_fmt=png)
+![](../../images/dda66f35fb985273.webp)
 
 ● 结果2：FAN组PT细胞分化轨迹并不那么有条理。PCT共表达PST标记，这表明在疾病条件下，PCT细胞可能会经历影响其表型特征的转录变化。并且，已经表达终末分化标记物如Slc5a2或Slc22a30的细胞的分化明显逆转，这表明分化失败而不是去分化是已发现的细胞状态变化的原因。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTucBjYuJesT7JzWl47kKnQsKo0z9aBBxqAiaq1XI0XwfibFPl5Y6XC37fw/640?wx_fmt=png)
+![](../../images/a87ae74d303f6b23.webp)
 
 **● 3\. PT细胞分化缺陷与脂质代谢变化**
 
@@ -116,13 +116,13 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 结果1：患病的PT细胞终末分化水平低（终末分化的PT细胞中FAN组占比低）。对PT细胞分化的PCT和PST细胞分别做轨迹分析，也验证了这一点。离子转运、脂代谢与细胞分化呈正相关。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuQPUUaZNQMFHVG7hlkpicH9IAyDrKLVU3dhSic9leFUCVmSjRpdGYPv0w/640?wx_fmt=png)
+![](../../images/838af065800ce309.webp)
 
 ● 结果2：沿分化轨迹，离子转运和脂代谢相关的基因上调。
 
 ● 为了验证这一点，将UUO（肾纤维化的单侧输尿管梗阻模型）的scRNA-seq与FAN对比，发现两者分化轨迹相似，都缺乏终末分化的PT细胞。并且，沿细胞轨迹检查与PT分化相关途径的基因（FAO、OXPHOS、离子转运）下调。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuYw2bCtH6EnkSV4DibDz0fXBncsIbPric4GWkxrlTKlZ8sWt00zXnAtDQ/640?wx_fmt=png)
+![](../../images/36b4a9abae500070.webp)
 
 **● 4\. PT细胞分化与代谢变化的关系**
 
@@ -132,23 +132,23 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 首先，作者从这种体外的类肾脏器官样物质的bulk RNA-seq与scRNA-seq结果中识别出多种类型肾脏细胞，证明了其会产生与肾脏相似的分化。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu7BUshI6nt1cKxKYxwFwIVUJ8R80KA54ecfFEgibr5gibnZrjeSticehOw/640?wx_fmt=png)
+![](../../images/c92ebbd4adbd6a11.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu2azFibuJbTrSQdy7oEvQ93q1Mt7nTLUK3dZVl7Xt8h0wgUthYmVKKLg/640?wx_fmt=png)
+![](../../images/9d0a1d5b1edcdb39.webp)
 
 ● 接着，发现其中SIX阳性祖细胞分化产生的细胞有PT标志物Slc3A1，因此可以认为它与PT细胞类似。并且分析沿该细胞分化轨迹变化的基因，发现FAO与Slc相关基因上调，这也与之前的发现一致。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTut0f0YrGSId9vK00IhibnGnck1G5K8ZBibQG4iaiczohCw2VRlBmLM8Cbsw/640?wx_fmt=png)
+![](../../images/15089cbec217b2df.webp)
 
 ● 在EGM（内皮细胞生长液，糖酵解促进剂）和REGM（肾上皮细胞生长液，OXPHOS促进剂）中分别培养该细胞。
 
 ● 结果1：培养4天，REGM培养基中该细胞的PPARGC1A mRNA水平、线粒体OXPHOS蛋白水平、脂代谢基因表达更高。并且REGM使PT细胞标志物（SLC34A1、SLC27A2、SLC5A12、SLC6A19和SLC3A1）上调。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuwrBkGz0EicV7iaE3wMjYE0xymwfayNU7pmt7CUpdDqBywonoDtsZC9CA/640?wx_fmt=png)
+![](../../images/63e8debcabb5ee19.webp)
 
 ● 结果2：免疫荧光+LTL凝集素标记证明REGM中有更高PT细胞数量。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuGZsQt7ONABhBKd0C7lHKsoB7nbUEeQJLpNPG17Zjia1CqO8nC6ib7sLA/640?wx_fmt=png)
+![](../../images/9299fe9a3e79077f.webp)
 
 **● 5\. 核受体ESRRA与PT细胞分化的关系**
 
@@ -156,17 +156,17 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 首先，作者分析小鼠肾脏单细胞开放染色质数据(ScATACseq)，发现在PCT和PST细胞中最丰富的开放结合基序是HNF4a、HNF1B、PPARA和ESRRA，这与之前的基因表达分析结果一致，4种转录因子在PT细胞中的转录丰富。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuRia8zqCBMEJobokI66icYnxnSFLtpRo0OqaeboyHT8IxP570QaORjSaw/640?wx_fmt=png)
+![](../../images/a1970ff14e411bb0.webp)
 
 ● 接着，通过与启动子上PCT或PST特异的开放染色质区域或包含PPARA或ESRRA结合基序的基因体区染色质区域相交来定义可能的PPARA和ESRRA靶基因。
 
 ● 结果：分析之前单细胞基因表达数据，发现在分化的PST和PCT细胞中，PPARA-和ESRRA-靶基因有所丰富。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuibJXoH4PCibOrZj0sXzLQugKicE0wJNVSiaGsm2B4VkGBXTopv2ztEpgcA/640?wx_fmt=png)
+![](../../images/5fb3282a9c4ad2be.webp)
 
 ● 随着PT细胞的分化，PPARA-和ESRRA-靶基因丰富，肾脏发育、脂代谢、上皮运输功能相关基因表达升高。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuvCVkF0lic5kAX0jOdwsA3wIaQO6EbG0zchIfbYicl5yWau4YRxDF2EVg/640?wx_fmt=png)
+![](../../images/54dcec0fe4faa1ab.webp)
 
 ● 结论：PT特异性的PPARA和ESRRA靶基因丰富了肾脏发育、脂代谢、上皮运输功能。
 
@@ -176,15 +176,15 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 结果：ESRRA表达下降导致线粒体功能受损，PT细胞分化相关基因表达下降。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTue0jeOfeWe9kKPXpNynu1FsF3Jc9ke6C2p8FwmTCBfmWtCjZVhrxgCQ/640?wx_fmt=png)
+![](../../images/799d4ff8c532c0d4.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuyNBspZHQXCuwdJgj0MeCaArenrC1gPTVGiaibWvUUFAPg7Zo7C5IeQew/640?wx_fmt=png)
+![](../../images/9c82a8a3fa7c0971.webp)
 
 ● ②分别用ESRRA、PPARA、ESRRA+PPARA+HNF4a+ HNF1B质粒转染LTL+PT细胞。
 
 ● 结果：ESRRA的过表达增加了线粒体mtDNA拷贝数、改善了线粒体功能、导致Slc基因表达上调。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuKGAzWVVRDmgEjwhlHHibHtvu7tWB8Xj2k0RVT7MeGnqTDBDHRcMQ1dA/640?wx_fmt=png)
+![](../../images/232e165663e8818e.webp)
 
 (1) Vector alone
 
@@ -194,15 +194,15 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 (4) co-transfected all 4TFs OE plasmids (ESRRA, PPARA, HNF1B, and HNF4A).
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuaG1NccwZZeeQ2IcaNBOBaVgtCyibSKbjQKibgV9nLHrSehOlTjT8bp5Q/640?wx_fmt=png)
+![](../../images/fa72f881ffe6c21f.webp)
 
 ● ③用ESRRA抑制剂XCT790处理培养在REGM培养液中的人原代肾PT上皮细胞(HPTCs)和肾组织(HPTCs)48h。
 
 ● 结果：ESRRA受到抑制后，PT细胞中FAO损伤，Slc表达上升。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTutuKmFROCQibl44aKUeevJ6u0mNL40VepFyVJycw0r1wtaHxnkcvz2rg/640?wx_fmt=png)
+![](../../images/898706d6c0a2dcca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu0xnadgC2lW8Qonmo2kzFiaX6TPaMTtnicIXzIibRT0u9JiaRTky6icATDzg/640?wx_fmt=png)
+![](../../images/1774cd5ed5e88688.webp)
 
 ● 结论：抑制ESRRA对PT细胞分化有负面影响。
 
@@ -214,21 +214,21 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 结果：确实存在ESRRA转录因子与DNA的结合，从而直接调节PT细胞分化。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu3yBJyfsn6QNWDlIYIDhV0UyibcFDdqjAyKHDc97IAGIaeAZPibuTgXuQ/640?wx_fmt=png)
+![](../../images/e7ceb08f0a2ed30e.webp)
 
 ● 猜想2：ESRRA通过改善代谢间接调节PT分化。
 
 ● 作者将FAN模型、UUO模型、野生型（c57）进行对比，发现疾病组中ESRRA的表达显著下降。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuu1q3sc5CmSXRlEaiczvFnic6IgjP3dvYoIicWkxs5KrTfibBJHJJ0Fic8pQ/640?wx_fmt=png)
+![](../../images/6361672772d12b91.webp)
 
 ● 作者建立了ESRRA-KO FAN鼠模型，并与FAN鼠对比。
 
 ● 结果：ESRRA-KO FAN鼠对肾损伤的易感性增加，促纤维化标志物升高，胶原沉积增加，细胞增殖增加，Slc表达水平下调。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTujlVXlpx7ibLCvkUPr2IlQu3r0ITju93dLrK80TJMfCJN0xEVgdpp7oA/640?wx_fmt=png)
+![](../../images/99d74d7ca7ebb05e.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxEfaSpB4xe7dqsmjcGY4Zsqdxks1R5oFt8vZH0GQrz0mfC4UjOmK98pC3NggHkw0kTWKQicpFibzoA/640?wx_fmt=png)
+![](../../images/667b8130f04e727d.webp)
 
 **● 8\. ESRRA驱动的代谢变化与患者肾脏疾病严重程度相关**
 
@@ -238,17 +238,17 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 结果1：脂质代谢基因的表达与PT细胞分化程度呈正相关，与纤维化程度呈负相关。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu13yzmpA8rupeGJeOVH90pzUCceqlwh14sLXuZSw8KEkPxTZqFoc09w/640?wx_fmt=png)
+![](../../images/a272e2f609a2ef77.webp)
 
 ● 结果2：纤维化组织中PCT和PST细胞的比例下降。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTuqU8MMEP8icQtCmqAAGficcJViaQsvqcKWt5PbCCUftjOJKfVFOy2MNHhQ/640?wx_fmt=png)
+![](../../images/9e38ef3704701913.webp)
 
 ● 使用CellCODE对数据进行了电子反卷积分析。调整模型以适应4种细胞系(PCT、PST、髓系细胞和淋巴系细胞)，将差异表达基因的数量从1980个基因减少到22个基因。
 
 ● 结果3：细胞异质性在驱动大量基因表达变化方面发挥了关键作用。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyTGGbds16tjIjbDWtdMDTu0moIicJSfdUwBHDIFAUcgg29eDcJkAIxl4Ig5xZz0bTMJQKwlesmIjw/640?wx_fmt=png)
+![](../../images/0420ed61f6f52eb7.webp)
 
 **思考**
 
@@ -266,15 +266,15 @@ PT细胞的代谢是PT细胞分化的主要驱动因素之一，FAO和OXPHOS直�
 
 ● 提供了很多思路，例如沿细胞轨迹分析基因表达变化、通过OCR和OXPHOS蛋白水平及线粒体DNA含量来评估线粒体功能，通过天狼星红染色看胶原沉积，通过Ki67染色看细胞增殖等等。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

@@ -10,11 +10,11 @@ albums: ["空间转录组"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538803&idx=2&sn=54db98682dcff3feb04a5623c37546ce&chksm=9b3c2123ac4ba835ea136c12212da54b0bf9147192926e16b6027dfc1735e56a0c21aaf8d130#rd
 > 合集：空间转录组
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 空间转录组数据邻域分析手册
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)邻域分析是基于空间位置的细胞/spot邻域划分与表达谱分析，具有从“单细胞”到“细胞群落”的表型解析，揭示群体功能的核心价值，以及阐明细胞间通讯、微环境异质性、结构-功能关联的生物学意义，为肿瘤微环境解析、组织发育机制等研究提供空间维度证据。与传统分析相比，邻域分析可以将空间位置权重纳入基因表达解读，突破纯表达谱分析的局限。工具简介：
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)邻域分析是基于空间位置的细胞/spot邻域划分与表达谱分析，具有从“单细胞”到“细胞群落”的表型解析，揭示群体功能的核心价值，以及阐明细胞间通讯、微环境异质性、结构-功能关联的生物学意义，为肿瘤微环境解析、组织发育机制等研究提供空间维度证据。与传统分析相比，邻域分析可以将空间位置权重纳入基因表达解读，突破纯表达谱分析的局限。工具简介：
 
 1、[squidpy](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505844&idx=2&sn=5756c0702d080d6e602c504e7d461013&scene=21#wechat_redirect>)的邻域分析的核心目标是在Visium空间转录组分析中，Spot的基因表达数据提供了分子信息，而高分辨率组织图像则提供了细胞形态和组织结构的视觉信息。我们可以从组织图像中计算每个Visium spot(Spot)的图像特征。这些特征将作为一个obs × 特征矩阵，与obs×基因表达矩阵一起存储在[AnnData](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528513&idx=1&sn=1ff1b8bee321f8f5bcac425ce96dc6ff&scene=21#wechat_redirect>)对象中，用于下游的联合分析。
 
@@ -30,16 +30,16 @@ albums: ["空间转录组"]
 
 本教程**复现集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxwcGs5gYc9BUYHtOkic6fvCicMGGAGDG22c3BUw5iakl9zMI7Z6LoaR49h3G1icXuAFneXhE0K3NpjUg/640?wx_fmt=png&from=appmsg) **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/470bac0700dfe587.webp) **-Biomamba**
+![](../../images/7d247e6c6ef19f87.png)![](../../images/399758fa7d6941c2.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 Squidpy学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxgJdHxib5G2KkKFNHDMpFFEclHfSFqQVpnwHWUFjJffmEgribooR9TaRUicDLk9hmIIibRZVVFGVoABA/640?wx_fmt=gif&from=appmsg)
+![](../../images/bae7212fa177e3b2.webp)
 
 **教程目录** ：
 
@@ -83,13 +83,13 @@ Squidpy学习手册以html文件格式提供，可在浏览器中打开并翻阅
 
 文末下载链接中包含的内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxwcGs5gYc9BUYHtOkic6fvCgKYUZHf8HtlnIHYEgVohRa382NibcTDCIMPumRB9ia8PhBhDWibY08VRw/640?wx_fmt=png&from=appmsg)
+![](../../images/a3d9c664db47c9a7.webp)
 
 测试文件约**355.71MB** ，大家注意按需下载！
 
 stSME聚类方法学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxgJdHxib5G2KkKFNHDMpFFEMMbBEw6eWekS2fNzcLAHqjptvsOyu4uPicsRh1AETlcQ9mB6icDPluMg/640?wx_fmt=gif&from=appmsg)
+![](../../images/24ee50b1245d7bab.webp)
 
 **教程目录** ：
 
@@ -133,7 +133,7 @@ stSME聚类方法学习手册以html文件格式提供，可在浏览器中打�
 
 ********文末下载链接中包含的内容********
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxwcGs5gYc9BUYHtOkic6fvCRSnxmTOEzClIfKoqUate5MxtzMpiamXCRLA56DHhSZ555AIiaqj1enqA/640?wx_fmt=png&from=appmsg)
+![](../../images/3450d418532683e4.webp)
 
 ******测试文件约 909.84MB，大家注意按需下载！ ******
 
@@ -142,7 +142,7 @@ stSME聚类方法学习手册以html文件格式提供，可在浏览器中打�
 
 ******NMF分解学习手册 以html文件格式提供，可在浏览器中打开并翻阅学习：‍******
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxgJdHxib5G2KkKFNHDMpFFEZ2AkN7gvrpYlNouZMuGSibzNXXI62iadbSJSrY2jJblVZ7hP6WqBnaTg/640?wx_fmt=gif&from=appmsg)
+![](../../images/ebc1a4458ef7fc0c.webp)
 
 ******
 ******
@@ -171,17 +171,17 @@ stSME聚类方法学习手册以html文件格式提供，可在浏览器中打�
 
 ******文末下载链接中包含的内容******
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxwcGs5gYc9BUYHtOkic6fvC8qf9sNib5JgXWiaWMeib98nHV3xgNKFGE0bbFSTT2VnvpBWcibiawQLJVrw/640?wx_fmt=png&from=appmsg)
+![](../../images/6f3c44cf92532501.webp)
 
 ******测试文件约 8.54GB，大家注意按需下载！ ******
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+![图片](../../images/eab31beb8c0e41d2.png)
 
 往期订阅
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：[那就开放一个终身订阅吧~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)
 
@@ -221,15 +221,15 @@ stSME聚类方法学习手册以html文件格式提供，可在浏览器中打�
 
 # [空间转录组|多样本整合分析手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532349&idx=1&sn=59c0f14043906ff50c56dea3b16e9200&scene=21#wechat_redirect>)
 
-[一文学会三种空转数据共表达网络分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=1&sn=cd16d0151ef19c9a2dcfcba6ee09f431&scene=21#wechat_redirect>)[一文搞定空转数据反卷积分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532458&idx=1&sn=f8ec547187374fe77c38fc1125709b3b&scene=21#wechat_redirect>)[三种方法教你搞定空转数据邻域分析：squidpy+stSME+NMF分解](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532641&idx=1&sn=c8422ab7c1cd70751fb3109a84cb64ea&chksm=9b3c3931ac4bb0275fe5fd89712535cce677a308ac5a2c4e85d6f2a8785a4c76359e6612553c&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[空转细胞通讯分析学习手册：CellPhoneDB+Commot+stLearn](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532763&idx=1&sn=f6e4df9242f1341d2dc7e6154c33aa46&chksm=9b3c398bac4bb09d978dddd3f44c04c855ec89f6cd949fccbe497c515a62440f58dca31b4885&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[空间转录组轨迹分析学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532806&idx=1&sn=7d7ecf4977cb2cc9ace0e4e31941a1ac&chksm=9b3c3856ac4bb140a5f0955158656f458951cfe9bdd0a68d8c8ff74bd1e3f7adcc4da76197f0&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[空间转录组数据拷贝数变异分析学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532924&idx=1&sn=46b87151e30163e393cf2c1751360bac&chksm=9b3c382cac4bb13ad9aecd8783f1c6b0c576b1a25d04c3d15fa95a7e4fd5fdd8090cba7ce027&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[《Nature Genetics》文献复写 | 结直肠癌免疫细胞的高清空转分析（Visium HD+Xenium）](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533068&idx=1&sn=52cbc8d161ec216b5d7a8238a49d47c6&chksm=9b3c3b5cac4bb24a1b5c8ee1304f896c2ccea583e81bda4f9fae26564bc7d77c09a58baef3de&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[2025订阅资料已完结，请留下你的评价！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534421&idx=1&sn=2c80be7809a97981bab3f76fae55ac20&scene=21#wechat_redirect>)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
-更多订阅请阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+[一文学会三种空转数据共表达网络分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=1&sn=cd16d0151ef19c9a2dcfcba6ee09f431&scene=21#wechat_redirect>)[一文搞定空转数据反卷积分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532458&idx=1&sn=f8ec547187374fe77c38fc1125709b3b&scene=21#wechat_redirect>)[三种方法教你搞定空转数据邻域分析：squidpy+stSME+NMF分解](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532641&idx=1&sn=c8422ab7c1cd70751fb3109a84cb64ea&chksm=9b3c3931ac4bb0275fe5fd89712535cce677a308ac5a2c4e85d6f2a8785a4c76359e6612553c&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[空转细胞通讯分析学习手册：CellPhoneDB+Commot+stLearn](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532763&idx=1&sn=f6e4df9242f1341d2dc7e6154c33aa46&chksm=9b3c398bac4bb09d978dddd3f44c04c855ec89f6cd949fccbe497c515a62440f58dca31b4885&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[空间转录组轨迹分析学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532806&idx=1&sn=7d7ecf4977cb2cc9ace0e4e31941a1ac&chksm=9b3c3856ac4bb140a5f0955158656f458951cfe9bdd0a68d8c8ff74bd1e3f7adcc4da76197f0&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[空间转录组数据拷贝数变异分析学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532924&idx=1&sn=46b87151e30163e393cf2c1751360bac&chksm=9b3c382cac4bb13ad9aecd8783f1c6b0c576b1a25d04c3d15fa95a7e4fd5fdd8090cba7ce027&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[《Nature Genetics》文献复写 | 结直肠癌免疫细胞的高清空转分析（Visium HD+Xenium）](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533068&idx=1&sn=52cbc8d161ec216b5d7a8238a49d47c6&chksm=9b3c3b5cac4bb24a1b5c8ee1304f896c2ccea583e81bda4f9fae26564bc7d77c09a58baef3de&token=2143911808&lang=zh_CN&scene=21#wechat_redirect>)[2025订阅资料已完结，请留下你的评价！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534421&idx=1&sn=2c80be7809a97981bab3f76fae55ac20&scene=21#wechat_redirect>)![图片](../../images/697dd2eb5e60e8d8.png)
+更多订阅请阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**![图片](../../images/eab31beb8c0e41d2.png)
 
 学习手册下载链接：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/8b04fd62fd8f3d51.png)![](../../images/007e970626afa0b7.png)
 
 链接:https://pan.baidu.com/s/1v_4WQmqqcu7m9BGJ-0z6Gg
 
 提取码请联系客服微信获取：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fe8ecb8594a1f419.webp)![](../../images/7d247e6c6ef19f87.png)

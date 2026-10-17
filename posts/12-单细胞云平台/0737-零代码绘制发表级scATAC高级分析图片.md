@@ -18,7 +18,7 @@ albums: ["单细胞云平台"]
 
 分析集锦，零代码绘制发表级图片：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz9ZFtSfHmZlw3HCbFueqGewLAc6WP83KmbfkptbCx487nV3bxVFjRgU8wXo5ic0D5jVRCxKjJ4MDg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/81f240d7d12f65ce.webp)
 
 云平台地址：
 
@@ -51,23 +51,23 @@ ataCNV、epiAneufinder、CopyscAT| ATAC 数据CNV分析| 肿瘤细胞分析| 通
 
 **一、轨迹分析**
 
-先提交一下单细胞常见的拟时序分析(代码版可见：[一文学会四种scRNA-seq轨迹分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528666&idx=1&sn=d29545d296bac3e41de322e43fde80dd&scene=21#wechat_redirect>))，这里用monocle3做演示，不了解root节点和拆分因子的可以看看[零代码单细胞| 拟时序分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=6&sn=53179695312fbf69f8dddc8342c70cfa&scene=21#wechat_redirect>)。进阶分析一般需要一定的运行时间，SeeksoulOnline在执行完任务后会邮件提醒大家来"收结果"。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpywLtXmT1OiamR6U6PbjZuxwlmo1WKCr2AWfm9mibWaJuzDKKvbG515vtdHHOGF3OaiaVVKLqGtq9m4A/640?wx_fmt=png&from=appmsg)
-1、monocle3![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxJ9mialIB0K4kCz3PGzSMv5wYuuEhaSQEMlbsicYeq4zXOgicQJgUM23DiapptwBbAumvWakS0IoRNJg/640?wx_fmt=png&from=appmsg)
-2、monocle2monocle2同样也是支持的：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpu485XkuGZFd3MibTLMgvsic4QzjbmgHOxL7rzVSSun9cHtFibnhDnefFeA/640?wx_fmt=png&from=appmsg)
-3、CytoTRACE也是一种选择![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpuic3AHdVfLmYRBpJtpzSFymnHcSFoPlXXfoL5ibksbSA84KpeSrPhy4MA/640?wx_fmt=png&from=appmsg)
+先提交一下单细胞常见的拟时序分析(代码版可见：[一文学会四种scRNA-seq轨迹分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528666&idx=1&sn=d29545d296bac3e41de322e43fde80dd&scene=21#wechat_redirect>))，这里用monocle3做演示，不了解root节点和拆分因子的可以看看[零代码单细胞| 拟时序分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=6&sn=53179695312fbf69f8dddc8342c70cfa&scene=21#wechat_redirect>)。进阶分析一般需要一定的运行时间，SeeksoulOnline在执行完任务后会邮件提醒大家来"收结果"。![](../../images/5b4630821174c86e.webp)
+1、monocle3![](../../images/13defaa0033da8c1.webp)
+2、monocle2monocle2同样也是支持的：![](../../images/9267d39dfb2616ea.webp)
+3、CytoTRACE也是一种选择![](../../images/d864c683ba567b30.webp)
 
 **二、细胞通讯分析**
 
-详细教程可见[零代码单细胞| 细胞通讯分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=8&sn=bebffda99e0c1763147c3315cfe62676&scene=21#wechat_redirect>)，代码版可参考[一文学会四种scRNA-seq细胞通讯分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528770&idx=1&sn=6242bce437a9d60f81a8651ea9b57e0b&scene=21#wechat_redirect>)，这里用于细胞通讯的是RNA矩阵。同样是填好配置文件后提交任务即可：1、CellPhoneDB![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWputqSB8tTBf1iclkxmNnrlrzyybrO50rQzTvygPWsbVmGPhBECcm4nlVQ/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpuy8TAzuhhuibvnyn4VwRLgicV1eZnKibtQQF9HksTicPUO0IhDvSicaAwL9w/640?wx_fmt=png&from=appmsg)
+详细教程可见[零代码单细胞| 细胞通讯分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=8&sn=bebffda99e0c1763147c3315cfe62676&scene=21#wechat_redirect>)，代码版可参考[一文学会四种scRNA-seq细胞通讯分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528770&idx=1&sn=6242bce437a9d60f81a8651ea9b57e0b&scene=21#wechat_redirect>)，这里用于细胞通讯的是RNA矩阵。同样是填好配置文件后提交任务即可：1、CellPhoneDB![](../../images/068d8e7815065fe7.png)
+![](../../images/deaf64feb7bc4e38.webp)
 
-2、CellChat代码教程可见：[《细胞通讯》CellChat学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501735&idx=2&sn=35fc792961507f4ae1cbae3a2882fba6&scene=21#wechat_redirect>)，在这里，你同样可以通过填写几个参数来完成这个分析。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzBysiaACtRRQtZDHxAwUUiczmCvyh1zQ2RoxQSZZHe3KUhrzyWib5RNicG3WrTeQ7Q9ibbwL7bOOWWb7A/640?wx_fmt=png&from=appmsg)
+2、CellChat代码教程可见：[《细胞通讯》CellChat学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501735&idx=2&sn=35fc792961507f4ae1cbae3a2882fba6&scene=21#wechat_redirect>)，在这里，你同样可以通过填写几个参数来完成这个分析。![](../../images/e3a5cf33eace1d46.webp)
 
 3、NicheNet
 
 NicheNet能够根据分组间配受体的差异表达并考虑到细胞内配受体下游基因的表达量变化进行细胞通讯预测。也就是说，你在利用NicheNet进行细胞通讯时可以也必须选择处理组和对照组进行分组比较。详细代码逻辑可参考：[一文学会四种scRNA-seq细胞通讯分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528770&idx=1&sn=6242bce437a9d60f81a8651ea9b57e0b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzBysiaACtRRQtZDHxAwUUiczWzIFI7R2yT7Fr6ylHbFOsV2Mot771aL33VWtOhQeug639SSxDGX9wA/640?wx_fmt=png&from=appmsg)
+![](../../images/4e43f55d8a732e41.webp)
 
 **三、拷贝数变异**
 
@@ -75,33 +75,33 @@ NicheNet能够根据分组间配受体的差异表达并考虑到细胞内配受
 
 1、infercnv
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpuIqdwfSXBQtMml4qicTDjcXWC9lo7rtYvIRia3EydcBvMiacc4WXXXYvJQ/640?wx_fmt=png&from=appmsg)
+![](../../images/2518f68b71d55f05.webp)
 
 2、copyKAT
 
 copyKAT也是支持的，并且copyKAT不用选择参考细胞类型：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzBysiaACtRRQtZDHxAwUUiczfjD6asKibCSQAFuw3kZqHkjkns7rZQcpVtrYrSeomL9sicurR9ibFbJPA/640?wx_fmt=png&from=appmsg)
+![](../../images/4b41f1ce51bbeb92.webp)
 
 **四、SCENIC转录因子计算**
 
-详细使用教程可见：[零代码单细胞| 转录因子调控](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=7&sn=4f043a89d11e41aca4195908cc0ee842&scene=21#wechat_redirect>)，记得downsample取子集来加速运算，否则SCENIC的计算会很慢哦~![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpu4WgfnMmiaYiaCsnejoZ5IXt9ianJ2oPHImIchiaY5aicOjZBfK4bdpY3XPQ/640?wx_fmt=png&from=appmsg)
+详细使用教程可见：[零代码单细胞| 转录因子调控](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=7&sn=4f043a89d11e41aca4195908cc0ee842&scene=21#wechat_redirect>)，记得downsample取子集来加速运算，否则SCENIC的计算会很慢哦~![](../../images/7cae58d3169ff84d.png)
 
 **五、差异分析+富集分析**
 
-选择细胞类型进行差异分析+富集分析，具体教程可见：[零代码单细胞| 差异分析与富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)，选择差异倍数和表达比例后可自动过滤差异基因。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpuHCic8H9J5ZSGPstLs8FbMg2ZsUONribJ2A5uGFV74Oib0cCUBwRB2ZyNg/640?wx_fmt=png&from=appmsg)
+选择细胞类型进行差异分析+富集分析，具体教程可见：[零代码单细胞| 差异分析与富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)，选择差异倍数和表达比例后可自动过滤差异基因。![](../../images/c01554c8e7310a16.webp)
 
 **七、基因集评分**
 
-基因集分析也是scRNA-seq中的一种重要分析手段，能够实现从通路角度对单细胞数据进行观测，从而更好的评估细胞/分组间的生物学差异。零代码教程可见：[零代码分析单细胞测序数据| 基因集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522201&idx=2&sn=d15c76650155be35b49a2b9c559dad2f&scene=21#wechat_redirect>)，代码教程可见[一文搞定单细胞基因集评分](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497831&idx=2&sn=82fa51c76a381fba0b444e9b6b23eb5f&scene=21#wechat_redirect>)。1、scMetabolismscMetabolism就预置了人的代谢基因集，包括85条KEGG通路和82条REACTOME条目，可以一键完成scRNA-seq数据集的代谢评分，支持VISION、AUCell两种评分算法：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzBysiaACtRRQtZDHxAwUUiczhTSgs2SbGWrUWg5iaF4BPjPH9FPnCB3OUg2Kc7iaOuiaUG0SnkQ5kibJEQ/640?wx_fmt=png&from=appmsg)
+基因集分析也是scRNA-seq中的一种重要分析手段，能够实现从通路角度对单细胞数据进行观测，从而更好的评估细胞/分组间的生物学差异。零代码教程可见：[零代码分析单细胞测序数据| 基因集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522201&idx=2&sn=d15c76650155be35b49a2b9c559dad2f&scene=21#wechat_redirect>)，代码教程可见[一文搞定单细胞基因集评分](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497831&idx=2&sn=82fa51c76a381fba0b444e9b6b23eb5f&scene=21#wechat_redirect>)。1、scMetabolismscMetabolism就预置了人的代谢基因集，包括85条KEGG通路和82条REACTOME条目，可以一键完成scRNA-seq数据集的代谢评分，支持VISION、AUCell两种评分算法：![](../../images/0841761a41273ffb.webp)
 
-2、GSVAGSVA也是基因集评分工具的一种，我们曾制作过代码版教程：[一文搞定GSVA及下游分析的代码实现](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484653&idx=1&sn=08faf7fe2537747d395ca7521dafd87e&scene=21#wechat_redirect>)。在这里，我们预置了GSEA中的基因集用于GSVA的评分。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxBMIdTvbYZKNWzAcwicw4ORFK3FvibPUUgE0FG3T1F44KGjrsReTftbKDCdyxJRk3ELQo9HObN3j5w/640?wx_fmt=png&from=appmsg)
-3、scoringscoring模块中提供了AUCell、UCell、singscore、AddModulescore等方法供基因集评分，并且可以在umap/tsne上展示评分结果。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzBysiaACtRRQtZDHxAwUUicznviaJ0Wn6GmA4yqgiaRK9phT5SL4A6icJUNpVMeCZtC0CgxTXXUdYg1Lw/640?wx_fmt=png&from=appmsg)
+2、GSVAGSVA也是基因集评分工具的一种，我们曾制作过代码版教程：[一文搞定GSVA及下游分析的代码实现](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484653&idx=1&sn=08faf7fe2537747d395ca7521dafd87e&scene=21#wechat_redirect>)。在这里，我们预置了GSEA中的基因集用于GSVA的评分。![](../../images/28081e9ad24ee17d.webp)
+3、scoringscoring模块中提供了AUCell、UCell、singscore、AddModulescore等方法供基因集评分，并且可以在umap/tsne上展示评分结果。![](../../images/78acee2d42cf27bb.webp)
 
 **八、表型分析**
 
-1、AugurAugur 通过独特的算法，能够从众多细胞类型中，找出与实验条件（如疾病状态、药物治疗、环境变化等扰动因素）最相关的细胞类型。例如，在研究疾病发生机制时，它可以帮助确定哪些细胞类型在疾病发展过程中发生了显著变化，这些变化可能是疾病发生的关键因素。例如这里我们来研究两个样本T Cell、B Cell的样本间扰动：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpuzTa425GzHCXiah401iccibk1WAElCdD6PvHuvWXt6FjsVXuWE3TFSl5ag/640?wx_fmt=png&from=appmsg)
-2、hdWGCNA代码版教程可参考[一文搞定单细胞/空间转录组的WGCNA分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499737&idx=1&sn=b3f6174e1908494692d82ac154ce3218&scene=21#wechat_redirect>)，hdWGCNA是WGCNA的单细胞/空转版本，能够通过基因/通路评分进行模块划分，并研究各模块与表型之间的关联。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzBysiaACtRRQtZDHxAwUUiczFP3DSfgbXQZJuLHfRL0E8iagpPh8pV0JesQo7OeUQXgPtUsJk062OLw/640?wx_fmt=png&from=appmsg)
+1、AugurAugur 通过独特的算法，能够从众多细胞类型中，找出与实验条件（如疾病状态、药物治疗、环境变化等扰动因素）最相关的细胞类型。例如，在研究疾病发生机制时，它可以帮助确定哪些细胞类型在疾病发展过程中发生了显著变化，这些变化可能是疾病发生的关键因素。例如这里我们来研究两个样本T Cell、B Cell的样本间扰动：![](../../images/cc3150518ba783bb.webp)
+2、hdWGCNA代码版教程可参考[一文搞定单细胞/空间转录组的WGCNA分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499737&idx=1&sn=b3f6174e1908494692d82ac154ce3218&scene=21#wechat_redirect>)，hdWGCNA是WGCNA的单细胞/空转版本，能够通过基因/通路评分进行模块划分，并研究各模块与表型之间的关联。![](../../images/a35f3286b015f3e1.webp)
 
 **九、ATAC特色分析**
 
@@ -109,26 +109,26 @@ copyKAT也是支持的，并且copyKAT不用选择参考细胞类型：
 
 终于说道ATAC的特色分析了，[SeekOne®-DD单细胞ATAC+RNA一胞双组学](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528858&idx=1&sn=0620dd3681e73858eb47256d785d7437&scene=21#wechat_redirect>)的优势就是在于可以捕获到同一个单细胞的RNA与ATAC矩阵；相应的通过RNA差异与ATAC的peaks差异来进行交互是一个验证基因调控的极佳方法。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWputhG25ic25JeicF9lzSs5hV5qaMqr87lAQzaYtMppJadSyEsHfmUUkicJg/640?wx_fmt=png&from=appmsg)
+![](../../images/a40f9353b9b0cc2b.webp)
 
 2、基因活性评估
 
 评估的同时还能顺便做一下差异分析：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpuwNeHNovOxhOrVYwRvvaAopO9iakLuibVc8tRh50pM28vCQ0icgDmUiaI2A/640?wx_fmt=png&from=appmsg)
+![](../../images/3887e17debbe2de6.webp)
 
 还有多种降维方式可供选择：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpuFZZibPEK21f0EgxRK7BsIibzxcoMqpaAFhWrqibARrGKe5W1v8Ln6ia3sA/640?wx_fmt=png&from=appmsg)
+![](../../images/91288fec8d983d8e.png)
 
 3、Peak2Gene
 
-scATAC得到的数据并不是基因名 X barcode名称的数据(因为大量reads会落在非编码区域)，数据的行名通常是染色体名-reads起点-reads终点，这就需要将其转化为基因Xbarcode矩阵。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzBysiaACtRRQtZDHxAwUUicz26oOUnt6pqqDGRkMwuiadXqNyqwg5NvLTduhQb4ESrVthPYyiafQ7Diaw/640?wx_fmt=png&from=appmsg)
+scATAC得到的数据并不是基因名 X barcode名称的数据(因为大量reads会落在非编码区域)，数据的行名通常是染色体名-reads起点-reads终点，这就需要将其转化为基因Xbarcode矩阵。![](../../images/06d898d8a1570de7.webp)
 
 **十、辅助信息与结题报告**
 
-1、进程管家在下面的分析列表中可以查看自己任务的分析进程与结果。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx2cicNcnjFVmI4FuegxeWpu5VyyBalk9VOCuQeiasxe5RCzPhp3ibJ1WfDgMk2JbHpdhF3rWpRcCVeQ/640?wx_fmt=png&from=appmsg)
-分析完成时会抄送邮件通知，挂上任务安心喝咖啡~![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxBMIdTvbYZKNWzAcwicw4ORGP5r7zfk1W2ObQznU6IDAR2yvXmEV5PKHzJArmUDIn07vKyGuJAxEA/640?wx_fmt=png&from=appmsg)
+1、进程管家在下面的分析列表中可以查看自己任务的分析进程与结果。![](../../images/f1d84eb13f33579c.webp)
+分析完成时会抄送邮件通知，挂上任务安心喝咖啡~![](../../images/745342e846b32f19.webp)
 2、结题报告在seeksoul.online中下载链接：
 
 通过网盘分享的文件：
@@ -139,7 +139,7 @@ scATAC得到的数据并不是基因名 X barcode名称的数据(因为大量rea
 
 提取码: 2udh
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxBMIdTvbYZKNWzAcwicw4ORWzvR6Rkib1XkHU07rFtxXftduQ6Cj7kwag9Z0KAAKQ2MrfAB27GcedQ/640?wx_fmt=jpeg)
+![](../../images/b30d6d4ff32d2bdc.webp)
 
 **视频教程**
 
@@ -157,16 +157,16 @@ scATAC得到的数据并不是基因名 X barcode名称的数据(因为大量rea
 
 各位同学需要**联系您的专属在线客服，获取demo数据后，进行操作学习。**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzlCHzM8BicyYndroTyAQWjdHD5ZO0DJHw7ff3XHNoiaCNmD4eMp5j1yX70aqtS0Y0mFxE32WrlrdCw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)**
+**![图片](../../images/f36b0bfbdc18dab3.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcysqPg5ZJ3sWZ54d3okyxzNK7sicraXvicUxWeic24H8udwKpeYHncdJYoLJgt7Xm11TVY3NH4E9JQ/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/6300ee2640d937c2.webp)![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

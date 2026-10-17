@@ -28,15 +28,15 @@ albums: ["AI时代，不用就会被淘汰"]
 
   1. 打开VSCode，本地安装Claude Code插件（认准anthropic）
 
-![](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1qsiaiaDHQAw3iaiaibIgxE5hAl1wenZUC1nEvRvW2eIT1lKYySa0BJ3ELcribT0uEfUFhCZplOp8ae6rvhgYyzGSwBAUrFovW7Q4Iiag/640?wx_fmt=png&from=appmsg)
+![](../../images/bc32326eb5c8705f.webp)
 
   2. 安装完成后，右侧活动栏会出现Claude图标
 
-![](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1pA46fhwn06jwo4mkwQZlJSQVnpMt5XuCBsXaDaH0MfFE7Tdibcrqoib5QuqeplRNUuHqYKmNXwTsB3tfFcskw6Gh4CXicQjmiaD1g/640?wx_fmt=png&from=appmsg)
+![](../../images/dd3b220cf862a9ee.webp)
 
   * 此时点击图标会出现下图界面，由于还未进行环境配置，无法正常使用，我们需要进行下面的环境配置
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1p2PG8iazucIRLA8MZRAW84As7lNckRmE6A4nrcP583DpADg5EWaSLDxTrQnSTnic3MQgrZUFso4I2ljN4WCphsdeMWPdZWfUYibo/640?wx_fmt=png&from=appmsg)
+![](../../images/27ba8b59218a6742.webp)
 
 ## 配置环境
 
@@ -49,15 +49,15 @@ Windows用户可以在C:\Users\你的用户名\\.claude\目录新建settings.jso
 
 在用户目录下创建
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1qpLLVxFPvibx29FoggKpibvzdxhIIoXHJHqCO9QPHse2AZiawAaxFSlJkiaDHMdJicDrDoAAsUpwb6aEpnANvg8s4kNyKM1FiaLkLLI/640?wx_fmt=png&from=appmsg)
+![](../../images/27fabd8f17f2e827.png)
 
 在项目目录下创建
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1qkBGaotS4xMoVeyFOLE2u4ZFj1RGApsYMGYFv0Q40a5JJR3tfzRluziavf6EEgRC9UZtt8XCS3947yk9Hib3fWhj3FWnSzgoQeg/640?wx_fmt=png&from=appmsg)
+![](../../images/5027c9d7b99baa98.webp)
 
   2. 保存之后重启VSCode，即可调用成功
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1pMBubH2sH43ksEE0E92NBI29aez8She2Z3aFzk5sj4jiajaWmt0ibhM9S60cbBoU99rpcIw4lAWLwM8T152RV7ks1FhUxyUS7OA/640?wx_fmt=png&from=appmsg)
+![](../../images/642b9243b8868f02.webp)
 
 # 服务器使用
 
@@ -69,19 +69,19 @@ Windows用户可以在C:\Users\你的用户名\\.claude\目录新建settings.jso
 
   1. 在VSCode左侧扩展图标搜索Claude Code并安装，认准anthropic。
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1rpF90WhhylS569XHowibgSWSxO9AGw2PqibVVjfv7bjWeKK9fcIL4gGNpwtnjKbfN9PCIGQEydgQJhWldXIKU4mxSDQn6kFgQtg/640?wx_fmt=png&from=appmsg)
+![](../../images/05f4f00e9c928cf4.webp)
 
   * 此安装是在远程主机上安装，安装完成之后会显示已在远程主机启用扩展，且左侧扩展界面会显示远程主机已经安装的插件
 
-![](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1oX7vG6soIbmUvnh8FtXytIGYp8wBb9acAoicMFzjaVYP0N4e7S3MGic9WtGicQ5aTibjpMkvUZxIWYPF3IXQMqopr17U7MSzXjYAw/640?wx_fmt=png&from=appmsg)
+![](../../images/ce587835347dc2bf.webp)
 
   2. 安装完成后，右侧活动栏出现Claude图标
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1qgOL0MeIXoQgFFia9kdvCUddibibO0UPVgrvoicibu2Q3Ra9NrqFXzXicAkUeibVsRLvmJTia4rt6yrcic47IicvJ7QGwjRKYINyuRHLDew/640?wx_fmt=png&from=appmsg)
+![](../../images/c744ad19b9cb9cec.webp)
 
   * 点击图标会出现下图界面，由于还未进行环境配置，无法正常使用，服务器使用具体如何配置，请继续往下看
 
-![](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1qBBxnSg2E1xR8UDsNibiakYBTx3JsWkAVvRQFlnh66tMkbPQGWN2pm8aVr4HtJ6gFH5MYe7jQ7liaZZbjqf3RSEBa6IibFRDXJ2tU/640?wx_fmt=png&from=appmsg)
+![](../../images/03c009a05f37cecb.webp)
 
 ## 配置环境
 
@@ -103,19 +103,19 @@ Windows用户可以在C:\Users\你的用户名\\.claude\目录新建settings.jso
 
   * 点击右侧Claude图标→对话框出现
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1osTxZIRRWFdic72ibHR8OcKFZib0Yyyc872ibcg9tUr11bfzYniapYbVRDhdsPUXcW3MQEFcotflVPwELINric9IgyiaZ6c0uqS3icdTU/640?wx_fmt=png&from=appmsg)
+![](../../images/f23b934bef183547.webp)
 
   * 直接描述任务，例如："请生成一个R脚本，使用DESeq2对一个假想的表达矩阵进行标准化，并输出前10个最差异表达的基因"，生成之后点击Yes可保存该脚本
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1qJRicf4F4FCDxAy2V6Nn7iaYetKrEskib8kjW7rFXF2WJIzVbaibkp1DwxrsLbcfA4pFwqmPAraftVEQKlVnPhzbKGRO8jAXua4Pc/640?wx_fmt=png&from=appmsg)
+![](../../images/879600e330ab9fed.webp)
 
   * 根据提示运行脚本，能够运行成功
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1qibaCgzJL1LiaCZibnPRTMNXRDiaRLOZPv2hZ9kALH2E0hVR2ib4qWdJtXMRn6nEyyFdrXIQMTbs2Qh4Mw08ibV38n5RQrHhLKc6eMw/640?wx_fmt=png&from=appmsg)
+![](../../images/442e86f554126d77.webp)
 
   * 生成的文件也可以正常打开查看（如果有提示需要安装插件，根据提示安装即可）
 
-![](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1ownHkOegs2HvF5HTviajeqQSCicLdRq3Vsn5pGTLQt1396xgiayfWCTI2ibia4wH6QmZHjwwqIBqq6o9Hj4AKaudN5my1tV6ST9FNk/640?wx_fmt=png&from=appmsg)![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1pP7vEHYEia5NLMNt1QIPC9NNEFtliaVTR1UY8AicIpxXYhqtDNOT8VKiaYmSIoqWxxibjaWwGyDkZgSNxGk4arDm7zxnSbDmcVJKBU/640?wx_fmt=png&from=appmsg)
+![](../../images/302dcf85fd44ffdb.webp)![](../../images/a93dcbe25dde7d50.webp)
 
 # 怎么购买Token
 
@@ -125,38 +125,38 @@ Windows用户可以在C:\Users\你的用户名\\.claude\目录新建settings.jso
 
 ## 打开西柚云AI服务平台
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1pswxHUEjOK0LNWa4AkfaRLyXaO7Ehgw13miaMdiacs1V3Pa0aKnWX6pdLjXqx9LRibxZRRYUNleaNsKia9QoJgtW0libxvMbPJHN44/640?wx_fmt=png&from=appmsg)
+![](../../images/44d84f1639bc96ee.webp)
 
 ## 充值
 
   1. 点击右上角个人中心，点击钱包管理。
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1rx4WTxQAy6bdhibIoibhrCdT4QAIB4Rp7ic4gJj3ibfBmzicP83Sz1g4XAgxJicXHGIIRQ4nQe2KWq3vFowxNIlBmAAkxLZ38hia0DA0/640?wx_fmt=png&from=appmsg)
+![](../../images/c51a227ee66f2b14.webp)
 
   2. 点击跳转购买对应的商品，购买后系统将自动充值Token。
 
   * 免费体验版：5百万Token。
   * 正式版：1千万Token/18元。
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1pLF6dvvl6OHSRS1NqhzBic96sm2nUztGQWicUQ44XwN6Xqges3NMGUqPTjOt5UdHwwCqnWo502yrVsW4iclRClg4icobfic3Q1MgPE/640?wx_fmt=png&from=appmsg)
+![](../../images/e0f8f4c489f82e37.webp)
 
 ## 令牌管理
 
   1. 进入令牌管理
 
-![](https://mmecoa.qpic.cn/sz_mmecoa_png/M5FZHr2mN1qTSQ3UqibuCvxE2KaCI7ibiaxSXMnZX9a2r4FDjIe84VwvzdtWW2rNZU83Micm6Q0q6ibSRib34JAHHNqINM9spuoXNUqMqTWhf4Hqg/640?wx_fmt=png&from=appmsg)
+![](../../images/cdbb0c935e212cc2.webp)
 
   2. 创建令牌
 
   * 名称：填便于自己识别的名称
   * 令牌分组：选择默认分组
 
-![](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1rtlqibXib6uHnvoYs8LA8gLphS1dAjZPHQASGQJbOZI75Nm0H9oBibUfGQt2dYdswGOzy1L2hsVclLDfVXrgOUibKmu4wxKWnIbTM/640?wx_fmt=png&from=appmsg)
+![](../../images/e89cd196c86f7c85.webp)
 
   3. 复制令牌配置到对应的配置文件
 
-![](https://mmecoa.qpic.cn/mmecoa_png/M5FZHr2mN1qiaOL4Ft8eotuVIyibp8JoocbuLduAJbv1RxBb8V23ah4bgPmib0eiaXQVRNxDicsKO8pg2CbjdybdIC29zicWKkMFKiapCVU3XopiaL0/640?wx_fmt=png&from=appmsg)
+![](../../images/abdc13537c63547b.webp)
 
 # 西柚云在售算力
 
-我们长期提供GPU、CPU算力，欢迎大家联系后台。访问链接：https://biomamba.xiyoucloud.net/[![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkEiaabZYz9w8SyaqMzicYfQic4ml2gRq474VKGXLynQXmIOuD1R3ufPlU3pKwgfH3Kkte3PwIwUGA5ibZlu4H7nwkib6icpp4Fxp62c/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21&poc_token=HD30QWqjyfz9w8kaP4lTzV2TrwmmFWeikVE7vHza#wechat_redirect>)[![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmrA678PDSEaEHesNLVKRPCZuJrp6iaQvdpEjNJenIyufia7YghlMQ0RkHqHyD2788DDNQW2icyK67359gU3oCehwichB10PiaaqCFU/640?wx_fmt=jpeg&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)[![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwknX2Ro8vWeYMnbV91jXf3QsDGVuibXrq9pygru3KicibnIiaKoWloZplkqwFNyCTG6RHoSxVZR8b7kRhY3AmGHyomTrUiaeiaooPCck/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21&poc_token=HGz0QWqjtxRcZEO9_FZ7U2waArXDSPexP98oXbem#wechat_redirect>)
+我们长期提供GPU、CPU算力，欢迎大家联系后台。访问链接：https://biomamba.xiyoucloud.net/[![](../../images/6e693f923fe6589b.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21&poc_token=HD30QWqjyfz9w8kaP4lTzV2TrwmmFWeikVE7vHza#wechat_redirect>)[![](../../images/7639767d80b412ae.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534707&idx=2&sn=2844377758ce00e07435a5dd376b4715&scene=21#wechat_redirect>)[![](../../images/18e6a4a68f9e0cb6.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21&poc_token=HGz0QWqjtxRcZEO9_FZ7U2waArXDSPexP98oXbem#wechat_redirect>)

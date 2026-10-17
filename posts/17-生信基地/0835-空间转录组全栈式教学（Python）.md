@@ -10,18 +10,18 @@ albums: ["生信基地"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531858&idx=3&sn=d910f0bab1834b08a073b2b7b79b3947&chksm=9b3c0402ac4b8d145002e613868bd20d0f8e568e3883ec600b1a94164e867fad3b31b6fddb2d#rd
 > 合集：生信基地
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=0)
+![图片](../../images/eab31beb8c0e41d2.png)
 
 写在前面
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=2)你是否厌倦了东拼西凑的教程和零散的知识点？空间转录组学的技术门槛高，仅仅依靠网络上的零星资料，难以构建一个完整高效的知识体系。尤其是分析生态不成熟、不统一的空间转录组领域，更是如此，我们此次推出的[空间转录组分析全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531221&idx=1&sn=2346109f4cf6d3398dd15351474edf95&scene=21#wechat_redirect>)将提供一个从理论到实操、从基础分析到文献复现的完整闭环学习路径。2025.10.20~12.12，为期两个月（线上/线下均可参与，错过直播也可以加入录播/答疑+循环开课）。[生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526229&idx=1&sn=0718f1702150ba77a7f7e3beadd6e0ba&scene=21#wechat_redirect>)希望能够做到“手把手”的带大家完成数据分析学习，当然，我们拒绝生信快餐，课后欢迎大家随时在群里对课程内容提问~。自学能力强的小伙伴也可以直接跟B站教程。后台回复关键词“全程班”，可以获得最新培训集锦参与此次课程你将获得：1、为期两个月空间转录组数据分析教学。2、加入全程班群聊，三年内当前课程指导、答疑、回放、直播复听，相信足够覆盖你的硕博生涯学习。2、[开箱即用的空间转录组分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)，256GB内存、512GB硬盘、20线程服务器3个月使用权。4、课程对应分析手册、代码、测试文件。报名联系客服微信[Biomamba_zhushou]：![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)
-通过两个月的学习，你能够绘制上百种空间转录组图表，以下为部分图片集锦：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxm0gibfGROlnrHmxiaCX4ysp7OGoKPOtzhB4xEViaHicMgBiclNbP578hmpehR3KVyl71EKNtibNfJm4Gw/640?wx_fmt=png&from=appmsg)
-更多课程可见： ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzL3bwVoJSNJWoYvgicYkgdMiaMzy6xmOxYwibc4DtvWjmm9q9eZmiahsdBDQ71GglTsJHyPznedpoibsg/640?wx_fmt=png&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=6)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=7)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)你是否厌倦了东拼西凑的教程和零散的知识点？空间转录组学的技术门槛高，仅仅依靠网络上的零星资料，难以构建一个完整高效的知识体系。尤其是分析生态不成熟、不统一的空间转录组领域，更是如此，我们此次推出的[空间转录组分析全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531221&idx=1&sn=2346109f4cf6d3398dd15351474edf95&scene=21#wechat_redirect>)将提供一个从理论到实操、从基础分析到文献复现的完整闭环学习路径。2025.10.20~12.12，为期两个月（线上/线下均可参与，错过直播也可以加入录播/答疑+循环开课）。[生信基地](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526229&idx=1&sn=0718f1702150ba77a7f7e3beadd6e0ba&scene=21#wechat_redirect>)希望能够做到“手把手”的带大家完成数据分析学习，当然，我们拒绝生信快餐，课后欢迎大家随时在群里对课程内容提问~。自学能力强的小伙伴也可以直接跟B站教程。后台回复关键词“全程班”，可以获得最新培训集锦参与此次课程你将获得：1、为期两个月空间转录组数据分析教学。2、加入全程班群聊，三年内当前课程指导、答疑、回放、直播复听，相信足够覆盖你的硕博生涯学习。2、[开箱即用的空间转录组分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)，256GB内存、512GB硬盘、20线程服务器3个月使用权。4、课程对应分析手册、代码、测试文件。报名联系客服微信[Biomamba_zhushou]：![图片](../../images/eff615a0a49ee4ca.webp)
+通过两个月的学习，你能够绘制上百种空间转录组图表，以下为部分图片集锦：![](../../images/305e517d3c870477.webp)
+更多课程可见： ![](../../images/e2302e92bcb7b744.webp)![图片](../../images/697dd2eb5e60e8d8.png)![图片](../../images/eab31beb8c0e41d2.png)
 
 内容计划&大纲
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=8)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=9)以下是我们此次课程的时间安排：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxm0gibfGROlnrHmxiaCX4yspWY3UIUMGN7zIfhNlSXqF4AGZTZDmPgv3sjKIprq00T3iaicQsGKJJ9AA/640?wx_fmt=png&from=appmsg)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=13)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)以下是我们此次课程的时间安排：![](../../images/94d3b9ccae4fe77a.webp)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 **所见即所得**
 
@@ -29,27 +29,27 @@ albums: ["生信基地"]
 
 Linux基础课学习手册
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=14)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=15)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4s9ld2icJKcIxyuzEeia8VPPo6vgribeVU5VYkXquccov1QAGtoGOiaUAOWQ/640?wx_fmt=gif&from=appmsg)
+![](../../images/0eacdc991206140e.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=17)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 Python基础课学习手册
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=18)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=19)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4sIvegmIUAoK2BvTM5SMwF35oLRu21nUhQR1zyiaXtISvNwK5wm2y8XAg/640?wx_fmt=gif&from=appmsg)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=21)
+![图片](../../images/29b23013404b69af.png)![图片](../../images/dfcf38fa22d21830.png)同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
+![](../../images/c16ee691fd2bad3c.webp)
+![图片](../../images/bcbcf46639712bd1.png)
 
 空间转录组-概论及上游定量学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=34)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=35)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4sVL6Xo2LzEwfC2rNPTicb6PP24XypeEAw897ZvEU02JAnaDBVd3tiawEw/640?wx_fmt=gif&from=appmsg)
+![](../../images/51302434c2c34541.webp)
 
 **教程目录** ：
 
@@ -98,19 +98,19 @@ Python基础课学习手册
 2.3.1 软件安装与下载 2.3.2 构建参考基因组（非模式动物） 2.3.3 定量 （1）输入文件 （2）运行 2.3.4 结果文件概况 （1）不同大小Bin统计信息 （2）Cell Bin统计信息 2.3.5 读取为Anndata对象 ****三、软件版本********
 ********四、单细胞教程全收录********五、欢迎致谢****
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=39)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-基础分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=40)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=41)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/7sbgt88Kkk41tzbGZGZdcaK2gicZlH4FnV4yqRsYsANg9jDnJAc6hwBicLiarN5b1rJxpJMF8Kys2lXHZQL0icC01g/640?wx_fmt=png&from=appmsg)
+![](../../images/07302048e519a2e3.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4slPWde1t3Tib9zEVVw9diaTLJob3TIdt5F5TzHyDRejOK2zNbkXQKHYBg/640?wx_fmt=gif&from=appmsg)
+![](../../images/e334c6f0759cbd31.webp)
 
 **教程目录** ：
 
@@ -136,18 +136,18 @@ Python基础课学习手册
 
 ****9.1 邻域富集********十、软件版本********
 ********十一、单细胞教程全收录********十二、欢迎致谢****
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=45)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-进阶分析-多样本分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=46)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=47)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/7sbgt88Kkk41tzbGZGZdcaK2gicZlH4FnXI1jIrNJkGpCNOiarKklVLJhUxC0MtK14roplbgZoNLxiavIzM5A0iciaw/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4sUO4zgt9y0lBo1wpWZAQBo0arRsKP6VGwv6haDUXLmYkpibT8opML9gw/640?wx_fmt=gif&from=appmsg)
+![](../../images/a50371bb3827d716.webp)
+![](../../images/c6707d588559fecc.webp)
 
 **教程目录** ：
 
@@ -183,18 +183,18 @@ Python基础课学习手册
 
 ****三、软件****版本************四、单细胞教程全收录********五、欢迎致谢****
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=51)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-进阶分析-共表达网络分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=46)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=47)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/7sbgt88Kkk41tzbGZGZdcaK2gicZlH4FnlJGRd0QlbMHs5YZLAes48o9PId2zplHBgXIxLHoTdqTa3W97zXd27w/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4sWLsXSciaVqwZyerhsXqCTQQHiaribbVbOz8LX4Xjo061qMYAh1O2AS4cw/640?wx_fmt=gif&from=appmsg)
+![](../../images/8f1a513146cb146b.webp)
+![](../../images/f5c9e32f23478728.webp)
 
 **教程目录** ：
 
@@ -224,18 +224,18 @@ Python基础课学习手册
 
 ****三、软件****版本************四、单细胞教程全收录********五、欢迎致谢****
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=51)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-进阶分析-去卷积分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=34)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=35)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/7sbgt88Kkk41tzbGZGZdcaK2gicZlH4FnD0QN1JWyKnVaFyxzhDeeR5KKmXEh9VKPib8ibcYZficq48lofvwCWO9cw/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4sYPxsRVUyEW3wbKT7YVNPWMbVIy7nJ6GH7GpzdicTeCzPr8KBtcYgYVg/640?wx_fmt=gif&from=appmsg)
+![](../../images/4e4ab971b7ef2833.webp)
+![](../../images/1ef355b5769b5e62.webp)
 
 **教程目录** ：
 
@@ -284,18 +284,18 @@ Python基础课学习手册
 **2.6 通过比对单细胞数据进行反卷积**
 
 ****三、软件版本********
-********四、单细胞教程全收录********五、欢迎致谢****![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=39)
+********四、单细胞教程全收录********五、欢迎致谢****![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-进阶分析-邻域分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=40)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=41)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxm0gibfGROlnrHmxiaCX4ysp3fo5mtredntvyH3hbEpcoluEJiaZRBibQaUh1za3JlibESaY8pTfGcvqw/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxm0gibfGROlnrHmxiaCX4yspLB9BoydUQm1Qibu2jWPfAicjXl05pPrKeWPcFzuxTEVuiaDnviciad8ibDYA/640?wx_fmt=gif&from=appmsg)
+![](../../images/40537f87be8beb3c.webp)
+![](../../images/3653e24e251fabec.webp)
 
 **教程目录** ：
 
@@ -349,18 +349,18 @@ Python基础课学习手册
 
 ****三、软件版本********
 ********四、单细胞教程全收录********五、欢迎致谢****
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=45)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-进阶分析-细胞通讯分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=40)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=41)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/7sbgt88Kkk41tzbGZGZdcaK2gicZlH4FntXdM9JvcKWUXnlxRE1xll1yZL9ZkGrxDd5pxkXic1fHsATCzlcSfK0w/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=82)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4soTDdaDTMkmH2fUoqcu0pNDM3iaodSW3jzcJc3a8ZEFG0x5KA3vT8lRA/640?wx_fmt=gif&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=83)
+![图片](../../images/bd8574f343da82be.webp)
+![图片](../../images/bcf833406259739d.webp)
 
 **教程目录** ：
 
@@ -432,18 +432,18 @@ Python基础课学习手册
 
 ****四、软件版本********
 ******五、单细胞教程全收录****六、欢迎致谢**
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=45)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-进阶分析-轨迹分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=46)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=47)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/7sbgt88Kkk41tzbGZGZdcaK2gicZlH4Fn0Lp2cVgy1qiaApSnHPnNcibdseIOh3H4HONgypyVICTKJtpEC5OLgPdw/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4sXaEnSDrR1NldT9LyF08B50bmq8m5FtIMLYcn6g3IfCSrCOpyS4IOpg/640?wx_fmt=gif&from=appmsg)
+![](../../images/255843d8c554e739.webp)
+![](../../images/62991b6758fcf981.webp)
 
 **教程目录** ：
 
@@ -505,18 +505,18 @@ Python基础课学习手册
 
 ****三、软件****版本************四、单细胞教程全收录********五、欢迎致谢****
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=51)
+![图片](../../images/697dd2eb5e60e8d8.png)
 
 空间转录组-进阶分析-拷贝数变异分析学习资料
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=46)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=47)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：
 
 教程图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/7sbgt88Kkk41tzbGZGZdcaK2gicZlH4Fn5wRkXS2myQHO7nL10PluCI0Aj5FbBSGqSjSh1tqNubF4ro0YhVp40A/640?wx_fmt=png&from=appmsg)
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpyWickSUZ4vtVVheYIHtmib4smD3EE06YZ7RibA17GVmLqLaftpJhJKzkVe9WSticIC0NiawnCib7E947GQ/640?wx_fmt=gif&from=appmsg)
+![](../../images/8d723f9f6f0fc863.webp)
+![](../../images/8337cdeaacca3b14.webp)
 
 **教程目录** ：
 
@@ -534,41 +534,41 @@ Python基础课学习手册
 
 ****三、软件****版本************四、单细胞教程全收录********五、欢迎致谢****
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=51)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=60)
+![图片](../../images/697dd2eb5e60e8d8.png)
+![图片](../../images/eab31beb8c0e41d2.png)
 
 报名费用
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=61)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=62)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)
 
 两个月的课程，单个只要4999￥！详情咨询客服微信[Biomamba_zhushou]
 
 有其它任何想法的同学也欢迎随时联系我们，更欢迎看看我们的价值观：[想钱想疯了？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529315&idx=1&sn=df2cf4c0fa3411889c558229f4068a8c&scene=21#wechat_redirect>)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=63)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=64)
+![图片](../../images/697dd2eb5e60e8d8.png)
+![图片](../../images/eab31beb8c0e41d2.png)
 
 线下学习环境
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=65)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=66)**地点** ：南京市江宁区，详细地址咨询客服微信[Biomamba_zhushou]**
-****往期活动现场：****![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzlCHzM8BicyYndroTyAQWjdruGL35Ag8TpUeJAQzletw5eYbMYeTOyyQSF3t55PV3YyjZZqMa2aFg/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=wxpic#imgIndex=67)**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTJBFK3VicGPmAqicxO5qvVOTRU3llPCjgBw09FkStwTSCPS6siaOgWzibmQ/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=68)
+![图片](../../images/8b04fd62fd8f3d51.png)![图片](../../images/4064a50c19e8ad22.png)**地点** ：南京市江宁区，详细地址咨询客服微信[Biomamba_zhushou]**
+****往期活动现场：****![图片](../../images/b83830c176ba48a8.webp)**![图片](../../images/6744fdf99eb61f11.webp)
 
 除了知识之外，现场还能够给大家提供：
 
-**茶水吧、咖啡机、零食柜**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyJTurcWOC9GGd5VvBqk9u2PaQSvDhnu7UJibZ5RibWO6RpkHjQH9kAtbU9miaGlhuZRQlqDYRwa3yTA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=69)
+**茶水吧、咖啡机、零食柜**![图片](../../images/8290ed9c9da8115b.webp)
 
 **各类饮料、零食小吃**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpznttzoqtuQBeRAM4tHRweMzv4icM7ia0OzZS1VashvPOYmuWOVuGhpvRsGibakVZPf6HQjMgEXagiaxQ/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=70)
+![图片](../../images/d868b495e2919aa4.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic#imgIndex=71)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/697dd2eb5e60e8d8.png)![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

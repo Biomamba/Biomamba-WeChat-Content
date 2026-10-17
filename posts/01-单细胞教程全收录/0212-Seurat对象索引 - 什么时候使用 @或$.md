@@ -514,7 +514,7 @@ https://www.datamentor.io/r-programming/s4-class/
 
 ## 高颜值免费在线绘图
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPxx0RsLHiaGHiasjyaib7iaURiamrbxqlj1WDgzhVuXr9uejibyOfVhswplf5B3X8jJriaqDpjPVc5YaZ5Gg/640?wx_fmt=png)
+![](../../images/d8dabecff3a08f58.webp)
 
 ### 往期精品
 
@@ -534,8 +534,8 @@ https://www.datamentor.io/r-programming/s4-class/
 
 后台回复“生信宝典福利第一波”或点击阅读原文获取教程合集
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPyiayoLncWgUZsXIHJt4AM8L3MLmBP9IjfN6ic8iaIz2nFvhyEKG4gXXIiaL6ZKTKBvP3VFS1pKIXDKvw/640?wx_fmt=png)
+![](../../images/251a32f90fdb2ffd.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/BA8CWhHQWPxSTEGicuu4HHziaYbSfFAGxwdqRPIL0tUN1n6mSEnxZ5ibmEzNNnt1C0FRZjJBiagEMaw4y8Mq84eicyw/640?wx_fmt=jpeg)
+![](../../images/c68f704b2530f560.webp)
 
 [](<https://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247490302&idx=1&sn=e464ecad39b28ef2755b6687c4a58a1d&scene=21#wechat_redirect>)

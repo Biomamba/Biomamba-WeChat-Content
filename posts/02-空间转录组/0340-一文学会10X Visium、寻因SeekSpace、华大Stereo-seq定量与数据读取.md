@@ -14,13 +14,13 @@ albums: ["空间转录组"]
 
 [ 空间转录组](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2879312479804489730#wechat_redirect>)学是一种能够在组织空间上下文中同时分析基因表达的方法，为理解组织结构、细胞类型分布和细胞互作提供了新的视角。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnP0a8YDibwF9CQxGCPF7b6uibxAwb8rXsctVxGeeBbicTicYQebicuURgib9m5ibhF0zRNmrB5odmPxVxddsxTiaMwERuviaPu81fA1rKk/640?wx_fmt=png&from=appmsg)
+![](../../images/92b812acc413e806.webp)
 
 本文将介绍：空间转录组概述（主要是阐述发展历程、技术分类、平台对比）和**上游测序数据定量 （主要介绍三大平台10x Visium、 SeekSpace、Stereo-seq软件安装、定量实操、读取andata对象等手把手教你学会上游定量分析）**
 
 如果你想彻底吃透[空间转录组](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2879312479804489730#wechat_redirect>)全套内容、跟着老师系统学习，可以报名参加我们的课程：[Python空间转录组数据分析。当然，没有时间学习我们也可以代工：](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21#wechat_redirect>)[生信基地，永远都不是论文工厂](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539366&idx=1&sn=d6db6f6b2e220ccb7414f2c6d26e2abf&scene=21#wechat_redirect>)
 
-[![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzOh834AJ9MtyUQk7OLY4pIccN3EStWspPNwBnHibJmhbfJTe27SzpY4b1Qjic5nVBJXeQficIJrn75Q/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=0)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21&token=1258697299&lang=zh_CN&poc_token=HMBPW2qjSKdDOXcv4X0Q9B4dmudp4aDIek9Wo0rM#wechat_redirect>)
+[![图片](../../images/b3c25e68af970aca.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21&token=1258697299&lang=zh_CN&poc_token=HMBPW2qjSKdDOXcv4X0Q9B4dmudp4aDIek9Wo0rM#wechat_redirect>)
 
 **二、上游测序数据定量**
 
@@ -176,7 +176,7 @@ albums: ["空间转录组"]
 %%bash# 进行空间转录组数据的定量过程# 现在可以构建 spaceranger count 命令来从工作目录运行 (spaceranger_tutorial)。如果从不同的目录运行，请相应地修改路径以避免任何错误cd /data/04_ST_introduction/data/spacerangerspaceranger count \    --id=Visium_HD_Mouse_Brain \    --transcriptome=./refdata-gex-mm10-2020-A/ \    --fastqs=./Visium_HD_Mouse_Brain_fastqs \    --probe-set=./Visium_HD_Mouse_Brain_probe_set.csv \    --cytaimage=./Visium_HD_Mouse_Brain_image.tif \    --image=./Visium_HD_Mouse_Brain_tissue_image.tif\    --slide=H1-8CPZTMY \    --area=A1 \    --create-bam=false \    --localcores=30 \    --localmem=300 &
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmxYzUUPSRKQ1vfJZVkrPuyF5cjojPoohTGUicxAKeyXlRyeJPyF62hMv6te1ibckGqxUOn27df7RVoSS1ltrM8G7zxQbFY1iciaok/640?wx_fmt=png&from=appmsg)
+![](../../images/bd37d08ef737d2b7.webp)
 2.1.4 结果文件概况生成结果文件结构如下：
 
   *   *   *
@@ -249,7 +249,7 @@ albums: ["空间转录组"]
 
 基本概况：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmmIOaKrDWyQphurbhJ7MLcrVLRPgicysDsG69gKibDgBzIWoic2Ek1MVGXCPLeopjPgr4KcFInvkEJM4fFaP9z8sAGE3Nr15rP64/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmxmMfQibuRVRqZHgmR6Exku1J8xuzYELHuxe1uqia2wUyFkNzdZPPPniaVicocUN9phvC23ibmyOwMgNialBF4UCGBdCr2llhtBQWPo/640?wx_fmt=png&from=appmsg)
+![](../../images/b03b500f9cbde9d9.webp)![](../../images/9cbc27ca7f705159.webp)
 
 当然也提供了csv直接读取相应数据
 
@@ -267,7 +267,7 @@ Visium_HD_Mouse_Brain,334184277,0.916219634115222,0.9992119048736694,0.700731541
 
 Space Ranger Metrics 说明
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlyh9azSpWjXvOV6QoLUfoE7K7vKNEG2P0kiaZn0Wdg9grbnBClhG6NhYANqG22DG0mkicgsH86ORv7rEIrKLXJ0DictrxUKovgbA/640?wx_fmt=png&from=appmsg)
+![](../../images/a88fa8f52bd80f82.webp)
 
 ```
 2.2 SeekSpace平台
@@ -310,7 +310,7 @@ Space Ranger Metrics 说明
 
 参数说明
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmTM7mtuR0fvMXLicGHl1jKGYUznY0wZSX2icCa7Wlf1bNboYxPu9wPbZFbHCYf4jwLaoicCWKOYJFDGM743dqNOx89BdcqeyxYvI/640?wx_fmt=png&from=appmsg)
+![](../../images/2f2712f38ab2e2bc.webp)
 
 2.2.4 [定量](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533676&idx=1&sn=68dc75c55e05eabcfbdb29f46b112a0a&scene=21#wechat_redirect>)
 
@@ -326,7 +326,7 @@ Space Ranger Metrics 说明
 
 参数说明：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmQeFD3Kh4yEoUfFIicSYHzJKTo1pp7TDsk5c4l60qnQv4YUZ1R1qmvzRJRCnVSXcyFJweJHdEwzsLTgs7kBzUvf6oiaadibYBuE8/640?wx_fmt=png&from=appmsg)
+![](../../images/0347c9ed73b1eea6.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -495,19 +495,19 @@ seekspace定量结果如上
 
 也提供了html和csv文件供我们查询定量结果质量
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmOQibFPYVFMiao7vVibrLbCFbKPcsHBXXFTibmCosWhY0D0c9iapJ71e56x0PDKkgwQ5NdyfwU6lctrLdibWQGIib6Z5p01iaEbkNJsmU/640?wx_fmt=png&from=appmsg)
+![](../../images/e51ad41059b69311.webp)
 
 总体共检测到26，464个cell，细胞检测基因中位数为548，平均UMI为759
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnxAMqMzBtI9Qu2HzuyibS6YKFuzVMBNg0bkIGibS0abxno1OsBJjztwk2muiaTxZUAr7HwrlFxLl9mzkEoVtzIHHOvSBzYcjFPB4/640?wx_fmt=png&from=appmsg)
+![](../../images/7298e7c4db446b5e.webp)
 
 Summary Table 指标解释
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlbiciaVwZUEfxRBtTL1b1Rl6o9HeCUpXoEmu5vhs9PdkVEPf6gPke7ia6mD9Mr2zIGZqPyloocVtc0teQowzLBJ8FNFYONdACrvM/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmUDiasQ971bCXJG0S4BW1eCbCUqW0rY1o8PmktIibOntYxVFcMMVc6CmD4LiaEoJWZj4bHOpg3ib5OEgNISaibnQsW056EJhfcNf7Y/640?wx_fmt=png&from=appmsg)
+![](../../images/a079b3df8c45774b.webp)![](../../images/35f10455efbf1547.webp)
 
 Spatial Library 指标解释
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwk2Bx6CKS0qrZ3DgDricBmzY6Cx7y2micqnF4XUwJibcvIGTNjA4R2sBZQ8d5NOoz7mVu1dRz6fLFOkYxq60RtgxchDETUSHlekia4/640?wx_fmt=png&from=appmsg)
+![](../../images/368d40bdc7af5a57.webp)
 
 同样这些数据也可以通过 /Outs/demo_summary.csv 获取
 
@@ -546,7 +546,7 @@ AnnData object with n_obs × n_vars = 26464 × 28158
 adata.obs
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkOH2UMSqw44dg1q2Z0M0g7Oh2KfaicKdTV8e4ytX1bOVItiaGtmNricibplJUWg9ABhgdeBOe8kqhDGlvI83TYw6MkhPQ67XWpialg/640?wx_fmt=png&from=appmsg)
+![](../../images/7e912a3cf33f3c30.webp)
 ```
 26464 rows × 0 columns
 ```
@@ -557,7 +557,7 @@ adata.obs
 adata.var
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnzlfVWZuibfABMCwe70y0Yic2R25arRxfrWpujE8ibEjtP3zDc35mJqH7vZOUCmtpQ0eHDHFpyjzRSd4CkNM1dianPGlBctcQKT9s/640?wx_fmt=png&from=appmsg)
+![](../../images/e3cf2537cfa4e8ab.webp)
 ```
 28158 rows × 2 columns
 ```
@@ -627,7 +627,7 @@ AnnData object with n_obs × n_vars = 26464 × 28158
 
 可以用于后续空间转录组分析
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmcR4oUr6lLMIndkg7vmwjvTTK9iaClBC0XXQ5GCwHAbG8XVyzsicbDGLNxOMks0sGSaAlOUsnN9pmzL8qTU3Ztr40Vvnoub4ribc/640?wx_fmt=png&from=appmsg)
+![](../../images/6ed02651668b70c2.webp)
 
 2.3[Stereo-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505686&idx=2&sn=925ce770136ec3e964b954c639eed29e&scene=21&poc_token=HKmsw2mjzWoWPjGiyFow_qQH3qySDBWd99fqWIk_&token=106440264&lang=zh_CN#wechat_redirect>)平台
 
@@ -858,7 +858,7 @@ saw count 参数说明
 
 同样可以通过 HTML 查看空间转录组数据质量
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkgxQQSdHibGmI8wr8RqmDAtY1F1Gbtiab5l7kK2TpHArK4GZSvY2ZAZBMMLuicesHpor7UK16zm9IVAa6gz2j7yW8JCpef5P7qGs/640?wx_fmt=png&from=appmsg)
+![](../../images/ae8dbfbdf9c74c3f.webp)
 
 结果参数解读：
 
@@ -894,7 +894,7 @@ saw count 参数说明
 
 把空间位点聚合成不同大小的 bin（类似 20×20、50×50、200×200 个 spot），然后统计每个 bin 的测序特征
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmkLgVmkgiaZtFqp2Yz7Ebq2oO9ULsKZqeR8QzyAEDmTKytFq3OU8FHMyGo50f7FckM1vNJQg8ibrgIQh07UJCM8GUogvSllb6d4/640?wx_fmt=png&from=appmsg)指标| 含义| 计算方式| 说明
+![](../../images/a88663d1c77e031c.webp)指标| 含义| 计算方式| 说明
 ---|---|---|---
 **Bin Size**|  Bin 的边长（以 DNB 数量为单位）| 例如 Bin50 = 50×50 DNBs| Bin 越小 → 分辨率高，信号弱；Bin 越大 → 分辨率低，信号强
 **Mean Reads (per bin)**|  每个 bin 的平均测序 reads 数| 总 reads ÷ bin 数量| 反映总体测序深度
@@ -932,7 +932,7 @@ cell bin（细胞级别的空间单位）不是直接测出来的，而是通过
 
   * 将属于同一细胞区域的 bin 合并（通常是加和或UMI计数合并），得到一个 cell × gene 的表达矩阵。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn1iasickbR0mheJDBCmfESavPdpBTfCHzacnLDVSaBvy4fInmXqJKG1XlGW27wbLiaQegGkg9Jp7Y8bjtAic5BnDlicnwGFSLzFvQg/640?wx_fmt=png&from=appmsg)
+![](../../images/b1e607fadcbb9bcc.png)
 
 2.3.5 读取为Anndata对象
 
@@ -1038,7 +1038,7 @@ data.tl.cal_qc()
 data.plt.violin()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnT0ByTibpl9wozhuCicDUEch6UBTmJyfq7FotOHM11Via0ichGNeJT6BBtY5qVib6Z1mC2jL1fxGcgzcOx7aSLkWuia9LzZEkLANARk/640?wx_fmt=png&from=appmsg)
+![](../../images/a4386fa9e95fcc02.webp)
 
   *
 
@@ -1046,7 +1046,7 @@ data.plt.violin()
 data.plt.spatial_scatter()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkgFL8CCBjf44zjWicx61KVntJMwSBJtEFdrVWo9vxbJlbLtbfqWkYGbXss59sIfD8s6Pu5MUmvhmojMLt0GMmNtJiaTFOPywl0M/640?wx_fmt=png&from=appmsg)
+![](../../images/566a52e355e09573.webp)
 
   *
 
@@ -1134,13 +1134,13 @@ SAW用户手册：https://www.stomics.tech/service/saw_8_1/docs/index.html
 
 本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwnsEu8SSEibPGicPialUxKl3BEL0zIKnmTmB04LoMTEh56iasW7KmyN22WTD1icOH7wFvgHZicg8I3qqo520OVS48daqXGOwt6iabYxH4/640?wx_fmt=jpeg)
+![](../../images/a256e3dfd178069c.jpg)
 
 百度网盘链接: https://pan.baidu.com/s/1c0ypEEP2LVRz3mM2abtl5A
 
 提取码请联系客服微信Biomamba_zhushou
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -1175,6 +1175,6 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](../../images/4ec66ccdb832fd05.gif)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlqk4m2gYZ1oWzRNdTLNoupF1W8iav9nMJamqHzhibkRpp3b1DdMSCzKp5s9eJ1QKm5XEibTnoxEnxZ65ecDOdsYQ48OFHiaDdZXPM/640?wx_fmt=png&from=appmsg)
+![](../../images/69c9020781daff7e.webp)

@@ -1,0 +1,167 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0476-跟小龙虾聊聊天就把生信分析给做了？</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">跟小龙虾聊聊天就把生信分析给做了？</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536263&amp;idx=1&amp;sn=18bdb5f3158358be29563575566cbffa&amp;chksm=9b3c37d7ac4bbec1e052cb612753dd283a2aa9fc140cdaa937667f53dffeaf3c1e0b4cb532e9#rd
+合集：AI时代，不用就会被淘汰</p>
+</blockquote>
+<h1 id="openclaw">一、Openclaw功能简介</h1>
+<p><strong>OpenClaw</strong> （曾用名 <strong>Clawdbot、Moltbot</strong> ，因其图标常被昵称为“<strong>龙虾</strong> ”）是一个开源的<strong>自主人工智能代理（AI Agent）框架</strong> 。它由奥地利开发者Peter Steinberger于2025 年底发布，核心定位是“真正能替你做事的 AI（AI that actually does things）”。OpenClaw目前可以<strong>部署在本地电脑/<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535166&amp;idx=2&amp;sn=431238cb95bd4281424130333f6610c3&amp;scene=21#wechat_redirect"> 服务器</a></strong>，接入<strong>企业微信，飞书</strong> 等聊天工具进行控制，调用大模型（OpenAI,KIMI,MiniMax,Gemini等）进行操作电脑，执行任务。本教程将教大家如何把OpenClaw布置在服务器上，并通过企业微信与OpenClaw对话完成GEO数据库中转录组数据的处理(GSE130437)。当然，如果需要的话，也可以联系我们代为布置OpenClaw。<img alt="" src="../../images/3adc6cb9916709c2.png"><img alt="截屏2026-03-13 16.16.13" src="../../images/e6cc1a897c4962f7.webp"></p>
+<h1 id="_2">二、服务器获取</h1>
+<p>openclaw的请求权限过高，使用存在风险(误操作、隐私泄露、设备被黑等)，但使用一个环境独立、具有<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532785&amp;idx=2&amp;sn=c364ab8365a845cd709251c026075e0a&amp;scene=21#wechat_redirect">root权限的云服务器</a>部署就可以完美的避开这个问题，这里我们<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528216&amp;idx=2&amp;sn=b7be762860b48931492dad9f4a27017c&amp;scene=21#wechat_redirect">免费提供2周的服务器使用</a>，足够大家部署使用，大家可以联系客服微信Biomamba_zhushou免费获取。</p>
+<h3 id="21">2.1 西柚云账号注册</h3>
+<p>复制网址(https://biomamba.xiyoucloud.net/)至浏览器，注册账号实名认证。</p>
+<h3 id="22-30">2.2 加购3.0学习版服务器</h3>
+<p>点击<strong>产品与服务</strong> 下的<strong>订购产品</strong></p>
+<p><img alt="截屏2026-03-16 16.22.09" src="../../images/ab983d9d466f3c62.webp"></p>
+<p>点击进入生信服务器列表，选择<strong>3.0学习版</strong> 的"点击购买"</p>
+<p><img alt="截屏2026-03-16 16.13.43" src="../../images/cf1b6f2a70ce7609.webp"></p>
+<p>下拉右侧弹窗，点击加入购物车</p>
+<p><img alt="截屏2026-03-16 16.23.31" src="../../images/86c2fefac617e48f.webp"></p>
+<p>点击<strong>前往购物车</strong></p>
+<p><img alt="截屏2026-03-16 16.24.25" src="../../images/ec61a845aa2afcf2.webp"></p>
+<h3 id="23">2.3 输入优惠码</h3>
+<p>输入并应用优惠码，优惠码联系客服<strong>Biomamba_zhushou</strong> 获取，查看价格是否变成0元。</p>
+<p><img alt="截屏2026-03-16 16.28.03" src="../../images/807d51c6822a03cd.webp"></p>
+<h3 id="24">2.4 账户激活</h3>
+<p>联系上一步客服微信Biomamba_zhushou，发送账号/用户ID，我们为您激活服务器。</p>
+<p><img alt="" src="../../images/fe8ecb8594a1f419.webp"></p>
+<h3 id="25">2.5 创建实例</h3>
+<h4 id="251">2.5.1 进入控制台创建实例</h4>
+<h4 id="252">2.5.2 选择西南二区</h4>
+<p>进入镜像市场，点击<strong>选择镜像并点击使用</strong></p>
+<p><img alt="截屏2026-03-16 16.34.12" src="../../images/fe03f7152631a31b.webp"></p>
+<h4 id="253-ip">2.5.3 创建服务器实例，设置账户和密码，获取IP和端口</h4>
+<h4 id="_3">注意：这里的<strong>实例用户名</strong> 和<strong>实例密码</strong> 尽量自定义的复杂一些，避免与他人名称可能重复，导致后续影响使用。</h4>
+<p><img alt="微信图片_2026-03-17_094457_614" src="../../images/c0a2e63d88ce4f81.webp"></p>
+<h3 id="26">2.6 登录服务器</h3>
+<p>设置好之后，根据自己的账号密码，就可以用ssh正常远程连接啦，详细的登录步骤可以查看我们之前的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247524106&amp;idx=3&amp;sn=2a708129b846cbd6bd2fade3495afbd0&amp;scene=21#wechat_redirect">如何连接终端和Rstudio-server</a>教程</p>
+<p><img alt="5" src="../../images/b5f1a20a488ce4da.webp"></p>
+<h1 id="_4">三、服务器按照部署过程</h1>
+<h3 id="31">3.1 运行安装脚本</h3>
+<p>首先使用自动化安装脚本</p>
+<pre><code>curl -fsSL https://openclaw.ai/install.sh | bash
+</code></pre>
+<p>安装不上，不使用安装脚本测试一下</p>
+<pre><code>npm install -g openclaw@latest#npm error CMake Error at CMakeLists.txt:1 (cmake_minimum_required):#npm error   CMake 3.19 or higher is required.  You are running version 3.16.3#CMake的版本问题，更新一下CMakepip install cmake --upgrade
+</code></pre>
+<p>再次运行</p>
+<pre><code class="language-bash">curl -fsSL https://openclaw.ai/install.sh | bash
+</code></pre>
+<p><img alt="截屏2026-03-16 10.02.53" src="../../images/6ad3dee71f42a363.webp"></p>
+<p>安装成功后会跳转到以下配置界面</p>
+<h3 id="32">3.2 配置环境</h3>
+<p>以下开始配置软件，进行基础设置</p>
+<p><img alt="截屏2026-03-13 12.47.15" src="../../images/437b65a5ef5aee17.webp"></p>
+<p>接着根据我们的教程逐步的部署基础设置</p>
+<p><img alt="截屏2026-03-16 10.17.59" src="../../images/bd62583b73ae5585.png"></p>
+<p>我明白这是默认仅供个人使用的，如果要用于共享/多人使用需要进行锁定（安全设置）。是否继续？选择yes</p>
+<p><img alt="截屏2026-03-16 10.18.27" src="../../images/bda87187c7185aa8.png"></p>
+<p>这是选择后续通过<code>openclaw configure</code>配置，还是现在手动配置，选择Manual</p>
+<p><img alt="截屏2026-03-16 10.20.29" src="../../images/24bb53b01d5f3265.webp"></p>
+<p>询问是否在<strong>当前正在使用的这台电脑</strong> 上直接安装并运行核心网关服务，选择Local getway(this machine)</p>
+<p><img alt="截屏2026-03-16 10.24.56" src="../../images/495e63437fd8f92c.png"></p>
+<p>询问安装位置，这里默认即可</p>
+<p><img alt="截屏2026-03-16 10.26.55" src="../../images/20f13435ff191155.webp"></p>
+<p>下面就是选择接入的模型了，上述图，<strong>本教程选择MiniMax</strong></p>
+<hr>
+<p>在https://pinchbench.com/可以查看各个模型的成功率和花费，综合任务执行成功率和花费，最终选择minimax-2.1,大家可以根据需要选取，考察了一下感觉coding-plan更划算，https://platform.minimaxi.com/subscribe/coding-plan，<strong>一个月29块</strong> ，注册订阅coding-plan</p>
+<p><img alt="未标题-6" src="../../images/fb09af4b5148d3cb.webp"></p>
+<p>从表中也可以看到Minimax2.1在基准测试中表现比MiniMax2.5要好</p>
+<hr>
+<p><img alt="截屏2026-03-16 10.49.00" src="../../images/c0e62488c0ddf3fa.webp"></p>
+<p>这里是选择国内还是国外,本次教程是coding plan套餐所以选择CN - Oauth</p>
+<p><img alt="截屏2026-03-16 10.49.21" src="../../images/e0f576522ef6a911.webp"></p>
+<p>点击红框内容跳转网页<strong>点击授权</strong> 确认</p>
+<p><img alt="截屏2026-03-16 10.50.23" src="../../images/74e0d63e813dfb36.webp"></p>
+<p>授权成功后</p>
+<p><img alt="截屏2026-03-16 10.52.34" src="../../images/6035ba14b9b7a01c.webp"></p>
+<p>选择手动选取模型</p>
+<p><img alt="截屏2026-03-16 10.53.05" src="../../images/50b21fc9e9594200.png"></p>
+<p>在各模型的基准测试中，<strong>2.1结果要优于2.5，所以手动选择2.1</strong></p>
+<p><img alt="截屏2026-03-16 11.00.11" src="../../images/0ad73ddb58f11f7f.png"><img alt="截屏2026-03-16 10.57.26" src="../../images/8a6f418073c17163.webp"></p>
+<p>接着是网关端口配置，我们西柚云给大家预留了三个端口可以自行分配，大家选择其中一个就可以</p>
+<p><img alt="截屏2026-03-16 11.01.21" src="../../images/eb23e9bcb0813b26.png"></p>
+<p>设置 <strong>Gateway（网关）绑定地址</strong> 的选项，本质上是在决定：<strong>这个服务要对哪些网络开放访问</strong> 。这里选择第三个Auto就可以</p>
+<p><img alt="截屏2026-03-16 11.04.25" src="../../images/9c578d05619f7232.png"></p>
+<p>配置 <strong>OpenClaw</strong> 网关（Gateway）时，系统让你选择<strong>安全认证（登录）方式</strong> ，选择Token</p>
+<p><img alt="截屏2026-03-16 11.06.54" src="../../images/5a429227b6c379ce.png"></p>
+<p>通过 <strong>Tailscale</strong> 来配置你的网关网络访问权限,选择serve</p>
+<p><img alt="截屏2026-03-16 11.08.02" src="../../images/2c03f191ab66b2d7.webp"></p>
+<p>选择yes</p>
+<p><img alt="截屏2026-03-16 11.08.39" src="../../images/cbac82bc67e1ce77.png"></p>
+<p>选择default</p>
+<p><img alt="截屏2026-03-16 11.09.47" src="../../images/5a7d7a6c39e636da.png"></p>
+<p>直接留空自动生成</p>
+<p><img alt="截屏2026-03-16 11.10.32" src="../../images/1c21177aca9e590c.png"></p>
+<p>这里配置企业微信接入信息，选择yes</p>
+<p><img alt="截屏2026-03-16 11.11.34" src="../../images/c0f5619e4638adc4.webp"></p>
+<p>默认没有企业微信，先跳过</p>
+<p><img alt="截屏2026-03-16 11.12.17" src="../../images/618ab57985b3a837.webp"></p>
+<p>这里要给模型设置网页搜索功能，先跳过</p>
+<p><img alt="截屏2026-03-16 11.13.02" src="../../images/9908a35774893367.webp"><img alt="截屏2026-03-13 14.01.49" src="../../images/f8d5f3d4c246e5d8.webp"></p>
+<p>配置一些ai工具的api，都选择no，都是非必要选项</p>
+<p><img alt="截屏2026-03-16 11.16.52" src="../../images/3e28f3574d04dcd8.webp"></p>
+<p>选择"Hooks",相当于“龙虾的记忆”，<code>session-memory</code>含义为当你在终端输入 <code>/new</code>（开启新对话）或 <code>/reset</code>（重置当前对话）时，Hook 会自动提取上一轮对话中的<strong>核心结论和关键信息</strong> ，存入 Agent 的长期记忆库中。</p>
+<p><img alt="截屏2026-03-16 11.20.05" src="../../images/75104de979561278.webp"></p>
+<p>是否安装网关服务，yes，Node</p>
+<p><img alt="截屏2026-03-16 11.21.33" src="../../images/ec042f31e0a01fb5.png"></p>
+<p>选择Do this later</p>
+<p><img alt="截屏2026-03-16 11.21.55" src="../../images/77217bcf5c7db10d.webp"></p>
+<p>yes</p>
+<p>选择完之后，基础配置就结束了</p>
+<h3 id="33">3.3 接入企业微信</h3>
+<p>首先下载企业微信客户端，登录后点击工作台</p>
+<p><img alt="截屏2026-03-16 11.25.42" src="../../images/68b0a308a0bc14c3.webp"></p>
+<p>点击智能机器人</p>
+<p><img alt="截屏2026-03-16 11.27.14" src="../../images/2536bf5009ee2e66.webp"></p>
+<p>点击创建机器人，点击<strong>手动创建</strong></p>
+<p><img alt="截屏2026-03-16 11.28.42" src="../../images/f17412419a2d6ece.webp"></p>
+<p>拖到最下方选择<strong>API模式创建</strong></p>
+<p><img alt="截屏2026-03-16 11.31.11" src="../../images/f39d776d70dd776c.webp"></p>
+<p>按照如上点击设置，获取<strong>bot id</strong> 和<strong>secret</strong> ，拖到到最后点击保存</p>
+<p><strong>接着在linux上配置企业微信插件</strong></p>
+<pre><code>#添加环境变量echo'export PATH=&quot;$(npm config get prefix)/bin:$PATH&quot;' &gt;&gt; ~/.bashrcsource ~/.bashrc#安装企业微信插件npx -y @wecom/wecom-openclaw-cli install
+</code></pre>
+<p><img alt="截屏2026-03-16 11.51.30" src="../../images/865c20bdf0ae767a.webp"></p>
+<p>选择手动输入</p>
+<p><img alt="截屏2026-03-16 11.52.43" src="../../images/5ca9be0f5ea04b0c.webp"></p>
+<p>输入在企业微信中的<strong>bot id</strong> 和<strong>secret</strong></p>
+<pre><code>#我们手动拉起一下，这样可以想停就停openclaw gateway stopopenclaw gateway --port20389
+</code></pre>
+<p><img alt="截屏2026-03-13 14.04.50" src="../../images/4d272a4de1b7c42f.webp"></p>
+<p>这样就可以在企业微信里回消息了</p>
+<p><img alt="截屏2026-03-16 12.33.19" src="../../images/22a1fdd42e144972.webp"></p>
+<h3 id="34-skills">3.4 安装skills</h3>
+<p>OpenClaw的<strong>Skills是赋予AI智能体执行实际任务能力的扩展插件</strong> ，使其从单纯的聊天机器人进化为强大的自动化助理。而腾讯的<strong>SkillHub</strong> 则是专为国内优化的本土化技能商店，它不仅提供<strong>高速镜像下载解决网络瓶颈</strong> ，还进行了全中文适配与安全审计，并深度接入了腾讯生态，降低了skills的安装门槛。</p>
+<pre><code>#大家可以上网站上找一下适合自己的插件https://skillhub.tencent.com/#featured#安装skillhubcurl-fsSL https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/install.sh | bash  -s----no-skillscurl-fsSL https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/install.sh | bash#配置环境变量echo'export PATH=&quot;$HOME/.local/bin:$PATH&quot;' &gt;&gt; ~/.bashrcsource ~/.bashrcskillhub install tavily-search#注意安装路径，后续还要用到
+</code></pre>
+<p>接着我们需要获取tavily的api，在官网上注册登录后就可以进行免费获取，每个月有<strong>1000次的免费额度</strong></p>
+<p><img alt="截屏2026-03-16 12.50.47" src="../../images/87630444be7060bb.webp"><img alt="截屏2026-03-16 12.51.04" src="../../images/a0a3dc5b6ee35b43.webp"></p>
+<p>将api-key写入<code>~/.openclaw/.env</code></p>
+<pre><code>TAVILY_API_KEY=...
+</code></pre>
+<p>重启一下openclaw，将安装skills的位置告诉openclaw启用，这里我还安装了其他的skills。</p>
+<p><img alt="截屏2026-03-16 13.05.55" src="../../images/530d71128abdc47f.webp"></p>
+<p>调用一下试一试</p>
+<p><img alt="截屏2026-03-16 13.09.48" src="../../images/b3759ad079fa0ed5.webp"></p>
+<p>可以在tavily官网看一下，可以看到已经在使用</p>
+<p><img alt="截屏2026-03-16 13.07.04" src="../../images/d72218f1e4013abc.png"></p>
+<h1 id="_5">四、使用案例</h1>
+<h3 id="41">4.1 检索文献</h3>
+<p><img alt="截屏2026-03-16 15.45.34" src="../../images/038699c66ca4e5d9.webp"><img alt="截屏2026-03-16 15.45.52" src="../../images/836eb50786423bd5.webp"><img alt="截屏2026-03-16 15.46.10" src="../../images/cce6ac3636a9a110.webp"><img alt="截屏2026-03-16 15.46.54" src="../../images/41e38f93c2b46cb2.webp"></p>
+<p><strong>一共检索了6篇文献还找到了只发了预印本的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535726&amp;idx=1&amp;sn=fa3a01ca6ec0f20d0e9b7ac960712ac3&amp;scene=21#wechat_redirect"> RFdiffusion3</a></strong></p>
+<h3 id="42">4.2 执行简单的生信任务</h3>
+<p><img alt="截屏2026-03-16 15.18.42" src="../../images/0b5f022ab1737a4d.webp"><img alt="截屏2026-03-16 15.16.01" src="../../images/9d739aa57eba6a7a.webp"><img alt="截屏2026-03-16 15.19.47" src="../../images/9987b0b20a81f13f.webp"><img alt="截屏2026-03-16 15.20.03" src="../../images/18ebafab65774d01.webp"><img alt="截屏2026-03-16 15.20.16" src="../../images/572b043e000bcc82.webp"><img alt="截屏2026-03-16 15.21.15" src="../../images/67505def2c5f036d.png"><img alt="截屏2026-03-16 15.21.31" src="../../images/9ec1c9d7bca1b9b9.webp"><img alt="截屏2026-03-16 15.21.45" src="../../images/11eed528371f2160.png"><img alt="截屏2026-03-16 15.23.42" src="../../images/9ddea0bfb0128b10.webp"></p>
+<p>如果你想让openclaw的发送结果到你的邮箱的话可以提供你邮箱的SMTP码，这样就可以直接发送报告或结果到你的邮箱了</p>
+<p><img alt="截屏2026-03-16 15.29.27" src="../../images/5b1603901f3bb275.webp"><img alt="截屏2026-03-16 15.31.43" src="../../images/38c69991234f789c.webp"><img alt="截屏2026-03-16 15.31.27" src="../../images/79271b0a98647881.webp"></p>
+<p>在这一步发现基因名用的不是gene symbol，所以又让openclaw重新绘图了一下</p>
+<p><img alt="截屏2026-03-16 15.40.12" src="../../images/b34c212918fe57aa.png"><img alt="截屏2026-03-16 15.40.22" src="../../images/ece445b0d28cfc83.webp"><img alt="截屏2026-03-16 15.40.36" src="../../images/f55308f3bc0d60cc.webp"><img alt="截屏2026-03-16 15.40.47" src="../../images/b6839e7288941631.webp"></p>
+<p>下面是openclaw出图和差异分析结果</p>
+<p><img alt="未标题-1" src="../../images/5e87ebc218f924dc.webp">
+<img alt="图片" src="../../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../../images/fb7650d03b8755cc.webp">
+<img alt="图片" src="../../images/bd69821fb60dc828.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。</p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../../images/2d4f3b9289619e36.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

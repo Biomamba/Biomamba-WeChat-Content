@@ -13,13 +13,13 @@ albums: ["文献速递"]
 **一、写在前面**
 
 本次分享的是《Nature Methods》（IF= 32.1）的文章****，**** 感兴趣的同学可以看看原文： Single-cell immune repertoire analysis DOI: 10.1038/s41592-024-02243-4
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5Trib7s4qmw3yjwVhYfUV0tjiccu5xtLyQgBer8zNnx6sOVP2Prh8ugU6qQ/640?wx_fmt=png&from=appmsg)
+![](../../images/49833ee092814098.webp)
 
 文章背景：
 
 **适应性免疫系统依靠免疫组库的巨大多样性来识别和应对广泛的病原体和外来物质。这是由大量表面结合的 T细胞抗原受体(TCR)和B细胞抗原受体(BCR)介导的。后者也可在B细胞分化为浆细胞或浆母细胞后作为可溶性抗体分泌。这些受体广泛的抗原特异性也使T细胞和B细胞能够区分自我和非自我抗原，使免疫系统能够对威胁做出适当的反应，同时使宿主不受伤害。**
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrvvliatHx2Ft2zUOT6Vqfg2HgZMA12ZjwOIBt31TSMjicjhYyiaC8hUHhw/640?wx_fmt=png&from=appmsg)**
+**![](../../images/4eda6ede0d552ccf.webp)**
 
 本文献相关的教程大家可参考：
 
@@ -40,7 +40,7 @@ albums: ["文献速递"]
 
 每个TCR或BCR是由两条不同的链组成的二聚体。TCR由αβT细胞中的**α链(TRA)** 与**β链(TRB)** 配对组成，或γδ T细胞中的**γ链(TRG)** 与**δ链(TRD)** 配对组成。BCRs由**重链(IgH)** 和**轻链** 组成；轻链来自 κ(IgK) 或 λ(IgL) 基因座。这些链是由 RAG1 和 RAG2 蛋白协调的**可变(V)、多样性(D)和连接(J)** 基因片段的基因重组的复杂过程的产物，分别发生在胸腺和骨髓中发育的T细胞和B细胞中。在这些片段的交界处还可以引入随机的**无模板法(N)** 和或**回文(P)** 核苷酸插入，进一步增加了复杂性。 这些重组事件发生在被称为**互补决定区(CDR)3** 的交界处，而 CDR1 和CDR2 则完全在V基因区域内。由于 CDRs 是与同源抗原结合的区域，它们，特别是 **CDR3** 区域，已成为大多数下游分析的焦点。此外，B细胞活化后，在活化诱导的胞苷脱氨酶(cytidine deaminase，AID)的介导下，BCRs可在整个受体中发生(随机)体细胞超突变(somatic hypermutations，SHMs)。AID也是BCR的类别转换重组(CSR)所必需的，这是一个生物学过程，它取代了编码同型类的BCR恒定基因，对B细胞成熟和整体体液免疫产生广泛的影响。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrJSSCViaYRLicN4jjj6aF68aU0myDd9MvcKZgtyaicSuu0GzhJSaPoiamNA/640?wx_fmt=png&from=appmsg)
+![](../../images/af0c9796417b41d1.webp)
 
 ## 2、单细胞免疫组库测序
 
@@ -50,7 +50,7 @@ albums: ["文献速递"]
 
 10X genomics的**单细胞BCR/TCR** 测序的原理，与单细胞转录组类似，通过微流控系统将带有条形码和引物的凝胶珠与单个细胞包裹在油滴中；接下来在每个油滴内，凝胶珠溶解，细胞裂解释放 mRNA，通过逆转录产生带有 10X barcode 和 UMI 信息的 cDNA。破油（Breaking Emulsions）之后，cDNA 一分为二，后续同时进行基因表达和免疫组库的文库构建。其中 **TCR** 或者 **BCR** 的 **V(D)J** 序列通过设计在 C 区的巢式引物进行 PCR 富集；而 mRNA 的信息，与 10X Genomics 3’mRNA 文库不同，保留的是 **5’端** 的信息。测序后即可一次性获得大量单细胞的基因表达和免疫组库数据。结合单细胞转录组测序数据与**BCR/TCR** 多样性数据，解析免疫细胞中更高维度的异质性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrBiahgZib3KFWVgTiarrbZJSpSb0HBZqskB0hNbwWOBDr3UibiaDAbib4DsNA/640?wx_fmt=png&from=appmsg)
+![](../../images/98abe390bfc233db.webp)
 
 **三、总结讨论**
 
@@ -61,22 +61,22 @@ albums: ["文献速递"]
   * 克隆聚类与筛选：去除非配对链、低质量链，基于CDR3序列进行相似性聚类（相同CDR3表示同源克隆），统计克隆频数、构建免疫克隆谱图，揭示免疫细胞克隆扩增特征。
   * 单细胞免疫受体与表达谱整合分析：将克隆信息整合进Seurat对象或Scanpy对象中，联合UMAP图上可视化免疫克隆空间分布，分析免疫细胞类型与克隆扩增的关系。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrkLAYAbMIwx25umUKopC2y4FuLGXfu1nFvhIVbqiaicxMhg32OdA5130A/640?wx_fmt=png&from=appmsg)
+![](../../images/277de906334d1af7.webp)
 
   * 高级整合分析：
 
-富集分析：是否特定克隆富集在某亚群轨迹分析：追踪克隆扩增细胞的分化路径（使用 monocle3 / scvelo 拟时序分析克隆动态）疾病相关性：对比健康vs疾病样本克隆谱（分析CDR3长度、多样性指数（Shannon, Simpson））![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TribWprzeLughibU8vHQxNoxIliaGPpHvekhdblwAmBqgB5j6VLUkiaRHB4g/640?wx_fmt=png&from=appmsg)
+富集分析：是否特定克隆富集在某亚群轨迹分析：追踪克隆扩增细胞的分化路径（使用 monocle3 / scvelo 拟时序分析克隆动态）疾病相关性：对比健康vs疾病样本克隆谱（分析CDR3长度、多样性指数（Shannon, Simpson））![](../../images/6dd8d273edbdc1c2.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)**
+**![图片](../../images/fe8ecb8594a1f419.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

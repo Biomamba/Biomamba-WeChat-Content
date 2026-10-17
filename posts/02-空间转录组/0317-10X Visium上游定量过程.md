@@ -10,7 +10,7 @@ albums: ["空间转录组"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522444&idx=1&sn=91ddf9e2ca3fb75db3ad524fe0042fab&chksm=9b3ce1dcac4b68cae69b4da8444dbccbf8c5cddd04697797420d1cc43a2048575a5f23d9d395#rd
 > 合集：空间转录组
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/73d94b6f8a663b6d.webp)
 
 # 1 软件简介
 
@@ -44,7 +44,7 @@ mkdir spaceranger
 wget -O spaceranger-3.0.0.tar.gz "https://cf.10xgenomics.com/releases/spatial-exp/spaceranger-3.0.0.tar.gz?Expires=1713228032&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=CdQ1bLjxIGu4jJbCJDzLpHozbM486wFSwzzl5TM3-sNR2AkssP~WqHmzBV7xwZmw93HqOg95QoT8p-xwXczVBEeEiMZ~nsPJRj7Gd9SVGlbj9DUi3EA7AFcgqgj-5vn0LpnvV1JXAJhpXF8AD-oEsvnWRkc0~rYVqmL2LIeoqa2mNiUkr9-G2Wkjkzwj46Ee1Y~rWb1-nYM3Jr9LtsmDs79SPLed3UOoXUeZJwsoTppdBplbGRiH~OzpiKTjIsl51lI-FS1xB0qoAo40XOGtCXxKVLMdL8Kv7QyKQZRj5bC5LpDjVnRyO7Da-5hEFKShC4vXTgdQ2I3MAjLNC68lAA__"
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzrus7AutPWammN15CmudppwhSeHibFvsy04D3VSiaWk1ibsON09q0Iia6Pw/640?wx_fmt=png&from=appmsg)
+![](../../images/5a6a22afb0274ad4.webp)
 
 需要几分钟进行下载
 
@@ -172,7 +172,7 @@ wget "https://cdn.10xgenomics.com/raw/upload/v1682709348/software-support/Spatia
 
 大部分时候比较推荐使用simple csv，内容只包含3列 (泳道Lane, 样品名称Sample, Index)：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzpnIBHxswCVzedzzIrjGjNzHia3cVQs8VayOsJ2T0iaqIQAk0uJkqHicSQ/640?wx_fmt=png&from=appmsg)
+![](../../images/ae4e9a6d5342d311.png)
 
 run:
 
@@ -187,7 +187,7 @@ spaceranger mkfastq --id=tiny-bcl #设置output文件名
 
 IEM样品表有几个特定于在Illumina平台上运行的字段，包括指定样品和索引信息的[数据]部分。spaceranger mkfastq 支持列出索引集名称或寡核苷酸序列。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzu96lGAwgFE3cUh2EXYTtqTIzqeUwj4YZpoPZZWq1txnPfMLzqQypLQ/640?wx_fmt=png&from=appmsg)
+![](../../images/e1909ef4e82cc935.png)
 
 run:
 
@@ -241,7 +241,7 @@ Space Ranger v2.1 及更高版本可以分析使用福尔马林固定石蜡包�
 
 常规的空间转录组的分析流程如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzVGC97XLFyEvVq4hDjBgJhJ8x2tInLibk57UjYLPq0OwWuibiaWN25ZHOw/640?wx_fmt=png&from=appmsg)
+![](../../images/c65874cd8d3c9000.webp)
 
 #### (1)input file输入文件准备
 
@@ -330,7 +330,7 @@ wget https://cf.10xgenomics.com/samples/spatial-exp/2.1.0/CytAssist_FFPE_Protein
 tar -xvf CytAssist_FFPE_Protein_Expression_Human_Tonsil_AddOns_fastqs.tar
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzCZDngWO4QAlP4kXhgQXbzV2Tsb1Mozbb3OjtsPUIPUA4B6tPVxHOibg/640?wx_fmt=png&from=appmsg)
+![](../../images/e425fa8b96745ba2.webp)
 
 ##### (3.2)run(这里进行图像的自动对齐)
 
@@ -381,17 +381,17 @@ chmod +x count_test.sh
 
 运行成功后会得到以下内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzMsmUIY76YfCKZjrfEiceqH8Xn524yZnNicSdMgKtVMtsficuSnOCfxKyA/640?wx_fmt=png&from=appmsg)
+![](../../images/7bc66c20b2b127ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz6tBNuG9ibAnxQvHxTxYYDbOZPbwkAJGGoduLvwN2uaYmX6KYVVNic0cw/640?wx_fmt=png&from=appmsg)
+![](../../images/08e2cc803bfc4dd1.webp)
 
 得到的结果文件内主要包含以下内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzYpFMF5EbXNvCicC3LeydrCoibVkgbtOlh1xasc2XEPy4gOxmmeVicVrkw/640?wx_fmt=png&from=appmsg)
+![](../../images/3ddbc5e5bfc73f86.webp)
 
 其中后续分析需要用到的数据在outs中，主要是filtered_feature_bc_matrix ，spatial (用于后续的seurat分析)；spaceranger本身也会进行下游分析 ，分析的结果保存在.cloupe，可以配合Loupe Browser进行使用；这次分析结果也会生成一个网页报告(web_summary.html)，里面包含本次分析信息例如分析数据信息(Summary)，质控信息(在网页报告中的Sequencing)以及下游分析信息(Gene Expression)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzYbb7vzILyL9JEHuvJdWgVbcmklwr3o8bogLrSQxjPlBZwLz4gCUEZQ/640?wx_fmt=png&from=appmsg)
+![](../../images/2438ee21d3767afd.webp)
 
 # 5 下游分析
 
@@ -422,11 +422,11 @@ Loupe中选择需要研究了cluster，并下载对应的Graph Based.csv文件�
 
 a.方式一直接选择cluster，并下载该文件内容共2列，分别是barcode ID和cluster编号；
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzcHgUK9udaTuEkicpxibwqv5xZaQrBR9AOQYvcSMPhVTDaFFUricygtxxw/640?wx_fmt=png&from=appmsg)
+![](../../images/621f8b6a5f8e41c7.webp)
 
 b.方式二先选中目标cluster，再用右上方的套索和画笔工具，选好后生成新的分析，点击export–projection to csv，得到csv文件共3列，分别是barcode ID和X、Y坐标点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzMbFQ1Q7Mmo7h2cBQPrfzzMWwmSzqtlU1SIF5CtTc5glqqYyAJdafSA/640?wx_fmt=png&from=appmsg)
+![](../../images/9fcd374cb9669d80.webp)
 
 ## (2)Seurat处理
 
@@ -448,31 +448,31 @@ object指原始数据，就是过滤后的表达矩阵。
 
 a.红框选中的地方
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz1W9ke0zibJhKS0PY8NPUq9O4AbJbS1iaoyoZoG8ftAI93cTgOhqG8b3A/640?wx_fmt=png&from=appmsg)
+![](../../images/381735330d6a4d52.webp)
 
 b.选择哪个取决于空间转录组是用什么技术做的，左边是普通，右边是用cytassist：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzW2IMEeIqib544YZpYUfXlKAu8UqXAHhR8hgtictbsaCsVRYTogia1KfmA/640?wx_fmt=png&from=appmsg)
+![](../../images/c2b8cc2e8edfb8d1.webp)
 
 c.这里选则右边，共4步骤，第一步上传图像，左边上传cyassist图像，右边上传组织图像，并在下方选择图像格式为明场还是荧光：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzUbYVVzZM6icjibcr809hUbv848gA666q9s9jibHfvEhibianwI1J6INPSYA/640?wx_fmt=png&from=appmsg)
+![](../../images/8d156db408fb8c1f.webp)
 
 d.上传成功后进行Next，Pin landmarks，进行左右定位，选择两张图中组织相同的位置，尽量选择5-8个点：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzrnaprej2TsNmtabjNkibcHhK1ck9qCwm0xwft7MlVAGkI3iamcevAerQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a25036a398212161.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz44gjY3lJXJbTcD2T1osEib9dZxVumn3Nk8wiccic3VNBu5pC45k922slw/640?wx_fmt=png&from=appmsg)
+![](../../images/061034530335a629.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzYdeqzLiaxkp8ODiahHcxqDHnyZvsVTqHs84Vfib6Ybm3XqTmG9atvuH6g/640?wx_fmt=png&from=appmsg)
+![](../../images/a538bdf17c053c55.webp)
 
 e.完成后进行下一步
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzG6OvjiaLZ0he1ia4YfuFt8z5b5O0CM1tTkuAUkhHeInhwNI64BibehvPA/640?wx_fmt=png&from=appmsg)
+![](../../images/f5c6ba3b5d867204.webp)
 
 f.选择生成JSON文件或者继续手动对齐：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzziaI8mq3nEecL0xsbInVTicHia95ufQSYq9u6DWBgrWXrzJO570k8IUZA/640?wx_fmt=png&from=appmsg)
+![](../../images/abb2c2111b2e7110.webp)
 
 # 补充1. Space Ranger的分析流程中的三种图像的参数
 
@@ -484,7 +484,7 @@ f.选择生成JSON文件或者继续手动对齐：
 **荧光**|  24 位单色图像 TIFF/BigTIFF 或 JPEG| \--colorizedImage\--dapi-index| 否，必须在loupe中手动对齐
 **CytAssist图像**|  24位彩色图像| \--cytaimage| 是
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/0ffc03dd3fbc9e2f.webp)
 
 **空间转录组内容合集**
 
@@ -524,9 +524,9 @@ f.选择生成JSON文件或者继续手动对齐：
 
 [空间转录组做到啥程度能博士毕业？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521581&idx=1&sn=0d7e4373a7bd011161e0e2b256c6461e&chksm=9b3cec7dac4b656bd062ec6b779916220b85903d1a4c955717c34b04867b92551e391772d8a6&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/06077bf834ad4007.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/0ffc03dd3fbc9e2f.webp)
 
 **欢迎致谢**
 
@@ -553,19 +553,19 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 **
 **
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/06077bf834ad4007.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

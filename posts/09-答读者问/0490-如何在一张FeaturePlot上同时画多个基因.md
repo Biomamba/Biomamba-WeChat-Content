@@ -27,12 +27,12 @@ scRNA <- readRDS('pbmc.rds')
 FeaturePlot(scRNA,'PTPRC')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUFUuSWofqXEft76QexAvVIjTia6dCl2LWgDL8rKCplf8mowGLev7eNia06UicjaYQZBoInUhkmbiaXw/640?wx_fmt=png) 当输入两个基因时，`FeaturePlot`就会自动将两个基因分别作图：
+![](../../images/952772afbfcaee1a.webp) 当输入两个基因时，`FeaturePlot`就会自动将两个基因分别作图：
 ```
 FeaturePlot(scRNA,c('PTPRC','CD3E'))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUFUuSWofqXEft76QexAvV9HWplEgcdbrNVuw9NnJs4H3nRib9xSCN2cwHmS6ESmCEWpRMRSTCnpg/640?wx_fmt=png) 问题来了，如何将这两个基因画在**一张图** 上呢？
+![](../../images/b07816599a364809.webp) 问题来了，如何将这两个基因画在**一张图** 上呢？
 
 如何解决问题
 
@@ -43,7 +43,7 @@ FeaturePlot(scRNA,c('PTPRC','CD3E'))
 FeaturePlot(scRNA,c('PTPRC','CD3E'),blend = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUFUuSWofqXEft76QexAvVC6JZia7JXJO27rueNG55nZxhHbiacYPNPmPmPbfo5GceUqmvmaAwp5WQ/640?wx_fmt=png)
+![](../../images/e019f68214cfb15e.webp)
 
 但是，当基因数量超过2个时，这个函数便会报错，遂有画法二
 ```
@@ -126,7 +126,7 @@ ggplot(mydata,aes(x=UMAP_1,y=UMAP_2))+
   theme_bw()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyUFUuSWofqXEft76QexAvVFic51SGWhFdibhqsH1hib4icOwRBZkuMwIUOozwqIZ48rP737Y2RQFFyDA/640?wx_fmt=png)
+![](../../images/5095d170fad8639d.webp)
 
 链接及测试文件
 
@@ -135,7 +135,7 @@ ggplot(mydata,aes(x=UMAP_1,y=UMAP_2))+
 https://pan.baidu.com/s/1k9UgBTzGpMLNLWjx3FlSJA?pwd=25s5
 提取码：25s5
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyUFUuSWofqXEft76QexAvVicQ1aLY6Uib3dLamIibLAzDzicDhiao6ZicVHlLp4TCohQZPtlZvIQ34b9hg/640?wx_fmt=jpeg)
+![](../../images/3001bc36315aa040.jpg)
 
 若链接失效可以文末联系客服领取~
 
@@ -185,17 +185,17 @@ https://pan.baidu.com/s/1k9UgBTzGpMLNLWjx3FlSJA?pwd=25s5
 
 [答读者问| 22.object 'CsparseMatrix_validate' not found](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247496273&idx=1&sn=fd5a92dd7fdc349b1624784ca74b1220&chksm=9b3c8b01ac4b0217cf06d89bfea49c3fa0c9b580957338c0cc8f55ede3e8f65d6d7162ae27e3&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

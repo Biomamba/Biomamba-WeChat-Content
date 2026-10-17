@@ -10,7 +10,7 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247512220&idx=1&sn=c71bc3f1ef007eb29be8b3b4ec10f0af&chksm=9b3cc9ccac4b40da749d2388dc2d885239a1e4f6ea0989f36b031c7253ce103b061e2605ad8c#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/73d94b6f8a663b6d.webp)
 
 # 先设置一下清华镜像
 
@@ -167,7 +167,7 @@ VlnPlot(pbmc, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3
 ## utilizing "counts" layer instead.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzIZBd136Jbic0xa3eA2QxQduu49evfmkvLndsYuq2LFvicQOCvvg37n3g/640?wx_fmt=png&from=appmsg)
+![](../../images/c6b23a6c15376e75.webp)
 
 三张图分别是：每个细胞基因的表达情况，转录本的表达情况和线粒体基因百分比。这里可以看到大部分细胞的线粒体百分比在5%以下，因此将5%以上的细胞过滤掉。
 
@@ -181,7 +181,7 @@ plot2 <- FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "nFeature_RNA"
 plot1 + plot2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz3f78ia0L2moAs9gcaBJqF0XIibeuLN1oC1Fcxh9AQyPibK53IvBbaNc4w/640?wx_fmt=png&from=appmsg)
+![](../../images/43f05db3ed3a4e1a.webp)
 
 左图：转录本表达对应的线粒体百分比较低，大部分在5%下
 
@@ -200,7 +200,7 @@ VlnPlot(pbmc, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3
 ## utilizing "counts" layer instead.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzjVv4pF5QCynrgqiciceYIbPYic8ribeLaSNS6MBbJKpDBicU3ZOlvPLUQPQ/640?wx_fmt=png&from=appmsg)
+![](../../images/624219930a271c43.webp)
 
 # 7\. 数据标准化
 
@@ -922,7 +922,7 @@ plot1
 ## Warning in scale_x_log10(): log-10 transformation introduced infinite values.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzq0Z9gtWNRGyYzNYSxRRD6n7AZIzVGkcFnqp02P5p6galP5JibrxUcRw/640?wx_fmt=png&from=appmsg)
+![](../../images/e9ac0bfe0cc114ff.webp)
 
 ```
 plot2
@@ -931,7 +931,7 @@ plot2
 ## Warning in scale_x_log10(): log-10 transformation introduced infinite values.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzK0nrmnolAu3Kls4WubN8Bf7lovGEX2TzO8R0AGv2kbtUqsFYSXH1eQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9484c4eeb88e1a31.webp)
 
 ## 8.4 hvg的存放位置
 
@@ -961,7 +961,7 @@ pbmc <- ScaleData(pbmc, features=all.genes)
 ## Centering and scaling data matrix
 ```
 
-结果存放于： ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzv1ngOCg6ISFia3NbTxVJ0wovrxmufPaFzkopMcWQSJl5N0pic3hJhISg/640?wx_fmt=png&from=appmsg)
+结果存放于： ![](../../images/3841913b6a218fd4.webp)
 
 # 10\. 数据降
 
@@ -1030,7 +1030,7 @@ print(pbmc[["pca"]], dims = 1:2, nfeatures = 5)
 DimHeatmap(pbmc, dims = 1:2, cells = 500, balanced = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmziaeRFxHZKebwfeq7dd2Ms36vNTOvmp0VOpOOzaJUkuyiaoQy7Fe3PXnA/640?wx_fmt=png&from=appmsg)
+![](../../images/4fb78a5243a33091.webp)
 
   4. 使用肘图确定采用的主成分:
 
@@ -1038,7 +1038,7 @@ DimHeatmap(pbmc, dims = 1:2, cells = 500, balanced = TRUE)
 ElbowPlot(pbmc,ndims = 50)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzicZbpfIwKsRaacr8ibJDmibL23kEicJwTxc679ES6PCTp5S7Gh7gg68LBA/640?wx_fmt=png&from=appmsg)
+![](../../images/45f81f387af6984b.png)
 
 从这张图可以看到从第10个主成分之后的主成分对数据的解释度基本不变了，因此我们截取到前10个主成分。
 
@@ -1135,7 +1135,7 @@ pbmc <- RunUMAP(pbmc, dims = 1:10)
 DimPlot(pbmc, reduction = "umap")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz55Asqzib04Cm0KBsxNlb5iafM1wAO969btia8BgWqgj1w5dJzlcsl2n9A/640?wx_fmt=png&from=appmsg)
+![](../../images/4d1ada14894df7fa.webp)
 
 ### 11.4.2 tsne降维可视化
 
@@ -1144,7 +1144,7 @@ pbmc <- RunTSNE(pbmc, dims = 1:10)
 DimPlot(pbmc, reduction = "tsne")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzkHFNYMFQYlgs43X7qX60DhBybFnfCBQothdtZibEibnj0N57E9RTM2Sw/640?wx_fmt=png&from=appmsg)
+![](../../images/a915d9e9c4ce62f5.webp)
 
 # 12\. 计算差异基因
 
@@ -1270,7 +1270,7 @@ pbmc.markers %>% group_by(cluster) %>% top_n(n = 2, wt = avg_log2FC)
 VlnPlot(pbmc, features = "MS4A1")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzyiavBxqqBB1x1Qict1c4E4BhvgLpujETWm9XqiaGpC9mtiacMStzoFmkAg/640?wx_fmt=png&from=appmsg)
+![](../../images/b57204de8864e697.webp)
 
 ## 13.2 在umap图中展示marker基因
 
@@ -1278,7 +1278,7 @@ VlnPlot(pbmc, features = "MS4A1")
 FeaturePlot(pbmc, features = c("MS4A1","CD3E"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzF2RZpLGTYonAHTdX3n9RD5wXM2TWWf9Il2pWErK0MoET0ZaxHogicoQ/640?wx_fmt=png&from=appmsg)
+![](../../images/e571d97b24ad3fb3.webp)
 
 ## 13.3 热图展示所有细胞类群的前4个marker基因
 
@@ -1287,7 +1287,7 @@ top4 <- pbmc.markers %>% group_by(cluster) %>% top_n(n = 4, wt = avg_log2FC)
 DoHeatmap(pbmc, features = top4$gene) + NoLegend()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzyia6BWzsEKa1uZUVavFia2VF392vslwQFiahU2A583bY0eA8ibjgoQ8ZMg/640?wx_fmt=png&from=appmsg)
+![](../../images/fce3b33eccb4593d.webp)
 
 ## 13.4 dotplot展示所有细胞类群的前4个marker基因
 
@@ -1295,11 +1295,11 @@ DoHeatmap(pbmc, features = top4$gene) + NoLegend()
 DotPlot(pbmc, features = unique(top4$gene), cols = c("#008B8B", "red"), dot.scale = 5) + RotatedAxis()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzftJpr9dOyTRo6VDN7Yro8kuYn7yAJH3VNwsFiawqKpybaOic8myRmFnQ/640?wx_fmt=png&from=appmsg)
+![](../../images/472414f3e083542d.webp)
 
 # 14 对各cluster标注细胞类型
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzMcYz8Y10301Vm11SOoiczhOnMYLVhyCCvyVF2Ls5icDvEAYQrmaeTbsw/640?wx_fmt=png&from=appmsg)
+![](../../images/ccd56cfa7a9bb5b6.png)
 
 ```r
 new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T", "FCGR3A+ Mono",
@@ -1309,7 +1309,7 @@ pbmc <- RenameIdents(pbmc, new.cluster.ids)
 DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzR2O80ZOZmENuq3A1ybaBfYs97eLkk5UN1xDp5Kqu1PaOutOpMvY9Ig/640?wx_fmt=png&from=appmsg)
+![](../../images/e15cbbe4d65c31aa.webp)
 
 ```r
 library(ggplot2)
@@ -1323,7 +1323,7 @@ ggsave(filename = "/home/wangyan/peixun/seurat/Seurat/pbmc3k_umap.jpg", height =
 
 **单细胞系列教程目录**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：[scRNA-Seq学习手册2023_R语言版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500516&idx=1&sn=3c0b9de505fcd232054e38b451fa1742&chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&scene=21#wechat_redirect>)
+![](../../images/73d94b6f8a663b6d.webp) 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：[scRNA-Seq学习手册2023_R语言版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500516&idx=1&sn=3c0b9de505fcd232054e38b451fa1742&chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&scene=21#wechat_redirect>)
 [scRNA-Seq学习手册Python版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504877&idx=2&sn=2b56a9cfa19fcc918ee6c2ed88fed017&chksm=9b3caabdac4b23ab6e28425a4a5eb4d40ee3612e51f84f5d1e53ac91bef93f717e9e754398e3&scene=21#wechat_redirect>)
 
 单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：[手把手教你做单细胞测序数据分析|1.绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499776&idx=2&sn=7fc250d94ed88cfd5e2224f071bb1742&chksm=9b3cb950ac4b30467a082527547b91aec15b7d1f40d44e362894aedeb6a99e014518fa5e4743&scene=21#wechat_redirect>)
@@ -1479,17 +1479,17 @@ scFAST系列[scFAST分析| 01.绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzO
 [独享服务器，生信分析不求人](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503618&idx=1&sn=ca47ca985aa8560f6b38f15f210519e2&chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&scene=21#wechat_redirect>)
 [为实验室准备一份生物信息学不动产](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247502932&idx=1&sn=401d384d47616029375224b2d0a3c933&chksm=9b3cb504ac4b3c1299aac5c9f0747ccc36777390d2a939e1ed4af37c2836c1f7e8b4af612989&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

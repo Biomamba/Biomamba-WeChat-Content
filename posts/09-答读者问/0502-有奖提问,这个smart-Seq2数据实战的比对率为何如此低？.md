@@ -12,7 +12,7 @@ albums: ["答读者问"]
 
 # 背景
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjXXM83CEKaShnob6fjNQenZry9COXYYFQzhDFgfR9oDFclqGnc3qc6uNJF5XNnpjHrxrukJSH93g/640?wx_fmt=png)
+![](../../images/e327ef233e98cb25.png)
 
 **GSE109488** 数据集链接：
 
@@ -325,7 +325,7 @@ gtf=/home/shpc_100419/biosoft/gencode.v19.annotation.gtf
 featureCounts -T 10 -p -t exon -g gene_name -a $gtf -o all_counts.txt *.bam 1>featureCounts.log 2>&1
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyar0wQVwPW1QGmuMqw0Oc6libEBPt9mFVDQLaz7ypIeKAt4rkpUJA9K3t91kvMzBiczOJiboQcgibuTw/640?wx_fmt=png) ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyar0wQVwPW1QGmuMqw0Oc6PCiclOXcMdjiaPwtaJLOecnh5bicHibLDialRvmT42eej5fglcOM7efPxzg/640?wx_fmt=png) ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyar0wQVwPW1QGmuMqw0Oc6iaECwU0TFWAxOTwkkpgUst28MhAfjstNic0z1HcPOvLqGHdRE57eqiblQ/640?wx_fmt=png)
+![](../../images/d78a339b5e1c022f.webp) ![](../../images/9ddba4d75c9c28f4.webp) ![](../../images/856ef082459f80c1.webp)
 
 ## 查看文档日志
 ```
@@ -440,11 +440,11 @@ cat featureCounts.log
 \\============================================================================//
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png)
+![](../../images/2cc9316bafeedaf7.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[你们要的微信、交流群，来了！](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487083&idx=1&sn=312a8435f6b938602624a7e9028ad3c6&chksm=9b3f773bac48fe2d3a2886988b35b006bbd05da11e2d7f735afc78c02ffbd179ebc9722a97cd&scene=21#wechat_redirect>)
+![](../../images/9b3df9175ed77a7e.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[你们要的微信、交流群，来了！](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487083&idx=1&sn=312a8435f6b938602624a7e9028ad3c6&chksm=9b3f773bac48fe2d3a2886988b35b006bbd05da11e2d7f735afc78c02ffbd179ebc9722a97cd&scene=21#wechat_redirect>)
 大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[有关提高"Biomamba 生信基地"运行效率事宜](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486435&idx=1&sn=c61124eb7c0fd6cc0eaefb639b551092&chksm=9b3f72b3ac48fba5c0091fd843c98d504d4aefe0ba01a2fed966f897f58d8924ace8df07955e&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

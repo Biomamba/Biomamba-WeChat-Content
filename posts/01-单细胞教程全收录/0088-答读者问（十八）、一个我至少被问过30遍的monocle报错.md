@@ -14,13 +14,13 @@ albums: ["单细胞教程全收录", "答读者问"]
 
 #### 最近很多同学在学习我们monocle2的教程([单细胞测序数据进阶分析—《拟时序分析》3.monocle2实操：完整版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487400&idx=1&sn=223a96a245c408c31e2c3c16afac88fc&chksm=9b3f76f8ac48ffee769dc76870e15bbd0275647dcfb9bf21bf499b7eaee86121b254e4b2da54&scene=21#wechat_redirect>))时，在运行到orderCells函数时会出现如下报错。几乎每天都会有人问这个问题，从教程发出以来已经被问了数十遍。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzSS8NsKHibSoWlSe57SL5nI6XrlDoCOCMBa6a5SYj2zXYCWNx4d1IIQ8KxRSnwZ7XWAnVibJt0OGzQ/640?wx_fmt=png)
+![](../../images/bc270cbacb87c72a.png)
 
 怎么解决问题
 
 其实这个问题的答案很简单，我在最开始录这个视频课程的时候就已经说过了，不信大家看，这里的4:00处我已经说过了，如果你的monocle2安装的不是2.18.0的版本，orderCell()的时候就会遇到这种问题:https://www.bilibili.com/video/BV1br4y1x7Hf?p=4
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzSS8NsKHibSoWlSe57SL5nIaPrOEOgAibxERoPS6x6cicbJ8E4Gml92r498NXc41VeKoVvNB4U6FZtw/640?wx_fmt=png)
+![](../../images/fe2182a92d83d949.webp)
 
 视频(点击文末阅读原文可跳转)中4:00开始到8:00结束主要就是为了给大家解释这个问题如何去解决，这里我们也把代码贴出来再给大家演示一遍：
 1、安装conda：
@@ -41,7 +41,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Linux
 conda create -n monocle.2.18.0conda activate monocle.2.18.0conda search r-base#会返回一大堆版本给你，几乎也是所有版本了
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzXwkfDiabytPonNHibD6EvDicJM2cp4gFqTpmDszQVic7rL1DU0BQRTPxteq63MndI844ZnVdkDU0SLw/640?wx_fmt=jpeg)
+![](../../images/fcec00c9f78dda7d.webp)
 
   *
 
@@ -95,10 +95,10 @@ conda install bioconductor-monocle==2.18.0
 
 [答读者问 （十七）调用的线程越多就算的越快嘛?](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488995&idx=1&sn=7140e0d037671542fb37dff3a3c94b28&chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

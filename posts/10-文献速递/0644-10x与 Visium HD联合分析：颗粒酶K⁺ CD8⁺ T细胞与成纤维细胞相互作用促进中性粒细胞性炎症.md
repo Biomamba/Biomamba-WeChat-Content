@@ -25,7 +25,7 @@ albums: ["文献速递"]
 
 因此，如何对鼻息肉中异质CD8+T细胞亚群及其克隆特征进行全面表征，以及CD8+T细胞与非免疫组织环境之间如何进行相互作用仍需探索。
 
-如果你希望有人真的手把手教你学单细胞和空转：[![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpy502RvEG9SaCFlS2I3lAXs5bAmnDdccOO6w4sMYscuUUw265f7RemapKciaibAzCHpZpglqOLvsA8Q/640?wx_fmt=jpeg&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531447&idx=1&sn=242b49b5e2f5496efbd4484bf2e81604&scene=21#wechat_redirect>)更多课程：
+如果你希望有人真的手把手教你学单细胞和空转：[![](../../images/f2d61ad0ab857d66.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531447&idx=1&sn=242b49b5e2f5496efbd4484bf2e81604&scene=21#wechat_redirect>)更多课程：
 
 [R语言scRNA-seq小白全程班（2026年版本）](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535408&idx=1&sn=1f3b4b99bab378887d11dd83fd87feb7&scene=21#wechat_redirect>)
 
@@ -36,11 +36,11 @@ albums: ["文献速递"]
 
 **1: 对照组参与者与 CRSwNP 患者之间的不同免疫细胞组成**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcLiaKmcbjEiciceWP88P7jeJ6jBxbMc5XwsaBeDdGV7flic7Es49mzib9Hiaw/640?wx_fmt=png&from=appmsg)
+![](../../images/d0f1d4990d1f1f01.webp)
 
 Figure1
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRco9Q5AS17ziadMgt362GbGa2hlj60IRMR5Me1vUA7CBCib1JRPIZibfX5A/640?wx_fmt=png&from=appmsg)
+![](../../images/e43aa37b93679d8c.webp)
 
 FigureS2
 
@@ -48,11 +48,11 @@ FigureS2
 
 2:在鼻息肉中，与对照组织相比，具有独特转录程式的 GZMK+CD8+ T 细胞数量增加
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXqGbjiaxEzHrxxr1bia9BSWedhqlZPCmH3QwO2gxtMglPMkmzOyjfXjbw/640?wx_fmt=png&from=appmsg)
+![](../../images/dbeb7d97f48a7840.webp)
 
 Figure2
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX9KFONibqZudibLcxgFNykuVEHLRyYkyMxrAE7ibgjWnLe0pMdzv9BFu7A/640?wx_fmt=png&from=appmsg)
+![](../../images/609ddc1cc70e0c72.webp)
 
 FigureS3
 
@@ -60,11 +60,11 @@ FigureS3
 
 3:GZMK+CD8+ T 细胞是鼻息肉中GZMK的主要细胞来源
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRchml0N2z1MZkgqlk4XaDibibxmVHsicxAzx4QJic7oHASrZplmibDfCCu5aA/640?wx_fmt=png&from=appmsg)
+![](../../images/e3c2913194cc40e4.webp)
 
 Figure3
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRc4KRcpQLEjMibImzuiaOws4Xp2cuic7LRsO64dW0N4j6d0MzjY902lgm1w/640?wx_fmt=png&from=appmsg)
+![](../../images/53e3ee7b694d4f13.webp)
 
 FigureS4
 
@@ -72,11 +72,11 @@ FigureS4
 
 4: NPs 中GZMK+CD8+ T 细胞与成纤维细胞的相互作用
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcvSrvVgYEicYibG1U44kYW22J2EKag0LBeEv9KO4V2M1AGaCInibhrp73g/640?wx_fmt=png&from=appmsg)
+![](../../images/168c17ebf82b373b.webp)
 
 Figure4
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcxN1pVtrTIYRsb9XyzXOTSiaNmaQcjhhgLiaCytaFAxW9ic0VpRARRl0og/640?wx_fmt=png&from=appmsg)
+![](../../images/b1d8002a137e2db9.webp)
 
 Figure5
 
@@ -84,7 +84,7 @@ Figure5
 
 5:GZMK + CD8 + T 细胞促进成纤维细胞的促炎表型并与息肉中的嗜中性粒细胞炎症相关
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcGN9SgLiaCU79SVGJSwDhrTPayymmQJU51gyfICTgbG6Yt7QCYwhSXhw/640?wx_fmt=png&from=appmsg)
+![](../../images/f515093b0370eaaf.webp)
 
 Figure6
 
@@ -92,7 +92,7 @@ Figure6
 
 6:CD8 + T 细胞的克隆关系与发育轨迹
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcyjOEQq9CQoVlhLU67ADibPQRwcPAVsiantDib1P0ibk7nmMR8Cnl25o7Fg/640?wx_fmt=png&from=appmsg)
+![](../../images/2012a64008a5f8eb.webp)
 
 Figure7
 
@@ -100,7 +100,7 @@ scTCR-seq 显示约 70% CD8⁺T 获得 TCR 克隆型；与外周血相比，鼻�
 
 7:GZMK + CD8 + T 细胞的扩增以及在慢性炎症中通过 CXCR4-CXCL12 轴与成纤维细胞的相互作用
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcJqq3OeaHG18gjU2FdhvIgv2jsc9Cqs8REBKgcRsPCPibjM6lbWqOV8w/640?wx_fmt=png&from=appmsg)
+![](../../images/4fd91497cf031f0d.webp)
 
 Figure8
 
@@ -150,14 +150,14 @@ GZMK 或其相关转录特征可用作病理亚型标志或预后/治疗反应�
 
 本研究首次系统表征了GZMK⁺CD8⁺T 在CRSwNP的定位、克隆学与功能作用，提出成纤维细胞—GZMK⁺CD8⁺T—中性粒细胞轴为鼻息肉嗜中性炎症的核心机制，为靶向该轴的诊疗策略开发提供了明确的分子与细胞学依据。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=14)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=16) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

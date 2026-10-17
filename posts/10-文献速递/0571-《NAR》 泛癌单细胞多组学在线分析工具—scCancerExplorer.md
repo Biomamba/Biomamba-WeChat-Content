@@ -20,7 +20,7 @@ albums: ["文献速递"]
 
 通过简单的点击鼠标，即可便捷地获取基因在 多种组学层面的综合信息，包括在癌细胞及肿瘤微环境的各种细胞类型中的基因表达水平、TCGA生存分析结果、启动子区DNA甲基化水平、启动子区染色质可及性水平和转录因子活性等，帮助用户快速从多个角度理解关注的基因及其在肿瘤发生发展中的作用。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzn3Ka9JhJfoH5buQhZzn4tUneWSdUdwYA6JVtzBWxoH4ibe03ibVmT1iaG0LsIxtW3RtdL2QX2M62iaA/640?wx_fmt=png&from=appmsg)
+![](../../images/242af83d6441f847.webp)
 
 **图2. 整合多组学分析模块**
 
@@ -32,7 +32,7 @@ albums: ["文献速递"]
 
 3\. 个性化图表绘制（DIY expression plot）：支持用户自定义绘制多种形式的图片（点图、热图、小提琴图），展示感兴趣的多个基因在选定细胞类型中的表达模式，例如可视化比较不同采样位置、癌症分期、病理亚型和性别之间的差异，并且生成的图片均可以下载为PDF文件。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzn3Ka9JhJfoH5buQhZzn4tmaMibzglEBkGh7c0eV2btnGXnCOgaagJzco6O37b0wyhIWnnwoDBQAA/640?wx_fmt=png&from=appmsg)
+![](../../images/262a657b6dd179c5.webp)
 
 **图3. 单细胞转录组分析模块**
 
@@ -48,7 +48,7 @@ albums: ["文献速递"]
 
 5. 自定义ATAC-seq作图（DIY ATAC-seq plot）：用户可便捷查询多个转录因子的motif活性，并生成定制化图形。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzn3Ka9JhJfoH5buQhZzn4tCwiaCdVbHKJpO8uh68s7Lmic3Cxia02ZOcupnVHge0Dj3HibqMra8LQ6zQ/640?wx_fmt=png&from=appmsg)
+![](../../images/7cfb88998645fea0.webp)
 
 **图 4\. 单细胞表观组模块******
 
@@ -56,7 +56,7 @@ albums: ["文献速递"]
 
 基因组拷贝数变异是肿瘤细胞的典型特征，并且在患者间及患者内均呈现出强烈的异质性。该功能模块支持 用户在单细胞水平生成基因组拷贝数变异热图，探索多种癌症的基因组拷贝数变异特征及异质性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzn3Ka9JhJfoH5buQhZzn4t7zUgkenf0VXZtqTq2qNqV2rNrSw3DBr3ExibsjUx5hmhEZdibpc7Mu0g/640?wx_fmt=png&from=appmsg)
+![](../../images/c40adba2fac06c3e.webp)
 
 **图 5\. 单细胞基因组模块******
 
@@ -68,7 +68,7 @@ albums: ["文献速递"]
 
 3. 启动子区DNA甲基化（TCGA promoter DNA methylation）：在线比较TCGA正常组织和肿瘤中基因启动子区域的DNA甲基化水平，覆盖33种癌症类型。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzn3Ka9JhJfoH5buQhZzn4tPrtqvbqR0Va1JMMkShfZ7fRrInhrHU6iaJqJ3c3TYicmDuQE9rYicsic2A/640?wx_fmt=png&from=appmsg)
+![](../../images/388fe05623e3d901.webp)
 
 **图 6\. TCGA数据分析模块******
 
@@ -84,11 +84,11 @@ https://bianlab.cn/scCancerExplorer
 
 ****https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkae1100/7903385#494337848
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下客服**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下客服**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -97,6 +97,6 @@ https://bianlab.cn/scCancerExplorer
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/7ef00c45433a7bde.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

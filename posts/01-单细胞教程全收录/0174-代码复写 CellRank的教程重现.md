@@ -17,7 +17,7 @@ albums: ["单细胞教程全收录", "全文复现"]
 首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是07号作品。本作品复写了题为"CellRank for directed single-cell fate mapping"的论文，**文章链接** ：https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8828480/
 **复现图片集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhxWhdPukVicZMI53PFVVTZWJYdGQJHibRnHN8TXgIS2uiciaggoZia5GiaHzA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/81665b76f2df518e.webp)
 
 一、复写内容
 
@@ -100,7 +100,7 @@ scv.pp.moments(adata_raw, n_neighbors=None)
 scv.tl.recover_dynamics(adata, n_jobs=8)scv.tl.velocity(adata, mode="dynamical", n_jobs=8)scv.tl.velocity_graph(adata)scv.pl.velocity_embedding_stream(adata, legend_fontsize=12, title="", smooth=0.8, min_mass=2.5,                                 color="lineage")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhnGxgiawudLRrcgGAmN21uJ9VSRPeqUvcDYxxIMoJia09icRonKxlLAKhQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a0d75c92e8c14bc3.webp)
 
 三维速率图展示
 
@@ -115,7 +115,7 @@ ax.view_init(20, 100)
 plt.savefig(FIG_DIR / "fig_1_a_high_dim_projection.pdf")plt.show()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhcpTcjqGMpShWaRXtw0sR9IbPy2UicMjyIYn7oVBiahNMmQxQKUjffTEg/640?wx_fmt=png&from=appmsg)
+![](../../images/0fe23e98bda3587e.webp)
 
   *   *
 
@@ -157,7 +157,7 @@ plt.colorbar(mappable=cax)plt.savefig(FIG_DIR / "fig_1_c_1_transition_matrix.pdf
 ['sA -> sB_1' 'sA -> sB_2' 'sD -> sEndD' 'sC -> sEndC']
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhRgiaxeXMLjZ5EAOJAiaHI6AWFftBg8zompYllKWicwv8oC1PurjTJbJxw/640?wx_fmt=png&from=appmsg)
+![](../../images/faabeac03aae397d.webp)
 
 ### 宏状态级别的转移矩阵（Fig1 c右上角）
 
@@ -167,7 +167,7 @@ plt.colorbar(mappable=cax)plt.savefig(FIG_DIR / "fig_1_c_1_transition_matrix.pdf
 fig_kwargs = {"text_kwargs": {"fontsize": 40},              "show_stationary_dist": False,              "annotate": False,              "cmap": "viridis",              "save":"fig_1_c_2_transition_matrix_coarse.pdf"}g_fwd.plot_coarse_T(**fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhlgBwWTufHU7Yaia8WFkvksyUxoiaP1Legt1LXibquBMx9CgfEhuBicicKibA/640?wx_fmt=png&from=appmsg)
+![](../../images/fc440347b7609727.webp)
 
 ### 宏状态在UMAP中的显示（Fig 1c下部）
 
@@ -178,7 +178,7 @@ g_fwd.compute_macrostates(n_states=4, cluster_key="lineage")
 fig_kwargs = {"discrete": True,              "legend_loc": "right",              "save": "fig_1_c_3_macrostates.pdf"}g_fwd.plot_macrostates(**fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIh4Ll0SvBUouhOjL0380w5Xaspw2YGpP51a3WlGrMeScxarhGu1SdoAg/640?wx_fmt=png&from=appmsg)
+![](../../images/5dcdb020c3c57d58.webp)
 
 鉴定，区分宏状态中的初始和终止状态，区分Fig1 c下部的初始、终止状态
 
@@ -189,7 +189,7 @@ g_fwd.compute_terminal_states()g_fwd._compute_initial_states()
 # 使用scvelo绘制scv.pl.scatter(adata, c=["initial_states", "terminal_states"], legend_loc="right")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhGqsLx7u8k1QDMbLYqicf3A8XHr5TSwVFMqYicqicYux1QK5FQhaTjNlZg/640?wx_fmt=png&from=appmsg)
+![](../../images/cc479868f5bdc69a.webp)
 
 ## UMAP图上计算吸收概率（Fig1 d）
 
@@ -200,7 +200,7 @@ g_fwd.compute_terminal_states()g_fwd._compute_initial_states()
 fig_kwargs = {"dpi": dpi,              "add_outline": True,              "legend_loc": "right",              "save":"fig_1_d_fate_map.pdf"}g_fwd.plot_absorption_probabilities(**fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIh1IicRuyJ8aweIx1NTiaLAnLhQI9Ee88CDmaicKMPw69vCKfbYms7o89CA/640?wx_fmt=png&from=appmsg)
+![](../../images/e182d2f798e6b946.webp)
 
 ## 可视化基因表达趋势（Fig1 e）
 
@@ -212,7 +212,7 @@ fig_kwargs = {"dpi": dpi,              "add_outline": True,              "legend
 # 绘制谱系相关的基因fig_kwargs = {"color": ["114","72"],  # 背景知识已知114，72基因分别对应着终止状态sC-sEndC, sB->sEndD的marker基因              "ncols": 1,              "perc": [0, 98],               "dpi": dpi,               "title": ["gene 1", "gene 2"],               "colorbar": False,               "color_map": "viridis",               "size": 100,              "save": "fig_1_e_1_gene_expression_embedding.pdf"}scv.pl.scatter(adata, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhtBNjQiakVp9we8YQ4NwXmicUgpts1eTpukyLFKnBIplg6N8MDVp8XM4Q/640?wx_fmt=png&from=appmsg)
+![](../../images/f58457945fbd0ac6.webp)
 
 ### Marker基因着伪时间变化的曲线（Fig1 e右部）
 
@@ -235,7 +235,7 @@ fig_kwargs = {"color": ["11", "54",  "43"],              "ncols":1,http://localh
 scv.pl.scatter(adata_raw, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhme6xibia0CK6noH6YNcaibSwhe6AHt5syZgU11sqUKwh9nReMoEKtJGrQ/640?wx_fmt=png&from=appmsg)
+![](../../images/88b4b33670d8cdc1.webp)
 
 ###
 
@@ -249,7 +249,7 @@ scv.pl.scatter(adata_raw, **fig_kwargs)
 g_fwd.compute_lineage_drivers(use_raw=True)# adata.raw.varm["terminal_lineage_drivers"] # 排序后展示
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhexGTqjhJic35NLYsSv9dfWdnB92wzFrAGjExZXn7gVz4XMPHlIbI98A/640?wx_fmt=png&from=appmsg)
+![](../../images/d45e9ccb06beb3f1.png)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -348,7 +348,7 @@ scv.tl.velocity_graph(adata)
 fig_kwargs = {"color": ["clusters"],                 "legend_loc": "right",                 "dpi": dpi,                 "save": "fig_2_a_velocities_umap.pdf"}scv.pl.velocity_embedding_stream(adata, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhrTNuuiafkPQRWxRM1ouOzkH9KfvTe3sh5GnGb0L4GmO7c1DojdR87tQ/640?wx_fmt=png&from=appmsg)
+![](../../images/e933c4f9626dd239.webp)
 
 # 运行CellRank（Fig2）
 
@@ -375,7 +375,7 @@ g_fwd
 fig_kwargs = {"legend_loc": "right", "discrete": False, "dpi":dpi, "size": 100, "save":"fig_2_b_macrostates_umap.pdf"}g_fwd.plot_macrostates(**fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhgyk2Lz2RpjRqseZwhDuUcZYKFdEggORJstNnt8PxAnURCGP3ZG8Z5A/640?wx_fmt=png&from=appmsg)
+![](../../images/46e2a97578e7049f.webp)
 
 ## 宏状态级别的转移矩阵（Fig2 c）¶
 
@@ -388,7 +388,7 @@ T_coarse = g_fwd.coarse_T# NOTE: 根据具体的宏状态按照顺序指定macro
 fig = plt.figure(None, (6, 5), dpi=dpi)ax = fig.add_subplot(111)sns.heatmap(T_coarse[macro_names].loc[macro_names], cmap="viridis", ax=ax)plt.savefig(FIG_DIR / "fig_2_c_t_coarse.pdf", bbox_inches="tight")plt.show()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIh9gW1icZibKdugiaUUZxhK1icrSa5MLtdEkialajvUWpDkBmfnrRe3y85Bfg/640?wx_fmt=png&from=appmsg)
+![](../../images/37cddee402a9dfab.webp)
 
 ## 初始和终止状态在UMAP中的显示（Fig 2d）
 
@@ -419,7 +419,7 @@ _create_initial_terminal_annotations(adata)
 figure_params = {"title": f"initial and terminal states", "legend_loc": "right", "dpi": dpi,                  "color": "initial_terminal", "s": 150, "save": "fig_2_d_initial_terminal.pdf"}scv.pl.scatter(adata, **figure_params)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhVowdZhtI8or7Z5icSkGeaHJQ4VBu8daSnzN7YnFejMYgqBfgamia7ang/640?wx_fmt=png&from=appmsg)
+![](../../images/d8d79b48e69e40f1.webp)
 
 ##
 
@@ -434,7 +434,7 @@ g_fwd.compute_absorption_probabilities()
 figure_kwargs = {"title": f"cell fate map", "dpi": dpi, "same_plot": True, "size": 100, "legend_loc": "right", "save":"fig_2_e_1_fate_probabilities.pdf"}g_fwd.plot_absorption_probabilities(**figure_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhRY4FKE4Mr9uiaiaX8gOJ6ibgPXCm8C7Bb0lKw2EGHyfpvwzOiafoyIibrBg/640?wx_fmt=png&from=appmsg)
+![](../../images/ed1a2dfd1f824b4d.webp)
 
 ###
 
@@ -446,7 +446,7 @@ figure_kwargs = {"title": f"cell fate map", "dpi": dpi, "same_plot": True, "size
 figure_kwargs = {"cluster_key": "clusters",                  "mode": "heatmap",                 "lineages": ["Alpha", "Beta", "Epsilon", "Delta"],  # 不同机器跑出的结果不一样                 "clusters": ["Ngn3 high EP"], "figsize": (1, 3),                 "save": "fig_2_e_2_ngn3_high_fate_probs.pdf"}cr.pl.cluster_fates(adata, **figure_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhcVLSo1be5iaRXtUibbammmvebmvRFFE7FntceoReGRHguP63qaFlPpicg/640?wx_fmt=png&from=appmsg)
+![](../../images/e784d7a11006f021.webp)
 
 ## 可视化基因趋势（Fig 2f）
 
@@ -477,7 +477,7 @@ adata_raw.obsm["to_terminal_states"] = adata.obsm["to_terminal_states"].copy()ad
 fig_kwargs = {"color": fig_2_genes, "perc": [0, 99], "ncols": 1, "title": fig_2_genes, "size": 100, "colorbar": False, "save":"fig_2_f_1_gene_expression_umap.pdf", }scv.pl.scatter(adata_raw, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhtUE66bdWT7vGtUqnwNLvotC2frho7RphpHYaHANIoCCXuhRicw38rjA/640?wx_fmt=png&from=appmsg)
+![](../../images/30eed4624b7c16aa.webp)
 
 绘制Marker基因随着伪时间变化的趋势曲线
 
@@ -511,7 +511,7 @@ cr.pl.gene_trends(adata_raw, **fig_kwargs)
 fig_kwargs = {"color": "clusters_fine",                 "legend_loc": "right",                 "groups": ["Fev+ Beta", "Fev+ Alpha", "Fev+ Delta","Fev+ Epsilon", "Fev+ Pyy"],                "title": "subclustering of Fev+ cells",                  "dpi": 150,                 "save": "fig_3_a_fev+.pdf"                }scv.pl.scatter(adata, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhDG9goMAPHFMePOrMN51txo35x7qyichiaYYBMCCYib4cwicNK22jmIUbQg/640?wx_fmt=png&from=appmsg)
+![](../../images/4925d2c9758e344d.webp)
 
 ##
 
@@ -523,7 +523,7 @@ fig_kwargs = {"color": "clusters_fine",                 "legend_loc": "right",  
 fig_kwargs = {"same_plot": False,              "perc": [0, 96],              "dpi": dpi,              "states": ["Delta"],              "save":"fig_3_b_fate_probabilities_umap.pdf"}g_fwd.plot_absorption_probabilities(**fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhibYibib6UXtYOB1oT1HyssCGz7H6xo0ddn3blnlYnACaQc8nlBsGIak0g/640?wx_fmt=png&from=appmsg)
+![](../../images/5611ffbd2eeda90d.webp)
 
 ## Fev+到达Delta细胞的命运概率的小提琴分布图（Fig 3c）
 
@@ -533,7 +533,7 @@ fig_kwargs = {"same_plot": False,              "perc": [0, 96],              "dp
 fev_clusters = ["Fev+ Beta", "Fev+ Alpha", "Fev+ Delta", "Fev+ Epsilon", "Fev+ Pyy"]fig_kwargs = {"mode": "violin",              "lineages": ["Delta"],              "cluster_key": "clusters_fine",              "clusters": fev_clusters,              "save":"fig_3_c_fate_probabilities_fev+_violin.pdf"}cr.pl.cluster_fates(adata, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIheKfHsT1wG681GReNNGwLlLYlvpY0qk4HBRXV7JtEArUkibne7T1TTxg/640?wx_fmt=png&from=appmsg)
+![](../../images/6b6ea57600526005.webp)
 
 ## 展示潜在驱动向delta分化的基因热图（Fig 3d）
 
@@ -555,7 +555,7 @@ cr.pl.heatmap(adata_raw, **fig_kwargs)
 delta_genes = ["Hhex", "Cd24a", "Hadh"]fig_kwargs = {"color": delta_genes, "size": 100, "layer": "magic_imputed_data", "title": delta_genes, "ncols":1,             "dpi": dpi, "colorbar": False, "save":"fig_3_d_2_known_genes.pdf"}scv.pl.scatter(adata_raw, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhgBIiaib0ShAMXnFSrT3uvzt9w8mVGiadMY5ME0aiazhvmII5EslbCD3Rsg/640?wx_fmt=png&from=appmsg)
+![](../../images/43c95a08fca58aee.webp)
 
 ## 基因聚类（Fig 3e）TODO: 这里聚类结果时好时坏，选择的基因也时有时无
 
@@ -566,7 +566,7 @@ delta_genes = ["Hhex", "Cd24a", "Hadh"]fig_kwargs = {"color": delta_genes, "size
 cr.pl.cluster_lineage(adata_raw, **gene_cluster_kwargs) # 展示所有基因群gdata = adata_raw.uns["lineage_Delta_trend"].copy()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIh3384syDyfibpHq49iaT532tx4r0ibXFR0OVtwrCtia8jeDzvVeibOBVdzlw/640?wx_fmt=png&from=appmsg)
+![](../../images/2ead46a329f09917.webp)
 
 选择其中的第0群查看
 
@@ -579,7 +579,7 @@ mask = np.in1d(gdata.obs["clusters"], gene_clusters)gene_df = gdata[mask].obs
 gene_df = gene_df.join(adata.raw.varm["terminal_lineage_drivers"])gene_df = gene_df.sort_values(by="Delta_corr", ascending=False) # 按照相关性排序gene_df.head(10) # 看看前几个最高的
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhPqRzMq9iaXeY0kgvbClkRLItrcpnXmndVv8zGoXTjOdqw0wUmJobRwg/640?wx_fmt=png&from=appmsg)
+![](../../images/eaedd814025787aa.png)
 
   *   *   *   *   *   *   *   *
 
@@ -589,7 +589,7 @@ candidates = ["Map2k4", "Msi1", "Nefl"]
 fig_kwargs = {"color": candidates, "layer": data_key, "title": candidates, "colorbar": False, "size": 100,              "perc": [0, 99], "save": "fig_3_e_candidate_drivers.pdf"}scv.pl.scatter(adata_raw, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhib5W8gDFBibNKic2KjerlSC7mJ68YHSMuSY31LBosrwsYd4m4Wj3LcxZQ/640?wx_fmt=png&from=appmsg)
+![](../../images/4694adbcf74fe5a9.webp)
 
 ## Extended Data Fig. 2: GPCCA and fate probabilities extract the essence of cellular state transitions. ¶
 
@@ -657,7 +657,7 @@ states = np.arange(p.shape[1]).astype("str")mc = pydtmc.MarkovChain(p, list(stat
 fig_kwargs = {"self_loops": False,               "self_loop_radius_frac": 0.05,               "labels": states,               "layout": nx.layout.spring_layout,               "color_nodes": False,               "node_size": 3000,               "edge_weight_scale": 10,               "font_size": 22,               "edge_width_limit": 10,              "save": "extended_fig_2_a_graph.pdf",              "dpi": dpi}cr.pl.graph(p, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhmh7g0riaAavqTGa4XNpVY1UmUtxIJzr3BfWHuRsdhiaxiaCtFJNxhTVvw/640?wx_fmt=png&from=appmsg)
+![](../../images/c3c1cde08866aea8.webp)
 
 ## 计算Shur分解，展示特征值（Fig 2b）
 
@@ -671,7 +671,7 @@ fig_kwargs = {"self_loops": False,               "self_loop_radius_frac": 0.05, 
 fig_kwargs = {"real_only": True,              "marker": "o",              "s": 100,              "figsize": (6, 6),              "save":"extended_fig_2_b_spectrum.pdf",              "dpi": dpi}g_cr.plot_spectrum(**fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhu4p8g4iacJkXAuiaa5FQ89QmSq0RibIm2AEGqC72yBHerA497uURCROFg/640?wx_fmt=png&from=appmsg)
+![](../../images/b5b435af4c07d106.png)
 
 ## 可视化转移矩阵（Extend Fig 2c）
 
@@ -681,7 +681,7 @@ fig_kwargs = {"real_only": True,              "marker": "o",              "s": 1
 fig =  plt.figure(None, (9, 7), dpi=dpi)ax = fig.add_subplot(111)sns.heatmap(p, cmap="viridis")plt.savefig(FIG_DIR / "extended_fig_2_c_transition_matrix.pdf")plt.show()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhLnaJ0ArCR4uf8MUdBDfmW3jVoNiaUAickTnBt11HPkTI4RamrTyuGxvg/640?wx_fmt=png&from=appmsg)
+![](../../images/047f546a16949e3a.png)
 
 ## 可视化宏状态矩阵（Extended Fig2d）
 
@@ -693,7 +693,7 @@ g_cr.compute_macrostates(n_states=n_states, n_cells=n_cells, cluster_key="cluste
 fig = plt.figure(None, (6, 5), dpi=dpi)ax = fig.add_subplot(111)sns.heatmap(T_coarse[macro_names].loc[macro_names], cmap="viridis")plt.savefig(FIG_DIR / "extended_fig_2_d_t_coarse.pdf")plt.show()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhvnQicVLvWMW5jU3hugIBr1ic1rF9wtnVtsUvh0XCcpjWViazZ1K1EOicSw/640?wx_fmt=png&from=appmsg)
+![](../../images/eab40d5eab483b49.png)
 
 ## 可视化所有细胞到宏状态的概率（Extended Fig2e）
 
@@ -703,7 +703,7 @@ fig = plt.figure(None, (6, 5), dpi=dpi)ax = fig.add_subplot(111)sns.heatmap(T_co
 m_g = g_cr._macrostates_memberships[macro_names]sns.heatmap(m_g, robust=True, annot=False, ax=plt.figure(None, (5, 10)).gca(), fmt=".2f",           cmap="viridis", xticklabels=m_g.names)plt.savefig(FIG_DIR / "extended_fig_2_e_membership_matrix.pdf")plt.show()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhvWrQoBd0z5AUyP9yKCp8E2RBX5gCBSo6RqcLglczmQO3mO3rFILQfQ/640?wx_fmt=png&from=appmsg)
+![](../../images/4df46634e7c2c94f.png)
 
 ## 可视化到终止状态的命运概率（Extended Fig2f）
 
@@ -713,7 +713,7 @@ m_g = g_cr._macrostates_memberships[macro_names]sns.heatmap(m_g, robust=True, an
 g_cr.compute_absorption_probabilities()m_c = g_cr.absorption_probabilities[["terminal_1", "terminal_2"]]sns.heatmap(m_c, robust=True, annot=False, ax=plt.figure(None, (5, 10)).gca(), fmt=".2f",           cmap="viridis", xticklabels=m_c.names)plt.savefig(FIG_DIR / "extended_fig_2_f_fate_probs.pdf")plt.show()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhmM0x2JwDz21Zg5GboNtORRyPmXb7FfibsRXxRe2MknHicgicFfVvIhaBg/640?wx_fmt=png&from=appmsg)
+![](../../images/6925cd8b8d90b110.png)
 
 ## Fig. 4: CellRank predicts reprogramming outcome
 
@@ -768,7 +768,7 @@ adata = cr.datasets.reprogramming_morris(path=DATA_DIR / "mef_reprogramming" / "
 scv.pl.scatter(adata, basis="tsne", color=["reprogramming_day", "Apoa1", "Col1a2",  "cluster"],              legend_loc="right",perc=[0, 99], size=30, dpi=dpi, save="fig_4_a_umaps_with_annotations.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhgBaduR7fichX5ZQMonibytKoDNSTosIDnxkqicOo1hS7YLrZBaoxknicMw/640?wx_fmt=png&from=appmsg)
+![](../../images/3ea9c84e3bfa4345.webp)
 
 # 运行基础分析
 
@@ -802,7 +802,7 @@ scv.tl.recover_dynamics(adata, n_jobs=n_jobs)scv.tl.velocity(adata, mode="dynami
 scv.tl.velocity_graph(adata, n_jobs=n_jobs)scv.pl.velocity_embedding_stream(adata,                                 basis="tsne",                                 color=["cluster"],                                 legend_loc="right",                                 dpi=dpi,                                 save="fig_4_b_umap_velocity.pdf" )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhDic5yezicKYcOf2w7U1pIJyjFTxicsIG0JlUwtTpwJjDPibLgsKKpkERyw/640?wx_fmt=png&from=appmsg)
+![](../../images/7eea35f179f6ca63.webp)
 
 # 运行CellRank
 
@@ -827,7 +827,7 @@ g_fwd
 g_fwd.compute_macrostates(n_states=5, cluster_key="cluster")g_fwd.plot_macrostates(discrete=True,                       basis="tsne",                       size=100,                       legend_loc="right",                       dpi=dpi,                        save="fig_4_c_umap_macrostates.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhS2wO1s665HXpdzABGo0p13b5oqXibSgicEbmibWbsiaNNcyfSKuBsibvzlA/640?wx_fmt=png&from=appmsg)
+![](../../images/3c598b297a94befd.webp)
 
 ## 查看宏状态中"day", "cluster"比例（fig4 d）
 
@@ -837,7 +837,7 @@ g_fwd.compute_macrostates(n_states=5, cluster_key="cluster")g_fwd.plot_macrostat
 g_fwd.plot_macrostate_composition(key="reprogramming_day",                                  dpi=dpi,                                  save="fig_4_d_1_histogram_day.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhL5IfTPicibC15ryVs3QOAnLaACTJMoNCdTVFricia9RXKM7a9jmQxDVH6Q/640?wx_fmt=png&from=appmsg)
+![](../../images/baf30efde7d439d9.webp)
 
   *   *   *
 
@@ -845,7 +845,7 @@ g_fwd.plot_macrostate_composition(key="reprogramming_day",                      
 g_fwd.plot_macrostate_composition(key="cluster",                                  dpi=dpi,                                  save="fig_4_d_2_histogram_cluster.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhWOVq7sMR8AeYyZ3afxxfDmqZgjwJUib9TvBWFjXxia7g231s9ZKAkbKw/640?wx_fmt=png&from=appmsg)
+![](../../images/e14337740bbc0127.webp)
 
 ## UMAP图上计算吸收概率（Fig4 e）¶
 
@@ -859,7 +859,7 @@ g_fwd.set_terminal_states_from_macrostates(names=[successful_state, dead_end_sta
 g_fwd.plot_absorption_probabilities(same_plot=False,                                    basis="tsne",                                    size=30,                                    perc=[0, 94],                                     states=successful_state,                                     dpi=dpi,                                    save="fig_4_e_1_umap_fate_probs.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhOXdIPr460b7ts8KhDZpwtwJcl81Z31QbeWqmFJLiabeI1nMhwK8UPUQ/640?wx_fmt=png&from=appmsg)
+![](../../images/1099b3ab1f946d97.webp)
 
   *   *
 
@@ -875,7 +875,7 @@ adata.obs["reprogramming_probability"] = adata.obsm["to_terminal_states"][succes
 scv.pl.scatter(adata, basis="tsne",               color=["reprogramming"],                legend_loc="right",               size=100,                dpi=dpi,               save="fig_4_e_2_umap_celltag_labels.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhdibcQSvQibzaGm9MqPn4S1GibOCtGlVMiaRCDykicLQav02p7D29gf7gOSw/640?wx_fmt=png&from=appmsg)
+![](../../images/0ac38fa6910da7c7.webp)
 
 ## 命运概率与真实标签的ROC曲线（fig4 f）
 
@@ -901,7 +901,7 @@ scv.pl.scatter(adata, basis="tsne",               color=["reprogramming"],      
 predict_reprogramming_outcome(adata, day_selection=["12", "15", "21"], lw=3,                              save=FIG_DIR / "roc_curves.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhBgDGlMd2eQgicg1xGKZ3aBDBfBicyEibUoXibzwnRY2iaUibwcS8icAVfGouw/640?wx_fmt=png&from=appmsg)
+![](../../images/914114e2944657ce.webp)
 
 ##
 
@@ -1007,7 +1007,7 @@ scv.tl.recover_dynamics(adata, n_jobs=n_jobs)scv.tl.velocity(adata, mode="dynami
 airway_subset = ["Basal", "Goblet", "Club activated", "MHC-II+ Club", "Club"]fig_kwargs = {"color": ["clusters"],               "legend_loc": "right",               "dpi": 200,              "save": "fig_6_a_umap_velocities.pdf"}scv.pl.velocity_embedding_stream(adata, **fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhzzWVVOFXadFIkAfkqdcn6Q89nAPmFsDicajZs4nAE3mI2GXyE04YKnw/640?wx_fmt=png&from=appmsg)
+![](../../images/356156c4d18b95a8.webp)
 
 # 运行CellRank
 
@@ -1031,7 +1031,7 @@ g_fwd
 g_fwd.plot_macrostates(legend_loc="right", dpi=150, discrete=True, size=100,                       save=scv.settings.figdir + "fig_6_c_umap_macrostates.pdf")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhecOY7iclr9KbOZ8icGL0NUvlD0HuNLgXmib0xibaKwwSw4JxYaHvsBSibjw/640?wx_fmt=png&from=appmsg)
+![](../../images/98baf40bf69a6368.webp)
 
   *   *
 
@@ -1047,7 +1047,7 @@ g_fwd.set_terminal_states_from_macrostates()g_fwd.compute_absorption_probabiliti
 cr.pl.circular_projection(adata,                          keys=["clusters"],                           legend_loc="right",                          figsize=(40, 40),                          title="",                          normalize_by_mean=True,                          s=70,                           dpi=dpi,                          save="fig_6_c_circ_clusters.pdf" )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhqD0AcSumUnf1CMcrqDwc1v42icDic6tnnpkB4nPAYIRsMiau06oPYiaatQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a8c0238e7c9a3800.webp)
 
 ## 到终止状态basal的吸收概率（Fig 6d）
 
@@ -1057,7 +1057,7 @@ cr.pl.circular_projection(adata,                          keys=["clusters"],    
 fig_kwargs = {"same_plot": False,              "dpi": dpi,              # "states": ["Basal"], # 这里由于抽样了，没有检测到该状态              "states": ["Club"],              "save": "fig_6_d_umap_fate_probs.pdf"}g_fwd.plot_absorption_probabilities(**fig_kwargs)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhbfwRCibtG3nicXiazqnfMc2OVato58uCCCFrXopYseB5fibpxvMayQjG7Q/640?wx_fmt=png&from=appmsg)
+![](../../images/57ec260478aef80a.webp)
 
 01
 
@@ -1069,7 +1069,7 @@ fig_kwargs = {"same_plot": False,              "dpi": dpi,              # "state
 
 提取码：sxia
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzNs9MJ1ubSkbhqqBjh0hIhTmVftFrFyGP4PjzMsNAEynzTbhY06a7kyYXj2mibYQ5g9pfkpgia95Eg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/aa4b0e49bcc66553.jpg)
 
 02
 
@@ -1103,17 +1103,17 @@ fig_kwargs = {"same_plot": False,              "dpi": dpi,              # "state
 
 **本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

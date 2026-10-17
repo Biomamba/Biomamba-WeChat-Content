@@ -16,7 +16,7 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是13号作品。本作品复写了题为"Single-cell RNA-seq highlights intra-tumoral heterogeneity and malignant progression in pancreatic ductal adenocarcinoma"的论文.**文章链接** ：https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6796938/**数据原始链接：** https://ngdc.cncb.ac.cn/gsa/browse/CRA001160**复现图片集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ia4TFQTDQKvLH9pzApdV7fr0MRS2E8f2TA1NicBEJBell0Mic0sqh047w/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/d76d7ef2f1a79700.webp)
 
 **文献简介** ：复现一篇论文PMID:31273297。由北京协和医院赵玉沛院士、吴文铭教授团队2019年发表在Cell Research杂志上。研究用scRNA-seq获取来自胰腺癌样本的57,530个胰腺癌微环境中正常细胞的转录组数据，鉴定了两种具有异常和恶性基因表达谱的导管亚型多种肿瘤相关通路和转录因子的组分在胰腺癌进展过程中存在差异表达。数据来源https://ngdc.cncb.ac.cn/gsa/browse/CRA001160，提前下载好。里面提供了细胞注释数据，我们可以给自己的注释做对比。
 
@@ -92,14 +92,14 @@ data <- subset(data, subset = nFeature_RNA > 20  & percent.mt < 70) # 排除Low 
 VlnPlot(data, features = c("nFeature_RNA", "nCount_RNA","percent.mt"), ncol = 1) #图1，质控结果，可见数据集已经质控了。
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9z1DEvwhbcfk24ibrKL2EhCaHEO1waY2bVNJAgnmBlo11TD9tFVa5ezw/640?wx_fmt=png&from=appmsg)
+![](../../images/482219cefdfe5026.webp)
 ```r
 plot1 <- FeatureScatter(data, feature1 = "nCount_RNA", feature2 = "percent.mt")
 plot2 <- FeatureScatter(data, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
 plot1 + plot2 ##图2：nFeature_RNA表达数，nCount_RNA细胞数，percent.mt线粒体比例三者间的关系
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9Dc95on44Ej6RmTeaSmJbaCkNSVr02vtDibmzekYTaSfA6kTs9iaMkhMQ/640?wx_fmt=png&from=appmsg)
+![](../../images/cf881591c9c4c986.webp)
 
 03标准化
 ```r
@@ -125,7 +125,7 @@ plot2 # 绘图
 ## Warning: Transformation introduced infinite values in continuous x-axis
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9Zt9dOmiaN9TnDXDF09WpHpCpCHlZf4ogtuICuVPs9HLJR1KqtYkqsmw/640?wx_fmt=png&from=appmsg)
+![](../../images/b58f99d60d0ac7bf.webp)
 
 05标准化ScaleData
 ```r
@@ -192,17 +192,17 @@ data <- RunPCA(data, features = VariableFeatures(object = data))
 DimPlot(data, reduction = "pca") # DimPlot,PCA图
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9gJydBf0iaJKxhTl4O28nibNUE7TDxtO3UVHn1fC35wV8kTTibmHEyDMOg/640?wx_fmt=png&from=appmsg)
+![](../../images/4bdfc3458ecb5900.webp)
 ```
 DimHeatmap(data, dims = 1:20, cells = 500, balanced = TRUE) ##展示20个PC中特异性基因
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9zS7HtkyMMyQ87mOWC1Ks18ibj07Y6iaDmBuea6b1sAstF3tLUz0ticb7w/640?wx_fmt=png&from=appmsg)
+![](../../images/adfa1eda420cb060.webp)
 ```
 VizDimLoadings(data, dims = 1:20, reduction = "pca")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9Dla5oxcGIZnHZPSYBKPibrSYnM0f9qNo1SFEMrfYr7P6eUS2BaxOgibQ/640?wx_fmt=png&from=appmsg) 07确定数据维度
+![](../../images/6edd09ffba221f8d.webp) 07确定数据维度
 ```r
 #方法1 JackStraw。约30min
 data <- JackStraw(data, num.replicate = 100)
@@ -213,13 +213,13 @@ JackStrawPlot(data, dims = 1:20) ##绘制PC曲线及p值，确定数据维度
 ## Warning: Removed 28000 rows containing missing values (`geom_point()`).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9xerwEm1DTIJrkPfSmYLr0ib9q5NQDvTydo4JticR2kVW9taEhNfDx9Jw/640?wx_fmt=png&from=appmsg)
+![](../../images/113abedb6dc2dd50.webp)
 ```
 #方法2 拐点图
 ElbowPlot(data,ndims = 50, reduction = "pca") #ndims最大设置为50
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9N541ygLswqRZ6ZuLPb97lzceUlwicmglvPLEiaBIufXGeYscYEsicibpHA/640?wx_fmt=png&from=appmsg) 08确定合适的分类数目
+![](../../images/deeddfb2198ef7e7.png) 08确定合适的分类数目
 ```r
 library(clustree)
 ```
@@ -334,7 +334,7 @@ clustree(data_res@meta.data,prefix = 'RNA_snn_res.')+
   coord_flip()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU91FwhDrZF95JGmqcP9ibrJiagcnHrLCmJ9lbjzSq6N8BNdkkFuIyh3W6Q/640?wx_fmt=png&from=appmsg)
+![](../../images/bf0e33a7a550f858.webp)
 ```
 colnames(data_res@meta.data)
 ```
@@ -377,12 +377,12 @@ data <- RunTSNE(data, dims = 1:20) #原文用的tsne，我们这里也用。目�
 DimPlot(data, reduction = "tsne",label = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9MPRErnMPNn4ia38hmz2sKickB0y8e4B6PiaHHshIicvYsiaWDog22UoGqTA/640?wx_fmt=png&from=appmsg)
+![](../../images/b24dbb943fd3db73.webp)
 ```
 DimPlot(data, reduction = "tsne",label = T,group.by = 'orig.ident')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9rqR6esCibkAgrKaGQynK9xpoicGiboTWSPEZKKMZxK3mt6XOvTGTGyyaA/640?wx_fmt=png&from=appmsg)
+![](../../images/7523b7ef8bc4d377.webp)
 
 10差异基因
 ```r
@@ -523,7 +523,7 @@ plot3 <- DoHeatmap(data, features = top10, group.by = "seurat_clusters", group.b
 plot3
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9oyqLibcdcZ1icTL2CMT0CZlXF2xtYzRFAfEiaZBlI5zMkTxCeofQQkCkQ/640?wx_fmt=png&from=appmsg)
+![](../../images/ae5e242759b28c65.png)
 ```
 ggsave("top10_markers.pdf", plot=plot3, width=8, height=20)
 ```
@@ -581,57 +581,57 @@ table(data@active.ident) #查看每个分组的细胞数
 VlnPlot(data, features = c("AMBP")) ##Ductal1 3,6,7
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9HYfndTqthm56PJtELqKBS4uz9Q98FansLiaFVF2Ievg8lnKncm5NQibQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6aa2b2dc66dcb100.webp)
 ```
 VlnPlot(data, features = c("CEACAM1","CEACAM5","CEACAM6","KRT19","MUC1","FXYD3")) ##Ductal2 4,12,13,14,16,17,23,26
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9JRYialoiaXkZXXfcAseSC9C4FgjobbnXIA9B37aKRp9LxZhYm4v2tJDA/640?wx_fmt=png&from=appmsg)
+![](../../images/f840decc42994651.webp)
 ```
 VlnPlot(data, features = c("TFF2","MMP7","TSPAN8","SOX9","LCN2")) ##Ductal
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9nr3uZaN5jd3RbFPtynjyQMlM1R0BYsibywcnzlkqicyTk6SypK3cHYibg/640?wx_fmt=png&from=appmsg)
+![](../../images/a3a50914ee72ec4a.webp)
 ```
 VlnPlot(data, features = c("PRSS1","CELA3A"))  ##Acinar cells 15,22
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9IzVpHuGKppDSShABHhJVaMnDjLz9SQHzv8vfzbOTcKkWI8BHmrNCdw/640?wx_fmt=png&from=appmsg)
+![](../../images/4cfdd1ca5d419d10.webp)
 ```
 VlnPlot(data, features = c("CHGB")) ##Endocrine 20
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9tSYSTN90BEUf3QDxfyjmOfLdq94beL3a6eSxCbgHWYQ5sX4M1HzTVg/640?wx_fmt=png&from=appmsg)
+![](../../images/614944ed045520b2.webp)
 ```
 VlnPlot(data, features = c("CDH5")) ##Endothelial 0,5,27
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ZfvsReZ0IfoWKKE1xnYUgSYIicdSJ1At6OrFsGEebXX6VmdFSQYjiaPQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f6c1f7f58abfa75b.webp)
 ```
 VlnPlot(data, features = c("LUM")) ##Fibroblast 9,10,18,21,24
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9Hb655ZF2MVnPFpS9R1I8KtGk2t9HCaFZoexIG9U5hhZb7ibMDTUMibHg/640?wx_fmt=png&from=appmsg)
+![](../../images/ced76bceb837a02f.webp)
 ```
 VlnPlot(data, features = c("RGS5")) ##Stellate 1,31
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9AliakpDJ6w1Lj0z7Snp7Gy9Kjm0UUIHiciaAMKBAOk9JibeouLZGmKWfkw/640?wx_fmt=png&from=appmsg)
+![](../../images/5c3572f7099ea2be.webp)
 ```
 VlnPlot(data, features = c("AIF1")) ##Macrophage 2,28,30
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9TPIe6PrYDMYicl5pBrs0MQsS2ia4k1TqApWISXJ5ibyjtxgQegP3aoRuw/640?wx_fmt=png&from=appmsg)
+![](../../images/b97affe86a17cc20.webp)
 ```
 VlnPlot(data, features = c("CD3D", "CD2", "CD7", "CD3E","CD3G")) ##T cell 8,25,29
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ONMl09zA27pgibj1nMNCKEmLYc2rjdkshgkWtRZEichQx6Xe3XtSYxwA/640?wx_fmt=png&from=appmsg)
+![](../../images/db9f0e1e23febf03.webp)
 ```
 VlnPlot(data, features = c("MS4A1")) ##B cell 11,19
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ibXbkCiawajWmU9QOibBbyJ1SK6PfYCpea2p6ticF0DEmwKa7Ws5ialOksA/640?wx_fmt=png&from=appmsg)
+![](../../images/a09115d31427ca30.webp)
 
 13cluster增加标注
 ```r
@@ -653,13 +653,13 @@ data[['cell_type']] <- df$cluster # 将cluster的名字放进去
 DimPlot(data, label = FALSE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9Dzm6QHxthMHXhGHgMGKhZeF9sjEfsRDnUoIKu8sMH6Q5LfTwkH8XPg/640?wx_fmt=png&from=appmsg)
+![](../../images/8bc8bbe3a11b4223.webp)
 ```r
 plot2 <- DimPlot(data, group.by = "cell_type", label = TRUE, reduction = "tsne")
 plot1|plot2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9JkqVMH2ATVOFxaHNdEmUgXcpibEMfZ1H2cQpRVH6GYfYDECdnvWw8cg/640?wx_fmt=png&from=appmsg)
+![](../../images/f149c603cd72a2ee.webp)
 
 14标记基因在不同细胞种类上的表达
 ```
@@ -797,34 +797,34 @@ top3 = CaseMatch(search = as.vector(top3$gene), match = rownames(data))
 DoHeatmap(data, features = top3, group.by = "ge_celltype", group.bar = T, size = 2) ##Fig.1c
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9oyqLibcdcZ1icTL2CMT0CZlXF2xtYzRFAfEiaZBlI5zMkTxCeofQQkCkQ/640?wx_fmt=png&from=appmsg)
+![](../../images/ae5e242759b28c65.png)
 ```
 VlnPlot(data, features = c("KRT19","PRSS1","CHGB","CDH5","LUM","RGS5","AIF1","CD3D","MS4A1"), group.by = "ge_celltype", stack = TRUE, sort = TRUE) +
   theme(legend.position = "none") + ggtitle("Fig.1d") ##Fig.1d
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9WdGFhcyxTaRV6BeUtvDibIzR7jy1zvaR5wpu0sicLBSBnJE6j4Hk7aZw/640?wx_fmt=png&from=appmsg)
+![](../../images/a2d1687269d8d990.webp)
 ```
 VlnPlot(data, features = c("TFF2","CELA3A","PCSK1N","RAMP2","SFRP2","NDUFA4L2","C1QB","CD2","VPREB3"), group.by = "ge_celltype", stack = TRUE, sort = TRUE) +
   theme(legend.position = "none") + ggtitle("Fig.S1c") ##Fig.S1c
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9eVY4wIFIrhTfIzA3UK35e8ic6TPIialjU5fEjxDm76GxyuE3bibAY0dqw/640?wx_fmt=png&from=appmsg)
+![](../../images/6dcee46dd79014f2.webp)
 ```
 FeaturePlot(data, features = c("AMBP","FXYD2","MUC1","FXYD3"), min.cutoff = "q10", max.cutoff = "q99", reduction='tsne')+theme(axis.ticks = element_blank(),axis.text = element_blank())  ##Fig.2e
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9gZ9iaicG3icySvRcgtA6RJsY1OA1LTRzWdfSrwNqNvBZhxTQu2AaTcmiag/640?wx_fmt=png&from=appmsg)
+![](../../images/20ac0b92a95b7581.webp)
 ```
 FeaturePlot(data, features = c("MMP7","TSPAN8","SOX9","LCN2"), min.cutoff = "q10", max.cutoff = "q99", reduction='tsne')+theme(axis.ticks = element_blank(),axis.text = element_blank())  ##Fig.S1d
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9UJR8ZEVpNakEZwwtB9op6awqbSNJejtianZhGEAux0sxMJQ9EicMC6rw/640?wx_fmt=png&from=appmsg)
+![](../../images/905d586bdf0dae31.webp)
 ```
 FeaturePlot(data, features = c("CEACAM1","CEACAM5","CEACAM6","KRT19"), min.cutoff = "q10", max.cutoff = "q99", reduction='tsne')+theme(axis.ticks = element_blank(),axis.text = element_blank())  ##Fig.S1e
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9zYlHicxLJfiaaJfhcuibJtkmsX1UibBChRic82rqA5jnictuia5ibB9ndc7rdQ/640?wx_fmt=png&from=appmsg)
+![](../../images/b49dbbfd5a8373a4.webp)
 ```
 saveRDS(data,"data.rds")
 ```
@@ -1187,7 +1187,7 @@ ggplot(cnv_score,
   stat_compare_means()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9DHgicVeJvn5nJUFlAuRC7TIWiceZYqPwskkkkvXqrjyo145PKQ9qSBSg/640?wx_fmt=png&from=appmsg)
+![](../../images/dee22f3ebf48c083.webp)
 ```r
 #取出属于T6样本的细胞名称
 T6 <- subset(x = data, subset = orig.ident == "T6")
@@ -1210,7 +1210,7 @@ ggplot(T6cnvscore,
   stat_compare_means()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9o5VzPTiaIy5PHhO5RomF1DrWcqgCkyjtz7DBaklt86vEibXnvlD69Ozg/640?wx_fmt=png&from=appmsg)
+![](../../images/d570039b1209e568.webp)
 ```r
 #Fig.2a复现，但结果不好，还需调整参数
 #取出属于N2样本的细胞名称
@@ -1234,7 +1234,7 @@ ggplot(N2cnvscore,
   stat_compare_means()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ktFrYj7DZoqrbkD02ZEBdiakQtfoY1SBvyNQQaJks7oMt5wEjf0cJ3w/640?wx_fmt=png&from=appmsg)
+![](../../images/49e6fef5bfd3b4cd.webp)
 ```
 #只有3种细胞，大部分细胞都被筛掉了
 ```
@@ -1312,12 +1312,12 @@ JackStrawPlot(Ductal1, dims = 1:20) ##绘制PC曲线及p值，确定数据维度
 ## Warning: Removed 30111 rows containing missing values (`geom_point()`).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9DVFlr9pgWmGRsWicZX9oHWvePEZiav2MbwLxU828KB5boXqHP3cibQ02Q/640?wx_fmt=png&from=appmsg)
+![](../../images/b3bb20d15b815079.webp)
 ```
 ElbowPlot(Ductal1,ndims = 50, reduction = "pca") #方法2 拐点图
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU92lwZ1MnQgB4Av9whF9ZyOW8esFaUNp61tYicZLlBRJkeHt5CoVCibuyQ/640?wx_fmt=png&from=appmsg)
+![](../../images/aed37c625da99f22.png)
 ```r
 library(clustree)
 Ductal1 <- FindNeighbors(Ductal1, dims = 1:20)
@@ -1397,7 +1397,7 @@ clustree(Ductal1_res@meta.data,prefix = 'RNA_snn_res.')+
   coord_flip()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9BFjmmos7YqCZV1lLRO5EaGLbA0ic4TUCtAicjOouIxrQ4hXvUHTCSLZQ/640?wx_fmt=png&from=appmsg)
+![](../../images/bae2385ce020c4cd.webp)
 ```
 colnames(Ductal1_res@meta.data)
 ```
@@ -1427,17 +1427,17 @@ Ductal1 <- RunTSNE(Ductal1, dims = 1:20) #原文用的tsne，我们这里也用�
 DimPlot(Ductal1, reduction = "tsne",label = T) #分群效果较好，Fig.S3a
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9iccATxKsMbvHYZNibicdAwjhdGUVLhcj1CdTsywCYicpJhBCMibWqDicssww/640?wx_fmt=png&from=appmsg)
+![](../../images/f195d86f9b9dad4a.webp)
 ```
 DimPlot(Ductal1, reduction = "tsne",label = T,group.by = 'orig.ident') #分群效果较好，肿瘤和正常组织来源的Ductal1被区分开了
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ziatOI52z8pAmOTtaPOmkEfxzHg4WtBaWhJvGVksKaSIvH07t0A1VMg/640?wx_fmt=png&from=appmsg)
+![](../../images/e52b9eddc03a923a.webp)
 ```
 VlnPlot(Ductal1, features = c("MUC1","AMBP")) #明显的表达差异,Fig.S3b
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9SL1ywCTDBDQ8TBCjH4n9iakuJKg8EFx6Rkj1fHx5yW7P6ibe4t9dM9RA/640?wx_fmt=png&from=appmsg)
+![](../../images/c93fc38313da0848.webp)
 ```r
 new.cluster.ids <- c("Ductal1.MUC1low","Ductal1.MUC1high")
 names(new.cluster.ids) <- levels(Ductal1)
@@ -1578,7 +1578,7 @@ plot_ordering_genes(cds)
 ## Warning: Transformation introduced infinite values in continuous y-axis
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ONiaUcFqpQc6NjOfsP15w7AvyYE7JiaVziaPVMojTDhwDMcbOicxQKPA5g/640?wx_fmt=png&from=appmsg)
+![](../../images/6acab868224f215e.webp)
 ```r
 #使用clusters差异表达基因
 deg.cluster <- FindAllMarkers(DuctAcinar)
@@ -1607,7 +1607,7 @@ plot_ordering_genes(cds)
 ## Warning: Transformation introduced infinite values in continuous y-axis
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9tOtiaCQZ9icXric7KZgzvlbRp7Z2nj2BpCo2SLLxZTNLa8LicBjaq7VQCQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f9d475b4182660f1.webp)
 ```r
 #使用monocle选择的高变基因
 disp_table <- dispersionTable(cds)
@@ -1619,7 +1619,7 @@ plot_ordering_genes(cds)
 ## Warning: Transformation introduced infinite values in continuous y-axis
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9Su0S23SAAzbicClkyUwTPw2pfHh3g9op7k9HBp3bzrPOqMxzP6je61w/640?wx_fmt=png&from=appmsg)
+![](../../images/322fd351319621e9.webp)
 ```r
 #这一步输入的expressed_genes来自于上面。后续分析使用的是该方法
 diff <-differentialGeneTest(cds[express_genes,],fullModelFormulaStr="~celltype",cores=4)
@@ -1651,7 +1651,7 @@ plot_ordering_genes(cds)
 ## Transformation introduced infinite values in continuous y-axis
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9o8LUn1LOmD9SvnF23InrOJydbjpXI49wfHeVmbVpKicPBZt9Q15U9pA/640?wx_fmt=png&from=appmsg)
+![](../../images/4eb903068a822a16.webp)
 ```r
 #gene数太多的话也可以选择top基因
 ordergene <-row.names(deg)[order(deg$qval)][1:400]
@@ -1686,28 +1686,28 @@ colnames(cds@phenoData@data) #可视化：根据cds@phenoData@data中的表型�
 plot_cell_trajectory(cds,color_by="Pseudotime",size=1,show_backbone=TRUE) #以pseudotime值上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9icHIj9GcuOSHNJialwG5BTMtIic8A6XbRr1ia9GVF5393vM1ic459BMCBUg/640?wx_fmt=png&from=appmsg)
+![](../../images/842b831cfbc94813.webp)
 ```
 plot_cell_trajectory(cds,color_by="celltype",size=1,show_backbone=TRUE) #以细胞类型上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9mH5qsUm0J1HKz9xsOEXlfJD71zgCHrC3SJu7rh0qfpglL7iaUuX1hUQ/640?wx_fmt=png&from=appmsg)
+![](../../images/b98c8efcbecb9ec0.webp)
 ```
 plot_cell_trajectory(cds, color_by = "State", size=1,show_backbone=TRUE) #以细胞状态上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9vU1zia1zeGPhX84CNZH3e7zaMhibRNImRwoGCibxLX1X9zpWZs1SvEOEw/640?wx_fmt=png&from=appmsg)
+![](../../images/d48064a38b8ee319.webp)
 ```
 plot_cell_trajectory(cds, color_by = "seurat_clusters", size=1,show_backbone=TRUE) #按照seurat分群排序细胞
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9u7icocQlazgdCHho6lKGk42MAI4g0iaDV6fticbBGvGjiaxZc3CSVSvvHQ/640?wx_fmt=png&from=appmsg)
+![](../../images/dd70fc64ed2651ce.webp)
 ```
 plot_cell_trajectory(cds, color_by = "State") + facet_wrap("~State", nrow = 1) #以细胞状态上色（拆分）“分面”轨迹图，以便更容易地查看每个状态的位置。
 plot_pseudotime_heatmap(cds[ordergene,],num_clusters = 8,cores = 1,show_rownames = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9NErfDicmGCbMwsJABPKrrHtOAAZFkm97xgmPtym7UBL9emJib2dWeC4A/640?wx_fmt=png&from=appmsg)
+![](../../images/651b59ebc50b12e8.webp)
 ```r
 #同样滴，我们也可以使用scale_color_manual()自己设置颜色。
 library(ggsci)
@@ -1716,7 +1716,7 @@ p2=plot_cell_trajectory(cds, color_by = "State") + scale_color_nejm()
 p1|p2  #Fig.3a, Fig.S3d
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9gCDBn4GvYv7bffRibhBZiaca5VIXFBCgmDoqjYpdpwXJvlvibYXs3DIlA/640?wx_fmt=png&from=appmsg)
+![](../../images/1cab1d20304c7f28.webp)
 ```
 colnames(pData(cds))
 ```
@@ -1734,13 +1734,13 @@ p4=plot_cell_trajectory(cds,color_by = "MUC1")+ scale_color_gsea()
 p3|p4  #Fig.S3e
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9gQnjKaIQPvoKuq7Sph7XQVQpOEqJKA9XcrMU3dR8UA3XUZadbuqdwQ/640?wx_fmt=png&from=appmsg)
+![](../../images/2e310836f531fbb5.webp)
 ```
 #我们同样也可以用树形图来展示：
 plot_complex_cell_trajectory(cds, x = 1, y = 2,color_by = "celltype")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9YBfQicsZWpgg7Y9EdzhxKDnH8bvXUTajtBUSon3nB5Is8MCy3eySAiaw/640?wx_fmt=png&from=appmsg)
+![](../../images/08210aaca94ca041.webp)
 ```r
 #还可以画沿时间轴的细胞密度图
 library(ggpubr)
@@ -1756,7 +1756,7 @@ ggplot(df, aes(Pseudotime, colour = celltype, fill=celltype)) +
 ## generated.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9p3e6WB3AYQqcia7FLQ7roqZkVibO9rppyv8qCXJS5LZsYObxyBETE5pg/640?wx_fmt=png&from=appmsg)
+![](../../images/b6a914d5c8cbd165.webp)
 ```r
 #指定基因的可视化，直接查看一些基因随细胞状态等的表达变化。
 keygenes <- head(ordergene,4) #选择前4个top基因并将其对象取出
@@ -1769,7 +1769,7 @@ p4 <-plot_genes_in_pseudotime(cds_subset, color_by = "State")
 p1|p2|p3|p4
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9rklVQIZZjKZIWWn4gWZgHYojicvkvv3kEbNa6DD6K05ia5q0cu2uxWXw/640?wx_fmt=png&from=appmsg)
+![](../../images/5705e881319e96cd.webp)
 ```r
 #也可以自己指定基因
 s.genes <-c("EPCAM","MUC1")
@@ -1812,13 +1812,13 @@ P5_P6 <- row.names(subset(fData(cds), gene_short_name %in% c("BAIAP2", "PSMA7", 
 plot_pseudotime_heatmap(cds[P5_P6,],num_clusters = 2,cores = 1,show_rownames = T) #Fig.3c，同法做出Fig.3d,Fig.S3f
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU92R5zvf1osskk3Jnob622zTEH5SqtVr3ULYuE2scLycvtmnxfib67TsQ/640?wx_fmt=png&from=appmsg)
+![](../../images/d65aa746ce41415b.webp)
 ```
 #单细胞轨迹的“分支”分析
 plot_cell_trajectory(cds, color_by = "State")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9vU1zia1zeGPhX84CNZH3e7zaMhibRNImRwoGCibxLX1X9zpWZs1SvEOEw/640?wx_fmt=png&from=appmsg)
+![](../../images/d48064a38b8ee319.webp)
 
 分别提取Ductal2/T/B/Macrophage/Fibroblast做简单分析
 
@@ -1893,12 +1893,12 @@ JackStrawPlot(Ductal2, dims = 1:20) ##绘制PC曲线及p值，确定数据维度
 ## Warning: Removed 29400 rows containing missing values (`geom_point()`).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9DJF3yfx8cFqaGozO6HibGnaJzBO1HPPdN3tHn96x9rJovTqfl3NXbcg/640?wx_fmt=png&from=appmsg)
+![](../../images/321174e911216357.webp)
 ```
 ElbowPlot(Ductal2,ndims = 50, reduction = "pca") #方法2 拐点图
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9WiaiauNs1djtR8aHYN7dQiaNiafzu1ibfd2R5KO9PoykRknhUJ15X4Gl7uQ/640?wx_fmt=png&from=appmsg)
+![](../../images/cf6760c978cf44d6.png)
 ```r
 library(clustree)
 Ductal2 <- FindNeighbors(Ductal2, dims = 1:20)
@@ -1969,7 +1969,7 @@ clustree(Ductal2_res@meta.data,prefix = 'RNA_snn_res.')+
   coord_flip()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9QyLXqJfYgOuf5zSEWsqshSEX0ImTZmjZIE45cEQqf3V0OCIqBzPybg/640?wx_fmt=png&from=appmsg)
+![](../../images/2b992d8575998a9b.webp)
 ```
 colnames(Ductal2_res@meta.data)
 ```
@@ -1999,33 +1999,33 @@ Ductal2 <- RunTSNE(Ductal2, dims = 1:20) #原文用的tsne，我们这里也用�
 DimPlot(Ductal2, reduction = "tsne",label = T) #分群效果较好，Fig.S3e
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9AINzBuiaOCicJOu3LOU7Gt2zBL2q5pLOia34x4ljOhQz9dfoT0ib9bjVAQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6e6457b48eb67090.webp)
 ```
 DimPlot(Ductal2, reduction = "tsne",label = T,group.by = 'orig.ident') #分群效果较好，肿瘤和正常组织来源的Ductal2被区分开了
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9RBRbSY0FxJ3EtXet1x7ZmHVgZYicXiaiatdYGG1ZaN1ibqE0vBR5d4euAA/640?wx_fmt=png&from=appmsg)
+![](../../images/0b50c5e696417146.webp)
 ```
 VlnPlot(Ductal2, features = c("CDK1","PLK1","AURKA")) #明显的表达差异,Fig.S4c
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU93daFwdzAklyfXSzZ0tf1zMXTLRSBZhnnR8iaXXyZ8HicSb3dR9tVElEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/7e518b90b3a4d531.webp)
 ```
 VlnPlot(Ductal2, features = c("KRT19","MUC5AC")) #Fig.S3i
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9rdXFK5FE84fnjRCEGRnFDNwKsPWojmiaCajMHDibl4FWzoiaibkFRwr7aw/640?wx_fmt=png&from=appmsg)
+![](../../images/74a45fd05c040cb8.webp)
 ```
 VlnPlot(Ductal2, features = c("MKI67","TOP2A","CCNB1","CCNB2")) #Fig.3h
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9ib13n7bsey5MzKiaz10fIk8vmqeHCzRibqxSf1mtR3pLzVpMs0EefD48Q/640?wx_fmt=png&from=appmsg)
+![](../../images/68c84a7d2964d209.webp)
 ```
 FeaturePlot(data, features = c("MKI67","TOP2A","CCNB1"), min.cutoff = "q10", max.cutoff = "q99",
             reduction='tsne')+theme(axis.ticks = element_blank(),axis.text = element_blank())  ##Fig.3g
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU96TWLGXGRqOJqUJncJKktibs9ersiaVg7IftYN5icQgcLZogMeem9F4o8Q/640?wx_fmt=png&from=appmsg)
+![](../../images/ef1bfebc302ad999.webp)
 ```r
 new.cluster.ids <- c("0","1","2","3","4","5","6")
 names(new.cluster.ids) <- levels(Ductal2)
@@ -2207,12 +2207,12 @@ cds <- orderCells(cds) #得到伪时间
 plot_cell_trajectory(cds,color_by="Pseudotime",size=1,show_backbone=TRUE) #以pseudotime值上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9IwW9N2ibK75oeTNt3iaYU9eWDE0Jibwic7ymXfcexo0tkP0VpiaK19GSK2Q/640?wx_fmt=png&from=appmsg)
+![](../../images/c1cc1df3e433cd10.webp)
 ```
 plot_cell_trajectory(cds,color_by="ge_celltype",size=1,show_backbone=TRUE) #Fig.S3j以细胞类型上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9nJyW4eMcSCp22vAUQjPuTGa3Xh3Iic2n8AOlB1BPR49mnXwqjQPRMXg/640?wx_fmt=png&from=appmsg)
+![](../../images/4afcd843679e3839.webp)
 
 19Tcell
 ```
@@ -2285,12 +2285,12 @@ JackStrawPlot(Tcell, dims = 1:20) ##绘制PC曲线及p值，确定数据维度
 ## Warning: Removed 30886 rows containing missing values (`geom_point()`).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9Bub1sUFYwJexdBRfN3GURpZGcIM5TwgiaBvNBHIn6lXdmt9Pia8lib4UQ/640?wx_fmt=png&from=appmsg)
+![](../../images/be240e8d4273b78a.webp)
 ```
 ElbowPlot(Tcell,ndims = 50, reduction = "pca") #方法2 拐点图
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9gpNZMPtzgqglzm0ne9icWsk6fJckVjtrC5Sqs11AInbH7Xs7j7s2kpw/640?wx_fmt=png&from=appmsg)
+![](../../images/b10cf3b8e6a34fa6.png)
 ```r
 library(clustree)
 Tcell <- FindNeighbors(Tcell, dims = 1:20)
@@ -2370,7 +2370,7 @@ clustree(Tcell_res@meta.data,prefix = 'RNA_snn_res.')+
   coord_flip()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9NneH0IPt80JFf3ia9Gs7ibVChnsSNtNbxCxdQLm9fibRC2zpGHzCWqBuA/640?wx_fmt=png&from=appmsg)
+![](../../images/817edf45a6542cf9.webp)
 ```
 colnames(Tcell_res@meta.data)
 ```
@@ -2432,22 +2432,22 @@ plot3 <- DoHeatmap(Tcell, features = top10, group.by = "seurat_clusters", group.
 plot3 #Fig.S6a
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU91AiccGnKbeIHLFxIt1ibQxhphKBOAM10p6EviclsIDutKJnhWTNlGpuhg/640?wx_fmt=png&from=appmsg)
+![](../../images/08b2e9fb8e99ca50.webp)
 ```
 DimPlot(Tcell, reduction = "tsne",label = TRUE) #分群效果较好，Fig.S6b
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU92jpGCic0HuxSSVveJp2EmqbmRh4FqPW43IuRSjF7HsnzdwncRselAcA/640?wx_fmt=png&from=appmsg)
+![](../../images/5955927cb17b8c8d.webp)
 ```
 DimPlot(Tcell, reduction = "tsne",label = TRUE,group.by = 'orig.ident') #分群效果较好，肿瘤和正常组织来源的Tcell被区分开了
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9bRD3ug5icaYFPBUoXnVv4ZfVG8Lo6fSWDGaA7VqlROOh19CBMqGj3rw/640?wx_fmt=png&from=appmsg)
+![](../../images/8e3d7b15afc32bf1.webp)
 ```
 VlnPlot(Tcell, features = c("CD4","CD8A","CD8B")) # #明显的表达差异,14是CD8,023是CD4
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9iaJQy4oBbrhib5HZppIDzfpfEC60j5rwjpAic3wcoQNLSPiaAC2l3yib5Tw/640?wx_fmt=png&from=appmsg)
+![](../../images/58f0261c87ac3c0f.webp)
 ```r
 new.cluster.ids <- c("CD4T","CD8T","CD4T","CD4T","CD8T")
 names(new.cluster.ids) <- levels(Tcell)
@@ -2533,12 +2533,12 @@ cds <- orderCells(cds) #得到伪时间
 plot_cell_trajectory(cds,color_by="Pseudotime",size=1,show_backbone=TRUE) #以pseudotime值上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU98jGPWqNZEy50hvIfmNvgDxIKPLibSG6Ad8WLP4Hls3HjatQUic1BZOTw/640?wx_fmt=png&from=appmsg)
+![](../../images/2418430dd16b82f7.webp)
 ```
 plot_cell_trajectory(cds,color_by="celltype",size=1,show_backbone=TRUE) #Fig.S6c以细胞类型上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU97XW6635eUR5TYOY5PfkhD9XUvNhe4icqQVicnibDhJvbRmt99Blib6U3hA/640?wx_fmt=png&from=appmsg)
+![](../../images/6351dcde85c5e442.webp)
 ```r
 #拟时序分析
 library(monocle)
@@ -2610,12 +2610,12 @@ cds <- orderCells(cds) #得到伪时间
 plot_cell_trajectory(cds,color_by="Pseudotime",size=1,show_backbone=TRUE) #以pseudotime值上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9NhRBt82hht6UFUgnb56nrGlcfbHgyzf9JjZU6ibQUtwIic0DBib2Ow7Bg/640?wx_fmt=png&from=appmsg)
+![](../../images/8967ad877faf3133.webp)
 ```
 plot_cell_trajectory(cds,color_by="celltype",size=1,show_backbone=TRUE) #Fig.S6c以细胞类型上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9uJIzJRaAt9BINXTiaBpAbzKzC9O2lOrOicDxXvaVkeeRdm54ic0TokWKg/640?wx_fmt=png&from=appmsg)
+![](../../images/0e6f88fae95f97e6.webp)
 
 20Bcell
 ```
@@ -2688,12 +2688,12 @@ JackStrawPlot(Bcell, dims = 1:20) ##绘制PC曲线及p值，确定数据维度
 ## Warning: Removed 32801 rows containing missing values (`geom_point()`).
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9g6iaKGf13LEDRyuyMJVrVp46uhTUsye4dODAJaicc7kfMBEA7bXoLUmA/640?wx_fmt=png&from=appmsg)
+![](../../images/fc9d7f1fa7db1a1f.webp)
 ```
 ElbowPlot(Bcell,ndims = 50, reduction = "pca") #方法2 拐点图
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU91sSL6PgLfzM3xEeHRozzDa9zTiaRgDGJ45PjwkHIUibVdzUnFEyCuogA/640?wx_fmt=png&from=appmsg)
+![](../../images/e2585e1235c3c6d0.png)
 ```r
 library(clustree)
 Bcell <- FindNeighbors(Bcell, dims = 1:20)
@@ -2800,7 +2800,7 @@ clustree(Bcell_res@meta.data,prefix = 'RNA_snn_res.')+
   coord_flip()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9vZHNVYemHPibLQz9ncEsYFE6DYdhNKMQn2Jt5Sg4nKSBYF2CjTgglmQ/640?wx_fmt=png&from=appmsg)
+![](../../images/22e1cfab6b85e5d7.webp)
 ```
 colnames(Bcell_res@meta.data)
 ```
@@ -2874,22 +2874,22 @@ plot3 <- DoHeatmap(Bcell, features = top10, group.by = "seurat_clusters", group.
 plot3 #Fig.S6a
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9sQR9IQib5qwAliaKbmgZo2gUzz6m6TDMCso9Bk4LaEsSGejibxpGtl14g/640?wx_fmt=png&from=appmsg)
+![](../../images/649452237f015c58.webp)
 ```
 DimPlot(Bcell, reduction = "tsne",label = TRUE) #分群效果较好，Fig.S6b
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9zj4icFpRfT8cIuKRJhufuIEEcDBakzxodOyqKVyDkB09RwwBmUup8Fg/640?wx_fmt=png&from=appmsg)
+![](../../images/b7565ee1619d0345.webp)
 ```
 DimPlot(Bcell, reduction = "tsne",label = TRUE,group.by = 'orig.ident') #基本只有肿瘤细胞
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9uXQp6gicjDWulbKZ8TRxUnUhgZzpaNC5Wsx0wibwlzE9ju67732DHiaCg/640?wx_fmt=png&from=appmsg)
+![](../../images/8b1d489cfc67f2a6.webp)
 ```
 VlnPlot(Bcell, features = c("SELL","CD38","MKI67","CD69")) # #明显的表达差异,14是CD8,023是CD4
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9H5FE06MK4UnLrVYA8Gc0XFWHy5oiaHcoue04U4s3Z3GM3OIbZnknqUQ/640?wx_fmt=png&from=appmsg)
+![](../../images/d2e25693f99f6171.webp)
 ```r
 #拟时序分析
 library(monocle)
@@ -2962,12 +2962,12 @@ cds <- orderCells(cds) #得到伪时间
 plot_cell_trajectory(cds,color_by="Pseudotime",size=1,show_backbone=TRUE) #以pseudotime值上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU95UlibD7h9EkjJGuAkmw7mrWyNFvtm0AOznlTK9xNcPRLf3OHwYs9wmQ/640?wx_fmt=png&from=appmsg)
+![](../../images/b10121f9e0700925.webp)
 ```
 plot_cell_trajectory(cds,color_by="celltype",size=1,show_backbone=TRUE) #Fig.S6c以细胞类型上色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9UaydAIqr2LvOfZjY2yocMYqsHV0t6WNmXVCUa1KtULTbX1AaoXYywA/640?wx_fmt=png&from=appmsg)
+![](../../images/8324d3f53dc92b6a.webp)
 ```
 #原文还展示了Fibroblast, Macrophage,我这里不再展示了
 ```
@@ -2984,7 +2984,7 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 提取码：0l1m
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwJcoHnIKHtw4IEBRoWialU9FoMZ3xkksWicYcK6h5ea018JuGPHKMsr09dly30FDn7QfgpQwaNVzicg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/bf85bcb05322635f.jpg)
 
 02
 
@@ -3023,17 +3023,17 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 **本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

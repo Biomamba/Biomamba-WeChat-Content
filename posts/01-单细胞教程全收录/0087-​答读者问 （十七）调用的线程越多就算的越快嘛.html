@@ -1,0 +1,106 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0087-​答读者问 （十七）调用的线程越多就算的越快嘛</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">​答读者问 （十七）调用的线程越多就算的越快嘛?</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488995&amp;idx=1&amp;sn=7140e0d037671542fb37dff3a3c94b28&amp;chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a#rd
+合集：单细胞教程全收录 / 答读者问</p>
+</blockquote>
+<p>往期回顾</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484175&amp;idx=1&amp;sn=3e45ad62b045a541874e5ae7ca03f849&amp;chksm=9b3f7a5fac48f349f8893500825d2c6b4ff581fbb0816c1074d88a0dbbb4a612c1e1bb3740bb&amp;scene=21#wechat_redirect">答读者问 （一）单基因究竟能否进行GSEA</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484248&amp;idx=1&amp;sn=b1fe7174a28562d01422e43609f41709&amp;chksm=9b3f7a08ac48f31e3bbfdb4a9824dadf25a8fa3ff9b78dd15d646ae4c3da5db04e2e4acfba3d&amp;scene=21#wechat_redirect">答读者问 （二）为什么我的PCA分析报错了？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484280&amp;idx=2&amp;sn=844af02070012a1c2681880596ba51a2&amp;chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&amp;scene=21#wechat_redirect">答读者问 （三）单细胞测序前景</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=2&amp;sn=e8d02fddc80d1137bb64c55541f1651d&amp;chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&amp;scene=21#wechat_redirect">答读者问 （四）如何分析细胞亚群</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484353&amp;idx=2&amp;sn=8fccb88c871a42c803e313be157ab293&amp;chksm=9b3f7a91ac48f387df8b462f7318596fc5c645d6f05eefac2c598ff6875c0a2eeb902aaf5a15&amp;scene=21#wechat_redirect">答读者问 （五）如何实现各物种基因的ID/symbol的转换</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484376&amp;idx=2&amp;sn=9fda8a5261e86f889a58d607163ce0fd&amp;chksm=9b3f7a88ac48f39ea9c19e256a513c9ae80c6f6dc1724b7783884e23981e2061c78fa67071c9&amp;scene=21#wechat_redirect">答读者问 （六）Seurat中如何让细胞听你指挥</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484550&amp;idx=1&amp;sn=ec4466084c1c9eba7eb292e95f33b5bb&amp;chksm=9b3f7dd6ac48f4c042b4e9df2abd717b1354b4914c3f7510eaf444e97965a0f6622979e710e0&amp;scene=21#wechat_redirect">答读者问 （七）有人问我Biomamba何解</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485012&amp;idx=1&amp;sn=6007c8d7cb2a236dd7240a678dac0391&amp;chksm=9b3f7f04ac48f612f811c1df9e9450dc8112d343e4bf245be5149c2e2a073d3e339cd0e3ff61&amp;scene=21#wechat_redirect">答读者问 （八）为什么Read10X也会报错?</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485032&amp;idx=1&amp;sn=7d4777589fa1f92d26ad05ffe3e02f6a&amp;chksm=9b3f7f38ac48f62e0d2e4d46a13c21e440295aef4cba08214527d7b7d2e1959a0b4cebe4143a&amp;scene=21#wechat_redirect">答读者问 （九） 如何将数百个文件整合为一个矩阵</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485134&amp;idx=1&amp;sn=13f5f8c47d8af2beeca4e103a5f5e26d&amp;chksm=9b3f7f9eac48f688b454a1062ee4e41f7072ac9d58e5466fa7ed4bb05018adbfe167bb3a445a&amp;scene=21#wechat_redirect">答读者问 （十）整合后的表达矩阵，如何拆分出分组信息？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485145&amp;idx=1&amp;sn=402cb28c16aba0dc647037c9b7aba8f7&amp;chksm=9b3f7f89ac48f69fe27cd427df3eff2e88c240bf20dfe92d8b522eecd7302d132d880bf29047&amp;scene=21#wechat_redirect">答读者问 （十一）如何一次性读取一个目录下的cellranger输出文件？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485290&amp;idx=1&amp;sn=1e77059439342374ea03496cbba08070&amp;chksm=9b3f7e3aac48f72ca08f5e73496e6f8c99c5fd74a39daa626d636ba5a7b0b89873437ebcb6d4&amp;scene=21#wechat_redirect">答读者问 （十二）ERROR: have no zero exit status</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485859&amp;idx=1&amp;sn=a014c4cb6034551e57c70820c7781e49&amp;chksm=9b3f70f3ac48f9e52620e3ff197eb98e58836e8bb6baad634387a521fdda1e4a194356517c73&amp;scene=21#wechat_redirect">答读者问 （十三）查看Seurat对象时的ERROR：type='text'</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486134&amp;idx=1&amp;sn=e581b8ac20bbc968aeef3f9cf56f3a0f&amp;chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&amp;scene=21#wechat_redirect">答读者问 （十四）Seurat中分类变量处理技巧</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486259&amp;idx=1&amp;sn=97de5c9e15e48cb62c8a680376a4ee0d&amp;chksm=9b3f7263ac48fb75a91b40416826fe35b340284cf38255925ac447443a62cdc1df082d20fb61&amp;scene=21#wechat_redirect">答读者问 （十五）稀疏矩阵转matrix, as.matrix函数是下下策</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487923&amp;idx=1&amp;sn=15043c6d729b0d5493ab875b0e54a259&amp;chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0&amp;scene=21#wechat_redirect">答读者问 （十六）做单细胞测序到底需要多少内存</a></p>
+<p>问题</p>
+<h4 id="20128gb481">有些同学在使用服务器的时候(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486561&amp;idx=1&amp;sn=7cf9102cc2b6b402b7fe95e966cec49f&amp;chksm=9b3f7531ac48fc27c59de45eb36ffaa41a6aacf0fb58c463ecb15a846ce5382f22682ea5fa3b&amp;scene=21#wechat_redirect">独享服务器2.0即将上线，128GB免费试用</a>)发现自己使用服务器的时候计算速度甚至还不如本地的电脑。在沟通的过程中我们发现，有一部分同学不太会在自己运行任务时调用多线程并行计算来加速自己的计算(48线程的机器只用1个线程当然很亏啦)，但是另一部分同学虽然调用了较高的线程数，执行任务时仍需花费大量的时间。那么问题就来了：调用的线程越多就算的越快嘛?</h4>
+<p>答案</p>
+<h4 id="_2"></h4>
+<p>恰好上次在制作<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487400&amp;idx=1&amp;sn=223a96a245c408c31e2c3c16afac88fc&amp;chksm=9b3f76f8ac48ffee769dc76870e15bbd0275647dcfb9bf21bf499b7eaee86121b254e4b2da54&amp;payreadticket=HBob6gulcLqX3wCLyPB3A710WUjQlsp1A27chng9DKm07Po7fhSBKgyjD6Z2uBGvGm13soY&amp;scene=21#wechat_redirect">monocle2教程</a>时用到了一个多线程函数，发现用<strong>10</strong> 个线程时要比用<strong>5</strong> 个或<strong>20</strong> 个线程耗时都短，所以标题中问题的答案当然是否定的，那我们具体来探索一番，计算时间究竟跟线程有什么关系。这里我正好在制作monocle3的教程，就以monocle3为例，先运行到可以调用多线程的地方：</p>
+<pre><code class="language-r">suppressMessages({library(monocle3)library(Seurat)library(SeuratObject)library(tidyselect)library(dplyr)})
+
+expression_matrix &lt;- readRDS('author.pro/expression_matrix.rds')
+cell_metadata &lt;- readRDS('author.pro/cell_metadata.rds')
+gene_annotation &lt;- readRDS('author.pro/gene_annotation.rds')
+cds &lt;- new_cell_data_set(expression_matrix,
+                         cell_metadata = cell_metadata,
+                         gene_metadata = gene_annotation)
+cds &lt;- preprocess_cds(cds, num_dim = 100)#抽平、预处理，这一步默认调用最大线程
+</code></pre>
+<pre><code class="language-r">cds &lt;- align_cds(cds, alignment_group = &quot;plate&quot;)#去除批次效应，看起来要比Seurat中方便的多## Aligning cells from different batches using Batchelor. ## Please remember to cite:##   Haghverdi L, Lun ATL, Morgan MD, Marioni JC (2018). 'Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors.' Nat. Biotechnol., 36(5), 421-427. doi: 10.1038/nbt.4091#取个子集加快一下速度
+</code></pre>
+<pre><code class="language-r">mysubset &lt;- c()for(runplate in unique(cds@colData$plate)){
+  mytemp&lt;- cds@colData %&gt;% as.data.frame() %&gt;% filter(plate==runplate) %&gt;% rownames() %&gt;% sample(200)
+  mysubset &lt;- cbind(mysubset,mytemp)
+}
+</code></pre>
+<pre><code class="language-r">cds.sub &lt;- cds[,mysubset]
+</code></pre>
+<p>先简单的看一下花费的时间</p>
+<pre><code class="language-r">system.time({cds.sub &lt;- reduce_dimension(cds,cores=1)})
+</code></pre>
+<pre><code>##    user  system elapsed
+##  60.016   4.144  58.971
+</code></pre>
+<pre><code class="language-r">system.time({cds.sub &lt;- reduce_dimension(cds,cores=2)})
+</code></pre>
+<pre><code>##    user  system elapsed
+##  59.789   3.552  59.222
+</code></pre>
+<p>第一列的user是我作为用户<strong>实际等候</strong> 的时间，system代表调用这些线程花费了多少时间，elapsed是CPU实际的表达式占据CPU的时间，看起来两个线程确实要比一个缩短了点时间 具体描述可以参考：https://en.wikipedia.org/wiki/Time_(Unix)#User_Time_vs_System_Time那我们来稍微统计一下</p>
+<pre><code class="language-r">mytime &lt;- data.frame()for (mycore in c(1:20)) {
+  mytime &lt;- rbind(
+    mytime,
+    cbind(system.time({cds.sub &lt;- reduce_dimension(cds,cores=mycore)})[1],mycore)
+    )
+}
+head(mytime)##                V1 mycore## user.self  59.440      1## user.self1 59.751      2## user.self2 60.451      3## user.self3 59.648      4## user.self4 60.393      5## user.self5 59.672      6
+</code></pre>
+<p>看起来在这个细胞数量过少。这里反映的情况并不是很明显，我们来重新写个循环，把1:20中的<strong>每个</strong> 线程数以及<strong>数据集大小</strong> 的因素考虑进去。并且在这个过程中，为了避免其他因素的干扰，本测试是在夜间、后台没有挂载任何用户程序的情况下进行测试，并且这是一台我独享的48线程、384GB的服务器，理论上除了我们控制的变量，没有其他任何因素的干扰(突出一个<strong>严谨</strong>)。</p>
+<pre><code class="language-r">mytime &lt;- data.frame()for(mycell in seq(200,2000,300)){
+  mysubset &lt;- c()  for(runplate in unique(cds@colData$plate)){
+    mytemp&lt;- cds@colData %&gt;% as.data.frame() %&gt;% filter(plate==runplate) %&gt;% rownames() %&gt;% sample(mycell)
+    mysubset &lt;- cbind(mysubset,mytemp)
+  }  #mysubset &lt;- sample(1:20271,2000)
+  cds.sub &lt;- cds[,mysubset]
+  for (mycore in c(1:20)) {
+    mytime &lt;- rbind(
+      mytime,
+      cbind(system.time({cds.sub &lt;- reduce_dimension(cds,cores=mycore)})[1],mycore,mycell)
+    )
+  }
+}
+colnames(mytime) &lt;- c('User.time','cores','cell.plate')
+mytime[1:4,1:3]#初步得到统计的数据##            User.time cores cell.plate## user.self     59.757     1        200## user.self1    59.891     2        200## user.self2    59.877     3        200## user.self3    59.860     4        200
+</code></pre>
+<p>那我们可视化来看一下：</p>
+<pre><code>suppressMessages(library(ggplot2))
+ggplot(mytime,aes(cores,User.time,group=cell.plate,color=factor(cell.plate)))+
+  geom_point()+
+  geom_line(position = position_dodge(0.1),cex=1)
+</code></pre>
+<p>那我们先来看1:10核的运算趋势如何，可以看出这一区段随着线程数的上升计算时间基本处于下降的趋势，尤其是任务量大时(如1700/cell.plate和2000/cell.plate)。但是有些任务量相对较少的曲线在线程数上升时计算时间却反而上升了。</p>
+<pre><code>suppressMessages(library(ggplot2))
+ggplot(filter(mytime,1&lt;cores&amp;cores&lt;10),aes(cores,User.time,group=cell.plate,color=factor(cell.plate)))+
+  geom_point()+
+  geom_line(position = position_dodge(0.1),cex=1)
+</code></pre>
+<p><img alt="" src="../../images/8223757bb1d023c0.webp"></p>
+<p>我们再从全局的角度看一看，可以观察到大约在1:10核区间随着线程数的上升计算时间略有下降，很多任务的耗时都降到了60s以下，但是此后10:20核区间内随着线程数的上升、花费的时间却不断上升。</p>
+<p><img alt="" src="../../images/f20b5a2331919d8b.webp"></p>
+<p>奇怪的现象我们是观察到了，但是其中的玄机又如何解释呢？那我们可以先来了解一下计算机执行计算任务的过程，为了帮助大家理解这个过程，我画了一张下面的流程图：首先，我们要知道任务的执行实质上就是一个数据传递和转换的过程，一个命令在运行时需要从磁盘(Disk)中把数据读取出来放在内存中，之后CPU再从内存中将数据取出交给内部的各个"核"去处理，处理完之后产生的结果可以再原路返回写回磁盘中。那么我们调用CPU的多个线程/核处理数据(串行或并行计算)。<strong>串行</strong> 简单来说就是将数据/任务在各个核之间进行传递，用多个核执行一个任务的不同环节从而达到提速的目的，<strong>并行</strong> 简单来说就是把一个任务拆分成不同的子任务交给不同的核去计算。需要注意的是，无论是串行中的核之间传递数据还是并行中的拆分任务都是需要消耗时间的！再简单来说，调用多线程也是要付出时间代价的。所以这就是为什么我们在上面的案例中1:10线程展现出了多核计算的优势降低了任务执行时间，但是后面随着线程数的增加，时间又"<strong>离奇</strong> "的上升了。<img alt="" src="../../images/cc86c5937123ba0e.webp">
+回到我们的问题，答案当然是否定的，多线程的计算当然要比单线程整体计算能力要强，但调用的线程越多并不直接等同于着计算时间的降低，我们上面的案例也证明了多线程计算对于大数据来说更加的具有优势。但是对于小型数据(其实我们这个数据整体也是一个小数据)来说调用多线程的代价甚至要大于带来的收益，大家需要针对自己的数据特征选择合适的线程数，否则可能会南辕北辙、白白浪费计算资源。</p>
+<h4 id="_3"></h4>
+<p><img alt="" src="../../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../../images/7c0febec2249cfa6.gif">公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的<strong>微信号</strong> ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487083&amp;idx=1&amp;sn=312a8435f6b938602624a7e9028ad3c6&amp;chksm=9b3f773bac48fe2d3a2886988b35b006bbd05da11e2d7f735afc78c02ffbd179ebc9722a97cd&amp;scene=21#wechat_redirect">你们要的微信、交流群，来了！</a>
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484685&amp;idx=1&amp;sn=3b47c0bcad97a265650b5f34c00a6a3c&amp;chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&amp;scene=21#wechat_redirect">笑一笑也就算了</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/fdb4c49c78e6216c.webp"></p></article></body></html>

@@ -13,7 +13,7 @@ albums: ["单细胞教程全收录"]
 **一、Ro/e**
 
 此前我们分享过[沉浸式统计细胞比例](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503971&idx=2&sn=7dafb1e743ebbb95e488d8d1b7024448&payreadticket=HP421SVk7bfHK6T1opR953vw2D4qR1ngbdqh_KYbQiQp1ccLxQRrYG4uN1ewmMO9ZhtPrpY&scene=21#wechat_redirect>)，算是系统性的为大家解决了单细胞/空转过程中遇到的细胞比例统计的问题。第一次提到Ro/e处（不保真，大家发现有更早的参考文献欢迎来纠错~）是张泽民院士在2019年的一封发表在《Nature》的letter上提到的`ratios of observed cell numbers to random expectations`(`Ro/e`)方法也能够有效的帮助大家判断细胞类型在对应分组/组织中究竟是趋向/浸润，还是驱离/排斥。并且不用做我们此前基于`ggsignif`两两比较，直接用`Ro/e`是否小于1即可轻松判断。非常的好用，张院士团队2021年发表的一篇《Cell》上继续沿用了`Ro/e`的概念。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb7CRAkcEiaSWZR9iaAiay2zVcY4ribIur2iattibdibBk1sR7ibagiauHNLxQDpTQ/640?wx_fmt=png&from=appmsg)
+![](../../images/b5981b28cd87702d.webp)
 
 上图B即为`Ro/e`评估各巨噬细胞与单核细胞在血液、淋巴结、非肿瘤、肿瘤组织中的浸润情况。作者对于这张图的描述可供大家参考，对于`Ro/e score`大于1的细胞来说，你可以描述其在对应组织中“enriched”：
 We next quantified tissue **enrichment** of macrophage subsets based on the Ro/e analysis (Figures 6B and S7F). The LYVE1+ macrophages identified within multiple cancer types were **preferentially enriched* in non-cancer tissues, resembling the reported tissue-resident interstitial macrophages更多单细胞空转教程可见：[这可能是全网最全的scRNA-seq分析教程！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531388&idx=3&sn=dfaf8cac9db70bb408206fb3da27ffda&scene=21#wechat_redirect>)[单细胞+空间转录组，Python全流程实战教学！](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531221&idx=1&sn=2346109f4cf6d3398dd15351474edf95&scene=21#wechat_redirect>)
@@ -110,7 +110,7 @@ DimPlot(scRNA,split.by ='Group',group.by ='celltype')
 ## To disable this behavior set `raster=FALSE`
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb7qib3licV9lQtA8icPDjtficLDfbn5HSOx9H225glavqZCBtfMw5xuVpiaVw/640?wx_fmt=png&from=appmsg)
+![](../../images/d3e6b97f78c506cd.webp)
 ```
 # 看一下样本信息，共有24个样本：
 unique(scRNA$orig.ident)
@@ -174,7 +174,7 @@ Roe
 ```
 
 原文对于`Ro/e`结果的判断如下，简单来说，是否大于1是判断是否`enrichment`的标准：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb7OOcwXvhI4WthX3u03FqndAlCdrL20obHL9PDnljmxND4RkHziaciaUAA/640?wx_fmt=png&from=appmsg)
+![](../../images/95b60ce9e3dd4d38.webp)
 
 ## 4、绘图
 ```
@@ -182,7 +182,7 @@ Roe
 pheatmap(Roe,display_numbers = T,scale ='row')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb7woBKgbTNMnqQGCADeKBJukUoNGm6pcUPzYjlfrOjrmTsmRyiasrjB0g/640?wx_fmt=png&from=appmsg)
+![](../../images/7757ee4e42ed2371.webp)
 ```r
 # 使用Biomamba祖传渐变色创建连续颜色梯度：
 my_palette <-colorRampPalette(c("#483D8B","#00FFFF","#F8F8FF","#FF69B4","#8B008B"))(100)
@@ -209,7 +209,7 @@ display_numbers = anno_matrix  # 传递标注矩阵，显示符号而非数值
          )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb7ypmqm2bavjG4znia1Q3tKREQ0l5JoibrMF807p9pNFKc9icVbic8J7TZkA/640?wx_fmt=png&from=appmsg)
+![](../../images/4e97a10ba10f0aa9.webp)
 ```
 # 显示实际Ro/e score的热图：
 pheatmap(Roe,
@@ -219,7 +219,7 @@ display_numbers = T  # 显示数值
          )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb7Xlt96q4YicM3gzWMgDNLY5ibWia8BqrJwn8ScHiberpBkRM5BCR0s6z5Xw/640?wx_fmt=png&from=appmsg)
+![](../../images/4f24fdaeedd29339.webp)
 
 ok，非常简单，大家可以去做自己的Ro/e分析啦
 
@@ -269,7 +269,7 @@ https://pan.baidu.com/s/1y_nmhAp3RHUMnz7HEUMDew
 
 提取码: i3hv
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb7dekRA3uE1C6qFbeDlxbOoE2l3P2C7icJdutlFbqy1vgweSiasAShXW1g/640?wx_fmt=jpeg)![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwdxSGv5ythtxkfI2fgmEb75IZ1h8605QLQI8TygyTSBBpJPfZqU24taaumpajlkFCFuuIehRyhIQ/640?wx_fmt=jpeg)
+![](../../images/35315de0972ede9c.webp)![](../../images/4383fc2a20f074a6.jpg)
 本教程基于Linux环境演示，计算资源不足的同学可参考：
 [足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511780&idx=1&sn=3acc0874f7d2fa75f1abbe7a9a9b4069&chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&scene=21#wechat_redirect>)
 [忘记宣传了，独享用户连技术支持都是独享的](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529475&idx=1&sn=10827e982a637e0fc36e4b6e857736c8&scene=21#wechat_redirect>)
@@ -404,16 +404,16 @@ sessionInfo()
 ## [187] cluster_2.1.8               globals_0.16.3
 ```
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprPlbVxSB0ZR8TMBzzDhJk1P621jYhkA50EmQ83Ig2TvLJVne887YrsrkKSxx1S98QBfKL5BcZOkNg/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&randomid=w0gpp317&tp=webp#imgIndex=3)**
+**![图片](../../images/f3c2f2e4995a729e.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

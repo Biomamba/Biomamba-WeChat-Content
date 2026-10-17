@@ -44,7 +44,7 @@ GROMACS是目前生物分子模拟领域使用最广泛、性能最优秀、速�
 
   * 更多AIDD与CADD技能欢迎交流：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkZwL2HickySMnA3pHHDPMJQ3xvGYqTvLpT0ekj5sX3BPbqGFnHsLGcte4RqV27hNQWcL6Z0Sg8J7F0fJFjL8eF9mrOgDIEhGUM/640?wx_fmt=jpeg)
+![](../../images/f763fa702f88bc72.webp)
 
 **二、GROMACS的下载与使用流程**
 
@@ -52,11 +52,11 @@ GROMACS是目前生物分子模拟领域使用最广泛、性能最优秀、速�
 
 GROMACS提供两种主要的安装版本：纯CPU版和GPU加速版，两者的计算效率差距巨大。在纯CPU版中，仅依靠CPU多核处理，在GPU版中能够利用CUDA使显卡进行并行计算，大阪大学超级计算机中心实测数据实现2.3~2.9倍的运行速度。
 
-![GROMACS的CPU版](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkeP1pVagGkwzHP4nicXiau5XwTT6PtV1teGV4Sny01nhSUgJAN56PPnc4I0o6vnyfyHrn4WedC2XvjdBgJbNUZkOhtHMjefribyc/640?wx_fmt=jpeg&from=appmsg)
+![GROMACS的CPU版](../../images/b8fdc4c01084dc73.jpg)
 
 ▲ CPU版计算流程
 
-![GROMACS的GPU版](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnJNncxXfuJ4ibZItVeuaEhG73ib2xTno6hVTfLUO9ID034iaNrDsBnbdibIZZwAdeKKUh7kVGj8F7rvALUE2jQN9WsIliaialeQfTbY/640?wx_fmt=png&from=appmsg)
+![GROMACS的GPU版](../../images/9ef3bb748d01247a.png)
 
 ▲ GPU版计算流程
 
@@ -76,11 +76,11 @@ nvidia-smi
 
 确认显卡型号后，根据对应显卡在CUDA官网（https://developer.nvidia.com/cuda/toolkit）中找到对应的版本并进行下载编译。
 
-![CUDA下载](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm6c6c03Qxx7I7mKMPQp7xfAcqKliaS93Izye0Fv5L62tMhmQoudMwicgh2PVPn201IoBZd5dyExrFlSlBMSB0s079u7hdgBqZXU/640?wx_fmt=png&from=appmsg)
+![CUDA下载](../../images/c1967b6c8013840a.webp)
 
 ▲ CUDA官网上会根据选择的不同系统和版本给出命令
 
-![CUDA命令](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkW6e7c9ZDW6f1DZdM6Yb5n9mwY8oficsV8OxoZf5rDQYBOTxHN8le5TxfHroBdWFge29o3lF95ZibeR1qdFicoZxZbgA5O33H2h4/640?wx_fmt=png&from=appmsg)
+![CUDA命令](../../images/8c25a049005a5b50.webp)
 
 ▲根据给出的命令在WSL中一步一步下载即可完成编译
 
@@ -138,7 +138,7 @@ which gmx #如果返回/usr/local/gmx2025.2/bin/gmx说明安装成功。#返�
 
 本小节将以一个冰-水-蛋白混合复杂体系为例，完成GROMACS模拟的核心流程。这个案例涵盖了从复杂体系的初始结构搭建，到能量最小化、NVT/NPT平衡，最后到生产模拟（一次模拟产生很多文件，一次模拟用所有文件请保存在一个新建的文件夹内）。
 
-![GROMACS流程](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnzib2OWHDLcm19O7fg5C4hPENlfm23RhILN4lo1lK3uKQGGiaBvyNdbqjatfNECweFgRiaDREtBicfEx2Flrkk9QmSJtGA8IN8Bvo/640?wx_fmt=png&from=appmsg)
+![GROMACS流程](../../images/5bc73ca0284061e2.webp)
 
 ▲ GROMACS模拟所需流程
 
@@ -178,7 +178,7 @@ genice2 --rep 7 7 3 --water tip4p 1h > ice.gro
 
 蛋白质结构可以在PDB数据库中选择需要的结构或由[Alphafold](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535726&idx=1&sn=fa3a01ca6ec0f20d0e9b7ac960712ac3&scene=21#wechat_redirect>)生成。本次模拟的Alphafold数据库为例，结构在数据库中下载直接使用。而在PDB库获得的pdb文件中，通常包含多个水分子和配体、离子等非蛋白组分。这些组分对于分子动力学模拟来说通常是不需要的，需要先进行清理，只保留目标蛋白。
 
-![PDB](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkmLxZ2bt4zakZTibMA3JM0dxrJ66FiaQPdlQ6wJdSXo1q8O2HOBqGE7DF7uMAJeE6x1BWekcaseXyKPiceU2UrMaeTv2fAFdbbbM/640?wx_fmt=png&from=appmsg)
+![PDB](../../images/50ffc51a7006c3e7.webp)
 
 ▲ 图中小红点就是水，大红点就是离子等组分
 
@@ -214,13 +214,13 @@ packmol可以通过三种方式下载，官网、Github和终端（CMD）。
 
 打开官网选择版本后下载
 
-![packmol1](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkcPXDSLQZrSqMV4VtEP3vibkPQ6LabQ2LQu738iciaF70HTsmRwAzUZ0pjeRu7aqCA4EHz3uxUCUd751RARibzk8biaUL1sV99gZQo/640?wx_fmt=png&from=appmsg)
+![packmol1](../../images/26614f7e0ae66313.webp)
 
 Github下载
 
 Github：https://github.com/m3g/packmol
 
-![packmol2](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmRaer2Ur7iaegsx31lO76Hq94bfUdicYgmqWfU5ib17UDNibPeM3ibohgyMCAGVmAp5YwDnxhqd2OMP84Vm7DXicyEAecwn6UHbbbqY/640?wx_fmt=png&from=appmsg)
+![packmol2](../../images/d207e1222902e185.webp)
 
 ▲ 点code后Download Zip
 
@@ -264,7 +264,7 @@ itp文件是用于具体分子的拓扑信息：原子、电荷、键、键角�
 
 我们打开蛋白加氢后生成的topol.top文件，从[moleculetype]复制到[dihedrals]，新建一个txt文件复制进去并将txt文件改名为protein.itp即可。
 
-![itp](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmDRQst18mkVfkiaU03iaK8HCTOl8EbY1k3mib4ibb1kRvSwceibbWlibKLrkr5BIoN1HOZgLia0f600emkRflMTlAnicGKwtMiaib7fUY88/640?wx_fmt=png&from=appmsg)
+![itp](../../images/b176ab0102b7fb11.webp)
 
 蛋白质限制文件（posre.itp，本教程未启用）
 
@@ -340,17 +340,17 @@ Packmol解析
 
 输入命令后Packmol开始生成体系，但是不是所有体系都都能够直接使用的。
 
-![packmoluse1](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmAicTEy3xQRb2f47iadRT6qtMnIicibYVVwrO86lEpTXN01Wo7kq2BPY3Os9ZN7ExKeVHY6ia2tAwkVUM4xeb4sqOrj8SQnWOdyibiaA/640?wx_fmt=png&from=appmsg)
+![packmoluse1](../../images/c670a3cbd5f33a2d.webp)
 
 其中最重要的就是最小距离偏差与边界偏差。Packmol在循环中会不停尝试，反复调整原子位置，并重新进行packing，直到找到满足约束的解。每完成一轮优化，它都会输出当前的最优结果，并用这两个指标来评判结构是否合格。一般两者的值在0即为最优，不需要等待Packmol运行结束即可停止。
 
-![packmoluse1](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnm17pb1iaTuWh3anbU7ITZb1N1wTIR2IicPiaGPce3amgFDwicDUbY9YI7GqbFUTXUGpicuq4flxjc0SumOnF3ZZLQLuDJLp0LybtY/640?wx_fmt=png&from=appmsg)
+![packmoluse1](../../images/477f8c1157b88b78.webp)
 
 ▲ 在最小距离偏差为0时即可停止运行
 
 最后生成冰水蛋白体系
 
-![冰水蛋白体系](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkmUicTUE9uVod1OnicD619bpaWBh34FF9c6ADW7phwLxqngpibcLesywR1BO5ZHicXiblpqYEtib7W6ejQ6nW0kUCgvvgljiccDtdVZM/640?wx_fmt=png&from=appmsg)
+![冰水蛋白体系](../../images/f332837aae01ce67.webp)
 
 2.2.2 模拟参数设置
 
@@ -436,7 +436,7 @@ CL 1
 
 在topol.top的[molecules]区域的数量必须与PDB文件相同，否则后续模拟出现报错，警告top和pdb原子数量不符。
 
-![top报错](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwknf31xUZs5k9pjdywb0NDcaj3bEt7qpxicYyYsARibeviaxndZeQp4drhkTp2QIpZb93MXefGuq8VzqGWORjURxLSWpOrxicf8rjQ/640?wx_fmt=png&from=appmsg)
+![top报错](../../images/78313cf642442d75.webp)
 
 2.2.2.1 能量最小化
 
@@ -458,17 +458,17 @@ gmx grompp -f em.mdp -c system.pdb -r system.pdb -p topol.top -o em.tpr#
 
 运行后会出现以下的输出，则说明运行成功。
 
-![em](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn6rBvNDdJAg1dLEINHPjvZAbkF43Duqb4bDxAl6BoIauValq5lyh6f3U4Exwrx4rttyTPtw0iciapXkCGtjAw2iaCI7sHqtqS7JM/640?wx_fmt=png&from=appmsg)
+![em](../../images/d216199344511082.webp)
 
 ▲ Maximum force需要小于设定的最大值（<1000）
 
 当出现too many warnings，需要手动检查错误。
 
-![maxwarn](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmkUuibKcGeztibdLzejYstr8q2CdkuI6ew1ibc08N1Ma4XWTLZpibaAm5kT7sbtRWjznyhvvOgyyXibCqAM5ntWY1ZukkrjylIWMcg/640?wx_fmt=png&from=appmsg)
+![maxwarn](../../images/eae8c569909b0e81.webp)
 
 如果是体系电荷问题，会出现如下报错。
 
-![电荷](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwneYicvS9VPmL3NvyKrv6wvevdgH80RzodqibPpQqSV1RkGrhS4OlceScQr0jjSEkXETibbmTygoLlzkucAF5Fg4PPU1nloBiarn1U/640?wx_fmt=png&from=appmsg)
+![电荷](../../images/1a1ddd87df2a587a.png)
 
 该错误提示体系的总电荷为1.0，则需要加入CL-。
 
@@ -492,7 +492,7 @@ gmx grompp -f em.mdp -c system.pdb -r system.pdb -p topol.top -o em.tpr#
 gmx make_ndx -f system.pdb -o index.ndx#打开分组信息
 ```
 
-![分组前](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkibIovUcs5wGHehHJyFNDndm4lm5MMcAQIyJkbAQPtuTXWPIfC3lOBiaIGDFXZAkdrUhnJsVqyrxVQriaY6pJVLQVrrha8F2nfs0/640?wx_fmt=png&from=appmsg)
+![分组前](../../images/8a70c42debc28aac.webp)
 
 ▲ 模拟体系的分组
 
@@ -502,7 +502,7 @@ gmx make_ndx -f system.pdb -o index.ndx#打开分组信息
 17 | 3 | 4#将组3，4，17合并为一组name 21 SOL_all#将三组合并的新组进行命名#最后输出一个index.ndx，可以文本查看分组#命令查看分组#gmx make_ndx -f system.gro -n index.ndx -o /dev/null
 ```
 
-![分组后](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm3F8FySia5oJFO2QsAY7nR5k1GibTdHX7gp4VW1vhzjP5XI1NJfxLDt8Iu60S5CAYWy2HU0UUu6bdzXlfQPcW1r8HtbABXicD8MQ/640?wx_fmt=png&from=appmsg)
+![分组后](../../images/4761012009aa33be.webp)
 
 ▲ 新建 ’SOL_all‘ 组，包含SOL,SOH和CL
 
@@ -770,7 +770,7 @@ gen_vel = no
 gmx grompp -f md.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o md_1.tpr -n index.ndx#生成文件gmx mdrun -deffnm md_1 -v#开始生产，-v可以查看进度
 ```
 
-![运行MD](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn8vwL1VKYtC2X3mpic3oCyt95TiaAyG6rq2ibXOnKcicSPaQncDRl5xq8C7EyeFoRTSdAQFDFyD7vBCbnFjY0pEcLI53ia8Muk0BBE/640?wx_fmt=png&from=appmsg)
+![运行MD](../../images/0ba027854a32b294.png)
 
 恭喜！成功开始模拟。
 
@@ -788,7 +788,7 @@ gmx grompp -f md.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o md_1.tpr 
 # 势能gmx energy -f em.edr -o em_potential.xvg# 输入 Potential 并回车#输出纯数据则加上 -xvg none
 ```
 
-![em检验](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn7ngWicMGpVsL2IxRlObzVzVmTuqvbibzjjBaOfHd6z3YweyYPjrVicPuvgSIcYVfXN2lORN6LuR9Jcmdbu29HNRnY8MIIgNHeh8/640?wx_fmt=png&from=appmsg)
+![em检验](../../images/c7249812e68394d1.webp)
 
 ▲ 输入Potential后回车
 
@@ -804,7 +804,7 @@ import matplotlib.pyplot as pltimport numpy as np# ===== 只需要修改�
 
 python对数据进行画图
 
-![em_potential](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnyRDwJNyzeEw0XBmlX4oavXJylmjicrxiaS2OwCwThekiafT96qx203BjJzyXfc3uruibCHicU5WzamWfqia7kibvQpOH6ySBm5Iv84g/640?wx_fmt=png&from=appmsg)
+![em_potential](../../images/afe29cabd319b60f.webp)
 
 观察势能曲线，刚开始势能较大并快速下降，最后随着模拟时间趋于平稳，即为体系稳定。
 
@@ -824,13 +824,13 @@ gmx energy -f nvt.edr -o nvt_temp.xvg# 按提示输入 Temperature 并回车
 
 生成温度曲线
 
-![nvt_temp](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnhiapG7ohoh4ciaDLf56WVWTKWTzbM4tPvj1y3UYocPLvhQs78Eey9ThZpjcBkOGU8OSxsP8LbvoQG3F7rx1DT4ukfC0cIlSup4/640?wx_fmt=png&from=appmsg)
+![nvt_temp](../../images/7dff2560da8d8e7b.webp)
 
 温度曲线在设定的目标温度（267.15），体系在目标温度有±2℃左右温度波动，属于正常范围。延长模拟时间可以减小温度波动（100ps通常足够）。
 
 生成势能曲线
 
-![nvt_pot](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlNMN0kJhib3hztZIOXECskdph5JgbUfbLeiaga126ECNfO9r2rU6bd5qBvoVXBDRf5q7QNthLfStX8uhe5ARkfiaicdzicOYVbFoRQ/640?wx_fmt=png&from=appmsg)
+![nvt_pot](../../images/5e9fe82f84ffad63.webp)
 
 势能曲线由于刚开始从0K升温到267.15K造成势能升高，恒温后势能平稳下降，是很多体系常见的曲线，升高后平稳后则认为体系稳定。
 
@@ -850,7 +850,7 @@ gmx energy -f npt.edr -o npt_den.xvg#输入density并回车
 
 并使用上述的python生成图片
 
-![npt_den](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwld2Xpf6vBW9FRBaBIHR2iaqia9cz3MZhsG8bwzhat5qtZnyNiabqzzShMprxuUtRHFGt0GxzVO3bH45N1NExxJ3nX4kYuX8FAl18/640?wx_fmt=png&from=appmsg)
+![npt_den](../../images/c4e0031c669f9e55.webp)
 
 体系密度曲线由880涨到950左右波动，这通常说明体系在 NPT 压力耦合下被逐渐压缩，密度正在收敛。而体系内包含大量密度较低的冰，因此低于水密度的1000属于正常情况。在模拟后30%趋于稳定说明体系稳定。
 
@@ -862,7 +862,7 @@ gmx energy -f npt.edr -o npt_den.xvg#输入density并回车
 gmx energy -f npt.edr -o npt_pre.xvg#输入pressure并回车
 ```
 
-![npt_pre2](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlAgoPwRzH5WLr6jtOibyZpSH7jeGqomXBjrAp19Wg6ou2ZS3DsRhTUdBEicH71d3YI7zZUJjWsdF3QoiboqKlu5x9ibl5iaXhCmXvE/640?wx_fmt=png&from=appmsg)
+![npt_pre2](../../images/641c7bc4b2b80d87.webp)
 
 压力曲线在初期快速上升，从-2500到500后最后0±400bar附近波动，说明体系压力趋于稳定（体系的瞬时压力很大，只看瞬时压力没有意义，体系平均压力接近1.01bar即体系稳定，如果平均压力明显偏离，比如-100bar，则说明没有稳定）。下面给出python代码计算后30%的平均压力。
 
@@ -872,7 +872,7 @@ gmx energy -f npt.edr -o npt_pre.xvg#输入pressure并回车
 import numpy as npdata = np.loadtxt('npt_pre.xvg', comments=['#', '@'])n = len(data)last = data[int(n*0.7):, 1]   # 后 30% 数据print(f"平均压力: {last.mean():.2f} bar")print(f"标准差:   {last.std():.2f} bar")print(f"目标压力: 1.01325 bar")
 ```
 
-![pressure2](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlAsic4L1bWAH4vsLffWurSCaCyic4MzX0tXZNUDNARKnFVNBewcUiaobP9l1GT8zCiaOh8GVXicZk4MrjDYFOiblbCibGKHGBfic2gXLA/640?wx_fmt=png&from=appmsg)
+![pressure2](../../images/305acb35526a74ba.png)
 
 体系平均压力为-1.06bar，在统计上可以认为与目标值一致，认为体系稳定，能够进入生产模拟。
 
@@ -880,7 +880,7 @@ import numpy as npdata = np.loadtxt('npt_pre.xvg', comments=['#', '@'])n = 
 
 在完成模拟后，GROMACS会给出名人名言提示生产模拟已完成，下面对每个模拟文件进行介绍。
 
-![md文件](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmxQXGBWN4iclMhGJKqwgMaNOxibNZfoXHXP2Licibuxh2ib1kpv6kn8Foa7gEBiaRVoNzJubXu9HEH3ae6TflRQ7UoXTPPe86k3HLGI/640?wx_fmt=png&from=appmsg)
+![md文件](../../images/02fa02736620948a.png)
 
 ▲ 生成多个模拟文件
 
@@ -906,15 +906,15 @@ md_1_prev.cpt：上一检查点备份。自动保留的上一个检查点，防�
 
 VMD是一款免费分子可视化软件，它专为显示、动画和分析大型生物分子体系而设计，是处理分子动力学模拟结果的主流工具之一。在官网直接下载即可，这里以windows版本为例。
 
-![VMD](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnNlbIkNGBWCSflCeftGzAgPmYqowSibG4ibQIsWDXtr889avR6Yy2BpbU3UQLcJv6PfgUxVKoHOs2aBoG3uF8TzMMC3ia1m49huw/640?wx_fmt=png&from=appmsg)
+![VMD](../../images/160a6116d884c1a2.webp)
 
 下载完成后打开npt.gro文件。
 
-![VMD加载](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn596X9qxJf5BPghDgeBSvgOpd3icicPD7NMou7PwmnSxYem8QZUgBMQQuTkwLZg5dYS5sSpts21BA2s07MqrEFEticvZkClicDRtI/640?wx_fmt=png&from=appmsg)
+![VMD加载](../../images/ba9dc086c68cb9d3.webp)
 
 打开后gro文件后操作如下：
 
-![VMD载入轨迹2](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk9v73PthalpQekg7AdbjO18pDicU1hAGpicNGaVfCXnCicCFHicjc1K9s3I9FeSDAROsyU2YBNq5Drvjfh4cE1KicO7lGh7E2AS2ag/640?wx_fmt=png&from=appmsg)
+![VMD载入轨迹2](../../images/8249451a9a52f0e2.webp)
 
 左键选中文件后右键点开选择框，选择load data into molecule。然后选择Browse找到对应的XTC文件，下方的last改为-1，点击load即可加载轨迹（需要等待几分钟）。
 
@@ -952,7 +952,7 @@ import matplotlib.pyplot as pltimport numpy as npdata = np.loadtxt('rmsd.
 
 得到的结果如下图所示
 
-![rmsd](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnxQoZ3R1HLLaXD1ia8T5QtnqZxu8O08DvCyfic5MrfNY41NGJVrC4fow8MbHicvju8xNhXKSbPvMTp0aNtNj5EqL6AmA8qLaiaSxI/640?wx_fmt=png&from=appmsg)
+![rmsd](../../images/44d6af8c32a2bfdd.webp)
 
 该曲线展示了蛋白的RMSD随着模拟时间的变化，通常认为 RMSD < 0.3 nm 表示结构稳定，0.3–0.5 nm 表示有局部构象变化，> 0.5 nm 表示较大构象转变。
 
@@ -976,7 +976,7 @@ import matplotlib.pyplot as pltimport numpy as npdata = np.loadtxt('rmsf.
 
 得到的结果如下图所示
 
-![rmsf](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlxv0szAO2pSldR4kGejbVRKRudQLLmVbUa5Bvo9fGJpxSpxdSb1Vs4G0gyCf5S2Ou7lPibDuFRPQ3eYOj4UvmexrZicYhDVQBE0/640?wx_fmt=png&from=appmsg)
+![rmsf](../../images/2c69d326b9aa6a67.webp)
 
 该曲线展示了蛋白质每个残基的rmsf，图中峰值对应柔性区域（如 loop 区、末端），谷值对应刚性区域（如 α-螺旋、β-折叠核心）。活性中心通常 RMSF 较低，说明结构刚性；底物结合口袋边缘可能 RMSF 较高。
 
@@ -1000,7 +1000,7 @@ import matplotlib.pyplot as pltimport numpy as npdata = np.loadtxt('gyrat
 
 得到的结果如下图所示
 
-![gyrate](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwksrXnkp4eeSiaS9CVI2QFiciaPrI4XJuDRMzHk1BMQv3mAkCJdxxS0ficCFOyqQGDdmEq9beDNoXvjIs0icqEOfJMynsj2HPZm2jKg/640?wx_fmt=png&from=appmsg)
+![gyrate](../../images/1fb24bc202aa5008.webp)
 
 该曲线展示了蛋白随着时间改变的紧凑程度，曲线平稳说明蛋白紧凑度保持稳定，曲线持续上升说明蛋白可能去折叠或构象膨胀，曲线下降说明蛋白变得更紧凑（可能发生折叠或收缩）。
 
@@ -1026,7 +1026,7 @@ import matplotlib.pyplot as pltimport numpy as npdata = np.loadtxt('hbnum
 
 得到的结果如下图所示
 
-![hbnum](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlfEYiaIpt1NvficQqibAOSdvOVialbZibwW0LvuicDNR0lVU0ibowmF0XOh2pZqVwHaiaRibib1YGo6FLhXXRpLib2LPxLjOwHAcZibIibOCiaY/640?wx_fmt=png&from=appmsg)
+![hbnum](../../images/76041b9f8df58ffc.webp)
 
 该曲线展示了蛋白质内部的随着模拟时间变化的氢键数量。氢键曲线在某个数值附近波动说明氢键网络稳定。氢键数量逐渐下降说明蛋白二级结构可能遭到破坏。氢键数量波动大说明蛋白柔性较高，或模拟时间不足。
 
@@ -1038,7 +1038,7 @@ import matplotlib.pyplot as pltimport numpy as npdata = np.loadtxt('hbnum
 
 本教程相关文件：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlibIMaQFLogUk3J1rQkTGPorqnkuqKHiaFgJHmIDMyYwlpib9Y1RJ55CEpYCVNfFsNnzVE8TIMzzlPOet7ewqcMd66OuqHYibic2uo/640?wx_fmt=png&from=appmsg)files文件内容如下：![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkgMibqbw9BsiboXlRb2rDriboo1a9XvAPxQKjRotEXB6HMzFibEIuU2715E0pqebvQ61fc7mjJmJia3x7mIiaR03Olz5ZfKSPW5jOEk/640?wx_fmt=png&from=appmsg)
+![](../../images/dd0b93927640a05a.png)files文件内容如下：![](../../images/287373e264efc593.webp)
 
 百度网盘链接: https://pan.baidu.com/s/1jQMhugixY9HpQ0ktfrpO5g
 
@@ -1046,7 +1046,7 @@ import matplotlib.pyplot as pltimport numpy as npdata = np.loadtxt('hbnum
 
 DavidXie
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -1087,9 +1087,9 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/4ec66ccdb832fd05.gif)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

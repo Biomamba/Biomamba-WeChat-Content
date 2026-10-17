@@ -10,25 +10,25 @@ albums: ["AIDD & CADD"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538886&idx=3&sn=6945c1ad968781b1b17a3a327287da56&chksm=9b3c2196ac4ba8803d6e10d505a96bd837956045d0a282198cc50e10e8bb6ded359426c11a75#rd
 > 合集：AIDD & CADD
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 Bindcraft：用户友好的binder从头设计流程
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)蛋白质主要依赖蛋白质-蛋白质相互作用（PPI）来执行复杂的生物学功能。因此，设计能够特异性靶向PPI的蛋白质结合剂具有极高的治疗与生物技术价值。然而，传统的实验方法以及早期基于物理的计算工具（如 Rosetta）往往费时费力、成功率较低（低于0.1%），且依赖于海量的结构采样。近年来，结合[RFdiffusion和ProteinMPNN](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535726&idx=1&sn=fa3a01ca6ec0f20d0e9b7ac960712ac3&scene=21#wechat_redirect>)的[深度学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507794&idx=1&sn=c70dd03a962adb3f3b92ffed47e978bb&scene=21#wechat_redirect>)方法大幅提升了设计的成功率，但仍存在一定的局限性：还是需要一定程度的高通量实验支持，且软件操作较为繁琐，要求用户具备一定的Linux系统使用经验。为此，洛桑联邦理工学院（EPFL）的团队开发了一款高度自动化的蛋白设计软件BindCraft（Nature 2025）。该软件利用AlphaFold2网络的反向传播机制 ，能够针对极具挑战性的治疗靶点，高效生成并精准识别出高亲和力结合剂。BindCraft不仅显著提升了按需设计结合剂的效率，其高度封装的特性也极大降低了使用门槛，为用户带来了更为便捷的操作体验。
-本教程将重点介绍以下内容：Bindcraft的核心原理与设计实例、Bindcraft的安装与部署，Bindcraft的使用方法。![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/Expression/Expression_77@2x.png)此教程还配备[专属镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)，领取该教程之后可免费领取镜像。
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)蛋白质主要依赖蛋白质-蛋白质相互作用（PPI）来执行复杂的生物学功能。因此，设计能够特异性靶向PPI的蛋白质结合剂具有极高的治疗与生物技术价值。然而，传统的实验方法以及早期基于物理的计算工具（如 Rosetta）往往费时费力、成功率较低（低于0.1%），且依赖于海量的结构采样。近年来，结合[RFdiffusion和ProteinMPNN](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535726&idx=1&sn=fa3a01ca6ec0f20d0e9b7ac960712ac3&scene=21#wechat_redirect>)的[深度学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507794&idx=1&sn=c70dd03a962adb3f3b92ffed47e978bb&scene=21#wechat_redirect>)方法大幅提升了设计的成功率，但仍存在一定的局限性：还是需要一定程度的高通量实验支持，且软件操作较为繁琐，要求用户具备一定的Linux系统使用经验。为此，洛桑联邦理工学院（EPFL）的团队开发了一款高度自动化的蛋白设计软件BindCraft（Nature 2025）。该软件利用AlphaFold2网络的反向传播机制 ，能够针对极具挑战性的治疗靶点，高效生成并精准识别出高亲和力结合剂。BindCraft不仅显著提升了按需设计结合剂的效率，其高度封装的特性也极大降低了使用门槛，为用户带来了更为便捷的操作体验。
+本教程将重点介绍以下内容：Bindcraft的核心原理与设计实例、Bindcraft的安装与部署，Bindcraft的使用方法。![](../../images/e7aab64dfd05765f.png)此教程还配备[专属镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)，领取该教程之后可免费领取镜像。
 
 往期我们也出了Ai驱动结合蛋白质设计的教程，感兴趣的小伙伴可以点击[正刊都在用的AI驱动蛋白质从头设计流程：RFdiffusion+ProteinMPNN+AlphaFold3](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535726&idx=1&sn=fa3a01ca6ec0f20d0e9b7ac960712ac3&scene=21#wechat_redirect>)学习哦~
 
-优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)**更多生信教程可见：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)**
+优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]![](../../images/fe8ecb8594a1f419.webp)**更多生信教程可见：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)**
 **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+![](../../images/7d247e6c6ef19f87.png)
+![](../../images/f08cdfe212eb6283.png)
 
 Bindcraft核心原理
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/007e970626afa0b7.png)
 
-![截屏2026-03-11 11.04.14](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn4xiadS1zCrBguNsaWGHZhFJEjyhBWEZxqvqicBKbeHYDzI1C77zibtmSBKUHlpkmVdWibIpoyyu5L17yKFMB7KZqYqzpoJ0LRNgI/640?wx_fmt=png&from=appmsg)
+![截屏2026-03-11 11.04.14](../../images/fa3d1e1bacbbcba5.webp)
 
 BindCraft的设计管线可以清晰地分为三个主要阶段：
 
@@ -38,17 +38,17 @@ BindCraft的设计管线可以清晰地分为三个主要阶段：
 
 **第三阶段：跨模型正交验证与严苛过滤** 最后一步是剔除“假阳性”的质控环节。经过优化的序列会被跨模型送入 AF2 单体模型中进行重新预测，以消除多聚体模型可能带来的评估偏倚。最终，系统会综合 AF2 的置信度得分与经典的 Rosetta 物理能量评分体系 ，精准剔除物理上不合理的设计，输出最终可以直接用于实验筛选的高成功率候选序列。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+![](../../images/f08cdfe212eb6283.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/007e970626afa0b7.png)
 
 以html格式提供学习手册，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/buxFNhaTGwnJJRBrwYTU5A76u7tCj343GOIowu2pC2smekgRRchAwFkTknMes86QreWPxSI1K9Hoxkias9X62wX8sriaS2yTdSPFD7eFSXpcs/640?wx_fmt=gif&from=appmsg)
+![](../../images/c769e2b41216908e.webp)
 
 Bindcraft全流程教程目录：
 
@@ -94,12 +94,12 @@ Bindcraft全流程教程目录：
 
 文末下载链接中包含以下内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmIfQBGswicJn25eBCBcMF5zX0PsePKdCMSMklMbVIWaJNTTKLlJNQdgsDPqlKXFmpIdxdib89QtOesIPlvW5wLJ6ibfjRMLRyQsY/640?wx_fmt=png&from=appmsg)测试文件，总大小6.66GB![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/f9fa8ece3ea91544.webp)测试文件，总大小6.66GB![](../../images/7d247e6c6ef19f87.png)
+![](../../images/399758fa7d6941c2.png)
 
 往期推送
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：[为什么我们敢开放终身订阅](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)
 
@@ -131,18 +131,18 @@ Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资�
 
 [Ai驱动结合蛋白设计：Bindcraft全流程教学](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537769&idx=1&sn=5dbfe76b35fd2f7593e55bff48c6fa73&scene=21#wechat_redirect>)
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwFyPvvyMoyrCDjicmgGcjLom5Yy4JXTXgcSvQIht80m1loPpSwgUPS52jZwKrYqDsXVgSRqwibJYkg/640?wx_fmt=png&from=appmsg)****
+**![](../../images/bc4a928a4947108c.webp)****
 **
 
 持续更新中~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)
+解锁前需阅读：**[2026订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534690&idx=1&sn=4ff5291b649fb4fe4d703c48a04d37f2&scene=21#wechat_redirect>)**![图片](../../images/eab31beb8c0e41d2.png)
 
 学习手册领取：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=wxpic)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/8b04fd62fd8f3d51.png)![](../../images/007e970626afa0b7.png)
 
 本推送教程、测试文件下载链接：
 
@@ -150,6 +150,6 @@ https://pan.baidu.com/s/1DBBUnOQRyfD9jbDEwBqf_Q
 
 提取码请联系客服微信获取：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fe8ecb8594a1f419.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)

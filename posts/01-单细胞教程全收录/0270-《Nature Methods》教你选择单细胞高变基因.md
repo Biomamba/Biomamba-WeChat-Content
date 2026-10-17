@@ -42,11 +42,11 @@ DOI: 10.1038/s41592-025-02624-3
 
 这项研究评估了特征选择在整合scRNA-seq样本以及利用这些整合后的参考数据来分析查询样本时的影响。我们通过五类不同的评估指标，对20多种特征选择方法的性能进行了测试：这些指标包括去除批量效应、保留生物变异信息、提高查询样本与参考数据之间的映射质量、确保标签转移的准确性，以及检测未知基因群体的能力（扩展数据图1）。这套严谨的基准测试流程所获得的结果，对于希望整合自身数据集或构建参考图谱的研究人员而言，具有重要的参考价值（扩展数据图2）。这些结果将有助于提升整个研究领域的资源质量，并促进更深入的生物学研究。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwm3YQmDF3WXXCib51VQsCrhpaHDjoJ1ej4lzfqSBnD2YPISGJicwSf2Q8Mkntx9fT9EC0ezaSDdzUejI8MibzXUqWdJ2DJmLoMEjU/640?wx_fmt=other&from=appmsg)
+![](../../images/8a217f81b02636b8.webp)
 
 扩展数据图1
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlZoqnmGrMXKbwHqGQ4icRRcCxHCJX2r17n1llBsRtEBTQGM0UBBQqJKMmrs1gXKgHMFSMq5SlWSicGvwlqc8mPPIzPZs0VEh17U/640?wx_fmt=other&from=appmsg)
+![](../../images/0e743dbafc178742.webp)
 
 扩展数据图2
 
@@ -58,7 +58,7 @@ DOI: 10.1038/s41592-025-02624-3
 
 作者通过为每个数据集随机选择不同大小的特征集以及高变基因集（基于[scanpy](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505248&idx=2&sn=18995c7248ca6f13b61edfef24208ae1&scene=21#wechat_redirect>)软件实现的[Seurat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534661&idx=1&sn=16872e942170ace88f26deb0ea6c4b34&scene=21#wechat_redirect>)算法）来进行指标选择，执行整合与映射，计算指标得分，并比较结果（图1a）。通过随机基因集，作者计算了每个数据集与整合组合的得分范围。同时，作者还利用随机集计算了指标与数据集技术特征之间的相关性（例如特征数量、参考细胞数量、参考标签数量和批次、查询细胞数量、查询批次数量以及未见标签数量）。对于高变基因集，作者计算了指标得分与所选特征数量的相关性，因为随机特征集没有内在顺序（前100个特征并不比后100个特征更具信息量）。理想的指标应能准确测量其设计目标，在整个输出范围内返回与数据技术特征无关且与其他指标正交的得分。图1b总结了指标评估的结果。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwk1VkcsY9hKuMTa2DqpZG0y4yM8gtjB1OQXhp3E3SY7nYrOXOYibibBmKicBml8l04cClDptFqJFAEtb1E5eYgwE9qtlOBaa2iaoEs/640?wx_fmt=other&from=appmsg)
+![](../../images/8716ea4ae404a9c5.webp)
 
 图1
 
@@ -68,7 +68,7 @@ DOI: 10.1038/s41592-025-02624-3
 
 由于这里涉及的数据集数量相对较少，且各种技术因素会在不同数据集之间相互关联（通常来说，数据集中的细胞数量越多，相应的批次和标签数量也就越多）。这种关联性导致无法区分是 “细胞多”、“批次多”， 还是 “标签多” 单独造成了指标分数的变化。因此这些技术因素对各项指标评分的影响较难被准确解读。作者观察到，更复杂的数据集通常会导致所有指标的得分降低（扩展数据图3）。例外的是Milo和Uncertainty指标。对于Milo而言，目前尚难判断其得分与技术因素之间的正相关性究竟是由于数据量增加的整体效应，还是由某些特定特征驱动的结果。对于Uncertainty指标，更可能的解释是其所使用的分类器模型校准不足，在面对更复杂的数据集时表现出更低的确定性（从而给出更高的得分）。Uncertainty指标的定义规则—— 它的分数高低直接对应模型分类结果的“不确定性程度”，而非分类的“准确性”。而这一现象与具体的技术因素无关。要准确评估技术性数据集特征的影响，需要更多的数据集，使每个因素能够被独立地变化，可能需要借助模拟研究来实现。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkGsVJ4FBnyKy96ueicDp4cWBjeEgE6wkREwSoibf6prvFzzyZmhtgmTibgXmotW8qF8umH5jJmZ38P3wYF5ZNfqNaOjEuffWOn3k/640?wx_fmt=other&from=appmsg)
+![](../../images/759102b7006f166f.webp)
 
 扩展数据图3
 
@@ -122,7 +122,7 @@ DOI: 10.1038/s41592-025-02624-3
 
 所有基线方法都用scVI工具进行数据整合，保证了分析流程的一致性。这4类方法的多样性，足以覆盖单个指标在某一数据集上的全部有效分数范围，为后续缩放提供了可靠的参考依据（图2a）。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwkmKQS4kdFokPKm2a8YoibvpFWA6iaTrzyUTUryAfiaKBOz2HwprP7liaicSJPRNQzZ7xPnoU0V4ciaiaR3EGQEf3I0RgeCYKEljtuMJw/640?wx_fmt=other&from=appmsg)
+![](../../images/44e5eefac19de7dd.webp)
 
 图2
 
@@ -164,13 +164,13 @@ DOI: 10.1038/s41592-025-02624-3
 
 整体分数的趋势：和生物学相关类别（整合生物、分类、未知群体）的趋势一致，在 500–5000 个特征区间达到峰值 —— 这个区间是 “批次消除” 和 “生物特征保留” 的最优平衡点。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkgy47CU4T04HtMUAPQS9Sqz0DaXY5goEEvjt37d4SOpCDZ2N90BN0yVwV5bibcAINVia7k8IiazgcicLRPqCtObLjUZkB8JYOMic7s/640?wx_fmt=other&from=appmsg)
+![](../../images/6f115a40d28e8693.webp)
 
 图3
 
 尽管在每一类指标中都可以观察到清晰的总体趋势，但仍然存在显著的变异。图3中的后续各子图展示了在不同数据集和方法之间计算得到的平均标准化数值。我们可以看到，不同方法在各个数据集之间总体上具有较好的一致性（图3c）。复杂方法Seurat-VST、scanpy-SeuratV3以及scanpy-Seurat在略高数量的特征时（约2000）达到峰值；而简单方法statistic-Variance和statistic-Mean在Integration(Batch)和Integration(Bio)类别中，在较少特征数量时达到峰值，但在分类（classification）和未见群体（unseen populations）类别中，则在较多特征数量时达到峰值（扩展数据图4）。这一模式表明，简单方法筛选的特征在参考集中能较好捕捉信号，但在查询集中的泛化能力弱，需要更多特征才能弥补信息缺口。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmVPosERgSX2UtichMxFx9QW1R1thPx3feHeb3ibWukwiaYFaq6W97vvn8s4vQqr57ODFZzFGqKo6jSicdib07u7GFm4HPiatzNR11ns/640?wx_fmt=other&from=appmsg)
+![](../../images/a1abf135a5861a79.webp)
 
 扩展数据图4
 
@@ -188,7 +188,7 @@ DOI: 10.1038/s41592-025-02624-3
 
 Seurat-VST总排名最高，且这类方法的性能稳定性远优于Wilcoxon，不同数据集上的表现更一致。证明无监督的高变特征筛选是单细胞数据分析中普适性更强的策略。triku总分与高变特征方法相当，但存在 “重批次校正、轻生物变异保留” 的偏向性 —— 筛选的特征更利于消除批次效应，但对细胞类型等生物学特征的保留能力较弱。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmcfGwAZG9sRFpzXTZBj6uUmI2PxuBBDPClcxHicbvj2gIc9wzmRe2eeTR8fsWmuticYhUQcbB50lVwUV7oEUlmXUYqwBqLO7Ugw/640?wx_fmt=other&from=appmsg)
+![](../../images/982412605c03bba0.webp)
 
 图4
 
@@ -200,7 +200,7 @@ Seurat-VST总排名最高，且这类方法的性能稳定性远优于Wilcoxon�
 
 批次感知特征选择则发现效果不稳定，未展现出普适优势（图4e）。批次感知特征选择的核心逻辑是：先按批次分别筛选特征，再合并各批次的共有特征（通常选被多数批次选中的特征）。设计初衷是避免筛选出“仅在批次间变异、无生物学意义”的特征，理论上更精准。作者通过对比“批次感知版”与“标准版”scanpy方法的性能，得到以下结论：从整体分数看，批次感知版和标准版的差距很小。从细分场景看，效果随数据集、指标类型波动极大：正面案例：对HLCA（Immune）数据集，提升了 “未知群体检测” 的分数。负面案例：对 HLCA（Epithelial）、Human endoderm、scIB 胰腺数据集，反而导致 “未知群体检测” 分数显著下降。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlSQth7fRG9mnWy4O1iaU4cJrMnsam4FS5QfwaJmR44QBM3F92To6FwXKBgpEn15zMp6LeNdwj6pzbB4Z8AibdWOc1bPE5OS7U3o/640?wx_fmt=other&from=appmsg)
+![](../../images/a6fbd115b21ba0fb.webp)
 
 扩展数据图5
 
@@ -224,7 +224,7 @@ Seurat-VST总排名最高，且这类方法的性能稳定性远优于Wilcoxon�
 
 （4）未知群体检测能力：在全组织整合更具优势。由于谱系子集和全组织数据集的细胞、标签不同，直接对比指标分数不具备可比性。因此作者聚焦Milo分数（衡量未知群体检测能力）（图5d），针对单个未知标签做精细化分析，得到了最关键的结论，谱系子集的Milo分数显著更低。背后的逻辑可能由于全组织整合提供了更丰富的细胞状态多样性，让整合模型能学习到更完整的细胞空间特征。而谱系子集的细胞类型单一，模型的泛化能力受限，因此对新的未知细胞群体的识别能力更弱。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlkmrMtTGFKxBQwcICic8biaFNFQABGBc6rdhZFhWNdfgTW0WnauARUvHLx3Z1yqFCI4ichtDClvxWlf9YWPEufRNjJAU2glsMicOY/640?wx_fmt=other&from=appmsg)
+![](../../images/cab6bdbbe2656067.webp)
 
 图5
 
@@ -232,11 +232,11 @@ Seurat-VST总排名最高，且这类方法的性能稳定性远优于Wilcoxon�
 
 作者首先明确了本研究的核心定位：核心目标是评估特征选择方法的优劣，而非比较整合方法。加入scANVI和Symphony两种整合方法的原因有两个，一是评估“特征选择方法”与“整合方法”之间是否存在“交互效应”——即某类特征选择方法是否对特定整合工具更友好；二是探究“生物监督信息”的作用：scANVI 是 scVI 的半监督版本（[引入细胞标签信息](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497669&idx=3&sn=ac3408c7dd28425426d954f81d283252&scene=21#wechat_redirect>)），可以对比 “监督” vs “无监督” 整合对特征选择结果的影响。图6显示了每种整合方法的平均得分和排名，以及scANVI和Symphony与scVI的性能差异。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwld0bhyEpRczCv4SicFe9LoOqibyFrVAOt0iapeanhxPMwJ4iatJrVlRic3hdriaa3j6fnJia8HFTXfG5AwiaB1tpBFTymn3raco1xUKUw/640?wx_fmt=png&from=appmsg)
+![](../../images/101dc7f71d896d45.png)
 
 从方法排名的宏观视角看不同整合方法下，特征选择方法的排名没有出现明显变化。说明特征选择方法的优劣具有一定的 “普适性”，不会因整合工具的更换而发生颠覆性反转。存在一个轻微的趋势：在scVI上排名靠前的特征选择方法，在scANVI/Symphony上的排名会小幅下降；在scVI上排名靠后的方法，排名会小幅上升。作者给出了两种可能的解释：①特征选择 - 整合方法的交互作用，部分特征选择方法的优势依赖scVI的算法特性，换用其他整合工具后优势被削弱；②均值回归效应：整合过程和指标计算存在随机性，极端排名（极高/极低）有向平均水平回归的自然趋势。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwlibVDEGiaHQ33msp2V5I7uVwbeTXo6k2oSxr0zgg8vqJvbqfHVs4XKEYejyzYQhPv0c6eu6CHKiciaxApPNBibRibQicDWd9eSF3TVLw/640?wx_fmt=other&from=appmsg)
+![](../../images/30e9efb76132179a.webp)
 
 扩展数据图8
 
@@ -354,7 +354,7 @@ table(scobj@meta.data$orig.ident)
 # 小提琴图展示数据质量VlnPlot(scobj,        # 指标：细胞表达基因数目、counts数目和线粒体基因表达比例        features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3,pt.size = 0,        # 指定颜色        cols=color,        # 分样本展示        group.by = "orig.ident")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm0jDuRiaTaGictx1CibrHPnSYCmibDLsibumpwYic1p7NbaqlWHbDiaSh4iaqbVkuN0QO5K17pjFZq3ib7GUSAYaGkV3HEyw48yAY0xJ0A/640?wx_fmt=png&from=appmsg)
+![](../../images/f4c1c6fd475acb55.webp)
 
   *   *
 
@@ -362,7 +362,7 @@ table(scobj@meta.data$orig.ident)
 # 分群情况DimPlot(scobj, reduction = "umap",cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn1eanYGT0bvb0fr4K0Laib7n5MZ1PjAicMp3WoZibvnKpUVE9MJdGMQfASv83VGqYpTHod0G7jxdNibiaHzkibMz1tlZnTiaoOyZVphY/640?wx_fmt=png&from=appmsg)
+![](../../images/87b5abfbb6af1cc7.webp)
 
   *   *
 
@@ -370,7 +370,7 @@ table(scobj@meta.data$orig.ident)
 #C2/4 = EndothelialVlnPlot(scobj, features = c("CLDN5",'FLT1','SELE',"PECAM1"),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmN0l6pficOI9QsOx17vgia48JDn6OJy6iaq0icPNfqYRpMcsxQQEQZ8G6dr4wRQ6I331r6fLQx0PrRDz5SIL75xgmIlmiaSk7jelJ8/640?wx_fmt=png&from=appmsg)
+![](../../images/18a74c634597ad9d.webp)
 
   *   *
 
@@ -378,7 +378,7 @@ table(scobj@meta.data$orig.ident)
 #C0/1/6/7 = FibroblastsVlnPlot(scobj, features = c('COL1A1','COL1A2','COL3A1'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlrxMrw1uONGGM4cQZQMvXd5XDtVtTkyndLqrIouO32Yic9Fic1jEjKsXFtsLJqicpx5fdvJrvajHPHtTztBGAXTj75mUx87lCxEE/640?wx_fmt=png&from=appmsg)
+![](../../images/421eb42c3e8bc31a.webp)
 
   *   *
 
@@ -386,7 +386,7 @@ table(scobj@meta.data$orig.ident)
 #C5/8 = SMCVlnPlot(scobj, features = c('TAGLN','ACTA2','TPM2'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkmZibyVY5ByMKXDZcjjq1MIZc8ibbtl025QibogctNQonarW8JnoyYPPqwj8e0E4fia5icAcGmibc7Bq4WIEibhFUibbkwRhSHWFia6Ek4/640?wx_fmt=png&from=appmsg)
+![](../../images/5b9fd1a504885a19.webp)
 
   *   *
 
@@ -394,7 +394,7 @@ table(scobj@meta.data$orig.ident)
 # C3/10/14 = KRTVlnPlot(scobj, features = c('KRT14','KRT1','KRT5','KRT10'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnHBTED0oXfMrDkMrZSsXFds9Smn73Sm0a5Ac8rGD9VtlZMibzPRNp5WATZcU7bZTaMzMWRKju0qR1X9gia22GicxJb6bpaSsITZI/640?wx_fmt=png&from=appmsg)
+![](../../images/169aa06a0d384d2d.webp)
 
   *   *
 
@@ -402,7 +402,7 @@ table(scobj@meta.data$orig.ident)
 #C9 = IMMVlnPlot(scobj, features = c('LYZ','HLA-DRA','PTPRC'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmtIp4lGhoj9BTnvxSWKoFopZhzXBcQ7eiaP55tNMAB79mJbAuAnyv85Cicx2br8wicVVzDCaribXxfNGbHHmrxicUS95BiaFLaaTxv4/640?wx_fmt=png&from=appmsg)
+![](../../images/ce5d5ad739f30d44.webp)
 
   *   *
 
@@ -410,7 +410,7 @@ table(scobj@meta.data$orig.ident)
 #C11 = LYMEVlnPlot(scobj, features = c('CCL21','LYVE1'),pt.size = 0,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm2CJdUbZ08Hn8X0OAmlglBkiblSJibP6PKNASib3gSFevKgZmia64dibB86XahUibExlibzdZw4IPmibCS5uUzPuWicoIhTpTlWtmCZEP4/640?wx_fmt=png&from=appmsg)
+![](../../images/5b7305bb961076f2.webp)
 
   *   *
 
@@ -418,7 +418,7 @@ table(scobj@meta.data$orig.ident)
 #C15 = MELAVlnPlot(scobj, features = c('TYRP1','PMEL'),pt.size = 0,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmuRBaqd8nzkia5fY3xKkic8xtjNnVadXgI5XgIvGMVQmbBEDLpPIotB2XVQdYp2Tnb8icGy465wiaZMBkw7bpKyAmOTteVNeOREyI/640?wx_fmt=png&from=appmsg)
+![](../../images/026214f1e7309cc1.png)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -438,7 +438,7 @@ scobj@meta.data$celltype = Idents(scobj)
 #注释好的UMAP图DimPlot(scobj, reduction = "umap",cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlJ6XFCyXA6DiazQnibMVM7cjF5WgGE1fxnD6qDCdNvQhtyFmPsCK0eqKEzTv6XW3cZcSYIgKFBQza4AY1XibUBbRQZ8UJQsyseaw/640?wx_fmt=png&from=appmsg)
+![](../../images/4ef3b7a63194807a.webp)
 
   *
 
@@ -463,7 +463,7 @@ scobj <- readRDS("result/scobj_ann.rds")# 保留有明确细胞身份的细胞�
 DimPlot(sub, reduction = "umap",cols=color[c(1:7,10)])
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkd7FC2JBxbFtOX98S8sFCibZAWqRypY1TNHD5F38dSaPia5o3ibTAnH6X0ZSE4hNRE4QQ8HeDMDoHYXyXn2ibmZnibWibkkuN1CcpOQ/640?wx_fmt=png&from=appmsg)
+![](../../images/c9cd30acf02571b8.webp)
 
 3.4 Seurat高变基因选择
 
@@ -527,7 +527,7 @@ scobj_mvp <- readRDS("result/scobj_mvp.rds")
 # 分群情况DimPlot(scobj_mvp, reduction = "umap",cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwla0vGcicO6Cdib9MhWRQQqG8ZQa7AJkRyPogA6YF8RJBTffqFjWsjU0AcYKsC7besrvTJr3x8qtEMyo1zlw3DiaI5lJmYYSZYuLI/640?wx_fmt=png&from=appmsg)
+![](../../images/2e7df0a02d333c98.webp)
 
   *   *
 
@@ -559,7 +559,7 @@ length(seurat_mvp_hvg)
 #C2/5/7 = EndothelialVlnPlot(scobj_mvp, features = c("CLDN5",'FLT1','SELE',"PECAM1"),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnuricgmfpRcBKvHxuUor3055qrHnjgvBKn2iblc8ACnvfoAqk0d1icriacOINTfl2jNSTIq7keiaPCRtzmOQP8Vu39UnawfMZoNEWM/640?wx_fmt=png&from=appmsg)
+![](../../images/4e76c97c06777c59.webp)
 
   *   *
 
@@ -567,7 +567,7 @@ length(seurat_mvp_hvg)
 #C 0/1/6/8= FibroblastsVlnPlot(scobj_mvp, features = c('COL1A1','COL1A2','COL3A1'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwknlxfsunY9JD703vnrTYrdlwGn5QocMelibaujwrLM3LWtSUPMgbO5ruMRqToQicZxeajUo1icWxAtrfTY4Zw1KS1ia5ic9BLuzxZE/640?wx_fmt=png&from=appmsg)
+![](../../images/1a536ced6797db7c.webp)
 
   *   *
 
@@ -575,7 +575,7 @@ length(seurat_mvp_hvg)
 #C4/10 = SMCVlnPlot(scobj_mvp, features = c('TAGLN','ACTA2','TPM2'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnbkGribIcJ3ag1afYab3C22wzx1utpWmdAppBvCwibibYgLYhnPZqYyQT4KkibUxYCxB70swMkRGaXaXAwlcE1ibt0LygnAet6CTt8/640?wx_fmt=png&from=appmsg)
+![](../../images/3e925ab2f9b70d49.webp)
 
   *   *
 
@@ -583,7 +583,7 @@ length(seurat_mvp_hvg)
 # C3/9 = KRTVlnPlot(scobj_mvp, features = c('KRT14','KRT1','KRT5','KRT10'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmqboniaUrv0ibyiaLFj7PS9pe2U9nmmP78xsjwRT4ookIjum6kpNyxa8iaiaeWDvj30DcHgpxcnf8ej8BHTT7OOKYtgomNL3G6etq4/640?wx_fmt=png&from=appmsg)
+![](../../images/48c1ee4dbab0b232.webp)
 
   *   *
 
@@ -591,7 +591,7 @@ length(seurat_mvp_hvg)
 #C11 = IMMVlnPlot(scobj_mvp, features = c('LYZ','HLA-DRA','PTPRC'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmG3vcN5kWeWliamfosz3F7ibibCq09trB9kT3aF58TNe6Cxf1yH7dY4m7F1ia8OiaDRZH32RGd3BlZYh3lMB6U8ib7kSPvk5uJITrjQ/640?wx_fmt=png&from=appmsg)
+![](../../images/c765f75f5d732a3f.webp)
 
   *   *
 
@@ -599,7 +599,7 @@ length(seurat_mvp_hvg)
 #C12 = LYMEVlnPlot(scobj_mvp, features = c('CCL21','LYVE1'),pt.size = 0,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnbAZWxL2h092t5UxTneTnwaR5cIt0CDaaupHPgYzxFIRapicL0rRqfawibiafe1fduRBIEhHgVKA5TXsI9cAEg4c2xiczPnRsDnTI/640?wx_fmt=png&from=appmsg)
+![](../../images/13125be2d80fa360.webp)
 
   *   *
 
@@ -607,7 +607,7 @@ length(seurat_mvp_hvg)
 #C16 = MELAVlnPlot(scobj_mvp, features = c('TYRP1','PMEL'),pt.size = 0,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkuOmZgJog45dVPHAliaRL5PNibex0bT5z09qUotH1mbAAtaNGa4x5iam2kToTbN6V6niaGq9v9e7BHZsBLuY1FsPmIPNSSo4tn5gA/640?wx_fmt=png&from=appmsg)
+![](../../images/bbda20517c4e96f8.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -627,7 +627,7 @@ scobj_mvp@meta.data$celltype = Idents(scobj_mvp)
 #注释好的UMAP图DimPlot(scobj_mvp, reduction = "umap",cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl2HF85Vw72nOiaUhTm603SYEib6K7ac0tt1vLS9UlZCNAEWgXfnRu9MoZBXQZbRKuKVSnF3deGZ4Rx3FsP4XS4y2KYicicJL2iaOcs/640?wx_fmt=png&from=appmsg)
+![](../../images/ae18ecdf730b7e0f.webp)
 
   *
 
@@ -652,7 +652,7 @@ scobj_mvp <- readRDS("result/scobj_mvp_ann.rds")# 保留有明确细胞身份�
 DimPlot(sub_mvp, reduction = "umap",cols=color[c(1:7,10)])
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmZjibpeYWUKic40wgdWf4NShtROxGA9nlNTBTc51sLjBcd2LPniamfNkaLRQfUYykCVcRo6S5Uucga3icXNaTnHleGz9csXonldFE/640?wx_fmt=png&from=appmsg)
+![](../../images/503c5b38d5d00441.webp)
 
 3.4.3 disp方法
 
@@ -684,7 +684,7 @@ scobj_disp <- readRDS("result/scobj_disp.rds")
 # 分群情况，可以看到该方法细胞群相较于前两个方法明显杂乱了许多DimPlot(scobj_disp, reduction = "umap",cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkFyh0LUJR3MJXWy0sFibnpKw0t53K2UjlSY0ibYBDJAzajDG9hfyicCtJxuzYq0ibFua325v7pOZezRIX1iadJzM5Ix7icSOAOZicsG4/640?wx_fmt=png&from=appmsg)
+![](../../images/e5e3ef05e390e5ce.webp)
 
   *   *
 
@@ -716,7 +716,7 @@ length(seurat_disp_hvg)
 #C2/4 = EndothelialVlnPlot(scobj_disp, features = c("CLDN5",'FLT1','SELE',"PECAM1"),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnG0KrzVLQdqJjffSOFMQPj8qzgTL48lvZvVeDyzk0gl9GrLkM0Sw2mR72jRPt3FvHQ05mWiauDe3yvtDHWK9arcTOS2MxU3KQM/640?wx_fmt=png&from=appmsg)
+![](../../images/21f8e16078eff2ea.webp)
 
   *   *
 
@@ -724,7 +724,7 @@ length(seurat_disp_hvg)
 #C0/1/6/10/12 = FibroblastsVlnPlot(scobj_disp, features = c('COL1A1','COL1A2','COL3A1'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmEdAUYLy2TrNt4Qibn7M7blWnibFvIYu55Kibg175Ou2568FSwHtSPibJ1lKARbNoONicAvRSF61UPgz4ibSiag5pyGd3jmhibZwKIMdM/640?wx_fmt=png&from=appmsg)
+![](../../images/ee5981401c0b44a3.webp)
 
   *   *
 
@@ -732,7 +732,7 @@ length(seurat_disp_hvg)
 #C5/7 = SMCVlnPlot(scobj_disp, features = c('TAGLN','ACTA2','TPM2'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnQknajyCFfYnG0ib54rvh7FgHhEeQ5EXTaVKAQX1EicTLrYmJp37YfOh9qLrWiabV4r2VVZVTjOBOicZTfhUMC1wB3ISScEgUJgqM/640?wx_fmt=png&from=appmsg)
+![](../../images/65046ecc5a156c8f.webp)
 
   *   *
 
@@ -740,7 +740,7 @@ length(seurat_disp_hvg)
 # C3/9 = KRTVlnPlot(scobj_disp, features = c('KRT14','KRT1','KRT5','KRT10'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlLzDEJYAlpKVibJzMslnJrBj8rgsMxBsPHEEx66BGicwaEP2J40n87GEKnMYdYsxS6lsVIeL0Zly6b0icTGaW9psGEBVoYQPibAIk/640?wx_fmt=png&from=appmsg)
+![](../../images/c5b5e76a25d1c7f4.webp)
 
   *   *
 
@@ -748,7 +748,7 @@ length(seurat_disp_hvg)
 #C8 = IMMVlnPlot(scobj_disp, features = c('LYZ','HLA-DRA','PTPRC'),pt.size = 0,ncol = 2,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmO0mowOibu9J6xX2FbKNkDyrTzhu34mkhAQY4oric3O0kIuZzROlhNRyrAd6mG14KmYBGKlzjXR5jR0SxTKjRguuHyckgXUCSAM/640?wx_fmt=png&from=appmsg)
+![](../../images/899b5359bf1d4765.webp)
 
   *   *
 
@@ -756,7 +756,7 @@ length(seurat_disp_hvg)
 #C11 = LYMEVlnPlot(scobj_disp, features = c('CCL21','LYVE1'),pt.size = 0,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkGdvZwsItcGcJHhM6agRowD1KUTCajvEHltr9q60NLk48FwmUUaf6xB39MTaIq6QV5nTynPriciayEBKJMrzRleEtsKQicgr5lJc/640?wx_fmt=png&from=appmsg)
+![](../../images/2e6ad9e7f738794d.webp)
 
   *   *
 
@@ -764,7 +764,7 @@ length(seurat_disp_hvg)
 #C17 = MELAVlnPlot(scobj_disp, features = c('TYRP1','PMEL'),pt.size = 0,cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkKo5B5bFQsxBYjZ2Kb9qA5HhZTjh9RLxb6ULs7ficE5Xx26menJ4VUJ8neBQicNemuhzjCpqUxBvl7iaqrsmdqGX10nrgC7CtHL4/640?wx_fmt=png&from=appmsg)
+![](../../images/1f0eb339d9cb9281.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -784,7 +784,7 @@ scobj_disp@meta.data$celltype = Idents(scobj_disp)
 #注释好的UMAP图DimPlot(scobj_disp, reduction = "umap",cols=color)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlK6w6Sx9TK0dfhek3YUfC9TfOaB9fmwW4PL1uHPtNwWPCic7VC6cfcapT0BFmoGVE4eByPcaN8q5YkI46VR5YhjPMLicN4B8mIo/640?wx_fmt=png&from=appmsg)
+![](../../images/227edfa187422170.webp)
 
   *
 
@@ -809,7 +809,7 @@ scobj_disp <- readRDS("result/scobj_disp_ann.rds")# 保留有明确细胞身份
 DimPlot(sub_disp, reduction = "umap",cols=color[c(1:7,10)])
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkIGXghbrGllf1VoIVTUQfchWyFgmsUFRnibsRlOAMHp9pkRTALdJLXwMYK6ODoyEJVugjcaG0bZpp6j1TVBzSPMbSR9CrnsTicg/640?wx_fmt=png&from=appmsg)
+![](../../images/0dfa3a1dbcd6f77c.webp)
 
 3.5 Scanpy整合分析流程
 
@@ -845,7 +845,7 @@ Scanpy是基于python语言开发的单细胞分析软件，所以接下来的�
 adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata,    keys = [        "n_genes_by_counts",                 # nFeature_RNA        "total_counts",                      # nCount_RNA        "pct_counts_mt"                      # percent.mt    ],    groupby = "orig.ident",                  # 按样本分组    jitter = 0,                              # 不抖动（等价 pt.size = 0）    multi_panel = True,                       # 多面板显示    save = "_qc.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnNlrdBMkI0jEINccjG80twYuvfuXzLsDZPXUYTbo3SInnKcIpjvT7WUqf3TzpoMV3rpp8U7S8WT62l24IYCelaEicgwECAwkibc/640?wx_fmt=png&from=appmsg)
+![](../../images/382923eb4aae2ef1.webp)
 
   *   *   *   *   *   *   *
 
@@ -853,7 +853,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # UMAP 分群展示sc.pl.umap(    adata,    color = "leiden",                        # 聚类结果    legend_loc = "on data",     save = "_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkqmjVicfFlCKpTw653NtWjOYTM62wRvfibdSnMsWbWHky3CwAibCCPDRRGO4zEPpAicUsRJLk6zF3Jel1dsjBvT4U5sQYb5s4KuyA/640?wx_fmt=png&from=appmsg)
+![](../../images/6900e35ce04e0b74.webp)
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -861,7 +861,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # Marker 验证# Endothelial（C3 / C4 / C7）# Marker: CLDN5, FLT1, SELE, PECAM1sc.pl.violin(    adata,    keys = ["CLDN5", "FLT1", "SELE", "PECAM1"],    groupby = "leiden",    jitter = 0,    save = "_ENDO_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwktk4sbdIsh7yFZOqoWsnQhmeQFrqFeWSuNzfXgpqYhtazFJiby1DexPe1CVtLEl3LTSyXYfpe16WrdCJ79pADYSrD0xguQtBWo/640?wx_fmt=png&from=appmsg)
+![](../../images/efaceb2329513d59.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -869,7 +869,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # Fibroblasts（C0 / C1 / C6 / C10）# Marker: COL1A1, COL1A2, COL3A1sc.pl.violin(    adata,    keys = ["COL1A1", "COL1A2", "COL3A1"],    groupby = "leiden",    jitter = 0,    save = "_FIB_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmzftUoyOzQ53aiblEt2RT33S3JmKlXnTzLg5BwBjOwm2Ae8RjeZzB6G2ox25byjicIGRgib24WlgsfwVyQYQXwMmXdGb3icQz2ggM/640?wx_fmt=png&from=appmsg)
+![](../../images/ca390da6773ac7e9.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -877,7 +877,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # Smooth Muscle Cells（C5 / C9）# Marker: TAGLN, ACTA2, TPM2sc.pl.violin(    adata,    keys = ["TAGLN", "ACTA2", "TPM2"],    groupby = "leiden",    jitter = 0,    save = "_SMC_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwneMmslliaRmS2mVwz4Wh7GuMnicDLra9ZzQyjdlEdGicS6IYjt1ACOhTrIbEKkyicrej018KUOegPwbpck4YVbtWBCejzfq5xDCzE/640?wx_fmt=png&from=appmsg)
+![](../../images/c1edc346a63fd4a5.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -885,7 +885,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # Keratinocytes（C2 / C11 / C15）# Marker: KRT14, KRT1, KRT5, KRT10sc.pl.violin(    adata,    keys = ["KRT14", "KRT1", "KRT5", "KRT10"],    groupby = "leiden",    jitter = 0,    save = "_KRT_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmj8wxEkCL1Cib5IDhPfich64J3YH2t77K1deLQxAsVm87jXibaBVFaA5oB9zJgAyIcS4v8CBxtfEVmK6thwVhWAOE2JFh1tJZtFc/640?wx_fmt=png&from=appmsg)
+![](../../images/c49f7580cdd3c865.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -893,7 +893,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # Immune cells（C8）# Marker: LYZ, HLA-DRA, PTPRCsc.pl.violin(    adata,    keys = ["LYZ", "HLA-DRA", "PTPRC"],    groupby = "leiden",    jitter = 0,    save = "_IMM_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl379EtQbvxyxDP059hFklmwKY2adY68fUQ8m6FOv6wrHP0IwUPlJoEeVD0truicYFib1kY8ZfOhbTpiaKicOTwN1qpzUqTZnEEh6U/640?wx_fmt=png&from=appmsg)
+![](../../images/356b95a053e3db7e.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -901,7 +901,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # Lymphatic Endothelial Cells（C12）# Marker: CCL21, LYVE1sc.pl.violin(    adata,    keys = ["CCL21", "LYVE1"],    groupby = "leiden",    jitter = 0,    save = "_LYME_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkdbPdSyMWoVaTm9ES545seQnzJQZVz4oXhgoqHPVD3msibSfwtFr8iaaz1icHwYLE4Aghapp2CS7akIG7SutORz6FUsWHv6dNUeI/640?wx_fmt=png&from=appmsg)
+![](../../images/fe08638206123b5a.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -909,7 +909,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 # Melanocytes（C16）# Marker: TYRP1, PMELsc.pl.violin(    adata,    keys = ["TYRP1", "PMEL"],    groupby = "leiden",    jitter = 0,    save = "_MELA_seurat_v3.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkgWp6Cicwv3Vvtr0adBf48VHAufhKaXwSZxzI8miakCIUkJeuvOT2IRyIzuepgMQYWGpobeIo0akN15hv60NAo8fErhK9d3Tvl0/640?wx_fmt=png&from=appmsg)
+![](../../images/3ecd9883586acfe8.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -923,7 +923,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3.h5ad")sc.pl.violin(    adata, 
 adata = sc.read("result/scobj_scanpy_seurat_v3_ann.h5ad") # 去除 Unknown 细胞adata_sub = adata[adata.obs["celltype"] != "Unknown"].copy()         # UMAP 分群展示sc.pl.umap(    adata_sub,    color = "celltype",                        # 聚类结果    legend_loc = "on data",    save = "_seurat_v3_ann.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnq00NFJoEtncQQJDOFOZ3fMC7ibdibhxePTWIyibQICs1eC454ybCS2ayibibFH1ToHj7lm2jkhLbrQnBkfYYZhv7KDeUkw6bPDI9E/640?wx_fmt=png&from=appmsg)
+![](../../images/a487f92bd337e90d.webp)
 
 3.6 Scanpy高变基因选择
 
@@ -944,7 +944,7 @@ seurat_v3_paper| raw counts| Normalized variance (VST)| 否| 是| 先按 “成�
 # 提取scanpy_seurat_v3计算得到的高变基因scanpy_seurat_v3_hvg =adata.var[adata.var['highly_variable']].copy()print(f"scanpy_seurat_v3提取到的高变基因数量：{len(scanpy_seurat_v3_hvg)}")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwknI1B5Flicfxh9ibqkqcVwTqZXxVVX754r6dLH1AXPDezey5eIanc1rM7j0hxJ44k1aibupLQuFex5D5FmngkhK3tLjtng8RicefM/640?wx_fmt=png&from=appmsg)
+![](../../images/26cdfad048da9872.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -970,7 +970,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3_ann.h5ad") # 高变基因（Find
 adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(    adata,    color = "leiden",                        # 聚类结果    legend_loc = "on data",     save = "_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlOvtv6oTVJ0oOotmHzVibhzkhictJznr8eVUeAM4vg9EpV1B59feKu0iaxO5ic3Z9ibGzBdQYyb3ofSGeWyLvLo8npHnRhpeYqjpTI/640?wx_fmt=png&from=appmsg)
+![](../../images/80e8403ee7bd39d9.webp)
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -978,7 +978,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # Marker 验证# Endothelial（C0 / C6）# Marker: CLDN5, FLT1, SELE, PECAM1sc.pl.violin(    adata,    keys = ["CLDN5", "FLT1", "SELE", "PECAM1"],    groupby = "leiden",    jitter = 0,    save = "_ENDO_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmMaNuH3RCU48Rib0ibpXCT8UPnmtc6NHhIh80Bibd6JJRe4c6ERwEhySUt9iciapScAzpCExWicRp4cdGNTLvFILj9N7TfzTicG7MHGQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f3cf8228a0a55de3.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -986,7 +986,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # Fibroblasts（C1 / C2 / C3 / C9）# Marker: COL1A1, COL1A2, COL3A1sc.pl.violin(    adata,    keys = ["COL1A1", "COL1A2", "COL3A1"],    groupby = "leiden",    jitter = 0,    save = "_FIB_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwn2UibIunG37MptBfvjXf2gHR7ibwicdxtOygxoKMTMEsSp4WVOkMw56xicawTwOvOymECIkIZxpsWaT6rmPfdHslU9YDZhSibNdSPE/640?wx_fmt=png&from=appmsg)
+![](../../images/3e69f3c9d39e8126.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -994,7 +994,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # Smooth Muscle Cells（C5 / C8）# Marker: TAGLN, ACTA2, TPM2sc.pl.violin(    adata,    keys = ["TAGLN", "ACTA2", "TPM2"],    groupby = "leiden",    jitter = 0,    save = "_SMC_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkprTqp9h8tXjib9ibBQ7vyRb6jQoiaZzPw9cOUB5mTwhZ7wAwcSNpAYRnZLzNJoWA6kmD5H6UFYAYM6VicxObgY5dYXl4YMJcevfI/640?wx_fmt=png&from=appmsg)
+![](../../images/f7505347551fce42.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1002,7 +1002,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # Keratinocytes（C4 / C11 / C14）# Marker: KRT14, KRT1, KRT5, KRT10sc.pl.violin(    adata,    keys = ["KRT14", "KRT1", "KRT5", "KRT10"],    groupby = "leiden",    jitter = 0,    save = "_KRT_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkWVz3T38UnuwZwrxw4AQDEsnxWoTmyvR7O1jSawicv0LCFJ5aupXriar9atwchg5RJj9Xyt8Cgf5rvod2sj0iahTkbyyjOic960NY/640?wx_fmt=png&from=appmsg)
+![](../../images/0978f1423962299b.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1010,7 +1010,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # Immune cells（C7）# Marker: LYZ, HLA-DRA, PTPRCsc.pl.violin(    adata,    keys = ["LYZ", "HLA-DRA", "PTPRC"],    groupby = "leiden",    jitter = 0,    save = "_IMM_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkT2RIPBmn0ZnsSbHVbrp2DZmCFnQJQJB2Tm44L89Mxiaf2x8Mwm4XPeEiabx9RQdsokahxarMzeTxTLPBM8pEmpmpLjdQW6SJib8/640?wx_fmt=png&from=appmsg)
+![](../../images/58d7580a71110033.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1018,7 +1018,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # Lymphatic Endothelial Cells（C10）# Marker: CCL21, LYVE1sc.pl.violin(    adata,    keys = ["CCL21", "LYVE1"],    groupby = "leiden",    jitter = 0,    save = "_LYME_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmB5XvSj97YlUR0DPuCJr8Vgtpn2h0bbiattJ4VbCVYzqG0RAQnNwMH3Zia1nUcmjj9jhurxQicRcF4ibrvoibXw6j9BKsIPbSqGWv4/640?wx_fmt=png&from=appmsg)
+![](../../images/1db374b9db5bae62.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1026,7 +1026,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # Melanocytes（C15）# Marker: TYRP1, PMELsc.pl.violin(    adata,    keys = ["TYRP1", "PMEL"],    groupby = "leiden",    jitter = 0,    save = "_MELA_seurat.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk4vTgnDXaRCR95ChUfuhvjUPunzqVCV4dKShuQr4TnDYb54qeH5cjs7vFwMYmvBUj9ia7ZEB49t7QUBnanibkUO8NxHaeYdWyv4/640?wx_fmt=png&from=appmsg)
+![](../../images/4380c0937fb39873.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -1040,7 +1040,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 # 提取scanpy_seurat计算得到的高变基因scanpy_seurat_hvg =adata.var[adata.var['highly_variable']].copy()print(f"scanpy_seurat提取到的高变基因数量：{len(scanpy_seurat_hvg)}")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmuQBoib9RLg5bmicNze915jeaTCjYfE9XkREvgTkib4KAIo8otI7mdUV9BtCSdBfxNL1QXrwt8S7mZxKB07S7YXPjPbLOsoSyYHM/640?wx_fmt=png&from=appmsg)
+![](../../images/2acd0b46e03b1940.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -1054,7 +1054,7 @@ adata = sc.read("result/scobj_scanpy_seurat.h5ad")# UMAP 分群展示sc.pl.umap(
 adata = sc.read("result/scobj_scanpy_seurat_ann.h5ad") # 去除 Unknown 细胞adata_sub = adata[adata.obs["celltype"] != "Unknown"].copy()         # UMAP 分群展示sc.pl.umap(    adata_sub,    color = "celltype",                        # 聚类结果    legend_loc = "on data",    save = "_seurat_ann.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmcxic6oDTqa9yibO6yY1IEZbub7j4JoSaLxVia9uOLwiaTX0MysTicQzcs8STU1EcdJwAvnbMKbAOibUHYdbHicFf3DcD8jXxhK3Xnk0/640?wx_fmt=png&from=appmsg)
+![](../../images/8903fe5e28a25ba2.webp)
 
 3.6.3 [cell_ranger方法](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247521051&idx=1&sn=e2ab820001013bae6e35310e27897086&scene=21#wechat_redirect>)
 
@@ -1074,7 +1074,7 @@ adata = sc.read("result/scobj_scanpy_seurat_v3_ann.h5ad") # 高变基因（Find
 adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.umap(    adata,    color = "leiden",                        # 聚类结果    legend_loc = "on data",     save = "_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmeC6KB2muVHHbuoaFEOCxBBobs9ehh3a0Y5okQdr1Ixgsnp6VYA4PI3mAZBSLmmTTZnmKjTEzo0DdXMMiadQrLiavAaOeV9nxiaI/640?wx_fmt=png&from=appmsg)
+![](../../images/676e28cdc25130c1.webp)
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -1082,7 +1082,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # Marker 验证# Endothelial（C1 / C6）# Marker: CLDN5, FLT1, SELE, PECAM1sc.pl.violin(    adata,    keys = ["CLDN5", "FLT1", "SELE", "PECAM1"],    groupby = "leiden",    jitter = 0,    save = "_ENDO_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl0iaJgicO9eUW5sULXguNy3YqusWGbzXhCAEZLMVbecxWvknGDWOsePyToAkxPMDMIqIJQfc0ibz2eIgjgBMIXNicMeib31ibYdINC8/640?wx_fmt=png&from=appmsg)
+![](../../images/a212d9f3d2cf197e.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1090,7 +1090,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # Fibroblasts（C0 / C2 / C5 / C11）# Marker: COL1A1, COL1A2, COL3A1sc.pl.violin(    adata,    keys = ["COL1A1", "COL1A2", "COL3A1"],    groupby = "leiden",    jitter = 0,    save = "_FIB_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk8efP3qYfNl9ZibkicL3AWl7MG1jyOia2ZyrLWLfwWyIazicw0picr0hcXGlbdWNiatpIhNK2fsqSrOq7GBJcAdrynnDzdicl2XUicQRo/640?wx_fmt=png&from=appmsg)
+![](../../images/2127a2d2f86e65f3.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1098,7 +1098,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # Smooth Muscle Cells（C4 / C8）# Marker: TAGLN, ACTA2, TPM2sc.pl.violin(    adata,    keys = ["TAGLN", "ACTA2", "TPM2"],    groupby = "leiden",    jitter = 0,    save = "_SMC_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm0xBlZOhJicsy5icsHNWoNMq4dCWZZiasez18QuDQ29XfbW9Ql3giamOr40leMwPRDcOD2yal93YzcQj40rm1X4hnCSf4jsiayqib0I/640?wx_fmt=png&from=appmsg)
+![](../../images/dcb389ad3576f2df.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1106,7 +1106,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # Keratinocytes（C3 / C7）# Marker: KRT14, KRT1, KRT5, KRT10sc.pl.violin(    adata,    keys = ["KRT14", "KRT1", "KRT5", "KRT10"],    groupby = "leiden",    jitter = 0,    save = "_KRT_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlIPlprRicvKMuKSJxYSt99RqoCJ8jf8obwic76HvZVhy0cAlYv3U0VN1rxMSo96OxDNu9FCfz5CqBRhPQ84iatgwsGMlNZkSpZ2w/640?wx_fmt=png&from=appmsg)
+![](../../images/f3380fe3b1fc4a3d.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1114,7 +1114,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # Immune cells（C9）# Marker: LYZ, HLA-DRA, PTPRCsc.pl.violin(    adata,    keys = ["LYZ", "HLA-DRA", "PTPRC"],    groupby = "leiden",    jitter = 0,    save = "_IMM_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnqnnB5mjsaHALTqs8xu409UVIRESgCLN8z4JHcPITb55uicNcnDdTsyXVnmIiaiaF2JanNcPyTxgsmV5o9ibxF55ibclic6ia5cUX6Qc/640?wx_fmt=png&from=appmsg)
+![](../../images/9136621d1a3e5bc7.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1122,7 +1122,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # Lymphatic Endothelial Cells（C10）# Marker: CCL21, LYVE1sc.pl.violin(    adata,    keys = ["CCL21", "LYVE1"],    groupby = "leiden",    jitter = 0,    save = "_LYME_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkfmCNZgSScia8JhZfQxsYPOXjubo6y6XNulbia36MDqs2dFs63jZeZk9f9mJn4bSVdJib72b3WofibV13Inag2BAP44PGk5yRdg0M/640?wx_fmt=png&from=appmsg)
+![](../../images/ba890d95eb5670d2.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -1130,7 +1130,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # Melanocytes（C14）# Marker: TYRP1, PMELsc.pl.violin(    adata,    keys = ["TYRP1", "PMEL"],    groupby = "leiden",    jitter = 0,    save = "_MELA_cell_ranger.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm8icJpP2lN9vkdb8S42X3FWR2bdmtSnIZqWnZuZwZ1XIMCTzWVKGomkb8JULWDZNuuP7AibvP1USSqv9aYFsy4c9n1uAnrf2icEI/640?wx_fmt=png&from=appmsg)
+![](../../images/6ea5caf930158c6c.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -1144,7 +1144,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 # 提取scanpy_cell_ranger计算得到的高变基因scanpy_cell_ranger_hvg =adata.var[adata.var['highly_variable']].copy()print(f"scanpy_cell_ranger提取到的高变基因数量：{len(scanpy_cell_ranger_hvg)}")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkfsnI3MJEeBQd8uLFsZFvg0oiaPs6Q8IdMgyNlWx1cfrXJbtenDcAMHrWvpDMCmkWW36oTUrTPtsdCx64yNTQu1mbFbA6XG1zg/640?wx_fmt=png&from=appmsg)
+![](../../images/be9ceb7eb88f473c.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -1158,7 +1158,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger.h5ad")# UMAP 分群展示sc.pl.
 adata = sc.read("result/scobj_scanpy_cell_ranger_ann.h5ad") # 去除 Unknown 细胞adata_sub = adata[adata.obs["celltype"] != "Unknown"].copy()         # UMAP 分群展示sc.pl.umap(    adata_sub,    color = "celltype",                        # 聚类结果    legend_loc = "on data",    save = "_cell_ranger_ann.png")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmfpjGVNZz039EVuetORn4LSb8j2WeJ02v8ERah5K3XUyU6Gj9tELILkpf4MtGBW2bMQBEDTjjn9xQSjc1daOyGIMIuT7g1MicI/640?wx_fmt=png&from=appmsg)
+![](../../images/79bdbabd00873f4d.webp)
 
 3.7 Scanpy和Seurat对比
 
@@ -1170,7 +1170,7 @@ adata = sc.read("result/scobj_scanpy_cell_ranger_ann.h5ad") # 去除 Unknown �
 scanpy_seurat_v3 <- readPNG("figures/umap_seurat_v3_ann.png")scanpy_seurat <- readPNG("figures/umap_seurat_ann.png")scanpy_cell_ranger <- readPNG("figures/umap_cell_ranger_ann.png")# 创建三个独立的 ggplot 图片对象p1 <- ggplot() +   background_image(scanpy_seurat_v3) +   theme_void() +  # 隐藏坐标轴，只显示图片  labs(title = "scanpy_seurat_v3")  # 可选：添加标题p2 <- ggplot() +   background_image(scanpy_seurat) +   theme_void() +  labs(title = "scanpy_seurat")p3 <- ggplot() +   background_image(scanpy_cell_ranger) +   theme_void() +  labs(title = "scanpy_cell_ranger")# 拼接三张图（并排展示，可调整布局）# 1行3列布局p1 | p2 | p3
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl0jRdiaLAdouVRBy1kv9rEtcZfNq4Ph4ia3BaYBTRIkvDUgibT09FoLoicBEoLPngoh1bt7tu9HlPDWSSHNBdQnaDhnCrRfqV8utU/640?wx_fmt=png&from=appmsg)
+![](../../images/05a4480a08be4044.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -1178,11 +1178,11 @@ scanpy_seurat_v3 <- readPNG("figures/umap_seurat_v3_ann.png")scanpy_seurat <- r
 # seurat_vst降维结果p4 <- DimPlot(sub, reduction = "umap",cols=color[c(1:7,10)],label = T)+  # 绘图四周方框同时隐藏坐标轴刻度  theme_bw()+theme_few()+  theme(axis.text = element_blank(),         axis.ticks = element_blank())+  # 不设置图例  NoLegend()+  # 图片标题  labs(title = "seurat_vst")# seurat_mvp降维结果p5 <- DimPlot(sub_mvp, reduction = "umap",cols=color[c(1:7,10)],label = T)+theme_bw()+theme_few()+theme(axis.text = element_blank(), axis.ticks = element_blank())+NoLegend()+labs(title = "seurat_mvp")# seurat_disp降维结果p6 <- DimPlot(sub_disp, reduction = "umap",cols=color[c(1:7,10)],label = T)+theme_bw()+theme_few()+theme(axis.text = element_blank(), axis.ticks = element_blank())+NoLegend()+labs(title = "seurat_disp")# 三张图联合展示p4 | p5 | p6
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmc5KiaFMEEVIvp9tt2BRPoZf13qyzK8KGzxg7ib61YHjQHv1QsWRQ6N590Iiab2hicnCoyBldpWoFuRqjzHkp1rI1fHJ1Wwdwf040/640?wx_fmt=png&from=appmsg)
+![](../../images/32a9748d4717ed61.webp)
 
 把seurat的结果和scanpy放在一起对比下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkKHiajOhsT5UwnDgibRribApQhWqAicGddJH4lOvujoKBF5gQRGgicvf1ZQSFgIAkexazR6RIUFNGR9iaUqVESo1p9QlbyAGrklvKys/640?wx_fmt=png&from=appmsg)
+![](../../images/f29afb3413e1f2ba.webp)
 
 结合这张图，我们先比较一下Seurat内部三种高变基因方法的优劣程度。总体来看Seurat三种方法都可以做到比较好的细胞群的划分。都成功划分出了7种有明显生物学差异的细胞类型。但是仔细看一下的话，还是有一定差异的。相对来说Seurat-vst方法的聚类分群效果上，细胞群内部紧凑性以及群与群之间的界限是分的最清晰的。以Seurat-mvp方法为例，FIB和MELA群存在一定粘连，划分不够清晰。Seurat-disp则相对vst和mvp方法效果更差一些，零散细胞更多，群内部的紧凑性不如前两种方法。
 
@@ -1254,31 +1254,31 @@ for (i in 1:length(gene_total)) {  cat(names(gene_total)[i], "：", gene_tota
 ## seurat_vst vs seurat_mvp 交集基因数: 787
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlJ4c3sX9aNCpxxHibLfQkVvOetPKHD0AlHoHics3YfXkiaibsMpZtcgibsbHSic0t5x0g2CsEz7icib5ib3ZTmKegXSibrwQFmJAM2j5WPo/640?wx_fmt=png&from=appmsg)
+![](../../images/d5e7c049ceeeb123.webp)
 
 ```
 ## seurat_vst vs seurat_disp 交集基因数: 1113
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmG0hOdkbJLRl7LuDrictgfXsnKmRibB8bWe27jWgCGp64Bf6klJW3hgVTSD5bC8v77VYIwWdXYo1hOYLbnZrp8Th3qTLX7icRFk4/640?wx_fmt=png&from=appmsg)
+![](../../images/fe2f34ad4d06850d.webp)
 
 ```
 ## seurat_vst vs scanpy_seurat_v3 交集基因数: 1728
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlWtCvxKNxetBPicNG385lNfhWN3q4PbC3tTEeVyJNKybYyw8qfz5WucsrPEB1SVXJwcxMB8BrPrPeA1pibxkk9LNKblYNwCV82E/640?wx_fmt=png&from=appmsg)
+![](../../images/4b74b2e6c1adab24.webp)
 
 ```
 ## seurat_vst vs scanpy_seurat 交集基因数: 1107
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmS5T3rwQV6L4qzXbnnyNib3QQBEgXfzE61QFhVGQ3Z3xxibEUicR6gaOXAWX17aySn9bkoJicojUh88tAiace3fngMCibaV6lDapEq4/640?wx_fmt=png&from=appmsg)
+![](../../images/515cf20f7575421d.webp)
 
 ```
 ## seurat_vst vs scanpy_cell_ranger 交集基因数: 1253
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmaGAjicO6HiakqOnVBDbUfaYia3BnrO9QPNITmmoTE6NR2PoKe7qHYkY492t1VIzgudVuicW6PEHB9CH0TzoIWGAywj3Vo0JCkciak/640?wx_fmt=png&from=appmsg)
+![](../../images/b48f337895a03e80.webp)
 
 （3）UpSet图（适合6个集合的交集可视化）
 
@@ -1288,7 +1288,7 @@ for (i in 1:length(gene_total)) {  cat(names(gene_total)[i], "：", gene_tota
 # 正如预期，UpSet中Seurat-vst和Scanpy-seurat_v3交集是最多的，虽然可能和预期的有一定差异，不是完全一致，但是benchmarking也提到这个可能是由于有的基因之间存在表达冗余导致没有被选择进来upset(  fromList(gene_list),  nsets = 6,  number.angles = 30,  point.size = 3.5,  line.size = 2,  mainbar.y.label = "Intersection Size",  sets.x.label = "Gene Set Size",  text.scale = c(1.2, 1.2, 1, 1, 1.5, 1),  order.by = "freq")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmaiacmatZt4VcL4muvNrm156ZbOQre5WpIZf05VVG76x4T1WXANUgepCnGemRTBrd5BJWNxtwQ2sZzwhicNSGDnaZGprZQ9TbBI/640?wx_fmt=png&from=appmsg)
+![](../../images/a27c670d1e8148de.webp)
 
 3.8 总结
 
@@ -1317,13 +1317,13 @@ for (i in 1:length(gene_total)) {  cat(names(gene_total)[i], "：", gene_tota
 
 一切不给测试文件的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnAyYLmJfLibEscLIdIib5r2dhvTSy8pKIwaSkwpgicsb3dalKPLicECiaHAlRwUrNFn3kyWrp1KLqVlraKuciboGrVibOvtrq5qXJBDQ/640?wx_fmt=png&from=appmsg)
+![](../../images/cf46f2591705aaed.png)
 
 链接: https://pan.baidu.com/s/1TWhFvNuoux1uwPrBJUOQdg
 
 提取码: 6kck
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlB1ZaNSzfU2uWxHnictQIM2g4KTibrMgPYSdIWWHtdfSVERNVmiagM84NjBRzz430dy0x4libOh74ibJH4SkeeM72iaE3BR99CdETz0/640?wx_fmt=jpeg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![](../../images/72b5a0e3fcb7f5a9.webp)![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -1358,14 +1358,14 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/4ec66ccdb832fd05.gif)![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

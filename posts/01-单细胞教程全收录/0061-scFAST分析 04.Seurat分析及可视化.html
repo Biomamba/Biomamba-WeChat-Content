@@ -1,0 +1,496 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0061-scFAST分析 04.Seurat分析及可视化</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="scfast-04seurat">scFAST分析| 04.Seurat分析及可视化</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504435&amp;idx=1&amp;sn=c6a6f7ca00684601f3cda49e53be5339&amp;chksm=9b3cab63ac4b2275d993bbaa64c71652685065fa377be57319fc6a5c47eb958b3644c7459cd5#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>Seurat分析及可视化</strong></p>
+<p><img alt="" src="../../images/07e88994d32c0968.png"></p>
+<h2 id="_1"><img alt="" src="../../images/086c3b2d9d29435d.webp"></h2>
+<p>与以往的教程一样，我们给大家准备了数据分析的学习手册，目前分为scFAST绪论、准备工作、fast模块、Seurat分析与可视化、mut模块等五节内容(更多章节持续创作中)及对应测试文件，大家可以添加企业微信回复关键字"<strong>scFAST学习手册</strong> "即领:</p>
+<p><img alt="" src="../../images/a1dbb3a25a832fe1.webp"></p>
+<p><code>Seurat</code>可谓是单细胞数据分析及可视化的神包，利用R语言分析单细胞不可不学的利器。这部分内容阅读有障碍的同学可以查看以下我们以往的教程：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500516&amp;idx=1&amp;sn=3c0b9de505fcd232054e38b451fa1742&amp;chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&amp;payreadticket=HI8u17wlgTEi2y3_eAB6lLoDeKGnv0COS1AuKNQmiMChHdO8OBdB12sH68EgToXBfpGroFY&amp;scene=21#wechat_redirect">scRNA-Seq学习手册2023_R语言版</a></p>
+<h4 id="_2">单细胞测序基础数据分析<strong>保姆级教程</strong> ，代码部分整理在往期推送之中：</h4>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499776&amp;idx=2&amp;sn=7fc250d94ed88cfd5e2224f071bb1742&amp;chksm=9b3cb950ac4b30467a082527547b91aec15b7d1f40d44e362894aedeb6a99e014518fa5e4743&amp;token=767842863&amp;lang=zh_CN&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（一）——绪论</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499795&amp;idx=2&amp;sn=68e6298eb43633c71939c146d90230ff&amp;chksm=9b3cb943ac4b3055e09739d77e037d679f3d9ec68780d1aa8c592f806fcc8d2322eaee78752d&amp;scene=21&amp;cur_album_id=2923694853375688706#wechat_redirect">手把手教你做单细胞测序数据分析（二）——各类数据结构与读取方法</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;chksm=9b3cb9baac4b30ac6f0ce28a6dd10470e73d1e1d6defece5636939a32a6db9b2cce0ff8688eb&amp;scene=21&amp;cur_album_id=2923694853375688706#wechat_redirect">手把手教你做单细胞测序数据分析（三）——单样本分析</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500117&amp;idx=2&amp;sn=cef0b0abec6d73a8c2615980ef68aec1&amp;chksm=9b3cb805ac4b3113fdc820b9c9667f9554b2e39f90c45b5806021a415698b0a5141c521c64dc&amp;scene=21&amp;cur_album_id=2923694853375688706#wechat_redirect">手把手教你做单细胞测序数据分析（四）——多样本整合</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500117&amp;idx=2&amp;sn=cef0b0abec6d73a8c2615980ef68aec1&amp;chksm=9b3cb805ac4b3113fdc820b9c9667f9554b2e39f90c45b5806021a415698b0a5141c521c64dc&amp;scene=21&amp;cur_album_id=2923694853375688706#wechat_redirect">手把手教你做单细胞测序数据分析（五）——细胞类型注释</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500117&amp;idx=2&amp;sn=cef0b0abec6d73a8c2615980ef68aec1&amp;chksm=9b3cb805ac4b3113fdc820b9c9667f9554b2e39f90c45b5806021a415698b0a5141c521c64dc&amp;scene=21&amp;cur_album_id=2923694853375688706#wechat_redirect">手把手教你做单细胞测序数据分析（六）——组间差异分析及可视化</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500357&amp;idx=2&amp;sn=40034079b771c478b482e849ed4b216c&amp;chksm=9b3cbb15ac4b3203d517ff71073ab0520fe144bc108b7a26f6b17e88fb63a78c5777946618e3&amp;scene=21&amp;cur_album_id=2923694853375688706#wechat_redirect">手把手教你做单细胞测序数据分析（七）——基因集富集分析</a></p>
+<h2 id="41">4.1 数据读取</h2>
+<pre><code># 设置工作目录
+setwd('~/analysis/xunyin/')
+# 加载R包
+if (!require(&quot;Seurat&quot;, quietly = TRUE))install.packages(&quot;Seurat&quot;)
+</code></pre>
+<pre><code>## Attaching SeuratObject
+</code></pre>
+<pre><code>if (!require(&quot;BiocManager&quot;, quietly = TRUE))install.packages(&quot;BiocManager&quot;)
+</code></pre>
+<pre><code>## Bioconductor version '3.15' is out-of-date; the current release version '3.17'
+##   is available with R version '4.3'; see https://bioconductor.org/install
+</code></pre>
+<pre><code>if (!require(&quot;multtest&quot;, quietly = TRUE))install.packages(&quot;multtest&quot;)
+</code></pre>
+<pre><code>##
+## Attaching package: 'BiocGenerics'
+</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+##
+##     IQR, mad, sd, var, xtabs
+</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+##
+##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+##     union, unique, unsplit, which.max, which.min
+</code></pre>
+<pre><code>## Welcome to Bioconductor
+##
+##     Vignettes contain introductory material; view with
+##     'browseVignettes()'. To cite Bioconductor, see
+##     'citation(&quot;Biobase&quot;)', and for packages 'citation(&quot;pkgname&quot;)'.
+</code></pre>
+<pre><code>if (!require(&quot;dplyr&quot;, quietly = TRUE))install.packages(&quot;dplyr&quot;)
+</code></pre>
+<pre><code>##
+## Attaching package: 'dplyr'
+</code></pre>
+<pre><code>## The following object is masked from 'package:Biobase':
+##
+##     combine
+</code></pre>
+<pre><code>## The following objects are masked from 'package:BiocGenerics':
+##
+##     combine, intersect, setdiff, union
+</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+##
+##     filter, lag
+</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+##
+##     intersect, setdiff, setequal, union
+</code></pre>
+<pre><code class="language-r"># 指定数据路径
+data_dir &lt;- &quot;cellline_out/step3/filtered_feature_bc_matrix/&quot;
+list.files(data_dir)
+</code></pre>
+<pre><code>## [1] &quot;barcodes.tsv.gz&quot; &quot;features.tsv.gz&quot; &quot;matrix.mtx.gz&quot;
+</code></pre>
+<pre><code class="language-r">#自动读取定量数据，格式为三个tsv或mtx文件
+scFAST.data &lt;- Read10X(data.dir = data_dir)
+
+# 创建Seurat对象并初步过滤
+# min.cells表示基因至少在几个细胞中表达，min.genes代表每个细胞中至少表达多少基因，细胞的平均reads数量&gt; 5万一般比较好，否则需要补测：
+scFAST &lt;- CreateSeuratObject(counts = scFAST.data,
+                           project = &quot;cell_line&quot;, min.cells = 3,
+                           min.features = 200)
+</code></pre>
+<h2 id="42">4.2 数据预处理</h2>
+<pre><code class="language-r"># 通过线粒体的序列数来对数据进行计算线粒体mRNA百分比：
+scFAST[[&quot;percent.mt&quot;]] &lt;- PercentageFeatureSet(scFAST,
+                                              pattern = &quot;^MT-&quot;) # 小鼠数据需要换为mt
+# QC的数据存在meta.data里，可以用这个来查看前5行
+head(scFAST@meta.data, 5)
+</code></pre>
+<pre><code>##                   orig.ident nCount_RNA nFeature_RNA percent.mt
+## CAGGCCAGCTCACAGCC  cell_line        341          281  0.5865103
+## CCGGGTATACGAAGTCC  cell_line        341          285  2.9325513
+## GTGTGGCGCTGTACTAC  cell_line        338          258  3.8461538
+## TCAGCAACGATCCGCGA  cell_line        341          275  1.1730205
+## TCCCATGTACTAGTCCT  cell_line        340          273  2.3529412
+</code></pre>
+<pre><code># 用小提琴图来展示QC的结果，展示了每个barcode中基因的数目、UMI数目以及线粒体基因含量的分布情况：
+#pdf(file = 'Feature.Count.percent.mt.pdf',height = 6,width = 18)
+VlnPlot(scFAST,
+        features = c(&quot;nFeature_RNA&quot;, &quot;nCount_RNA&quot;, &quot;percent.mt&quot;),
+        ncol = 3)
+</code></pre>
+<p><img alt="" src="../../images/6dd09921af2d4206.webp"></p>
+<pre><code class="language-r">#dev.off()
+
+# 可视化：
+plot1 &lt;- FeatureScatter(scFAST, feature1 = &quot;nCount_RNA&quot;, feature2 = &quot;percent.mt&quot;)
+plot2 &lt;- FeatureScatter(scFAST, feature1 = &quot;nCount_RNA&quot;, feature2 = &quot;nFeature_RNA&quot;)
+</code></pre>
+<pre><code>#pdf(file = '判断基因表达趋势.pdf',width = 12,height = 6)
+CombinePlots(plots = list(plot1, plot2)) #高变基因，判断趋势及占比
+</code></pre>
+<pre><code>## Warning: CombinePlots is being deprecated. Plots should now be combined using
+## the patchwork system.
+</code></pre>
+<p><img alt="" src="../../images/91e5a15292ab0823.webp"></p>
+<pre><code>#dev.off()
+</code></pre>
+<pre><code class="language-r"># 质控，选子集，RNA数量在200与2500之间的，多的可能是低质量细胞或空drouplets，gene count多的可能是doublets or multiplets:
+scFAST &lt;- subset(scFAST, subset = nFeature_RNA &gt; 200 &amp;
+                  nFeature_RNA &lt; 2500 &amp; percent.mt &lt; 5)
+
+# 用LogNormalize法对数据进行标准化（乘10000再取对数）数据存在scFAST[[&quot;RNA&quot;]]@data.里
+# 默认的方法也完成了log1p的操作，得到的结果就类似于TPM的对数:
+scFAST &lt;- NormalizeData(scFAST, normalization.method = &quot;LogNormalize&quot;,
+                       scale.factor = 10000)
+
+# 筛选高变基因（输出2000个），用于下游的PCA及分群:
+scFAST &lt;- FindVariableFeatures(scFAST, selection.method = &quot;vst&quot;,
+                              nfeatures = 2000)
+
+# 输出差异最大的十个基因:
+top10 &lt;- head(VariableFeatures(scFAST), 10)
+plot1 &lt;- VariableFeaturePlot(scFAST)
+plot2 &lt;- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+</code></pre>
+<pre><code>## When using repel, set xnudge and ynudge to 0 for optimal results
+</code></pre>
+<pre><code>#输出差异基因散点图（有无标签）:
+CombinePlots(plots = list(plot1, plot2))
+</code></pre>
+<pre><code>## Warning: CombinePlots is being deprecated. Plots should now be combined using
+## the patchwork system.
+</code></pre>
+<p><img alt="" src="../../images/7d975c8852a33d30.webp"></p>
+<pre><code class="language-r"># 将数据进行归一化，为后续的PCA分析做准备，数据存在scFAST[[&quot;RNA&quot;]]@scale.data
+scFAST &lt;- ScaleData(scFAST, features =  rownames(scFAST))
+</code></pre>
+<pre><code>## Centering and scaling data matrix
+</code></pre>
+<pre><code class="language-r">#scFAST &lt;- ScaleData(scFAST)#only4VariableFeatures
+
+# 回归计算消除无关的变量（如线粒体的比例）：
+scFAST &lt;- ScaleData(scFAST, vars.to.regress = &quot;percent.mt&quot;)
+</code></pre>
+<pre><code>## Regressing out percent.mt
+</code></pre>
+<pre><code>## Centering and scaling data matrix
+</code></pre>
+<pre><code class="language-r">#scFAST[[&quot;RNA&quot;]]@scale.data
+
+# PCA降维分析：
+scFAST &lt;- RunPCA(scFAST,
+                features = VariableFeatures(object = scFAST))
+</code></pre>
+<pre><code>## PC_ 1
+## Positive:  HBG2, HBG1, PRAME, CPED1, AL713998.1, GLUL, KCNH2, MPP1, PRKCB, RELN
+##     AC136431.1, LINC01287, CBFA2T3, FAM178B, NUP214, AC004949.1, AP000547.3, ANK1, AC097528.1, RHAG
+##     LYL1, LINC02476, ALDH1A2, CTCFL, SEPTIN5, GYPC, EPB41, AP001531.1, ZEB2, GATA1
+## Negative:  ASPH, EGFR, LCN2, KRT18, GAPDH, IGFBP3, CD44, VOPP1, KRT8, JUN
+##     LPP, NFKBIZ, SAA1, S100A10, CFB, AREG, CDH1, CDK4, EGR1, PGK1
+##     PIP4K2C, CCN1, MUC16, SOD2, KRT19, KRT7, AZGP1, UBC, PGM1, TGFBI
+## PC_ 2
+## Positive:  FP236383.3, VOPP1, LCN2, EPCAM, SAA1, CDK4, EGFR, AZGP1, RPL7, PIP4K2C
+##     KRT19, HIST1H1B, CFB, CDH1, RNASET2, NFKBIZ, LAD1, SERPINB4, CCT6A, MUC16
+##     F3, LANCL2, ESRP1, ICAM1, SLC43A3, PDZK1IP1, CHCHD2, CLDN4, CDH3, GNS
+## Negative:  ALDH1A1, AKR1C2, CYP24A1, IGFBP4, AKR1C3, AKAP12, AKR1B1, PDE4D, VIM, ALDH3A1
+##     TPM2, AKR1B10, G6PD, AHNAK2, CA12, AKR1C1, PGD, TNS4, PDE10A, SERPINE1
+##     FTL, PBX1, NQO1, MYO1E, ANXA2, UGDH, CPLX2, THSD4, MAP1B, IGFBP7
+## PC_ 3
+## Positive:  MKI67, HIST1H1C, RPS6, STMN1, RPL29, HSP90AA1, RPS8, MYH9, HMGB2, FLNA
+##     FTL, HIST1H1E, HSPA8, HIST1H2AI, PRRC2A, TUBB4B, RANBP1, SERBP1, INCENP, RPL24
+##     LDHB, PLEC, TOP2A, TPX2, CENPF, MRPL16, HSPD1, PPP1R15A, PRAME, ACTN4
+## Negative:  GAPDH, PTMA, IGFBP3, TRPC6, AC007325.2, PADI2, FGG, VOPP1, PLAAT4, NTS
+##     FGB, PLAAT3, SERPINB4, AZGP1, MUC4, FGA, LCN2, KRT18, SAA4, TCN1
+##     SUSD2, PEG10, HMOX1, LIPG, AC093817.2, SEMA3A, NUPR1, SLC16A5, TRIM31, C4orf19
+## PC_ 4
+## Positive:  FN1, NEAT1, C3, CXCL8, ANXA4, IGFBP3, RCSD1, CD24, INSIG1, PHLDB2
+##     TNFAIP2, CFH, PNRC1, NDRG1, CXCL5, ARL15, DLK1, FNDC3B, STXBP5, CD53
+##     MAP1A, EPB41, LRMDA, IFNGR1, C1R, ADGRB3, RHAG, RND1, CFB, SOX6
+## Negative:  MKI67, KPNA2, TUBB4B, TPX2, TOP2A, CDCA3, ANLN, CENPF, NUSAP1, HIST1H1B
+##     AURKA, INCENP, HMGB2, CCNA2, KNSTRN, HIST1H1E, HIST1H2AB, ECT2, HIST1H2AI, RRM2
+##     PTMA, CDC20, CDCA8, H2AFX, KIF20A, PSRC1, FAM83D, CCNB1, PLK1, KIF2C
+## PC_ 5
+## Positive:  KIF20A, RCSD1, CDC20, DLK1, CCNB1, CENPF, DLGAP5, ANXA1, KPNA2, AURKA
+##     PSRC1, CCNB2, ADGRB3, TOP2A, TPX2, CDCA3, CD53, ARL6IP1, ANTXR2, STXBP5
+##     NUSAP1, SOSTDC1, CALB1, SLAMF6, BUB1, CFH, SOX6, CD24, LYZ, MUC4
+## Negative:  HIST1H2AI, HIST1H1E, HIST1H1B, HIST1H2AB, HIST1H1C, HIST2H2AA4, HBG2, HIST2H2AC, HBG1, HIST1H2AJ
+##     HIST1H1D, HEMGN, SLC43A3, FAM178B, CA1, RRM2, PKLR, HIST2H2BF, FOSL1, CCN1
+##     ATF3, HIST1H2BK, MCM2, CCDC26, ATAD3B, SLC38A5, CDC45, KCNH2, RANBP1, SRM
+</code></pre>
+<pre><code># 打印PCA部分结果：
+print(scFAST[[&quot;pca&quot;]], dims = 1:5, nfeatures = 5)
+</code></pre>
+<pre><code>## PC_ 1
+## Positive:  HBG2, HBG1, PRAME, CPED1, AL713998.1
+## Negative:  ASPH, EGFR, LCN2, KRT18, GAPDH
+## PC_ 2
+## Positive:  FP236383.3, VOPP1, LCN2, EPCAM, SAA1
+## Negative:  ALDH1A1, AKR1C2, CYP24A1, IGFBP4, AKR1C3
+## PC_ 3
+## Positive:  MKI67, HIST1H1C, RPS6, STMN1, RPL29
+## Negative:  GAPDH, PTMA, IGFBP3, TRPC6, AC007325.2
+## PC_ 4
+## Positive:  FN1, NEAT1, C3, CXCL8, ANXA4
+## Negative:  MKI67, KPNA2, TUBB4B, TPX2, TOP2A
+## PC_ 5
+## Positive:  KIF20A, RCSD1, CDC20, DLK1, CCNB1
+## Negative:  HIST1H2AI, HIST1H1E, HIST1H1B, HIST1H2AB, HIST1H1C
+</code></pre>
+<pre><code>#pdf(file = 'PCA_点图.pdf',width = 10,height = 6)
+VizDimLoadings(scFAST, dims = 1:2, reduction = &quot;pca&quot;)
+</code></pre>
+<p><img alt="" src="../../images/1e49a3e3d75e8045.webp"></p>
+<pre><code>#dev.off()
+
+# 三种PCA展示方式：
+DimHeatmap(scFAST, dims = 1,
+           cells = 500, balanced = TRUE)
+</code></pre>
+<p><img alt="" src="../../images/b7ce43c86c9b5d7c.webp"></p>
+<pre><code>#pdf(file = 'PCA.heatmap.pdf',width = 15,height = 12)
+
+# 展示15种PCA：
+DimHeatmap(scFAST, dims = 1:15,
+           cells = 500, balanced = TRUE)
+</code></pre>
+<p><img alt="" src="../../images/e4720727084af71a.webp"></p>
+<pre><code class="language-r">#dev.off()
+
+# 筛选合适的维度：
+# 重复计算次数：
+scFAST &lt;- JackStraw(scFAST, num.replicate = 100)
+
+# 计算维度这一步花的时间比较久：
+scFAST &lt;- ScoreJackStraw(scFAST, dims = 1:20)
+#pdf(file = 'jackstrawplot.pdf',width = 6,height = 6)
+
+# JackStrawPlot相当于高级PCA，为挑选合适维度进行下游可视化提供依据：
+# 画出1到15个维度：
+JackStrawPlot(scFAST, dims = 1:15)
+</code></pre>
+<pre><code>## Warning: Removed 21504 rows containing missing values (geom_point).
+</code></pre>
+<p><img alt="" src="../../images/fb2dbf5f881edce7.webp"></p>
+<pre><code>#dev.off()
+
+# 利用ElbowPlot来评价PC，不可为了结果好看而降低PC数
+#pdf(file = 'elbow.pdf',width = 6,height = 5)
+ElbowPlot(scFAST)
+</code></pre>
+<p><img alt="" src="../../images/f96dce964dfe7976.png"></p>
+<pre><code>#dev.off()
+</code></pre>
+<h2 id="43">4.3 降维、分群、注释</h2>
+<pre><code class="language-r">scFAST &lt;- FindNeighbors(scFAST, dims = 1:11)
+</code></pre>
+<pre><code>## Computing nearest neighbor graph
+</code></pre>
+<pre><code>## Computing SNN
+</code></pre>
+<pre><code class="language-r"># 细胞分群，resolution分辨率在细胞数在3000附近时一般设为0.4-1.2，resolution越大得到的类群越多:
+scFAST &lt;- FindClusters(scFAST, resolution = 0.5)
+</code></pre>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+##
+## Number of nodes: 4986
+## Number of edges: 165138
+##
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.8383
+## Number of communities: 6
+## Elapsed time: 0 seconds
+</code></pre>
+<pre><code># 看前五个分类群ID:
+head(Idents(scFAST), 5)
+</code></pre>
+<pre><code>## CAGGCCAGCTCACAGCC CCGGGTATACGAAGTCC GTGTGGCGCTGTACTAC TCAGCAACGATCCGCGA
+##                 2                 2                 0                 1
+## TCCCATGTACTAGTCCT
+##                 2
+## Levels: 0 1 2 3 4 5
+</code></pre>
+<pre><code class="language-r">#非线性降维方法：UMAP、tSNE
+
+# 运行UMAP算法:
+scFAST &lt;- RunUMAP(scFAST, dims = 1:11)
+</code></pre>
+<pre><code>## Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+## To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+## This message will be shown once per session
+</code></pre>
+<pre><code>## 11:09:52 UMAP embedding parameters a = 0.9922 b = 1.112
+</code></pre>
+<pre><code>## 11:09:52 Read 4986 rows and found 11 numeric columns
+</code></pre>
+<pre><code>## 11:09:52 Using Annoy for neighbor search, n_neighbors = 30
+</code></pre>
+<pre><code>## 11:09:52 Building Annoy index with metric = cosine, n_trees = 50
+</code></pre>
+<pre><code>## 0%   10   20   30   40   50   60   70   80   90   100%
+</code></pre>
+<pre><code>## [----|----|----|----|----|----|----|----|----|----|
+</code></pre>
+<pre><code>## **************************************************|
+## 11:09:53 Writing NN index file to temp file /tmp/RtmpBqtxhu/file8bf4d523b90af
+## 11:09:53 Searching Annoy index using 1 thread, search_k = 3000
+## 11:09:55 Annoy recall = 100%
+## 11:09:56 Commencing smooth kNN distance calibration using 1 thread with target n_neighbors = 30
+## 11:09:57 Initializing from normalized Laplacian + noise (using irlba)
+## 11:09:57 Commencing optimization for 500 epochs, with 199020 positive edges
+## 11:10:04 Optimization finished
+</code></pre>
+<pre><code class="language-r"># 运行TSNE算法，TSNE算法运行时间较UMAP更久:
+scFAST &lt;- RunTSNE(scFAST, dims = 1:11)
+DimPlot(scFAST, reduction = &quot;umap&quot;, label = TRUE)
+</code></pre>
+<p><img alt="" src="../../images/c2ec59585abff48e.webp"></p>
+<pre><code class="language-r"># 计算cluster1相较于其它cluster的marker：
+cluster1.markers &lt;- FindMarkers(scFAST, ident.1 = 1,
+                                min.pct = 0.25)
+
+# roc算法计算cluster1的marker
+cluster1.markers &lt;- FindMarkers(scFAST, ident.1 = 0,
+                                logfc.threshold = 0.25,
+                                test.use = &quot;roc&quot;,
+                                only.pos = TRUE)
+
+# 查看前五个标记基因：
+head(cluster1.markers, n = 5)
+</code></pre>
+<pre><code>##         myAUC avg_diff power avg_log2FC pct.1 pct.2
+## ALDH1A1 0.973 3.584375 0.946   5.171160 0.953 0.052
+## CYP24A1 0.924 2.547823 0.848   3.675732 0.890 0.151
+## AKR1C2  0.910 3.383152 0.820   4.880857 0.836 0.042
+## PKM     0.879 0.872585 0.758   1.258874 0.993 0.881
+## IGFBP4  0.863 2.537671 0.726   3.661086 0.747 0.043
+</code></pre>
+<pre><code class="language-r"># 寻找每一个分类群与其他所有细胞之间的标记基因，并只显示positive结果
+scFAST.markers &lt;- FindAllMarkers(scFAST, only.pos = TRUE,
+                                min.pct = 0.25,
+                                logfc.threshold = 0.25)
+</code></pre>
+<pre><code>## Calculating cluster 0
+## Calculating cluster 1
+## Calculating cluster 2
+## Calculating cluster 3
+## Calculating cluster 4
+## Calculating cluster 5
+</code></pre>
+<pre><code class="language-r">library(dplyr)
+# 筛选出top10：
+top10gene &lt;- scFAST.markers %&gt;% group_by(cluster) %&gt;%
+  top_n(n = 10, wt = avg_log2FC)
+# pdf(file = 'top10marker.pdf',width = 20,height = 100)
+VlnPlot(scFAST, features = unique(top10gene$gene),
+        pt.size = 0,ncol = 4)
+</code></pre>
+<p><img alt="" src="../../images/18e062f61b98bc74.webp"></p>
+<pre><code># dev.off()
+
+VlnPlot(scFAST, features = unique(top10gene$gene),
+        pt.size = 0,stack = T)
+</code></pre>
+<p><img alt="" src="../../images/a4ec9a1ce5b14393.webp"></p>
+<pre><code>DimPlot(scFAST)
+</code></pre>
+<p><img alt="" src="../../images/323655851c8361df.webp"></p>
+<pre><code># 查看部分marker基因在FeaturePlot(以UMAP作为底图)中的表达情况：
+FeaturePlot(scFAST,
+            features = unique(top10gene$gene)[1:9])
+</code></pre>
+<p><img alt="" src="../../images/dd79d67be92ce752.webp"></p>
+<pre><code># 展示cluster标签
+FeaturePlot(scFAST,
+            features = unique(top10gene$gene)[1:9],
+            label = T)
+</code></pre>
+<p><img alt="" src="../../images/08a4f068cc383538.webp"></p>
+<pre><code>FeaturePlot(scFAST,
+            features = c(&quot;ALDH1A1&quot;,&quot;AKR1C2&quot;,&quot;AKR1C3&quot;,&quot;CYP24A1&quot;))
+</code></pre>
+<p><img alt="" src="../../images/dfe2b3bcee3130a1.webp"></p>
+<pre><code class="language-r"># 展示前10个标记基因的热图
+top10 &lt;- scFAST.markers %&gt;% group_by(cluster) %&gt;% top_n(n = 10, wt = avg_log2FC)
+DoHeatmap(scFAST, features = top10$gene) + NoLegend()
+</code></pre>
+<p><img alt="" src="../../images/7e612a64dfb01b10.webp"></p>
+<pre><code class="language-r">#通过标记基因及文献，可以人工确定各分类群的细胞类型，则可以如下手动添加细胞群名称：
+
+# 重命名方法1：
+new.cluster.ids &lt;- c(&quot;Celltype_A&quot;, &quot;Celltype_B&quot;,&quot;Celltype_C&quot;,
+                     &quot;Celltype_B&quot;,&quot;Celltype_B&quot;,&quot;Celltype_C&quot;)
+names(new.cluster.ids) &lt;- levels(scFAST)
+scFAST &lt;- RenameIdents(scFAST, new.cluster.ids)
+scFAST$celltype &lt;- Idents(scFAST)
+</code></pre>
+<pre><code class="language-r"># 重命名方法2
+scFAST$celltype &lt;- scFAST$RNA_snn_res.0.5
+scFAST$celltype &lt;- recode(scFAST$celltype,
+                  '0'=&quot;Celltype_A&quot;,
+                  '1'=&quot;Celltype_B&quot;,
+                  '2'=&quot;Celltype_C&quot;,
+                  '3'=&quot;Celltype_B&quot;,
+                  '4'=&quot;Celltype_B&quot;,
+                  '5'=&quot;Celltype_C&quot;)
+
+Idents(scFAST) &lt;- 'celltype'
+
+# 计算重命名后的细胞类型marker
+scFAST_rename_markers &lt;- FindAllMarkers(scFAST, only.pos = TRUE,
+                                 min.pct = 0.25,
+                                 logfc.threshold = 0.25)
+</code></pre>
+<pre><code>## Calculating cluster Celltype_A
+</code></pre>
+<pre><code>## Calculating cluster Celltype_B
+</code></pre>
+<pre><code>## Calculating cluster Celltype_C
+</code></pre>
+<pre><code class="language-r"># 筛选top5 maker
+top5_rename &lt;- scFAST_rename_markers %&gt;% group_by(cluster) %&gt;%
+  top_n(n = 5, wt = avg_log2FC)
+
+# 利用堆积小提琴图查看表达情况：
+VlnPlot(scFAST,
+          features = unique(top5_rename$gene),
+            stack = T)
+</code></pre>
+<p><img alt="" src="../../images/e4a89a6581d5926b.webp"></p>
+<pre><code class="language-r"># 求各个细胞类型基因的平均表达量：
+cell.expr &lt;-
+  log1p(AverageExpression(scFAST, verbose = FALSE)$RNA)
+
+head(cell.expr)
+</code></pre>
+<pre><code>##            Celltype_A  Celltype_B Celltype_C
+## AL627309.1 0.00000000 0.000000000 0.28221346
+## AL627309.2 0.00000000 0.006774702 0.01673949
+## AL627309.5 0.04375944 0.116682264 0.20596967
+## AP006222.2 0.01291225 0.013775439 0.56941424
+## AL732372.1 0.00000000 0.009998963 0.01746337
+## AC114498.1 0.00000000 0.010397461 0.03523540
+</code></pre>
+<pre><code>DimPlot(scFAST, reduction = &quot;umap&quot;,
+        label = TRUE, pt.size = 0.5) + NoLegend()
+</code></pre>
+<p><img alt="" src="../../images/ed9377fe2563d0f8.webp"></p>
+<pre><code class="language-r">Idents(scFAST) &lt;- 'celltype'
+
+DimPlot(scFAST, reduction = &quot;umap&quot;,
+        label = TRUE, pt.size = 0.5) + NoLegend()
+</code></pre>
+<p><img alt="" src="../../images/ed9377fe2563d0f8.webp"></p>
+<p>可以如是完成数据的保存与再次读取：</p>
+<pre><code class="language-r"># 创建目录：
+dir.create('scFAST_out')
+
+# 将Seurat对象保存为rds文件输出：
+saveRDS(scFAST, file = &quot;./scFAST_out/scFAST_fast.rds&quot;)
+
+# 读取rds文件：
+scFAST &lt;- readRDS('./scFAST_out/scFAST_fast.rds')
+</code></pre>
+<h2 id="_3"></h2>
+<p><strong>学习手册</strong></p>
+<p><img alt="" src="../../images/07e88994d32c0968.png"></p>
+<h2 id="_4"><img alt="" src="../../images/086c3b2d9d29435d.webp"></h2>
+<p>与以往的教程一样，我们给大家准备了数据分析的学习手册，目前分为scFAST绪论、准备工作、fast模块、Seurat分析与可视化、mut模块等五节内容(更多章节持续创作中)及对应测试文件，大家可以添加企业微信回复关键字"<strong>scFAST学习手册</strong> "即领:</p>
+<p><img alt="" src="../../images/a1dbb3a25a832fe1.webp"></p>
+<p><strong>往期回顾</strong></p>
+<p><img alt="" src="../../images/07e88994d32c0968.png"></p>
+<h2 id="scfast-01"><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503875&amp;idx=1&amp;sn=2b5ca0c57e17e51abb52adfe199c5736&amp;chksm=9b3ca953ac4b20450f643b94bcfc95aa2b04ded197ce93e455a281901d7ccba099b48cfd03d9&amp;scene=21#wechat_redirect"> scFAST分析| 01.绪论</a></h2>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504023&amp;idx=1&amp;sn=4091a22e853242b4aae7a7d3b4008f5c&amp;chksm=9b3ca9c7ac4b20d1bb0389fad5fe85a3c4cf49179747fe97dffaab1087b7d2793668d9f63aa4&amp;scene=21#wechat_redirect">scFAST分析| 02.单细胞分析准备工作</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504044&amp;idx=1&amp;sn=d37991280217dcc29280efa344f856bb&amp;chksm=9b3ca9fcac4b20eab124ccd4ba6ad3f5eee640df314e7d8fec0225035f06178e3a51dbe2033f&amp;scene=21#wechat_redirect">scFAST分析| 03.fast模块</a></p></article></body></html>

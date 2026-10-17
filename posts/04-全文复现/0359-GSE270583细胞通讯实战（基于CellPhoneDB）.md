@@ -10,7 +10,7 @@ albums: ["全文复现"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247541081&idx=2&sn=3ecf22a0c12214607f83447c081d7e68&chksm=9b3c5809ac4bd11fa9e779f4f328138b216bd33524eec297b69757343162131dbe67ff487554#rd
 > 合集：全文复现
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhESLXO6LYU9sQS49CEHSuaX5hqKoHMbAZDtJJkSOtaLaBqJcN0x5LnibzHS9DOyEN2vcpuaL4ASEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9734e48a74d488fe.png)
 
 **写在前面**
 
@@ -20,17 +20,17 @@ albums: ["全文复现"]
 
 更多Python单细胞教程：
 
-[![图片](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkjDfrmn1HosHMdGJ0dPnib86kWibUW6nh1v512Bqqia3jrJp0WBQexgl9SVUwDS3lE8WxAzbuzys4yrYHtQRankoQGp1b5WNZf4k/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=0)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537658&idx=2&sn=f3adf25c6d116aa2fcc4ef6f9cc9bc2e&scene=21#wechat_redirect>)
+[![图片](../../images/849b688a8624924c.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537658&idx=2&sn=f3adf25c6d116aa2fcc4ef6f9cc9bc2e&scene=21#wechat_redirect>)
 
 学前tips:本教程基于Linux环境的[jupyter](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531443&idx=3&sn=0930f54959a9bd13b99780d8f26a1155&scene=21#wechat_redirect>)演示，计算资源不足的同学可参考：[足够支持你完成硕博生涯的生信环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21#wechat_redirect>)访问链接：https://biomamba.xiyoucloud.net/欢迎联系客服微信[Biomamba_zhushou]获取帮助
 
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)、自测数据[个性化分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539480&idx=1&sn=9f1d8a76c0a5ddad4983c3fcf7620622&scene=21#wechat_redirect>)辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhESLXO6LYU9sQS49CEHSuaX5hqKoHMbAZDtJJkSOtaLaBqJcN0x5LnibzHS9DOyEN2vcpuaL4ASEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9734e48a74d488fe.png)
 
 **实操流程**
 
-资料下载见文末：![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwVAeibY1YJ72iabMiafluyyS80rjmuxMfDzsibT950ko39F37YFDgjpR9WhHpAHdtMBuPaQplXEwdExA/640?wx_fmt=gif&from=appmsg)
+资料下载见文末：![](../../images/96a9f56757237e96.webp)
 如果你对下面的教程比较迷茫，那么你可以先行学习编程教程：[十小时学会Linux](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505777&idx=1&sn=f3efae390566b838a445ab9f832323c8&scene=21#wechat_redirect>)[生信Linux及服务器使用技巧](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2980604042328702978#wechat_redirect>)[5.5h入门R语言](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530924&idx=2&sn=ba3b03a998e48de5cec08933b734d905&scene=21#wechat_redirect>)
 
 **[生信Python速查手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247520999&idx=2&sn=7f6aa90c2ffa786bd660aa40b109de49&scene=21#wechat_redirect>)**
@@ -293,7 +293,7 @@ kpy.plot_cpdb_heatmap(    pvals=cpdb_results['pvalues'],      # 使用 Pyth
 ```
 
 ## **
-**![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwVAeibY1YJ72iabMiafluyyS8icYndicstZ81UfP4sSvKlx63yTTgfO1ZLByribbWtjeFOqKZYW1iaQ2iaUw/640?wx_fmt=png&from=appmsg)
+**![No description has been provided for this image](../../images/9144ee5db046a27e.webp)
 
 ## **（3）主要细胞组合中的前20个配体-受体相互作用**
 
@@ -309,7 +309,7 @@ kpy.plot_cpdb_heatmap(    pvals=cpdb_results['pvalues'],      # 使用 Pyth
 plt.tight_layout()plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwVAeibY1YJ72iabMiafluyyS8Ad34T9W6DzJoiaDCClnicHahDu0l7LUOG5lm6Hj0hLTlXk1jM2aFicXJw/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/2d6d6d297388f7ba.webp)
 
   *
 
@@ -317,17 +317,17 @@ plt.tight_layout()plt.show()
 adata.write("cell_communication_full_analysis.h5ad")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhESLXO6LYU9sQS49CEHSuaX5hqKoHMbAZDtJJkSOtaLaBqJcN0x5LnibzHS9DOyEN2vcpuaL4ASEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9734e48a74d488fe.png)
 
 **资料领取**
 
-本推送的代码和测试文件可以在以下链接中下载：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwVAeibY1YJ72iabMiafluyyS8cPaXRJ6hH6iaiccEXtsmOOSXB5y9L5fxs6LiaTr4N5A5WyADk7Pib8m1Mw/640?wx_fmt=png&from=appmsg)
+本推送的代码和测试文件可以在以下链接中下载：![](../../images/b08759d565529f73.png)
 
 通过网盘文件分享的文件：https://pan.baidu.com/s/1UF1ecQuXOYgFssO0QJfryw
 
 联系助理微信[Biomamba_zhushou]获取提取码
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -360,10 +360,10 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=9)
+![图片](../../images/4ec66ccdb832fd05.gif)![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=10)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=11) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=12)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=13)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢
 
 Laker

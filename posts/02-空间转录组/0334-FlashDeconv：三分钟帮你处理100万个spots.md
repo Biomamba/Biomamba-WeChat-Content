@@ -32,7 +32,7 @@ Yang, C., Chen, J. & Zhang, X. FlashDeconv enables atlas-scale, multi-resolution
 
 代码仓库：https://github.com/cafferychen777/flashdeconv
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPmahBk9EyxL0JL6yFHsLDF3ZIQcsd5Wp6L1MJggSWhYL28S52pG356Sy2f4qzHKU3V8gIzCkCosQ/640?wx_fmt=png&from=appmsg)
+![](../../images/37abb0b75f6a2e85.webp)
 
 图1. FlashDeconv框架概览。(A) 输入数据预处理：空间转录组数据Y和单细胞参考X经过Log-CPM归一化，基因选择结合HVG和细胞类型标志基因。(B) 结构保持的随机投影：计算杠杆分数识别区分性基因，通过加权sketch矩阵将基因空间从约20,000维压缩至512维。(C) 空间正则化与优化：构建k-NN空间图，通过图拉普拉斯正则化实现空间平滑，使用块坐标下降（BCD）求解。(D) 输出：每个空间位置的细胞类型比例估计。
 
@@ -44,7 +44,7 @@ Yang, C., Chen, J. & Zhang, X. FlashDeconv enables atlas-scale, multi-resolution
 
 2.1 空间转录组解卷积的计算挑战
 
-空间转录组解卷积可以形式化为约束回归问题：给定空间表达矩阵![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cTDnsIkpVe2G6G6RWSia6iaXKnxDhO9OOTYzVyk94rRGTUicJcPmULLprA/640?wx_fmt=png&from=appmsg)（N个spot，G个基因）和单细胞参考签名矩阵![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cWTAo5ickr1skkMSs5Ssx16nJxxZh0fUhiaASdNVibNc6ToofpOA0Vzk2w/640?wx_fmt=png&from=appmsg)（K个细胞类型），目标是估计比例矩阵![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cgHEvWubaARpM0eIZ5nU9XKT85JV9icpvF10sY6L4mcPjNDayDLnS1ww/640?wx_fmt=png&from=appmsg)使得 ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5csH01Wnl8eAmkc2OUsTM03SMt2RDNE4ITLPibgMZ9LF8Nq5MtbYaa3Eg/640?wx_fmt=png&from=appmsg)。
+空间转录组解卷积可以形式化为约束回归问题：给定空间表达矩阵![](../../images/344b934d0d24a2b3.png)（N个spot，G个基因）和单细胞参考签名矩阵![](../../images/28876b88e9854164.png)（K个细胞类型），目标是估计比例矩阵![](../../images/e2dd41e1f59dbb4f.png)使得 ![](../../images/8d598538c97a5641.png)。
 
 现有方法面临两个根本性挑战，如下：
 
@@ -62,7 +62,7 @@ RCTD| 迭代加权最小二乘| O(N · G · K²)| 11,000 spots需20分钟
 
 几乎所有现有方法都采用高变异基因（HVG）进行特征选择，其隐含假设是”方差大 = 信息多”。然而，基因表达方差与细胞丰度天然耦合：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cbkcgIibNRSBQm3ERaK02iaT70ibMngNCfCWV33BkaXLskD3agMyib9ibonA/640?wx_fmt=png&from=appmsg)
+![](../../images/0a4df2fe78583189.png)
 
 高丰度细胞类型（如占30%的肝细胞）贡献高方差，其标志基因被优先选中；而稀有群体（如占0.4%的Tuft细胞、2%的血管内皮细胞）的标志基因方差低，被系统性排除。
 
@@ -72,7 +72,7 @@ RCTD| 迭代加权最小二乘| O(N · G · K²)| 11,000 spots需20分钟
 
 杠杆分数（Leverage Score）来自矩阵SVD分解，其定义为：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cIVYzNaOsMNLw502HcauGuS9Br7FxSqJP7mDfyuibaNAbOmKNa7GMraA/640?wx_fmt=png&from=appmsg)
+![](../../images/600917c4a8ce940c.png)
 
 其中 V 是参考矩阵X的右奇异向量（对应基因方向），r 是数值秩。杠杆分数衡量的是每个基因对细胞类型区分结构的几何贡献——与丰度无关。
 
@@ -96,9 +96,9 @@ RCTD| 迭代加权最小二乘| O(N · G · K²)| 11,000 spots需20分钟
 
 FlashDeconv使用CountSketch——一种稀疏随机投影：为每个基因随机分配到d个"桶"中的一个，并乘以随机符号±1。这比稠密随机矩阵更高效（O(G)而非O(G·d)），同时满足J-L性质。
 
-关键创新是杠杆分数加权：在进入sketch之前，每个基因按![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cgwbxXcNHffgRHgpOZ4GOprN6gm64FjQvgoxHia9brtdJG8pK8JKSFng/640?wx_fmt=png&from=appmsg) 缩放。这使得高杠杆基因（稀有细胞标志物）在哈希碰撞时保持足够的信噪比：
+关键创新是杠杆分数加权：在进入sketch之前，每个基因按![](../../images/a330f6a7927b3669.png) 缩放。这使得高杠杆基因（稀有细胞标志物）在哈希碰撞时保持足够的信噪比：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cGD9ZLjtjvkHteDAbSiayKzDsCZbmia9cur1ibzgNpEzDvAU85mMBFoqrA/640?wx_fmt=png&from=appmsg)
+![](../../images/f60e9ec1fe4e5d06.png)
 
 **二、主要结果**
 
@@ -124,7 +124,7 @@ NOISE| 高方差、低杠杆| 35%为Gm系列未注释转录本| 无显著GO富�
 
 GOLD基因富集血管生物学功能（血管发育、内皮细胞分化、血管形成），而NOISE基因零显著GO富集。空间可视化验证：GOLD基因在Visium切片上重建清晰血管结构（空间结构评分1.33），NOISE基因呈随机椒盐噪声（评分0.87，p = 5.6×10⁻⁵）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz8IoayznzsLia6b4k39KX5cxtELj1GncaiaQuSkR7zAncU5iatj2a4BDhpfqDovCECbsNictmy7nLBJA/640?wx_fmt=png&from=appmsg)
+![](../../images/3fa625399c2bf9e4.webp)
 
 图2. 杠杆分数解耦生物学身份与丰度。(a) 丰度不变性测试：少突胶质细胞降采样时方差排名劣化，杠杆分数排名稳定。(b) 方差-杠杆平面：GOLD象限富含血管标志物，NOISE象限富含未注释转录本。(c) GO富集分析：GOLD基因显著富集血管发育通路。(d) 空间验证：GOLD基因重建血管结构，NOISE基因呈噪声分布。
 
@@ -209,7 +209,7 @@ Paneth细胞和Goblet细胞都是分泌型上皮细胞，但占据不同空间�
 
 **相关性从负变正** 是质的信息损失。在传统Visium分辨率（55µm）分析数据的研究者会观察到强共定位，可能错误地推断Paneth和Goblet细胞共享微环境或响应相似空间信号。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPmahBk9EyxL0JL6yFHsLDFdQzYX08j0O8SGEOJP0RZgqBRZsvMrEViaaop5cNREiaibkjRxxL1UnsKw/640?wx_fmt=png&from=appmsg)
+![](../../images/6d2a64b19bc7455d.webp)
 
 图3. Visium HD多分辨率分析揭示分辨率依赖的信息损失。(a) FlashDeconv在不同分辨率下的性能。(b) 肠上皮细胞比例在8, 16, 32µm的空间分布——精细解剖结构逐渐模糊。(c) 不同细胞类型的分辨率敏感性：干细胞（红）显示最陡的空间相干性下降，Paneth细胞（蓝）保持空间结构。(d) 隐窝-绒毛边界验证。(e) Paneth-Goblet相关性符号翻转。
 
@@ -243,7 +243,7 @@ Tuft细胞与干细胞的密切空间邻近性与其已知的隐窝底部定位�
 
 这一发现展示了FlashDeconv揭示双重遮蔽生物学结构的能力：在特征空间被低方差遮蔽（HVG丢弃），在物理空间被粗分辨率稀释。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPmahBk9EyxL0JL6yFHsLDFuRj2XwrtXJNnBMch972HA83d2Bib7QP3lINLAvGXZ8YgXibKJ3orfkOA/640?wx_fmt=png&from=appmsg)
+![](../../images/1cfcc4305f61ea1e.webp)
 
 图4. FlashDeconv揭示隐秘的Tuft-Stem化学感受微环境。(a) HVG盲区排名：Tuft细胞最高（21百分位）。(b) 8µm分辨率下Tuft细胞空间分布。(c) 干细胞空间分布（隐窝底部富集）。(d) Tuft检测的分辨率依赖性。(e) 共定位分析：Tuft微环境显著富集干细胞和肠内分泌细胞。(f) Tuft-Stem共定位的空间放大图。
 
@@ -397,14 +397,14 @@ doi={10.64898/2025.12.22.696108}
 
 }
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

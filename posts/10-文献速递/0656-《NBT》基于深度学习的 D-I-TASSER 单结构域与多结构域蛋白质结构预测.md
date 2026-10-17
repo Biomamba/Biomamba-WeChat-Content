@@ -14,7 +14,7 @@ albums: ["文献速递"]
 
 **一、写在前面**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwljkXdcibFueCCqJtH9HicBDQuiayKYnHbZO9qQJllPjrDPZFgsCPr7XMdDTuiaF1XpKqch30osgTiceqjwyJ76b2BS7YmjaNhZIENs/640?wx_fmt=png&from=appmsg)
+![](../../images/c851a7230e69b698.webp)
 
 **文章《Deep-learning-based single-domain and multidomain protein structure prediction with D-I-TASSER》 （IF=41.7）**发布于2025年杂志《**nature biotechnology 》。**
 
@@ -35,7 +35,7 @@ D-I-TASSER 首先通过**迭代搜索基因组和宏基因组序列数据库** �
 
 接着，在全局优化的[深度学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507794&idx=1&sn=c70dd03a962adb3f3b92ffed47e978bb&scene=21#wechat_redirect>)和基于知识的力场指导下，通过**Replica Exchange Monte Carlo** （REMC）模拟，利用 LOMETS3 从多个 threading 比对中组装模板片段，从而构建全长模型。为了应对多结构域结构建模的复杂性，D-I-TASSER 整合了一个新的结构域划分与组装模块。在该模块中，结构域边界分割、结构域级别的 MSAs、threading 比对和空间约束均以迭代模式创建，而多结构域结构模型则是在混合结构域级别和结构域间空间约束的指导下，通过全链 I-TASSER 组装模拟生成的（Fig.1b）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnAibAopvQWJdzoe842VoQSCYc2B2iaGkibtWpVImsNgJnKXficyub9GC4JaIzpibU2e8icmquapv82myBlBVibCmy0SCPQjWWm5wygsY/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlfPkCT1NtcnwBWaqDnylA5MaJN9Sjp5M3SoaEicDuibUrKhiak5ibcEwib4vGbVItOQicaSm5Yx3kVibmS4yYEj5FLfCfyxQ4s0G7ezQ/640?wx_fmt=png&from=appmsg)
+![](../../images/5318bc6985a41cbe.webp)![](../../images/db64dbbb3cff11b0.webp)
 
 **Fig.1**
 
@@ -49,7 +49,7 @@ D-I-TASSER 首先通过**迭代搜索基因组和宏基因组序列数据库** �
 
 **以上****数据表明，像 D-I-TASSER 这样基于物理的方法，通过 REMC 模拟对构象组装进行建模并探索更广阔的构象空间，在建模无序结构方面可能比像 AlphaFold2 这样纯粹基于深度学习的方法具有潜在优势。**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwldic9bXascIAdibCrbkbBARDQ4DkKYEibrnowcj1l6ibibKMZ7kV32Rp8GHJg8RFFQUozpb4LibIkZnGsmAaoLVcNzrKIN04lHdB41E/640?wx_fmt=png&from=appmsg)
+![](../../images/33178098882ae721.webp)
 
 **Fig.2**
 
@@ -57,7 +57,7 @@ D-I-TASSER 首先通过**迭代搜索基因组和宏基因组序列数据库** �
 
 **为了检验 D-I-TASSER 在多结构域结构预测方面的能力，**作者从 PDB 收集了一组包含 230 个非冗余蛋白质的数据集，这些蛋白质包含 2 到 7 个结构域，总共覆盖 557 个独立结构域。作者展示了D-I-TASSER 与 AlphaFold2 在全长链和结构域级别结构预测上的性能比较（Fig.3a-b）。列出了 D-I-TASSER 和 AlphaFold2 在包含不同数量结构域的蛋白质上的 TM 得分比较（Fig.3c）。AlphaFold2 创建了一个质量较差的全长链模型且TM 得分较低，仅为 0.425（Fig.3d），且结构域间和结构域内距离图预测都很差（Fig.3e）。相比之下，D-I-TASSER 检测到的全长链 MSA 的 neff 略高,特别是，**结构域分割过程** 使得 DeepMSA2 能够分别为结构域 1 和结构域 2 检测到 688 条和 15 条额外的同源序列，这有助于深度学习模型推导出更可靠的进化信息（Fig.3f-i）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkG10ndcKhv4GQGsV09CHwIjOP26EUaCce8lcjdz42EV9l6kfjiapkgGns6gU9D7CJwrvs8qFlx4kiaicTFsp3VphSnpusvywYb9I/640?wx_fmt=png&from=appmsg)
+![](../../images/df9f34fb69c3d610.webp)
 
 **Fig.3**
 
@@ -65,7 +65,7 @@ D-I-TASSER 首先通过**迭代搜索基因组和宏基因组序列数据库** �
 
 D-I-TASSER参加了 2022 年举办的**CASP15 蛋白质三级结构预测实验**。CASP15 实验发布了 77 个蛋白质目标，包括 55 个单结构域和 22 个多结构域目标。这些目标可以进一步分为 62 个基于模板的建模（TBM）结构域和 50 个自由建模（FM）结构域。首先作者列出了 D-I-TASSER（命名为“UB-TBM”）与另外 44 个参加了 CASP15“常规建模”和“结构域间建模”部分的服务器组的比较，这两个部分分别对应单结构域和多结构域结构（Fig.4a-b）。同时还进一步展示了 D-I-TASSER 与 AlphaFold2 和 Wallner 模型在 112 个结构域级别和 22 个多结构域目标上的直接比较，其中 Wallner 组是 CASP15 的另一个强预测组，主要基于使用 AlphaFold2 的大量采样（Fig.4c-d）。最后展示了 D-I-TASSER 与不同版本的 AlphaFold 程序在 50 个缺乏同源模板的 FM 结构域和 20 个多结构域目标上的比较。虽然 AlphaFold 各版本之间的性能差异很小，但 D-I-TASSER 取得了显著更高的 TM 得分（Fig.4e-f）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmmmLqyav5l2OtH1aeRy5JHQmKeDpXic9EDERLM0hmXcA8lMVqT9omsTWqDTkrLMYDhz9ib0vf4ic2uF0RgFbTpbelZWN5yc3S7rU/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwne1AYKw3PSlWbcf9gssY0owYYeMofObN3rjpDxVNEDxSAzER1am19MalyictcWxBFpEDnic77aNfibuwffTHW7eoWSmTW6ic7AhM0/640?wx_fmt=png&from=appmsg)
+![](../../images/8263732607b8dfc2.webp)![](../../images/2070fc744e84a482.webp)
 
 **Fig.4**
 
@@ -73,7 +73,7 @@ D-I-TASSER参加了 2022 年举办的**CASP15 蛋白质三级结构预测实验*
 
 由于大多数人类蛋白质的实验结构未知，作 _者_ _设计了一个估计 TM 得分（eTM score）来定量评估 D-I-TASSER 模型的质量_，eTM 得分是根据五个因素的线性组合估算得出的：LOMETS 穿线比对的显著性、预测接触和距离图的满足率、D-I-TASSER 模拟的结构收敛性以及 AlphaFold2 排名第一的模型的预测 LDDT（pLDDT）得分。，eTM 得分与真实 TM 得分的皮尔逊相关系数（PCC）为 **0.79** （Fig.5a）**。作者****展示了 D-I-TASSER 对结构域级别和全长链人类蛋白质模型的 eTM 得分分布**（Fig.5b）**。** 之后，作者绘制了位于每条染色体上的全长链模型的 eTM 得分（外圈）、目标类型（容易或困难；中圈）和 neff 值（内圈）（Fig.5c）。作者展示了 AlphaFold2 的 pLDDT 与 D-I-TASSER 的 eTM 得分在两个程序都预测的 19,488 种蛋白质上的直接比较（Fig.5d-e）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlWWXszXX8AvJaTpF3lrasjiaLgbcbhgzvrK6xpG1A4ONCQkf2y8vwwKI1lRgjJBRhmrl8jHa3yW6ZpKXubRGP4icFX7AHiayXGbc/640?wx_fmt=png&from=appmsg)
+![](../../images/ff276f1452daa88d.webp)
 
 **Fig.5**
 
@@ -81,7 +81,7 @@ D-I-TASSER参加了 2022 年举办的**CASP15 蛋白质三级结构预测实验*
 
 **遵循 “序列到结构再到功能”的范式**，作者进一步应用成熟的 COFACTOR 协议，基于 D-I-TASSER 预测的模型对人类基因组的生物学功能进行注释。虽然蛋白质功能通常是多方面的，但作者主要关注三个主要方面：[配体](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536366&idx=3&sn=e44b787fa7a653fb8d98588d88cf26e0&scene=21#wechat_redirect>)结合位点（LBS）、酶学委员会分类（EC）和基因本体（GO），其中 GO 进一步细分为分子功能（MF）、生物过程（BP）和细胞组分（CC）三个子方面。首先展示了基于染色体的 D-I-TASSER/COFACTOR 功能模型列表，其中为每条染色体选择了前三个功能（Fig.6a）。之后还展示了一个乙酰辅酶 A（CoA）乙酰转移酶（UniProt ID: Q9BWD1）自动 LBS 预测的说明性例子，其 D-I-TASSER 模型与实验解析结构的 TM 得分高达 **0.99** 。该目标被预测与 CoA 分子结合，预测的 CoA 姿态与从实验结构 1wl4 计算的天然姿态之间的均方根偏差（RMSD）为 **0.74 Å** ，表明结合位置预测非常准确。在实验结构中与 CoA 分子结合距离小于 4 Å 的 23 个残基中，COFACTOR 正确预测了 **22** 个配体结合残基（Fig.6b-c）。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlyHF5gj6Nu7y6nM9SYVyt5qmIRTiaQickXaWseMz72VwIaxEqicKg79yzV8RAEQukIQVK81Bt1319SSRX20NZWG96WCFIKB7KL5A/640?wx_fmt=png&from=appmsg)
+![](../../images/95b12bdda1c3fb7a.webp)
 
 **Fig.6**
 
@@ -93,14 +93,14 @@ D-I-TASSER参加了 2022 年举办的**CASP15 蛋白质三级结构预测实验*
 
 作为一项大规模应用，D-I-TASSER成功预测了约95%的人类蛋白质组结构，其结果与AlphaFold2数据库形成了高度互补，能够准确预测数千个AlphaFold2难以可靠建模的蛋白质。尽管在处理缺乏同源序列的孤儿蛋白和蛋白质复合物方面仍面临挑战，但D-I-TASSER的成功证明了将深度学习与物理模拟深度融合的策略，为解决结构生物学中的剩余难题开辟了富有前景的新路径**。**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=14)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=16) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

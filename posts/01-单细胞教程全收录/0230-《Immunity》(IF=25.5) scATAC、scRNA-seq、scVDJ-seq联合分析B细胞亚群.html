@@ -1,0 +1,67 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0230-《Immunity》(IF=25.5) scATAC、scRNA-seq、scVDJ-seq联合分析B细胞亚群</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="immunityif255-scatacscrna-seqscvdj-seqb">《Immunity》(IF=25.5)| scATAC、scRNA-seq、scVDJ-seq联合分析B细胞亚群</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528765&amp;idx=1&amp;sn=c75b15f8587c07c3e9ac6d60a4e71ecc&amp;chksm=9b3c086dac4b817b7771c0edc193c940455aa942be8489d661b38830b6beb9f15816bc302669#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>`` 记忆B细胞（Memory B Cells）是适应性免疫系统中的关键组成部分，它们在体液免疫反应中扮演着至关重要的角色，当机体再次遇到相同的病原体时，记忆B细胞能够迅速增殖和分化，快速产生抗体，以应对再次感染。然而，慢性病毒感染如HIV、丙型肝炎和巨细胞病毒会干扰MBC的发育和抗体生产，导致不完全或无效的免疫保护。在这篇文章中作者通过单细胞ATAC测序（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247521636&amp;idx=1&amp;sn=208907010f3f7412c1c91343d7dfb0d3&amp;scene=21#wechat_redirect">scATAC-seq</a>）和单细胞RNA测序（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522475&amp;idx=1&amp;sn=84dd9a65348528be9aa2b8d2711d776c&amp;scene=21#wechat_redirect">scRNA-seq</a>），比较了急性和慢性淋巴细胞性脉络丛脑膜炎病毒（LCMV）感染期间的MBC。主要探讨了慢性病毒感染如何改变MBC的发育，以及这些改变是否可逆，最终鉴定出了一个在慢性感染期间存在的记忆亚群，该亚群富集干扰素刺激基因（ISG）且不同于通常与慢性感染相关的T-bet+亚群。<img alt="" src="../../images/946a0f3fdbbcac95.webp"><img alt="" src="../../images/d3c4c8b464eb0f7e.webp">文章链接：https://pubmed.ncbi.nlm.nih.gov/38593796/
+scATAC分析教程可参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247521636&amp;idx=1&amp;sn=208907010f3f7412c1c91343d7dfb0d3&amp;scene=21#wechat_redirect">scATAC分析学习手册</a></p>
+<p>scRNA-seq分析教程可参考：
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528470&amp;idx=1&amp;sn=7f3ced59b2b97bed1ac9df560b11ddd6&amp;scene=21#wechat_redirect">生信基地122篇单细胞教程全索引</a></p>
+<p>如果需要数据分析<strong>指导</strong> 、生信热点<strong>全文复现</strong> 、自测数据<strong>个性化分析</strong> 辅导，欢迎联系客服微信[<strong>Biomamba_zhushou</strong>]</p>
+<p><strong>二、主要内容</strong></p>
+<p>``</p>
+<ol>
+<li><strong>1. <strong><strong>LCMV-Docile</strong></strong>感染改变抗原特异性</strong><strong>MBC</strong><strong>的形成。</strong>****</li>
+</ol>
+<p>首先，作者建立了同一病毒的两种毒株的小鼠<strong>LCMV</strong><strong>模型</strong> ，分别是两<strong>周内消退的急性感染和慢性持续性感染</strong> （Fig.1A）。分别在急性和慢性感染环境中评估B细胞分化对相同病毒的响应。急性感染中，脾MBC细胞随着时间的推移稳步增加，而慢性感染后第28天和56天观察到的MBC明显减少（Fig.1B）。然而，<strong>两组中抗原特异性</strong><strong>GCB</strong><strong>（<strong><strong>CD95 hiCD38lo</strong></strong>）细胞比例相当</strong> （Fig.1C）。研究表明，<strong>MBCs</strong><strong>的不同表型亚群与它们的功能有关。</strong> 这些亚群可以根据它们表达的特定分子和基因特征来区分，例如相比于naïve样MBC，表达B7家族成员PD-L2和CD80的传统MBCs在再次免疫应答时能够迅速分化为抗体分泌细胞。在此基础上，作者发现在慢性感染模型中，MBC的亚群有明显的转换，<strong>naïve</strong><strong>样亚群增加，<strong><strong>PD-L2+CD80+<strong><strong>亚群减少</strong> （Fig.1D-E）。而且相比于急性感染，慢性感染中</strong>CD21 +MBC</strong></strong>细胞减少</strong> ，</p>
+<p><strong>CD11c +MBC</strong><strong>细胞增加</strong> 。以上结果证实了响应LCMV-Docile的慢性感染的MBC变化与人类慢性疾病变化相似。</p>
+<p><strong>Fig.1</strong></p>
+<p><img alt="" src="../../images/03718dd50cbe4588.webp"></p>
+<ol>
+<li><strong>2. <strong><strong>LCMV-Docile</strong></strong>感染改变抗原特异性</strong><strong>MBC</strong><strong>的形成。</strong>****</li>
+</ol>
+<p>接下来，作者重点探讨了慢病毒如何影响 MBC细胞的表型变化，作者通过<strong>scRNA-seq</strong><strong>分析转录组和免疫球蛋白的多样性</strong> ，<strong>通过</strong><strong>scATAC-seq</strong><strong>分析染色质的可及性</strong> （Fig.2A）。分别对两个seq的数据进行聚类分析来确定急性和慢性感染中MBC细胞的表观遗传变化，scRNA-seq分析确定了12个细胞簇（Fig.2B），scATAC-seq分析确定了7个细胞簇（Fig.2C）,在此基础上，作者通过免疫基因组（ImmGen）进行细胞注释，以确定这些细胞簇和B细胞分化之间的关系，其中R3、R9和R10因Cd38的缺乏和Fas的表达被认为是GCB细胞（Fig.2D）。</p>
+<p>为了评估数据集的保真度，作者进行了标签传输，将scRNA-seq注释传输到scATAC-seq数据集中，合并数据的分析显示，scRNA-seq的GC簇与scATAC-seq中A5簇重叠，并且证实A5的特征是GCB细胞上调的基因关键位点，例如Aicda、S1pr2和Fas（Fig.2E）。</p>
+<p>为了评估基因的变化是否与MBC细胞表型的减少相关，作者将scRNA-seq分析结果与已发表的小鼠RNA-seq集进行比较，结果显示MBC细胞中传统的记忆标志物减少，而PD-L2－CD80－MBCs明显增加（Fig.2F-H）。以上结果提示，慢性病毒感染后MBC细胞的基因表达发生了明显的变化。</p>
+<p><strong>Fig.2</strong></p>
+<p><img alt="" src="../../images/11959e1506bf2bf1.webp"></p>
+<ol>
+<li><strong>3. <strong><strong>慢性</strong></strong>LCMV</strong><strong>感染诱导了富含</strong><strong>ISG</strong><strong>的</strong><strong>MBC</strong><strong>群体。</strong>****</li>
+</ol>
+<p>进一步地，为探究慢性病毒诱导 MBC发生变化具体的分子机制，<strong>作者结合分析</strong><strong>scATAC-seq</strong><strong>和</strong><strong>scRNA-seq</strong><strong>的数据</strong> ，慢性病毒感染后，A1细胞簇数量明显增加，且从A1簇中能够鉴定出39个染色质开放区域（Fig.3A-B），通过<strong>HOMER</strong><strong>评估</strong> ，作者发现这些区域富集了对B细胞生物学重要的转录因子的结合基序（Fig.3C）。与此同时，作者关注了scRNA-seq数据中慢性病毒感染后的R2和R7细胞簇并展示了排名靠前的差异基因（Fig.3D-E），且这两个scRNA-seq亚群都与scATAC-seq数据中的A1重叠。因为Rtp4是干扰素诱导的，作者进一步对Rtp4进行了关注，结果显示与急性感染相比，慢性感染中Rtp4启动子区域的染色质可及性增加（Fig.3F），特别是在A1簇中（Fig.3G）。此外慢性感染期间，Rtp4调控的基因在 MBCs中表达上调（Fig.3H）。以上结果提示IFN在慢性感染后MBC的表观遗传变化中发挥重要的功能。</p>
+<p>Fig.3</p>
+<p><img alt="" src="../../images/81b41d2e32d3e125.webp"></p>
+<ol>
+<li><strong>4. <strong><strong>慢性病毒诱导的</strong></strong>MBCs</strong><strong>在体外反应能力降低。</strong>****</li>
+</ol>
+<p>同时，作者对于数据集进行了富集分析，<strong>IPA</strong><strong>分析</strong> 显示IFN相关基因在慢性感染后富集（Fig.4A），<strong>GSEA</strong><strong>分析</strong> 显示了相同的结果（Fig.4B），且作者通过<strong>流式</strong> 验证了Ly6c2和Lgals9表达的明显增加（Fig.4C-D）。接下来，作者通过Ly6c+和Ly6c-来表示不同的MBCs亚群，在小鼠感染了LCMV-Docile病毒4周后，Ly6c+和Ly6c-的MBCs在体外被CD40L、抗Ig和白细胞介素IL-21刺激,4天后，作者发现Ly6c+的MBC产生浆细胞的能力降低，这些结果显示与经典MBCs相比，慢性病毒刺激的MBCs存在功能上的差异（Fig.4E-F）。</p>
+<p><strong>Fig.4</strong></p>
+<p><img alt="" src="../../images/afff23a7ef1a1047.webp"></p>
+<ol>
+<li><strong>5. <strong><strong>IFN-I</strong></strong>是驱动慢性病毒感染期间</strong><strong>MBC</strong><strong>表型和表观遗传变化的关键因素。</strong>****</li>
+</ol>
+<p>上文作者已经发现<strong>IFN</strong><strong>在慢性病毒感染中所发挥的重要作用</strong> ，进一步，为探究它们如何影响MBCs的形成和功能，进行了以下实验，首先假设I型或II型IFN可能是慢性MBCs身份的关键驱动因素，使用野生型小鼠感染LCMV（Fig.5A），并从感染后第2天至第14天每3天给予<strong>IFNα</strong><strong>和</strong><strong>β</strong><strong>受体</strong><strong>1</strong><strong>（<strong><strong>IFNAR-1</strong></strong>）或</strong><strong>IFNγ</strong><strong>的阻断抗体</strong> ，结果显示IFNAR-1阻断导致MBC群体的定性和定量变化，而IFNγ阻断则没有这种效果（Fig.5B-D）。与此同时，作者发现IFNAR-1阻断也会导致Ly6C表达减少（Fig.5E），MBC的免疫景观也会得到重塑（Fig.5F-H）。以上结果表示IFN-I信号在慢性病毒感染中对MBCs的表观遗传特征和表型具有重要影响。在感染早期阻断IFNAR-1可以改变慢性MBCs的染色质景观，减少ISG诱导的转录因子结合位点的可及性，并在主导的MBC亚群中引起表型变化。</p>
+<p><strong>Fig.5</strong></p>
+<p><img alt="" src="../../images/8b3530ea34bb8c0d.webp"></p>
+<ol>
+<li><strong>6. <strong><strong>病毒载量不是慢性</strong></strong>MBC</strong><strong>表型的唯一驱动因素。</strong>****</li>
+</ol>
+<p>接下来，作者测试了 MBCs形成的时间点以及病毒载量如何塑造慢性感染中MBC的发展和维持。通过**5-<strong><strong>溴</strong></strong>-2'-**<strong>脱氧尿苷（<strong><strong>BrdU</strong></strong>）标记实验</strong> （Fig.6A），研究者研究了急性与慢性病毒感染中MBC形成和寿命的体内动力学（Fig.6B-D）。结果显示在感染后第 56 天检测到的大多数 BrdU MBC 是在感染早期产生的，表明慢性感染期间病毒的存在可能导致MBCs的持续增殖和变化。同时研究者还比较了急性感染和慢性感染中IFN产生的动力学。急性感染在感染后24小时内诱导了高水平的IFNα，这对于启动有效的免疫反应至关重要。相比之下，慢性感染的IFNα产生延迟，没有达到急性感染的水平（Fig.6E-F）。</p>
+<p><strong>Fig.6</strong></p>
+<p><img alt="" src="../../images/4ab4749d3d65bb05.webp"></p>
+<ol>
+<li><strong>7. <strong><strong>慢性病毒感染期间，<strong><strong>IFN-I</strong></strong>是影响</strong></strong>MBC</strong><strong>染色质景观建立的关键时间窗口。</strong></li>
+</ol>
+<p>为了进一步验证IFN是否对维持慢性MBC细胞至关重要。研究者在已建立的感染后期（感染后第28天至第40天）使用<strong>IFN-I</strong><strong>阻断抗体对小鼠进行治疗</strong> （Fig.7A）。实验结果表明早期阻断IFNAR-1可以改变慢性MBCs的染色质景观（Fig.7G-H），降低ISG诱导转录因子结合基序的可及性（Fig.7I），并诱导主要MBC亚群的表型变化（Fig.7B-E），其中ISG亚群减少，CD11c+CD80+细胞增加。提示慢性病毒感染中的MBC表型与IFN-I信号通路密切相关，早期阻断IFN-I信号可以改变慢性MBCs的表观遗传景观和表型，而晚期阻断IFN-I或IFNγ信号对MBC亚群分布的影响有限。</p>
+<p><strong>Fig.7</strong></p>
+<p><img alt="" src="../../images/e1007dca96aa1620.webp"></p>
+<p><strong>三、最后聊聊</strong></p>
+<p>``**总而言之，这篇文章通过scATAC-seq和scRNA-seq的联合分析和相互验证，通过将scRNA-seq的聚类标签转移到scATAC-seq数据中，计算基因活性来分析每个基因在每个细胞中的表达水平，并识别不同条件下的显著差异基因区域和基序活性。结果揭示了慢性病毒感染期间，IFN-I如何通过改变MBC的表型和表观遗传特征，影响其功能和免疫记忆。**<strong>scATAC-seq和scRNA-seq能够分别提供细胞核染色质可及性和基因表达的信息。这两种数据的联合分析可用于探索和理解单细胞水平上的基因表达和染色质可及性之间的复杂关系。</strong></p>
+<p><img alt="图片" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../../images/3b8e21da777157f9.webp"><img alt="图片" src="../../images/7a5130b05d387a24.webp"> 留一个领取资料、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527585&amp;idx=1&amp;sn=fa32112c11b215b33096cab43baf08ea&amp;scene=21#wechat_redirect">免费两周学习版</a>服务器的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../../images/fe8ecb8594a1f419.webp"><img alt="图片" src="../../images/acba43cb3408c3d0.webp"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

@@ -15,12 +15,12 @@ albums: ["文献速递"]
 **一、写在前面**
 
 本次分享于2025年2月发表于顶级期刊《Cell》（最新影响因子45.5）题为"Hyperacute rejection-engineered oncolytic virus for interventional clinical trial in refractory cancer patients"的文章。这几乎是一项"纯湿"的工作，由广西医科大学团队领衔，联合中南大学湘雅二医院、复旦大学附属肿瘤医院等多家机构共同完成。研究团队创新性开发出携带猪源α1,3半乳糖基转移酶基因的重组新城疫病毒（NDV-GT），首次将异种器官移植中的超急性排斥反应机制反向应用于肿瘤治疗。通过CRISPR食蟹猴肝癌模型验证其双重抗肿瘤机制（直接溶瘤+αGal触发的免疫级联反应），并在23例晚期难治性实体瘤患者中取得90%疾病控制率，为溶瘤病毒疗法的临床转化提供了全新范式。看来[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&mid=2247485555&idx=1&sn=b70218b1202e22a7bc55a15e8a5e208a&scene=21#wechat_redirect>)还得继续整，湿式验搞起来！
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLD9jD7msx2wwQACbzhSVSAMFoxMQhk3yHdWyThLmgfubrjx8vW9ppPbA/640?wx_fmt=png&from=appmsg)图形摘要如果需要数据分析**指导** 、生信热点**全文复现** 、自测数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528769&idx=1&sn=53528029a1595c5dde109a461ec3708d&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]
+![](../../images/bb1f5c5f2aec38de.webp)图形摘要如果需要数据分析**指导** 、生信热点**全文复现** 、自测数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528769&idx=1&sn=53528029a1595c5dde109a461ec3708d&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]
 
 **二、主要结果
 **
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwcysqPg5ZJ3sWZ54d3okyxAh53EPbKYiaJKuV6qrQ32GcWj7tjt5kiaqYuoEJuvicX7OcicbW7dkZicSA/640?wx_fmt=png&from=appmsg)
+![](../../images/257b4f5771925300.webp)
 1、患者和食蟹猴体内抗半乳糖抗体（预先存在的天然抗体）的测定在所有患者和食蟹猴体内均检测到了抗半乳糖的 IgM 和 IgG 抗体。患者和食蟹猴体内的抗半乳糖 IgM 抗体水平未观察到显著差异，然而患者体内的 IgG 抗体水平高于食蟹猴（p<0.01）。在患者体内，抗半乳糖 IgG 抗体水平与 IgM 抗体水平相比无显著差异（p>0.05），但在食蟹猴体内，IgG 抗体水平显著低于 IgM 抗体水平（p<0.05）（图 1A；表 S1） 。
 2、重组 NDV-GT的构建
 
@@ -46,7 +46,7 @@ albums: ["文献速递"]
 
   * 广谱抗肿瘤：在卵巢癌、宫颈癌、肺癌等细胞系中均显示相似增效趋势（抑制率>85%）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLDCvzhXs0wTPS6DxyiaYHVnFLGC7SbgB3xA3sz56L76SiaSgySrtrZJz4g/640?wx_fmt=png&from=appmsg)
+![](../../images/6dd19f12d278e76b.webp)
 
 Figure 1
 
@@ -100,13 +100,13 @@ Figure 1
 
 ### 环境检测显示无病毒泄露风险（粪便/尿液PCR阴性）。这些数据表明，NDV-GT具有精准靶向性（肿瘤/正常组织感染比>300:1）、可控免疫原性及无器官毒性三大核心优势，为其临床转化提供了关键安全性背书。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLDRqQNqJM9RHTudkPic4UV63ARMUibm2IOu3MFpwkEiakrIpb8Rjd7RLHuA/640?wx_fmt=png&from=appmsg)
+![](../../images/2c04c8ce686d48e7.webp)
 
 Figure2
 
 食蟹猴肝细胞癌肿瘤的H&E染色与免疫荧光成像分析：PAF、纤维蛋白原、CD31、CD105、颗粒酶B、穿孔素表达及CD4+与CD8+ T细胞浸润
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLD0hr3ZqkRyUPD2hSgxq7ONwU7YpREqr2fYz2BOL4tH9sJV8uNF5WFQg/640?wx_fmt=png&from=appmsg)
+![](../../images/452477b66955657e.webp)
 
 Figure 3
 
@@ -164,25 +164,25 @@ CD8+中央记忆T细胞（Tcm）占比从12%提升至47%（图7B-G）
 
   * αGal依赖性：肿瘤活检显示αGal阳性区域与T细胞浸润密度正相关（r=0.82, p<0.001）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLDlZXJHiam7HYONTDRyutf4dovvElXAS5WY3DCUHeWVVXbKZGP6PEXp2Q/640?wx_fmt=png&from=appmsg)
+![](../../images/3cea5bd9e0bef855.webp)
 
 Figure 4
 
 NDV-GT显著抑制多种晚期癌症进展且安全性优异
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLDssqS275HicSs9pazia3UvMMgstYViaGocdOkicEAUadDv6jHn8RyAftwjA/640?wx_fmt=png&from=appmsg)
+![](../../images/79335b0f289cbf50.webp)
 
 Figure 5
 
 NDV-GT治疗难治性肝癌肺转移患者（P1）的临床疗效
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLDMnn1RBSZ6vibEvcn7WPU2ArIqbHLajiahTVC6CAWbrSVUVrzsnn1Z0uQ/640?wx_fmt=png&from=appmsg)
+![](../../images/375dc7f0d8814ded.webp)
 
 Figure 6
 
 NDV-GT治疗难治性肝癌肺转移患者（P1）的临床疗效
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzQwqjSmXkdAv3qvXesYaLDPedAjELWDoUOCb3ePocKljRrGejTB0UB8C6DWZHOibrba2JcC6Wk7NA/640?wx_fmt=png&from=appmsg)
+![](../../images/621c9525f9feb01e.webp)
 
 **三、最后聊聊**
 
@@ -193,14 +193,14 @@ NDV-GT治疗癌症的机制包括直接裂解肿瘤细胞、破坏肿瘤血管�
 
 [1] Zhong L, Gan L, Wang B, Wu T, Yao F, Gong W, Peng H, Deng Z, Xiao G, Liu X, Na J, Xia D, Yu X, Zhang Z, Xiang B, Huo Y, Yan D, Dong Z, Fang F, Ma Y, Jin G, Su D, Liu X, Li Q, Liao H, Tang C, He J, Tang Z, Zhang S, Qiu B, Yang Z, Yang L, Chen Z, Zeng M, Feng R, Jiao J, Liao Y, Wang T, Wu L, Mi Z, Liu Z, Shi S, Zhang K, Shi W, Zhao Y. Hyperacute rejection-engineered oncolytic virus for interventional clinical trial in refractory cancer patients. Cell. 2025 Feb 20;188(4):1119-1136.e23. doi: 10.1016/j.cell.2024.12.010
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

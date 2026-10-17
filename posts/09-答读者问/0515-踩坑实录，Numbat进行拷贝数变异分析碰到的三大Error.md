@@ -18,7 +18,7 @@ Numbat，通过整合基于群体的单倍型信息、等位基因信号和表�
 
 更多单细胞教程：
 
-[![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwGwFcYR1NcQdDowNc3E3nrDmWPicE3SaV5NfZskkS5alvkkXvbDCK1fSMyCQgPOLWq5QqKPx8sobw/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=2)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538847&idx=1&sn=2ad605c6d70d4e6ee921fda1798bfd8b&scene=21#wechat_redirect>)
+[![图片](../../images/325b93d360d6c7d6.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538847&idx=1&sn=2ad605c6d70d4e6ee921fda1798bfd8b&scene=21#wechat_redirect>)
 ```
 # 其核心推断步骤如下，注意这里同样需要在linux终端运行
 Rscript /numbat/inst/bin/pileup_and_phase.R \

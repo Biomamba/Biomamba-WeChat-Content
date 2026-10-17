@@ -24,7 +24,7 @@ albums: ["单细胞教程全收录"]
 
 更多单细胞教程：
 
-[![图片](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnvfRFzvCRDViaJoxueIx2svAoB3SKxFqoV2dNmmz53KcxGOiayzpDpcjWjCicCvApxE123FtuNXkcreSCgIn79QKSkDAb6cJ6lds/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=5)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247542360&idx=1&sn=75ec383953b51b543bbb02531ed173e7&scene=21#wechat_redirect>)
+[![图片](../../images/f4c854d9f5c132bd.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247542360&idx=1&sn=75ec383953b51b543bbb02531ed173e7&scene=21#wechat_redirect>)
 
 **二、 CellCall 的核心原理
 **
@@ -99,7 +99,7 @@ CellCall基于[KEGG](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247
 
 我们来看看，输出数据长啥样~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwm3tP3JyKEvRa26Uss8iawpia8G7bEv90jhVOCjVApKEgTDmTgfAgZmWtviacpguEQxJb3TkU9QiafDb0KlnwJ87ZdkIQzQJhUQ1J4/640?wx_fmt=png&from=appmsg)
+![](../../images/fe32ff15f6351119.webp)
 
 ▲ 加载示例数据后，in.content 的维度与前几行视图
 
@@ -156,13 +156,13 @@ CellCall基于[KEGG](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247
 
 这是这一步计算产生的最核心的数据结果，是CellCall经过前 6 步计算后，交出的“最终通讯得分成绩单”。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkuwbCKl7sPldmP7kY7y6oPKJ8QxOAXYvxDWCCjJTenRnJ3o4ALgnEWQYOWNstibp81rxNf4oqH0roo3lDQmzrKzKYcpxic4Tib5Q/640?wx_fmt=png&from=appmsg)
+![](../../images/54097441fcf3dad9.webp)
 
 ▲ 成绩单局部：expr_l_r_log2_scale数据框（每行一条 L-R 信号轴，每列一个细胞对）
 
 这张表格非常清晰，直接告诉你：“在哪些细胞对之间，通过哪些配体-受体对，通讯信号有多强。”
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn4cPjuicpa9gK67zibYb0c7NdTfVREgNetibGJJE2dYDSLKvW0daZJzicKSV7eicZoosgVG6Q3gvpllbFVKjIB9QEuJHLHUpUYy6wo/640?wx_fmt=png&from=appmsg)
+![](../../images/50abfe2f044622b2.webp)
 
 #### 6 个计算步骤通俗解释（以下是假设，以统计结果为准）
 
@@ -225,7 +225,7 @@ CellCall 自带数据的 example_Data.Rdata 是一组睾丸组织的单细胞数
   * pathway.hyper.list：一个包含不同细胞对（如巨噬细胞-T细胞）显著富集通路（超几何检验结果）的列表。
   * myPub.df：整理后的绘图数据框。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwllZoGJvBA447xIs8qels865vRw35mlTDVEiamD5gJYxeWGsojPhgkSt5RopBGIscTgrWZanUmHIep4XDsx8DibiaeUcvP9tS3qrw/640?wx_fmt=png&from=appmsg)
+![](../../images/1c6ed74e13101a97.webp)
 
 ▲ head(myPub.df) 的局部视图
 
@@ -256,13 +256,13 @@ NES| 标准化富集分数（Normalized Enrichment Score）| 聊这个话题的�
 ## 绘制通路富集气泡图 (Bubble Plot)# 使用 plotBubble 绘制气泡图p2 <- plotBubble(myPub.df) +  theme(axis.text.y = element_text(color = "black")) + # y轴字体设置为黑色（原图为灰色，这里优化）  coord_flip() # 横纵坐标反转（让通路名横着排，看得更清楚）print(p2)ggsave(filename = "CellCall_BubblePlot.pdf", plot = p2, width = 8, height = 6)ggsave(filename = "CellCall_BubblePlot.png", plot = p2, width = 8, height = 6, dpi = 300)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnyHvJVqjmgQTLVR9BKzcS6kD7PzE4KqQqO8rmP8qfiasUvVvsHbibWbxalFp5hUoibdYgTIicJiaCpqjkJ1WOS14746by97kHgKGVw/640?wx_fmt=png&from=appmsg)
+![](../../images/6511d2caf49dde8f.webp)
 
 ▲ 通路富集气泡图（plotBubble 输出）：横轴为细胞对，纵轴为显著富集的 KEGG 通路
 
 阿Yan
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -303,9 +303,9 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/4ec66ccdb832fd05.gif)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

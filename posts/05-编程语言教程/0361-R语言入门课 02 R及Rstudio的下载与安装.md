@@ -10,11 +10,11 @@ albums: ["编程语言教程"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528126&idx=1&sn=0df30fff2d47c2a304766f7b8ac5676d&chksm=9b3c17eeac4b9ef877bed69a6be2668dd31a2318bca934492df8d7dddaf8755fe393ba6c1005#rd
 > 合集：编程语言教程
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/c33e327c8d66af99.webp)
 
 视频教程
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/3ff4011fef611c1c.webp)![](../../images/00dcbb5df4af21d3.webp)
 
 先上教程视频，B站同步播出：
 
@@ -22,15 +22,15 @@ https://www.bilibili.com/video/BV1miNVeWEkw
 
 完整视频回放可见：[R语言入门课回放来啦~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527917&idx=1&sn=f46beab5208ccb54e44f25ef0a8b9657&scene=21#wechat_redirect>)
 
-"R语言入门课"是我们认为**生信小白入门** 不得不听的一个课程，我们也为这个课程准备了许多**干货** 。在第二节课中，我们给大家详细的介绍了R及Rstudio的安装过程，大家赶紧装起来![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/newemoji/Yellowdog.png)
+"R语言入门课"是我们认为**生信小白入门** 不得不听的一个课程，我们也为这个课程准备了许多**干货** 。在第二节课中，我们给大家详细的介绍了R及Rstudio的安装过程，大家赶紧装起来![](../../images/f5474f96e421a44a.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/f74ae4c6b8127d36.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/c33e327c8d66af99.webp)
 
 图文内容
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/3ff4011fef611c1c.webp)![](../../images/00dcbb5df4af21d3.webp)
 
 1、R语言安装
 
@@ -40,33 +40,33 @@ R是用于统计分析、绘图的语言和操作环境。R是一款属于GNU系
 
 点击选择合适自己系统的R版本：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO02JpDcWKJez4KiaibJQuvagp56EDIia1Ca9P9Xm8j5HEiajUTaelyNlGvtw/640?wx_fmt=png&from=appmsg)
+![](../../images/b6eda44eee496e6b.webp)
 
 Linux中的R与Rstudio安装配置可见：[Rstudio-server的安装、配置、维护](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247524106&idx=1&sn=f23405302a3705007d33b688870196e0&scene=21#wechat_redirect>)
 
 第一次安装时需要选择镜像：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0AEjRqX8Ty6Zr5S52BS8w5IFvb1mH49ek7H4EPe1G4sKsKH5jGeD2Nw/640?wx_fmt=png&from=appmsg)
+![](../../images/5ddcf1c2fee0d2c4.webp)
 
 如果你是Windows环境，可以点击这里：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0bMeFYNwr8UZM9ogibpLgJD9w4Y8bzOggvZNG0JtPkMTDq8Rcz5gx6Kw/640?wx_fmt=png&from=appmsg)
+![](../../images/840df91e1a1a1cb9.webp)
 
 下载完成后，你将获得一个.exe结尾的文件：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0GXS2CicIMbxdzyS50T7pkA5ib54C7gRQvH57hbUdkReibiagnXZuvYUqiaA/640?wx_fmt=png&from=appmsg)
+![](../../images/3394a110d9aa5d85.webp)
 
 双击运行，无脑点下一步即可，注意安装路径中不要有中文与特殊字符：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0DYSnFhWy84HOmGk6jQzTLjc6859eMpRQcTNmGmScFnPPntLphZFOaA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0nGTagEIbqUVbcLQOdhbYE7vZrsZUmOUnlBvuNJGSG9ULiaAUtweX2WA/640?wx_fmt=png&from=appmsg)
+![](../../images/0af6cede00c62f44.webp)![](../../images/0309a677f48dc459.webp)
 
 安装成功后，你将会获得一个桌面图标：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0DPQ6201KSHuvCPHZ8K8z8XwdbY9d8hTRjUveozwqf1Gk2qib7KPLHdQ/640?wx_fmt=png&from=appmsg)
+![](../../images/d1ca87746e878306.webp)
 
 双击运行后，即可进入原汁原味的R界面：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0icgsvs9JB303mQTj1BGgbaDdiagFASF1EGIaEia09DVQBx5foEKNbU5NA/640?wx_fmt=png&from=appmsg)
+![](../../images/a20f93d342bd08b9.webp)
 
 2、Rstudio安装
 
@@ -76,29 +76,29 @@ RStudio是一款集成开发环境（IDE）。R自带的环境操作起来可能
 
 Windows点击下载安装包：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0JMTBO6aWnsH7KhKibDGahtzqWib1bW6ppe4ZojlJiau7LGz75C8KY2HdQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6c674ab9e691c0c0.webp)
 
 下载后同样双击打开安装包：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0Uy6EEciccrnlhaIoLV1zhcAqR5Kia4Z5IpysHn2hQgkiceDhlpscxLd1g/640?wx_fmt=png&from=appmsg)
+![](../../images/695e6230264806b3.webp)
 
 同样狂点下一步，路径中不要出现中文与特殊字符：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0jwsdB6TaED4uCjlz3alK64KoUAt5KTqV35OOgpEFPlwPIp7SEn23Pg/640?wx_fmt=png&from=appmsg)
+![](../../images/a20556bfe169214e.webp)
 
 Windows导航栏能够搜到Rstudio即安装成功：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO0n9CBibY10pUWa9iaVeuklSqs5ic5nibzIm9jaT2ZCy9H1HP4mepDdwnEmA/640?wx_fmt=png&from=appmsg)
+![](../../images/710c907f87fdd45b.webp)
 
 更多教程与辅导可见：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz4tUgGiceq0KBLqeKsgeUO00SLWQicCnTiaAJUPwpW3QzrOAGrrRT5Ol6v8jJsia86AK4gO39uFUH1Cw/640?wx_fmt=png&from=appmsg)
+![](../../images/38922ae873005f9c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/f74ae4c6b8127d36.webp)![](../../images/c33e327c8d66af99.webp)
 
 R语言入门课
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/3ff4011fef611c1c.webp)![](../../images/00dcbb5df4af21d3.webp)
 
 1、课程简介
 
@@ -108,20 +108,20 @@ R语言入门课
 
 **报名/缴费二维码：**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/7ef00c45433a7bde.webp)![](../../images/f74ae4c6b8127d36.webp)![](../../images/c33e327c8d66af99.webp)
 
 资料&课表
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)本次课程的学习资料可以联系文末客服微信领取:
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxtWyh2oFbkW2gT4k8lvFeXnI6JzN8xM8RWSXTJPtry2H5QSUWJibTYSfMGpAso9qicgN8M7rAI617g/640?wx_fmt=gif&from=appmsg)
+![](../../images/3ff4011fef611c1c.webp)![](../../images/00dcbb5df4af21d3.webp)本次课程的学习资料可以联系文末客服微信领取:
+![](../../images/e71650e138890536.webp)
 
 目前12节总计5.5h的视频课程回放已剪辑完毕，方便错过直播的同学随时加入学习：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxPGbgxeKtcc5DibsheFewicmia5jPx1Jic18ZUJqYpNs4cvxLhCgricA2YjPPjbqo5SpE6MEibz9OgSAEw/640?wx_fmt=png&from=appmsg)
+![](../../images/177afabf2d0f198e.webp)
 
 除了学习视频外，还给大家准备了学习资料，包括学习手册、课后习题。大家人手一份资料可以跟着视频联系：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxPGbgxeKtcc5DibsheFewicmicfPruB2l20gdfdRoAM8Aj1ULhAhgM1ZQibjBMq2UkO7ugkiagmxL5TLg/640?wx_fmt=png&from=appmsg)
+![](../../images/0f6d77700b56e7bd.png)
 
 课程目录：
 
@@ -183,17 +183,17 @@ R语言入门课
 
 4.2 ggplot2包的详细信息
 
-4.2.1 放置数据和映射选项4.2.2 将图形作为对象使用4.2.3 保存图形![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+4.2.1 放置数据和映射选项4.2.2 将图形作为对象使用4.2.3 保存图形![](../../images/f74ae4c6b8127d36.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([免费两周学习版上架啦~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([免费两周学习版上架啦~](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/7ef00c45433a7bde.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

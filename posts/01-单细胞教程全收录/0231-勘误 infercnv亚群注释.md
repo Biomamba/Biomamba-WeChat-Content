@@ -12,8 +12,8 @@ albums: ["单细胞教程全收录"]
 
 **一、发现问题**
 
-有同学提问我们的[单细胞拷贝数变异学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522733&idx=1&sn=4e3a0707fd8f83b5ad9377bc91ee8e53&scene=21#wechat_redirect>)中根据infercnv score的聚类分群部分描述有问题，这是由于给大家编译教程的环境和我们之前测试环境不一致造成的。图片显示cluster1、3、5、6亚群的c明显高于2、4两个亚群，cluster7的界限就比较模糊了。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwUHtyDG8kmTBjgA0aubSiaQ1krScvYpZEDchDr5nnKKWtQb32vlpeWAg/640?wx_fmt=png&from=appmsg)
-不过在先前注释的细胞比例中，cluster7与Malignant cells的交叉比例还是非常高的，考虑到infercnv score，那我们就姑且叫它"Malignant-transition cells"。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwhEKABCEfzIptMq6u58JopL6yo0iaJR9fAggaTib5zxBHDiaDV5RsLgwuQ/640?wx_fmt=png&from=appmsg)
+有同学提问我们的[单细胞拷贝数变异学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522733&idx=1&sn=4e3a0707fd8f83b5ad9377bc91ee8e53&scene=21#wechat_redirect>)中根据infercnv score的聚类分群部分描述有问题，这是由于给大家编译教程的环境和我们之前测试环境不一致造成的。图片显示cluster1、3、5、6亚群的c明显高于2、4两个亚群，cluster7的界限就比较模糊了。![](../../images/fff56aa4be03b32b.webp)
+不过在先前注释的细胞比例中，cluster7与Malignant cells的交叉比例还是非常高的，考虑到infercnv score，那我们就姑且叫它"Malignant-transition cells"。![](../../images/0da78a59bdf59418.webp)
 
 **二、解决问题**
 
@@ -230,7 +230,7 @@ write.table(geneInfor, 'Epi_infercnv/geneLocate.txt', row.names=F, col.names=F,
 ```
 
 看一下”那一张热图“：
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwvOoZEP7rWZl9ZoxbmUuic6Qto1Y4WrFmelib5dglMibnSgY81AfbAhFiaQ/640?wx_fmt=png&from=appmsg)
+![](../../images/1f354a84e3423722.webp)
 可以看到作为参考的`AT1`(上方热图)发生的拷贝数变异事件比较少。而`Malignant cells`出现了大量且密集的拷贝数变异。`tS1`似乎也存在着少量的拷贝数变异，所以单凭热图还不行，还得继续分析。
 
 ### 5.4 小提琴图
@@ -252,7 +252,7 @@ write.table(geneInfor, 'Epi_infercnv/geneLocate.txt', row.names=F, col.names=F,
 CNV_score=expr-1# 转换为以0为中心分布的数据CNV_score=CNV_score ^ 2# 平方，防止累加的过程中cnv lose和cnv gain相互抵消，造成没有cnv事件发生的假象CNV_score=as.data.frame(colMeans(CNV_score))# 以细胞为单位，获得cnv scorecolnames(CNV_score)="CNV_score"# 更改列名CNV_score$CB=rownames(CNV_score)# 加入cell barcode列kmeans_df_s$CB=rownames(kmeans_df_s)# 把kmeans_df_s中的cell barcode也加上CNV_score=CNV_score%>%inner_join(kmeans_df_s,by="CB")# 合并cnvscore和聚类结果library(ggplot2)library(ggsignif) ggplot(CNV_score,aes(Sub_type,CNV_score,fill=Sub_type))+      geom_violin(alpha=0.4)+ #小提琴图需要一定的透明度      stat_boxplot(geom="errorbar",position = position_dodge(width = 0.1),width=0.1)+ # 加上误差棒      geom_boxplot(alpha=0.5,outlier.size=0, size=0.3, width=0.3)+ # 加上箱线图      scale_fill_manual(values = ggsci::pal_aaas()(3))+ # 填充颜色      theme_bw()+# 主题为空白      geom_signif(comparisons = list(c("AT1","tS1"),                                     c("tS1", "Malignant cells"),                                     c("AT1" ,"Malignant cells")),                  step_increase = 0.1,map_signif_level = F)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwLSEXciahub2cmjRxtltPqDH1YtAZXIFiarkgV82bI4iaDA3pBBrEmkiapA/640?wx_fmt=png&from=appmsg)
+![](../../images/32fa7017fe6c1590.webp)
 
 作为正常细胞的`AT1`与`tS1`与`Malignant` cells之间的统计结果呈现出极显著的关系，而AT1与tS1之间则没有显著性差异(0.086)
 
@@ -264,7 +264,7 @@ CNV_score=expr-1# 转换为以0为中心分布的数据CNV_score=CNV_score ^ 2#
 ggplot(CNV_score,aes(kmeans_class,CNV_score,fill=kmeans_class))+    geom_violin(alpha=0.4)+ #小提琴图需要一定的透明度    stat_boxplot(geom="errorbar",position = position_dodge(width = 0.1),width=0.1)+ # 加上误差棒    geom_boxplot(alpha=0.5,outlier.size=0, size=0.3, width=0.3)+ # 加上箱线图    scale_fill_manual(values = ggsci::pal_nejm()(8))+ # 填充颜色    theme_bw()# 主题为空白
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwOJH4VtycyibQWC3MBBAjK90ibQiaMPQqM8wjPI3WRkYY0UMRJTXXQggyQ/640?wx_fmt=png&from=appmsg)实际上cluster1、3、5、6亚群的c明显高于2、4两个亚群，cluster7的界限就比较模糊了。我们可以通过cluster在Sub_type中的亚群来辅助判断它们的身份：
+![](../../images/08399da47841cfc1.webp)实际上cluster1、3、5、6亚群的c明显高于2、4两个亚群，cluster7的界限就比较模糊了。我们可以通过cluster在Sub_type中的亚群来辅助判断它们的身份：
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -272,7 +272,7 @@ ggplot(CNV_score,aes(kmeans_class,CNV_score,fill=kmeans_class))+    geom_viol
 cell.prop<-as.data.frame(prop.table(table(CNV_score$kmeans_class, CNV_score$Sub_type)))colnames(cell.prop)<-c("kmeans_class","Sub_type","proportion")ggplot(cell.prop,aes(kmeans_class,proportion,fill=Sub_type))+geom_bar(stat="identity",position="fill")+ggtitle("")+theme_bw()+theme(axis.ticks.length=unit(0.5,'cm'))+guides(fill=guide_legend(title=NULL))+  theme( axis.text.x.bottom = element_text(angle = 45,hjust = 1,vjust = 1))+  scale_fill_manual(values = ggsci::pal_nejm()(8)) # 填充颜色
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwxOTuKA7pTtHdMg4ktI7p07q3IkaA5usC8hMx0DmYAJJ20ovTnBnHbA/640?wx_fmt=png&from=appmsg)果然不出所料，1、3、5、6中均存在很高比例的Malignant cells，而cluster7与Malignant cell的交叉比例较高，假设这是一个未经注释的数据集，我一定会这么命名：
+![](../../images/5593db1720fd883f.webp)果然不出所料，1、3、5、6中均存在很高比例的Malignant cells，而cluster7与Malignant cell的交叉比例较高，假设这是一个未经注释的数据集，我一定会这么命名：
 
   *   *   *   *   *   *   *   *   *
 
@@ -291,7 +291,7 @@ CNV_score$Type <- recode(CNV_score$kmeans_class,                    �
 # 看一下重命名过的cnv score怎么分布：ggplot(CNV_score,aes(Type,CNV_score,fill=Type))+    geom_violin(alpha=0.4)+ #小提琴图需要一定的透明度    stat_boxplot(geom="errorbar",position = position_dodge(width = 0.1),width=0.1)+ # 加上误差棒    geom_boxplot(alpha=0.5,outlier.size=0, size=0.3, width=0.3)+ # 加上箱线图    scale_fill_manual(values = ggsci::pal_nejm()(8))+ # 填充颜色    theme_bw()+# 主题为空白    geom_signif(comparisons = list(c( 'Malignant cells', 'Normal Epi'),                                   c('Normal Epi', 'Malignant-transition cells'),                                   c('Malignant cells', 'Malignant-transition cells')),                step_increase = 0.1,map_signif_level = F)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwZQBncrCr2eyotJajOShhHNFeqh2kiaGP5YY1PibuunQAZNic7IjHyAVCA/640?wx_fmt=png&from=appmsg)猜的没错，三个类型的cnv score两两间均有显著性差异，我们可以将这个注释导回原来的上皮细胞Seurat对象中：
+![](../../images/d76d754900bc692f.webp)猜的没错，三个类型的cnv score两两间均有显著性差异，我们可以将这个注释导回原来的上皮细胞Seurat对象中：
 ```r
 rownames(CNV_score) <- CNV_score$CB# 设置Cell barcode行名，AddMeta会按照行名匹配
 
@@ -302,7 +302,7 @@ Idents(Epi) <-'Type'# 改变Seurat对象默认标签
 DimPlot(Epi,cols = ggsci::pal_nejm()(8))# 查看不同type的降维情况
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3Twgq9qmTtnkSN2UyNaQuTaLNr0NXrBJEt6Pn8k4NNSUvhyMtqEmaMs9A/640?wx_fmt=png&from=appmsg)
+![](../../images/1c1f14e15f9328b4.webp)
 
   *   *   *
 
@@ -325,31 +325,31 @@ DimPlot(Epi,cols = ggsci::pal_nejm()(8))# 查看不同type的降维情况
 DEG$Gene <- row.names(DEG)# 画个火山图看一下：   ggplot(DEG,aes(avg_log2FC , -log10(p_val)))+  # 横向水平参考线：  geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "#999999")+  # 纵向垂直参考线：  geom_vline(xintercept = c(-1.2,1.2), linetype = "dashed", color = "#999999")+  # 散点图:  geom_point(aes(size=-log10(p_val), color= -log10(p_val)))+  # 指定颜色渐变模式：  scale_color_gradientn(values = seq(0,1,0.2),                        colors = c("#39489f","#39bbec",'#FFA500',"#f38466","#b81f25"))+  # 指定散点大小渐变模式：  scale_size_continuous(range = c(0.5,4))+  # 主题调整：  theme_bw()+  # 调整主题和图例位置：  # theme(panel.grid = element_blank(),  #       legend.position = c(0.01,0.7),  #       legend.justification = c(0,1)  # )+  # 设置部分图例不显示：  guides(col = guide_colourbar(title = "-Log10_q-value"),         size = "none")+  # 添加标签：  geom_text(aes(label=Gene, color = -log10(p_val)), size = 3, vjust = 1.5, hjust=1)+  # 修改坐标轴：  xlab("Log2FC")+  ylab("-Log10(FDR q-value)")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw0NDcqDcKsnLh9uoDUT3TwJN3Cu7ibibAznhticqWktbo61CL9GeUCGKzQSibNkjcXKm26EnHVTVyNwg/640?wx_fmt=png&from=appmsg)
+![](../../images/88ac8dde93557189.webp)
 
 **三、欢迎勘误**
 
-人要勇于承认自己的错误并改正![](https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/Expression/Expression_14@2x.png)。这里也允许我找个小借口，我们的很多教程都是数万字代码+注释+数十GB的文件，很难保证一桩桩一件件都没有错误。欢迎大家为我们勘误，不仅能够帮助我们做的更好，更能帮助其它粉丝朋友们少走弯路~
+人要勇于承认自己的错误并改正![](../../images/c5ab0509525881a9.png)。这里也允许我找个小借口，我们的很多教程都是数万字代码+注释+数十GB的文件，很难保证一桩桩一件件都没有错误。欢迎大家为我们勘误，不仅能够帮助我们做的更好，更能帮助其它粉丝朋友们少走弯路~
 Biomamba生信基地还给大家准备了大量的周边，可以作为大家为我们勘误的小礼品任选一件~
-Linux速查超大鼠标垫：![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwxvBkwhVBCGFWFIYwS7u9RO1DA22lRWyU5ONLdgL6VoUBXNTtpDib1VSS9eUOufbhH7LOr3gKtgyg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
-Biomamba同款背包与词云展示：![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzLmznOnvnQ1c5NalBlCLKxRK7BBFFVY92BicN8MMDdadYIxtuA17IJN8jvTtyJxoGoxxHoKEFicbKA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw1iaU2Vvcj9zsGVYWvqIdzpvm0VWOKYTsNLpfwY2Ea0ic3YL4RxhibMgkAYrZLpOnBZCk7Xe9SiawaSw/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+Linux速查超大鼠标垫：![图片](../../images/3ae1c0131e99bbf5.webp)
+Biomamba同款背包与词云展示：![图片](../../images/a5677b018ddfe55b.webp)![图片](../../images/d20cdc32f4533eac.webp)
 
 金士顿64GB、3.0存储高速U盘：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyWaOKGagbYpZrLeBC5pxjbV6G3Ksz4WGkql0hGTxtZZTX8j9q5ZIkaR8w9hic1QrAwkjKVF7oBAHw/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/ef4a874f5241b962.webp)
 
-**Biomamba生信基地定制咖啡杯吧！Biomamba亲测好用，质感高级![图片](https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/newemoji/Yellowdog.png?tp=webp&wxfrom=5&wx_lazy=1)**
+**Biomamba生信基地定制咖啡杯吧！Biomamba亲测好用，质感高级![图片](../../images/1f25d4adb124e059.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwDwviaZibEEU8S7ffoRDPY7GPxT1AhGe3OMIbO3BqlVVlaw0AZkXfOAs5U4IMmeCTJiaUgsK4NZjgIA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1)
+![图片](../../images/d402dee785a9f40e.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

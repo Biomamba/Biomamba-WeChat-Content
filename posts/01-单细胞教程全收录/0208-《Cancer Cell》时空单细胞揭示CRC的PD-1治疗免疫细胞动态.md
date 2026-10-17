@@ -10,11 +10,11 @@ albums: ["单细胞教程全收录", "全文复现"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528056&idx=1&sn=73c0da3ff7ff50bafbb9315fd5b60f15&chksm=9b3c1728ac4b9e3ea3d3a35b9a60d5b21f74fe08671da8388c60ed43ba310617e6c48566b54a#rd
 > 合集：单细胞教程全收录 / 全文复现
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 学习手册
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)本次教程中，我们复写了题为"**Spatiotemporal single-cell analysis decodes cellular dynamics underlying different responses to immunotherapy in colorectal cancer** "的文章(**DOI:https://doi.org/10.1016/j.ccell.2024.06.009**)。扩大免疫检查点阻断（ICB）在结直肠癌（CRC）中的疗效迫切需要全面了解治疗反应。本文分析了** 22** 名接受 PD-1 阻断的患者的多个连续单细胞样本，以绘制 CRC 患者局部和全身免疫的演变图。在肿瘤中，发现了表现出不同反应关联的协调细胞程序。主要发现包括：（1）耗竭的T(Tex) 或肿瘤反应性样CD8+ T(Ttr样)细胞与治疗效果密切相关，并且在 PD-1 阻断后，Tex细胞与多种其他肿瘤富集细胞类型显示出相关的比例变化。（2）揭示了肿瘤中血液相关Ttr样细胞的较少耗尽表型，并发现它们的丰度较高表明治疗结果更好。（3）基线时循环CD8+ T细胞中较高的主要组织相容性复合体(MHC) II相关特征与优异的反应相关。（4）提供了对 CRC 新辅助 PD-1 阻断后时空细胞动力学的见解。
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)本次教程中，我们复写了题为"**Spatiotemporal single-cell analysis decodes cellular dynamics underlying different responses to immunotherapy in colorectal cancer** "的文章(**DOI:https://doi.org/10.1016/j.ccell.2024.06.009**)。扩大免疫检查点阻断（ICB）在结直肠癌（CRC）中的疗效迫切需要全面了解治疗反应。本文分析了** 22** 名接受 PD-1 阻断的患者的多个连续单细胞样本，以绘制 CRC 患者局部和全身免疫的演变图。在肿瘤中，发现了表现出不同反应关联的协调细胞程序。主要发现包括：（1）耗竭的T(Tex) 或肿瘤反应性样CD8+ T(Ttr样)细胞与治疗效果密切相关，并且在 PD-1 阻断后，Tex细胞与多种其他肿瘤富集细胞类型显示出相关的比例变化。（2）揭示了肿瘤中血液相关Ttr样细胞的较少耗尽表型，并发现它们的丰度较高表明治疗结果更好。（3）基线时循环CD8+ T细胞中较高的主要组织相容性复合体(MHC) II相关特征与优异的反应相关。（4）提供了对 CRC 新辅助 PD-1 阻断后时空细胞动力学的见解。
 本教程基于R语言完成，没有基础的小伙伴可见：[R语言入门课回放](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527917&idx=1&sn=f46beab5208ccb54e44f25ef0a8b9657&scene=21#wechat_redirect>)
 本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：
 [足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511780&idx=1&sn=3acc0874f7d2fa75f1abbe7a9a9b4069&chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&scene=21#wechat_redirect>)
@@ -24,20 +24,20 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 本教程**复现集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZZQ11jWMJ7j2TuWtlKacQUHxpTJuua7UurXd4V83fyp9N2onvffyQPA/640?wx_fmt=jpeg)
+![](../../images/788658c82fb4554a.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZVF1T1sc8zILp33AcWWTbC1FZcEQG1iaEN7vVR7VUibyiaQ5gZIJ2Q7ticA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/375c456f7b0c2c04.webp)
 
 **-Biomamba**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)![](../../images/399758fa7d6941c2.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwKlPkpp08Ldap8D29x1UiahtOGNkfnBBk8vaednU0c0Ez2v7BiaPicL7Xh9iaEFCul6qx8vJH2C6P0Hw/640?wx_fmt=gif&from=appmsg)
+![](../../images/b292d900a38479db.webp)
 
 **教程目录** ：
 
@@ -83,13 +83,13 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 文末下载链接中包含的内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwKlPkpp08Ldap8D29x1Uiah3zKGrAIgVIUjw2FtibXGMK6Q4cs6icOafribjKU4bS4ibwgq5MlQ1giaBNg/640?wx_fmt=png&from=appmsg)
+![](../../images/1b7fa5c6c60370a3.webp)
 
 测试文件约**11.78GB** ，大家注意按需下载！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-解锁前需阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
+解锁前需阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**![](../../images/399758fa7d6941c2.png)
 
 订阅后获取学习手册下载链接：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)

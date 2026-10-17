@@ -54,7 +54,7 @@ Lareau团队通过数据集重分析提出：ReDeeM得到的高连通性细胞�
 
 虽然LMHC变异只占全部ReDeeM变异的**3.9‑7.1%** ，但它们对**细胞‑细胞克隆连接的贡献不成比例地巨大** 。当过滤掉这类可疑变异之后，原先构建出的精细谱系结构会发生剧烈改变，原本的高分辨率克隆连接大幅减弱。 在年轻供体中，每个细胞平均与2.0%–4.2%的采样细胞存在连接，这一连接规模远超此前领域对造血系统克隆结构的普遍认知。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnztmbUk7S8tFsVvr7yP6Rh5j7asoia0L7Q8V8BFllTxxveCavSM0CN0icgAEhFkAxPBKfZuibkQPbicw2ibG4fPDg1iaj7kSoFXw1Tg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/8659b0796194b519.webp)
 
 Fig.1（Lareau）
 
@@ -96,7 +96,7 @@ ReDeeM得到的超高分辨率克隆连接高度依赖一批疑似技术来源�
 
 大量单分子变异并不是LMHC，且具备真实mtDNA突变的特征：转换突变占比高，颠换比例仅0.11–0.14(Weng Reply Fig.1e)，而未过滤背景的颠换比例为0.52–0.56，约为前者的4–5倍；同时有CRISPR谱系实验佐证这类变异的有效性。直接剔除全部单分子变异会大量丢弃真实生物学信号。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwlTCGHP7eX5bC2u1alBE0BWelibibsBWqia93Kh1gfpkFxJ9bWv94zLa46gJrQoq7eoymAeHmibZZcmrrwXh5SmTL6LNzAH48C0Ujw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/6fc435cce8ee147e.webp)
 
 Fig.1（Weng Reply）
 
@@ -108,7 +108,7 @@ MRCA衡量系统发育树深层分支，而文章核心结论聚焦于树末端�
 
 经过该过滤，年轻供体多克隆、老年供体克隆扩张这些核心生物学结论依然可以复现(Weng Reply Fig.2j–l)。ReDeeM并不追求完美无缺的完整系统发育树，目标是拓展mtDNA可检测突变谱，获取可用的局部谱系信息。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkC0auJkRMpdQwZYY3iaaY7guLQ9wnoQfQL5wA1jK9BUl8Iu3N0eTajhpOps0YxLH0MD4QR9FibjdqAlZAo1b2TKENcS1ebp7DHA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/c129484a1bf9edce.webp)
 
 Fig.2（Weng Reply）
 
@@ -120,7 +120,7 @@ Fig.2（Weng Reply）
 
 ② 原作者立足点：人体内造血系统本身就存在大量低频mtDNA体细胞突变；粗暴剔除单分子信号会丢失真实生物学信息；全局拓扑变化不代表局部克隆结论失效(Weng Reply Extended Data Fig.3k)。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnR8OyTTqqyaCBOGfn2T4lv86IQEO886jfEBpKAnZJT6sXSF4IOV1WhSJthTnJxgNH6Xx5Ld0VAHYMqdgEOibRUlzXU9xd0ap5g/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/1da563bc16ffe922.webp)
 
 Fig.3（Weng Reply Extended Data）
 
@@ -164,8 +164,8 @@ Lareau CA, Chapman MS, Penter L, Nawy T, Pe'er D, Ludwig LS. Artefacts in single
 
 Weng C, Yu F, Yang D, Poeschla M, Liggett LA, Jones MG, Qiu X, Wahlster L, Caulier A, Hussmann JA, Schnell A, Yost KE, Koblan LW, Martin-Rufino JD, Min J, Hammond A, Ssozi D, Bueno R, Mallidi H, Kreso A, Escabi J, Rideout WM 3rd, Jacks T, Hormoz S, van Galen P, Weissman JS, Sankaran VG. Deciphering cell states and genealogies of human haematopoiesis. Nature. 2024 Mar;627(8003):389-398. doi: 10.1038/s41586-024-07066-z. Epub 2024 Jan 22. PMID: 38253266; PMCID: PMC10937407.
 
-Oria![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+Oria![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

@@ -16,7 +16,7 @@ albums: ["文献速递"]
 
 **Biomini已经以标题"** Autonomous biomedical research with an artificial intelligence agent"**发布于****《 Science》**（IF=45.8）** 。但其实2025年5月30日就以预印本的形式以"Biomni: A General-Purpose Biomedical AI Agent"标题发出。赶紧用起来吧，小心技术红利不保~**
 
-**![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmUgiaW6Q7hIkyymhVONIJibT9vTM6sqVq0vujrOiagcW2ibKSftjUU7Dv2nQTuibnrENkjPQaic79COLwQwGBG3HbmqAEYxX2QNKBCs/640?wx_fmt=jpeg)**
+**![](../../images/8bcbf857adfce94a.webp)**
 
 生物医学研究是探索疾病机制、开发新药和疗法的关键。然而，现在的科学家正面临着“信息大爆炸”的烦恼。随着实验规模越来越大、数据越来越多、文献浩如烟海，研究进度反而变慢了。这主要是因为工作流程太复杂、太零散，科学家们很难把各种专业工具、海量文献和复杂的实验设计完美结合起来。这就导致了一个尴尬的局面：虽然手里握着大量宝贵的数据，但因为人手不足、精力有限，很多数据只能被搁置，许多跨领域的知识也无法被联系起来。这种“数据多但专家少”的矛盾，迫切需要一种新方法，来帮科学家减轻负担，把生物医学研究的潜力彻底释放出来。
 
@@ -28,7 +28,7 @@ albums: ["文献速递"]
 
 **1. Biomni的整体流程**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwn0PZD12qhzvdrvZlwjFT4Y8NSkyGnZ0As7gLTRObhhqVrbaMAST4icibvqcAicbo4feyFiaibjMfwRkPFRQnAROxM5FL4gCLEFrL04/640?wx_fmt=png&from=appmsg)
+![](../../images/079426244cd1b788.webp)
 
 Fig.1
 
@@ -36,7 +36,7 @@ Fig.1
 
 2\. Biomni在生物医学研究基准测试中的卓越表现
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlEWYtAwUYprG3OcmNCnfCPVCDxvh0scPRgyWib8m2WwqX0ppb4AT0icpocvTep1G7yosRN1iaMUllRYcS4ic122CN2xfG8m6ldvbY/640?wx_fmt=png&from=appmsg)
+![](../../images/ccf397516ed9d21b.webp)
 
 Fig.2
 
@@ -46,7 +46,7 @@ Fig.2
 
 3\. Biomni 进行自主分析的案例分享
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwldXzRMkZZ46KiaVOIjIygN9oVujWh21hcgon2icT9FlYqVic4HDZOXKtSJZlKDKH9mUpoJ5ooicNoPyogKjz6SxtTBlrSSqMt3O4s/640?wx_fmt=png&from=appmsg)
+![](../../images/c848cfbc6eba754d.webp)
 
 Fig.3
 
@@ -58,7 +58,7 @@ Biomni 不仅能在电脑前敲代码，还能指导现实中的“[湿实验室
 
 4\. Biomni 设计了经湿实验验证的克隆实验方案
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn0S4vxYNgvgibIWR94ice30Fwj0ZtCN147u2j6IowtLlsrJw83BvgajV4T2oHiarYERE14NyHjuSfPc4LcJOWVAHoIEQjRmO5VbY/640?wx_fmt=png&from=appmsg)
+![](../../images/b84c70b22a6d0968.webp)
 
 Fig.4
 
@@ -68,7 +68,7 @@ Fig.4
 
 5\. Biomni 通过人工智能模型实现分子的迭代优化设计
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnRxlc0lV4FVyTHx4a3xfJPcqKW2b4jkmoroqXH0GOF6BicLo9YpBcSv63tMVCib7Mbf5fS1OBPeyuOHraZI0LxqUNde8zpcJqLQ/640?wx_fmt=png&from=appmsg)
+![](../../images/41d5635d412d6133.webp)
 
 Fig.5
 
@@ -80,9 +80,9 @@ Fig.5
 
 在实战应用中，Biomni展现出了跨越多个子领域的强大泛化能力和全链条科研辅助能力。它不仅能仅凭原始数据独立完成大规模可穿戴设备生理节律分析和极其复杂的多组学基因调控网络推断，还能像资深博后一样，自主设计出准确无误的分子克隆实验方案，并在现实实验室中一次验证成功。此外，Biomni还打破了计算与实验的壁垒：它既能让普通研究者[零代码](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531106&idx=1&sn=54a0df52671dfbffb9f11350b0836f93&scene=21#wechat_redirect>)调用顶尖AI模型进行蛋白质热稳定性优化，又能直接对接实验室自动化机器人，将自然语言指令转化为可执行的液体处理代码，真正打通了从“数据分析”到“实验验证”的科研闭环。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)
+![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

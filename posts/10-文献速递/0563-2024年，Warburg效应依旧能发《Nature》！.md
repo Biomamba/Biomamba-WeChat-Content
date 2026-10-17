@@ -20,7 +20,7 @@ albums: ["文献速递"]
 
 ●研究团队通过蛋白质组学和代谢组学，分析新辅助化疗敏感或耐药的胃癌肿瘤组织标本，发现在耐药肿瘤组织中，糖酵解通路显著上调，乳酸水平显著上升。乳酸在小鼠PDX模型和类器官模型中能够降低化疗的抗肿瘤效果，**即乳酸促进了荷瘤小鼠的化疗耐药，** 这表明乳酸在肿瘤耐药中扮演重要角色，但机制不明。进一步研究发现，**乳酸可以显著增强****DNA****同源重组修复（****homologous recombination repair, HRR****）** 。肿瘤细胞在经受化疗造成DNA损伤后，乳酸能够快速修复受损的DNA，从而降低治疗效果，导致耐药发生**（图****1****）** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyibdAnROF3icRvlTKHbEl31KRVx6L3Qa3NT96bfQv1iaWe7C44fPicLpticpUSJjAg4HSb3XSjHT7CD0Q/640?wx_fmt=png&from=appmsg)
+![](../../images/30bf79c5b12fca95.webp)
 
 **图****1****乳酸增强肿瘤细胞****DNA****修复和肿瘤化疗耐药**
 
@@ -30,13 +30,13 @@ albums: ["文献速递"]
 
 ●通过乳酸化修饰质谱和免疫共沉淀等实验，研究团队鉴定并验证出NBS1蛋白上的乳酸化修饰位点位于第388位赖氨酸（K388），并开发了特异性抗体用于检测这一修饰。Co-IP质谱实验显示，乙酰基转移酶TIP60蛋白与NBS1蛋白存在相互作用。通过实验验证，**TIP60****被确定为****NBS1****的乳酸化酶，即****TIP60****通过直接与****NBS1****相互作用，乳酸化修饰****NBS1****蛋白。** 且TIP60的这一作用在乳酸和顺铂处理下显著增强。相反，组蛋白去乙酰化酶HDAC3被确定为NBS1的去乳酸化酶，通过与NBS1的相互作用去除这种修饰，抑制其乳酸化水平。这一发现通过基因编辑和体外实验得到证实，揭示了乳酸化修饰的动态调控机制**（图****2****）** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyibdAnROF3icRvlTKHbEl31KO1ANhgltXT7Uauc3DtNagm4EMNzciaiabvmV310dMwcvPNuakh9wMU5g/640?wx_fmt=png&from=appmsg)
+![](../../images/d95d5849a5a4d59f.webp)
 
 **图****2****乳酸诱导****NBS1 K388****乳酸化，****TIP60****介导****NBS1 K388****乳酸化******
 
 ● 研究人员进一步研究NBS1 K388乳酸化在DNA损伤修复中的潜在作用。研究发现K388乳酸化修饰对于NBS1在DNA损伤修复中的功能至关重要。**乳酸促进肿瘤耐药依赖于****NBS1****蛋白****K388****位乳酸化修饰。****K388****乳酸化修饰后的****NBS1****蛋白能够更有效地招募和组装****MRN****复合体，并促进****HRR****蛋白在****DNA****双链断裂部位募集，导致放化疗抵抗。** 深入的分子机制实验提示：乳酸化修饰是NBS1蛋白与MRE11相互作用所必须的，K388乳酸化修饰位点位于NBS1与MRE11的接触面，K388乳酸化修饰改变NBS1蛋白构象，促使NBS1蛋白和MRE11结合形成MRN复合物，MRN复合物快速募集到DNA损伤部位，增强其在DNA损伤修复中的功能**（图****3****）** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyibdAnROF3icRvlTKHbEl31KehIicg3hwkB3946SLce7iaTyhW5I6R3d6XSGHNJuZp2kck4y1kyFECfQ/640?wx_fmt=png&from=appmsg)
+![](../../images/041bdb3f3c802b6f.webp)
 
 **图****3 NBS1 K388****乳酸化通过促进****MRN****复合体形成促进****DNA****修复******
 
@@ -46,7 +46,7 @@ albums: ["文献速递"]
 
 ●研究发现，司替戊醇可阻断胃癌细胞乳酸的产生，抑制NBS1 K388的乳酸化修饰，从而降低DNA修复效率并克服肿瘤放化疗耐药性。研究在肿瘤患者来源的类器官和异种移植模型中得到证实，司替戊醇与顺铂或IR联合使用，表现出高度协同效应，削弱肿瘤细胞的DNA修复能力并提高放化疗的效果，显著抑制肿瘤生长并延长小鼠的生存期**（图****4****）** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyibdAnROF3icRvlTKHbEl31KoZDK917JwBtnIibyrzOibAFRU5qfngRFHq2eHxNibiaPfFocSWtTPgKLxQ/640?wx_fmt=png&from=appmsg)
+![](../../images/78473951cc830c12.webp)
 
 **图****4** 司替戊醇**克服肿瘤的放化疗耐药，新辅助化疗耐药肿瘤中****LDHA****和****NBS1 K388****乳酸化水平升高******
 
@@ -56,7 +56,7 @@ albums: ["文献速递"]
 
 ●本研究揭示了乳酸在肿瘤代谢中的重要角色，通过NBS1 K388乳酸化修饰，显著增强了DNA修复效率，导致化疗耐药性。TIP60作为乳酸化酶，HDAC3作为去乳酸化酶，分别调控这一修饰的动态平衡。通过抑制乳酸代谢，特别是使用LDHA抑制剂，可以有效降低NBS1 K388乳酸化水平，克服化疗耐药性，显著改善癌症患者的预后。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyibdAnROF3icRvlTKHbEl31KGyD8Le33JIxp6frHu2ibiaOricTBy92zbAefyHiaPYxBQTeP7okrrLUUibg/640?wx_fmt=png&from=appmsg)
+![](../../images/e73d9b19d565da6a.webp)
 
 **图****5****本研究的机制示意图******
 
@@ -84,17 +84,17 @@ https://www.nature.com/articles/s41586-024-07620-9
 
 文稿撰写及修改：叶良涛，邓存灿
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

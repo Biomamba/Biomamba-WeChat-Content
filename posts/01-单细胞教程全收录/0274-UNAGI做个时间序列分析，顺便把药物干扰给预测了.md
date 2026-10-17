@@ -23,7 +23,7 @@ https://github.com/mcgilldinglab/UNAGI/blob/main/tutorials/run_UNAGI_using_examp
 
 更多Python单细胞分析技巧可见：
 
-[![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwt8dqWwuyfAweQtO809MKBzrWa3NBR1wibO6UUsWibmjia0Efw7wDiczrFtJjSAyBia6V6KGtVicx17gNw/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=2&sn=f1b479a1469dfe46bd8bb0b0bd1b470d&scene=21#wechat_redirect>)
+[![](../../images/b9adfcf1e0c54eb7.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=2&sn=f1b479a1469dfe46bd8bb0b0bd1b470d&scene=21#wechat_redirect>)
 
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531388&idx=3&sn=dfaf8cac9db70bb408206fb3da27ffda&scene=21#wechat_redirect>)指导、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469&token=1729645779&lang=zh_CN#wechat_redirect>)、自测数据个性化分析辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[Biomamba_zhushou]。
 
@@ -114,7 +114,7 @@ Name: stage, Length: 13550, dtype: int64
 # 看一下这个adata的全部注释信息：adata.obs
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnQNWgiaYd0bc8bVJa3hhoMSLWnOQC2NBNpeS1M4hz6vKyzfiaH7MLoaDveSq9OibibribnpJZiciaxu3CKibb0h2IdTbyEOPfPzICrlZg/640?wx_fmt=png&from=appmsg)
+![](../../images/824ac10114c53ced.webp)
 
 13550 rows × 31 columns
 
@@ -152,79 +152,79 @@ Fast mode enabled!
 # 设置训练参数：unagi.setup_training(task='example',# 任务名称                     dist='ziln',# 当前单细胞数据的分布模式，可选的有：'ziln' (zero-inflated log normal), 'zinb' (zero-inflated negative binomial), 'zig' (zero-inflated gamma), and 'nb' (negative binomial)                     device='cuda:0',# 指定显卡                     GPU=True,# 是否启用GPU加速                     epoch_iter=5,# 第二轮循环开始，每轮的训练epoch数                     epoch_initial=1,# 第一轮的epoch数                     max_iter=3,# 训练三轮大循环                     BATCHSIZE=560 # 最小的批次大小                     )# 训练：unagi.run_UNAGI(idrem_dir = './iDREM')# 需要有idrem库，否则可视化内容无法生成
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwkVsh3NVVAWZ9xsgMqUtOvLJhBAXRDicd5xjiaPAUKrWIUImFSQJarE6brFgiar0hjXvV4paWC7dC1kEPgfYTjKEKv4m6ibCv1jxUU/640?wx_fmt=jpeg)
+![](../../images/aac53d8a514fb1d4.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmLnppZ9er0uXbss26318OcIMZdrLvneP63lAKyCKkzU7wJ17gib6nIScWPyFguvbSCeQTpuC1GAdGSvGCPCmNTvHWrojFn8q8I/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/647e77159e762add.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkZMIX450LK6Qj3MhQkNMqQvreO1F5VKu6ia9qXZtppicU92mtJCLLlf4FREuXcPAhca7UuJQsicTjv1IcK7ZCuCEic3xIZFibRAGibI/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/ce59ea03c49e9f76.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlyziak2PB3NHuXxMqnichz6GA2D4XtT2SWyPLEzGpGb7u6dhj4es1Y5VdpQl3f7nzhiaNAnESbm0b9ZQDqkhUPBITssd720OfOY0/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/a828698daa70e63a.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnzww9PiaYYupW60qKyrpmpRWGXngdwSZS1icdbbMLSbXwbeiacicAr2gSA3e8q8mozE0K0b2UB3Gf4xTYWsLaicvoibPXkfc9yy5zy8/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f81753fb13400a46.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk2BrQFNrMRdHiccm2TuFAV42XJqHkpGyBmxCPzjlgzB0bl2FDb5o5jrH2bBaX0fAnAxYEiaffsLMWtKDpL45kp7fvxrfxjyoTwE/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/37e30f520d120d8c.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkpD0dcSfbqQOicrMGlo3NDvAnoAHzaQLjm9jgaJf48vn0494y3yDiaCZ1srNYHwLwysBIFOCbR0NBg2qycYxZhbe8NqeeKtCfibk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/74c571ad8e574047.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnhZvPqD9Q9MkcsFEiaib9F7qYq259dykDuibXuwk4cUO7Y4jFaOVbTUv7aRFyjZ8xeg5nxCNOKybsMlNEc3gdwyZaDsCIOTurDOU/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/b1a81b27c91c1d14.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlqn4sTaHvHAo2eZniajoBGMcicTXk01F5HicssjhJu6l7ymjresuicy1rhVcmfc0w7QcjmmRDz47GurBTapbW6vuzEmB0r5ibVa2l8/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/9701f78648116e23.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnPRzUs0GibxmHA62j5lBbdrylgtMlByVI17jdMfyPNEjTCTRWcOUuOBdNariaOHql3RRzFz2SfRVt2HqXhZ3HanPD0xOYqXPdmk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/224912d7df6105ee.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnq6LqQ98xmtG2bRp5CcCvoNq4RB0bv0xRE840ia3mS03sS84e0JG9r5XOic80eiafsL0ic8GDxdGXw8TU8cYf2y8CdGMI4yhau2KM/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/3e5dd98dddb1dc9d.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmxdTHDhFYhic6FjibEQ3qrFsEEvjym3ibbgwLianoIBC2NZAMzWiayIftwozzvmt4AlCVyiaohX8MWXNJtsToH5GeuLXVygpNGQRPp0/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/0c628a69409585cd.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnaQl16NB9LF8gDopNmwoYewgiafb25yRHlmUPcZd2pMZyyKcHAwceL8P0ISCP4TzCqsSq1V9ibjuWn5ZHiaq6PvDrJ7OicPZ7MrjY/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/059ef8819f004233.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk8ia2UCC9iagb2mmuszE3fCU6hSEU6rOHCbhMyraLoTaAfBJbZsORtuu1gHagNDH6OATHDyI28L3IspoHbd1rcfTdJLSz6iaY4JA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/04ae955ca43534d7.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlSppAqbentXY0NsibAHJicg2N66ESLkXyKfKyDzdxicHIwFJXoibWtTdSj7VjibybuJcBDNmiccjFZujQT3hRsgASeyfjiaZZkibWdqDI/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/8463777cda34d477.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwktqNFq6Kugqj8LqABjP3o97bgksPEehKhwqXZnYAjySnwXTGpVfbxzqert2tn0FvPBehPaN0ezf8MAMcr6JfnbOvibntjbc9g0/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/6b737a60d4a2cbd4.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnB6icBczCDfLYdp3elIwZ3mMam3Yo6cOh5pSOjlLbYqvUCmstDmwgNJxJ9Qu84pqibeo7xEvtdTdhxw3z5viafamgBrfhSXZhR3M/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/9bdcf26e04f57a0b.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkialc37MiaicPaGicpN9APwDvfAuLrTibAcjXjricOCxPbjicM4VSI6Ma7FJfOECrXmDGOWgwAeM7erp6TOsuwrSicaSIXY1QXtYLFhYE/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/4451eef3f949c8a8.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlkq1kWnRRbJ8HxB392A4uuicA38DTf9mCaAZFD8nUyZPHRBHS8JeM7cPT20QZVFXXbnlXk6AMIzSUMUeibf4AZGsnb34ibfAboac/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f68903eb98e351da.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmSzEakCCqWs2J637WgPJicjHAyic8FMt0jAWM2PLFeF9dbSCvBRGibhdABg13qxo0icqH32DKY3hae31PUT0ia45G3R3ibTCVibUWmDY/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/1eae7dacdb9ceba1.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkX7xJPTsTbWtgZfEl4sE4VicWzgUOWs7VJibrpNAPpnWvpNjMNQXXYD1pn317Pd7GaQLDkjFnrN7vOiaAtMIkEGyWmKv74hRvKnY/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/25e9dad188807df9.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkYyUuyc2yAeUdbfLKaFTP9YntkblFet29CsOlBibeECe81vULq9ZCKibBVhTh8vAkicMbfkw2wOdTJOAymkrduFXn1TjrFEadfnk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/e027e55b4b0f1a37.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlOz9QTSy6ribNYIqTYSCWmlksC28Siaticb349SLAibyqaicLsicADA3EibIyozmeqCtUAwVGr2AC5krmEicz6h3lQZm1NFGoZgqY5KtI/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/5203feb1970e42a8.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlEemnftpOyZkHicOMsPINN82Zb1EThZg1bRsw2cw0U2LpGhiaW8rb80wVO3afKbkRWTKolFIjiaKria4nQrOJtfLl04k5uToeGILY/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/fb14b028fe247605.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnGxPAHtCogENqwYOY0zfLnQR5hia04LVaVibwGfUXQENmuq8PZ4TicHLU1v23SlwIxTUVWVvblGBE3cibgWficx85u9oMoe6bXqkKM/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/069ce131d8e773be.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmHtSUWBdabPBSPDfAYEibQYIkNqEqO94tLbwla5m7Am5sVOxcMxsSclk1THzbkcYxF5SoeIAoRpPvgWjt4tywd9ehmbFVFghxI/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/7282760601777505.png)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnUwgnQxPqiaNrCk9iaXtP6QVbsyPFRWuNtKfkqno9PA8KF8dvyDA8mYcNAibYaWqdVqttHFdXaMI5fpM5MvDRAIFMQ6j2WV2F0cU/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/8865bb9af0f07c1b.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwloYThTDGlt1qLXcOBYiaQqkRq6DNYM8jNAvuJEG4jCqlMcXKgedyBEEZXUgFW6S0a6O8ml1FRpT6rg5uoW8xxkr2iaiaL9b3VHPg/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/d77b3ee8c3978b99.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmPEeicic4ggB97lIQSgYicJpqp6jKl7DeWzWMz3UyS9spE4jQs50siaOiaibsfFgRFJgJDArib9TNJmVoAElcTqhA60biazcxNRSibb4XQ/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/98098e7f8358a11a.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnjsUcBqe7u0RsAL6LP2ricZSacsHNO2icywVTFxHWhv43bWvAHxdKblpa13pXEXTl51pue0PFleI7KNZNia9egia3XFs1LTmMjsJY/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/a05b82e65913eaac.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmWBDtic8BdMMSdvx65KlQ1mg8O1uwUIwWTASpPcbBM5ak1k9bBn6IJ1X8ZNZDOTtECRFvic0xr96kajm7nXXBR6U7pwCkSxEc74/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/a764e027d2d28893.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlsn7pqiah8NjiaJXeibtwGBkEgempdQLZ5aI2tdS9NeOm7O7G2ez4TL2tfWtx4veBtXdicvvTxlsQt9ttAELY3od2icTzycukJ2tm8/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/2e6d118ba7aa3637.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwls1ZVmVq8ygKcT0hB5fVqDcuqNwfibuWCd1L3Wm6omsae6Ucxv9EiaoOEsTxqIJiacJ9ib0Hxhn4MSIs6Ua03tZzVuPGNIEbOLwmk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/321c33e1ed395711.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmmLl5N6dRiahYCrnp7zhrMldP8kRTibeKqALHXXcYboX1CD788qvLgYOvQjgbJ4En5umJUicOqKVR5ibm8GBmqo1u8Bjd3BQMIKEU/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/effce94d4aee0605.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnniaibVufZKU6rCjPvIH7rFLfbsxrvvKEKTAPwW1CtrsL4AFh8mU6RAtRv4Omr00UiajwAOqlFdVAYDaYsJmewhmA0zElLuYLWys/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/d38a5585e9a10c8b.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkicAqtjJB0dPuv8D9iaWfO7cIttYYNIsa9MCwRhOyJLNsQKHf8f3r2hJFw7mNYx9njjcL3QNvZ0erTic1lcLwtBKNaSaicB8vFFNc/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/75642e429205fb5d.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn7y96eXCKR7zBRvMLaWVqZFPdwia0ibL8Vxj1gpVAwicunHZ5LGTuEcZ1Cl6AfgibSUefDDmwaiagYCpxHrxeic3G9KVbTr9pn2BOUM/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/25df50baeb369cf3.webp)
 
   *   *
 
@@ -366,7 +366,7 @@ UNAGI-main/UNAGI/data/example/
 %%timeimport warningswarnings.filterwarnings('ignore')from UNAGI import UNAGIunagi = UNAGI()# 进行药物干扰分析：unagi.analyse_UNAGI('./UNAGI-main/UNAGI/data/example/2/stagedata/dataset.h5ad',# 输入文件                    iteration=2,# 选择第几次迭代计算次数                    random_background_sampling_times=1000,#  寻找动态标记基因时，随机背景基因抽样次数，数值越大，结果越稳定，但跑的会越慢                    target_dir=None, # 目标文件夹，none则输出                    customized_drug='./UNAGI-main/UNAGI/data/cmap_drug_target_genes.npy',# 自定义药物数据库，这里是由作者提供的                    run_perturbation=True# 是否运行基因、药物干扰                   )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnhm2iaiahTAEe7zULthGeeRlTEchUYGnEulkqhwZlfKzkLtEMY6nEK2Pm7Jt8GrapFUgmP2CfqLUhxefOazUMIDx1dwkFcuQzzU/640?wx_fmt=png&from=appmsg)
+![](../../images/a21b12ba94b852d7.webp)
 
 2.4可视化
 
@@ -449,7 +449,7 @@ NMIs:  0.7719353736314634
 silhouette score:  0.22769615347172187
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlc7B06E9ljVqBNZKz50xwnTXqvntaMczLGZzNKomShYPRBfFNSg626jbYuPhlmv721A2JL1GQ5iaTlanbbJibCfB0jgRgib7jEiag/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/94d0ba60f47b8bf9.webp)
 ```
 ARIs:  [0.7237174464173974]
 ```
@@ -468,7 +468,7 @@ silhouette score:  0.2411582049784552
 cell_type_composition(adata, cell_type_key='ident', stage_key='stage')
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmYWTHFPLkQvHG3jffia3YEmd2hpbwKyZnvLibibN8VVIUyhjWCHU77NhWBYl2ib3IyVsJZEwPazca3fjibMw3qNhzJNicqvmksABzSQ/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/1c1a957b0362f35e.webp)
 
 2.4.3 细胞动态发育轨迹
 
@@ -479,7 +479,7 @@ from UNAGI.utils import visualize_dynamic_graphs_by_text# 展示各个stage�
 # 动态轨迹图也可以直接保存为txt格式：# visualize_dynamic_graphs_by_text(edges=adata.uns['edges'],cell_types=adata.uns['clusterType'],write='saved_dynamic_graphs.txt')
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwlh3b7HsUqib2jZIIr7sYArqBCUCrDt6wFZpkgf2dfXTJd4oZ0lJ5bia5kvMHvRcibiasoZMpA3CsRq9hRKAIib06IQntkynYG7tvT8/640?wx_fmt=jpeg)
+![](../../images/b76341fab78564df.webp)
 
 2.4.4 药物干扰结果可视化
 
@@ -491,7 +491,7 @@ from UNAGI.utils import visualize_dynamic_graphs_by_text# 展示各个stage�
 from UNAGI.perturbations import get_top_compounds, get_top_pathwaysget_top_compounds(adata,perturb_change=0.5,top_n=10)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmBwtgxlbhqWx6dTI7lBHBmaq3poMSph8WBk2ggqgM4OGc8ibBhRsLXnUX16DibdoqEmyeADAeR1MWzlJgjicgnEQJvPttTRupqDM/640?wx_fmt=png&from=appmsg)
+![](../../images/01e2881ac95783fa.webp)
 
 2.4.5通路干扰结果
 
@@ -501,7 +501,7 @@ from UNAGI.perturbations import get_top_compounds, get_top_pathwaysget_top_comp
 get_top_pathways(adata,perturb_change=0.5,top_n=10)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwk5oyB01FYMbbZ1RHfAgXSx09gXxgBgVjFicWnZEicYweqd8k5RsJuOVYGGciciapoIGxA5VjVkibMpsPps2js8ibqict2B4jsNkzQ0a4/640?wx_fmt=png&from=appmsg)
+![](../../images/89dd4d6255f441bc.webp)
 
 **三、资料领取**
 
@@ -515,13 +515,13 @@ get_top_pathways(adata,perturb_change=0.5,top_n=10)
 
 本推送的代码文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkccXStic4cPHkxSjYHHjtUiaSQ2Fn1focgLWOxVTDudhr9eIYdpraIS1bh2a0gRI691ZIkEkRiaZuNCIFog7wtJfAtB7Uwnuy0uQ/640?wx_fmt=png&from=appmsg)通过网盘分享的文件链接:
+![](../../images/f072a361947a4569.webp)通过网盘分享的文件链接:
 
 https://pan.baidu.com/s/1No_C678UKW_SWAjS_V13-Q
 
 提取码: 2it8
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlCyXSxibapXIYNacNP7soSrfeYoiaRqFu29eSnfXfuFe7Fa45I5oTnTGR3rWRYFqicgUxJb0pYx9XdBWNajNicL3pwcOV7B8zFLW8/640?wx_fmt=jpeg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![](../../images/dd001a70968d14fc.webp)![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -558,16 +558,16 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](../../images/4ec66ccdb832fd05.gif)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

@@ -50,7 +50,7 @@ albums: ["文献速递"]
 
 **核心科学问题** ：男性乳腺癌的肿瘤细胞和微环境，究竟与女性乳腺癌有何不同？
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/3vibXicZVMmFsrsReTwA8BskvHCyCSKgyRx7kRW9Vk2pHhsODnw2yPZzNHAHt83nibdQ8lwnZYJomdxQrYn2KlYAZnh82ibxomaWWNPykXIlqTM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/f7e8c18e62e03b56.webp)
 
 ▲ 研究技术路线：样本 → 多平台测序 → 整合分析 → 多队列验证（依据 Shi et al., Sci Adv 2026 整理绘制）
 
@@ -69,7 +69,7 @@ albums: ["文献速递"]
 高分辨率空间转录组（FFPE）| 5 例男性 FFPE + 3 例公开女性数据| 8 张切片| FFPE 空间验证、空间结构域分析
 成像式原位空间转录组| 24 例男性 FFPE| 286,651 细胞| 大队列独立验证
 多重免疫组化（mIHC）| 43 男 + 32 女石蜡样本| —| 蛋白水平验证
-![](https://mmbiz.qpic.cn/mmbiz_jpg/3vibXicZVMmFsO9UPj99RicKL0niaeDSBljq7nBtvNZ02sCpReGlQBX9RWCW14JQhXfqbC2LI8u4EYoogBCvADREPEYRNh6bTeNIhN7MZttibgqk/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/530c83dccb96e524.webp)
 
 图 1 | 多平台单细胞与空间转录组研究设计。A：样本与分析流程总览；B：36 例供体单细胞图谱（7 大细胞谱系、33 个亚型）；C：男女队列细胞组成对比；D：SeekSpace® 单细胞核空间图谱（10 例新鲜手术切片）；E：FFPE 高分辨率空间图谱；G/H：MSTC 及关键免疫细胞亚群在男女间的显著差异。（图源：Shi et al., Sci Adv 2026）
 
@@ -87,7 +87,7 @@ albums: ["文献速递"]
 
 **临床意义：** TCGA-BRCA 队列和本研究 36 例 MBC 回顾性队列均显示，**MSTC 高评分患者无病生存期（DFS）显著更差** 。作为对照，CSC、应激细胞、增殖细胞特征均未显示与 DFS 的显著关联——说明这种不良预后关联是 MSTC 特有的。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/3vibXicZVMmFukMYd7c1qMMZFlyOTSdPkZ8g7VNIJvTebu9v4kP9JVoP52ee5qicdzIEIricgGM2to2hiarsWG9sM0ytYZjaicF4uF3ekUykh1c0w/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/398008e3fab81f23.webp)
 
 图 2 | MSTC 的空间分布与预后意义。C：单细胞/伪单细胞分辨率的 MSTC 特征评分空间映射；D：FBC 与 MBC 的 mIHC 全片对比（GRIA2/NEGR1/GFRA1 标记 MSTC）；F：MBC 中 MSTC 比例显著高于 FBC；H/I：MSTC 高分患者无病生存显著更差。（图源：Shi et al., Sci Adv 2026）
 
@@ -97,7 +97,7 @@ albums: ["文献速递"]
 
 单细胞解析发现，MSTCs 贡献了 bulk 研究中 J_M2 亚型的神经模块、但缺失其免疫激活模块——这解释了为何“J_M2 预后较好”与“MSTCs 预后差”看似矛盾。研究鉴定出 **KLF7、TAF1、CLOCK 等 53 个 MSTCs 特异性激活的转录因子** ；NMF 分析显示 MSTCs 高表达神经突触功能模块（M5/M6）和 DNA 修复/染色质重塑模块（M7）；**inferCNV 分析显示 MBC 中 MSTCs 的拷贝数变异负荷显著高于其他恶性细胞** ；轨迹分析表明 MSTCs 处于肿瘤发育轨迹末端，属于相对分化的恶性状态。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/3vibXicZVMmFsMP5Rb388fPYxgCIr2o8UO2tcmdf8ficTLFzYphxpO37zcicCRlYPricWIchKN4sckh6wRjENc3kzlUeLianGQcmQ6MtcBoSd5iaBc/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/d22f0581851ad5e2.webp)
 
 图 3 | MSTCs 的转录与基因组特征。A/B：J_M1/J_M2 模块评分及神经子模块归属；C/D：MSTC 特异性转录因子与调控模块；F：NMF 七大功能模块；G：inferCNV 显示 MSTCs 拷贝数变异负荷更高；H/I：发育轨迹与伪时序分析。（图源：Shi et al., Sci Adv 2026）
 
@@ -107,7 +107,7 @@ albums: ["文献速递"]
 
 SeekSpace® 与 FFPE 高分辨率空间数据的联合密度图显示，MBC 切片中**神经信号与脂肪酸代谢“双高”区域明显多于 FBC** ，且越靠近 MSTC 富集区域，脂肪酸代谢评分越高——证实 MSTC 的神经程序与脂质代谢在空间上耦合，而非与血管生成耦合。同时基因富集分析显示，MSTCs 中 MHC-I/II 类分子表达下调、抗原呈递通路被抑制，呈现**低免疫原性** 特征。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/3vibXicZVMmFsrwGJmusmUxZLRHUzyN12ZicEdhqPJXjQ2ib7oSryicibrQKicVZUuhRNs3NkicBicGriaGnljZdCCSJTsPwicvOMEiaHRToQzz9wa5ltDM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/8647a3719aa30d06.webp)
 
 图 4 | MSTC 的神经–脂质空间耦合与低免疫原性。C：SeekSpace® 与 FFPE 空间数据中神经信号与脂肪酸代谢评分的空间联合密度图；D：两类信号“双高”细胞在 MBC 癌区富集；E：距 MSTC 越近，脂肪酸代谢信号越强；F–K：MHC-I/II、缺氧、血管生成通路在 MSTC 中下调。（图源：Shi et al., Sci Adv 2026）
 
@@ -119,7 +119,7 @@ MSTCs 比例与 T 细胞比例负相关（**r = −0.4** ），与巨噬细胞�
 
 空间结构域分析（BANKSY 算法）在 FFPE 高分辨率空间数据上鉴定出 **MSTCs 与 APOE⁺/CD163⁺ 巨噬细胞共富集的关键区域（R2/R7）** ，这些区域选择性下调补体、IFN-γ 反应、TNF-α/NF-κB 等抗肿瘤免疫通路。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/3vibXicZVMmFuKvZbMIjGbeKUB6sb2hhkhMjibBklND8eSOIImhZXf18lvwsmibboB335JoTgElka124b9YEvjSLJdPI7gH8dpyu5eX6OzPIHXA/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/2cbd3ec55a20e96f.webp)
 
 图 5 | MSTC 与免疫抑制性巨噬细胞的空间共富集。E：mIHC 显示两类细胞组织原位共定位；F/G：空间结构域分析锁定 R2/R7 关键生态位；H：关键区域神经信号、APOE⁺/CD163⁺ 巨噬细胞与 Treg 信号呈高富集；I/J：关键区域脂肪酸代谢通路上调、抗瘤免疫通路下调。（图源：Shi et al., Sci Adv 2026）
 
@@ -131,7 +131,7 @@ MSTCs 比例与 T 细胞比例负相关（**r = −0.4** ），与巨噬细胞�
 
 研究团队在 24 例独立 MBC 队列的成像式原位空间数据上完成验证：**SORT1 在肿瘤细胞（尤其 MSTCs）高表达，GRN 在 APOE⁺ 巨噬细胞高表达** ，二者空间邻近且表达随距离呈梯度变化；巨噬细胞还表达 CTLA4 相关配体，提示其同时调控 T 细胞。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/3vibXicZVMmFvjlbW93eGR2R2icCCBPIbaeePHZfZQK9AibWp4stfgFicFGLLxyZWezj7BEpx7fCLuHs3TUv4hBj994sP4s09zQSdhcSHAtm3eUc/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/91eff86ea9f65e0f.webp)
 
 图 6 | MSTC 与巨噬细胞的细胞通讯网络。A：随距 MSTC 空间距离增加，免疫/基质功能基因表达梯度上升；D：APOE⁺、SPP1⁺、ISG15⁺ 巨噬细胞经 GRN–SORT1 及谷氨酸受体通路与 MSTC 通讯；E/F：大队列原位空间数据验证 GRN–SORT1 轴的空间梯度。（图源：Shi et al., Sci Adv 2026）
 
@@ -225,4 +225,4 @@ SeekSpace® 已助力肺癌转移、肝癌 TLS 机制、慢性肉芽肿病等多
 
 Shi H, Zhang X, Cai S, Xu B, Wang H, Cui J, Yang Z, Chen S, Zhou Z, Zhang S, Cai Y, Zhang Y, Zhu L, Wang J, Xing N. Multiplatform single-cell and spatial transcriptomics reveal sex-specific malignant states and architecture in male breast cancer. **Sci Adv**. 2026 Sep
 
-![](https://mmbiz.qpic.cn/mmbiz_png/3vibXicZVMmFuribxf4vwjvqe1wonUOLRgyQgib73cT3Yw8a4z9hAyd227U8vE9zo33ZibpicMFmlrWGUp4FpckrpdxAp62CV1bTRgGAXVMiaiczYic8/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/3vibXicZVMmFtnMQmZTWOfezrsGNttBBsMWWsdiaOCxOib7M8TYR6zsUQx3ibOzBCnia1IuPe7DJiblqJCM9PmoqiafoQ5Xey2APMyO10ibWvZwvUZFY/640?wx_fmt=png&from=appmsg)
+![](../../images/4ee2317ac2641022.webp)![](../../images/6120ebad02d138a0.webp)

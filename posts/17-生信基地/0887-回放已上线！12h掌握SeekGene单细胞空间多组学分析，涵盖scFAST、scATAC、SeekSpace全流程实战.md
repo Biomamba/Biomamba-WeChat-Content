@@ -14,7 +14,7 @@ albums: ["生信基地"]
 
 视频内容如下：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmrbEWvjrJiaiaeBhPr4ywicFnEsz7Rgl780SmnH4zEPPcZctupexAsr0CXYlIg6tHgmNPQQyS27WpPgBtKhI3ElkOQUpEoymDPfg/640?wx_fmt=png&from=appmsg)
+![](../../images/ef35cc4012640b28.webp)
 
 2026年1月19日-22日连续四天直播手把手教带领大家学习[SeekGene多组学全家桶](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534015&idx=1&sn=04da5c98bee2ac3497b6fe412e0efd41&scene=21#wechat_redirect>)：[scFAST单细胞全长转录组](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505213&idx=1&sn=5f4ed0587dd96149d127a98d36f721f0&scene=21#wechat_redirect>)、[scATAC单细胞染色质可及性](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528858&idx=1&sn=0620dd3681e73858eb47256d785d7437&scene=21#wechat_redirect>)、[SeekSpace单细胞空间转录组](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532717&idx=1&sn=af944a655ad4e8d04f774f6dbdf0146a&scene=21#wechat_redirect>)！配套免费西柚云服务器镜像，助力大家轻松上手实操！现把直播所有的回放上线在全网各个平台供大家收藏学习~
 
@@ -28,7 +28,7 @@ albums: ["生信基地"]
 
 提取码：联系客服[Biomamba_zhushou]领取资料并添加学习群
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fe8ecb8594a1f419.webp)
 
 全网回放指路
 
@@ -70,19 +70,19 @@ SeekGene全家桶课程
 
 1、scFAST——单细胞全长转录组
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYcnDj7ngyicDyhVPW2nhgtG3eOPgQut4dm09E5lCwT3b9sy5cSgNPx7vA/640?wx_fmt=gif&from=appmsg)
+![](../../images/4cdb859981d1b13a.webp)
 
 一、scFAST绪论1.1 写在前面1.2 主要结果 1.2.1 建库流程与特征 1.2.2 scFAST-seq与3'策略的scRNA-seq一致性评价1.3 小结二、准备工作2.1 SeekSoul®Tools 2.1.1 简介 2.1.2 模块组成 2.1.3 软件优势2.2 预备知识2.3 依赖工具下载 2.3.1 conda与mamba 2.3.2 gffread 2.3.3 annovar安装及库文件下载 2.3.4 fastp下载安装2.4 SeekSoul®Tools下载与安装 2.4.1 scFast板块 2.4.2 mut板块2.5 参考基因组下载及索引构建 2.5.1 GRCh38 2.5.2 hg38 2.5.3 rRNA基因组索引 2.5.4 小鼠mm10基因组三、fast模块3.1 rna及fast模块算法及流程说明3.2 fast模块使用 3.2.1 模块基本参数 3.2.2 fast模块使用实战3.3 报错记录 3.3.1 cutadapt 3.3.2 rnaseq_qc_results.txt文件没有？3.4 输出四、Seurat分析与可视化4.1 数据读取4.2 数据预处理4.3 降维、分群、注释五、mut模块5.1 简介5.2 模块工作流程5.3 运行mut模块 5.3.1 输入文件准备 5.3.2 运行mut模块 5.3.3 输出结果 5.3.4 Seurat再处理及可视化
 
 2、scATAC——单细胞染色质可及性
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYc7GR0Jv8KITVC1Vicne7GogjQ9vfwvaG7N7XibZ3hgr3mkFZc1RdA947A/640?wx_fmt=gif&from=appmsg)
+![](../../images/f08d4bc813f74191.webp)
 
 一、准备工作二、scATAC-seq2.1 染色质可及性2.2 scATAC-seq文库构建2.3 scATAC-seq的多组学联合2.4 scATAC-seq分析三、seekarctools3.1 软件下载3.2 软件安装3.3 软件分析逻辑 3.3.1 scRNA-seq定量3.4 参数介绍3.5 常见用法3.6 参数调整四、Signac绪论4.1 PBMC演示数据4.2 评估scATAC中的降维方法4.3 DNA 可及性和线粒体基因型的联合分析4.4 scATAC分析的扩展4.5 讨论五、基于SeekOne® DD单细胞ATAC+RNA双组学的signac实操5.1 signac基本流程 5.1.1 数据读取 5.1.2 基因信息注释 5.1.3 质量控制 5.1.4 peaks矩阵的标准化与降维分群 5.1.5 基因活性矩阵处理 5.1.6 与单细胞数据整合 5.1.7 差异可及性peaks计算 5.1.8 展示特定基因组区域的peaks5.2 与scRNA的联合分析 5.2.1 数据载入 5.2.2 添加ATAC注释 5.2.3 质量控制 5.2.4 scRNA矩阵处理 5.2.5 scATAC矩阵处理 5.2.6 细胞类型注释 5.2.7 UMAP可视化5.3 常见可视化 5.3.1 数据载入 5.3.2 基因注释 5.3.4 peaks可视化 5.3.5 LinkPlot 5.3.6 TilePlot 5.3.7 表达量绘制 5.3.8 拼图 5.3.9 一步可视化5.4 motif分析 5.4.1 motif过表达及差异分析 5.4.2 转录因子足迹5.5 共可及性网络构建 5.5.1 载入数据 5.5.2 构建Cicero对象 5.5.3 Cicero连接性计算 5.5.4 顺式可及性网络构建六、基于SeekOne® DD单细胞ATAC+RNA`双组学数据的拟时序分析6.1 ATAC拟时序 6.1.1 创建cell_data_set 6.1.2 拟时序分析6.2 RNA拟时序 6.2.1 创建cell_data_set 6.2.2 拟时序分析
 
 3、SeekSpace——单细胞空间转录组
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxgJdHxib5G2KkKFNHDMpFFELgYyKibHDCvbnYL5Jib57O03BFI56Z9jQLkicD06ib4QbvPvXiblfUv8JsA/640?wx_fmt=gif&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=9)
+![图片](../../images/471157d459d4f158.webp)
 
 一、准备工作1.1 编程基础1.2 硬件基础二、SeekSpace背景介绍2.1 介绍2.2 版本换新2.3 本文资料下载三、SeekSpace® Tools3.1 软件下载3.2 软件安装3.3 安装激活3.4 测序数据与参与基因组下载3.5 命令选项参数介绍3.6 V1版本demo数据定量3.7 V2版本nao_CS数据定量3.8 结果文件说明四、基础分析4.1 文件说明4.2 读入数据并创建对象4.3 添加空间坐标4.4 预处理与聚类五、细胞注释5.1 参考数据集5.2 Transferlabel细胞注释5.3 展示marker5.4 图像的重对齐5.5 添加DAPI与H&E图像5.6 空间中展示marker5.7 两组数据对比六、banksy空间区域分析6.1 banksy介绍6.2 banksy实操七、CellCharter细胞群共定位7.1 CellCharter介绍7.2 CellCharter安装八、SeekSpace细胞通讯 8.1 CellChat8.2 加载数据和构建CellChat对象8.3 加载配受体数据库8.4 表达数据预处理8.5 细胞通讯网络推断8.6 可视化8.7 交互式操作
 
@@ -96,8 +96,8 @@ Biomamba生信基地还可以提供
 
 **西柚云官网注册( https://biomamba.xiyoucloud.net/)、联系客服微信[Biomamba_zhushou]获取学习版服务器的优惠码、零元下单[学习版服务器](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532717&idx=2&sn=eb98e578098b9f432ea6ecbdc3c0d74b&scene=21#wechat_redirect>)。**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYcpfNGXVozLPlRKb0kBl1Fjn2EVYKETBKuXkI82SCdGEyrHvpBCbgoqg/640?wx_fmt=png&from=appmsg)
-激活服务器实例后使用对应镜像，镜像中布置了R 4.4.2，预装seeksoultools、seekarctools、seekspacetools、Conda等本教程所需环境与工具，可以开箱即用的配合此次课程。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYc8qtbn1JNtUw1Bmt8EUFyicKicCOoM4RmiaPFibGfAy6oVcYoPCJrOFlIQw/640?wx_fmt=png&from=appmsg)
+![](../../images/db3d681a9df07235.webp)
+激活服务器实例后使用对应镜像，镜像中布置了R 4.4.2，预装seeksoultools、seekarctools、seekspacetools、Conda等本教程所需环境与工具，可以开箱即用的配合此次课程。![](../../images/cfaf44a52361e39f.webp)
 
 **
 **
@@ -380,14 +380,14 @@ Biomamba生信基地还可以提供
 
 42 directories, 94 files
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYc2iaBU5PHFRGicesPwlJAYZjqVMGdYRGTxHe9oMUGVo6aIpmwQiabcvpzQ/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/4af39e22ba373405.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

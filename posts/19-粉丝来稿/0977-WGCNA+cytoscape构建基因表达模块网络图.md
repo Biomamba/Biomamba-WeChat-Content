@@ -18,7 +18,7 @@ WGCNA的基础教程可见此前教程：[一文学会WGCNA](<http://mp.weixin.q
 
 https://pan.baidu.com/s/1r1IIJB2EZY5mlbY-AMnrAA?pwd=pbkj
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyUchC9ZFCZCibiarT78CZ0gXG3MfX4NQFbjmDrbKQeYXgictJcxqNeah1qkpgTbA8RiaSDib2GNdyeMsQ/640?wx_fmt=jpeg)
+![](../../images/fea22705a2557b9f.jpg)
 
 ```
 suppressMessages(if(!require(WGCNA))BiocManager::install("WGCNA"))
@@ -34,7 +34,7 @@ enableWGCNAThreads(nThreads = 8)
 setwd('/home/jiangxinyu/R/R_script/Experience_note/WGCNA')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn47b39ia7VTUEwCHO8du68zYqaP6cJROuoI33cymUf9uXVEFHdDVdxelPblkBs6f1LbI8FibrEKLlNg/640?wx_fmt=png)
+![](../../images/8d30b66bf606aa64.png)
 
 **Read Data**
 
@@ -120,7 +120,7 @@ head(dataExp[,1:6])
 ## CIMBL66          29154.02    23835.9765
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn47b39ia7VTUEwCHO8du68zYqaP6cJROuoI33cymUf9uXVEFHdDVdxelPblkBs6f1LbI8FibrEKLlNg/640?wx_fmt=png)
+![](../../images/8d30b66bf606aa64.png)
 
 **检查缺失值和离群样本**
 ```r
@@ -160,7 +160,7 @@ dim(dataExp)
 #head(dataExp)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn47b39ia7VTUEwCHO8du68zYqaP6cJROuoI33cymUf9uXVEFHdDVdxelPblkBs6f1LbI8FibrEKLlNg/640?wx_fmt=png)
+![](../../images/8d30b66bf606aa64.png)
 
 **聚类做离群样本检测**
 ```
@@ -195,9 +195,9 @@ nSamples =nrow(dataExp)
 #head(dataExp)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKM1gWUvr1XH6J9CMeBDMMkHsWk4G8eRBDY53oiabicWQUxhygglrmvbNXA/640?wx_fmt=png)**hclust**
+![](../../images/059ee3383b9a2970.png)**hclust**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn47b39ia7VTUEwCHO8du68zYqaP6cJROuoI33cymUf9uXVEFHdDVdxelPblkBs6f1LbI8FibrEKLlNg/640?wx_fmt=png)
+![](../../images/8d30b66bf606aa64.png)
 
 **自动构建网络及识别模块**
 
@@ -251,7 +251,7 @@ text(sft$fitIndices[,1], sft$fitIndices[,5],labels=powers, cex=cex1,col="red")
 #sft$powerEstimate
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMOBrCdFQ5LibnZ0Nz4pibP01mJEQLZLuIbicTWr69flP2XibWBAo8RiaZB5Q/640?wx_fmt=png)
+![](../../images/99fc2e70eae66a57.png)
 
 **sft**
 
@@ -326,7 +326,7 @@ plotDendroAndColors(net$dendrograms[[1]], mergedColors[net$blockGenes[[1]]],
                     addGuide = TRUE, guideHang = 0.05,addTextGuide = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMPoWUicK4bR72hCFungC4rwNaIPiaa0Qy1ZgpYTInDFlicXPhrIjuy2VxQ/640?wx_fmt=png)
+![](../../images/f35f88cba1b0b5a2.webp)
 ```
 # module eigengene, 可以绘制线图，作为每个模块的基因表达趋势的展示
 MEs = net$MEs
@@ -346,9 +346,9 @@ plotEigengeneNetworks(MEs_col, "Eigengene adjacency heatmap",
                       xLabelsAngle = 90)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMbTVnGMfcJmW7mmT4AbVrtbvG8jN0FPWBVtmicDZMXuyicz6tNXVOJDBw/640?wx_fmt=png)
+![](../../images/c9c59d08465b8241.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn47b39ia7VTUEwCHO8du68zYqaP6cJROuoI33cymUf9uXVEFHdDVdxelPblkBs6f1LbI8FibrEKLlNg/640?wx_fmt=png)
+![](../../images/8d30b66bf606aa64.png)
 
 **载入表型数据**
 ```r
@@ -368,7 +368,7 @@ plotDendroAndColors(sampleTree, traitColors,
                     main ="Sample dendrogram and trait heatmap")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMQheibFJaDI4TM3hibBbUmjxvZtdBV7nTUYhG2CnPE9s0J0d572UgDVuQ/640?wx_fmt=png)
+![](../../images/7106a43aa9ebd1a1.webp)
 ```
 # 在样本聚类图的基础上，增加临床特征值热图
 ```
@@ -407,9 +407,9 @@ labeledHeatmap(Matrix = modTraitCor, xLabels = colnames(allTraits)[2:3],
                main = paste("Module-trait relationships"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMwR4PX1dUXS3pebxZ7UricCq5fhqibDqplCelsTbicMsdfWNEVSGZOAXdQ/640?wx_fmt=png)
+![](../../images/ef5b3d17e5a3e122.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn47b39ia7VTUEwCHO8du68zYqaP6cJROuoI33cymUf9uXVEFHdDVdxelPblkBs6f1LbI8FibrEKLlNg/640?wx_fmt=png)
+![](../../images/8d30b66bf606aa64.png)
 
 **选择感兴趣的模块进行分析**
 ```
@@ -476,15 +476,15 @@ verboseScatterplot(abs(geneModuleMembership[moduleGenes, module_column]),
                    cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMSPCYvomE5tsrDibnIshro9Fq36NxYMiaH5YLPStvljibzEbfm5gTXubEA/640?wx_fmt=png)
+![](../../images/09e093a8a0a819f3.webp)
 
 **verboseScatterplot**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn47b39ia7VTUEwCHO8du68zYqaP6cJROuoI33cymUf9uXVEFHdDVdxelPblkBs6f1LbI8FibrEKLlNg/640?wx_fmt=png)
+![](../../images/8d30b66bf606aa64.png)
 
 **导出网络用于Cytoscape可视化网络**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMzB4o1qzYMXnOspTCdPXXUib71SV3GTRrv22CYCP16XAq0TxSRh2eK5g/640?wx_fmt=other)
+![](../../images/8311616fcab63ee5.webp)
 
 Cytoscape_network
 
@@ -500,17 +500,17 @@ Cytoscape_network
 
   * 首先导入我们之前WGCNA分析后得到的两个用于cytoscape分析的txt文件。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMwjc1j8bOSibwqfDKDObqorXkI0XkLDib2JZEDvzxQ3ib2kemAH31TSd4g/640?wx_fmt=png) ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMG0Q5kr07o0wewx234G8CeFgdb32GrtY7Z51Z0uRNIOz3OZMxEm7FCg/640?wx_fmt=png)
+![](../../images/5e779404e8a2d086.webp) ![](../../images/821ba0170ee7eee6.webp)
 
   * 我们来看一下R中WGCNA导出的Cytoscape 两个txt文件 Cytoscape.edges.txt文件中包括了起始节点和目标节点的对应信息、相互作用形式信息，还有附加的临床性状和基因名等信息
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMyMia2f5frYHfs92A57Kiaom4LWwOztwq9iah0TFMkAcNaVPicDB5oQKc5A/640?wx_fmt=png)
+![](../../images/85e86d753e8389df.webp)
 
 Cytoscape_import_txt_3
 
   * Cytoscape.nodes.txt文件包含了节点的分组信息
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMQiaqrY0bIoNOKyx45mFtmD26o7NcroHy3wgdegV6kSX1rtCuByvD6icQ/640?wx_fmt=png)
+![](../../images/ea4f16059c1bbdf1.webp)
 
 Cytoscape_import_txt_4
 
@@ -518,7 +518,7 @@ Cytoscape_import_txt_4
 
 Advanced option中可以选择文件分隔符类型，这里我们是使用的默认TAB分隔。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMyibBwmVFPlf6iabZrILic59icQ2fIKgJKGvWW1tKywytApU9V35sdxw6vQ/640?wx_fmt=png) 导入文件时要选择每列信息的类型和导入与否 ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMs0iaweQtBQdVJ9ZANoTfiblnesLwvWWkw9vy79qZ6KRQqjZLHMiblAicaQ/640?wx_fmt=png)
+![](../../images/a524be556e728f91.webp) 导入文件时要选择每列信息的类型和导入与否 ![](../../images/560b6264678bc2db.webp)
 
   * 在导入文件时除了起始节点和目标节点之外，其他的信息都作为棱属性导入了，也可以将direction列作为互作类型进行导入
 
@@ -526,43 +526,43 @@ Advanced option中可以选择文件分隔符类型，这里我们是使用的�
 
   * 为了方便数据展示，删除了其中一部分的节点信息使得图像不会过于复杂 首先在节点信息中选择一部分的节点信息，右键选中节点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMDs2sR8BkUdP3s7OTQkxL9T4A5rG9G30hvBKGYOletbYFVfmjyxor2A/640?wx_fmt=png)
+![](../../images/433b088d3297f8c9.webp)
 
 **Cytoscape_vis_1**
 
   * 图中对应的节点会被选中（黄色），然后右键被选中的节点删除。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMVicbT74pFpQ8p81lh8Delib4nM8ciaBXC1fSibsmIcGRMK5PKub9HsNSFA/640?wx_fmt=png)
+![](../../images/6c1c02c16c40ef46.webp)
 
 **Cytoscape_vis_2**
 
   * 更新布局重新排布，也可以自动加手动去排布
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKM5oVKcRlsEcNebQsS8dsMWNIF69G77jxBMxWPAclIhRSYBSxApZBG3Q/640?wx_fmt=png) ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMlvRCsNx2enlibZVRUWnP4ra1GBL91HKIW2JQhk8mHnuiaD4ZNKdT1Xzg/640?wx_fmt=png)
+![](../../images/1da4c666795a4da7.webp) ![](../../images/be6c32a8e53cb836.webp)
 
   * 接下来我们对图像进行优化调整，首先在左边控制栏中的style选项卡中，可以选择预设的几种图象表现类型。下面的Node、Edge等选项卡可以分别调整对应的属性
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMFUYiceiciaP9AI3ul7ZJHafzYssDbwBEzYxVl2QibeVNVC99X0IeDVIJGQ/640?wx_fmt=png)
+![](../../images/23ac5adf40fc3c97.webp)
 
 **Cytoscape_vis_5**
 
   * 比如我们把节点的标签名用基因名来表示、根据节点类型来分别填充不同的颜色、添加分类变量以及添加一些自定义的图形等等，这些就靠自己DIY了。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwvKebxqws6oricGH5wwEMKMX6NwB3ia9jfjJPDaQGA2TIcUyrCiaEJ6KHSNE1JyRYe5CbS671UA5PKA/640?wx_fmt=other)
+![](../../images/8c545b0f5bdbfb51.webp)
 
 **Cytoscape_vis_6**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢
 
 #

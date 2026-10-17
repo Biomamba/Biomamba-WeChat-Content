@@ -37,7 +37,7 @@ DNA[甲基化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533713
 
 直播课表及日程安排：
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmaMxKuDlZBc2VP5icLu8uRIBfoD6sBRu9m7j7iafm0aNSBU5ee47B2kia0E0tSklsXN1ekfJr8nZYcmdlneVQWeERan2su84kDSY/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=0)
+![图片](../../images/f4126ef352cde3c4.webp)
 
 报名领取学习资料与服务器：
 
@@ -45,7 +45,7 @@ DNA[甲基化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533713
 
 联系客服微信[Biomamba_zhushou]
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpw5vseibw4AJeLibc53LNsLYccG1Cah2GcWO0d7AfeLr4eLQYElRu7oFsmO3BINPl6P2vfuuadKiaGWg/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=1)
+![图片](../../images/5e2a224c7379ff27.webp)
 
 活动时间：2026年6月1日-14日
 
@@ -59,7 +59,7 @@ DNA[甲基化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533713
 
 视频号
 
-B站![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwnhiclpwjnsgW3iaE650QcrX7cTTOyt5J4kC1iadDgf7jUbmqHxhtEoYjnv0iclhkrEDz0WQ4ZDo292ywjkbicvxtKZNsIXcC6rGmhs/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=2)
+B站![图片](../../images/cde7bbaaedc05a82.webp)
 
 直播课程资料下载： https://pan.baidu.com/s/178VMmt14Q04kaEFWDB7_VQ?pwd=1r2a
 
@@ -73,7 +73,7 @@ scDEEP-mC基于后亚硫酸盐连接标签（PBAT）方法，经过优化，通�
 
 之后作者对小鼠肠上皮原代细胞和培养的人类成纤维细胞进行单细胞全基因组亚硫酸氢盐测序（scWGBS）分析，对scDEEP-mC方法与其他方法的性能进行比较。作者首先通过测量细胞转化率来评估亚硫酸氢盐转化，发现scDEEP-mC以及大多数基于亚硫酸氢盐的方法在CpY上下文中显示出可靠的高细胞转化率。在CpA转化方面存在一些变异性，这可能是由于某些细胞类型中该上下文存在生物学甲基化。值得注意的是，PBAL和Cabernet方法的CpY转化率较低，这可能分别归因于它们所使用的基于珠子的亚硫酸氢盐转化方法和酶促细胞转化方法（Fig.1b、e）。除此之外，scDEEP-mC显示出最小的接头污染和非常高的比对率，总体而言，scDEEP-mC在所研究的方法中显示出最高的测序效率（Fig.1c、f）。作者还测量了每个文库的基因组覆盖度。scDEEP-mC文库的产量很高，即使在中等测序深度（每个细胞20M条读段）下，也能在非常严格的读段质量过滤下覆盖30%的CpG位点（Fig.1d、g）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMRHtlsMTAe6AhQHBe40kIT8zbZvKo1cClyfefdAyan0xYuTvU6VFu8icvNVGJCF2qgU14ViawR1h4g/640?wx_fmt=png&from=appmsg)
+![](../../images/6dafed2edabb321f.webp)
 
 Fig.1
 
@@ -81,7 +81,7 @@ Fig.1
 
 细胞类型和状态的鉴定是许多单细胞DNA甲基化研究中的重要第一步。为了展示高覆盖度、高效率的单细胞全基因组亚硫酸氢盐测序（scWGBS）的实用性，作者利用scDEEP-mC数据从小鼠肠上皮原代细胞中识别细胞类型。按照类型特异性的低甲基化区域，对每个细胞测量所有CpG位点的平均甲基化水平（beta值），然后按目标细胞类型进行总结（Fig.2a）。对每个细胞的每个基因启动子的甲基化水平进行总结，并使用层次聚类来识别具有相似启动子甲基化表型的细胞群（Fig.2b）。识别出两个主要的细胞群：肠细胞和免疫细胞（Fig.2c）, 每个细胞群包含两个亚组, 在一个肠细胞亚组中，参与吸收过程的基因（如Abcg5）的启动子未甲基化，而在另一个亚组中，涉及分化和发育的基因（如Nkx1-2和Satb2）的启动子未甲基化（Fig.2d）。在免疫细胞群中，作者推断两组分别代表T细胞（在Itk和Cd3复合体成员基因的启动子处低甲基化）和B细胞（在Blnk基因的启动子处低甲基化）（Fig.2e）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMRHtlsMTAe6AhQHBe40kITdzeYoCCdTllTNTlsHLMwvZcXJibJNnibHy8yOatLSCCDCJTNt1NhZSaw/640?wx_fmt=png&from=appmsg)
+![](../../images/2e9b1a80deac64f3.webp)
 
 Fig.2
 
@@ -89,7 +89,7 @@ Fig.2
 
 scDEEP-mC特别适合研究复杂且尚未充分研究的DNA甲基化现象，例如半甲基化（同一等位基因的参考链和互补链上的不对称甲基化）。一般来说，要准确测量半甲基化，需要三个数据点：细胞、等位基因以及甲基化信息来源的链。链的分配在比对过程中很容易完成，但同时确定细胞和等位基因一直是个难题。为了实现这一目标，作者开发了一个基于亚硫酸氢盐的、完全可重复的Nextflow流程（Fig.3a）。之后，作者在F1代小鼠肠上皮原代细胞以及培养的人类成纤维细胞中测试了这种ARM分析方法，在这两组样本中，每个细胞生成了近100万个CpG位点的ARM信息，其中包括每个细胞约1万个双链覆盖的CpG位点（Fig.3b、c）。ARM分析突出了scDEEP-mC的高覆盖度；例如，单个细胞就足以定义印记基因Gnas位点上两个等位基因的所有差异甲基化区域（Fig.3d）。由于scDEEP-mC能够在单细胞水平上测量等位基因和链解析的甲基化状态，因此它能够进行事后（post hoc）的群体特异性半甲基化分析（Fig.3e）。这种分析可以帮助我们更好地理解不同细胞群体中DNA甲基化的动态变化，尤其是在转录因子结合位点（TFBS）上。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMRHtlsMTAe6AhQHBe40kIT4ibqTBUzsicqZJEwBWd58BoWjwJ5rmIZ1gfwnp2cfPH2cDsicPJu0ibwDA/640?wx_fmt=png&from=appmsg)
+![](../../images/06c0914f05ba2bae.webp)
 
 Fig.3
 
@@ -97,7 +97,7 @@ Fig.3
 
 先前的研究表明，在连续有丝分裂过程中，晚复制区域的CpG位点更容易丢失DNA甲基化。这可能是由于DNA复制过程中产生的半甲基化CpG位点未能完全再甲基化所导致的。为了研究这一现象，研究者对早期传代和非常晚期传代的TERT永生化人类成纤维细胞进行了scDEEP-mC分析。利用公开的复制时间数据，研究者将基因组划分为13个分区，从非常早复制到非常晚复制。然后，他们测量了这些分区中未甲基化、半甲基化和完全甲基化的相对比例（Fig.4a）。在早期传代细胞中，晚复制区域的半甲基化比例更高，这与晚复制区域存在不完全再甲基化的假设一致（Fig.4b、c）。除此之外，作者还测量了每个成纤维细胞比对到早复制区域的读段比例和ARM不一致性，并能够区分几类细胞（Fig.4d）。对不同复制阶段细胞的甲基化状态分析，早期S期细胞只有少数区域具有4n拷贝数，随着细胞进入S期的后期，基因组的更多区域获得4n拷贝数（Fig.4e）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMRHtlsMTAe6AhQHBe40kIT8ZTxZXVc1xOwGd1LibLLxVSLTUoXjoan3kBUAia07ECsP0lMRLcrBRKg/640?wx_fmt=png&from=appmsg)
+![](../../images/7602bdaea823fcd4.webp)
 
 Fig.4
 
@@ -107,7 +107,7 @@ Fig.4
 
 为了验证作者的分析方法，他们还利用小鼠细胞数据集进行了试点研究。小鼠基因组计划提供的高质量分相SNP能够定量验证分析结果（Fig.5d）。结果显示，通过NMF推断的细胞组和等位基因测量的甲基化状态与真实测量值非常吻合（Fig.5e-k）。进一步说明了通过使用NMF分解，作者能够从单细胞数据中推断X染色体失活状态，而无需依赖全染色体范围的SNP分相。这种方法不仅能够高置信度地判断每个细胞的X染色体失活状态，还能在没有高质量分相SNP的情况下进行分析。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMRHtlsMTAe6AhQHBe40kITHjXphABrgjib8jJRCmNQMv0omKRGaDvWMre4TiaPbEDeTzNvmOB1jmZg/640?wx_fmt=png&from=appmsg)
+![](../../images/6419cbf566895e58.webp)
 
 Fig.5
 
@@ -115,7 +115,7 @@ Fig.5
 
 接下来，作者探讨了延长培养对雌性人类成纤维细胞中X染色体失活的影响（Fig.6a）。通过测量细胞中等位基因解析的beta值在CpG岛（CGIs）上的标准差，作者观察到早期传代细胞在X染色体上表现出高方差，这反映了细胞群体中X染色体失活状态的随机分布。然而，晚期（TERT永生化）和非常晚期传代细胞在X染色体上的ARM方差显著降低，表明细胞间X连锁CGI甲基化多样性减少（Fig.6b）。分析结果显示scDEEP-mC能够提供两条等位基因上众多位点的等位基因解析信息，从而在每个细胞中高置信度地判断X染色体失活状态。与基于转录组的方法相比，scDEEP-mC能够更准确地解释每个细胞的X染色体失活状态，避免了因转录本稀疏性导致的不确定性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMRHtlsMTAe6AhQHBe40kITliafaWziaUOo3xWkMvecRoqiayjRc3lkicCCqjiboO7icCQdQ85C9PIBSzyQ/640?wx_fmt=png&from=appmsg)
+![](../../images/495e469ef254c70a.webp)
 
 Fig.6
 
@@ -123,16 +123,16 @@ Fig.6
 
 传统的单细胞[DNA甲基化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535047&idx=6&sn=2939e5c0e58f2d00df312c57cb1fa40e&scene=21#wechat_redirect>)研究方法存在局限性，例如基于转录组学的方法无法提供失活染色体的详细信息，而现有的单细胞全基因组亚硫酸氢盐测序方法要么覆盖度低，要么效率不高。这篇文章中作者开发了一种名为scDEEP-mC的单细胞全基因组亚硫酸氢盐测序方法，展示了scDEEP-mC在多个方面的应用，包括细胞类型鉴定、等位基因解析的甲基化分析（ARM）、研究复杂的DNA甲基化现象（如半甲基化和X染色体失活），以及在单细胞水平上分析DNA甲基化维持动态。此方法应用前景广阔，有望成为研究正常发育和疾病中表观遗传调控复杂性的宝贵工具。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=14)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=16) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=24)**
+**![图片](../../images/0afa34cf8c4b5e66.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=28)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

@@ -16,7 +16,7 @@ albums: ["单细胞教程全收录"]
 
 简单来说，可以完成一种“更高级”的差异分析，能够识别更细微的单细胞差异。需要注意的是，github的版本已经不再更新维护了，最新的教程可以参考`scvi-tools`上发布的版本[1]。
 
-![image.png](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl5oVhBgjMibbKvvJqoVicmXtmjW8SoaiaYh8TaaFiaNuj3gGfvaUiatJRvdACcklACTrgEFia4DKQK2wQrEMDkVOtNqMeABzmjoX42E/640?wx_fmt=png&from=appmsg)
+![image.png](../../images/0e92a4df4070384d.webp)
 
 更多课程：[Python版scRNA-seq分析全流程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533067&idx=1&sn=7ef76058cbcf7bd45f58147766c75854&scene=21#wechat_redirect>)[Python 空间转录组全程班](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21#wechat_redirect>)如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21#wechat_redirect>)**指导** 、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)、自测数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]。
 
@@ -60,7 +60,7 @@ contrastive_vi版本：0.2.0
 ```
 
 内核布置成功后，能够在jupyter的kernel中找到你提交的环境名称：
-![image.png](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlZY15OSRL2ISTpz7DicPMznPbKRd8TD7UyXRXrU5PNQVttZd6dcnibUX0zWFytiaPL5MCNURh5s9fTovVY6bM8kkPFXHxgXdnCys/640?wx_fmt=png&from=appmsg)
+![image.png](../../images/3cdda67e0b8d66e9.webp)
 
 （2）急性白血病演示数据
 
@@ -118,7 +118,7 @@ Categories (3, object): ['healthy', 'post_transplant', 'pre_transplant']
 # 看一下数据概况import scanpy as scimport matplotlib.pyplot as plt# PCA降维：sc.pp.pca(target_adata)# PCA可视化：fig, ax1 = plt.subplots(1, 1, figsize=(5,5), gridspec_kw={'wspace':0.7})# 设置绘图参数ax1 = sc.pl.pca(target_adata, color='condition', ax=ax1, title="Transplant Status")# 可视化# 寻找临近点：sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)# umap降维计算：sc.tl.umap(adata)# umap可视化：sc.pl.umap(adata, color='condition')
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlBwNS4YgcFticmKX4Hu8ujxZwuxZXUhDYDQib1hU4x6WxerpfOiaGMqOjdHWEhrECQ7iabiaiaEoznddibpeqTSFSj3eN3QupNr0RZXA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/7d4fd5ccdab16070.webp)
 ```
 /data2/analysis/biomamba_tutor/miniconda3/envs/contrastive-vi-env/lib/python3.9/site-packages/scanpy/tools/_utils.py:41: UserWarning: You’re trying to run this on 2000 dimensions of `.X`, if you really want this, set `use_rep='X'`.
 ```
@@ -129,7 +129,7 @@ Categories (3, object): ['healthy', 'post_transplant', 'pre_transplant']
    warnings.warn(
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkpaDJTpuo6ykLbNNLQeG91VoQ1PyYRA72WGxBKemEBg5z5BicR4HHEH2D7Cqg3JUlDPNpWrKY3sqGSfCVWtwhibAPLz6TlOSiaGA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/3e7616e31de73455.webp)
 
 ## 2.2 训练数据
 
@@ -237,7 +237,7 @@ INFO     AnnData object appears to be a copy. Attempting to transfer setup.
 # 这时你就可以看出post_transplant和pre_transplant之间的降维差别：sc.pp.pca(salient_adata)fig, ax1 = plt.subplots(1, 1, figsize=(5,5), gridspec_kw={'wspace':0.7}) # 设置绘图参数sc.pl.pca(salient_adata, color='condition', ax=ax1, title="Transplant Status") # pca降维图
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkdl4FpKQdgZXHLCczPtoQkO4vUT2ZxHoPibv2rKOSaaF5L8jxvRLRw3dIoV7XggBzrAsGTS4TZaQnXlA63Wj0jGZr5n9ruUsUI/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/38c9fab98cb447ee.webp)
 
   *   *   *   *   *   *
 
@@ -245,7 +245,7 @@ INFO     AnnData object appears to be a copy. Attempting to transfer setup.
 # 寻找临近点：sc.pp.neighbors(salient_adata, n_neighbors=10, n_pcs=40)# umap降维计算：sc.tl.umap(salient_adata)# umap可视化：sc.pl.umap(salient_adata,color='condition')
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmFNiapYkYviaUQTkTSWcpG9giadn3k3PVtR5hicIJHkGDaLde4IfUgO2FUE8uq92vPcksUN9hVagphTjqcNdVoKEjicITicGj7Kbrh4/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/19f555f9326a8455.webp)
 
 我们还可以通过调整后的兰德指数（ARI）来量化不同感染类型下细胞分离的效果。该指数的取值范围在 0 到 1 之间，分数越高表明分离效果越好。
 
@@ -313,7 +313,7 @@ adata.obs['condition'].unique()# 该数据共有三个分组
 /data2/analysis/biomamba_tutor/miniconda3/envs/contrastive-vi-env/lib/python3.9/site-packages/scanpy/tools/_utils.py:41: UserWarning: You’re trying to run this on 2000 dimensions of `.X`, if you really want this, set `use_rep='X'`.          Falling back to preprocessing with `sc.pp.pca` and default params.   warnings.warn(
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkiaMq7fwKOU7EbzzbewGVYSKl4ia30RCWxON0UJzxp20hVESltkAXZ4jcNzq7ibZ5ick8k47XubrryTic5Mct1sA4icetLhWGib7WHxA/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/685c0350fb19bb55.webp)
 
 哪个生信人不想不同变量之间分离的比较开呢，但实际上总是事与愿违，可以看出，无论是感染类型之间、还是细胞类型之间，细胞都存在互相粘连的情况。
 
@@ -378,7 +378,7 @@ INFO     AnnData object appears to be a copy. Attempting to transfer setup.
 ### 处理后的降维 ###sc.pp.neighbors(target_adata, use_rep="salient_rep")sc.tl.umap(target_adata, min_dist=0.1)fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10,5), gridspec_kw={'wspace':0.7})sc.pl.umap(target_adata, color='condition', ax=ax1, title="Infection", show=False)sc.pl.umap(target_adata, color='cell_type', ax=ax2, title="Cell Type")
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnq9pNGg2icEmK3qvShc8h2kicOakK8JRlY1Yp4TByEcyQDPjamWibO8icsbBrOia4nnlgdg2qN89LPyIK9X8PWuuhlsbUrXTFaMKNU/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/607e3912f5e782fa.webp)
 
   *   *   *   *   *   *
 
@@ -386,7 +386,7 @@ INFO     AnnData object appears to be a copy. Attempting to transfer setup.
 ### 处理前的降维，高下立判 ###sc.pp.neighbors(target_adata, use_rep="background_rep")sc.tl.umap(target_adata, min_dist=0.1)fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10,5), gridspec_kw={'wspace':0.7})sc.pl.umap(target_adata, color='condition', ax=ax1, title="Infection", show=False)sc.pl.umap(target_adata, color='cell_type', ax=ax2, title="Cell Type")
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm4vZFUhuNrFrkn1weEVnQFNoOGfNocuHGbaUrSV0IiaUicYRicFsSvLR0W3Z2cGyYPhB1oBHWr2CA9PfkGExnEExR8fu1PyUatkc/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/0dd20f71a999f3ed.webp)
 
 可视化一下，可以看出感染类型之间的分隔已经非常明显了，这里我们也给大家留一个小作业，如何实现展示各细胞类型的差异？
 
@@ -485,7 +485,7 @@ INFO     AnnData object appears to be a copy. Attempting to transfer setup.
 <Axes: title={'center': 'Background Latent Space'}, xlabel='UMAP1', ylabel='UMAP2'>
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnib8zWicBkzqJAanTiaqNAKHSfNvpItBMOtSlVqKKn0qib9ZF5HzfVicKziah8zP26bMslXBotUXooz4g9WJ8pj74IYUhNqTJkHWhNc/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/271d7f5f6e2c75de.webp)
 
   *   *   *
 
@@ -511,7 +511,7 @@ INFO     AnnData object appears to be a copy. Attempting to transfer setup.
 <Axes: title={'center': 'Leiden Clustering'}, xlabel='UMAP1', ylabel='UMAP2'>
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlayibESsh9nSvicwN9bViaXVfHCPUbsGmUlmwZe5EibDdF9AGicAicBRqjVTq8Rib56OCMDzVLKYu8rOfEvV2u6CM6CPvibZDqiap1ojT0/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/4da0cae693860319.webp)
 
 根据作者提供的变量，我们发现这一分群与性别呈现出很强的关联
 
@@ -524,7 +524,7 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10,5), gridspec_kw={'wspace':0.5}
 <Axes: title={'center': 'Leiden Clustering'}, xlabel='UMAP1', ylabel='UMAP2'>
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmME17ZqHqBdKJYxfVibQ7ic3KRRndTdpqwKqR6HGflb8Bpx7aZtyr4LdibL68wrHLiafdtfGpjhcp3ibSKaDCGzdeibOL6DCtjibLWyw/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/d1aae9da8e410d03.webp)
 
 ## 4.3 基于`contrastive VI`的差异分析
 
@@ -652,7 +652,7 @@ Index(['GPR63', 'IPO9-AS1', 'NLGN4Y', 'ZNF765', 'CTB-107G13.1', 'PCSK2',
 target_adata.obs
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwltM2t42MW3wJEicVGsOb33LtB8Gvmajb7WIocNCOunSibE4jkmjML9gvpaopEQwhFIWcNfBIxTsJwOx9CicHDneviaCDJzNiaQ4vuA/640?wx_fmt=png&from=appmsg)
+![](../../images/9b8df9d7acee3aec.webp)
 
   *
 
@@ -696,7 +696,7 @@ AnnData object with n_obs × n_vars = 179 × 2000
 # 导包from anndata import AnnData# 获取标准化后的矩阵adata_normalized = AnnData(    X=model.get_normalized_expression(target_adata)['salient'],    obs=target_adata.obs,    var=target_adata.var)# 做切片查看OPC的差异基因adata_tmp = target_adata[target_adata.obs['cellType'] == 'OPC'].copy()axes_flat = [item for sublist in axs for item in sublist]genes = top_genes_per_cell_type['OPC']fontsize = 24sc.pl.umap(adata_tmp,color = 'sex')for gene in genes:    sc.pl.umap(adata_tmp,color = gene)# 感觉这里作者有点翻车，对应差异基因在两种sex间并未展现出很明显的差异
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkZic0qo6fQQMmr6VMaEbMvnBzLf1j8icTY1fXGfzml0T4bPE1tM6PZNPiaBWFHqegbWBE0qwI914ReTfTznvY8gID458mmy531pc/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkNAQ6DJvW73klibXUy4Qfiace6iclJDOjKia4WzExiceFjC4O0dWV0IkSd0H28Vhgiaia7OM9vZG55Ntla97m4nupGTyamQHkYRBDNHY/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnPbNgVicDJIIiciad8Kd4IibdTwNtjfIrWthRojnic5FyBQ2XB5XqDukWHRn9VvesfVde4efradcib1AGLhIia8ZKSvPDAAsS7wFLew0/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlhNX63hOQMzgv3G0uyZmyavkyc6hYDkeicWrxhj54DLcUcd2iaHibz5zL7Pv44VB0L28ZUK9ibicicRficx86lNmP9fdNKAXoAC28CR8/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlcZCcicWN1DdjuA1ia6Gic96gQRM6Nbica17XclxaTcia0ibYDf0B7aibrvwmFXEBEups71wibIVa6c7TGlm4jg9Yibd4icoJOrAAAmS0cg/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmAopf7O9s6fm7eoiajL7uNYqjmzKGW9M7gdMJNAibLOaOKkzcgqCcsniaCTLrRwXt3fnpn7bf7Wia2nf9jflSgeVWPjYlRFgQhvSQ/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwncgZaHclRVQpAKKibqQI31FdrWPdUmrS2cOQz2wyk1gvaLwalB5YJ7P96QG011iavAMgt97C6YCEYcD97RpLRuQxqvJyeQ1dj8M/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlZ1848xa9cweia78tHH9jKF2MZUNM6UawUR9TWR14JuWyI9mZ1ib3cOjicxYn0zG1uCWFibjqqFia7HFB1rlOvSyLKB5bSv6bFyKv4/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl2EM9OtAdF41LWvjiboFcQtVwatx7icxCRsSI4OJjWqAzTtpY5FSk1FRI2ibCiaMhUoDiciaWegfUG4mqSd2L7EGepS6iakDZECAIRlI/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmh8df2INWCBZibAsfcia84NOqnQkINgPNH1fUibu76OWB6ZKRtFGP6IHGkqAib2N6STkReMhxWwibSsiashJj8IoqhNVq54YibOvibla8/640?wx_fmt=png&from=appmsg)![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn8rSdNkPbnG94KUyc21LvDXvBIs5AbqIFhq593B9VFT3IDbibNMCxZU7XuhBWxbDs35ibLvvclXxbnRnicX3B9SMqRujGicdDx1lE/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/a9bc6cb01fde89de.webp)![No description has been provided for this image](../../images/a6514188c1ad148a.webp)![No description has been provided for this image](../../images/4fe9c6c8319cefb8.webp)![No description has been provided for this image](../../images/be9bf67e150f90b4.webp)![No description has been provided for this image](../../images/d36347bbf67bf17a.webp)![No description has been provided for this image](../../images/51128b2ddcf0e412.webp)![No description has been provided for this image](../../images/c9b061b840375826.webp)![No description has been provided for this image](../../images/702f5a86847e943e.webp)![No description has been provided for this image](../../images/1e2984265ec3dee9.webp)![No description has been provided for this image](../../images/072d1decb524e593.webp)![No description has been provided for this image](../../images/c240dbcd4b5e9bd5.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -704,7 +704,7 @@ AnnData object with n_obs × n_vars = 179 × 2000
 # 倒是作者给了几个基因，在sex间的差异倒是挺大fig, axs = plt.subplots(2, 2, figsize=(10, 10))cmap = 'magma'axes_flat = [item for sublist in axs for item in sublist]genes = ['HSPA1A', 'DNAJB1', 'LINGO1', 'BOK']fontsize = 24for ax, gene in zip(axes_flat, genes):    s = ax.scatter(        target_adata.obsm['X_umap'][:, 0],        target_adata.obsm['X_umap'][:, 1],        c=adata_normalized[:, gene].X.reshape(-1),        cmap=cmap,        s=3    )    ax.set_title(gene, fontsize=fontsize)    ax.set_xticks([])    ax.set_yticks([])cbar = fig.colorbar(s, ax=axes_flat)cbar.set_ticks([])cbar.ax.set_title("High", fontsize=fontsize)cbar.set_label("Low    ", rotation=0, y=-0.01, fontsize=fontsize)
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwld55ibVxskFk8UG9LZT0LWxCkqJNKwToDlENmeicsTezNbyNgr6a3EzofXLL2WfQUUKyIicOLQkbv5cYaEYY2nzf33IuaNfLaicR4/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/774ec0ac41c56a28.webp)
 
 **三、参考**
 ```
@@ -729,13 +729,13 @@ AnnData object with n_obs × n_vars = 179 × 2000
 
 一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnos4NrAIJedfdialbS8exWulEgv3IBjZwxaTNkTQuwV6y8cicIB3LJXZicKhGqWM2VJ8Sxon4MdzDchmUvKcSJDRdiaZH9lQxwLgc/640?wx_fmt=png&from=appmsg)
+![](../../images/b686bfc04445bcc1.webp)
 
 链接: https://pan.baidu.com/s/1-1kNq7mMJC60_3UTARnx3A
 
 提取码: uw9n
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmx4vtcy2hXrTy4VQaXiciabNVujBp1FuibJsFvSkdRxJW0LicE4kwqStJHQdDCSOWsgwL9Dno9En81Q6z2kWVccdZviadjqVpaaQxM/640?wx_fmt=jpeg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![](../../images/444a941ae3faf21b.jpg)![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -768,16 +768,16 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](../../images/4ec66ccdb832fd05.gif)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

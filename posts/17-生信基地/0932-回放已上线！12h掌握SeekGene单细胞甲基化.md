@@ -22,7 +22,7 @@ albums: ["生信基地"]
 
 在此基础上，整合单细胞多组学信息以系统性解析“表观遗传—转录—基因组”协同调控关系，已成为当前研究的重要方向。SeekOne® DD单细胞DNA甲基化+转录组一胞多组学技术应运而生。该技术依托成熟的微流控油包水（droplet-based microfluidics）体系，通过Cell Barcode凝胶微珠实现对单细胞核酸分子的特异性捕获，并结合专属连接与建库策略，可在同一细胞内同步构建转录组与DNA甲基化双文库，实现对单细胞层面多维信息的联合解析。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlichgtibQibcrUlOKUOtaxxDKxEYa7yapkpktMB19ibBL4MsCibfQ5nOUlc9phI1hqZptH6FA8dpic5ibqiajDNk9plrCBiaHwRJG9lWN4/640?wx_fmt=png&from=appmsg)
+![](../../images/d7abaad5dd9b6603.webp)
 
 具体而言，该技术能够在无需分样检测的条件下，同时获取单细胞的基因表达信息（转录组）、表观遗传修饰状态（DNA甲基化）、基因组拷贝数变异（CNV）以及免疫功能相关信息（免疫组库），实现“四维一体”的多组学同步解码。这种一体化检测策略不仅显著提升了实验效率与数据一致性，也增强了不同分子层级信息之间的关联分析能力，为系统解析细胞状态转换及其调控机制提供了更为强大的技术支撑。
 
@@ -32,7 +32,7 @@ albums: ["生信基地"]
 
 技术可同步捕获单个细胞的DNA甲基化（表观调控）、RNA（基因表达）核心信息，同时兼容肿瘤CNV（拷贝数变异）解析，直接建立同一细胞内多维度分子特征的因果关联，解决传统多组学研究中“不同细胞分群关联”导致的假阳性问题，为肿瘤异质性、免疫逃逸、细胞分化等核心机制研究提供更精准的实验证据。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwluicmQBOzfwKn213cxPL0tPqjOUBqXZQYgZQNWldhia0NCfgkOdjtGBc7Um6HhYasbWGmJNGPuibPJlgACRpmWbezLeib0tKJ73CQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/6b9bc3584523a829.webp)
 
   * **2、高通量灵活适配，兼顾珍稀样本与大规模研究**
 
@@ -44,9 +44,9 @@ albums: ["生信基地"]
 
 值得关注的是，SeekOne®DD单细胞一胞多组学技术的核心性能，已通过多项严谨实测数据充分验证。从细胞捕获效率、文库构建成功率，到多维度数据关联性、重复性，均表现出优异的稳定性与可靠性，进一步印证了技术的临床转化价值与科研应用潜力，为全球科研工作者提供了值得信赖的技术工具。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmccdSv2kah3oMYRT6UA1qlTMQJ7wRuz8XnnbEDLZmhO7FT7jmPffSrAM0fjtc4ibR0ss1dcr8J7KT8lLhibWicicpRU09EpicgO3As/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/44850ffb2e7e3ca1.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwkybPboQEeyQUa6sOSeayVxmjx90RdmKucN35426rJgJfz3tcMYPEkFo7usNSwwSNp40IT3vT3WDMcex0HCianricNwvxu68ShKU/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/87f41a8b4fa48a11.webp)
 
 B站：https://www.bilibili.com/video/BV119j36XEph/
 
@@ -58,7 +58,7 @@ B站：https://www.bilibili.com/video/BV119j36XEph/
 
 课程视频包含的内容：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlqwicyVd2pdicVLOQiapCfyiaBicGE24aB72fiaXvD5fjXr4mrYTFzdUbouicyfbzbICp4Gj5RQaTMsEQk8WEbItzFibLxuVRYd6lKOps/640?wx_fmt=png&from=appmsg)
+![](../../images/24913b5619072a50.webp)
 
 现[单细胞甲基化课程](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538223&idx=1&sn=2be2cf61a27b9a5def3b5f0bad4d152b&scene=21#wechat_redirect>)回放已制作完毕~，整整12.8h内容，涵盖36个精心录制的课程高清视频(共计14.41GB资源)，专为小白学习者量身打造，可“手把手”的带大家完成单细胞甲基化学习。助你一站式学习[单细胞DNA甲基化分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538066&idx=1&sn=65cfc72d44539598b994922f8e33d0a9&scene=21#wechat_redirect>)！配套课程专属免费[西柚云服务器](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535166&idx=2&sn=431238cb95bd4281424130333f6610c3&scene=21#wechat_redirect>)和[镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)，助力大家轻松上手实操！
 
@@ -72,7 +72,7 @@ B站：https://www.bilibili.com/video/BV119j36XEph/
 
 提取码：联系客服[Biomamba_zhushou]领取并添加学习群
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fe8ecb8594a1f419.webp)
 
 SeekGene单细胞甲基化课程
 
@@ -185,7 +185,7 @@ SeekGene单细胞甲基化课程
 
 9.8 基因水平 CNV 可视化
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlicVnohF9Eveib5OelldA1QDM8Mk8m1A3JicPf4wtqM7YfOf0gzPu0CfXJO3szKQForFlC9yA61dese5CwicicA8G5us5xqicb9Olho/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmPZHTVkJ0tZNpZvqbPvoq3lCTibyr0ozcFMbiaq8eDWGID12ZrQ4GWCdYrlxFRBt4M9brRbjSGFqqA2MvmVe6ngbEuBwuu2bpdc/640?wx_fmt=png&from=appmsg)
+![](../../images/2120b4796b610cf2.png)![](../../images/c76fde3535b1bfa2.png)
 
 测试文件，总大小238.85GB
 
@@ -201,8 +201,8 @@ Biomamba生信基地还可以提供
 
 **西柚云官网注册( https://biomamba.xiyoucloud.net/)、联系客服微信[Biomamba_zhushou]获取学习版服务器的优惠码、零元下单[学习版服务器](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532717&idx=2&sn=eb98e578098b9f432ea6ecbdc3c0d74b&scene=21#wechat_redirect>)。**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwksqiaNrq02xwM5IXmlibibZzQ18uwib7cHicvPOgBfRdusmfKof4VgkzGS1miaAgOPo7om0mvsnuVCnNFpWicWccbIGOkFLEwIBjnwFc/640?wx_fmt=png&from=appmsg)
-激活服务器实例后使用对应镜像，镜像中布置了R 4.5.1，预装SeekSoulMethyl、Conda等本教程所需环境与工具，可以开箱即用的配合此次课程。![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmR5FicZB2eDDibYv1OttXlFgUzCRZqeibicXk7OialicYgaicicnVut6N7bUUansO86ZHHI6TEopaMD3KMib4jZG0XeTJnhXKrLJ0MJmWQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3457677f51309110.webp)
+激活服务器实例后使用对应镜像，镜像中布置了R 4.5.1，预装SeekSoulMethyl、Conda等本教程所需环境与工具，可以开箱即用的配合此次课程。![](../../images/a45da60ec44fe86a.webp)
 
 **
 **
@@ -619,8 +619,8 @@ Biomamba生信基地还可以提供
 
 └── 单细胞甲基化手册.html
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwmqdmyxv8uPgt1G2SSAIvZ6cescuVRPWTvHo5fEjEUiaEtCEK5IDn3UgVIOHibdwQeeJLkkEVhVIVSROlKibleYyws7j2ib5BiaXwDk/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=10)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_yunying]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/a565d9f1d91c5a6e.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

@@ -19,12 +19,12 @@ albums: ["单细胞教程全收录"]
 
 一个重要原因是：**Seurat V5 对` future` 并行计算的支持发生了变化**。在 Seurat V4 中，我们可以通过 `future::plan("multisession")` 让 `ScaleData`、`FindAllMarkers` 等关键步骤实现多核并行加速；但在 V5 中，这种并行策略**不再有效** ，甚至可能导致性能下降。 Seurat 官方在 GitHub Issue #9488 中的明确回复，“Unfortunately, future is no longer supported in Seurat v5”。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnTe0NXibcACheKYZ177SB52CkB9ZFXIv1plcibq0lX66yJ78We3Xs3lVANA8Sq9SFNrkN7vib0r4kFVM7nxgasbTRj9pVicNPyf5c/640?wx_fmt=png&from=appmsg)
+![](../../images/ff8bf7e412838455.webp)
 
 本教程将通过**同一套数据、相同分析流程** ，分别在 Seurat V5 和 Seurat V4 环境中： - 测试 `sequential`（顺序计算）vs `multisession`（多核并行）的实际表现 - 用 `peakRAM` 和 `system.time` 精准记录内存与时间开销 - 直观展示 V5 与 V4 在并行计算支持上的差异。证明future的确会让Seurat V5性能下降。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwndbuPSR9GzyW6DbISj9kYa83uJzXfA2SiavKTG3I5Tibpia5Bj1EtL40qXdjNaLW2Gs7vvAIcjSCYP9lQ3C99ZuJ4SKpzduCUVwU/640?wx_fmt=jpeg&from=appmsg)
-核心结论是：1、V5比V4快了近一倍2、V5占用的内存也比V4大了近一倍3、future并行计算对V4可以生效，但对V5时计算效率反而只有顺序计算的86%4、future并行计算在PCA(~9%)、UMAP(~31%)计算时仍展现出一定的加速能力不过真想要速度快，还得看python：[挑战用Python分析一百万个单细胞数据](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534670&idx=1&sn=7178b77f1efe4ca253f90b9121231204&scene=21#wechat_redirect>)[![图片](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkjDfrmn1HosHMdGJ0dPnib86kWibUW6nh1v512Bqqia3jrJp0WBQexgl9SVUwDS3lE8WxAzbuzys4yrYHtQRankoQGp1b5WNZf4k/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=8)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539059&idx=1&sn=5707529e91b0bcb7577947f0b6383cf8&scene=21#wechat_redirect>)
+![](../../images/542c54c0e71dff38.webp)
+核心结论是：1、V5比V4快了近一倍2、V5占用的内存也比V4大了近一倍3、future并行计算对V4可以生效，但对V5时计算效率反而只有顺序计算的86%4、future并行计算在PCA(~9%)、UMAP(~31%)计算时仍展现出一定的加速能力不过真想要速度快，还得看python：[挑战用Python分析一百万个单细胞数据](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534670&idx=1&sn=7178b77f1efe4ca253f90b9121231204&scene=21#wechat_redirect>)[![图片](../../images/849b688a8624924c.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539059&idx=1&sn=5707529e91b0bcb7577947f0b6383cf8&scene=21#wechat_redirect>)
 
 **二、实测过程**
 
@@ -410,7 +410,7 @@ print(p1 +p2)
 }
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwk2jtlic9PhmO7ozGGKm2uscw6dA1B0FjmrX3obv0fFzyQ4nXFqkRCVCwJJUkL3seLP89vsG8MhJC9Q03WkRxaZ32dfq7zEh6zw/640?wx_fmt=png&from=appmsg)
+![](../../images/4dd5ea7ce1dc7de6.webp)
 
 ## 2、加速比瀑布图
 ```r
@@ -437,7 +437,7 @@ expand_limits(y =max(speedup_data$Speedup) *1.2)
 }
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnnRZCxnD3P9SEozKFMUTaMqCOXRuFzjpBV4vFTj73xx8ic6mgKcTGibqn6wzhza4ibooLqSYuicATwkXvY3IHibIicvqDbl88BtGwJs/640?wx_fmt=png&from=appmsg)
+![](../../images/1be1c274a5dfbe59.webp)
 
 # 六、深入到单个函数级别
 
@@ -551,7 +551,7 @@ theme_minimal(base_size =14) +
 theme(legend.position ="none")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkx3rKeLcfkH1PFhT6yF10AkCqv6YNCFdq8Z0EUXAc8ZWn4Z2rzWLjKoCticuOiboDlI3ZyORB0qDce4GTA7pZHaxUuTBqmhxl0U/640?wx_fmt=png&from=appmsg)
+![](../../images/d626b915b4ce4e37.webp)
 
 # 七、为什么 V5 不再支持有效的并行？
 
@@ -705,9 +705,9 @@ sessionInfo()
 ## [112] mime_0.12              MASS_7.3-64
 ```
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)
+![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

@@ -14,17 +14,17 @@ albums: ["空间转录组"]
 
 [ 此前我们在分享](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501296&idx=1&sn=cf4762197652fb023618bea6234f6343&scene=21#wechat_redirect>)[《Nature》空间转录组综述时学习过，空转平台可按信号测定原理分为](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501296&idx=1&sn=cf4762197652fb023618bea6234f6343&scene=21#wechat_redirect>)image和NGS-base，但站在应用端，也许我们更应该关注空转平台的分辨率，划分为单细胞、亚细胞、多细胞，更有利于我们挑选符合自己课题设计的平台。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpynLSufCxrjiaib6lNbkJYAMq5iat6xTD90uC3buy0NzYZUeYiadia2V82ZibI38mE47IGNOiaIUM7x9JGbA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=0)
+![图片](../../images/263921758f83cf63.webp)
 
 [空间转录组](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2879312479804489730#wechat_redirect>)学是一种能够在组织空间上下文中同时分析基因表达的方法，为理解组织结构、细胞类型分布和细胞互作提供了新的视角。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnP0a8YDibwF9CQxGCPF7b6uibxAwb8rXsctVxGeeBbicTicYQebicuURgib9m5ibhF0zRNmrB5odmPxVxddsxTiaMwERuviaPu81fA1rKk/640?wx_fmt=png&from=appmsg)
+![](../../images/92b812acc413e806.webp)
 
 本文将介绍：空间转录组概述（主要是阐述发展历程、技术分类、平台对比）和**上游测序数据定量 （主要介绍三大平台10x Visium、 SeekSpace、Stereo-seq软件安装、定量实操、读取andata对象等手把手教你学会上游定量分析）**
 
 如果你想彻底吃透[空间转录组](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2879312479804489730#wechat_redirect>)全套内容、跟着老师系统学习，可以报名参加我们的课程：[Python空间转录组数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21#wechat_redirect>)
 
-[![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzOh834AJ9MtyUQk7OLY4pIccN3EStWspPNwBnHibJmhbfJTe27SzpY4b1Qjic5nVBJXeQficIJrn75Q/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=0)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21&token=1258697299&lang=zh_CN&poc_token=HMBPW2qjSKdDOXcv4X0Q9B4dmudp4aDIek9Wo0rM#wechat_redirect>)
+[![图片](../../images/85b902e5e0713493.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247533721&idx=1&sn=9648ed4701224e5d2e4c704d7046d9de&scene=21&token=1258697299&lang=zh_CN&poc_token=HMBPW2qjSKdDOXcv4X0Q9B4dmudp4aDIek9Wo0rM#wechat_redirect>)
 
 **二、**空间转录组概述****
 
@@ -50,7 +50,7 @@ albums: ["空间转录组"]
 
 4、多组学整合：空间转录组 + 单细胞RNA-seq + xxx
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlznGyVcdapianNN6JrlGjcz3ucCyt6lgR4jibicN3NUdUR04dTjX6QBwFmM4pwgrIX8UkmpoJ4CePX4KtB4ibx0h1blBzIc0FfAZ4/640?wx_fmt=png&from=appmsg)
+![](../../images/0100c9b5843991fc.webp)
 
 ## 2.2 常见技术分类
 
@@ -58,7 +58,7 @@ albums: ["空间转录组"]
 ---|---|---|---
 基于条码捕获| 10x Visium、Slide-seq、SeekSpace、Stereo| 高通量，覆盖整个组织| ~50-100 μm
 基于成像| MERFISH、seqFISH+| 单细胞/亚细胞级别，高分辨率| <1 μm
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn4NtwKXv6sw3fldnvg6WvnJlaKrtVrLsn7UaF067BHdPxWfhz5dNBLV1LyEoBpZiadKGN9zbgdaTtYs8e1AEnpeKL5A6S6lVhQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f54aaf285a1ee14e.webp)
 
 ## 2.3 分辨率划分的平台代表
 
@@ -78,11 +78,11 @@ albums: ["空间转录组"]
 
 7、优势：全转录组、大片组织覆盖、兼容临床 FFPE、成本低、适合宏观组织图谱
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmDYUGpjhnvrhupzjJvyadvZ18IBEaUeLI6WzZ1rPTjehJHjchetpAHHq3dgUv8edpomulo5XUNtNmCz7iaH3LAkibdMj8X5V5ibY/640?wx_fmt=png&from=appmsg)
+![](../../images/106da1441b57e2e8.webp)
 
 目前10x Visium已经推出HD版本，精度可以达到 2×2 μm大小的spot
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnWJ2f8vjqKfyoDNnGx8ug5bDYjLR3gkKVzXKXzE4MuHJF4WdMKRP8xplkRCP35Lepra1a9MpU3M6ibOz101SJ21uPLfX8LzH44/640?wx_fmt=png&from=appmsg)
+![](../../images/30a4ea44df84083e.webp)
 
 可以看出分辨率简直天差地别
 
@@ -112,7 +112,7 @@ albums: ["空间转录组"]
 
 · 分析简单、成本适中、真实还原组织微环境
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlycBwicUfoVZAG20O2MemZ3ky1R3WNybZCLqcgiaUnibxQtajO0oUpZVIhBpEHVOt3hiap51d4XTcRh7ibE4niaKLaumSuYYkvw2b0g/640?wx_fmt=png&from=appmsg)
+![](../../images/da947e518d7a1d2e.webp)
 
 ### 2.3.3 [Stereo-seq (亚细胞分辨率)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529258&idx=1&sn=a3463f650d93ef66419cbb880eb2d10a&scene=21#wechat_redirect>)
 
@@ -142,11 +142,11 @@ albums: ["空间转录组"]
 
     * 极致精细、局部微区分析
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmU0mCFTLibACaibyeaMibFgScfKFwPwZsiaUmrby7r6aQbVMxa94dZFUicYxWARsUibTv2aMsufSVE6BkPqnb3jX0Q2Wy7wTU1riauZE/640?wx_fmt=png&from=appmsg)
+![](../../images/572d695f9274bf19.webp)
 
 #### Stereo-seq 的 DNA Nanoball (DNB) 技术
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlumuaPeaWmbDQI9Rg9LDuq7QRmcTMTSq0MXjex2BHzAwfs8PelzGKkbzfKDBmebZHuwROZ2G4icFcEQoq2wlI0wxGmVPKzSEHI/640?wx_fmt=png&from=appmsg)
+![](../../images/2fc8bdfd55c517d3.webp)
 
 ##### (1) 纳米球是什么？
 
@@ -191,17 +191,17 @@ mRNA 捕获| DNB 上的 polyT 引物捕获组织切片的 mRNA
 
 ## 2.4 [空间转录组平台对比](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500243&idx=1&sn=b0e513e85a202ec7ca4041a700a7ae10&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmvuGvlJQ0I6ZNu1pia3wQuD9zKDvwkATtLiaQHOTjpiabnKKxI7RYTAaEUVAmrnkG4GXGDoUpFZ25bEicpCxIOle25JuNyciaZ4EPw/640?wx_fmt=png&from=appmsg)
+![](../../images/0a82f9dcc2cb1027.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&#imgIndex=10) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/bd69821fb60dc828.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&#imgIndex=12) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/2d4f3b9289619e36.gif) 您点的每个赞和在看，我都认真当成了喜欢

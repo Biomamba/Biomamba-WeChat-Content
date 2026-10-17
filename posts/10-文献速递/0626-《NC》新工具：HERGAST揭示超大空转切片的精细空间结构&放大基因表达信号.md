@@ -18,7 +18,7 @@ DOI:https://doi.org/10.1038/s41467-025-59139-w
 
 链接：https://www.nature.com/articles/s41467-025-59139-w
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzfiaPmtpBibPicKkZXicibNsQVRUrLLAxibhXTHEibsnJNiaNSlMfeDv2sg3iaIeAyibTlYsibawCibwpxUibPmGA/640?wx_fmt=png&from=appmsg)****
+![](../../images/aa75469e16a724a6.webp)****
 
 空间转录组学（ ST）技术彻底改变了我们对组织内基因表达组织的理解，为细胞异质性和组织结构提供了宝贵的见解。近年来，空间转录组学技术正向高分辨率平台过渡，如Visium HD和Xenium，这大大增加了数据的大小和稀疏性，给描绘空间组织结构、识别细胞类型和检测空间特异性基因表达带来了计算上的挑战。现有的计算方法在处理这些超大规模和超高分辨率技术产生的数据时，往往会遇到计算效率低、内存消耗大、过平滑以及生物信号稀释等问题。
 
@@ -32,7 +32,7 @@ DOI:https://doi.org/10.1038/s41467-025-59139-w
 
 为了解决数据分割可能导致的“过平滑”问题，即模型在训练一个特定小块时忽略了其他小块的信息，从而导致学习到的空间模式是碎片化和局部的，本研究构建了一个异构图网络。这个网络同时包含了局部和全局的空间关系。具体来说，模型不仅考虑了空间上相邻的“点”（spots）之间的关系，还利用了基因表达谱的相似性来建立不同“点”之间的连接，从而让信息在训练过程中可以流动，使得模型能够捕捉到全局的模式。此外，HERGAST还引入了交叉注意力机制，让模型可以动态地学习不同关系的权重，实现局部和全局空间关系的自适应融合。训练完成后，模型会在整个切片上进行全面的推断，编码器会生成一个低维嵌入，这个嵌入同时捕捉了基因表达相似性和空间邻近性，可以用于阐明复杂的空间结构。而解码器则会生成一个重建的表达谱，可以用来增强关键的空间模式，并放大原始数据中可能很微弱的生物学上重要的信号。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzfiaPmtpBibPicKkZXicibNsQVR8cl5m78QhEtneJIPekzF8US4knOb7XqxuXQ46BmoKDQoteamOnEdxw/640?wx_fmt=png&from=appmsg)
+![](../../images/47b1246eff23176f.webp)
 
 图1\. HERGAST模型概览
 
@@ -42,7 +42,7 @@ DOI:https://doi.org/10.1038/s41467-025-59139-w
 
 研究者们首先通过生成不同规模的ST数据集来评估不同现有方法的可扩展性。结果显示，在不使用DIC策略的情况下，许多基于深度学习的图神经网络模型由于GPU内存限制，无法分析超过8万个“点”的ST切片。引入DIC策略后，这些方法的可扩展性得到了提升。然而，当数据规模进一步增大时，CPU内存消耗成为了新的瓶颈。在所有方法中，HERGAST消耗的CPU内存最少，使其能够在相同的计算条件下处理更大的数据集（图2a-b）。在识别精细空间结构的模拟研究中，HERGAST在所有设置下都持续优于其他方法，在调整兰德指数（ARI）等多个评估指标上平均提高了10%以上（图2d-e）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzfiaPmtpBibPicKkZXicibNsQVRq1l9zRDLyNQAnVorcllPJvBXiaZvGY14L1T5B5zAwRV4UP0Q1PHS9Dg/640?wx_fmt=png&from=appmsg)
+![](../../images/89dab913e8397b66.webp)
 
 图2\. HERGAST在模拟数据中的性能表现
 
@@ -56,7 +56,7 @@ DOI:https://doi.org/10.1038/s41467-025-59139-w
 
   * 发现关键免疫细胞亚群：最引人注目的发现是，HERGAST成功识别并定位了一簇独特的SPP1+巨噬细胞，它们聚集在肿瘤内部并环绕着钙化区域 。这些细胞在肿瘤免疫微环境中扮演着重要角色，并与患者预后密切相关。 而其他对比方法，如PCA和STAGATE(DIC)，均未能识别出这一关键的细胞群落，再次证明了HERGAST在揭示复杂组织异质性方面的卓越能力（图3d-g）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzfiaPmtpBibPicKkZXicibNsQVRHOnhyxGcPgiaNLw1X9icCxCBOKvPFc6icdl0510Yqic20fFHKlRqV2WgDA/640?wx_fmt=png&from=appmsg)
+![](../../images/c00c488fc48d7b05.webp)
 
 图3. HERGAST在结直肠癌中精细绘制肿瘤微环境图谱
 
@@ -70,7 +70,7 @@ DOI:https://doi.org/10.1038/s41467-025-59139-w
 
   * 揭示了EGFR和ESR1在导管原位癌（DCIS）区域内存在独特的、几乎不重叠的空间分布模式：EGFR阳性细胞主要环绕在坏死区域周围，而ESR1阳性细胞则弥散分布。这些在原始数据中难以辨别的精细模式，对于理解肿瘤内部的细胞互作和微环境影响至关重要（图4f）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzfiaPmtpBibPicKkZXicibNsQVRlU43UyVykXEkHkfv5hoqX8jVkp9dl5oc4SAUMcEibIaffKHnTUsVPRg/640?wx_fmt=png&from=appmsg)
+![](../../images/0c0f00b6d5f45993.webp)
 
 图4. HERGAST高精度增强关键分子特征
 
@@ -78,16 +78,16 @@ DOI:https://doi.org/10.1038/s41467-025-59139-w
 
 综上所述，HERGAST是一种专为超大规模和超高分辨率空间转录组数据分析而设计的有效方法，在空间聚类和信号放大方面表现出色。本文提出的DIC策略为处理海量ST数据提供了可行的解决方案。通过整合异构图网络和交叉注意力机制，HERGAST能够巧妙地结合基因表达相似性和空间邻近性，从而准确捕捉局部和全局空间关系的复杂细节，并有效避免了过平滑的问题。HERGAST的出现将助力研究人员以前所未有的分辨率和深度探索复杂的生物系统。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528482&idx=1&sn=7cc0715eace4f592a62bdaf157b25c01&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprPlbVxSB0ZR8TMBzzDhJk1P621jYhkA50EmQ83Ig2TvLJVne887YrsrkKSxx1S98QBfKL5BcZOkNg/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&randomid=w0gpp317&tp=webp#imgIndex=3)**
+**![图片](../../images/f3c2f2e4995a729e.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

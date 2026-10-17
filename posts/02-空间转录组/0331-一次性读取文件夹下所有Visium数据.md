@@ -19,7 +19,7 @@ albums: ["空间转录组"]
 
 这里我们以`10X Visium` 数据为例，来源于GSE189184，大家点击这里的按钮下载、解压，即可获得测试数据。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzd73Xgrn9kbKIjuicYFvI6p1mjPGSJdicibPvic0km3tzYf7T8yW2OunRkicqQjqUWnicVhpibaEOR12Z9g/640?wx_fmt=png&from=appmsg)
+![](../../images/e1b10b21009c9e9e.webp)
 这里我放在了如下文件夹：
 ```
 # 看看各样本文件夹：
@@ -397,19 +397,19 @@ combined_seurat <-RunUMAP(combined_seurat, reduction ="pca", dims =1:30, ver
 DimPlot(combined_seurat, group.by ="sample", label =TRUE) +ggtitle("合并样本UMAP分布")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzd73Xgrn9kbKIjuicYFvI6p0XK3ohChKZ1VjOZpyicEJticUEJHW9daYyy7KKsVTIibxpIGLOCvDE88A/640?wx_fmt=png&from=appmsg)
+![](../../images/e911beb6dc93e8a4.webp)
 ```
 # 画一个管家基因看看数据有没有问题：
 SpatialFeaturePlot(combined_seurat, features =c("GAPDH"),pt.size.factor =2.5,ncol =8)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzd73Xgrn9kbKIjuicYFvI6p30ZTI40jfAO3stX1wx2VwvibwV7bzUib77Nu0PP6eawNzEO3oETibvlmQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6c6d45a396683b0e.webp)
 ```
 # 再看看切片的概况：
 SpatialDimPlot(combined_seurat,ncol =8)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzd73Xgrn9kbKIjuicYFvI6pZCD9gjHgUiawFcLiakeqnZfM6mWNIYyDKRTpAf9wmP5ylZK8Ia220xtw/640?wx_fmt=png&from=appmsg)
+![](../../images/f34b794fda51f9e1.webp)
 
 **三、学习手册**
 
@@ -419,7 +419,7 @@ SpatialDimPlot(combined_seurat,ncol =8)
 
 提取码: w94p
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzd73Xgrn9kbKIjuicYFvI6p4uUCWlrOLiasWLKpmPyK5S2IqYvgClaCAuXU5kiav72icdlCIia8wyUGJQ/640?wx_fmt=jpeg)
+![](../../images/6a80de3d8cf5ae10.webp)
 
 **四、分析环境**
 ```
@@ -508,14 +508,14 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎在发文/毕业时向我们分享你的喜悦~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

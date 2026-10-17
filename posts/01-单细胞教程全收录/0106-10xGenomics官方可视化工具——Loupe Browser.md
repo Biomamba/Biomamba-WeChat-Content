@@ -10,7 +10,7 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247519698&idx=1&sn=0135ef1763fc146252835f2bd7f728ec&chksm=9b3cf482ac4b7d949d0936f11b487d5da4fd8f235bb86f63e960e23785885b9db0d14897b63d#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)
+![](../../images/73d94b6f8a663b6d.webp)
 
 # 1 简介
 
@@ -24,11 +24,11 @@ Loupe Browser是⼀款10xGenomics开发的交互式桌⾯应⽤程序，⽤于�
 
 自行分析时导入的是cloupe.cloupe文件，这里用**自带的** AML数据(所以别问我要测试数据啦)进行演示：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzKruLnkZN8ynA8zlDiaxEic5aic14WVzk8gVmaPib6rbIyImxGuvTQRrZsQ/640?wx_fmt=png&from=appmsg)
+![](../../images/bf153ffe009031c7.webp)
 
 进入软件分析后，界面主要由5个面板组成：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz4GmtvgI2rCAesnbJriaexglfvPiaCebMhurA7s6DPT2m07FAmH0X0DfA/640?wx_fmt=png&from=appmsg)
+![](../../images/5e41a6531573682c.webp)
 
   1. 左边可以选择不同的聚类方法
 
@@ -44,11 +44,11 @@ Loupe Browser是⼀款10xGenomics开发的交互式桌⾯应⽤程序，⽤于�
 
 这个数据由AML、Normal1、Normal2组成，现根据样本ID进行差异分析。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzLuvM7VRia4kROTHgqA9D7T4eMyn6I6BxgAcXwLKbqial4ECBvmiaNZFLg/640?wx_fmt=png&from=appmsg)
+![](../../images/83348fff39c4a463.webp)
 
 点击`Run differential ecpression`:
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzjxuVr4G15nuW9BkH0wpI9HnYf2r3YEcIMoPu7zR4Lbicn8nticsfCWVw/640?wx_fmt=png&from=appmsg)
+![](../../images/14ddbd1d5887cecc.webp)
 
 出现的3个选项：
 
@@ -66,7 +66,7 @@ Loupe Browser是⼀款10xGenomics开发的交互式桌⾯应⽤程序，⽤于�
 
 分析结果如下，可以点击export进行导出，导出时可选择基因数量：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzQibIYUFPiaFnLG2FAqMm8Rib5ZBicZbk7lQuuj3Mh3L0oLTClObSHgcqDA/640?wx_fmt=png&from=appmsg)
+![](../../images/f483fa35e85d2488.webp)
 
 ## 2.3 选择目的基因的两种方式（细胞注释）
 
@@ -74,45 +74,45 @@ Loupe Browser是⼀款10xGenomics开发的交互式桌⾯应⽤程序，⽤于�
 
 例如搜索MS4A1
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzL2TpPfXZfziaO1MNY7Mth32mNVmm3cjknHqyzBXttrKFhW1dAFWbWww/640?wx_fmt=png&from=appmsg)
+![](../../images/60acebdfd8f84aca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzEHJ3H0icEm9u2W1vZ5b9Mtuolt4eeuDr4bqJQhbWj7colyiajeef57Yg/640?wx_fmt=png&from=appmsg)
+![](../../images/08a38daf7b0bda83.webp)
 
 保存的时候可以对选出的细胞和分组进行命名：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz3hqVBb66jK3JbsyjnxvQh9JJd482ic3hKAndPIktCppT2h7ibpgNWauA/640?wx_fmt=png&from=appmsg)
+![](../../images/15d8611d56c5b0ac.webp)
 
 在Clusters中得到了一个新的分组celltype：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzkBVnVJ7HkwTGLficYTvZCsQg9Ns95CiajpqX8wHooqdmqt9RjMTj7Lgg/640?wx_fmt=png&from=appmsg)
+![](../../images/a7464c9ff3220e28.webp)
 
 对于一些错误的细胞（蓝框），可以用橡皮擦进行去除：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzic8BeHQ8x7rjiaKSvkeD82jSLXCc1BJspeXyVOeaGqBiaI2ib79pcJfXGQ/640?wx_fmt=png&from=appmsg)
+![](../../images/69024ad048dc210c.webp)
 
 ### b. 直接导入基因表格
 
 需要提前准备好基因列表，内容格式如下（.csv）：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmziaJqZSVOA7XkzBHyCsaMMPhAETMqNkUgg1iaicITNvtzwiaJpIFAmfq99g/640?wx_fmt=png&from=appmsg)
+![](../../images/726160dc307efab3.png)
 
 从Features-Create a new feature list上传基因列表：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz2V98jPTdiaD5DoIqqiaibAnt78wzxbU5ANXFqBTn4e0RA5HOLnVLl55BQ/640?wx_fmt=png&from=appmsg)
+![](../../images/e24001b91a408128.webp)
 
 上传后：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzUazibfNSGMDG5UfkVvC4UATKcaLr9qAtz2CnPkHVEiaT78hy01VTXg8Q/640?wx_fmt=png&from=appmsg)
+![](../../images/cfd45da4e549d38d.webp)
 
 ## 2.4 重新聚类
 
   1. 先在Clusters选中想要重新聚类的组别，例如这里选择Patient，再点击Reanalyze
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzpQ4ANEQsAGw0NWicNXm3JEtSx4grqDhMrkOdZxCcOMZVm8NKicopMTKw/640?wx_fmt=png&from=appmsg)
+![](../../images/ff7c09aaf95796c3.webp)
 
 b．会跳出新的分析页面，右边显示的是总的、剔除的和选中的细胞数，点击Next
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmz5POJF9h0jeBju8walzHKzs1n9WZI46K4ib5AJJWicldvJBErKjv1qrgg/640?wx_fmt=png&from=appmsg)
+![](../../images/90c1da7db117ad7d.webp)
 
 c．UMI阈值设置，根据样本自行调整，点击Next
 
@@ -120,21 +120,21 @@ c．UMI阈值设置，根据样本自行调整，点击Next
 
   5. 设置线粒体UMI，选择参考基因是根据样本种类，人源或鼠源的则选择对应的，点击Next：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzvfqZxaiaX2zvMa3hKLbj19Zv42ib3N2ibcglvnj2sLk96g2jD3dic9a6Bg/640?wx_fmt=png&from=appmsg)
+![](../../images/3d76fcbf800a209e.webp)
 
   6. 可以选择降维方式，t-SNE和UMAP，命名后点击Recluster，注意：PCA、t-SNE、UMAP的参数值可以在蓝色字体的Adjust reanalyze parameters (for advanced users)下去调整。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzW5l1L44jUBpNnYZcpFCr9icoHqtLONS8ic2gV5I9OYE853XspkYL67vg/640?wx_fmt=png&from=appmsg)
+![](../../images/7c6b73d02c417916.webp)
 
   7. 得到重新聚类的结果后即可以对其进行差异基因分析和细胞注释等
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxC2bk057etEhV9DiazfoMmzER5icPKjvbDCNAzzZbWicwLzbup7nZJUttW8GYZw05TxibpOwlQ2yhaDg/640?wx_fmt=png&from=appmsg)
+![](../../images/7bb1cba8688351cc.webp)
 
 认真学完下面的内容，3~10分的SCI理应是囊中之物(当然也**不要** 真的去水文章)
 
 **单细胞系列教程目录**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：[scRNA-Seq学习手册2023_R语言版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500516&idx=1&sn=3c0b9de505fcd232054e38b451fa1742&chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&scene=21#wechat_redirect>)
+![](../../images/73d94b6f8a663b6d.webp) 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：[scRNA-Seq学习手册2023_R语言版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500516&idx=1&sn=3c0b9de505fcd232054e38b451fa1742&chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&scene=21#wechat_redirect>)
 [scRNA-Seq学习手册Python版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504877&idx=2&sn=2b56a9cfa19fcc918ee6c2ed88fed017&chksm=9b3caabdac4b23ab6e28425a4a5eb4d40ee3612e51f84f5d1e53ac91bef93f717e9e754398e3&scene=21#wechat_redirect>)
 
 单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：[手把手教你做单细胞测序数据分析|1.绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499776&idx=2&sn=7fc250d94ed88cfd5e2224f071bb1742&chksm=9b3cb950ac4b30467a082527547b91aec15b7d1f40d44e362894aedeb6a99e014518fa5e4743&scene=21#wechat_redirect>)
@@ -295,17 +295,17 @@ scFAST系列[scFAST分析| 01.绪论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzO
 [独享服务器，生信分析不求人](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503618&idx=1&sn=ca47ca985aa8560f6b38f15f210519e2&chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&scene=21#wechat_redirect>)
 [为实验室准备一份生物信息学不动产](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247502932&idx=1&sn=401d384d47616029375224b2d0a3c933&chksm=9b3cb504ac4b3c1299aac5c9f0747ccc36777390d2a939e1ed4af37c2836c1f7e8b4af612989&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

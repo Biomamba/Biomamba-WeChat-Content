@@ -1,0 +1,1469 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0179-单细胞代码复写 干细胞样CD4+ T细胞与自身免疫性血管炎</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="cd4-t">单细胞代码复写| 干细胞样CD4+ T细胞与自身免疫性血管炎</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506684&amp;idx=1&amp;sn=c27703a05d4fffae6a5e9e54b4fa7dfe&amp;chksm=9b3ca3acac4b2abaa1e5d4f4a7e4d0730f2e5c4d72c7b3d3d29a653c3bae6590d90e31908dde#rd
+合集：单细胞教程全收录 / 全文复现</p>
+</blockquote>
+<p>评审环节开始！</p>
+<p>** <em>写在前面</em>**</p>
+<p>首届“<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506477&amp;idx=2&amp;sn=155b83716930e4ae956604f7745a6fe4&amp;chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&amp;scene=21#wechat_redirect">寻因杯</a>”单细胞代码复写大赛正在展开评审环节，这次带来的是01号作品。本作品复写了题为"Stem-like CD4+ T cells in perivascular tertiary lymphoid structures sustain autoimmune vasculitis"的论文，复图片集锦如下：</p>
+<p><img alt="" src="../../images/cb67e269fbdb00f0.webp"></p>
+<p>论文基本介绍如下：</p>
+<p><strong>论文链接:</strong> https://www.science.org/doi/10.1126/scitranslmed.adh0380</p>
+<p>大弹性动脉自身免疫性血管炎可引起失明、中风、主动脉弓综合征和主动脉瘤。该疾病通常是免疫抑制治疗难治性的，并且在几十年内进展为阴燃性主动脉炎。血管壁中的肉芽肿性浸润是如何维持的以及组织浸润性T细胞和巨噬细胞是如何补充的尚不清楚。血管炎动脉中免疫细胞群的单细胞和全组织转录组学研究确定了具有干细胞样特征的CD 4 + T细胞群。提供组织浸润和组织损伤效应T细胞的CD 4 + T细胞在外膜血管周围的三级淋巴结构中存活，表达转录因子T细胞因子1（TCF 1），具有高增殖潜力，并产生两个效应细胞群，即Eomesodermin（EOMES）+细胞毒性T细胞和B细胞淋巴瘤6（BCL 6）+ T滤泡辅助细胞样细胞。TCF 1hiCD 4 + T细胞表达白细胞介素7受体（IL-7 R）持续血管炎在系列移植实验。因此，TCF 1hiCD 4 + T细胞作为疾病干细胞发挥作用，并促进自身免疫组织炎症的慢性化和自主性。缓解诱导疗法将需要靶向干细胞样CD 4 + T细胞而不仅仅是效应T细胞。</p>
+<p><strong>研究方法</strong> ：</p>
+<p>病人和样本：</p>
+<ul>
+<li>
+<p>从22名GCA aortitis患者和20名疾病对照组（无炎性上行主动脉瘤）中获取临床和人口特征的样本。</p>
+</li>
+<li>
+<p>还有四个正常人的动脉样本来做外部对照.</p>
+</li>
+<li>
+<p>GCA的诊断是通过颞动脉活检进行确认的。</p>
+</li>
+</ul>
+<p>组织学和转录组学分析：</p>
+<ul>
+<li>
+<p>对上行主动脉瘤样本进行组织学分析，发现所有巨细胞动脉炎病例均有结构化的外周淋巴团。</p>
+</li>
+<li>
+<p>使用单细胞RNA测序（scRNA-seq）以及人血管－NSG小鼠嵌合模型，在受控条件下识别与疾病相关的CD4+ T细胞的异质性和功能。</p>
+</li>
+</ul>
+<p>单细胞RNA测序（scRNA-seq）：</p>
+<ul>
+<li>
+<p>从人化小鼠的人类动脉组织中分离CD4+ T细胞。</p>
+</li>
+<li>
+<p>使用10x Genomics的Chromium Single-Cell Controller进行scRNA-seq，并准备测序库。</p>
+</li>
+<li>
+<p>对scRNA-seq数据进行质量控制、标准化、降维、聚类，提取关注的T细胞类群，差异表达分析，细胞周期信号和TCR信号和可视化,时序分析。以及对照和发现大量感兴趣的先验基因</p>
+</li>
+</ul>
+<p>抗体标记和细胞表面分析：</p>
+<ul>
+<li>
+<p>细胞通过使用一系列共轭抗体标记，这些抗体详见表S2，在4°C下孵育20分钟。</p>
+</li>
+<li>
+<p>对于细胞内部的TCF1和TBX21染色，细胞被标记，然后在PBS中洗涤，随后使用Foxp3/TF染色缓冲液渗透化。随后使用抗人TCF1和TBX21抗体染色。抗体信息包括克隆类型和目录号。</p>
+</li>
+</ul>
+<p>追踪休息状态下人类CD4+ T细胞的增殖：</p>
+<ul>
+<li>
+<p>从全血中分离PBMCs（外周血单个核细胞）。</p>
+</li>
+<li>
+<p>从健康老年人的PBMCs中分离Naïve和Memory CD4+ T细胞，使用STEMCELL Technologies的分离试剂盒。</p>
+</li>
+<li>
+<p>使用CellTrace Violet标记CD4+ T细胞，并将它们与Anti-CD3/Anti-CD28涂覆的Dynabeads一起培养，以刺激细胞增殖。</p>
+</li>
+<li>
+<p>细胞在含有10%胎牛血清、青霉素/链霉素和IL-2（10 ng/ml）的RPMI 1640培养基中培养6天，然后通过流式细胞仪进行分析。Cell Trace Violet荧光信号的每个峰代表一个细胞分裂周期。</p>
+</li>
+</ul>
+<p>组织学损伤评分：</p>
+<ul>
+<li>
+<p>通过观察从人类小鼠嵌合体中摘取的动脉切片的H&amp;E染色，评分炎症严重性、炎症范围和血管损伤。</p>
+</li>
+<li>
+<p>评分是使用半定量的刻度进行的，分别为每个特征的子分数的平均值相加而得。</p>
+</li>
+</ul>
+<p>作者首先收集了临床样本，包括患有主动脉炎和非炎性动脉瘤的组织，以及对照组的样本。通过全组织RNA测序分析，作者比较了这些样本之间的基因表达差异，揭示了与主动脉炎相关的生物学过程。接着，作者进行了单细胞RNA测序研究，鉴定了CD4+ T细胞的不同亚型，并深入探究它们的分子特征和功能。最后，作者利用时序和进一步的基于先验知识以及自身知识找到了T细胞中与TLS密切有关的T细胞类群，研究其在动脉中的淋巴结样结构(TLS的作用)</p>
+<ul>
+<li>
+<p>样本采集</p>
+<ul>
+<li>
+<p>组织学分析</p>
+</li>
+<li>
+<p>单细胞和全组织转录组学研究</p>
+</li>
+<li>
+<p>抗体标记和免疫细胞表面分析</p>
+</li>
+<li>
+<p>评估淋巴结样结构（TLS）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>样本收集</p>
+<ul>
+<li>
+<p>无监督PCA分析</p>
+</li>
+<li>
+<p>差异表达基因鉴定</p>
+</li>
+<li>
+<p>基因本体分析</p>
+</li>
+<li>
+<p>淋巴结样结构相关基因</p>
+</li>
+<li>
+<p>IL-7等基因表达</p>
+</li>
+<li>
+<p>细胞成分分析</p>
+</li>
+<li>
+<p>全局组织RNA测序分析</p>
+</li>
+</ul>
+</li>
+<li>
+<p>引发主动脉炎</p>
+<ul>
+<li>
+<p>聚类分析</p>
+</li>
+<li>
+<p>确定细胞亚型</p>
+</li>
+<li>
+<p>分子特征分析</p>
+</li>
+<li>
+<p>分离CD4+ T细胞</p>
+</li>
+<li>
+<p>单细胞RNA测序</p>
+</li>
+<li>
+<p>数据分析</p>
+</li>
+</ul>
+</li>
+<li>
+<p>疾病相关性</p>
+</li>
+<li>
+<p>确认TCF1hi CD4+ T细胞存在于TLS中</p>
+<ul>
+<li>
+<p>TCF1hi和TCF1lo T细胞的定位</p>
+</li>
+<li>
+<p>TCF1hi T细胞的增殖能力</p>
+</li>
+<li>
+<p>CD11c+ DCs在TLS中的分布</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>一、复写内容</p>
+<h3 id="_1"><strong>转录组分析部分</strong></h3>
+<p>CD4 T cells in Giant Cell Arteritis (RNA-Seq) GSE224526(42),GSE141032(normal 4 )</p>
+<p>数据准备 无法收集到数据年林以及GSE141032 的四个正常样本</p>
+<pre><code class="language-r"># 加载GEOquery包
+library(GEOquery)
+</code></pre>
+<pre><code>## 载入需要的程辑包：Biobase
+</code></pre>
+<pre><code>## 载入需要的程辑包：BiocGenerics
+</code></pre>
+<pre><code>##
+## 载入程辑包：'BiocGenerics'
+</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+##
+##     IQR, mad, sd, var, xtabs
+</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+##
+##     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+##     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+##     get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+##     match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+##     Position, rank, rbind, Reduce, rownames, sapply, setdiff, sort,
+##     table, tapply, union, unique, unsplit, which.max, which.min
+</code></pre>
+<pre><code>## Welcome to Bioconductor
+##
+##     Vignettes contain introductory material; view with
+##     'browseVignettes()'. To cite Bioconductor, see
+##     'citation(&quot;Biobase&quot;)', and for packages 'citation(&quot;pkgname&quot;)'.
+</code></pre>
+<pre><code>## Setting options('download.file.method.GEOquery'='auto')
+</code></pre>
+<pre><code>## Setting options('GEOquery.inmemory.gpl'=FALSE)
+</code></pre>
+<pre><code class="language-r">library(dplyr)
+</code></pre>
+<pre><code>##
+## 载入程辑包：'dplyr'
+</code></pre>
+<pre><code>## The following object is masked from 'package:Biobase':
+##
+##     combine
+</code></pre>
+<pre><code>## The following objects are masked from 'package:BiocGenerics':
+##
+##     combine, intersect, setdiff, union
+</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+##
+##     filter, lag
+</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+##
+##     intersect, setdiff, setequal, union
+</code></pre>
+<pre><code class="language-r"># # 读取GSE224526数据
+# gse224526 &lt;- getGEO(&quot;GSE224526&quot;)
+# # 如果要获取原始数据，可以使用以下命令
+# gse224526 &lt;- getGEO(filename = &quot;GSE224526_family.soft&quot;)
+# 提取meta信息
+# meta_data_gse224526 &lt;- pData(gse224526$GSE224526_series_matrix.txt.gz)
+# 其表达量数据存储在GSE的附录中
+# getGEOSuppFiles(GEO = &quot;GSE224526&quot;)
+con &lt;- gzfile(&quot;GSE224526/GSE224526_Bulk_RNA_processed_count.txt.gz&quot;, &quot;rt&quot;)
+count_data_gse224526 &lt;- read.table(con, header = TRUE, sep = &quot;\t&quot;)
+close(con) # 关闭.gz文件
+
+# QC 过滤下基因
+keep_feature &lt;- rowSums (count_data_gse224526 &gt; 1) &gt; 1
+count_data_gse224526 &lt;- count_data_gse224526[keep_feature, ]
+</code></pre>
+<p>==检查完数据后发现缺少了性别信息也就是有些无法进行处理，也就是直接对照和疾病组进行差异分析无法进行校正==</p>
+<h2 id="_2"><strong>图二 复现</strong></h2>
+<pre><code class="language-r">library(DESeq2)
+library(dplyr)
+# 所以直接新建一个metadata
+meta_data_gse224526 = data.frame(
+  smaple_id = colnames(count_data_gse224526),
+  group = sub(&quot;_.*&quot;, &quot;&quot;, colnames(count_data_gse224526))
+)
+rownames(meta_data_gse224526) &lt;- meta_data_gse224526$smaple_id
+
+dds &lt;- DESeqDataSetFromMatrix(countData = count_data_gse224526, colData = meta_data_gse224526, design = ~ group)
+
+# regularized log
+dds &lt;- DESeq(dds)
+rld &lt;- rlog(dds)
+</code></pre>
+<pre><code class="language-r"># 获取标准化前和标准化后的数据集
+library(RColorBrewer)
+
+count_data_before &lt;- counts(dds)  # 标准化前的数据
+count_data_after &lt;- assay(rld)  # 标准化后的数据
+color &lt;- colorRampPalette(brewer.pal(9, &quot;RdGy&quot;))(ncol(count_data_before))
+boxplot(as.data.frame(log2(edgeR::cpm(count_data_before) + 1)),col = color, las =2, main = &quot;CPM Boxplot count_data_before &quot;, ylab = &quot;log2(CPM + 1)&quot;)
+</code></pre>
+<p><img alt="" src="../../images/ee923bb53d9df056.webp"></p>
+<pre><code>boxplot(as.data.frame(count_data_after),col = color, las = 2, main = &quot;CPM Boxplot count_data_after &quot;, ylab = &quot;log2(CPM + 1)&quot;)
+</code></pre>
+<p><img alt="" src="../../images/19a96b83b6b69c89.webp"></p>
+<p>PCA 图绘制</p>
+<pre><code class="language-r">library(FactoMineR)
+library(factoextra)
+</code></pre>
+<pre><code>## 载入需要的程辑包：ggplot2
+</code></pre>
+<pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+</code></pre>
+<pre><code class="language-r">library(ggplot2)
+pca_data &lt;- as.data.frame(t(assay(rld)))  # 将rld数据转换为数据框
+# # 提取PCA的结果
+res.pca &lt;- PCA(pca_data,graph = FALSE)
+fviz_screeplot(res.pca, addlabels = TRUE)
+</code></pre>
+<p><img alt="" src="../../images/f36eb9aeea28e81c.webp"></p>
+<pre><code>#绘制椭圆
+fviz_pca_ind(res.pca,
+             geom.ind = &quot;point&quot;, # 只显示点而不显示文本，默认都显示
+             # 设定分类种类
+             col.ind = sub(&quot;_.*&quot;,&quot;&quot;,rownames(pca_data)),
+             # 设定颜色
+             palette = c(&quot;#00AFBB&quot;, &quot;#E7B800&quot;, &quot;#FC4E07&quot;),
+             addEllipses = TRUE,# 添加置信椭圆
+             legend.title = &quot;Groups&quot;,
+)
+</code></pre>
+<p><img alt="" src="../../images/4dd72678bb3bfaa3.webp"></p>
+<p>差异基因计算 因为作者表述感觉不太清楚这里直接接着DEseq2 计算差异基因 作者这里用了edger和limma的复合方法</p>
+<pre><code class="language-r">library(limma)
+</code></pre>
+<pre><code>##
+## 载入程辑包：'limma'
+</code></pre>
+<pre><code>## The following object is masked from 'package:DESeq2':
+##
+##     plotMA
+</code></pre>
+<pre><code>## The following object is masked from 'package:BiocGenerics':
+##
+##     plotMA
+</code></pre>
+<pre><code class="language-r">library(edgeR)
+cpm_values &lt;-  log2(edgeR::cpm(count_data_before)+1)
+design_matrix = model.matrix(~ group, data = meta_data_gse224526)
+vwts &lt;- voomWithQualityWeights(cpm_values,design_matrix, plot=TRUE)
+</code></pre>
+<p><img alt="" src="../../images/e990e3f1f2f00f4d.webp"></p>
+<pre><code class="language-r">vfit2 &lt;- lmFit(vwts)
+vfit2 &lt;- eBayes(vfit2)
+topTable(vfit2,coef=2,sort.by=&quot;P&quot;)
+</code></pre>
+<pre><code>##              logFC  AveExpr         t      P.Value    adj.P.Val        B
+## DOCK2   -0.3343891 6.924801 -18.08811 8.905054e-22 1.780031e-17 39.38753
+## NCKAP1L -0.3761442 6.806023 -17.27300 5.152471e-21 3.696969e-17 37.67027
+## DOCK8   -0.3251928 7.051889 -17.23924 5.548505e-21 3.696969e-17 37.48083
+## ITGA4   -0.4624582 6.691958 -16.88627 1.211372e-20 6.053528e-17 36.85923
+## PTPRC   -0.3043717 7.232658 -16.68452 1.903185e-20 7.608552e-17 36.12893
+## SEL1L3  -0.6197079 6.576737 -16.50916 2.827760e-20 9.420681e-17 36.05008
+## TLR6    -0.6156661 6.193788 -16.37695 3.819310e-20 1.090631e-16 35.64093
+## INPP5D  -0.3409999 6.716971 -15.90707 1.127760e-19 2.817848e-16 34.60082
+## PIK3CG  -0.4806987 6.394572 -15.79435 1.467256e-19 3.258776e-16 34.42304
+## OSBPL3  -0.5792519 6.397548 -15.68704 1.887320e-19 3.546665e-16 34.17187
+</code></pre>
+<pre><code class="language-r">top2 &lt;- topTable(vfit2,coef=2,number=Inf,sort.by=&quot;P&quot;)
+sum(top2$adj.P.Val&lt;0.05 &amp; abs(top2$logFC)&gt;0.5) # 这里是1331个和文章中为1070 可能是文章中年龄矫正起到效果了吗不太懂了不过也没指定logFC的限制 0.55的话就是1095了
+</code></pre>
+<pre><code>## [1] 1311
+</code></pre>
+<p>差异基因结果可视化 火山图和GO的功能注释BP</p>
+<h1 id="msigdbr">msigdbr 下载对应数据集</h1>
+<pre><code class="language-r">library(msigdbr)
+# all_gene_sets &lt;- msigdbr(species = &quot;Homo sapiens&quot;, category = &quot;C2&quot;)
+GO_gene_sets = msigdbr(species = &quot;Homo sapiens&quot;,category = &quot;C5&quot;,subcategory = &quot;GO:BP&quot;)
+
+all_gene_sets = GO_gene_sets
+# H: hallmark gene sets
+# C1: positional gene sets
+# C2: curated gene sets
+# C3: motif gene sets
+# C4: computational gene sets
+# C5: GO gene sets
+# C6: oncogenic signatures
+# C7: immunologic signatures
+length(unique(table(all_gene_sets$gs_name)))
+</code></pre>
+<pre><code>## [1] 686
+</code></pre>
+<pre><code>tail(table(all_gene_sets$gs_name))
+</code></pre>
+<pre><code>##
+##                                    GOBP_ZINC_ION_HOMEOSTASIS
+##                                                           48
+##                  GOBP_ZINC_ION_IMPORT_ACROSS_PLASMA_MEMBRANE
+##                                                           10
+##                                      GOBP_ZINC_ION_TRANSPORT
+##                                                           36
+## GOBP_ZYGOTIC_DETERMINATION_OF_ANTERIOR_POSTERIOR_AXIS_EMBRYO
+##                                                            6
+##                                      GOBP_ZYMOGEN_ACTIVATION
+##                                                           69
+##                                      GOBP_ZYMOGEN_INHIBITION
+##                                                            8
+</code></pre>
+<pre><code class="language-r">gcSample = split(all_gene_sets$gene_symbol,
+                 all_gene_sets$gs_name)
+
+# file=&quot;Homo-C5-GO-BP.txt&quot;
+# gs=gcSample
+# write.gmt &lt;- function(gs,file){
+#   sink(file)
+#   lapply(names(gs), function(i){
+#     cat( paste(c(i,'tmp',gs[[i]]),collapse='\t') )
+#     cat('\n')
+#   })
+#   sink()
+# }
+# write.gmt(gs,file)
+</code></pre>
+<pre><code class="language-r"># 功能注释gsea
+library(fgsea)
+library(org.Hs.eg.db)
+</code></pre>
+<pre><code>## 载入需要的程辑包：AnnotationDbi
+</code></pre>
+<pre><code>##
+## 载入程辑包：'AnnotationDbi'
+</code></pre>
+<pre><code>## The following object is masked from 'package:dplyr':
+##
+##     select
+</code></pre>
+<pre><code>##
+</code></pre>
+<pre><code class="language-r">library(tidyverse)
+</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ lubridate 1.9.3     ✔ tibble    3.2.1
+## ✔ purrr     1.0.2     ✔ tidyr     1.3.0
+## ✔ readr     2.1.4
+</code></pre>
+<pre><code class="language-r">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ lubridate::%within%()   masks IRanges::%within%()
+## ✖ IRanges::collapse()     masks dplyr::collapse()
+## ✖ dplyr::combine()        masks Biobase::combine(), BiocGenerics::combine()
+## ✖ matrixStats::count()    masks dplyr::count()
+## ✖ IRanges::desc()         masks dplyr::desc()
+## ✖ tidyr::expand()         masks S4Vectors::expand()
+## ✖ dplyr::filter()         masks stats::filter()
+## ✖ S4Vectors::first()      masks dplyr::first()
+## ✖ dplyr::lag()            masks stats::lag()
+## ✖ ggplot2::Position()     masks BiocGenerics::Position(), base::Position()
+## ✖ purrr::reduce()         masks GenomicRanges::reduce(), IRanges::reduce()
+## ✖ S4Vectors::rename()     masks dplyr::rename()
+## ✖ lubridate::second()     masks S4Vectors::second()
+## ✖ lubridate::second&lt;-()   masks S4Vectors::second&lt;-()
+## ✖ AnnotationDbi::select() masks dplyr::select()
+## ✖ IRanges::slice()        masks dplyr::slice()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+</code></pre>
+<pre><code class="language-r">res2 &lt;- top2 %&gt;%mutate(SYMBOL = rownames(.))%&gt;%dplyr::select(SYMBOL, logFC) %&gt;%
+  na.omit() %&gt;%
+  distinct() %&gt;%
+  group_by(SYMBOL) %&gt;%
+  summarize(stat=mean(logFC))
+
+ranks &lt;- deframe(res2)
+
+# gene_list  = top2 %&gt;% filter(top2$adj.P.Val&lt;0.05 &amp; abs(top2$logFC)&gt;0.5)%&gt;%rownames()
+
+# 运行GSEA分析
+results &lt;- fgsea(pathways=gcSample, stats=ranks, nperm=1000)
+</code></pre>
+<pre><code>## Warning in fgsea(pathways = gcSample, stats = ranks, nperm = 1000): You are
+## trying to run fgseaSimple. It is recommended to use fgseaMultilevel. To run
+## fgseaMultilevel, you need to remove the nperm argument in the fgsea function
+## call.
+</code></pre>
+<pre><code>## Warning in preparePathwaysAndStats(pathways, stats, minSize, maxSize, gseaParam, : There are ties in the preranked stats (0.06% of the list).
+## The order of those tied genes will be arbitrary, which may produce unexpected results.
+</code></pre>
+<pre><code>## Warning in fgseaSimple(pathways = pathways, stats = stats, minSize = minSize, :
+## There were 1 pathways for which P-values were not calculated properly due to
+## unbalanced gene-level statistic values
+</code></pre>
+<pre><code>results2 = results[results $padj &lt; 0.05]
+
+results2_top10 = results2[order(results2$padj)[1:10],]
+
+results2_top10%&gt;%mutate(pathway=tolower(gsub(&quot;GOBP&quot;,&quot;&quot;,gsub(&quot;_&quot;,&quot; &quot;,pathway))))%&gt;% ggplot(aes(x = -log10(pval), y = reorder(pathway, -log10(pval)))) +
+  geom_bar(stat = &quot;identity&quot;, fill = &quot;orange&quot;) +
+  labs(x = &quot;-log10(Pvalue)&quot;, y = &quot;Pathway&quot;,title = &quot;GSEA&quot;) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+</code></pre>
+<p><img alt="" src="../../images/376d7c889f7987e0.webp"></p>
+<p>火山图+热图</p>
+<pre><code class="language-r"># EGs highly enriched in the aortitis tissues pointed toward ongoing Tcell– and B cell–dependent immune responses: T cells (CD3E,
+# CD4, CD8A, GZMB, and LTB), B cells (CD19, CD38, SDC1,
+# FCRL3, FCRL5, CR2, LTB, JCHAIN, IGLL5, and CD79B), antigen
+# presentation (HLA-DRA, HLA-DMA, and CD86), homeostatic
+# chemokines (CXCL13, CCL19), proliferation, and activation
+# (MKI67 and BTLA) (Fig. 2B).
+library(ggVolcano)
+library(cowplot)
+</code></pre>
+<pre><code>##
+## 载入程辑包：'cowplot'
+</code></pre>
+<pre><code>## The following object is masked from 'package:lubridate':
+##
+##     stamp
+</code></pre>
+<pre><code class="language-r">target_genes &lt;- c(&quot;CD3E&quot;, &quot;CD4&quot;, &quot;CD8A&quot;, &quot;GZMB&quot;, &quot;LTB&quot;, &quot;CD19&quot;, &quot;CD38&quot;, &quot;SDC1&quot;, &quot;FCRL3&quot;, &quot;FCRL5&quot;, &quot;CR2&quot;, &quot;LTB&quot;, &quot;JCHAIN&quot;, &quot;IGLL5&quot;, &quot;CD79B&quot;, &quot;HLA-DRA&quot;, &quot;HLA-DMA&quot;, &quot;CD86&quot;, &quot;CXCL13&quot;, &quot;CCL19&quot;, &quot;MKI67&quot;, &quot;BTLA&quot;)
+
+top2 = add_regulate(top2, log2FC_name = &quot;logFC&quot;,
+                     fdr_name = &quot;adj.P.Val&quot;,log2FC = 0.5, fdr = 0.05)
+
+top2$log2FoldChange = - top2$log2FoldChange
+top2$row = rownames(top2)
+
+ggvolcano(
+  top2,
+  x = 'log2FoldChange',
+  y = &quot;P.Value&quot;,
+  pointSize = 1,
+  pointShape = 21,
+  fills = c(&quot;red&quot; , &quot;#999999&quot;, &quot;blue&quot;),
+  colors = c(&quot;red&quot; , &quot;#999999&quot;, &quot;blue&quot;),
+  x_lab = NULL,
+  y_lab = NULL,
+  legend_title = NULL,
+  legend_position = &quot;UL&quot;,
+  log2FC_cut = 0.5,
+  FDR_cut = 0.05,
+  add_line = TRUE,
+  add_label = TRUE,
+  label = &quot;row&quot;,
+  label_number = 0,
+  custom_label = target_genes,
+  output = FALSE
+)
+</code></pre>
+<p><img alt="" src="../../images/a69300d93e6da337.webp"></p>
+<pre><code class="language-r"># 绘制热图
+library(pheatmap)
+target_gene_expression &lt;- count_data_after[target_genes,]
+sample_heatmap_anntion = data.frame(
+  Group = gsub(&quot;_.*&quot;,&quot;&quot;,colnames(count_data_after))%&gt;%gsub(&quot;AORTITIS&quot;,&quot;Aortitis&quot;,.)%&gt;%gsub(&quot;CONTROL&quot;,&quot;Disease control&quot;,.)
+)
+
+sample_heatmap_anntion_colprs = list(
+  Group =c('Aortitis' = 'red','Disease control' = 'gray')
+)
+
+rownames(sample_heatmap_anntion) = colnames(count_data_after)
+
+pheatmap(target_gene_expression, cluster_rows = TRUE, cluster_cols = TRUE,scale = 'row',annotation_col = sample_heatmap_anntion,show_colnames = FALSE,color = colorRampPalette(c(&quot;purple&quot;, &quot;white&quot;, &quot;red&quot;))(100),treeheight_row = 10,treeheight_col = 20,annotation_colors = sample_heatmap_anntion_colprs)
+</code></pre>
+<p><img alt="" src="../../images/137d3fa9850d7fde.webp"></p>
+<p>作者关注的Gene的 箱线图(TPM)</p>
+<pre><code class="language-r">library(ggpubr)
+</code></pre>
+<pre><code>##
+## 载入程辑包：'ggpubr'
+</code></pre>
+<pre><code>## The following object is masked from 'package:cowplot':
+##
+##     get_legend
+</code></pre>
+<pre><code># 目标基因
+target_genes2  = str_split(pattern = &quot; &quot;,'CXCL13 CCL19 CCL21 IL7 IL15 TNFSF13B TNFSF8 TNFRSF8')%&gt;%unlist()
+# 矩阵
+target_gene_expression = count_data_after[target_genes2,]
+
+# 像这种多组之间两两比较，需要提前设置一个list，里面包含的是两两比较的对象
+list = list(c(&quot;Con&quot;,&quot;Aortitis&quot;))
+
+# 把数据转成纵性数据
+df=reshape2::melt(target_gene_expression)
+colnames(df) = c(&quot;gene&quot;,&quot;class&quot;,&quot;value&quot;)
+
+df$class = as.character(df$class)
+
+df$class = df$class%&gt;%gsub(&quot;_.*&quot;,&quot;&quot;,.)%&gt;%gsub(&quot;CONTROL&quot;,&quot;Con&quot;,.)%&gt;%gsub(&quot;AORTITIS&quot;,&quot;Aortitis&quot;,.)
+
+ggplot(df, # 用来画图的数据集名称
+       aes(class, # 数据集的Species列作为横坐标
+           value,  # 数据集的value列作为纵坐标
+           color = class, # 根据数据集的Species列设置箱线图的边框颜色
+           fill = class))+ # 根据数据集的Species列设置散点图和箱线图的填充颜色
+  geom_jitter(width=.15)+ # 将散点图的宽度设置为0.15,缩窄一些
+  geom_boxplot(width=.4, alpha=.2)+ # 将箱线图的宽度设置为0.4，缩窄了一些，不透明度设置为0.2，填充颜色变得很浅
+  scale_color_manual(values = c(&quot;#BF5960&quot;,&quot;#6F99AD&quot;,&quot;#F9A363&quot;))+ # 自定义边框颜色
+  scale_fill_manual(values = c(&quot;#BF5960&quot;,&quot;#6F99AD&quot;,&quot;#F9A363&quot;))+ # 自定义填充颜色，可以和边框颜色不一样，我觉得配套的比较好看，就用了一样的颜色
+  theme_test()+ # 把背景颜色去掉并添加边框，可以修改为其他背景，比如theme_classic
+  labs(y=&quot;Normal(experssion)&quot;, x=&quot;&quot;)+ # 修改横纵坐标名称
+  stat_compare_means(comparisons = list, method = &quot;wilcox.test&quot;, #像这种非配对的非正态分布的数据，可以用非参数检验方法，这里选的是非参的其中一种，叫秩和检验
+                     size=4, # 将p值字体改小一些
+                     label = &quot;p.signif&quot;)+ # 把p值改为星号
+  scale_y_continuous(expand = c(0.1,0.1))+ # 将y轴上下拉宽一点，这样被遮住的p值就可以呈现出来啦~
+  facet_wrap(.~gene, # 同时做几个图，这几个图分别对应数据转换前的第1列到第4列
+             nrow=1,# 图排成两行两列
+             scale=&quot;free&quot;)+ # 横纵坐标不要统一成一样的，各个图根据自己情况来自动设置横纵坐标的范围
+  theme(axis.text = element_text(color=&quot;black&quot;, size=10),
+        axis.line = element_blank()) # 把横纵坐标的字体颜色改为黑色，看起来更沉稳
+</code></pre>
+<p><img alt="" src="../../images/07e4fc815585f0ee.webp"></p>
+<p>不同细胞类型的占比图</p>
+<pre><code class="language-r">source(&quot;./Cibersort.R&quot;)
+# 设置分析依赖的基础表达文件
+# 每类免疫细胞的标志性基因及其表达
+# 基因名字为Gene symbol
+LM22.file &lt;- &quot;./LM22.txt&quot;
+exp.file &lt;- &quot;./GSE224526/GSE224526_Bulk_RNA_processed_count.txt.gz&quot;
+TME.results &lt;- CIBERSORT(LM22.file ,exp.file, perm = 50, QN = F)
+# perm置换次数=1000
+# QN如果是芯片设置为T，如果是测序就设置为F
+write.csv(TME.results, &quot;CIBERSORT_Results_fromRcode.csv&quot;)
+</code></pre>
+<pre><code class="language-r">library(tidyr)
+library(patchwork)
+</code></pre>
+<pre><code>##
+## 载入程辑包：'patchwork'
+</code></pre>
+<pre><code>## The following object is masked from 'package:cowplot':
+##
+##     align_plots
+</code></pre>
+<pre><code class="language-r">library(ggplot2)
+library(dplyr)
+phenotype = read.csv(&quot;CIBERSORT_Results_fromRcode.csv&quot;,header = T,row.names = 1)
+phenotype_long &lt;- phenotype %&gt;%mutate(Sample=rownames(.))%&gt;%pivot_longer(cols = -c(&quot;P.value&quot;, &quot;Correlation&quot;, &quot;RMSE&quot;,&quot;Sample&quot;),
+               names_to = &quot;Cell_Type&quot;,
+               values_to = &quot;Cell_Type_Ratio&quot;)%&gt;%dplyr::select(-P.value, -Correlation, -RMSE)%&gt;%mutate(Cell_Type = ifelse( Cell_Type %in%c(&quot;Macrophages.M1&quot;, &quot;Macrophages.M2&quot;, &quot;Monocytes&quot;, &quot;B.cells.memory&quot;, &quot;T.cells.CD4.memory.activated&quot;, &quot;T.cells.CD4.memory.resting&quot;, &quot;T.cells.follicular.helper&quot;),Cell_Type, &quot;Others&quot;))%&gt;%mutate(Cell_Type = gsub(pattern=&quot;\\.&quot;,&quot; &quot;,Cell_Type))%&gt;%mutate(Group=gsub(pattern=&quot;_.*&quot;,&quot;&quot;,Sample))
+
+# M1,M2 , Monocytes, B.cells.memory, T.cells.CD4.memory.activated, T.cells.CD4.memory.resting, T.cells.follicular.helper, Others
+
+colourCount = length(unique(phenotype_long$Cell_Type))
+getPalette = colorRampPalette(brewer.pal(9, &quot;Set1&quot;))
+celltype_colors &lt;- getPalette(colourCount)
+
+pC1 &lt;- ggplot(data = phenotype_long%&gt;% filter(Group==&quot;CONTROL&quot;), aes(x = Sample, y = Cell_Type_Ratio, fill = Cell_Type)) +
+  geom_bar(stat = &quot;identity&quot;, width=0.8,aes(group=Cell_Type),position=&quot;fill&quot;)+
+  scale_fill_manual(values=celltype_colors) +
+  theme_bw()+
+  theme(panel.grid =element_blank()) +
+  labs(x=&quot;&quot;,y=&quot;Cell proportion&quot;)+
+  scale_y_continuous(labels = waiver())+  ####用来将y轴移动位置
+  theme(axis.text = element_text(size=5, colour = &quot;black&quot;))+
+  theme(axis.title.y = element_text(size=12, colour = &quot;black&quot;))+
+  theme(panel.border = element_rect(size = 1, linetype = &quot;solid&quot;, colour = &quot;black&quot;))+
+  theme(axis.text.x = element_text(angle = 45,hjust = 0.8,  vjust = 0.6))
+</code></pre>
+<pre><code>## Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+## ℹ Please use the `linewidth` argument instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+</code></pre>
+<pre><code class="language-r">pC2 &lt;- ggplot(data = phenotype_long%&gt;% filter(Group!=&quot;CONTROL&quot;), aes(x = Sample, y = Cell_Type_Ratio, fill = Cell_Type)) +
+  geom_bar(stat = &quot;identity&quot;, width=0.8,aes(group=Cell_Type),position=&quot;fill&quot;)+
+  scale_fill_manual(values=celltype_colors) +
+  theme_bw()+
+  theme(panel.grid =element_blank()) +
+  labs(x=&quot;&quot;,y=&quot;Cell proportion&quot;)+
+  scale_y_continuous(labels = waiver())+  ####用来将y轴移动位置
+  theme(axis.text = element_text(size=5, colour = &quot;black&quot;))+
+  theme(axis.title.y = element_text(size=12, colour = &quot;black&quot;))+
+  theme(panel.border = element_rect(size = 1, linetype = &quot;solid&quot;, colour = &quot;black&quot;))+
+  theme(axis.text.x = element_text(angle = 45,hjust = 0.8,  vjust = 0.6))
+
+pC1+pC2+ plot_layout(ncol = 2, widths = c(1,1),guides = 'collect')
+</code></pre>
+<p><img alt="" src="../../images/36d82a8b8be2df18.webp"></p>
+<p>细胞类型的散点图</p>
+<pre><code class="language-r">library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(rstatix)
+</code></pre>
+<pre><code>##
+## 载入程辑包：'rstatix'
+</code></pre>
+<pre><code>## The following object is masked from 'package:AnnotationDbi':
+##
+##     select
+</code></pre>
+<pre><code>## The following object is masked from 'package:IRanges':
+##
+##     desc
+</code></pre>
+<pre><code>## The following object is masked from 'package:stats':
+##
+##     filter
+</code></pre>
+<pre><code class="language-r">library(ggpubr)
+library(RColorBrewer)
+
+mytheme &lt;- theme(plot.margin=unit(c(0.5,0.5,0.5,0.5),units=,&quot;cm&quot;),
+                 axis.line = element_line(color = &quot;black&quot;,size = 0.4),
+                 panel.grid.minor = element_blank(),
+                 panel.grid.major = element_line(size = 0.2,color = &quot;#e5e5e5&quot;),
+                 axis.text.y = element_text(color=&quot;black&quot;,size=10),
+                 axis.text.x = element_text(angle = 45, hjust = 1 ,color=&quot;black&quot;,size=10),
+                 legend.position = &quot;none&quot;,
+                 panel.spacing = unit(0,&quot;lines&quot;))
+</code></pre>
+<pre><code>## Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+## ℹ Please use the `linewidth` argument instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+</code></pre>
+<pre><code>fill.color = c(&quot;T cells CD4 memory activated&quot;=&quot;#F32700&quot;,&quot;T cells CD4 memory resting&quot;= &quot;#6D4A95&quot;)
+
+ggplot(phenotype_long%&gt;%filter(Cell_Type %in% c(&quot;T cells CD4 memory activated&quot;, &quot;T cells CD4 memory resting&quot;)), aes(x = Cell_Type,y = Cell_Type_Ratio,fill = Cell_Type)) +
+  geom_line(aes(group=Sample),position = position_dodge(0.2),color=&quot;black&quot;) +
+  geom_point(aes(group=Cell_Type,size=Cell_Type_Ratio),
+             pch=21,
+             size=3,
+             # position = position_dodge(0),
+             position = position_jitter(w = 0.1))+
+stat_summary(fun.data = 'mean_se', geom = &quot;errorbar&quot;, color = &quot;red&quot;,
+               width = 0.25, size = 0.8, position = position_dodge( .9)) +
+  scale_fill_manual(values= fill.color) +
+  scale_x_discrete( labels=c(&quot;Activated&quot;,&quot;Resting&quot;) ) +
+stat_compare_means(comparisons = list(c(&quot;T cells CD4 memory activated&quot;, &quot;T cells CD4 memory resting&quot;)), method = &quot;wilcox.test&quot;, #像这种非配对的非正态分布的数据，可以用非参数检验方法，这里选的是非参的其中一种，叫秩和检验
+                     size=4, # 将p值字体改小一些
+                     label = &quot;p.signif&quot;)+labs(x= NULL,y=&quot;Cell Type Ratio&quot;)+
+  theme_bw() + mytheme
+</code></pre>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+</code></pre>
+<pre><code>## Warning in wilcox.test.default(c(0.0223650577175038, 0.0200130245653676, :
+## 无法精確計算带连结的p值
+</code></pre>
+<p><img alt="" src="../../images/191fdb97d1c4c98d.png"> 单细胞数据为小鼠数据GSE224527 小鼠没有TCR标注的GENE用的人的代替的</p>
+<pre><code class="language-r">library(DoubletFinder)
+library(Seurat)
+library(ggplot2)
+library(cowplot)
+library(dplyr)
+library(Rmagic)
+# 导入数据为 pbmc.data
+pbmc.data =read.table(&quot;./filtered_gene_bc_matrices/GSE224527_RAW/GSM7025594_Vascular_processed.txt/GSM7025594_Vascular_processed.txt&quot;)
+# pbmc.data = magic(pbmc.data) 这个没做因为AMD不能用numpy1.6很奇怪
+# Initialize the Seurat object with the raw (non-normalized data).
+pbmc &lt;- CreateSeuratObject(counts = pbmc.data,
+                           project = &quot;GSE224527&quot;,  # pbmc3k是一个数据集名字，这个可以自己取名字我改为
+                           min.cells = 3, min.features = 200)
+# An object of class Seurat
+# 13714 features across 2700 samples within 1 assay
+# Active assay: RNA (13714 features, 0 variable features)
+
+## Identification of mithocondrial genes
+# 使用 PercentageFeatureSet 函数，通过正则表达式 ^MT-，识别并计算每个细胞中的线粒体基因的百分比。
+pbmc[[&quot;percent.mt&quot;]] &lt;- PercentageFeatureSet(pbmc, pattern = &quot;^MT-&quot;)
+#
+## Filtering cells following standard QC criteria.
+# subset 函数可以用于创建一个新的对象，其中包含根据特定条件筛选的子集。
+pbmc &lt;- subset(pbmc, subset = nFeature_RNA &gt; 200 &amp; nFeature_RNA &lt; 4000 &amp;
+                  percent.mt &lt; 10)
+
+# 双细胞去除：使用DoubletFinder去除双细胞
+# 去双胞需要先聚类，均使用默认参数即可
+pbmc &lt;- NormalizeData(object = pbmc) %&gt;%
+  FindVariableFeatures(selection.method = &quot;vst&quot;, nfeatures = 2000) %&gt;%
+  ScaleData() %&gt;%
+  RunPCA()
+# 简单判断一下用多少PC
+ElbowPlot(pbmc, ndims=50)
+</code></pre>
+<p><img alt="" src="../../images/ca550f0456a33bfc.png"></p>
+<pre><code class="language-r">dim.usage &lt;- 30  # 大概30的时候就好些不怎么下降了
+
+# 不一定要聚类，但modelHomotypic这一步可能需要用到celltype或seurat_clusters
+pbmc &lt;- FindNeighbors(pbmc, dims = 1:dim.usage) %&gt;%
+  FindClusters(resolution = 0.6) %&gt;% # 对于这个分辨率值不太理解
+  RunUMAP(dims = 1:dim.usage) %&gt;%
+  RunTSNE(dims = 1:dim.usage)
+</code></pre>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+##
+## Number of nodes: 2638
+## Number of edges: 97941
+##
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.9214
+## Number of communities: 12
+## Elapsed time: 0 seconds
+</code></pre>
+<pre><code class="language-r">##DoubletFinder去双胞的标准流程，封装成一个函数
+Find_doublet &lt;- function(data){
+  #测试最佳参数的过程，运行速度慢
+  #使用log标准化，sct参数设置为 sct = F（默认 ）,如使用SCT标准化方法，设置为T
+  sweep.res.list &lt;- paramSweep_v3(data, PCs = 1:dim.usage, sct = FALSE)
+  sweep.stats &lt;- summarizeSweep(sweep.res.list, GT = FALSE)
+  bcmvn &lt;- find.pK(sweep.stats)
+  #最佳的参数，BCmetric、MeanBC
+  #比较重要的一步是找到合适的pK值。
+  #作者引入了一个参数BCmetric，是他们通过分析人和老鼠混合单细胞样本（知道真实双细胞率的样本）得出的经验参数，其最大值对应合适的pK值。
+  mpK &lt;- as.numeric(as.vector(bcmvn[bcmvn$BCmetric==max(bcmvn$BCmetric),]$pK))
+  DoubletRate = ncol(data)*8*1e-6 #按每增加1000个细胞，双细胞比率增加千分之8来计算
+  nExp_poi &lt;- round(DoubletRate*ncol(data))
+
+  #双细胞有两种，同源双细胞和异源双细胞。DoubletFinder只能检测异源双细胞。所以需要把同源双细胞可能的比率去除掉，以优化期望的doublets数量。
+  #估计同源双细胞比例，根据modelHomotypic()中的参数人为混合双细胞。这里是从seurat_clusters中来混双细胞
+  #最好提供celltype，而不是seurat_clusters。
+  homotypic.prop &lt;- modelHomotypic(data@meta.data$seurat_clusters)
+  nExp_poi.adj &lt;- round(nExp_poi*(1-homotypic.prop))
+
+  #使用nExp = nExp_poi和nExp = nExp_poi.adj,分别进行doublets鉴定，以便后续确定哪些细胞是Doublet-Low/High Confidience
+  data &lt;- doubletFinder_v3(data, PCs = 1:dim.usage, pN = 0.25, pK = mpK, nExp = nExp_poi, reuse.pANN = FALSE, sct = FALSE)
+  colnames(data@meta.data)[ncol(data@meta.data)] = &quot;doublet_low&quot;
+  data &lt;- doubletFinder_v3(data, PCs = 1:dim.usage, pN = 0.25, pK = mpK, nExp = nExp_poi.adj, reuse.pANN = FALSE, sct = FALSE)
+  colnames(data@meta.data)[ncol(data@meta.data)] = &quot;doublet_high&quot;
+  return(data)
+}
+
+pbmc &lt;- Find_doublet(pbmc)
+</code></pre>
+<pre><code>## [1] &quot;Creating artificial doublets for pN = 5%&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Defining neighborhoods...&quot;
+## [1] &quot;Computing pANN across all pK...&quot;
+## [1] &quot;pK = 0.005...&quot;
+## [1] &quot;pK = 0.01...&quot;
+## [1] &quot;pK = 0.02...&quot;
+## [1] &quot;pK = 0.03...&quot;
+## [1] &quot;pK = 0.04...&quot;
+## [1] &quot;pK = 0.05...&quot;
+## [1] &quot;pK = 0.06...&quot;
+## [1] &quot;pK = 0.07...&quot;
+## [1] &quot;pK = 0.08...&quot;
+## [1] &quot;pK = 0.09...&quot;
+## [1] &quot;pK = 0.1...&quot;
+## [1] &quot;pK = 0.11...&quot;
+## [1] &quot;pK = 0.12...&quot;
+## [1] &quot;pK = 0.13...&quot;
+## [1] &quot;pK = 0.14...&quot;
+## [1] &quot;pK = 0.15...&quot;
+## [1] &quot;pK = 0.16...&quot;
+## [1] &quot;pK = 0.17...&quot;
+## [1] &quot;pK = 0.18...&quot;
+## [1] &quot;pK = 0.19...&quot;
+## [1] &quot;pK = 0.2...&quot;
+## [1] &quot;pK = 0.21...&quot;
+## [1] &quot;pK = 0.22...&quot;
+## [1] &quot;pK = 0.23...&quot;
+## [1] &quot;pK = 0.24...&quot;
+## [1] &quot;pK = 0.25...&quot;
+## [1] &quot;pK = 0.26...&quot;
+## [1] &quot;pK = 0.27...&quot;
+## [1] &quot;pK = 0.28...&quot;
+## [1] &quot;pK = 0.29...&quot;
+## [1] &quot;pK = 0.3...&quot;
+## [1] &quot;Creating artificial doublets for pN = 10%&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Defining neighborhoods...&quot;
+## [1] &quot;Computing pANN across all pK...&quot;
+## [1] &quot;pK = 0.005...&quot;
+## [1] &quot;pK = 0.01...&quot;
+## [1] &quot;pK = 0.02...&quot;
+## [1] &quot;pK = 0.03...&quot;
+## [1] &quot;pK = 0.04...&quot;
+## [1] &quot;pK = 0.05...&quot;
+## [1] &quot;pK = 0.06...&quot;
+## [1] &quot;pK = 0.07...&quot;
+## [1] &quot;pK = 0.08...&quot;
+## [1] &quot;pK = 0.09...&quot;
+## [1] &quot;pK = 0.1...&quot;
+## [1] &quot;pK = 0.11...&quot;
+## [1] &quot;pK = 0.12...&quot;
+## [1] &quot;pK = 0.13...&quot;
+## [1] &quot;pK = 0.14...&quot;
+## [1] &quot;pK = 0.15...&quot;
+## [1] &quot;pK = 0.16...&quot;
+## [1] &quot;pK = 0.17...&quot;
+## [1] &quot;pK = 0.18...&quot;
+## [1] &quot;pK = 0.19...&quot;
+## [1] &quot;pK = 0.2...&quot;
+## [1] &quot;pK = 0.21...&quot;
+## [1] &quot;pK = 0.22...&quot;
+## [1] &quot;pK = 0.23...&quot;
+## [1] &quot;pK = 0.24...&quot;
+## [1] &quot;pK = 0.25...&quot;
+## [1] &quot;pK = 0.26...&quot;
+## [1] &quot;pK = 0.27...&quot;
+## [1] &quot;pK = 0.28...&quot;
+## [1] &quot;pK = 0.29...&quot;
+## [1] &quot;pK = 0.3...&quot;
+## [1] &quot;Creating artificial doublets for pN = 15%&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Defining neighborhoods...&quot;
+## [1] &quot;Computing pANN across all pK...&quot;
+## [1] &quot;pK = 0.005...&quot;
+## [1] &quot;pK = 0.01...&quot;
+## [1] &quot;pK = 0.02...&quot;
+## [1] &quot;pK = 0.03...&quot;
+## [1] &quot;pK = 0.04...&quot;
+## [1] &quot;pK = 0.05...&quot;
+## [1] &quot;pK = 0.06...&quot;
+## [1] &quot;pK = 0.07...&quot;
+## [1] &quot;pK = 0.08...&quot;
+## [1] &quot;pK = 0.09...&quot;
+## [1] &quot;pK = 0.1...&quot;
+## [1] &quot;pK = 0.11...&quot;
+## [1] &quot;pK = 0.12...&quot;
+## [1] &quot;pK = 0.13...&quot;
+## [1] &quot;pK = 0.14...&quot;
+## [1] &quot;pK = 0.15...&quot;
+## [1] &quot;pK = 0.16...&quot;
+## [1] &quot;pK = 0.17...&quot;
+## [1] &quot;pK = 0.18...&quot;
+## [1] &quot;pK = 0.19...&quot;
+## [1] &quot;pK = 0.2...&quot;
+## [1] &quot;pK = 0.21...&quot;
+## [1] &quot;pK = 0.22...&quot;
+## [1] &quot;pK = 0.23...&quot;
+## [1] &quot;pK = 0.24...&quot;
+## [1] &quot;pK = 0.25...&quot;
+## [1] &quot;pK = 0.26...&quot;
+## [1] &quot;pK = 0.27...&quot;
+## [1] &quot;pK = 0.28...&quot;
+## [1] &quot;pK = 0.29...&quot;
+## [1] &quot;pK = 0.3...&quot;
+## [1] &quot;Creating artificial doublets for pN = 20%&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Defining neighborhoods...&quot;
+## [1] &quot;Computing pANN across all pK...&quot;
+## [1] &quot;pK = 0.005...&quot;
+## [1] &quot;pK = 0.01...&quot;
+## [1] &quot;pK = 0.02...&quot;
+## [1] &quot;pK = 0.03...&quot;
+## [1] &quot;pK = 0.04...&quot;
+## [1] &quot;pK = 0.05...&quot;
+## [1] &quot;pK = 0.06...&quot;
+## [1] &quot;pK = 0.07...&quot;
+## [1] &quot;pK = 0.08...&quot;
+## [1] &quot;pK = 0.09...&quot;
+## [1] &quot;pK = 0.1...&quot;
+## [1] &quot;pK = 0.11...&quot;
+## [1] &quot;pK = 0.12...&quot;
+## [1] &quot;pK = 0.13...&quot;
+## [1] &quot;pK = 0.14...&quot;
+## [1] &quot;pK = 0.15...&quot;
+## [1] &quot;pK = 0.16...&quot;
+## [1] &quot;pK = 0.17...&quot;
+## [1] &quot;pK = 0.18...&quot;
+## [1] &quot;pK = 0.19...&quot;
+## [1] &quot;pK = 0.2...&quot;
+## [1] &quot;pK = 0.21...&quot;
+## [1] &quot;pK = 0.22...&quot;
+## [1] &quot;pK = 0.23...&quot;
+## [1] &quot;pK = 0.24...&quot;
+## [1] &quot;pK = 0.25...&quot;
+## [1] &quot;pK = 0.26...&quot;
+## [1] &quot;pK = 0.27...&quot;
+## [1] &quot;pK = 0.28...&quot;
+## [1] &quot;pK = 0.29...&quot;
+## [1] &quot;pK = 0.3...&quot;
+## [1] &quot;Creating artificial doublets for pN = 25%&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Defining neighborhoods...&quot;
+## [1] &quot;Computing pANN across all pK...&quot;
+## [1] &quot;pK = 0.005...&quot;
+## [1] &quot;pK = 0.01...&quot;
+## [1] &quot;pK = 0.02...&quot;
+## [1] &quot;pK = 0.03...&quot;
+## [1] &quot;pK = 0.04...&quot;
+## [1] &quot;pK = 0.05...&quot;
+## [1] &quot;pK = 0.06...&quot;
+## [1] &quot;pK = 0.07...&quot;
+## [1] &quot;pK = 0.08...&quot;
+## [1] &quot;pK = 0.09...&quot;
+## [1] &quot;pK = 0.1...&quot;
+## [1] &quot;pK = 0.11...&quot;
+## [1] &quot;pK = 0.12...&quot;
+## [1] &quot;pK = 0.13...&quot;
+## [1] &quot;pK = 0.14...&quot;
+## [1] &quot;pK = 0.15...&quot;
+## [1] &quot;pK = 0.16...&quot;
+## [1] &quot;pK = 0.17...&quot;
+## [1] &quot;pK = 0.18...&quot;
+## [1] &quot;pK = 0.19...&quot;
+## [1] &quot;pK = 0.2...&quot;
+## [1] &quot;pK = 0.21...&quot;
+## [1] &quot;pK = 0.22...&quot;
+## [1] &quot;pK = 0.23...&quot;
+## [1] &quot;pK = 0.24...&quot;
+## [1] &quot;pK = 0.25...&quot;
+## [1] &quot;pK = 0.26...&quot;
+## [1] &quot;pK = 0.27...&quot;
+## [1] &quot;pK = 0.28...&quot;
+## [1] &quot;pK = 0.29...&quot;
+## [1] &quot;pK = 0.3...&quot;
+## [1] &quot;Creating artificial doublets for pN = 30%&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Defining neighborhoods...&quot;
+## [1] &quot;Computing pANN across all pK...&quot;
+## [1] &quot;pK = 0.005...&quot;
+## [1] &quot;pK = 0.01...&quot;
+## [1] &quot;pK = 0.02...&quot;
+## [1] &quot;pK = 0.03...&quot;
+## [1] &quot;pK = 0.04...&quot;
+## [1] &quot;pK = 0.05...&quot;
+## [1] &quot;pK = 0.06...&quot;
+## [1] &quot;pK = 0.07...&quot;
+## [1] &quot;pK = 0.08...&quot;
+## [1] &quot;pK = 0.09...&quot;
+## [1] &quot;pK = 0.1...&quot;
+## [1] &quot;pK = 0.11...&quot;
+## [1] &quot;pK = 0.12...&quot;
+## [1] &quot;pK = 0.13...&quot;
+## [1] &quot;pK = 0.14...&quot;
+## [1] &quot;pK = 0.15...&quot;
+## [1] &quot;pK = 0.16...&quot;
+## [1] &quot;pK = 0.17...&quot;
+## [1] &quot;pK = 0.18...&quot;
+## [1] &quot;pK = 0.19...&quot;
+## [1] &quot;pK = 0.2...&quot;
+## [1] &quot;pK = 0.21...&quot;
+## [1] &quot;pK = 0.22...&quot;
+## [1] &quot;pK = 0.23...&quot;
+## [1] &quot;pK = 0.24...&quot;
+## [1] &quot;pK = 0.25...&quot;
+## [1] &quot;pK = 0.26...&quot;
+## [1] &quot;pK = 0.27...&quot;
+## [1] &quot;pK = 0.28...&quot;
+## [1] &quot;pK = 0.29...&quot;
+## [1] &quot;pK = 0.3...&quot;
+</code></pre>
+<p><img alt="" src="../../images/c33d46fc36e1b3b3.png"></p>
+<pre><code>## NULL
+## [1] &quot;Creating 879 artificial doublets...&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Computing pANN...&quot;
+## [1] &quot;Classifying doublets..&quot;
+## [1] &quot;Creating 879 artificial doublets...&quot;
+## [1] &quot;Creating Seurat object...&quot;
+## [1] &quot;Normalizing Seurat object...&quot;
+## [1] &quot;Finding variable genes...&quot;
+## [1] &quot;Scaling data...&quot;
+## [1] &quot;Running PCA...&quot;
+## [1] &quot;Calculating PC distance matrix...&quot;
+## [1] &quot;Computing pANN...&quot;
+## [1] &quot;Classifying doublets..&quot;
+</code></pre>
+<pre><code>table(pbmc@meta.data$doublet_low)
+</code></pre>
+<pre><code>##
+## Doublet Singlet
+##      56    2582
+</code></pre>
+<pre><code>table(pbmc@meta.data$doublet_high)
+</code></pre>
+<pre><code>##
+## Doublet Singlet
+##      50    2588
+</code></pre>
+<pre><code class="language-r"># Plot results ------------------------
+pbmc@meta.data$DF_hi.lo &lt;- pbmc@meta.data$doublet_low
+pbmc@meta.data$DF_hi.lo[which(pbmc@meta.data$DF_hi.lo == &quot;Doublet&quot; &amp; pbmc@meta.data$doublet_high == &quot;Singlet&quot;)] &lt;- &quot;Doublet-Low&quot;
+pbmc@meta.data$DF_hi.lo[which(pbmc@meta.data$DF_hi.lo == &quot;Doublet&quot;)] &lt;- &quot;Doublet-High&quot;
+table(pbmc@meta.data$DF_hi.lo)
+</code></pre>
+<pre><code>##
+## Doublet-High  Doublet-Low      Singlet
+##           50            6         2582
+</code></pre>
+<pre><code class="language-r">## 结果展示，分类结果在pbmc@meta.data中
+reduction_method &lt;- &quot;tsne&quot; # &quot;tsne&quot;,&quot;umap&quot;
+DimPlot(pbmc, reduction = reduction_method, group.by =&quot;DF_hi.lo&quot;,cols =c(&quot;red&quot;,&quot;gold&quot;,&quot;#1bb3b6&quot;),pt.size = 0.8) + ggtitle(&quot;DoubletFinder&quot;)
+</code></pre>
+<p><img alt="" src="../../images/2f28378d0408a963.webp"></p>
+<pre><code class="language-r">pbmc &lt;- subset(pbmc,DF_hi.lo ==&quot;Singlet&quot;) #3去除双细胞
+
+# 可视化
+
+# 创建 FeaturePlot
+plot1 &lt;- FeaturePlot(pbmc, features = c(&quot;CD3D&quot;, &quot;CD4&quot;, &quot;CD3E&quot;, &quot;CD3G&quot;), label = TRUE)
+# 创建 DotPlot
+plot2 &lt;- DotPlot(pbmc, features = c(&quot;CD3D&quot;, &quot;CD4&quot;, &quot;CD3E&quot;, &quot;CD3G&quot;), group.by = 'seurat_clusters') +theme(axis.text.x = element_text(angle = 45, hjust = 1))
+plot_combined &lt;- plot_grid(plot1, plot2, ncol = 2)
+print(plot_combined)
+</code></pre>
+<p><img alt="" src="../../images/b840abcb7ecadfb3.webp"></p>
+<pre><code>pbmc_T = subset(pbmc,seurat_clusters == 0 | seurat_clusters == 9)
+</code></pre>
+<p>复现感兴趣基因的表达量图</p>
+<pre><code class="language-r">pbmc_T &lt;- NormalizeData(object = pbmc_T) %&gt;%
+  FindVariableFeatures(selection.method = &quot;vst&quot;, nfeatures = 2000) %&gt;%
+  ScaleData() %&gt;%
+  RunPCA()
+</code></pre>
+<pre><code>## Centering and scaling data matrix
+</code></pre>
+<pre><code>## PC_ 1
+## Positive:  STMN1, TUBA1B, HIST1H3B, NUSAP1, TYMS, MKI67, CKS1B, HIST1H1B, TOP2A, HIST1H2AG
+##     ZWINT, TUBB, BIRC5, CDK1, GTSE1, RRM2, UBE2C, HMGB2, HIST1H3G, ASPM
+##     HIST1H2AH, PCLAF, HIST1H4C, HIST1H4D, H2AFX, HIST1H2BH, HIST1H2AL, CCNA2, CDKN3, CENPW
+## Negative:  TXNIP, NEAT1, LTB, MALAT1, IL7R, AHNAK, TSC22D3, KLRB1, BIRC3, IGKC
+##     CD226, PPP1R15A, TIMP1, GZMM, KIAA1551, CCND2, GPR183, BTG2, ITGB1, SATB1
+##     TP53INP1, KLF2, AC133644.2, BCL2L11, FKBP11, PIM2, MT-ND2, SORL1, CYSLTR1, TSHZ2
+## PC_ 2
+## Positive:  S100A10, KLF2, S100A6, ANXA1, IL7R, TAGLN2, CRIP1, NOSIP, TIMP1, CDC25B
+##     DSTN, ANXA2, VIM, LMNA, CRIP2, CDKN2D, AHNAK, LGALS1, ITGB1, PLP2
+##     KLF3, ATP2B1, MYADM, TSC22D3, LTB, SH3BP5, ARL4A, TCF7, RASGRP2, LYAR
+## Negative:  SRGN, TIGIT, LAG3, HAVCR2, CD2, LYST, CCL4, RDH10, IFNG, CTLA4
+##     ZBED2, ZFP36L1, PDCD1, CCL3, AC017002.3, IKZF3, LINC01943, RNF19A, ICOS, CST7
+##     PTPN7, SIRPG, PTMS, NMB, FABP5, TNFRSF18, LINC01480, SLC27A2, LINC01281, IL2RB
+## PC_ 3
+## Positive:  GINS2, FAM111B, TCF7, HELLS, MCM7, PCNA, FKBP5, E2F1, MCM3, MCM6
+##     CHEK1, CDC6, CDC45, CDCA7, MCM10, CCNE2, MCM4, DUT, WDR76, CLSPN
+##     MSH6, PRKDC, MCM5, CDT1, FEN1, RPS2, TIMP1, TK1, RPS18, TSHZ2
+## Negative:  CCL4, CCL5, CCNB1, PLK1, DLGAP5, GZMA, CST7, NKG7, CDC20, PIF1
+##     PRF1, PLEK, HAVCR2, KIF14, GNLY, UBALD2, CENPA, TROAP, CCNB2, NEK2
+##     KNSTRN, GZMK, GZMB, CENPE, LAG3, NUF2, PRDM1, ARL6IP1, AURKA, CXCR6
+## PC_ 4
+## Positive:  NKG7, GZMA, GZMK, CCL5, GZMH, PLEK, GZMB, GNLY, PRF1, CST7
+##     FGFBP2, CCL4, FAM111B, CLSPN, SLAMF7, CHI3L2, CDC45, SLF1, PCNA, CXCR6
+##     HIST1H2AG, RRM2, CDT1, C12orf75, HIST1H1D, TIMD4, HIST1H2AB, FEN1, CADM1, CCNE2
+## Negative:  DOK5, CDC20, IGFL2, NR3C1, GNG4, PHEX, TNFRSF4, AHI1, TNFRSF18, PLK1
+##     CCNB1, LINC01480, RBPJ, NEK2, FZD3, KIF14, IGFBP4, TSHZ2, RPS8, KNSTRN
+##     NMB, HSD11B1, RAD21, RGCC, CCNB2, LMO4, DRAIC, LINC01281, SESN3, KIF20B
+## PC_ 5
+## Positive:  MALAT1, NEAT1, SYNE2, AHNAK, XIST, TXNIP, ITGB1, RORA, KIAA1551, IL7R
+##     TSC22D3, ITGA4, ATP2B1, RAB11FIP1, BIRC3, MT-ND5, MT-ND2, ANKRD36C, ANKRD28, SLC20A1
+##     ANTXR2, SLC2A3, PPP1R15A, CD2, MYADM, CLDND1, PDE3B, GOLGA4, MXD1, SLC4A7
+## Negative:  RPS18, GAPDH, RPSA, ACTG1, RPL10A, ACTB, PFN1, RPLP0, FABP5, MT2A
+##     RPS2, COTL1, PTTG1, RPS8, RAN, EEF1B2, MZT2B, COX8A, SLC25A5, HMGN2
+##     PPIA, TROAP, SNRPG, ILF2, SNRPE, NME1, MZT2A, MT1E, PSME2, SNHG25
+</code></pre>
+<pre><code># 简单判断一下用多少PC
+ElbowPlot(pbmc_T, ndims=50)
+</code></pre>
+<p><img alt="" src="../../images/4c2d0ebccd0cde8d.png"></p>
+<pre><code class="language-r">dim.usage &lt;- 30
+pbmc_T &lt;- FindNeighbors(pbmc_T, dims = 1:dim.usage) %&gt;%
+  FindClusters(resolution = 0.7) %&gt;%
+  RunUMAP(dims = 1:dim.usage) %&gt;%
+  RunTSNE(dims = 1:dim.usage)
+</code></pre>
+<pre><code>## Computing nearest neighbor graph
+</code></pre>
+<pre><code>## Computing SNN
+</code></pre>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+##
+## Number of nodes: 644
+## Number of edges: 30618
+##
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.6395
+## Number of communities: 5
+## Elapsed time: 0 seconds
+</code></pre>
+<pre><code>## 01:25:13 UMAP embedding parameters a = 0.9922 b = 1.112
+</code></pre>
+<pre><code>## Found more than one class &quot;dist&quot; in cache; using the first, from namespace 'BiocGenerics'
+</code></pre>
+<pre><code>## Also defined by 'spam'
+</code></pre>
+<pre><code>## 01:25:13 Read 644 rows and found 30 numeric columns
+</code></pre>
+<pre><code>## 01:25:13 Using Annoy for neighbor search, n_neighbors = 30
+</code></pre>
+<pre><code>## Found more than one class &quot;dist&quot; in cache; using the first, from namespace 'BiocGenerics'
+</code></pre>
+<pre><code>## Also defined by 'spam'
+</code></pre>
+<pre><code>## 01:25:13 Building Annoy index with metric = cosine, n_trees = 50
+</code></pre>
+<pre><code>## 0%   10   20   30   40   50   60   70   80   90   100%
+</code></pre>
+<pre><code>## [----|----|----|----|----|----|----|----|----|----|
+</code></pre>
+<pre><code>## **************************************************|
+## 01:25:13 Writing NN index file to temp file C:\Users\熊\AppData\Local\Temp\RtmpYz2BWE\file218072637575
+## 01:25:13 Searching Annoy index using 1 thread, search_k = 3000
+## 01:25:13 Annoy recall = 100%
+## 01:25:14 Commencing smooth kNN distance calibration using 1 thread with target n_neighbors = 30
+## 01:25:15 Initializing from normalized Laplacian + noise (using irlba)
+## 01:25:15 Commencing optimization for 500 epochs, with 24878 positive edges
+## 01:25:18 Optimization finished
+</code></pre>
+<pre><code># TCF1-hi
+FeaturePlot(pbmc_T, features = c(&quot;TCF7&quot;, &quot;LEF1&quot;, &quot;FAS&quot;, &quot;CXCR5&quot;,&quot;IL7R&quot;,&quot;CD28&quot;,&quot;CCR7&quot;,&quot;GPR183&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/e827f701a903edc4.webp"></p>
+<pre><code># TFH-like
+FeaturePlot(pbmc_T, features = c(&quot;BCL6&quot;, &quot;IL21&quot;, &quot;CXCL13&quot;, &quot;TNFSF8&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/a94432e95c0a2f63.webp"></p>
+<pre><code># Proliferation
+FeaturePlot(pbmc_T, features = c(&quot;E2F8&quot;, &quot;MKI67&quot;, &quot;PCNA&quot;, &quot;MCM2&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/b9f4c47053ed6936.webp"></p>
+<pre><code># Cytotoxic
+FeaturePlot(pbmc_T, features = c(&quot;EOMES&quot;, &quot;NKG7&quot;, &quot;GZMB&quot;, &quot;CCL4&quot;,&quot;PRF1&quot;,&quot;SLAMF7&quot;,&quot;GZMK&quot;,&quot;CCL5&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/e5274db0dbf37c61.webp"></p>
+<pre><code># Transcription factors
+FeaturePlot(pbmc_T, features = c(&quot;FOXO1&quot;, &quot;TBX21&quot;, &quot;PRDM1&quot;, &quot;MAF&quot;,&quot;TOX&quot;,&quot;FOXP3&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/67eb59d5a25d8eac.webp"></p>
+<pre><code># iNHIBITORY RECEPTORS
+FeaturePlot(pbmc_T, features = c(&quot;PDCD1&quot;, &quot;CTLA4&quot;, &quot;HAVCR2&quot;, &quot;TIGIT&quot;,&quot;CD96&quot;,&quot;LAG3&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/b1cf9c7628f25573.webp"></p>
+<pre><code># TGF-贝塔 signal
+FeaturePlot(pbmc_T, features = c(&quot;TGFB1&quot;, &quot;SMAD3&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/6d8cef3116db7de5.webp"></p>
+<pre><code>#Cytokines/Chemokines
+FeaturePlot(pbmc_T, features = c(&quot;IFNG&quot;, &quot;TNF&quot;), label = TRUE,pt.size=2)
+</code></pre>
+<p><img alt="" src="../../images/b566eb192b8d7dea.webp"></p>
+<pre><code># Signatures
+</code></pre>
+<h4 id="cluster-ump">不同cluster UMP图</h4>
+<pre><code class="language-r">rgb_to_hex &lt;- function(r, g, b) {
+  return(paste0(&quot;#&quot;, sprintf(&quot;%02X&quot;, r), sprintf(&quot;%02X&quot;, g), sprintf(&quot;%02X&quot;, b)))
+}
+
+new.cluster.ids &lt;- c(&quot;TCF1hi&quot;, &quot;TFH-like&quot;, &quot;Cycling 1&quot;, &quot;T cyto&quot;,&quot;Cycling 2&quot;)
+
+# 所以这个要我自己去调整一下,应该是注释的细胞群不一样吧
+names(new.cluster.ids) &lt;- levels(pbmc_T)
+
+# 给pbmc也就是seruat对象调数据id label
+pbmc_T &lt;- RenameIdents(pbmc_T, new.cluster.ids)
+p1 = DimPlot(pbmc_T, reduction = &quot;umap&quot;, label = TRUE,pt.size = 2)
+# 饼图
+
+# 聚类簇名称到自定义标签的映射字典
+cluster_labels &lt;- c(&quot;TCF1hi&quot;, &quot;TFH-like&quot;, &quot;Cycling 1&quot;, &quot;T cyto&quot;, &quot;Cycling 2&quot;)
+
+# 将聚类信息映射到自定义标签
+pbmc_T$cluster_label &lt;- cluster_labels[pbmc_T$seurat_clusters]
+
+# 计算不同标签的占比
+cluster_counts &lt;- table(pbmc_T$cluster_label)
+
+# 创建一个数据框
+cluster_data &lt;- data.frame(
+  Cluster = names(cluster_counts),
+  Count = as.numeric(cluster_counts)
+)
+
+# 计算百分比
+cluster_data$Percentage &lt;- cluster_data$Count / sum(cluster_data$Count) * 100
+
+color_mapping &lt;- data.frame(
+  Cluster = c(&quot;TCF1hi&quot;, &quot;TFH-like&quot;, &quot;Cycling 1&quot;, &quot;T cyto&quot;, &quot;Cycling 2&quot;),
+  Color = c(&quot;#F2766D&quot;, '#A3A500', &quot;#01BE7E&quot;, &quot;#00B0F6&quot;, &quot;#E66BF3&quot;)
+)
+
+# 将颜色映射到数据中
+cluster_data &lt;- merge(cluster_data, color_mapping, by = &quot;Cluster&quot;)
+
+# 创建饼图
+p2 = ggplot(cluster_data, aes(x = &quot;&quot;, y = Count, fill = Cluster)) +
+  geom_bar(stat = &quot;identity&quot;, width = 1) +
+  geom_text(aes(label = paste0(round(Percentage, 1), &quot;%&quot;)), position = position_stack(vjust = 0.6)) +
+  coord_polar(theta = &quot;y&quot;) +scale_fill_manual(values = rev(c('#A3A500',&quot;#F2766D&quot;,   &quot;#00B0F6&quot;,&quot;#E66BF3&quot;, &quot;#01BE7E&quot;)))
+  labs(title = &quot;Cluster Proportions&quot;)
+</code></pre>
+<pre><code>## $title
+## [1] &quot;Cluster Proportions&quot;
+##
+## attr(,&quot;class&quot;)
+## [1] &quot;labels&quot;
+</code></pre>
+<pre><code class="language-r"># 0 -TCF1hi 1-TFH-like 2 - Cycling1 3-T cyto   4 - Cycling 2
+
+plot_combined &lt;- plot_grid(p1, p2, ncol = 2)
+print(plot_combined)
+</code></pre>
+<p><img alt="" src="../../images/a3fa1b2e2741a5cc.webp"></p>
+<h4 id="cluster">不同cluster热图</h4>
+<pre><code class="language-r">all_markers &lt;- FindAllMarkers(object = pbmc_T)
+</code></pre>
+<pre><code>## Calculating cluster TCF1hi
+</code></pre>
+<pre><code>## Calculating cluster TFH-like
+</code></pre>
+<pre><code>## Calculating cluster Cycling 1
+</code></pre>
+<pre><code>## Calculating cluster T cyto
+</code></pre>
+<pre><code>## Calculating cluster Cycling 2
+</code></pre>
+<pre><code class="language-r">top5 &lt;- all_markers %&gt;% group_by(cluster) %&gt;% top_n(20, avg_log2FC)
+##Seurat 初始热图
+print(DoHeatmap(pbmc_T,top5$gene))
+</code></pre>
+<p><img alt="" src="../../images/8b2c749db788a792.webp"></p>
+<h4 id="tcr-add">计算细胞周期信号分数和TCR 信号分数Add</h4>
+<pre><code class="language-r">library(msigdbr)
+# TCR gene 来自 MsigdR
+tmp =msigdbr(species = &quot;Homo sapiens&quot;,category = &quot;C5&quot;,subcategory = &quot;GO:CC&quot;)
+tcr_genes &lt;- tmp[tmp$gs_name == &quot;GOCC_T_CELL_RECEPTOR_COMPLEX&quot;,]$gene_symbol %&gt;%unique()
+pbmc_T &lt;- AddModuleScore(pbmc_T, features  = list(tcr_genes), name = &quot;TCR_signaling_Score&quot;)
+
+tmp =msigdbr(species = &quot;Homo sapiens&quot;,category = &quot;C2&quot;)
+# 计算 cell cycling 基因模块得分
+cell_cycling_genes &lt;- tmp[tmp$gs_name == &quot;BIOCARTA_G1_PATHWAY&quot;,]$gene_symbol %&gt;%unique()
+
+pbmc_T &lt;- AddModuleScore(pbmc_T, features = list(cell_cycling_genes), name = &quot;Cell_cycling_Score&quot;)
+
+# 进行可视化
+umap &lt;- data.frame(pbmc_T@meta.data, pbmc_T@reductions$umap@cell.embeddings)
+
+cell_type_med &lt;- umap %&gt;%
+  group_by(cluster_label) %&gt;%
+  summarise(
+    UMAP_1 = median(UMAP_1),
+    UMAP_2 = median(UMAP_2)
+  )
+
+p1 = ggplot(umap, aes(UMAP_1, UMAP_2))  +
+  geom_point(aes(colour  = TCR_signaling_Score1)) + scale_color_gradient(low = &quot;#007DFF&quot;,high = &quot;#F32700&quot;)+
+  ggrepel::geom_label_repel(aes(label = cluster_label),fontface=&quot;bold&quot;,data = cell_type_med,point.padding=unit(0.5, &quot;lines&quot;))+labs(title  =  &quot;TCR_signaling_Score&quot;) + theme_bw()
+
+p2 = ggplot(umap, aes(UMAP_1, UMAP_2))  +
+  geom_point(aes(colour  = Cell_cycling_Score1)) + scale_color_gradient(low = &quot;#007DFF&quot;,high = &quot;#F32700&quot;)+
+  ggrepel::geom_label_repel(aes(label = cluster_label),fontface=&quot;bold&quot;,data = cell_type_med,point.padding=unit(0.5, &quot;lines&quot;))+labs(title  = &quot;Cell_cycling_Score&quot;) + theme_bw()
+
+p1+p2
+</code></pre>
+<p><img alt="" src="../../images/68a811b23f7a337f.webp"></p>
+<h3 id="different-vasculitogenic-cd4-t-cell-subpopulations-share-tcr-clones">Different vasculitogenic CD4+ T cell subpopulations share TCR clones.</h3>
+<p>Monocle3拟时序分析</p>
+<pre><code class="language-r">library(monocle3)
+</code></pre>
+<pre><code>## 载入需要的程辑包：SingleCellExperiment
+</code></pre>
+<pre><code>##
+## 载入程辑包：'SingleCellExperiment'
+</code></pre>
+<pre><code>## The following object is masked from 'package:edgeR':
+##
+##     cpm
+</code></pre>
+<pre><code>##
+## 载入程辑包：'monocle3'
+</code></pre>
+<pre><code class="language-r">## The following objects are masked from 'package:Biobase':
+##
+##     exprs, fData, fData&lt;-, pData, pData&lt;-
+</code></pre>
+<pre><code class="language-r">library(ggsci)
+
+expression_matrix = pbmc_T@assays$RNA@data
+cell_metadata = data.frame(pbmc_T@meta.data)
+gene_annotation = data.frame(expression_matrix[,1])
+gene_annotation[,1] = row.names(gene_annotation)
+colnames(gene_annotation)=c(&quot;gene_short_name&quot;)
+##构建Monocle3 cds对象
+cds &lt;- new_cell_data_set(expression_matrix,
+                         cell_metadata = cell_metadata,
+                         gene_metadata = gene_annotation)
+
+#预处理，相当于Seurat流程normalize过程
+#counts数据选择norm_method = c(&quot;log&quot;)
+#data数据选择norm_method = c(&quot;none&quot;)
+cds &lt;- preprocess_cds(cds, num_dim = 100,norm_method = c(&quot;none&quot;))
+
+#去除批次效应,多个样本时可以通过此方式去除批次
+cds &lt;- align_cds(cds, alignment_group = &quot;orig.ident&quot;)
+</code></pre>
+<pre><code>## Aligning cells from different batches using Batchelor.
+## Please remember to cite:
+##   Haghverdi L, Lun ATL, Morgan MD, Marioni JC (2018). 'Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors.' Nat. Biotechnol., 36(5), 421-427. doi: 10.1038/nbt.4091
+</code></pre>
+<pre><code class="language-r">## 降维，默认是&quot;Umap&quot;方式
+cds &lt;- reduce_dimension(cds,cores=30)
+</code></pre>
+<pre><code>## No preprocess_method specified, and aligned coordinates have been computed previously. Using preprocess_method = 'Aligned'
+</code></pre>
+<pre><code>## Note: reduce_dimension will produce slightly different output each time you run it unless you set 'umap.fast_sgd = FALSE' and 'cores = 1'
+</code></pre>
+<pre><code>## Found more than one class &quot;dist&quot; in cache; using the first, from namespace 'BiocGenerics'
+</code></pre>
+<pre><code>## Also defined by 'spam'
+</code></pre>
+<pre><code>## Found more than one class &quot;dist&quot; in cache; using the first, from namespace 'BiocGenerics'
+</code></pre>
+<pre><code>## Also defined by 'spam'
+</code></pre>
+<pre><code class="language-r">## 聚类分群，分辨率调小，是为了让细胞是一群可以更好展示
+cds &lt;- cluster_cells(cds,resolution = 0.001)
+
+## 拟时序
+cds &lt;- learn_graph(cds)
+</code></pre>
+<pre><code>##
+  |
+  |                                                                      |   0%
+  |
+  |======================================================================| 100%
+</code></pre>
+<pre><code class="language-r">##选择特定细胞作为起点，代码比交互式页面方便许多，且不会出现选中自己不想要的细胞
+myselect &lt;- function(cds,select.classify,my_select){
+  cell_ids &lt;- which(colData(cds)[,select.classify] == my_select)
+  closest_vertex &lt;-
+    cds@principal_graph_aux[[&quot;UMAP&quot;]]$pr_graph_cell_proj_closest_vertex
+  closest_vertex &lt;- as.matrix(closest_vertex[colnames(cds), ])
+  root_pr_nodes &lt;-
+    igraph::V(principal_graph(cds)[[&quot;UMAP&quot;]])$name[as.numeric(names
+    (which.max(table(closest_vertex[cell_ids,]))))]
+  root_pr_nodes}
+
+cds &lt;- order_cells(cds, root_pr_nodes=myselect(cds,select.classify = 'cluster_label',my_select = &quot;TCF1hi&quot;))
+
+##使用Seurat的UMAP信息，这样可以与Seurat对象的细胞分布保持一致
+cds.embed &lt;- cds@int_colData$reducedDims$UMAP
+int.embed &lt;- Embeddings(pbmc_T, reduction = &quot;umap&quot;)
+int.embed &lt;- int.embed[rownames(cds.embed),]
+cds@int_colData$reducedDims$UMAP &lt;- int.embed
+
+##不同细胞类型拟时序数值
+##拟时序值越高表示细胞分化程度越高，这里仅为演示，并非真实分化情况
+plot_cells(cds, color_cells_by = &quot;pseudotime&quot;,
+           show_trajectory_graph=T,trajectory_graph_segment_size = 2) + plot_cells(cds,
+           color_cells_by = &quot;cluster_label&quot;,
+           label_cell_groups=FALSE,
+           label_leaves=FALSE,
+           label_branch_points=FALSE,
+           graph_label_size=1)+ scale_color_manual(values = pal_jco(&quot;default&quot;, alpha = 0.6)(9))
+</code></pre>
+<pre><code>## Cells aren't colored in a way that allows them to be grouped.
+</code></pre>
+<p><img alt="" src="../../images/6e7cf65a02f47dfc.webp"></p>
+<p>01</p>
+<p>二、测试文件及代码</p>
+<p>如果你也想学习本文的代码和思路，我们给大家准备好了测试文件和代码：</p>
+<p>链接：https://pan.baidu.com/s/1J7E4zb6gCACTPKK7stPeGg?pwd=pr9d</p>
+<p><img alt="" src="../../images/8f670db37f95ea95.jpg"></p>
+<p>02</p>
+<p>三、合作方介绍</p>
+<p><strong><strong>本次活动由</strong>Biomamba生信基地</strong> 组织主办、<strong>北京寻因生物科技</strong> 有限公司独家冠名、科研者之家、西柚云超算联合赞助，设立总价值约<strong>50W</strong> 的科研助力基金。
+北京寻因生物科技有限公司：</p>
+<p>北京寻因生物科技有限公司（简称寻因生物）成立于2018年，秉承“用技术温暖生命，预见未来”的企业愿景，致力于全球单细胞市场标准普世化发展，推动单细胞技术在早筛、临床、药研等应用方向的深耕落地，为全球科学家、技术公司及药企工业等客户提供可信赖的高品质单细胞技术服务及实验室建设解决方案。</p>
+<p>科研者之家：</p>
+<p>科研者之家（www.home-for-researchers）是目前国内最知名的科研工具箱平台，以“科研不停，神器不止”为理念，自2019年上线以来，多款工具火爆科研界，如AI写作助手、Figdraw在线绘图平台、生信零代码平台、AI润色、DLP一键改写降重、中文版Pubmed、课题思路助手等。截止目前，包括Nature，Advanced Materials等顶级期刊在内，科研者之家相关科研工具被论文引用已超2300次之多。</p>
+<p>西柚云超算：</p>
+<p>西柚云是一家专注于科研共享计算的云服务基建型公司。于2022年推出独立研发的大禹共享型计算系统，具有实例动态迁移（拒绝传统型共享服务器单节点卡顿）、开箱即用的生信环境、每个用户拥有<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503869&amp;idx=1&amp;sn=142f8c7ba8620815a8770773df077f12&amp;chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&amp;scene=21#wechat_redirect">独立的实例和root权限</a>等特性。</p>
+<p>03</p>
+<p>**本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!
+**</p>
+<p><img alt="" src="../../images/d0a809a43821e1e5.png"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../../images/feb9903c31c83e08.png"><img alt="" src="../../images/349b3050f055aa44.gif"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506420&amp;idx=1&amp;sn=6867471200293a24ff3122583585da33&amp;chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

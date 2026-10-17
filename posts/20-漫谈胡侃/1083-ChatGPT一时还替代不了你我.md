@@ -18,29 +18,29 @@ albums: ["漫谈胡侃"]
 
 ChatGPT在世界范围内受到关注与赞扬的同时，硬币的另一面也逐渐显现了出来：大量的文案、作业、考试、论文被发现由ChatGPT来完成，而各大学术机构与期刊组织也迅速把ChatGPT拉入了**黑名单** ，这显然没有争辩的余地，必须禁止。这导致在今天，ChatGPT带来的技术狂热可能不如它在**伦理道德** 方面讨论的热度高。还有一种观点担心的点是ChatGPT会不会导致许多员工被替代从而失业。或者再科幻一些，会不会未来有一天会像斯皮尔伯格导演的《人工智能》那样，各样各业都存在真正的智能机器人来替代人类员工。于是我自己探索了一下，看看他是否能够替代我：
 
-在我向ChatGPT索要单细胞fastq文件的分析代码时，显然ChatGPT成功地检索到了单细胞数据分析神器Seurat并给了我一套代码。遗憾的是，Seurat并不能满足我提出的"从**fastq** 文件到图表的要求"。如果直接按照它给的代码，显然运行不了两行就会出**BUG** 。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpydnYRPye7LTRsybSrRlb41y1y4S8cSOQGyMR6EfX2gA5kzrIY9as2vjeBcxTaf3jmBTD1Nya6hzA/640?wx_fmt=png)
+在我向ChatGPT索要单细胞fastq文件的分析代码时，显然ChatGPT成功地检索到了单细胞数据分析神器Seurat并给了我一套代码。遗憾的是，Seurat并不能满足我提出的"从**fastq** 文件到图表的要求"。如果直接按照它给的代码，显然运行不了两行就会出**BUG** 。![](../../images/8c580c2e9315d31a.webp)
 
 好叭，毕竟数据比较复杂而且专业，那简单的**信息整理** 的问题ChatGPT是否能完成呢？正好前几天我们肝过一个推送([2023年了, 都哪些物种有scRNA-Seq数据](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247496958&idx=1&sn=f34c69e2114d99fa25e2524411c028a2&chksm=9b3c8daeac4b04b80a5629433d5eec4d25b8ba7d2a74fa31cd499b98c36601ddfe436e2196eb&scene=21#wechat_redirect>))。倘若ChatGPT能完整这样的数据整理，那以后码字效率不起飞了？在我做了一番尝试之后(有时ChatGPT会拒绝你的提问，需要注意提问方式，越细致的提问能够收获越准确的答案)，ChatGPT果然迅速地给出了各物种单细胞测序文章的列表。
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpydnYRPye7LTRsybSrRlb41iazKYe3fnHCxX6B32leLzXQfNyCEJsCL6GTD42jVTmWAVx1v9VMYAxg/640?wx_fmt=png)
+![](../../images/e1e114e2a6dd553e.webp)
 
-但是，我本着求真务实的态度去一一检索了ChatGPT给我提供的文章列表，发现其中一些内容在Google和Pubmed中均**无法检索到** ，比如"**Single-Cell RNA-Seq of Developing Brain Tissues from Orangutan and Human Reveals Differential Expression of Neuron and Glial Cell-Type Markers** "，感兴趣的同学可以自己试试。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpydnYRPye7LTRsybSrRlb41uqfZVjJVCDrwF3pVOvlTByHicqqSGJtSM3VGskaXjmxUUI9u3jZqUJw/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpydnYRPye7LTRsybSrRlb41e8BrT5Tr1zNKnt6oHiceFgDRvicnKsohS9IC5fQh9KFvS5ibLCbXejI1A/640?wx_fmt=png)
+但是，我本着求真务实的态度去一一检索了ChatGPT给我提供的文章列表，发现其中一些内容在Google和Pubmed中均**无法检索到** ，比如"**Single-Cell RNA-Seq of Developing Brain Tissues from Orangutan and Human Reveals Differential Expression of Neuron and Glial Cell-Type Markers** "，感兴趣的同学可以自己试试。![](../../images/718d0927313eb5f7.webp)![](../../images/961386457aad880a.webp)
 
-当我质问它这篇文章的来源时，它除了道歉啥也答不出来。所以作为一个负责任的博主，以后的文献整理我还是**不打算交给ChatGPT** 来完成，除非它能和计算器一样准确到不容置疑。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpydnYRPye7LTRsybSrRlb41icGgu448K8XvpFxIHHhUvDTDWwreIovwbrQicqdG3GCLAibzP0KnLR4tA/640?wx_fmt=png)
+当我质问它这篇文章的来源时，它除了道歉啥也答不出来。所以作为一个负责任的博主，以后的文献整理我还是**不打算交给ChatGPT** 来完成，除非它能和计算器一样准确到不容置疑。![](../../images/315639462bfb3a28.webp)
 
 **我的看法**
 
 回到能不能替代人类岗位这个问题，我个人还是觉得这种快速检索并整理资料的能力固然能够替代一些**简单的** 岗位。但这时反智并不是什么好想法，毕竟openAI为了开发这个工具也会提供许多岗位，这显然比有的大厂一门心思抢占**外卖市场** 要上流的多。再换句话说，ChatGPT还不能直接帮我写好完美的代码并调用终端去执行，然后做好教程、选好宣发文案去发布公众号。又或者说，咱号里的用户临床医师和科研人员居多，ChatGPT还不能坐在诊室里对患者**望触叩听** ，也不能到细胞房里去**换培养基** 。总的来说，与其担心ChatGPT会挤占自己的岗位，还不如多掌握些技能让自己变得不可替代；否则更优秀的**其他人类个体** 会先ChatGPT一步替代你。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=0)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=2) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)**
+**![图片](../../images/eff615a0a49ee4ca.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=4)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

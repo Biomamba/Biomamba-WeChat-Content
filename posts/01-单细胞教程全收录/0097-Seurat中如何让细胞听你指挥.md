@@ -10,17 +10,17 @@ albums: ["单细胞教程全收录", "答读者问"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495938&idx=1&sn=2258390c97ec14f3cd336defede59cdb&chksm=9b3c8852ac4b01448fd3b84463d5ab6b697495db6ad57746e7f60e32f491547a3e35290c66ee#rd
 > 合集：单细胞教程全收录 / 答读者问
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 写在前面
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)这一讲其实我们更过，这里重置了一下，大家可以配合这一讲一起学习([答读者问 （十四）Seurat中分类变量处理技巧](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486134&idx=1&sn=e581b8ac20bbc968aeef3f9cf56f3a0f&chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&scene=21#wechat_redirect>))。付费解锁里没内容啦，所有内容都放出来了。只需要这讲的同学不要订阅，本推送是个“假的付费内容”。
+![](../../images/90fab1387787746b.webp)这一讲其实我们更过，这里重置了一下，大家可以配合这一讲一起学习([答读者问 （十四）Seurat中分类变量处理技巧](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486134&idx=1&sn=e581b8ac20bbc968aeef3f9cf56f3a0f&chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&scene=21#wechat_redirect>))。付费解锁里没内容啦，所有内容都放出来了。只需要这讲的同学不要订阅，本推送是个“假的付费内容”。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 开整
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 # 一、提取或删除细胞
 
@@ -33,7 +33,7 @@ pbmc <- readRDS('pbmc.rds')
 DimPlot(pbmc)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauqKbwomfLPIBBkwibTc2Z9mP1YplRu6IFuzxegGjCxS28xQWc8ovOPHA/640?wx_fmt=png)
+![](../../images/27ecf4394855a54f.webp)
 
 ## 1.1 提取细胞
 
@@ -43,7 +43,7 @@ alltcell <- subset(pbmc,idents=c('Naive CD4 T','Memory CD4 T','CD8 T'))
 DimPlot(alltcell)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauIGUdLF6ZCvJFC2tffYicBz9xaHgWGofWSfxh8NTaGakLiaB2bhK4QotQ/640?wx_fmt=png)
+![](../../images/685cc7573c1c3f9a.webp)
 
 ## 1.2 删除细胞
 
@@ -55,7 +55,7 @@ deletebcell <- subset(pbmc,
 DimPlot(deletebcell)#B cell确实没了
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diaux3RxoTww6gRRKD0CibnmAZ6KyMqGpObo0Bjr11AFTh68xd2uAWJ9ucg/640?wx_fmt=png)
+![](../../images/fdf3692bf5062a02.webp)
 
 ## 1.3 删除多个细胞
 ```r
@@ -65,7 +65,7 @@ deleteb.and.t <- subset(pbmc,
 DimPlot(deleteb.and.t)#B cell和T cell都没了
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diau814ARhfRFTNJZ2849HQRoLFObBiaDIcn3LibTw03yLWWlldhcRK6hC4A/640?wx_fmt=png)
+![](../../images/8fe29dbb39e0abda.webp)
 
 # 二、让细胞听你指挥
 
@@ -76,21 +76,21 @@ Idents(alltcell) <- 'T Cell'#假设我们不知道这群T Cell的亚群
 DimPlot(alltcell)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauKxSwgh1RKLgOtA6q5icpAtroD6LNe9hBsLZ9Ir26SjzRH8H7RFibucsQ/640?wx_fmt=png)
+![](../../images/5944f45d1633905a.webp)
 
 ```
 ### 如果，这时我的细胞数量已经不能支持我继续进行亚群分析，但我仍想从这群T Cell中分离出CD8 TCELL
 FeaturePlot(alltcell,features = 'CD8A')#先看一下 CD8A的表达量
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauq884JX4vn4F33PI6s3Txqwu00JyQXNrWibibTyhOqoG4bWcKzhWibJLpw/640?wx_fmt=png)
+![](../../images/dab73238b7e11f4e.webp)
 ```r
 cd8tcell <- subset(alltcell,CD8A>0)
 Idents(cd8tcell) <- 'CD8 TCELL'
 DimPlot(cd8tcell)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diaukWv0PaqptxRQLQWWKQAqYxTia0uQibFlKN9TLFKic9YJMlXdWDLq7pgyg/640?wx_fmt=png)
+![](../../images/19605d75f5a29b3b.webp)
 
 ## 2.1 三等分
 
@@ -133,7 +133,7 @@ p1
 #这个数据根据CD8A表达量划分的前1/3与后1/3似乎差别不大
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauHkD5F2SicZr2K5ysbjGOE88dWLJZf7EKUajKYJnDWIctIRzGdvTDUBw/640?wx_fmt=png)
+![](../../images/2f682a50471caa80.webp)
 
 ## 2.2 取前后10%
 ```r
@@ -174,7 +174,7 @@ p2
 #成功，前10%表达量果然更高
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diau6Be9V6dksWkbJHDojnokibkQIp7sOcQeZVLeOdcj5gDSWuB3115MYQQ/640?wx_fmt=png)
+![](../../images/7d4329d2fa022bbf.webp)
 
 ```
 #对比一下1/3和1/10的差别：
@@ -184,7 +184,7 @@ library(patchwork)
 p1|p2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauCkdYIhuXmoUwtX6bSGxicFX3ib4jb3cGGDzYx3p1ITC6bwbofCedZY9Q/640?wx_fmt=png)
+![](../../images/0c997260ffdfa066.webp)
 
 ## 2.3 画个箱线图再看看
 ```r
@@ -213,7 +213,7 @@ p3<- ggplot2::ggplot(mymatrix2,aes(x=My.CD8A.Expr,y=CD8A,fill=My.CD8A.Expr))+
 p3
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauD4Ijq0sXHybjy0ggGYpb2L0UjjFvDJnibCLficqoibG0j4YFjn1pZqj2A/640?wx_fmt=png)
+![](../../images/6d82ee0f503983fc.webp)
 
 ## 2.4 条条大路通罗马，再换种思路
 ```
@@ -228,7 +228,7 @@ p4 <- VlnPlot(alltcell,features = 'CD8A')
 p4
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diautfUIPjuDj95jh8s9Bk26X4MfiadxIzmj5NUAOUYQeib01QiaUMplD34Mw/640?wx_fmt=png)
+![](../../images/86b6f826665e1119.webp)
 
 ```r
 diff.expr <- FindMarkers(alltcell,ident.1 = 'high',ident.2 = 'low')
@@ -257,25 +257,25 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 `
 `
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 代码及测试文件
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
+![](../../images/90fab1387787746b.webp)不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauc3C2AWsNlIUHzH00Y8aYqulPicBUL8Zormtiadl7T1YYu6rrKubniaNibw/640?wx_fmt=png)
+![](../../images/f14e933e45b0605a.webp)
 
 链接：
 
 https://pan.baidu.com/s/1uH_Ft0qYB5xKzzULO0oDKA?pwd=bir2
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzxyTAu6FrITx9Pia7RF3diauAiavTicjcddPKq7lS08oDiat5PSUUBd5ZBDUjPyO1JficyEQ7aNLR4enag/640?wx_fmt=jpeg)
+![](../../images/5fb07d869c36ec25.jpg)
 
 若链接失效可以文末联系客服领取~
 
 **单细胞系列教程目录**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 单细胞数据分析系列教程：
 
@@ -338,12 +338,12 @@ https://www.bilibili.com/video/BV1br4y1x7Hf?p=1**往期推送**[单细胞测序�
 非技术帖：[关于单细胞的事 谈谈后面的计划](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484798&idx=1&sn=120eada9b02ea2f81f93cd4cfa5eb964&chksm=9b3f7c2eac48f538e2f95166dbe576b029dcb3ad7d321a4d9f346c9a51416d777f4cffb9aa84&scene=21#wechat_redirect>)[趁机预告一波](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247485614&idx=1&sn=f63ab5d759bdcb933f334be6333f9493&chksm=9b3f71feac48f8e8cece92812e0c26d7c03130359451a89ce7db22b7022506371269e1fc2af0&scene=21#wechat_redirect>)[生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247489314&idx=1&sn=fe66765836fe0d7b3450b30117415ce8&chksm=9b3f6e72ac48e7642725b22bafbece9c37277f56e3958be57d9702240c3b63dbeb1aedf61cf9&scene=21#wechat_redirect>)
 [为实验室准备一份生物信息学不动产](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492383&idx=1&sn=b8d912877cb38e8d8c9084d1d9370ded&chksm=9b3c9a4fac4b135926091a8af972c45a17a2fa1f94c704779c60df5f733847036c3797894c1c&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复消息，这里留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复消息，这里留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/fdb4c49c78e6216c.webp)![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

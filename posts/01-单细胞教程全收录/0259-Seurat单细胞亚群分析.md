@@ -10,7 +10,7 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247534661&idx=1&sn=16872e942170ace88f26deb0ea6c4b34&chksm=9b3c3115ac4bb803117843eac175a7f37f0934d4b84ac7f88461eb1e23e2b754d380093d22d2#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhDSJwguTPZKnDmXzotiadIYqa0JG9aAMR6XEu3iaIgb7KReWjicJqK4ugoKzZ20YudMoSCvTXedNe8g/640?wx_fmt=gif)
+![](../../images/f225780b0e012caf.gif)
 
 **一、写在前面**
 
@@ -70,7 +70,7 @@ p1 <-DimPlot(scRNA,group.by ='celltype',label =T)
 p1
 ```
 
-### **![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlyq6n89BxicfWrzW3IW2PLuh0ibI7wEeTYcYwQRnARgO9kLapI7oPYBqw/640?wx_fmt=png&from=appmsg)**
+### **![](../../images/8d3906010de85ea3.webp)**
 
 ###
 ```
@@ -133,14 +133,14 @@ subcluster.name =paste0('Epiblast_res_',my_resolution)# 存储亚群信息的slo
 DimPlot(scRNA,group.by =paste0('Epiblast_res_',my_resolution))
 ```
 
-### **![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlNtxbrl9gtmtqYNPsIpDUU7zP5xW8WHexTtwOnlLTKlf5MlWI7WyPgQ/640?wx_fmt=png&from=appmsg)**
+### **![](../../images/1430dbe0bdf96901.webp)**
 ```r
 # 单独展示这部分亚群：
 sub_cell<- scRNA[,grep('^Epiblast_',scRNA$Epiblast_res_0.3)]
 DimPlot(sub_cell,group.by =paste0('Epiblast_res_',my_resolution))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlX1SLlhrpCEzLdxKH5Mje3lmGkNfQM3vX3zy6oqgTQq06JbdovwZeug/640?wx_fmt=png&from=appmsg)
+![](../../images/6dd77e870220b8ab.webp)
 
 ### **2 可视化**
 ```r
@@ -192,7 +192,7 @@ theme( axis.text.x.bottom =element_text(angle =45,hjust =1,vjust =1))
 ## results
 ```
 
-`![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXljeiaPbOGzw0Jq71aXLyw1tCRgl3qj7IXlMqbXWYnYjzIpUAtYpyVzrA/640?wx_fmt=png&from=appmsg)`
+`![](../../images/70aa5b99f2dec03b.webp)`
 
 **
 **
@@ -211,7 +211,7 @@ p2
 
 ###
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlqIWVuyAJ4yWndTjj93I6cp6ycztqj5fQLj1LnNn5EO7Bk7pibseDesA/640?wx_fmt=png&from=appmsg)
+![](../../images/c504e76a128434fb.webp)
 
 ### 利用此前学过的[pathwork](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532754&idx=1&sn=7b9e196e20de37fd08bf24ca46cd9a82&scene=21#wechat_redirect>)，我们还可以把这个亚群分析内容贴回主图：
 ```r
@@ -219,7 +219,7 @@ library(patchwork)
 p1 +inset_element(p2, left =0, bottom =0.7, right =0.3, top =1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXl7OAUwm0p5jHib39wZeUgZcNibWmeYQHnLudkeZM0C0l6lqU3Lyfx7Imw/640?wx_fmt=png&from=appmsg)
+![](../../images/3b67c107f6228a56.webp)
 
 ## **3 循环探索亚群**
 
@@ -425,7 +425,7 @@ CombinePlots(dim_list)
 ## should now be combined using the patchwork system.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXl8ljJzKPPDUPFP0PHqIA82h4bYd4Ol2cXrB3VPs8pM0kOYic4Eyq9Cfg/640?wx_fmt=png&from=appmsg)
+![](../../images/8e0cecedcf1140f2.webp)
 ```
 CombinePlots(dot_list)
 ```
@@ -433,7 +433,7 @@ CombinePlots(dot_list)
 ## Warning in CombinePlots(dot_list): CombinePlots is being deprecated. Plots## should now be combined using the patchwork system.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlUc2tq8tMOOHXjx87DslWHjsdyibibqqb345xIwFH2x4xPtWGhfsoGKew/640?wx_fmt=png&from=appmsg)
+![](../../images/86bdfd0377aafd5e.webp)
 
 **三、取子集重新聚类分群**
 
@@ -443,7 +443,7 @@ sub_cell <- scRNA[,scRNA$celltype =='Epiblast']
 DimPlot(sub_cell)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlJa4kY1CMqibbgCiaqMgGibDsMEZE0zOQhgFmHsbh17S7sHnONK14jLibKQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f3246069c56b96e0.webp)
 ```r
 # normalization是每个细胞单独执行的，不需要做了
 # FindVariableFeatures需要重新做一下，子集的高变基因与大群的高变基因会存在一定差别.由于细胞数量的减少，高变基因数量也应该随之降低，变异系数较低的基因保留反而会给下游分析引入“噪声”。
@@ -607,7 +607,7 @@ sub_cell <-RunPCA(sub_cell, features =VariableFeatures(object = scRNA))
 ElbowPlot(sub_cell)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlHzBh2UJDHuU77Z7qOMEcnsY7zfRrX9lfyib8M8hkufrkQOYKChiaNIvw/640?wx_fmt=png&from=appmsg)
+![](../../images/296fb0a9e284b90e.png)
 ```r
 sub_cell <-FindNeighbors(sub_cell, dims =1:20)
 ```
@@ -638,7 +638,7 @@ ori_dim <-DimPlot(sub_cell)
 ori_dim
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlic3iaaoia19kHEsJqxaNkfvRuPVBuiaXvFlfYchrM4hxkIflzZIrHaHU9A/640?wx_fmt=png&from=appmsg)
+![](../../images/dc3da6ace829af51.webp)
 
 ```r
 # 觉得降维分的不够开，可以重新Run一下，但是形状会与大群中的不同哦：
@@ -647,7 +647,7 @@ re_dim <-DimPlot(sub_cell, reduction ="tsne")
 re_dim
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlK37U8TPntmowCa1U3eNkQsuA3xm3r7v3dggbWuNLjNaX69PWzrdlgQ/640?wx_fmt=png&from=appmsg)
+![](../../images/0a73b708be38dfb0.webp)
 ```r
 # 计算marker gene
 sub_cell.markers <-FindAllMarkers(sub_cell, only.pos =TRUE, min.pct =0.25, logfc.threshold =0.25)
@@ -682,25 +682,25 @@ scale.by ='size')+
 theme( axis.text.x.bottom =element_text(angle =45,hjust =1,vjust =1))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHMoD2353MUw48CTdEWMXlM0ibqL10duojqxicmdpfO130HicazONMZng8gZ0brd90XMD5d2IVtrM4A/640?wx_fmt=png&from=appmsg)可以明显发现，两种亚群分析方式获得的效果是不同的，至于如何选择，就要看大家手里的数据特征啦~
+![](../../images/bc4458f52b033a87.webp)可以明显发现，两种亚群分析方式获得的效果是不同的，至于如何选择，就要看大家手里的数据特征啦~
 
 **四、资料领取**
 
-一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwTNMC4Zlm4wOZf5l7x9Qzwx9yl4G0eCPLicicKBe5hkCElkQjDwQEt8YwcRqwq4u7uPP8CDvO6YgGQ/640?wx_fmt=jpeg)
+一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：![](../../images/2bad3ed0864fc986.jpg)
 
 链接: https://pan.baidu.com/s/1xv2SC7Sa6S2fv7r2YFXvLw
 
 提取码：fyxv
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwTNMC4Zlm4wOZf5l7x9QzwZia21dM7OibSciarlXIyNCtLBPbZ8HNuyFdIoOcY5UE3Bc2lEEQXhia51g/640?wx_fmt=jpeg)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![](../../images/2080bcc495becfbe.webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

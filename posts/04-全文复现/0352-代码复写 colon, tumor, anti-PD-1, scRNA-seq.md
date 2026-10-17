@@ -17,7 +17,7 @@ albums: ["全文复现"]
 首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是20号作品。**文章链接** ：投稿人未提供
 **数据原始链接：** https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM6213958**复现图片集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpeJubicy0KBibuiaYvlptQx5dOD47GThku5iafKdulURR2QRmSAKnKEWGdw/640?wx_fmt=png&from=appmsg)
+![](../../images/6bd51e3bcf3d4411.webp)
 
 **文献简介** ：投稿人未提供
 
@@ -334,7 +334,7 @@ Myeloid| CD14;CD68
 Fibroblast| COL1A2;COL3A1
 Epithelial| EPCAM;CD24
 Endothelial| VWF;PECAM1
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpSoyYdYMU0Rg1Cd9kLq3FHuw0SwVicU6mhn8TbyiahwmzVFibwEFBrphjw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialp1hMCQbU2zjRpAJryicrXLWCBUzIkALyxdDBAB22h2TMnCT24rtKC6JA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpQ3S21r8A8b94SMraGGqtib4sCiaC3oRSZkdjrbv0cWmy7chv7s9n2KIw/640?wx_fmt=png&from=appmsg)
+![](../../images/a2c2257c1cbb9e84.webp)![](../../images/c7c3ecb72d1cf3a7.webp)![](../../images/c82580a9d1684037.webp)
 
 ```r
 # setwd("~/project/01.lyh/03.result/")
@@ -712,7 +712,7 @@ T.cell.harmony.markers %>%
 write.csv(T.cell.harmony.markers,"02.CellAnnote/T.cell/T.cell.harmony.markers.csv")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpV8RU6ia4mUZGV5B2O9vibjKodbQsESuNbEx0tpDHLQDTrJ76OibdgjnCw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpaO3Z72lBiaDnaiagzrP8OHibdqriaKOggJbmI8IUxyP1E2dHUuyYqtWOoQ/640?wx_fmt=png&from=appmsg)
+![](../../images/81e2f4070842d05d.webp)![](../../images/90fb63e76cb0e076.webp)
 
 ### 2.1.1 CD4+ T 细胞分群
 ```r
@@ -822,7 +822,7 @@ table(sub.CD4$cellType_3)
 # 2746          3958          1248           796          1131          3337
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialp0vmzUAUAFlLsnIp0MLrkLIY1tDTIX1F4neyAaicXJeriaOCVUNdKqLdg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpTvzbdEicn1ZKtJUuqs9lzf50206qtQXiclCarIBkaryzOa6cTKrBSz6g/640?wx_fmt=png&from=appmsg)
+![](../../images/6275aa3faff020b5.webp)![](../../images/8978fb5b61195d3b.webp)
 
 ### 2.1.2 CD8+ T 细胞分群
 ```r
@@ -905,7 +905,7 @@ table(sub.CD8$cellType_3)
 # 911      2043      3105      2337
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpR4MCQbOudavB9ZfyZomLUP0C4pMibYeUibhRrk14ZibejjYCNIynicADNw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpQLFq3Vt98fJt8GDIw3k3e9c7mRjURQsSssdqC5TjcoLiaPZ3ywOTDXw/640?wx_fmt=png&from=appmsg)
+![](../../images/75db5a69751ef313.webp)![](../../images/38e3b82f19076e41.webp)
 
 ### 2.1.3 其他 T 细胞分群
 ```r
@@ -1307,7 +1307,7 @@ write.csv(sub.B.harmony.markers,"02.CellAnnote/B.cell/sub.B.harmony.markers.csv"
 saveRDS(sub.B.harmony,"02.CellAnnote/B.cell/B.annonted.cellType_1-2.rds")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpibOATiahsLyz7iaANq0icrIWsvreTR6NupicWdDPeFcv7e6V1xEdeDePygw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpvVIQZhXib2FB6I9sWb9Gib8dfuStBNM0NkPxicYrQG1ONW5Lt2Q2n83gA/640?wx_fmt=png&from=appmsg)
+![](../../images/eeb32eda767f2ca1.webp)![](../../images/b898e20c47811d8a.webp)
 
 ## 2.3 髓系细胞注释：
 
@@ -1464,7 +1464,7 @@ write.csv(sub.myeloid.harmony.markers,"02.CellAnnote/Myeloid.cell/sub.myeloid.ha
 saveRDS(sub.myeloid.harmony,"02.CellAnnote/Myeloid.cell/sub.myeloid.harmony.annonted.cellType2_3.rds")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpAZ9gT1bBl44cnOTvFu1FSNlbJ5BIqxArjIIjsImJqq2PA2rjY5hMhA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpbkcS0UfzjhfGC62UJBKTpS5LFDYg6SQu4CCI3PKfhynvjNjf7JFcIw/640?wx_fmt=png&from=appmsg)
+![](../../images/93ec6bde78d6e7ae.webp)![](../../images/ba213d160e9debc6.webp)
 
 ## 2.4 成纤维细胞注释：
 
@@ -1576,7 +1576,7 @@ write.csv(sub.Fib.harmony.markers,"02.CellAnnote/Fibroblast.cell/sub.Fib.harmony
 saveRDS(sub.Fib.harmony,"02.CellAnnote/Fibroblast.cell/Fibroblast.annonted.cellType2-3.rds")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialp33NXGBE7pRqdkQGj2A2yedfnGia4vnsVOOg42AHmx8pF0CcictVyWDBw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpxuVIWXrIKDibvms2uFDbndD6UPAnjib8jkja2zbRf2AzX0nAYxo1yictA/640?wx_fmt=png&from=appmsg)
+![](../../images/3f1958ceed66d2d8.webp)![](../../images/061254642bc7e594.webp)
 
 ## 2.5 内皮细胞注释：
 
@@ -1706,7 +1706,7 @@ write.csv(sub.End.harmony.markers,"02.CellAnnote/Endothelial.cell/sub.End.harmon
 saveRDS(sub.End.harmony,"02.CellAnnote/Endothelial.cell/sub.End.harmony.annonted.cellType2_3.rds")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialp4pd8D1icvWf1wqrDicd7LrVR2ibyMficeItogeV7equoFOjZKJKFgjbcrg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpgwv09V2nsicp07k1GHf4baj7L0TZFJicbxR3pRS0D4iczRSIicNbTrYDvg/640?wx_fmt=png&from=appmsg)
+![](../../images/0f3835736a0677a2.webp)![](../../images/3dc6071abdcf4594.webp)
 
 01
 
@@ -1718,7 +1718,7 @@ saveRDS(sub.End.harmony,"02.CellAnnote/Endothelial.cell/sub.End.harmony.annonted
 
 提取码：vzur
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzJ5VTn1WwhdFfsDcVSPialpb6cPYy6G9DeUzhRalmjSlEk3l8aHn5t1tEmCZnPzUQWyBt1eh7VP9w/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/5f0a59752a443e0f.jpg)
 
 02
 
@@ -1762,17 +1762,17 @@ saveRDS(sub.End.harmony,"02.CellAnnote/Endothelial.cell/sub.End.harmony.annonted
 
 **本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

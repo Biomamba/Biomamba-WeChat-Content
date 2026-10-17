@@ -40,13 +40,13 @@ RNA-seq的广泛应用促进了对许多生物层面的理解，如揭示了mRNA
 
 ### 图一：short-read,long-read和direct RNA-seq技术和工作流程
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZUvK0mIEAS8OM82rXHn1UrM88M5ZDk8EhTnPticwaSdDeUA3KGO2iboSqQ/640?wx_fmt=png)
+![](../../images/d546144442bc2a33.png)
 
 #### **图一：****A**
 
 3种RNA测序方式的建库方法概览：short-read测序（黑色），long-read cDNA测序（绿色）和long-read direct RNA-seq（蓝色）。根据不同的应用目的，文库构建的复杂性和偏好性不同。short-read和long-read cDNA的建库方案在很多步骤是一样的，比如在所有建库方案中`接头连接`是共有的。三种方法都会受到样本质量和文库构建上下游的计算问题影响。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZUKtEaUzyxVVian7jN4WaZyzlWobVoqSqc61fKxMXkChs9Gl4ya8xJI3A/640?wx_fmt=png)
+![](../../images/f63f80cfbaa53326.webp)
 
 #### **图一：****B**
 
@@ -64,7 +64,7 @@ RNA-seq的广泛应用促进了对许多生物层面的理解，如揭示了mRNA
 
 建库后，将单个分子加载到流动槽中，在接头连接过程中加上的分子马达会与生物纳米孔结合。马达蛋白控制RNA链穿过生物纳米孔，引起电流变化，从而推测出经过的碱基序列，生成的测序reads大小为`1-10 kb`。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZU4TjbfzFWLd8WdicUmiaq2qibw1Awiak8ep42XE7YUqkmR9QrXgdV7Q5WpQ/640?wx_fmt=png)
+![](../../images/3ac22a77599c29a4.png)
 
 #### **图一：****C**
 
@@ -182,7 +182,7 @@ RNA-seq文库构建好后，就需要确定测序深度了。测序深度是指�
 
 在过去的十年中，用于分析RNA-seq以确定差异表达的计算方法的数量已成倍增加，即使对于简单的RNA-seq DGE，在每个阶段的分析实践中也存在很大差异。而且，每个阶段使用的方法的差异以及不同技术组合形成的分析流程都可能会对从数据得出的生物学结论产生重大影响。**最优工具组合取决于研究的特定生物学问题以及可用的计算资源** 。尽管有多种衡量方式，但我们对工具和技术的评估落脚点在它们鉴定出的差异基因的准确性。为了完成这个评估，至少需要四个不同的分析阶段（图2;表2）。第一阶段把测序平台生成的原始测序数据比对到转录组。第二阶段量化与每个基因或转录本来源的reads数量，构建表达矩阵。该过程可能包括1个或多个子过程如比对，[组装和定量](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488042&idx=1&sn=0ba7611180ea90ef34ed147db2fd926c&chksm=ec0dd7a0db7a5eb642545db24a2305488031ad3f18e313a2475d4450833fc29f91352c9ac209&scene=21#wechat_redirect>)，或者它也可以一个[从读取计数生成表达矩阵](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488102&idx=1&sn=f5fde2340cab0f99b7f70007f90bcf15&chksm=ec0dd7ecdb7a5efac29dd85acb9054fa3492a170eb907fa239f2c73909891057f4e70178a416&scene=21#wechat_redirect>)。通常有一个第三阶段，包括[过滤低表达的基因](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488061&idx=2&sn=472edefd669bf7b332b2226af6ea9a36&chksm=ec0dd7b7db7a5ea11c48af1f7d533a2914f79bfaf8cc79969f97a2ef1433cfb18de8e7ce5e49&scene=21#wechat_redirect>)和至关重要的移除样品间技术差异的标准化过程。DGE的最后阶段是构建样本分组和其它协变量的统计模型，[计算差异表达置信度](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488324&idx=1&sn=dd052e8041eb183672428b675a46cbce&chksm=ec0dd6cedb7a5fd88913875077e6439c770b0c54338d14b2675fc3a63467d4c431d550734de8&scene=21#wechat_redirect>)。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZUPquZCMO73b6ZjHjGib6HN1hk84Llic4yvyDrcmtQorloToN9mI8QMuvQ/640?wx_fmt=png)
+![](../../images/9bdbc53a700d321b.webp)
 
 #### **图2**
 
@@ -214,7 +214,7 @@ RNA-seq文库构建好后，就需要确定测序深度了。测序深度是指�
 
 获得表达矩阵后，就可以[构建统计模型](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488116&idx=1&sn=62c480f623f37f2fc16d78a0be62685b&chksm=ec0dd7fedb7a5ee869558d9b80b1f524098d381ea98d42cff34c0716d927e73f2c5794c11990&scene=21#wechat_redirect>)评估哪些转录本发生了显著的表达改变。有几个常用工具可以完成此任务；一些基于基因水平的表达计数，其它的基于转录本水平的表达计数。基因水平的工具通常依赖于比对的reads计数，并使用广义线性模型来进行复杂实验设计的评估。这些工具包括EdgeR，[DESeq2](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247487894&idx=2&sn=88fee395e659e7065190cbcffaba9af9&chksm=ec0dd41cdb7a5d0a6cfe2348e1847e4e76c38230893a99cf91bdca8df8be0354af4f9a566580&scene=21#wechat_redirect>)和[limma + voom等](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488116&idx=1&sn=62c480f623f37f2fc16d78a0be62685b&chksm=ec0dd7fedb7a5ee869558d9b80b1f524098d381ea98d42cff34c0716d927e73f2c5794c11990&scene=21#wechat_redirect>)工具，这些工具计算效率高并且彼此之间结果稳定性好。评估差异isoforms表达的工具，例如CuffDiff，MMSEQ和Ballgown，往往需要更多的计算资源，并且结果的变化也更大。但是，**在差异表达工具应用之前的操作（即关于比对、定量、过滤和标准化）对最终结果的影响更大** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZU1N1PWjOFGD2Ir6nwbzQlXR3lMlhib5COmrre77WeCictYDU2ApdFZwfA/640?wx_fmt=png)
+![](../../images/b44dfd48da11387d.webp)
 
 #### **表2**
 
@@ -222,7 +222,7 @@ RNA-seq文库构建好后，就需要确定测序深度了。测序深度是指�
 
 来自组织和/或细胞群体的RNA-seq彻底革新了我们对生物学的理解，但是它无法简单地用于解析特定的细胞类型，并且不能保留空间信息，这些对于理解生物系统的复杂性都是至关重要的。使用户能够处理非[bulk RNA](<https://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247487829&idx=1&sn=ac3acf2caebbbb55376f9b0c36fbf79f&scene=21#wechat_redirect>)的方法与标准RNA-seq protocols非常相似，但是可以解决的问题却截然不同。[单细胞测序已经揭示了在过去我们认为研究透彻的疾病中存在着未知的细胞类型](<https://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488563&idx=1&sn=89fc2f3f8762c276c950331f82993fad&scene=21#wechat_redirect>)，例如发现`肺离子细胞 (ionocyte cells)`，这可能与囊性纤维化的病理学机制有关。空间分辨率的RNA-seq对实体组织中细胞间相互作用也有了新的发现，例如揭示成年心脏组织中存在一小部分胎儿标志物基因表达的细胞群体。在可预见的将来，[Bulk RNA-seq将仍然是占主导地位且有价值的工具](<https://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247487829&idx=1&sn=ac3acf2caebbbb55376f9b0c36fbf79f&scene=21#wechat_redirect>)。但是，单细胞实验和分析方法正在被研究人员迅速采用，并且随着空间RNA-seq方法的成熟，它们也有可能成为常规RNA-seq工具的一部分。两种方法都将提高我们探究多细胞生物复杂性的能力，并且可能都需要与bulk RNA-seq方法结合使用。在这里，我们简要介绍了主要的单细胞和空间分辨转录组方法，它们与bulk RNA-seq的区别以及用户需要考虑的新问题。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZUxUaUGfxlagschicAwibJas1hZ9Lufias6RuMGcAEViaOch3Qd2iclJ4Rp1g/640?wx_fmt=png)
+![](../../images/8b11f68a0833bd1e.webp)
 
 **图3**
 
@@ -254,7 +254,7 @@ DGE研究使用RNA-seq来测量稳态mRNA水平，这是通过平衡mRNA转录�
 
 基因表达实质上是一个动态过程，DGE分析无法检测复杂转录响应过程中的细微和快速变化，也不能鉴定不稳定的非编码RNA（例如增强子RNA）。RNA-seq可用于定位TSS并定量正在转录的新生RNA，从而能够研究RNA动力学。但是，与DGE分析相比，新生RNA的研究具有挑战性，因为它们的半衰期短且丰度低。因此，了解RNA动力学的重要性催生了多种分析新生RNA研究方法。这些方法揭示了启动子的不同转录程度，转录激活状态的RNA聚合酶II（Pol II）在启动子近端的停留是基因表达调控的关键步骤，新生RNA可以直接调节转录，并且它的序列和结构影响转录延伸、暂停和停滞 (stalling)，以及染色体修饰酶和增强子RNAs的结合。旨在区分新转录的RNA和其他RNA的新生RNA-seq方法可以大致分为三类：**run-on方法** ，**基于Pol II免疫沉淀（IP）****的方法** 和**代谢标记方法** （图4）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZUNXicYH72c19jc54JULIGEtDZu2DIibSdGMO7ZUdtKl5icLcglMhVLsYvA/640?wx_fmt=png)
+![](../../images/1a296f5ea7fc9e74.webp)
 
 **图4**
 
@@ -270,7 +270,7 @@ DGE研究使用RNA-seq来测量稳态mRNA水平，这是通过平衡mRNA转录�
 
 RNA-seq的主要重点在于分析样品中现存的mRNA的种类和数量，但是mRNA的存在并不直接对应于蛋白质的产生。两种方法-**多聚核糖体图谱** (polysomal profiling)和**Ribo-seq技术** 允许我们跳出转录研究翻译组。核糖体翻译mRNA是受到高度调控的，蛋白质水平主要由翻译活性决定。Polysomal profiling和Ribo-seq帮助研究一个转录本上结合了多少核糖体及它们在转录本上的分布规律（图5）。这允许我们推断在特定时间或细胞状态下哪些转录本正在活跃翻译。两种方法均假设mRNA上的核糖体密度与蛋白质合成水平相关。样品比较分析发现在发育过程中或翻译失调相关疾病中，如纤维化，阮病毒病或癌症，处理前后随着时间推移的核糖体动力学。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPybt2oEGiaRTnEC9bHyzxOZUOTgCBfoAMdqZez4wkgbAYrfj4jwPTetgh7Gia35rFVlf5d22rh6JHSw/640?wx_fmt=png)
+![](../../images/b4f8336caca14805.webp)
 
 **图5**
 
@@ -284,7 +284,7 @@ RNA-seq的主要重点在于分析样品中现存的mRNA的种类和数量，但
 
 ## 超越基因表达分析
 
-RNA在其他生物分子和生物过程（例如剪接和翻译）的调控中起着重要作用，这些过程涉及RNA与各种蛋白质和/或其他RNA分子的相互作用。RNA-seq可用于探究分子内和分子间RNA-RNA相互作用（RRI），或RNA与蛋白质的互作，从而可以更深入地了解转录和翻译过程（图6）。为互作组 (interactome)分析而开发的各种方法都有一个共同点：**富集相互作用的RNA** 。一些方法利用了天然的生物相互作用，另一些方法则在目标分子之间发生瞬时结合或共价结合。大多数使用抗体，亲和层析或探针杂交来富集用于测序的RNA。在这里，我们简要介绍基于RNA-seq的结构组 (structurome)和互作组 (interactome)。![](https://mmbiz.qpic.cn/mmbiz_png/BA8CWhHQWPw1iatI9OqrJJrmWAfAC1E0Uuay3qN5D2xjDF8R3ZZ4bWGDOMO0XXWMmpEnwtmzXLO67zC5YicJRb8A/640?wx_fmt=png)
+RNA在其他生物分子和生物过程（例如剪接和翻译）的调控中起着重要作用，这些过程涉及RNA与各种蛋白质和/或其他RNA分子的相互作用。RNA-seq可用于探究分子内和分子间RNA-RNA相互作用（RRI），或RNA与蛋白质的互作，从而可以更深入地了解转录和翻译过程（图6）。为互作组 (interactome)分析而开发的各种方法都有一个共同点：**富集相互作用的RNA** 。一些方法利用了天然的生物相互作用，另一些方法则在目标分子之间发生瞬时结合或共价结合。大多数使用抗体，亲和层析或探针杂交来富集用于测序的RNA。在这里，我们简要介绍基于RNA-seq的结构组 (structurome)和互作组 (interactome)。![](../../images/ce5d985aea69822c.webp)
 
 图6
 
@@ -321,12 +321,12 @@ immunoprecipitation and sequencing ），通常但并非总是使用细胞内未
 
 Wang，Gerstein和Snyder在他们的预测中认为：RNA-seq将“给真核转录组分析带来革命性变革”。但是，即使他们也可能对技术拓展应用到如此之多的RNA层面感到惊讶。今天，我们可以分析RNA生物学的许多方面，这对功能基因组的理解，研究发育以及引起癌症和其他疾病的分子失调都是必不可少的。尽管生物学发现阶段还远远没有结束，但临床已经在使用基于RNA-seq的检测试验。[单细胞测序已成为许多实验室的标配](<http://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247488393&idx=1&sn=b0a0ed0f88aaa750a3ef0ebb65ac58d2&chksm=ec0dd603db7a5f15de78db39b06caabeef954f4da067a0f70f72624f64ad1fbe9712d9472366&scene=21#wechat_redirect>)，空间单细胞组学分析随着方法的进一步发展也很可能会遵循类似的发展路径。对大部分的研究者而言，长读长测序方法有可能取代Illumina的短读长RNA-seq作为默认的研究方法。为了使这种情况发生，就增加通量和降低错误率方面，长读长测序技术还需要进行重大改进。如果长读长测序变得与短读长测序一样便宜可靠，那么除了对RNA降解的样品之外，鉴定mRNA isoforms都会首选长读长测序。考虑到这一点，任何关于RNA-seq在未来十年内发展的预测都可能会过于保守。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复消息，这里留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复消息，这里留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/fdb4c49c78e6216c.webp)![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

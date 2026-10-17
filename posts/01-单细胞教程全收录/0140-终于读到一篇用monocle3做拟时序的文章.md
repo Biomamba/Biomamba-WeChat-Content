@@ -10,7 +10,7 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247496064&idx=1&sn=0be38306f9cd8c6b819d58cc2e779b87&chksm=9b3c88d0ac4b01c6773b6c4f1a063788509baa27c57e2098b16b8ebe38cc625a87b9d89272c7#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 在今年7月的时候我们拟时序的教程就把monocle2、3部分都介绍完了，当时Biomamba就表示发表的文献还都是以monocle2为主流，没想到目前我读过的文章依旧是以monocle2为主，去除那些我刻意检索monocle3的文章，我至今方才读到一篇通过monocle3完成拟时序分析的单细胞论文，题为**Single-Nucleus RNA Sequencing Identifies New Classes of Proximal Tubular Epithelial Cells in Kidney Fibrosis** ，投稿日期为**2020年的八月**[1]。
 
@@ -21,7 +21,7 @@ monocle3发布了已经有相当一段时间了，至于为什么现在文章中
 目前monocle3已经更新到 _β_ 版本了，作者在官网也承认了缺点[2]，`monocle3`  _α_ 已经是不推荐使用的，可能会存在bug，但是`monocle3`  _β_ 仍然处于搭建中的状态，也就是说monocle3仍然是可能存在bug的，并且我们之前讲绪论的时候说到monocle1、2都发表在了Nature系列之上，但是`monocle3`迟迟没有发表，并且目前发表的文章还是使用`monocle2`的比较多，`monocle3`的不稳定性可能是重要原因。
 官方表述如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpy5HLPX8ZLalmTNe48YRmicRkUzHmwGVQA8eZyGaqfYr9geJ0294gaibibVBNThpqlljo7twk987iaqtw/640?wx_fmt=jpeg)
+![](../../images/e76aad2df5454745.webp)
 
 ### **monocle3的优点**
 
@@ -42,15 +42,15 @@ monocle3发布了已经有相当一段时间了，至于为什么现在文章中
 1、语法复杂、函数奇怪，似乎与monocle2完全不是一个团队开发出的产物。
 2、算法与功能强大，但也意味着学习成本的提升3、最值得一提的功能是monocle3可以**选取** 细胞作为拟时序的**起点/终点** ，这对半监督式的分析来说是个利好，比如今天读到的这篇文章就是指定了正常的肾小管细胞为起点，指定纤维化的肾小管细胞为终点，从而满足作者的分析需求。4、从个人感官上来说，这个轨迹图真的让我犯密恐。。。。。。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpy5HLPX8ZLalmTNe48YRmicR1dTfictbBzztuBLicCbKEP1hVBjRZGsAItYOe2YHd9ibEH9mFUKubsGGQ/640?wx_fmt=png)
+![](../../images/c46392bac4ffc1c2.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpy5HLPX8ZLalmTNe48YRmicRysxAx3xu14SAumXfoyiaV0Ogdc10jghLX9oRnqumIQ3wM2Krckm2OuA/640?wx_fmt=png)
+![](../../images/344aff118f8eaa00.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 拟时序分析教程
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)B站连续播放起来比较方便：
+![](../../images/90fab1387787746b.webp)B站连续播放起来比较方便：
 https://www.bilibili.com/video/BV1br4y1x7Hf?p=1**往期推送**[单细胞测序数据进阶分析—《拟时序分析》1.概论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486553&idx=1&sn=b689ec962a17ca1a1ada29ae8ff8c019&chksm=9b3f7509ac48fc1f0f81e288de8f15c86548215a1cd9d5c740dc63f2421371d13890398ab1df&scene=21#wechat_redirect>)
 [单细胞测序数据进阶分析—《拟时序分析》2.monocle概论](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487001&idx=1&sn=329129e75f703e3f332e76af9c66871e&chksm=9b3f7749ac48fe5f081248c2a48c56685e3915015036c73f8f67ec3e6acc246ddf815daedb22&scene=21#wechat_redirect>)[单细胞测序数据进阶分析—《拟时序分析》3.monocle2实操：完整版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487400&idx=1&sn=223a96a245c408c31e2c3c16afac88fc&chksm=9b3f76f8ac48ffee769dc76870e15bbd0275647dcfb9bf21bf499b7eaee86121b254e4b2da54&scene=21#wechat_redirect>)
 [单细胞测序数据进阶分析—《拟时序分析》4.初识monocle3](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247489044&idx=1&sn=061dbfc34d200b73a8227d0bb28a1d27&chksm=9b3f6f44ac48e65251f7e5ecce84637c05d50ecb92769e8386f221f8e7b9bfeb719232def863&scene=21#wechat_redirect>)

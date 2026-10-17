@@ -1,0 +1,65 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0281-单细胞Figure1的常见图表(Python版)</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="figure1python">单细胞Figure1的常见图表(Python版)</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538071&amp;idx=3&amp;sn=84d7c416ddc32bfd3d1fc740ea0aba9a&amp;chksm=9b3c2cc7ac4ba5d17e438ec0a708f54560138dfe0ba2c39462cd87c3cff57222eb5acd354aa3#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>写在前面</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png">《Single-cell RNA-seq reveals fibroblast heterogeneity and increased mesenchymal fibroblasts in human fibrotic skin diseases》一文中，作者通过使用<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">scRNA-seq</a>探索了皮肤瘢痕中的成纤维<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530696&amp;idx=1&amp;sn=c90298fbe01b150ad7779f77294c6a25&amp;scene=21#wechat_redirect">细胞异质性</a>，之前我们也推出过完整的原文复现:<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530338&amp;idx=1&amp;sn=2d092e76080359f5a169ec14d54d1241&amp;scene=21#wechat_redirect">代码复现| scRNA-seq揭示人纤维化皮肤病中的成纤维细胞异质性与增殖</a>。此前我们也制作了一版基于<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533722&amp;idx=2&amp;sn=4730e67f215e607e7b6354cbd803b290&amp;scene=21#wechat_redirect">R语言</a></strong> 的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522008&amp;idx=1&amp;sn=f8c89bf880b66ecc2c5253f31e25b215&amp;scene=21#wechat_redirect">单细胞常见Figure 1 视频教程</a>。这里我们给大家提供基于<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499921&amp;idx=1&amp;sn=dcd6f95596e3de9bf378d850c217fe78&amp;scene=21#wechat_redirect">Python</a>中的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247504877&amp;idx=2&amp;sn=2b56a9cfa19fcc918ee6c2ed88fed017&amp;scene=21#wechat_redirect">scanpy</a>的单细胞常见Figure 1教程，大家可以根据自己的常用编程语言，自由选择顺手的教程。**
+**自学有困难的同学不妨看看：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533067&amp;idx=1&amp;sn=7ef76058cbcf7bd45f58147766c75854&amp;scene=21#wechat_redirect"> 82h视频教程《Python版scRNA-seq分析全流程》</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531092&amp;idx=1&amp;sn=9968319b84186bb9b717b7b409132d8b&amp;scene=21#wechat_redirect">100个小时沉浸式学会scRNA-seq数据分析</a>优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]<strong>更多生信教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532585&amp;idx=1&amp;sn=e265d2846ec66e5faaaf21403d274d2f&amp;scene=21#wechat_redirect"> 为什么我们敢开放终身订阅</a></strong>
+本教程基于Linux中的jupyter环境演示，计算资源不足的同学可参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=2&amp;sn=4708fac31ac8f4e347847e4b7f2a4fed&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的共享服务器</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529475&amp;idx=1&amp;sn=10827e982a637e0fc36e4b6e857736c8&amp;scene=21&amp;token=1904068475&amp;lang=zh_CN&amp;poc_token=HE0kOWmjseRZXooE5W9Cc2bMHz7i_DtlgPhdLwYn#wechat_redirect">忘记宣传了，独享用户连技术支持都是独享的</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21&amp;token=1904068475&amp;lang=zh_CN&amp;poc_token=HPAkOWmjbC2GPkTlGLA-Kxz5CJDZYGwg5-cRPFt5#wechat_redirect">RTX5090、4080S、5070显卡上机</a>访问链接：https://biomamba.xiyoucloud.net/
+本教程复现集锦<img alt="" src="../../images/57b1d6064505cdbb.webp"> <strong>-Biomamba</strong>
+<img alt="" src="../../images/7d247e6c6ef19f87.png"><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>所见即所得</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍</p>
+<p><img alt="" src="../../images/9a0aafd1696aa8f0.webp"></p>
+<p>**
+**</p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、文献解读</strong></p>
+<p><strong>1.1背景介绍</strong></p>
+<p><strong>1.2 主要内容</strong></p>
+<p><strong>（1）scRNA-seq揭示正常瘢痕和纤维性皮肤病真皮组织的细胞异质</strong></p>
+<p>（2）瘢痕疙瘩和正常瘢痕中成纤维细胞形成不同的细胞亚群</p>
+<p><strong>（3）纤维化皮肤病中间充质成纤维细胞特征的鉴定</strong></p>
+<p><strong>（4）成纤维细胞亚群中的配体-受体相互作用分析</strong></p>
+<p><strong>（5）间充质成纤维细胞通过POSTN促进瘢痕中胶原蛋白表达</strong></p>
+<p><strong>（6）sC4 成纤维细胞比 sC1 成纤维细胞更像间充质细胞</strong></p>
+<p><strong>（7）间充质成纤维细胞在硬皮病中增加</strong></p>
+<p><strong>1.3 总结讨论</strong></p>
+<p><strong>二、准备工作</strong></p>
+<p><strong>2.1 数据下载</strong></p>
+<p><strong>2.2 数据读入</strong></p>
+<p><strong>三、数据处理和可视化</strong></p>
+<p><strong>3.1 数据质控及可视化</strong></p>
+<p><strong>3.2 细胞分群</strong></p>
+<p><strong>3.3 细胞类型注释</strong></p>
+<p><strong>3.4 降维图</strong></p>
+<p><strong>3.5 小提琴图</strong></p>
+<p><strong>3.6 基因表达在降维图展示</strong></p>
+<p><strong>3.7 细胞比例展示</strong></p>
+<p><strong>3.8 差异基因相关</strong></p>
+<p><strong>3.8.1 差异基因计算</strong></p>
+<p><strong>3.8.2 差异基因点图</strong></p>
+<p><strong>3.8.3 差异基因热图</strong></p>
+<p><strong>3.8.4 差异基因热图优化</strong></p>
+<p><strong>3.9 火山图</strong></p>
+<p><strong>3.10 差异基因富集分析</strong></p>
+<p>3.11 每个亚群组间差异基因柱形图</p>
+<p>3.12 拼图</p>
+<p>3.12.1 第一层</p>
+<p>3.12.2 完整fig1</p>
+<p>3.12.3 小结</p>
+<p><strong><strong>四、软件版本</strong></strong><strong><strong>单细胞教程全收录</strong></strong><strong><strong>欢迎致谢</strong></strong></p>
+<p>文末下载链接中包含以下内容：</p>
+<p><img alt="" src="../../images/c2f8020195d58fd2.png"></p>
+<p>测试文件约<strong>15.12GB</strong> ，大家注意按需下载！</p>
+<p><img alt="" src="../../images/7d247e6c6ef19f87.png">
+解锁前需阅读：<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534690&amp;idx=1&amp;sn=4ff5291b649fb4fe4d703c48a04d37f2&amp;scene=21#wechat_redirect">2026订阅须知</a></strong><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>提取码联系客服领取：</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>本推送教程、测试文件下载链接：</p>
+<p>https://pan.baidu.com/s/17xALl_DTfJtFy8lQiqZwwg</p>
+<p>提取码请联系客服微信获取：</p>
+<p><img alt="" src="../../images/fe8ecb8594a1f419.webp"><img alt="" src="../../images/7d247e6c6ef19f87.png"></p></article></body></html>

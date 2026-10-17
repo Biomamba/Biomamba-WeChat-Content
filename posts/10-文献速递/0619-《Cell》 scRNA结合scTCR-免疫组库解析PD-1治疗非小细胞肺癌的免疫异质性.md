@@ -15,7 +15,7 @@ albums: ["文献速递"]
 今天我们要深入剖析这篇发表在《Cell》上的关于抗 PD-1 治疗非小细胞肺癌（NSCLC）免疫异质性的研究，题目为"A single-cell atlas reveals immune heterogeneity in anti-PD-1-treated non-small cell lung cancer"，最新影响因子42.5。这篇文章无论是研究设计、技术应用还是学术结果陈述，都堪称生信与肿瘤免疫交叉领域的教科书式范文，对大家未来的硕博研究和论文发表都有极强的借鉴意义。
 该研究由多所国内顶尖院校和医院的团队联合完成——自北京大学、中国医学科学院肿瘤医院、同济大学附属上海肺科医院、广东省人民医院等机构。该作者团队在肿瘤免疫、单细胞测序技术开发与应用、临床样本资源整合等方面具备深厚积累。
 这篇文章解决了抗 PD-1 治疗 NSCLC 领域的两个关键科学问题：一是明确了抗 PD-1 治疗后 NSCLC 肿瘤免疫微环境（TIME）的异质性分型及与治疗响应的关联；二是发现了可预测非主要病理缓解（non-MPR）患者复发风险的免疫标志物，为临床患者分层和个体化治疗提供了重要依据。同时，研究采用了scRNA-seq结合 scTCR-seq的前沿技术，整合了 234 例大样本临床数据，研究设计严谨、结果可靠，符合《Cell》对高质量研究的定位。scRNA-seq分析教程可见：[scRNA-seq小学期](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530022&idx=2&sn=5c6aa081663719ce2f0f9b7f4d173c93&scene=21#wechat_redirect>)scTCR&BCR免疫组库教程可见：[单细胞免疫组库测序(scTCR+scBCR)学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530826&idx=1&sn=f95a284a432695c9b8f6878cd3691bfc&scene=21#wechat_redirect>)
-原文链接: https://pubmed.ncbi.nlm.nih.gov/40147443/DOI: 10.1016/j.cell.2025.03.018 ![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrkuFkwqIgYShGeZmNvLgJPnd8jPzk4HMTBVdroHxasnbQRicicb9biat3Q/640?wx_fmt=png&from=appmsg)**如果需要[ 单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530022&idx=2&sn=5c6aa081663719ce2f0f9b7f4d173c93&scene=21#wechat_redirect>)**教学** 、生信热点**[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)** 、自测数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]**
+原文链接: https://pubmed.ncbi.nlm.nih.gov/40147443/DOI: 10.1016/j.cell.2025.03.018 ![](../../images/1e3e939bd7f58295.webp)**如果需要[ 单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530022&idx=2&sn=5c6aa081663719ce2f0f9b7f4d173c93&scene=21#wechat_redirect>)**教学** 、生信热点**[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)** 、自测数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]**
 
 **二、研究思路**
 
@@ -67,7 +67,7 @@ albums: ["文献速递"]
 
 成功构建了目前规模最大的抗 PD-1 治疗 NSCLC 单细胞免疫图谱，明确患者病理响应存在显著异质性，为后续分析提供数据基础。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5Tr4ic3pBuPuuKkhYRRzLTQO4iau3icrDjg3ymiaeNunsX0kvpLTDxuuVp0ibw/640?wx_fmt=png&from=appmsg)
+![](../../images/c8cb3486dbcc93f7.webp)
 
 Figure 1
 
@@ -87,7 +87,7 @@ Figure 1
 
 首次在抗 PD-1 治疗 NSCLC 中划分出 5 种具有不同免疫特征和治疗响应的 TIME 亚型，其中 NK/B 细胞 / 效应 T 细胞富集的亚型（TIME-NK、TIME-BE、TIME-Teff）治疗响应更佳，Treg / 髓系细胞富集的亚型（TIME-Treg、TIME-Mye）响应较差。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5Tr66KsiatML1ibnTBHiaj4QrQY8zwlOWcjX6c4tKiavFP1GnAHwFhWJPqEgw/640?wx_fmt=png&from=appmsg)
+![](../../images/5a687a5b93d9f4ad.webp)
 
 Figure 2
 
@@ -109,7 +109,7 @@ Figure 2
 
 TIME-NK 亚型的高 MPR 率与 FGFBP2+NK/NK 样 T 细胞富集相关，该细胞具有强细胞毒性、无 PD-1 表达、高克隆扩增的特征，可能通过化疗激活（体外实验证实化疗药物增强 NK 细胞杀伤）发挥抗肿瘤作用。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TriaWowqp2H6egqXeaZO5iaFzVKyJ0lpRUJ4gDzzvheFxNsxFBZqicxykicg/640?wx_fmt=png&from=appmsg)
+![](../../images/8a6c4e3e0c97ec5c.webp)
 
 Figure 3
 
@@ -130,7 +130,7 @@ Figure 3
 
 TIME-BE 亚型的高 MPR 率与 B 细胞聚集形成的成熟 TLS 相关，TLS 作为 “肿瘤内免疫反应中心”，可能通过协同 Tfh 细胞、DC 细胞增强抗肿瘤免疫，为靶向 TLS 的免疫治疗提供依据。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5Trox8icp7KOOg6GzGDGvxnTMa75efxMqFqxKica9H4XcMendfHkvVLz3ow/640?wx_fmt=png&from=appmsg)
+![](../../images/167627f6b6c13d57.webp)
 
 Figure 4
 
@@ -158,7 +158,7 @@ Figure 4
 
 TIME-Teff 与 TIME-Treg 的治疗响应差异源于 T 细胞亚型与克隆扩增的异质性：TIME-Teff 富集 Texp 细胞（保留效应功能），TIME-Treg 富集 CCR8+Treg（强免疫抑制）和 terminal Tex（完全耗竭），且 CCR8+Treg 和 terminal Tex 的克隆扩增进一步加剧低响应。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrFzhN2NkoKibHcIziaPy6uicJbibFlPOSuwgOgKzTGtIIPebl5nSyqjqVqQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6b54215c500db26d.webp)
 
 Figure 5
 
@@ -181,7 +181,7 @@ Figure 5
 
 non-MPR 患者存在显著的 T 细胞扩增异质性，可基于 CCR8+Treg 克隆数量分为 Treghi（高复发风险潜能）和 Treglow（低复发风险潜能）亚群，该分层比初始 TIME 亚型更能反映患者的免疫状态差异。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrkI1jbQ4dKb70gvgoBecCLgLzpjkMVTWpsHbGBcy13IEl4mvbdmdic1Q/640?wx_fmt=png&from=appmsg)
+![](../../images/7eb844550fcdd865.webp)
 
 ### ●（七）图 7：Texp 细胞比例与无复发生存期（RFS）相关
 
@@ -204,7 +204,7 @@ non-MPR 患者存在显著的 T 细胞扩增异质性，可基于 CCR8+Treg 克�
 
 Texp 细胞在 Tex 相关细胞中的比例是预测 NSCLC 患者（尤其是 non-MPR 患者）复发风险的最优免疫标志物：Texp 比例高的 non-MPR 患者复发风险与 MPR 患者相当，其预测效能（时间依赖 ROC 的 AUC=0.736）显著优于传统病理响应指标（PRR，AUC=0.59）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyianj6zHpsrT8SiaQek9J5TrgMbL98c8hY3QYGd5iaeKdTOlYGfFoIcfbR899XzFcm2rKg2q8D8npRw/640?wx_fmt=png&from=appmsg)
+![](../../images/affaa1c6caa72ba4.webp)
 
 Figure 5
 
@@ -231,14 +231,14 @@ Figure 5
 
 [1]: Liu Z, Yang Z, Wu J, et al. A single-cell atlas reveals immune heterogeneity in anti-PD-1-treated non-small cell lung cancer. Cell. 2025 May 29;188(11):3081-3096.e19. doi: 10.1016/j.cell.2025.03.018 . Epub 2025 Mar 26. PMID: 40147443.
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

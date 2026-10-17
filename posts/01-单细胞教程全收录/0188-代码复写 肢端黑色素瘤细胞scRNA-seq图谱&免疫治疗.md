@@ -16,7 +16,7 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是22号作品，复写了题为"Single cell characterization of the cellular landscape of acral melanoma identifies novel targets for immunotherapy"的论文。**文章链接** ：https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/35247927/**数据原始链接：** 投稿人未提供，可在文末百度云下载相关文件**图片集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG14IRMDtzaN2vrZ2IsLxv8jIkKrlCOSYuAN1GXaaS2YxkfvOSjbJt9sw/640?wx_fmt=png&from=appmsg)
+![](../../images/0af30436f49f56a2.webp)
 
 **文献简介** ：投稿人未提供
 
@@ -201,7 +201,7 @@ seurat_obj@meta.data$AMid = unname(AMid[seurat_obj@meta.data$orig.ident])
 
 绘制聚类图，以样本来源和细胞簇进行分组标识，对应原文Figure1A
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1CO04F7psHz71XwERicuj1liaOGjjpgfcSffVfb5jLGmVibBT6TcGeRfdg/640?wx_fmt=png&from=appmsg)
+![](../../images/42600db856aeb41b.webp)
 
 ## 细胞注释
 
@@ -428,17 +428,17 @@ p<-DotPlot(seurat_obj,features = genes_to_check,assay="RNA")
 p
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1tiaC1QG4HRC3f5vASp1BEp7NLTfpaWphfvIj56yjibfK8yE0kHG1EQRg/640?wx_fmt=png&from=appmsg)
+![](../../images/4a27d3603553572e.webp)
 ```
 FeaturePlot(seurat_obj,features = genes_to_check[1:6],ncol = 4)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1MZIaeljLKkKoyZvZc17Bjw00ibcCX6CzuKibM5Up4CYNG3nvMMan6uuQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6e7ea2ce68b18f04.webp)
 ```
 FeaturePlot(seurat_obj,features = genes_to_check[7:13],ncol = 4)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1Sq1QSya5ThhzrnZj3Cgdax4BicKS33WdqiaDYVszbfpSiaCib71PlhpLAQ/640?wx_fmt=png&from=appmsg)
+![](../../images/1a7584006f46c91e.webp)
 
 绘制细胞注释的聚类图（对应原文Figure1B or C）和堆叠图（对应原文Figure1D and E），
 ```r
@@ -450,7 +450,7 @@ seurat_obj@meta.data$CellType1 = unname(CellType1[seurat_obj@meta.data$seurat_cl
 DimPlot(seurat_obj,reduction = "tsne.unintegrated",group.by = c("CellType1","unintegrated_clusters"),label = TRUE)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1nO6la1kSa3daDNN3ll3BSmib8ThTFFicicgic37zkAjYkTLu70CY6aukqQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3e62bc2b61a79050.webp)
 ```r
 Cellratio1 <- prop.table(table(seurat_obj$CellType1,seurat_obj$AMid), margin = 2)
 Cellratio1 <- as.data.frame(Cellratio1)
@@ -470,7 +470,7 @@ ggplot(Cellratio1) +
 ## generated.
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1et3yjo7pu7LfgAMTOcID3OSt5NibqhkE5BBeWaKbcF5DEe45c0MGEyw/640?wx_fmt=png&from=appmsg)
+![](../../images/a78aa1ca95ef30b8.webp)
 ```r
 Cellcount1 <- as.data.frame(table(seurat_obj$AMid,seurat_obj$CellType1))
 colourCount1 = length(unique(Cellcount1$Var1))
@@ -482,7 +482,7 @@ ggplot(Cellcount1) +
   theme(panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1eaC9Rxic4ng28ftbvn9SpHwLXoYVy0Mh1jQI9NUblY1sntmfbRfNt1A/640?wx_fmt=png&from=appmsg)
+![](../../images/de005398f688e71e.webp)
 
 ##免疫检查点分析
 
@@ -517,7 +517,7 @@ if(!require(pheatmap))install.packages("pheatmap")
 pheatmap(CheckPoints,cluster_cols = F,cluster_rows = F)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1jE4AibZM3ejmX3vCNUYKxJ59cMxnHxIGiboNjquABxB6ic26l7WmAonOg/640?wx_fmt=png&from=appmsg)
+![](../../images/d37d5398c7c218f1.webp)
 ```
 write.csv(CheckPoints,file="CheckPoints.csv")
 ```
@@ -543,7 +543,7 @@ ADORA2A[is.na(ADORA2A)]<-0
 pheatmap(ADORA2A,cluster_cols = F,cluster_rows = F)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG13miaAWNW5uwJtoTwkxRzopTI8RsOoppjI9ibCsLth00IOkic1nSb7QVHA/640?wx_fmt=png&from=appmsg)
+![](../../images/9bdf28c372af96aa.webp)
 
 TIGIT
 ```r
@@ -563,7 +563,7 @@ TIGIT[is.na(TIGIT)]<-0
 pheatmap(TIGIT,cluster_cols = F,cluster_rows = F)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1jGRdfLOo0bGZMO9P3jDSg4EmcHxzSdSCibQygIWFCDib8BjKqib6YCBpQ/640?wx_fmt=png&from=appmsg)
+![](../../images/7af9cc47db7804fc.webp)
 
 VSIR
 ```r
@@ -583,7 +583,7 @@ VSIR[is.na(VSIR)]<-0
 pheatmap(VSIR,cluster_cols = F,cluster_rows = F)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG17FsoBI60EibQvl8Yh2z5XLiaXSCuFOvGglomFGicFMibT41kcUuAQuXqrA/640?wx_fmt=png&from=appmsg)
+![](../../images/6c63f3b550314a3b.webp)
 
 01
 
@@ -595,7 +595,7 @@ pheatmap(VSIR,cluster_cols = F,cluster_rows = F)
 
 提取码：2sqw
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyZQ2Fy9KbPPgaHzzInDibG1lZ8NviaFXtIC5Mws9WYAHZD2Ficv84o7pvPswHv1uwAEbFLXFVWaDXDg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/b2e3453b520d29d4.jpg)
 
 02
 
@@ -640,17 +640,17 @@ pheatmap(VSIR,cluster_cols = F,cluster_rows = F)
 
 **本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

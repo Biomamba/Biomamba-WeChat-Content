@@ -1,0 +1,1680 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0295-CellRank+Palantir套路：拟时序联合细胞命运图谱构建</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="cellrankpalantir">CellRank+Palantir套路：拟时序联合细胞命运图谱构建</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247541302&amp;idx=1&amp;sn=898f8604b742ecdbf621f2178154a35a&amp;chksm=9b3c5b66ac4bd27092e4e7bdd54563e4aa0f5252b58a8e41a4824084691986b97dc333138e60#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538934&amp;idx=2&amp;sn=9ae059e29a064302bcb737d23a58d87f&amp;scene=21#wechat_redirect"> 单细胞RNA测序</a>能够捕捉到组织中不同细胞的<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=4531298467490824209#wechat_redirect">转录</a>状态，但获得的数据通常是不同细胞在某一时刻的“静态快照”，无法直接记录单个细胞随时间发生的连续变化。<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">拟时序</a>与细胞命运分析通过比较不同细胞之间的表达相似性，在低维空间中重建潜在的状态转换过程，从而帮助研究细胞<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531908&amp;idx=1&amp;sn=2f094e390621a57853ba17f59f298ebe&amp;scene=21#wechat_redirect">分化</a>、损伤修复及疾病进展中的动态变化。</p>
+<p><img alt="截屏2026-07-28 15.30.17" src="../../images/a0ace974c667270f.webp"></p>
+<p><strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect"> Palantir</a>是一种基于扩散映射和马尔可夫过程的单细胞轨迹推断方法，最终在《Nature Biotechnology》上发表。它从一个具有明确生物学意义的起始细胞出发，在多尺度扩散空间中计算细胞的拟时序，并估计分化熵和分支概率。其中，拟时序反映细胞相对于起点的状态进程，分化熵用于描述细胞命运的不确定程度，而分支概率则表示细胞趋向不同终末状态的相对可能性。因此，Palantir尤其适合分析连续、分支且包含过渡状态的生物学过程。</strong></p>
+<p><img alt="light_mode_overview" src="../../images/34868ab284253864.webp"></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507012&amp;idx=1&amp;sn=fb01cca63326fd6e8c682434a53fc2ea&amp;scene=21#wechat_redirect">CellRank</a>是用来进一步从概率转移的角度描述细胞命运的工具，最终发表在了《Nature Methods》。它首先利用<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">RNA velocity</a>、拟时序或其他先验信息构建有向的细胞转移矩阵，再通过马尔可夫链和GPCCA等方法识别宏状态、起始状态与终末状态，并计算每个细胞到达不同终末状态的命运概率。CellRank还能够根据基因表达与命运概率之间的相关性筛选候选驱动基因，并分析这些基因沿不同分化支路的动态表达趋势。</p>
+<p>Palantir与CellRank具有良好的互补性：Palantir负责建立连续的拟时序方向并描述细胞命运的不确定性，CellRank则利用该拟时序对近邻图进行定向，进一步识别稳定状态并量化终末命运。</p>
+<p>本教程以小鼠肺损伤再生单细胞数据为例，从AT2细胞出发，依次完成<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">Palantir</a></strong> 拟时序推断、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507012&amp;idx=1&amp;sn=fb01cca63326fd6e8c682434a53fc2ea&amp;scene=21#wechat_redirect">CellRank</a>转移矩阵构建、GPCCA宏状态与终末状态识别、命运概率计算，以及Krt8⁺ ADI支路驱动基因筛选、趋势聚类和<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500357&amp;idx=2&amp;sn=40034079b771c478b482e849ed4b216c&amp;scene=21#wechat_redirect">功能富集</a>分析。</p>
+<p>需要注意的是，拟时序表示根据转录组相似性推断的相对生物学进程，并不等同于真实时间；命运概率也不是对单个细胞未来状态的直接实验追踪。驱动基因反映的是基因表达与目标命运之间的统计关联，不能单独作为因果调控证据。因此，相关结果仍需结合细胞类型标志基因、时间点信息、已有生物学知识以及独立实验进行验证。</p>
+<p>学习手册可视化集锦（文末可获得代码和测试文件）：</p>
+<p><img alt="未标题-2" src="../../images/3c68b1b4b6172494.webp"></p>
+<p>更多单细胞教程：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247540976&amp;idx=1&amp;sn=178859bc9916bd7ccd9a5303aa10ceda&amp;scene=21#wechat_redirect">承包你未来40年的单细胞学习资料</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247540932&amp;idx=2&amp;sn=713686d522279f84f3c2cc2aad7cb1bc&amp;scene=21#wechat_redirect"><img alt="图片" src="../../images/837c622fca9b9d8a.webp"></a></p>
+<p><strong>二、 Palantir流程</strong></p>
+<h3 id="1">1. 环境安装与分析准备</h3>
+<h4 id="11">1.1 安装软件</h4>
+<p>服务器已经存在<code>cellrank</code><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539316&amp;idx=2&amp;sn=9417ef2ab995f37c514d9fabd0d69dbb&amp;scene=21#wechat_redirect">环境</a>，运行本教程时只需在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531443&amp;idx=5&amp;sn=2f10ef5cf97a7d5d255eb7e57b8bc14a&amp;scene=21#wechat_redirect">Jupyter</a>中选择<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537399&amp;idx=1&amp;sn=d14c7987d1384fe133094748844b8d59&amp;scene=21#wechat_redirect">Python</a> (CellRank)</strong> 内核。下面完整记录本项目的首次安装过程，<strong>不要在已经配置好的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539913&amp;idx=2&amp;sn=516a4224cdf85a68b119ce4a04f12d40&amp;scene=21#wechat_redirect"> 服务器</a>环境中重复执行</strong>。</p>
+<pre><code># 1. 新建环境（python 3.10–3.12 均可；这里用 3.11 最稳）
+</code></pre>
+<pre><code class="language-bash">conda create -n cellrank python=3.11 -y
+</code></pre>
+<pre><code class="language-bash">conda activate cellrank
+</code></pre>
+<pre><code># 2. 装 mamba（更快的求解器；新版 conda 也可改用 conda + --solver=libmamba）
+</code></pre>
+<pre><code class="language-bash">conda install -c conda-forge mamba -y
+</code></pre>
+<pre><code># 3. 用 mamba 从 conda-forge 装主分析包
+</code></pre>
+<pre><code>#    ★ 关键：把 pandas 钉在 3.0 以下 —— palantir 1.4.x 不兼容 pandas 3.0（.values 只读）
+</code></pre>
+<pre><code>mamba install -c conda-forge -c bioconda \
+</code></pre>
+<pre><code>  cellrank scanpy leidenalg python-igraph &quot;pandas&lt;3&quot;-y
+</code></pre>
+<pre><code># 4. palantir 用 pip 装最稳（PyPI 上维护；同时约束 pandas 不被升级到 3.x）
+</code></pre>
+<pre><code class="language-bash">pip install palantir &quot;pandas&lt;3&quot;
+</code></pre>
+<pre><code># 5. 可选：大数据用的内存高效 Schur 求解器（GPCCA 的 krylov 方法）
+</code></pre>
+<pre><code>#    conda 直接给编译好的 PETSc/SLEPc，省去自己编译
+</code></pre>
+<pre><code>mamba install -c conda-forge petsc4py slepc4py -y
+</code></pre>
+<pre><code># 6. Jupyter + 注册内核
+</code></pre>
+<pre><code>mamba install -c conda-forge jupyterlab ipykernel -y
+</code></pre>
+<pre><code>python -m ipykernel install --user--name cellrank --display-name&quot;Python (CellRank)&quot;
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p>本服务器现有环境已验证为Python3.12.13、CellRank2.3.2、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534702&amp;idx=1&amp;sn=f1531163f8f620b59cf63dfaa1c03e67&amp;scene=21#wechat_redirect">Scanpy</a> 1.12.2、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">Palantir</a>1.4.4、pandas2.3.3，并已安装<code>petsc4py</code>/<code>slepc4py</code>。这属于支持范围，无须为了匹配示例命令而降级或重建。</p>
+<h4 id="12">1.2 导入包与参数配置</h4>
+<ul>
+<li>
+<p><strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">Palantir</a></strong> ：从指定起点出发，在扩散空间里估计拟时序、分化熵与Palantir自身的分支概率。</p>
+</li>
+<li>
+<p><strong>PseudotimeKernel</strong> ：利用 Palantir 拟时序给近邻图定向，形成细胞间有向转移矩阵。</p>
+</li>
+<li>
+<p><strong>GPCCA</strong> ：从转移矩阵中识别宏状态，指定终末状态后计算每个细胞的命运概率。</p>
+</li>
+<li>
+<p><strong>驱动基因</strong> ：以“基因表达与目标命运概率的相关性”排序。它是候选调控关联，不等同于因果证据。</p>
+</li>
+<li>
+<p><strong>趋势聚类</strong> ：先用GAM平滑每个基因沿拟时序的表达，再按标准化后的曲线形状聚类。聚类反映动态模式相似性，不代表这些基因一定处于同一调控通路。</p>
+</li>
+</ul>
+<p>全量数据有24,882个细胞。GPCCA的Schur分解必须使用<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529675&amp;idx=1&amp;sn=4d16321d68430f9a1c2d20fb77234d24&amp;scene=21#wechat_redirect">稀疏</a>的<code>krylov</code>方法；<code>brandts</code>的稠密计算不适合该规模。</p>
+<pre><code># 导入标准库：工作目录切换、路径管理和版本读取。
+</code></pre>
+<pre><code>importos
+</code></pre>
+<pre><code>importsys
+</code></pre>
+<pre><code>fromimportlib.metadataimportversion
+</code></pre>
+<pre><code>frompathlibimportPath
+</code></pre>
+<pre><code># 导入数值与表格工具：NumPy 负责数组计算，pandas 负责带标签表格。
+</code></pre>
+<pre><code>importnumpyasnp
+</code></pre>
+<pre><code>importpandasaspd
+</code></pre>
+<pre><code># 导入绘图工具；MultipleLocator 用于给 UMAP 加可读的主/次网格。
+</code></pre>
+<pre><code>importmatplotlib.pyplotasplt
+</code></pre>
+<pre><code>frommatplotlib.tickerimportMultipleLocator
+</code></pre>
+<pre><code># 导入单细胞分析包：Scanpy 管理 AnnData，Palantir 算拟时序，CellRank 算命运。
+</code></pre>
+<pre><code>importscanpyassc
+</code></pre>
+<pre><code>importpalantir
+</code></pre>
+<pre><code>importcellrankascr
+</code></pre>
+<pre><code># 只隐藏已知的非关键绘图提示；分析阶段仍保留错误与重要警告。
+</code></pre>
+<pre><code>importwarnings
+</code></pre>
+<pre><code>warnings.filterwarnings(&quot;ignore&quot;, module=&quot;matplotlib&quot;, message=&quot;findfont&quot;)
+</code></pre>
+<pre><code># 固定 NumPy 随机种子；各分析步骤的 random_state 仍在各自单元中明确填写。
+</code></pre>
+<pre><code>np.random.seed(0)
+</code></pre>
+<pre><code># 统一 notebook 内的绘图风格与保存分辨率。
+</code></pre>
+<pre><code>sc.settings.verbosity=1
+</code></pre>
+<pre><code>sc.settings.set_figure_params(dpi=120, dpi_save=300, frameon=False, facecolor=&quot;white&quot;)
+</code></pre>
+<pre><code># 打印关键版本，便于复现与排查 API 差异。
+</code></pre>
+<pre><code>print(&quot;Python&quot;, sys.version.split()[0])
+</code></pre>
+<pre><code>forpackagein [&quot;scanpy&quot;, &quot;cellrank&quot;, &quot;palantir&quot;, &quot;pandas&quot;, &quot;numpy&quot;]:
+</code></pre>
+<pre><code>    print(f&quot;{package:10s}&quot;, version(package))
+</code></pre>
+<p>向下滑动查看全部~</p>
+<h4 id="13">1.3 配置目录</h4>
+<p>按参考<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531443&amp;idx=3&amp;sn=0930f54959a9bd13b99780d8f26a1155&amp;scene=21#wechat_redirect">notebook</a>的写法，这里只设置：<strong>输入工作目录</strong> 、<strong>PDF 图片目录</strong> 和<strong>输出对象目录</strong> 。数据文件名、起点细胞、终末状态、目标支路和聚类参数都放在实际使用它们的单元中，阅读代码时可以直接看到参数与分析步骤的对应关系。</p>
+<ul>
+<li>
+<p><code>WORK_DIR</code>：教程与 <code>data/</code> 所在的工作目录。</p>
+</li>
+<li>
+<p><code>FIGURE_DIR</code>：每张图单独保存一份 PDF。</p>
+</li>
+<li>
+<p><code>OBJECT_DIR</code>：保存 CSV、可选中间 h5ad 等分析对象。</p>
+</li>
+</ul>
+<pre><code># 1) 输入工作目录：教程文件和 data/ 文件夹都位于这里。
+</code></pre>
+<pre><code>WORK_DIR=Path(&quot;/data1/home/wanjiale/work/test/cellrank_tutoral&quot;)
+</code></pre>
+<pre><code># 2) 图片输出目录：所有分析图均单独保存为 PDF。
+</code></pre>
+<pre><code>FIGURE_DIR=WORK_DIR/&quot;figures&quot;
+</code></pre>
+<pre><code># 3) 对象输出目录：保存 CSV、可选 h5ad 和其他可复用对象。
+</code></pre>
+<pre><code>OBJECT_DIR=WORK_DIR/&quot;objects&quot;
+</code></pre>
+<pre><code># 切换到工作目录，使相对路径行为与参考 notebook 一致。
+</code></pre>
+<pre><code>os.chdir(WORK_DIR)
+</code></pre>
+<pre><code># 若输出目录尚不存在则创建；不会修改 data/ 中的原始文件。
+</code></pre>
+<pre><code>FIGURE_DIR.mkdir(parents=True, exist_ok=True)
+</code></pre>
+<pre><code>OBJECT_DIR.mkdir(parents=True, exist_ok=True)
+</code></pre>
+<pre><code># CellRank 的 save 参数只给文件名时，默认保存到该图片目录。
+</code></pre>
+<pre><code>cr.settings.figdir=FIGURE_DIR
+</code></pre>
+<pre><code># 打印三个目录，便于运行前核对。
+</code></pre>
+<pre><code>print(&quot;输入工作目录:&quot;, WORK_DIR)
+</code></pre>
+<pre><code>print(&quot;PDF 图片目录:&quot;, FIGURE_DIR)
+</code></pre>
+<pre><code>print(&quot;输出对象目录:&quot;, OBJECT_DIR)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<h4 id="_1"></h4>
+<h3 id="2">2. 实战教程</h3>
+<h4 id="21">2.1 读取示例数据</h4>
+<p>数据是CellRank的小鼠肺损伤再生数据：24,882 个细胞、24,051 个基因，包含<code>clusters_coarse</code>、<code>clusters</code>、<code>day</code>以及预计算的PCA/UMAP。教程把<code>clusters_coarse</code>复制为统一的 <code>celltype</code>字段。</p>
+<p>教学代码直接从工作目录下的<code>data/</code>读取，不再包装额外的读入函数。换数据时只需要修改这一行文件名。</p>
+<pre><code># 直接读取 data/ 下的本地示例数据。adata=sc.read_h5ad(&quot;data/lung_regeneration.h5ad&quot;)
+# 使用粗粒度注释作为教程中的 celltype。adata.obs[&quot;celltype&quot;] =adata.obs[&quot;clusters_coarse&quot;].astype(&quot;category&quot;)
+# 查看数据结构和各细胞类型数量。print(adata)display(adata.obs[&quot;celltype&quot;].value_counts())
+</code></pre>
+<pre><code># 在同一画布查看粗细注释与采样天数，先建立数据的整体印象。
+</code></pre>
+<pre><code>sc.pl.embedding(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    color=[&quot;celltype&quot;, &quot;clusters&quot;, &quot;day&quot;],
+</code></pre>
+<pre><code>    ncols=3,
+</code></pre>
+<pre><code>    wspace=0.45,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 保存当前画布，便于脱离 notebook 查看。
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;01_data_overview_umap.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code># 在 notebook 中显示后关闭画布，避免后续单元重复叠图。
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<h4 id="_2"><img alt="image-20260819161606864" src="../../images/29590d1af720d8c9.webp"></h4>
+<p>2.2 预处理与关键基因</p>
+<p><code>.X</code>是原始counts。我们先把原始<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538803&amp;idx=1&amp;sn=02cb628b000cbdfaa03d85f4127b5a45&amp;scene=21#wechat_redirect">矩阵</a>备份到<code>layers["counts"]</code>，再做每细胞总量标准化和 <code>log1p</code>。高变基因用于记录重点特征；同时强制纳入肺泡、气道、过渡态和增殖<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535727&amp;idx=1&amp;sn=5a8dc6600a13455bcea612ac1cbe0173&amp;scene=21#wechat_redirect">marker</a>，避免重要生物学基因仅因方差阈值被排除。</p>
+<p>本数据自带PCA/UMAP，后续轨迹使用原始文件中的<code>X_pca</code>，以保持示例坐标和固定起点可复现。若换成自己的数据，应在标准化后重新计算 PCA、近邻图与 UMAP。</p>
+<pre><code># 备份原始 counts，再做标准化和 log1p。
+</code></pre>
+<pre><code>adata.layers[&quot;counts&quot;] =adata.X.copy()
+</code></pre>
+<pre><code>sc.pp.normalize_total(adata, target_sum=1e4)
+</code></pre>
+<pre><code>sc.pp.log1p(adata)
+</code></pre>
+<pre><code># 肺再生关键 marker；后面用于细胞身份核对。
+</code></pre>
+<pre><code>markers= [
+</code></pre>
+<pre><code>    &quot;Sftpc&quot;, &quot;Sftpb&quot;, &quot;Lamp3&quot;, &quot;Etv5&quot;,       # AT2
+</code></pre>
+<pre><code>    &quot;Ager&quot;, &quot;Pdpn&quot;, &quot;Hopx&quot;, &quot;Aqp5&quot;,         # AT1
+</code></pre>
+<pre><code>    &quot;Krt8&quot;, &quot;Cldn4&quot;, &quot;Sfn&quot;, &quot;Krt18&quot;,        # Krt8+ ADI
+</code></pre>
+<pre><code>    &quot;Scgb1a1&quot;, &quot;Scgb3a2&quot;, &quot;Cyp2f2&quot;,          # Club
+</code></pre>
+<pre><code>    &quot;Foxj1&quot;, &quot;Tubb4a&quot;, &quot;Ccdc153&quot;,            # Ciliated
+</code></pre>
+<pre><code>    &quot;Muc5b&quot;, &quot;Muc5ac&quot;, &quot;Scgb3a1&quot;,            # Goblet
+</code></pre>
+<pre><code>    &quot;Mki67&quot;, &quot;Top2a&quot;, &quot;Trp63&quot;, &quot;Krt5&quot;,      # 增殖 / Basal
+</code></pre>
+<pre><code>    &quot;Ascl1&quot;, &quot;Calca&quot;,                         # Neuroendocrine
+</code></pre>
+<pre><code>]
+</code></pre>
+<pre><code>markers= [geneforgeneinmarkersifgeneinadata.var_names]
+</code></pre>
+<pre><code># 选择高变基因，并把 marker 一并纳入轨迹候选基因。
+</code></pre>
+<pre><code>sc.pp.highly_variable_genes(adata, n_top_genes=3000, flavor=&quot;seurat&quot;)
+</code></pre>
+<pre><code>use_genes=set(adata.var_names[adata.var[&quot;highly_variable&quot;]]) |set(markers)
+</code></pre>
+<pre><code>adata.var[&quot;use_gene&quot;] =adata.var_names.isin(use_genes)
+</code></pre>
+<pre><code>print(&quot;轨迹候选基因数:&quot;, int(adata.var[&quot;use_gene&quot;].sum()))
+</code></pre>
+<pre><code>print(&quot;可用 marker 数:&quot;, len(markers))
+</code></pre>
+<pre><code>#轨迹候选基因数: 3006
+</code></pre>
+<pre><code>#可用 marker 数: 27
+</code></pre>
+<p>向下滑动查看全部~</p>
+<h4 id="23-palantirmagic">2.3 Palantir：扩散空间、MAGIC 与拟时序</h4>
+<p>Palantir先在PCA空间构建扩散映射，再把有意义的扩散分量组合成多尺度空间。该空间强调连续状态变化，比单纯欧氏 PCA 更适合描述分化轨迹。MAGIC 使用扩散算子平滑表达，主要用于可视化和后续趋势拟合；不要把 imputed 表达当作新的原始 counts 做差异表达检验。</p>
+<p><code>run_magic_imputation</code>会产生较大的全基因layer。服务器内存不足时可减少分析基因范围，但必须保证后续所选驱动基因存在于用于拟合的表达矩阵中。</p>
+<p>服务器内存不足？可参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247540790&amp;idx=2&amp;sn=3e34a111e77e0cf29ee21b48a7940a9a&amp;scene=21#wechat_redirect">三年套餐打骨折，足够支持你完成硕博生涯的共享服务器</a></p>
+<pre><code># 将 PCA 坐标转成 Palantir 使用的 DataFrame。
+</code></pre>
+<pre><code>pca_projections=pd.DataFrame(
+</code></pre>
+<pre><code>    adata.obsm[&quot;X_pca&quot;][:, :30],
+</code></pre>
+<pre><code>    index=adata.obs_names,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 扩散映射、多尺度空间和 MAGIC 去噪。
+</code></pre>
+<pre><code>dm_res=palantir.utils.run_diffusion_maps(pca_projections, n_components=10)
+</code></pre>
+<pre><code>ms_data=palantir.utils.determine_multiscale_space(dm_res)
+</code></pre>
+<pre><code>adata.obsm[&quot;DM_EigenVectors_multiscaled&quot;] =ms_data.values
+</code></pre>
+<pre><code>adata.layers[&quot;MAGIC_imputed_data&quot;] =palantir.utils.run_magic_imputation(adata, dm_res)
+</code></pre>
+<pre><code>print(&quot;多尺度空间形状:&quot;, ms_data.shape)
+</code></pre>
+<pre><code>#多尺度空间形状: (24882, 2)
+</code></pre>
+<pre><code># 选择用于身份核对的 8 个代表性 marker，并确保它们都存在。
+</code></pre>
+<pre><code>marker_panel= [geneforgenein [&quot;Sftpc&quot;, &quot;Ager&quot;, &quot;Krt8&quot;, &quot;Scgb1a1&quot;, &quot;Foxj1&quot;, &quot;Muc5b&quot;, &quot;Mki67&quot;, &quot;Trp63&quot;] ifgeneinadata.var_names]
+</code></pre>
+<pre><code># 用 MAGIC 平滑表达画 UMAP；高表达区域对应各细胞类型的已知 marker。
+</code></pre>
+<pre><code>sc.pl.embedding(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    layer=&quot;MAGIC_imputed_data&quot;,
+</code></pre>
+<pre><code>    color=marker_panel,
+</code></pre>
+<pre><code>    cmap=&quot;Spectral_r&quot;,
+</code></pre>
+<pre><code>    ncols=4,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 保存 marker 面板。
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;02_magic_marker_umap.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code># 显示并释放画布。
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819161625860" src="../../images/d8d634d86341d572.webp"></p>
+<p><strong>三、 CellRank 流程</strong></p>
+<h3 id="1-barcode">1. 选择起点：坐标定位 + 固定 barcode</h3>
+<p>参考流程先在带网格的UMAP上选定一个生物学合理区域，再将最近细胞的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490952&amp;idx=1&amp;sn=364a3941e59e45234795c906a42fc9ab&amp;scene=21#wechat_redirect">barcode</a>固定下来。这里肺泡再生的起点是 AT2：目标坐标为<code>(6.0, 5.0)</code>，对应固定细胞<code>muc9275_AAACTAAACACG</code>。</p>
+<p>与参考 notebook 一致，先计算离目标坐标最近的细胞并查看元数据；随后在运行Palantir的单元中明确填写最终确认的 <code>start_cell</code>barcode。这样既保留人工选择依据，也让正式分析使用固定起点。</p>
+<pre><code># 为 9 个粗粒度肺上皮类型定义固定颜色。
+</code></pre>
+<pre><code>celltype_colors= {
+</code></pre>
+<pre><code>    &quot;AT2&quot;: &quot;#1f77b4&quot;,
+</code></pre>
+<pre><code>    &quot;AT1&quot;: &quot;#d62728&quot;,
+</code></pre>
+<pre><code>    &quot;Krt8+ ADI&quot;: &quot;#9467bd&quot;,
+</code></pre>
+<pre><code>    &quot;Club&quot;: &quot;#2ca02c&quot;,
+</code></pre>
+<pre><code>    &quot;Ciliated&quot;: &quot;#ff7f0e&quot;,
+</code></pre>
+<pre><code>    &quot;Goblet&quot;: &quot;#8c564b&quot;,
+</code></pre>
+<pre><code>    &quot;Mki67+ proliferation&quot;: &quot;#e377c2&quot;,
+</code></pre>
+<pre><code>    &quot;Basal&quot;: &quot;#17becf&quot;,
+</code></pre>
+<pre><code>    &quot;Neuroendocrine&quot;: &quot;#bcbd22&quot;,
+</code></pre>
+<pre><code>}
+</code></pre>
+<pre><code># 确保 celltype 是有序类别，Scanpy 才能稳定复用颜色。
+</code></pre>
+<pre><code>adata.obs[&quot;celltype&quot;] =adata.obs[&quot;celltype&quot;].astype(&quot;category&quot;)
+</code></pre>
+<pre><code># 找出未配置颜色的类别；换数据后这里会提醒更新色板。
+</code></pre>
+<pre><code>missing_colors=sorted(set(adata.obs[&quot;celltype&quot;].cat.categories) -set(celltype_colors))
+</code></pre>
+<pre><code># 色板不完整时停止，防止类别和颜色错位。
+</code></pre>
+<pre><code>ifmissing_colors:
+</code></pre>
+<pre><code>    raiseValueError(f&quot;以下细胞类型缺少颜色：{missing_colors}&quot;)
+</code></pre>
+<pre><code># 按 pandas 类别顺序写入 AnnData，供所有 Scanpy 图复用。
+</code></pre>
+<pre><code>adata.uns[&quot;celltype_colors&quot;] = [
+</code></pre>
+<pre><code>    celltype_colors[name] fornameinadata.obs[&quot;celltype&quot;].cat.categories
+</code></pre>
+<pre><code>]
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p>接着我们绘制一个<strong>带网格的umap图</strong> 便于我们确认起始细胞。</p>
+<pre><code># 新建画布，绘制按细胞类型着色的 UMAP。
+</code></pre>
+<pre><code>fig, ax=plt.subplots(figsize=(9, 7))
+</code></pre>
+<pre><code>sc.pl.embedding(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    color=&quot;celltype&quot;,
+</code></pre>
+<pre><code>    size=6,
+</code></pre>
+<pre><code>    alpha=0.55,
+</code></pre>
+<pre><code>    legend_loc=&quot;right margin&quot;,
+</code></pre>
+<pre><code>    frameon=True,
+</code></pre>
+<pre><code>    ax=ax,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 设置主刻度和次刻度；可根据自己的 UMAP 范围调整间隔。
+</code></pre>
+<pre><code>ax.xaxis.set_major_locator(MultipleLocator(5))
+</code></pre>
+<pre><code>ax.yaxis.set_major_locator(MultipleLocator(5))
+</code></pre>
+<pre><code>ax.xaxis.set_minor_locator(MultipleLocator(1))
+</code></pre>
+<pre><code>ax.yaxis.set_minor_locator(MultipleLocator(1))
+</code></pre>
+<pre><code># 把网格放在散点下方，主网格略深、次网格略浅。
+</code></pre>
+<pre><code>ax.set_axisbelow(True)
+</code></pre>
+<pre><code>ax.grid(which=&quot;major&quot;, color=&quot;#9E9E9E&quot;, linewidth=0.7, alpha=0.70)
+</code></pre>
+<pre><code>ax.grid(which=&quot;minor&quot;, color=&quot;#D9D9D9&quot;, linewidth=0.35, alpha=0.75)
+</code></pre>
+<pre><code># 补充清晰的坐标轴标题，便于直接读取候选起点坐标。
+</code></pre>
+<pre><code>ax.set_xlabel(&quot;UMAP 1&quot;)
+</code></pre>
+<pre><code>ax.set_ylabel(&quot;UMAP 2&quot;)
+</code></pre>
+<pre><code>ax.set_title(&quot;Cell types with UMAP coordinate grid&quot;)
+</code></pre>
+<pre><code>plt.tight_layout()
+</code></pre>
+<pre><code># 保存 PDF，同时在 notebook 中显示同一张图。
+</code></pre>
+<pre><code>fig.savefig(FIGURE_DIR/&quot;03_celltype_umap_coordinate_grid.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(fig)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819161649293" src="../../images/03ec310871aafc03.webp"></p>
+<p>本次教程我们以 AT2 为起始细胞，可以从上图看出，<strong>大致是 (5，6) 的位置</strong> 。</p>
+<p>ps:这个位置再后续计算不理想时可以调整，输入不同的起始位置，对后续的轨迹会有一定的影响。</p>
+<pre><code># 获取 UMAP 坐标；行顺序与 adata.obs_names 完全一致。
+</code></pre>
+<pre><code>umap_coordinates=np.asarray(adata.obsm[&quot;X_umap&quot;])
+</code></pre>
+<pre><code># 在本单元设置目标坐标；它位于 AT2 主群内部。
+</code></pre>
+<pre><code>target_x, target_y=6.0, 5.0
+</code></pre>
+<pre><code>target_coordinate=np.array([target_x, target_y])
+</code></pre>
+<pre><code># 计算每个细胞到目标点的欧氏距离。
+</code></pre>
+<pre><code>distances=np.linalg.norm(umap_coordinates-target_coordinate, axis=1)
+</code></pre>
+<pre><code># 找到距离最小的位置索引和对应 barcode。
+</code></pre>
+<pre><code>closest_idx=int(distances.argmin())
+</code></pre>
+<pre><code>closest_cell=str(adata.obs_names[closest_idx])
+</code></pre>
+<pre><code># 打印候选起点和距离，并查看细胞类型、亚群与采样天数。
+</code></pre>
+<pre><code>print(&quot;坐标最近细胞:&quot;, closest_cell)
+</code></pre>
+<pre><code>print(&quot;到目标坐标的距离:&quot;, float(distances[closest_idx]))
+</code></pre>
+<pre><code>display(adata.obs.loc[[closest_cell], [&quot;celltype&quot;, &quot;clusters&quot;, &quot;day&quot;]])
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p>接着我们把所选细胞在umap图上标记出来，来检查一下是否符合我们的预期。</p>
+<pre><code># 创建单独画布，先画完整的细胞类型背景。
+</code></pre>
+<pre><code>fig, ax=plt.subplots(figsize=(9, 7))
+</code></pre>
+<pre><code>sc.pl.embedding(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    color=&quot;celltype&quot;,
+</code></pre>
+<pre><code>    size=6,
+</code></pre>
+<pre><code>    alpha=0.50,
+</code></pre>
+<pre><code>    legend_loc=&quot;right margin&quot;,
+</code></pre>
+<pre><code>    frameon=True,
+</code></pre>
+<pre><code>    ax=ax,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 用大红点和黑边标记坐标法选出的最近细胞。
+</code></pre>
+<pre><code>ax.scatter(
+</code></pre>
+<pre><code>    umap_coordinates[closest_idx, 0],
+</code></pre>
+<pre><code>    umap_coordinates[closest_idx, 1],
+</code></pre>
+<pre><code>    c=&quot;#E64B35&quot;,
+</code></pre>
+<pre><code>    s=160,
+</code></pre>
+<pre><code>    edgecolors=&quot;black&quot;,
+</code></pre>
+<pre><code>    linewidths=1.2,
+</code></pre>
+<pre><code>    zorder=5,
+</code></pre>
+<pre><code>    label=&quot;selected AT2 start cell&quot;,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 用黑色叉号标记最初人工读取的目标坐标，便于复核两者距离。
+</code></pre>
+<pre><code>ax.scatter(
+</code></pre>
+<pre><code>    target_x,
+</code></pre>
+<pre><code>    target_y,
+</code></pre>
+<pre><code>    marker=&quot;x&quot;,
+</code></pre>
+<pre><code>    c=&quot;black&quot;,
+</code></pre>
+<pre><code>    s=130,
+</code></pre>
+<pre><code>    linewidths=2.0,
+</code></pre>
+<pre><code>    zorder=6,
+</code></pre>
+<pre><code>    label=&quot;target coordinate&quot;,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># UMAP 主刻度间隔为 5、次刻度间隔为 1。
+</code></pre>
+<pre><code>foraxisin (ax.xaxis, ax.yaxis):
+</code></pre>
+<pre><code>    axis.set_major_locator(MultipleLocator(5))
+</code></pre>
+<pre><code>    axis.set_minor_locator(MultipleLocator(1))
+</code></pre>
+<pre><code># 添加浅色网格，方便下一次更换数据时人工读取坐标。
+</code></pre>
+<pre><code>ax.grid(which=&quot;major&quot;, color=&quot;#9E9E9E&quot;, linewidth=0.6, alpha=0.6)
+</code></pre>
+<pre><code>ax.grid(which=&quot;minor&quot;, color=&quot;#D9D9D9&quot;, linewidth=0.3, alpha=0.7)
+</code></pre>
+<pre><code># 设置坐标轴、图例和紧凑布局。
+</code></pre>
+<pre><code>ax.set_xlabel(&quot;UMAP 1&quot;)
+</code></pre>
+<pre><code>ax.set_ylabel(&quot;UMAP 2&quot;)
+</code></pre>
+<pre><code>ax.legend(loc=&quot;upper left&quot;, frameon=False)
+</code></pre>
+<pre><code>plt.tight_layout()
+</code></pre>
+<pre><code># 保存起点审计图后显示。
+</code></pre>
+<pre><code>fig.savefig(FIGURE_DIR/&quot;04_start_cell_audit.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(fig)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<pre><code># 明确填写经坐标法与元数据共同确认的起点 barcode，遵循参考 notebook 的写法。
+</code></pre>
+<pre><code>start_cell=&quot;muc9275_AAACTAAACACG&quot;
+</code></pre>
+<pre><code># 检查固定 barcode 仍存在，且确实属于 AT2；数据版本变化时会立即提示。
+</code></pre>
+<pre><code>assertstart_cellinadata.obs_names, f&quot;起点 barcode 不在数据中：{start_cell}&quot;
+</code></pre>
+<pre><code>assertstr(adata.obs.loc[start_cell, &quot;celltype&quot;]) ==&quot;AT2&quot;, &quot;固定起点不是 AT2，请重新检查。&quot;
+</code></pre>
+<pre><code># 从固定 AT2 起点运行 Palantir；1200 个 waypoint 在稳定性与速度之间折中。
+</code></pre>
+<pre><code>palantir_result=palantir.core.run_palantir(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    start_cell,
+</code></pre>
+<pre><code>    num_waypoints=1200,
+</code></pre>
+<pre><code>    use_early_cell_as_start=True,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 确认关键结果已经写入 AnnData，后续 CellRank 会读取拟时序列。
+</code></pre>
+<pre><code>required_palantir_keys= {&quot;palantir_pseudotime&quot;, &quot;palantir_entropy&quot;}
+</code></pre>
+<pre><code>missing_palantir_keys=sorted(required_palantir_keys-set(adata.obs.columns))
+</code></pre>
+<pre><code>ifmissing_palantir_keys:
+</code></pre>
+<pre><code>    raiseRuntimeError(f&quot;Palantir 未生成 obs 字段：{missing_palantir_keys}&quot;)
+</code></pre>
+<pre><code># 输出拟时序范围；使用 early cell as start 时最小值应接近 0。
+</code></pre>
+<pre><code>print(&quot;正式起点:&quot;, start_cell)
+</code></pre>
+<pre><code>print(adata.obs[&quot;palantir_pseudotime&quot;].describe())
+</code></pre>
+<pre><code># 列出 Palantir 自动识别的所有支路/终末细胞名称，便于与参考流程核对。
+</code></pre>
+<pre><code>fate_probabilities=adata.obsm[&quot;palantir_fate_probabilities&quot;]
+</code></pre>
+<pre><code>ifisinstance(fate_probabilities, pd.DataFrame):
+</code></pre>
+<pre><code>    palantir_branches=fate_probabilities.columns.tolist()
+</code></pre>
+<pre><code>else:
+</code></pre>
+<pre><code>    palantir_branches=adata.uns[&quot;palantir_fate_probabilities_columns&quot;].tolist()
+</code></pre>
+<pre><code>print(&quot;Palantir 自动支路:&quot;)
+</code></pre>
+<pre><code>forbranch_number, branch_nameinenumerate(palantir_branches, start=1):
+</code></pre>
+<pre><code>    print(f&quot;{branch_number}. {branch_name}&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p>Palantir结果中，<code>palantir_pseudotime</code>越大表示离起点越远；<code>palantir_entropy</code>越高表示命运越未确定。Palantir还会自动识别自己的终末细胞并生成分支概率，但后续CellRank会基于有向转移矩阵重新定义宏状态与终末状态，两套“终末状态”不要混为一谈。</p>
+<pre><code># 绘制 Palantir 的拟时序、熵和自动分支概率总览。
+</code></pre>
+<pre><code>palantir.plot.plot_palantir_results(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    s=3,
+</code></pre>
+<pre><code>    embedding_basis=&quot;X_umap&quot;,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 保存 Palantir 总览图。
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;05_palantir_results.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<pre><code># 单独并排绘制细胞类型、拟时序和熵，方便检查方向是否符合生物学预期。
+</code></pre>
+<pre><code>sc.pl.embedding(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    color=[&quot;celltype&quot;, &quot;palantir_pseudotime&quot;, &quot;palantir_entropy&quot;],
+</code></pre>
+<pre><code>    ncols=3,
+</code></pre>
+<pre><code>    wspace=0.45,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 保存方向核对图。
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;06_palantir_pseudotime_entropy.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819161801279" src="../../images/227b600b8e4305d8.webp"></p>
+<h3 id="_3"></h3>
+<h3 id="2-cellrank-pseudotimekernel">2. CellRank PseudotimeKernel：把拟时序变成转移矩阵</h3>
+<p><code>PseudotimeKernel</code>只在近邻图的局部连接中分配转移概率，并优先保留沿拟时序向前的方向。它不会凭空创建不相邻细胞之间的边。投影图和随机游走用于质量控制：箭头与轨迹应总体从 AT2 走向更晚状态，而不是系统性逆行。</p>
+<pre><code># 导入拟时序核类。
+</code></pre>
+<pre><code>fromcellrank.kernelsimportPseudotimeKernel
+</code></pre>
+<pre><code># 参考 notebook 在建立 CellRank 核前重新计算 Scanpy 近邻图。
+</code></pre>
+<pre><code># 本地肺数据已经包含 X_pca，因此直接基于前 30 个主成分构图。
+</code></pre>
+<pre><code>sc.pp.neighbors(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    n_neighbors=30,
+</code></pre>
+<pre><code>    n_pcs=30,
+</code></pre>
+<pre><code>    use_rep=&quot;X_pca&quot;,
+</code></pre>
+<pre><code>    random_state=0,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 用 Palantir 拟时序初始化核；它会复用刚刚计算的近邻连接。
+</code></pre>
+<pre><code>pk=PseudotimeKernel(adata, time_key=&quot;palantir_pseudotime&quot;)
+</code></pre>
+<pre><code># 计算行归一化的有向细胞转移矩阵。
+</code></pre>
+<pre><code>pk.compute_transition_matrix()
+</code></pre>
+<pre><code># 打印核对象，核对细胞数。
+</code></pre>
+<pre><code>print(pk)
+</code></pre>
+<pre><code># 将转移矩阵方向投影到 UMAP，检查全局流向。
+</code></pre>
+<pre><code>pk.plot_projection(
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    color=&quot;celltype&quot;,
+</code></pre>
+<pre><code>    legend_loc=&quot;right&quot;,
+</code></pre>
+<pre><code>    recompute=True,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 取出当前投影图，并把散点/箭头集合栅格化后嵌入 PDF。
+</code></pre>
+<pre><code># 这样既保留 PDF 文件格式，也能跳过极少数非有限投影箭头。
+</code></pre>
+<pre><code>projection_figure=plt.gcf()
+</code></pre>
+<pre><code>forprojection_axisinprojection_figure.axes:
+</code></pre>
+<pre><code>    forcollectioninprojection_axis.collections:
+</code></pre>
+<pre><code>        collection.set_rasterized(True)
+</code></pre>
+<pre><code># 单独保存一份 PDF，同时在下一行将同一张图显示到 notebook。
+</code></pre>
+<pre><code>projection_figure.savefig(
+</code></pre>
+<pre><code>    FIGURE_DIR/&quot;07_kernel_projection.pdf&quot;,
+</code></pre>
+<pre><code>    bbox_inches=&quot;tight&quot;,
+</code></pre>
+<pre><code>    dpi=300,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819161813502" src="../../images/87bb08b53b6047de.webp"></p>
+<pre><code># 从 AT2 群体随机抽起点并模拟 100 条前向游走，观察可能的终末方向。
+</code></pre>
+<pre><code>pk.plot_random_walks(
+</code></pre>
+<pre><code>    seed=0,
+</code></pre>
+<pre><code>    n_sims=100,
+</code></pre>
+<pre><code>    max_iter=500,
+</code></pre>
+<pre><code>    start_ixs={&quot;celltype&quot;: &quot;AT2&quot;},
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    color=&quot;celltype&quot;,
+</code></pre>
+<pre><code>    legend_loc=&quot;right margin&quot;,
+</code></pre>
+<pre><code>    n_jobs=1,
+</code></pre>
+<pre><code>    backend=&quot;threading&quot;,
+</code></pre>
+<pre><code>    show_progress_bar=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 将随机游走图保存为 PDF，并在 notebook 内显示同一张图。
+</code></pre>
+<pre><code>random_walk_figure=plt.gcf()
+</code></pre>
+<pre><code>random_walk_figure.savefig(FIGURE_DIR/&quot;08_random_walks_from_AT2.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<pre><code># 是否保存包含 MAGIC layer 的大型中间 h5ad，在本单元按需要修改。
+</code></pre>
+<pre><code>save_intermediate_h5ad=False
+</code></pre>
+<pre><code># 开启后把转移矩阵写回 AnnData，并保存到对象目录；原始数据不会被覆盖。
+</code></pre>
+<pre><code>ifsave_intermediate_h5ad:
+</code></pre>
+<pre><code>    pk.write_to_adata()
+</code></pre>
+<pre><code>    adata.write(OBJECT_DIR/&quot;lung_after_palantir_kernel.h5ad&quot;)
+</code></pre>
+<pre><code>    print(&quot;已写入可恢复的中间 h5ad。&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819161827358" src="../../images/a30890f403936e56.webp"></p>
+<p>3. GPCCA：Schur 分解、宏状态与手动终末状态</p>
+<p>GPCCA用实Schur分解提取转移矩阵中变化缓慢、内部相对稳定的集合，再把细胞粗粒化为宏状态。<code>n_states=11</code>是本教程对该数据的固定设置；换数据时应同时参考特征值谱、宏状态在 UMAP 上的连续性、粗粒化转移矩阵稳定性和已知 marker，而不是只追求某个数字。</p>
+<p>这里显式使用<code>method="krylov"</code>。它依赖已经安装好的PETSc/SLEPc，只计算需要的Schur子空间，适合24,882个细胞。</p>
+<pre><code># 导入 GPCCA 估计器。
+</code></pre>
+<pre><code>fromcellrank.estimatorsimportGPCCA
+</code></pre>
+<pre><code># 用已经计算好的 PseudotimeKernel 初始化估计器。
+</code></pre>
+<pre><code>g=GPCCA(pk)
+</code></pre>
+<pre><code># 计算前 20 个 Schur 分量；krylov 是大数据的稀疏迭代方法。
+</code></pre>
+<pre><code>g.compute_schur(
+</code></pre>
+<pre><code>    n_components=20,
+</code></pre>
+<pre><code>    method=&quot;krylov&quot;,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 绘制实特征值谱；谱间隙可作为宏状态数的参考之一。
+</code></pre>
+<pre><code>g.plot_spectrum(real_only=True)
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;09_schur_spectrum.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819161845017" src="../../images/2e6fc7ea871eb278.webp"></p>
+<p>从上述图可以看出从<strong>13宏状态 数</strong>之后谱系的间隔有一个较大的下降，因此我们这里选择13个状态进行计算终末状态</p>
+<p>ps：可以类比于单细胞聚类的PCA步骤</p>
+<pre><code># 将细胞粗粒化为 11 个宏状态，并用 celltype 为宏状态生成可读名称。
+</code></pre>
+<pre><code>g.compute_macrostates(
+</code></pre>
+<pre><code>    n_states=11,
+</code></pre>
+<pre><code>    cluster_key=&quot;celltype&quot;,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 读取实际宏状态名称，后面会据此校验终末状态配置。
+</code></pre>
+<pre><code>available_macrostates=g.macrostates.cat.categories.tolist()
+</code></pre>
+<pre><code># 打印全部宏状态，便于保存运行记录。
+</code></pre>
+<pre><code>print(&quot;实际宏状态:&quot;)
+</code></pre>
+<pre><code>forstateinavailable_macrostates:
+</code></pre>
+<pre><code>    print(&quot; -&quot;, state)
+</code></pre>
+<pre><code># 在 UMAP 上画所有宏状态。
+</code></pre>
+<pre><code>g.plot_macrostates(
+</code></pre>
+<pre><code>    which=&quot;all&quot;,
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    legend_loc=&quot;right&quot;,
+</code></pre>
+<pre><code>    size=30,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;10_all_macrostates_umap.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<pre><code># 画宏状态间粗粒化转移矩阵；对角线高表示状态内部更稳定。
+</code></pre>
+<pre><code>g.plot_coarse_T()
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;11_coarse_transition_matrix.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<h4 id="_4"><img alt="image-20260819161856649" src="../../images/1407e8585137e511.webp"></h4>
+<p>3.1 终末状态校验</p>
+<p>所有的终末状态：</p>
+<ul>
+<li>
+<p>Neuroendocrine</p>
+</li>
+<li>
+<p>Ciliated_1</p>
+</li>
+<li>
+<p>Basal</p>
+</li>
+<li>
+<p>Ciliated_2</p>
+</li>
+<li>
+<p>Goblet_1</p>
+</li>
+<li>
+<p>Goblet_2</p>
+</li>
+<li>
+<p>Mki67+ proliferation</p>
+</li>
+<li>
+<p>Ciliated_3</p>
+</li>
+<li>
+<p>Ciliated_4</p>
+</li>
+<li>
+<p>Club_1</p>
+</li>
+<li>
+<p>Krt8+ ADI</p>
+</li>
+<li>
+<p>Club_2</p>
+</li>
+<li>
+<p>AT2</p>
+</li>
+</ul>
+<p>参考notebook的做法是先读取<code>g.macrostates</code>的真实类别，再检查手动名单。这样可避免CellRank因找不到状态而默默换用错误对象。当前固定名单为：</p>
+<ul>
+<li>
+<p><code>Krt8+ ADI</code></p>
+</li>
+<li>
+<p><code>Club_1</code></p>
+</li>
+<li>
+<p><code>Mki67+ proliferation</code></p>
+</li>
+<li>
+<p><code>Goblet_1</code></p>
+</li>
+<li>
+<p><code>Ciliated_4</code></p>
+</li>
+</ul>
+<p>这是面向本地肺再生数据和当前参数的教学选择。注意<code>Krt8+ ADI</code>在经典 AT2→AT1 叙事中常被称作过渡态；本教程把它作为一个吸收命运，是为了严格复现当前参考分析设定。若研究问题是成熟AT1命运，应重新评估宏状态数、起点与终末状态，而不能直接把本名单当作普遍生物学结论。</p>
+<pre><code># 终末状态名称来自上一单元打印的实际宏状态。
+</code></pre>
+<pre><code>terminal_states= [
+</code></pre>
+<pre><code>    &quot;Krt8+ ADI&quot;,
+</code></pre>
+<pre><code>    &quot;Club_1&quot;,
+</code></pre>
+<pre><code>    &quot;Mki67+ proliferation&quot;,
+</code></pre>
+<pre><code>    &quot;Goblet_1&quot;,
+</code></pre>
+<pre><code>    &quot;Ciliated_4&quot;,
+</code></pre>
+<pre><code>]
+</code></pre>
+<pre><code># 确认名称存在，避免拼写错误。
+</code></pre>
+<pre><code>missing_states=sorted(set(terminal_states) -set(available_macrostates))
+</code></pre>
+<pre><code>assertnotmissing_states, f&quot;以下名称不在宏状态中：{missing_states}&quot;
+</code></pre>
+<pre><code># 每个终末宏状态选择 30 个代表性细胞作为终末状态集合。
+</code></pre>
+<pre><code>g.set_terminal_states(
+</code></pre>
+<pre><code>    states=terminal_states,
+</code></pre>
+<pre><code>    n_cells=30,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 再次读取并打印实际终末名称，供后续目标支路单元使用。
+</code></pre>
+<pre><code>actual_terminal_states=g.terminal_states.cat.categories.tolist()
+</code></pre>
+<pre><code>print(&quot;实际终末状态:&quot;, actual_terminal_states)
+</code></pre>
+<pre><code># 画终末宏状态在 UMAP 上的位置。
+</code></pre>
+<pre><code>g.plot_macrostates(
+</code></pre>
+<pre><code>    which=&quot;terminal&quot;,
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    legend_loc=&quot;right margin&quot;,
+</code></pre>
+<pre><code>    size=50,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;12_terminal_macrostates_umap.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819161920100" src="../../images/d94604f423c5e472.webp"></p>
+<h3 id="4">4. 命运概率与环形投影</h3>
+<p>终末状态被设为吸收态后，CellRank求解每个细胞最终到达各终末状态的概率。对同一细胞，这些命运概率之和应接近1。概率是模型在当前数据、近邻图、拟时序与终末状态设定下的结果，不是单个细胞真实未来的实验追踪。</p>
+<pre><code># 计算每个细胞到 5 个终末状态的吸收概率。
+</code></pre>
+<pre><code>g.compute_fate_probabilities()
+</code></pre>
+<pre><code># 确保估计器已经产生命运概率对象。
+</code></pre>
+<pre><code>ifg.fate_probabilitiesisNone:
+</code></pre>
+<pre><code>    raiseRuntimeError(&quot;CellRank 未生成命运概率。&quot;)
+</code></pre>
+<pre><code># 把每个命运概率单独画在 UMAP 上，便于比较空间梯度。
+</code></pre>
+<pre><code>g.plot_fate_probabilities(
+</code></pre>
+<pre><code>    basis=&quot;umap&quot;,
+</code></pre>
+<pre><code>    same_plot=False,
+</code></pre>
+<pre><code>    ncols=3,
+</code></pre>
+<pre><code>    show=False,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code>plt.gcf().savefig(FIGURE_DIR/&quot;13_fate_probabilities_umap.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<pre><code># 环形投影把命运概率映射到多边形顶点；越靠近某顶点越偏向对应命运。
+</code></pre>
+<pre><code>cr.pl.circular_projection(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    keys=&quot;celltype&quot;,
+</code></pre>
+<pre><code>    legend_loc=&quot;right&quot;,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 保存环形投影 PDF，并在 notebook 中显示同一张图。
+</code></pre>
+<pre><code>circular_figure=plt.gcf()
+</code></pre>
+<pre><code>circular_figure.savefig(FIGURE_DIR/&quot;14_circular_projection_celltype.pdf&quot;, bbox_inches=&quot;tight&quot;)
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p>上述代码会绘制如下两图，首先是每种细胞发育到各个终末状态的概率，或者说每种终末状态的发育路径中有哪些细胞。</p>
+<p><img alt="image-20260819161938358" src="../../images/46b2b9d48c7d1829.webp"></p>
+<p>第二张图是计算得出的发育轨迹图，越靠近中间位置的细胞分化程度越低，越靠近5个顶点的终末状态的细胞分化程度越高。</p>
+<p><img alt="image-20260819162003246" src="../../images/5835a66da9c94a5a.webp"></p>
+<h3 id="5">5. 驱动基因：筛选、导出与趋势<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522279&amp;idx=1&amp;sn=ea8a9f3c698cb030440f7e097f252803&amp;scene=21#wechat_redirect">热图</a></h3>
+<p><code>compute_lineage_drivers</code>计算每个基因表达与各命运概率的相关系数，并进行多重检验校正。这里先对全部 5 个终末命运计算并导出总表，再聚焦<code>Krt8+ ADI</code>：保留正相关基因，按相关系数从高到低排序。</p>
+<p>为严格对齐参考notebook，前500个基因的筛选条件只要求相关系数大于 0；结果表同时保留q值，正式研究中建议再根据预注册阈值（例如q&lt;0.05）、表达比例和效应大小做二次过滤。</p>
+<pre><code># 在驱动基因单元中设置目标支路，保持参数与实际分析步骤相邻。
+</code></pre>
+<pre><code>lineage=&quot;Krt8+ ADI&quot;
+</code></pre>
+<pre><code># 检查目标支路确实属于前面手动指定的终末状态。
+</code></pre>
+<pre><code>assertlineageinactual_terminal_states, f&quot;目标支路不在终末状态中：{lineage}&quot;
+</code></pre>
+<pre><code># 一次计算所有手动终末状态的驱动基因，得到每条支路的 corr 与 qval 列。
+</code></pre>
+<pre><code>lineage_drivers=g.compute_lineage_drivers(lineages=terminal_states)
+</code></pre>
+<pre><code># 将完整驱动基因矩阵写为 CSV，保留基因名索引。
+</code></pre>
+<pre><code>all_drivers_path=OBJECT_DIR/&quot;lineage_drivers_all.csv&quot;
+</code></pre>
+<pre><code>lineage_drivers.to_csv(all_drivers_path, index=True)
+</code></pre>
+<pre><code># 根据目标支路名称构造相关系数列和 q 值列。
+</code></pre>
+<pre><code>corr_column=f&quot;{lineage}_corr&quot;
+</code></pre>
+<pre><code>qval_column=f&quot;{lineage}_qval&quot;
+</code></pre>
+<pre><code># 检查当前 CellRank 输出是否包含预期列，避免名称拼写错误。
+</code></pre>
+<pre><code>required_driver_columns= {corr_column, qval_column}
+</code></pre>
+<pre><code>missing_driver_columns=sorted(required_driver_columns-set(lineage_drivers.columns))
+</code></pre>
+<pre><code>ifmissing_driver_columns:
+</code></pre>
+<pre><code>    raiseKeyError(f&quot;驱动基因结果缺少列：{missing_driver_columns}&quot;)
+</code></pre>
+<pre><code># 仅保留与 Krt8+ ADI 命运概率正相关的基因，并按相关性降序排列。
+</code></pre>
+<pre><code>positive_drivers= (
+</code></pre>
+<pre><code>    lineage_drivers.loc[lineage_drivers[corr_column] &gt;0]
+</code></pre>
+<pre><code>    .sort_values(corr_column, ascending=False)
+</code></pre>
+<pre><code>    .copy()
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 取前 500 个；若正相关基因不足 500 个，自动使用全部可用基因。
+</code></pre>
+<pre><code>top_n_drivers=500
+</code></pre>
+<pre><code>top500_drivers=positive_drivers.head(top_n_drivers).copy()
+</code></pre>
+<pre><code># 提取基因名列表，供趋势聚类复用。
+</code></pre>
+<pre><code>genes_for_clustering=top500_drivers.index.astype(str).tolist()
+</code></pre>
+<pre><code># 导出目标支路前 500 个基因及其全部统计列。
+</code></pre>
+<pre><code>top500_path=OBJECT_DIR/&quot;Krt8_ADI_top500_positive_drivers.csv&quot;
+</code></pre>
+<pre><code>top500_drivers.to_csv(top500_path, index=True)
+</code></pre>
+<pre><code># 显示前 20 个基因并报告实际筛选数与输出路径。
+</code></pre>
+<pre><code>display(top500_drivers[[corr_column, qval_column]].head(20))
+</code></pre>
+<pre><code>print(&quot;用于趋势聚类的基因数:&quot;, len(genes_for_clustering))
+</code></pre>
+<pre><code>print(&quot;完整驱动表:&quot;, all_drivers_path)
+</code></pre>
+<pre><code>print(&quot;目标支路表:&quot;, top500_path)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<pre><code># 在热图单元中设置展示基因数；趋势聚类仍使用上一单元的前 500 个。
+</code></pre>
+<pre><code>top_n_heatmap=50
+</code></pre>
+<pre><code>genes_for_heatmap=positive_drivers.head(top_n_heatmap).index.astype(str).tolist()
+</code></pre>
+<pre><code># 创建 GAM：更多迭代和 10 个节点用于获得较平滑的展示曲线。
+</code></pre>
+<pre><code>heatmap_model=cr.models.GAM(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    max_iter=6000,
+</code></pre>
+<pre><code>    spline_order=3,
+</code></pre>
+<pre><code>    n_knots=10,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 临时隐藏部分基因拟合不收敛的 RuntimeWarning；CellRank 仍会报告失败数量。
+</code></pre>
+<pre><code>withwarnings.catch_warnings():
+</code></pre>
+<pre><code>    warnings.simplefilter(&quot;ignore&quot;, RuntimeWarning)
+</code></pre>
+<pre><code>    # 沿 Krt8+ ADI 命运拟合前 50 个基因并画趋势热图。
+</code></pre>
+<pre><code>    heatmap_figures, fitted_heatmap_genes=cr.pl.heatmap(
+</code></pre>
+<pre><code>        adata,
+</code></pre>
+<pre><code>        model=heatmap_model,
+</code></pre>
+<pre><code>        genes=genes_for_heatmap,
+</code></pre>
+<pre><code>        lineages=[lineage],
+</code></pre>
+<pre><code>        time_key=&quot;palantir_pseudotime&quot;,
+</code></pre>
+<pre><code>        data_key=&quot;MAGIC_imputed_data&quot;,
+</code></pre>
+<pre><code>        cluster_key=&quot;celltype&quot;,
+</code></pre>
+<pre><code>        show_fate_probabilities=False,
+</code></pre>
+<pre><code>        show_all_genes=True,
+</code></pre>
+<pre><code>        cluster_genes=False,
+</code></pre>
+<pre><code>        cbar=False,
+</code></pre>
+<pre><code>        figsize=(9, 14),
+</code></pre>
+<pre><code>        dpi=300,
+</code></pre>
+<pre><code>        n_jobs=1,
+</code></pre>
+<pre><code>        backend=&quot;threading&quot;,
+</code></pre>
+<pre><code>        return_figure=True,
+</code></pre>
+<pre><code>    )
+</code></pre>
+<pre><code># CellRank 即使只画一条支路，也可能返回长度为 1 的绘图对象列表。
+</code></pre>
+<pre><code>heatmap_plot=heatmap_figures[0] ifisinstance(heatmap_figures, (list, tuple)) elseheatmap_figures
+</code></pre>
+<pre><code># Seaborn ClusterGrid 通过 .fig 暴露真正的 Matplotlib Figure；普通 Figure 则直接使用。
+</code></pre>
+<pre><code>heatmap_figure=getattr(heatmap_plot, &quot;fig&quot;, heatmap_plot)
+</code></pre>
+<pre><code># 单独保存热图 PDF，并把同一个 Figure 对象内嵌显示在 notebook 中。
+</code></pre>
+<pre><code>heatmap_figure.savefig(
+</code></pre>
+<pre><code>    FIGURE_DIR/&quot;15_Krt8_ADI_top50_gene_trends_heatmap.pdf&quot;,
+</code></pre>
+<pre><code>    bbox_inches=&quot;tight&quot;,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code>display(heatmap_figure)
+</code></pre>
+<pre><code>plt.close(heatmap_figure)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="image-20260819162022410" src="../../images/f7c81e0ba513ed73.webp">
+6. 前 500 个驱动基因的趋势聚类</p>
+<p>这一步对齐参考notebook的最终分析：</p>
+<ol>
+<li>
+<p>为每个基因沿<code>Krt8+ ADI</code>支路拟合 GAM 曲线；</p>
+</li>
+<li>
+<p>在 200 个等距拟时序点预测表达；</p>
+</li>
+<li>
+<p>对每条曲线做标准化（<code>norm=True</code>），使聚类更关注“何时升高/降低”的形状，而不是绝对表达量；</p>
+</li>
+<li>
+<p>对趋势矩阵降维、建图并用 Leiden 聚类；</p>
+</li>
+<li>
+<p><code>resolution=0.7</code>控制模块粒度，值越大通常得到更多趋势模块。</p>
+</li>
+</ol>
+<p><code>recompute=True</code>强制根据本次500个基因重新拟合与聚类。线程数与聚类分辨率就在下一代码单元设置；内存紧张时把<code>n_jobs</code>从4改为1。500个GAM可能需要数分钟到更久，这是整份教程最耗时的一步。</p>
+<pre><code># 至少需要若干基因才能进行 PCA、近邻图和 Leiden 趋势聚类。
+</code></pre>
+<pre><code>iflen(genes_for_clustering) &lt;10:
+</code></pre>
+<pre><code>    raiseValueError(f&quot;正相关驱动基因仅 {len(genes_for_clustering)} 个，无法稳定聚类。&quot;)
+</code></pre>
+<pre><code># 趋势聚类使用较轻量的 GAM；1000 次迭代、8 个节点与参考 notebook 一致。
+</code></pre>
+<pre><code>clustering_model=cr.models.GAM(
+</code></pre>
+<pre><code>    adata,
+</code></pre>
+<pre><code>    max_iter=1000,
+</code></pre>
+<pre><code>    spline_order=3,
+</code></pre>
+<pre><code>    n_knots=8,
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code># 在本单元设置并行线程数；内存不足时直接改为 1。
+</code></pre>
+<pre><code>n_jobs=4
+</code></pre>
+<pre><code># 在本单元设置 Leiden 分辨率；数值越大通常产生越多趋势模块。
+</code></pre>
+<pre><code>trend_resolution=0.7
+</code></pre>
+<pre><code># 指定趋势聚类 PDF 文件名；CellRank 会写入前面设置的 FIGURE_DIR。
+</code></pre>
+<pre><code>trend_cluster_filename=&quot;16_Krt8_ADI_top500_trend_clusters.pdf&quot;
+</code></pre>
+<pre><code># 只抑制常见的 GAM RuntimeWarning，保留真实异常。
+</code></pre>
+<pre><code>withwarnings.catch_warnings():
+</code></pre>
+<pre><code>    warnings.simplefilter(&quot;ignore&quot;, RuntimeWarning)
+</code></pre>
+<pre><code>    # 拟合前 500 个基因的曲线并按趋势形状聚类。
+</code></pre>
+<pre><code>    trend_models=cr.pl.cluster_trends(
+</code></pre>
+<pre><code>        adata,
+</code></pre>
+<pre><code>        model=clustering_model,
+</code></pre>
+<pre><code>        genes=genes_for_clustering,
+</code></pre>
+<pre><code>        lineage=lineage,
+</code></pre>
+<pre><code>        time_key=&quot;palantir_pseudotime&quot;,
+</code></pre>
+<pre><code>        data_key=&quot;MAGIC_imputed_data&quot;,
+</code></pre>
+<pre><code>        n_points=200,
+</code></pre>
+<pre><code>        norm=True,
+</code></pre>
+<pre><code>        recompute=True,
+</code></pre>
+<pre><code>        ncols=4,
+</code></pre>
+<pre><code>        figsize=(16, 7),
+</code></pre>
+<pre><code>        random_state=0,
+</code></pre>
+<pre><code>        n_jobs=n_jobs,
+</code></pre>
+<pre><code>        backend=&quot;threading&quot;,
+</code></pre>
+<pre><code>        clustering_kwargs={
+</code></pre>
+<pre><code>            &quot;resolution&quot;: trend_resolution,
+</code></pre>
+<pre><code>            &quot;random_state&quot;: 0,
+</code></pre>
+<pre><code>        },
+</code></pre>
+<pre><code>        return_models=True,
+</code></pre>
+<pre><code>        save=trend_cluster_filename,
+</code></pre>
+<pre><code>    )
+</code></pre>
+<pre><code># 显示并关闭聚类趋势图。
+</code></pre>
+<pre><code>plt.show()
+</code></pre>
+<pre><code>plt.close(&quot;all&quot;)
+</code></pre>
+<pre><code># 根据 CellRank 图目录解析实际保存位置，并检查文件确实生成。
+</code></pre>
+<pre><code>trend_cluster_path= (Path(cr.settings.figdir) /trend_cluster_filename).resolve()
+</code></pre>
+<pre><code>ifnottrend_cluster_path.is_file():
+</code></pre>
+<pre><code>    raiseFileNotFoundError(f&quot;趋势聚类图未生成：{trend_cluster_path}&quot;)
+</code></pre>
+<pre><code># 从 CellRank 保存的趋势对象中提取每个基因对应的 Leiden 聚类。
+</code></pre>
+<pre><code>trend_key=f&quot;lineage_{lineage}_trend&quot;
+</code></pre>
+<pre><code>trend_cluster_table= (
+</code></pre>
+<pre><code>    adata.uns[trend_key].obs[[&quot;clusters&quot;]]
+</code></pre>
+<pre><code>    .rename(columns={&quot;clusters&quot;: &quot;cluster&quot;})
+</code></pre>
+<pre><code>    .copy()
+</code></pre>
+<pre><code>)
+</code></pre>
+<pre><code>trend_cluster_table.insert(0, &quot;gene&quot;, trend_cluster_table.index.astype(str))
+</code></pre>
+<pre><code>trend_cluster_table[&quot;cluster&quot;] =trend_cluster_table[&quot;cluster&quot;].astype(str)
+</code></pre>
+<pre><code># 导出标准的 gene、cluster 两列表，可直接交给 R 富集函数。
+</code></pre>
+<pre><code>trend_cluster_csv_path=OBJECT_DIR/&quot;Krt8_ADI_top500_trend_clusters.csv&quot;
+</code></pre>
+<pre><code>trend_cluster_table.to_csv(trend_cluster_csv_path, index=False)
+</code></pre>
+<pre><code># 打印最终文件位置和模型返回状态，便于教学演示。
+</code></pre>
+<pre><code>print(&quot;趋势聚类图:&quot;, trend_cluster_path)
+</code></pre>
+<pre><code>print(&quot;趋势聚类表:&quot;, trend_cluster_csv_path)
+</code></pre>
+<pre><code>print(&quot;返回拟合模型:&quot;, trend_modelsisnotNone)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><strong><img alt="image-20260819162035785" src="../../images/e98e7cb1bc423c51.webp"></strong></p>
+<p><strong>如何解释趋势模块</strong></p>
+<ul>
+<li>
+<p><strong>早期高、随后下降</strong> ：可能与 AT2 起始身份维持或离开起始状态有关。</p>
+</li>
+<li>
+<p><strong>中期短暂升高</strong> ：可能对应损伤应答、过渡态形成或分支决策窗口。</p>
+</li>
+<li>
+<p><strong>晚期持续升高</strong> ：可能与目标命运获得和稳定有关。</p>
+</li>
+<li>
+<p><strong>双峰或复杂曲线</strong> ：先检查拟合质量、表达稀疏性和分支覆盖，再做生物学解释。</p>
+</li>
+</ul>
+<p>后续可从每个模块导出基因，分别做通路富集、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537055&amp;idx=1&amp;sn=170371b86b42d47373bf7f0500031f19&amp;scene=21#wechat_redirect">转录因子</a>活性或外部队列验证。不要只依据趋势图给模块命名；应同时查看marker、相关系数、q值、表达比例和已知生物学。</p>
+<h3 id="_5"></h3>
+<p>7. 趋势模块富集分析（R）</p>
+<p>项目根目录的<code>trend_cluster_enrichment.R</code>提供了可复用函数<code>enrich_trend_clusters()</code>。输入是上一步导出的<code>gene,cluster</code>两列表和<code>data/gmtfile/</code>目录；函数会按物种自动查找 C2、GO-BP、GO-CC、GO-MF、Hallmark GMT，对每个趋势 cluster 分别做 ORA，并把点图保存到<code>figures/enrich_results/</code>。</p>
+<pre><code># 设置工作目录并加载函数
+</code></pre>
+<pre><code>rm(list=ls())
+</code></pre>
+<pre><code>options(stringsAsFactors=F)
+</code></pre>
+<pre><code>setwd('./cellrank_tutorial')
+</code></pre>
+<pre><code>source(&quot;./objects/trend_cluster_enrichment.R&quot;)
+</code></pre>
+<pre><code>getwd()
+</code></pre>
+<pre><code>## 可选：制作背景基因集
+</code></pre>
+<pre><code>#sce.all.int
+</code></pre>
+<pre><code class="language-r">#hvg_genes &lt;- VariableFeatures(sce.all.int[[&quot;RNA&quot;]])
+</code></pre>
+<pre><code># 清理空值与重复值
+</code></pre>
+<pre><code class="language-r">#hvg_genes &lt;- unique(trimws(hvg_genes))
+</code></pre>
+<pre><code class="language-r">#hvg_genes &lt;- hvg_genes[!is.na(hvg_genes) &amp; nzchar(hvg_genes)]
+</code></pre>
+<pre><code># 高变基因数量
+</code></pre>
+<pre><code>length(hvg_genes)
+</code></pre>
+<pre><code># 执行富集分析
+</code></pre>
+<pre><code class="language-r">enrichment&lt;-enrich_trend_clusters(
+</code></pre>
+<pre><code>  trend_file=&quot;objects/Krt8_ADI_top500_trend_clusters.csv&quot;, # ipynb最后输出的csv文件
+</code></pre>
+<pre><code>  gmt_dir=&quot;data/gmtfile&quot;, # 通路文件路径
+</code></pre>
+<pre><code>  project_dir=&quot;.&quot;, # 工作文件夹路径
+</code></pre>
+<pre><code>  species=&quot;mouse&quot;, # 数据物种，human 或 mouse
+</code></pre>
+<pre><code>  show_category=8, # 控制点图中每个 trend cluster 最多选择并展示多少个富集通路
+</code></pre>
+<pre><code>  color_saturation_p=0.005, # 置信度截断值，避免极端数据影响
+</code></pre>
+<pre><code>  universe=NULL# 控制富集分析使用的背景基因集合，可以输入单细胞数据集的高变基因，没有手动提供背景基因，clusterProfiler 会使用当前 GMT 数据库中收录的全部基因作为背景
+</code></pre>
+<pre><code>)
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p>常用可调参数：</p>
+<ul>
+<li>
+<p><code>species</code>：<code>"mouse"</code> 或 <code>"human"</code>；分别读取 <code>mm/</code> 或 <code>hg/</code>。</p>
+</li>
+<li>
+<p><code>collections</code>：选择要运行的 GMT 集合；也可通过命名向量 <code>gmt_files</code> 传入任意自定义 GMT。</p>
+</li>
+<li>
+<p><code>universe</code>：背景基因。正式分析建议传入所有进入驱动基因检验的基因；<code>NULL</code> 时使用 GMT 中被注释的全部基因作为背景。</p>
+</li>
+<li>
+<p><code>pvalue_cutoff</code>、<code>qvalue_cutoff</code>、<code>p_adjust_method</code>：显著性和多重检验参数。</p>
+</li>
+<li>
+<p><code>color_saturation_p</code>：点图颜色饱和阈值，默认为 <code>0.005</code>；<code>p.adjust &lt;= 0.005</code> 的条目统一使用最深颜色。</p>
+</li>
+<li>
+<p><code>min_gene_set_size</code>、<code>max_gene_set_size</code>：通路基因集大小范围。</p>
+</li>
+<li>
+<p><code>show_category</code>、<code>size_by</code>、<code>wrap_width</code>：每组显示条目数、点大小映射和标签换行宽度。</p>
+</li>
+<li>
+<p><code>plot_width</code>、<code>plot_height</code>：默认按实际通路数自动计算；需要固定版式时可手动指定。</p>
+</li>
+<li>
+<p><code>save_tables</code>：默认为 <code>TRUE</code>，同时保存完整富集表与运行清单。</p>
+</li>
+</ul>
+<p>本示例会生成 5 张 PDF 点图、5 张完整结果表和 1 张运行清单。无显著条目的集合不会伪造空点图，具体状态会记录在 <code>manifest</code> 中。</p>
+<p><img alt="未标题-3" src="../../images/02271a7f2dbcc743.webp"></p>
+<p><strong>三、资料领取</strong></p>
+<p>本推送的代码和测试文件可以在以下链接中下载：</p>
+<p><img alt="" src="../../images/c269b98c68230e06.webp"></p>
+<p>百度网盘链接: https://pan.baidu.com/s/1VodHExZbiNiUNAw_B0UQeQ</p>
+<p>滴滴助手[Biomamba_zhushou]获取提取码</p>
+<p><strong>四、 环境版本信息</strong></p>
+<p>Python 版本信息</p>
+<pre><code>Python: 3.11.14NumPy: 2.4.6Pandas: 2.3.3Matplotlib: 3.10.9Scanpy: 1.11.5
+</code></pre>
+<p>R 版本信息</p>
+<pre><code>R version 4.5.1 (2025-06-13)
+</code></pre>
+<pre><code>Platform: aarch64-apple-darwin20
+</code></pre>
+<pre><code>Running under: macOS Tahoe 26.5.2
+</code></pre>
+<pre><code>Matrix products: default
+</code></pre>
+<pre><code>BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+</code></pre>
+<pre><code>LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+</code></pre>
+<pre><code>locale:
+</code></pre>
+<pre><code>[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+</code></pre>
+<pre><code>time zone: Asia/Shanghai
+</code></pre>
+<pre><code>tzcode source: internal
+</code></pre>
+<pre><code>attached base packages:
+</code></pre>
+<pre><code>[1] stats     graphics  grDevices utils     datasets  methods   base
+</code></pre>
+<pre><code>loaded via a namespace (and not attached):
+</code></pre>
+<pre><code>  [1] RColorBrewer_1.1-3          rstudioapi_0.17.1           jsonlite_2.0.0
+</code></pre>
+<pre><code>  [4] shape_1.4.6.1               magrittr_2.0.3              ggtangle_0.0.7
+</code></pre>
+<pre><code>  [7] farver_2.1.2                rmarkdown_2.29              GlobalOptions_0.1.2
+</code></pre>
+<pre><code> [10] fs_1.6.6                    vctrs_0.6.5                 memoise_2.0.1
+</code></pre>
+<pre><code> [13] ggtree_3.16.3               rstatix_0.7.2               htmltools_0.5.8.1
+</code></pre>
+<pre><code> [16] S4Arrays_1.8.1              usethis_3.2.1               broom_1.0.9
+</code></pre>
+<pre><code> [19] Formula_1.2-5               SparseArray_1.8.1           gridGraphics_0.5-1
+</code></pre>
+<pre><code> [22] plyr_1.8.9                  zoo_1.8-14                  cachem_1.1.0
+</code></pre>
+<pre><code> [25] igraph_2.2.1                lifecycle_1.0.4             iterators_1.0.14
+</code></pre>
+<pre><code> [28] pkgconfig_2.0.3             Matrix_1.7-3                R6_2.6.1
+</code></pre>
+<pre><code> [31] fastmap_1.2.0               gson_0.1.0                  GenomeInfoDbData_1.2.14
+</code></pre>
+<pre><code> [34] MatrixGenerics_1.20.0       clue_0.3-66                 digest_0.6.37
+</code></pre>
+<pre><code> [37] aplot_0.2.8                 enrichplot_1.28.4           colorspace_2.1-1
+</code></pre>
+<pre><code> [40] patchwork_1.3.1             AnnotationDbi_1.70.0        S4Vectors_0.48.0
+</code></pre>
+<pre><code> [43] DESeq2_1.48.1               pkgload_1.4.1               GenomicRanges_1.60.0
+</code></pre>
+<pre><code> [46] RSQLite_2.4.2               ggpubr_0.6.1                labeling_0.4.3
+</code></pre>
+<pre><code> [49] km.ci_0.5-6                 httr_1.4.7                  abind_1.4-8
+</code></pre>
+<pre><code> [52] compiler_4.5.1              remotes_2.5.0               withr_3.0.2
+</code></pre>
+<pre><code> [55] bit64_4.6.0-1               doParallel_1.0.17           backports_1.5.0
+</code></pre>
+<pre><code> [58] BiocParallel_1.42.1         carData_3.0-5               DBI_1.2.3
+</code></pre>
+<pre><code> [61] pkgbuild_1.4.8              R.utils_2.13.0              ggsignif_0.6.4
+</code></pre>
+<pre><code> [64] DelayedArray_0.34.1         sessioninfo_1.2.3           rjson_0.2.23
+</code></pre>
+<pre><code> [67] gtools_3.9.5                tools_4.5.1                 ape_5.8-1
+</code></pre>
+<pre><code> [70] R.oo_1.27.1                 glue_1.8.0                  nlme_3.1-168
+</code></pre>
+<pre><code> [73] GOSemSim_2.34.0             grid_4.5.1                  cluster_2.1.8.1
+</code></pre>
+<pre><code> [76] reshape2_1.4.4              fgsea_1.34.2                generics_0.1.4
+</code></pre>
+<pre><code> [79] gtable_0.3.6                KMsurv_0.1-6                R.methodsS3_1.8.2
+</code></pre>
+<pre><code> [82] survminer_0.5.1             tidyr_1.3.1                 ggVennDiagram_1.5.4
+</code></pre>
+<pre><code> [85] data.table_1.17.8           car_3.1-3                   XVector_0.48.0
+</code></pre>
+<pre><code> [88] BiocGenerics_0.54.0         ggrepel_0.9.6               foreach_1.5.2
+</code></pre>
+<pre><code> [91] pillar_1.11.0               stringr_1.5.1               yulab.utils_0.2.0
+</code></pre>
+<pre><code> [94] limma_3.64.3                circlize_0.4.16             splines_4.5.1
+</code></pre>
+<pre><code> [97] dplyr_1.1.4                 treeio_1.32.0               lattice_0.22-7
+</code></pre>
+<pre><code>[100] survival_3.8-3              bit_4.6.0                   tidyselect_1.2.1
+</code></pre>
+<pre><code>[103] GO.db_3.21.0                ComplexHeatmap_2.24.1       locfit_1.5-9.12
+</code></pre>
+<pre><code>[106] Biostrings_2.76.0           knitr_1.50                  gridExtra_2.3
+</code></pre>
+<pre><code>[109] IRanges_2.42.0              edgeR_4.6.3                 SummarizedExperiment_1.38.1
+</code></pre>
+<pre><code>[112] stats4_4.5.1                xfun_0.52                   Biobase_2.68.0
+</code></pre>
+<pre><code>[115] statmod_1.5.0               devtools_2.4.6              matrixStats_1.5.0
+</code></pre>
+<pre><code>[118] stringi_1.8.7               UCSC.utils_1.4.0            lazyeval_0.2.2
+</code></pre>
+<pre><code>[121] ggfun_0.2.0                 yaml_2.3.10                 evaluate_1.0.4
+</code></pre>
+<pre><code>[124] codetools_0.2-20            tibble_3.3.0                qvalue_2.40.0
+</code></pre>
+<pre><code>[127] BiocManager_1.30.26         ggplotify_0.1.2             cli_3.6.5
+</code></pre>
+<pre><code>[130] xtable_1.8-4                survMisc_0.5.6              Rcpp_1.1.0
+</code></pre>
+<pre><code>[133] GenomeInfoDb_1.44.1         png_0.1-8                   parallel_4.5.1
+</code></pre>
+<pre><code>[136] ellipsis_0.3.2              ggplot2_3.5.2               blob_1.2.4
+</code></pre>
+<pre><code>[139] clusterProfiler_4.16.0      DOSE_4.2.0                  tidytree_0.4.6
+</code></pre>
+<pre><code>[142] scales_1.4.0                purrr_1.1.0                 crayon_1.5.3
+</code></pre>
+<pre><code>[145] GetoptLong_1.0.5            rlang_1.1.6                 cowplot_1.2.0
+</code></pre>
+<pre><code>[148] fastmatch_1.1-6             KEGGREST_1.48.1
+</code></pre>
+<p>向下滑动查看全部~</p>
+<p><img alt="图片" src="../../images/cb4255ab8010219d.webp"></p>
+<p><strong>欢迎致谢</strong></p>
+<p>如果以上内容对你有帮助，欢迎在文章的Acknowledgement中加上这一段，联系客服微信可以发放奖励：</p>
+<pre><code>Since Biomamba and his wechat public account team produce bioinformatics tutorials and share code with annotation, we thank Biomamba for their guidance in bioinformatics and data analysis for the current study.
+</code></pre>
+<p><strong>欢迎在发文/毕业时向我们分享你的喜悦~</strong></p>
+<p><strong>已致谢文章</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510548&amp;idx=1&amp;sn=58048c46e837b1d56dffa282272c6d96&amp;chksm=9b3cd344ac4b5a52369e91b4e61fa0a2c951b82cc21165b99f42ba2c2191d4add803bd73c928&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect"> 鼻咽癌的Bulk RNA-Seq与scRNA-Seq联合分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511886&amp;idx=1&amp;sn=31c712d00377b0f0ed33703b5b4fbfd8&amp;chksm=9b3cd61eac4b5f084fde14a2eb50356f2f40a66c608d38909f12a3d81f48cff029a09ce2ee8c&amp;token=1453608870&amp;lang=zh_CN&amp;scene=21#wechat_redirect">13分+文章利用scRNA-Seq揭示地铁细颗粒物引起肺部炎症的分子机制</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247518144&amp;idx=1&amp;sn=d036f1bb04b09eb73f53e2104d69404c&amp;chksm=9b3cfe90ac4b77862f2f463b42132c7bfdb687a1b61d350dcf656117b1331271e179710fd4fa&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">除了铁死亡，还有铜死亡？！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520900&amp;idx=1&amp;sn=157134292ffc2e5df730c5ba8a357b61&amp;chksm=9b3cebd4ac4b62c286543c30381e9b4fdb8b44b28d4fa902fb963bbd45b28e1d3f1bc98eb148&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">IF14.3| scRNA-seq+脂质组多组学分析揭示宫内生长受限导致肝损伤的性别差异</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247521069&amp;idx=1&amp;sn=4ef441a885cb2525ee3b5c81001feddf&amp;chksm=9b3cea7dac4b636be9f10ffdf75e13531fccae62129944b21a457db2e08c3f2db1e1b553ac34&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">银屑病和脂肪肝病中共同病理和免疫特征</a> <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522233&amp;idx=1&amp;sn=287a380de741ff55f0ce78dc9c727985&amp;chksm=9b3ceee9ac4b67ffd925abafeba2cb215a5984e6dc85f0d8607340a07ec9208f1d19eae0e04b&amp;scene=21#wechat_redirect">《Advanced Science》新型Arf1抑制剂促进癌症干细胞衰老并增强抗肿瘤免疫</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522281&amp;idx=1&amp;sn=f95eb12fdc340b8da1123ec6253e6fac&amp;chksm=9b3ceeb9ac4b67afa587e5fa3a2a8960e9bb28a1ad6dc48e49120a76154417a4c8be95af90b0&amp;scene=21#wechat_redirect">scRNA-seq揭示脓毒症预后水平预测的关键靶点！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527168&amp;idx=1&amp;sn=0791d2bf53a9a60015577f892b10d370&amp;scene=21#wechat_redirect">机器学习+生信多组学联合构建牙周炎"线粒体功能障碍与免疫微环境"关联网络</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528014&amp;idx=1&amp;sn=d285c9ebd415be328fc682d00e6182c0&amp;scene=21#wechat_redirect">KIF18A在肝细胞癌转移中的双重角色</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530000&amp;idx=1&amp;sn=e8ddca4e1b2e60839cdf2a7fe87b3dfe&amp;chksm=9b3c0f40ac4b86562e0e307b9dbb8688159e72b3c19d9ceebf8a4bb2e21638896f005b497b11&amp;scene=21&amp;cur_album_id=3425248581018714114&amp;search_click_id=#wechat_redirect">bulk+scRNA-seq挖掘BCL2-MAPK14-TXN氧化应激诊断模型，鉴定脓毒症中氧化应激关键基因</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536407&amp;idx=1&amp;sn=4da88e13f112662a02fea89d1b7798e9&amp;scene=21#wechat_redirect">致谢文章+1，中科院1区，scRNA-seq揭示麻黄-甘草配对治疗呼吸系统症状和多(I:C)诱发肺炎模型机制</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537544&amp;idx=1&amp;sn=6e5bb738eb11af53173f9fef67b977df&amp;scene=21#wechat_redirect">致谢文章又+1，生物信息学+机器学习鉴定驱动糖尿病肾病免疫激活和小管间隙损伤的PANoptosis枢纽基因</a></p>
+<p>向下滑动查看更多</p>
+<p>欢迎大家致谢~</p>
+<p><img alt="图片" src="../../images/4ec66ccdb832fd05.gif">
+<img alt="图片" src="../../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../../images/3b8e21da777157f9.webp"><img alt="图片" src="../../images/7a5130b05d387a24.webp"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539170&amp;idx=1&amp;sn=ebd269635da35335554c53709fa0a0c0&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家一起讨论。<img alt="" src="../../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../../images/acba43cb3408c3d0.webp">您点的每个赞和在看，我都认真当成了喜欢</p>
+<p>Evan</p></article></body></html>

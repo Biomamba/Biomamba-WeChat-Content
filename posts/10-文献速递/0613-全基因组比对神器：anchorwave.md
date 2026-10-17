@@ -10,13 +10,13 @@ albums: ["文献速递"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491193&idx=1&sn=2b119c1dcbea5b4e7f22bff2fbf4611b&chksm=9b3f6729ac48ee3fc22c55f7110c93bbceefba1542fa9bc645667832be746671da6d967275b9#rd
 > 合集：文献速递
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhvasZqsKeSGHbcaBnxGVUtzatIibEy3NJHibfmKZEj0GbRRbefrHR5X4S05BxdEsz5GgzT0icoTkibeA/640?wx_fmt=png)
+![](../../images/0b0bfcecb166b272.png)
 
 这是一篇粉丝来稿，向我介绍了一下他们课题组开发的工具:**anchorwave** ，虽然说这篇文章的影响因子达到**12.8** ，但显然《PNAS》的意义不能仅通过影响因子来衡量，大家可以看一下百度百科，便会理解:https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E7%A7%91%E5%AD%A6%E9%99%A2%E9%99%A2%E6%8A%A5/15600648?fromtitle=PNAS&fromid=5414643&fr=aladdin简单来说**anchorwave** 在全基因组比对方面具有准确率以及敏感性方面的优势，与强大的功能形成反差的是使用方式非常简单(功能/可用性通常是衡量一个生信软件是否优秀的重要指标)，感兴趣的同学可以跟着下面的教程试一试。
 
 随着测序技术的不断发展，越来越多的复杂基因组不断被测序，然而，目前主流的工具无法对复杂基因组进行准确且高敏感性的全基因组比对， 2021年12月PNAS发表了一款名为anchorwave的全基因比对工具，通过分别对人与大猩猩，斑马鱼与金鱼，玉米与高粱，拟南芥不同品种，玉米的不同品种等进行全基因组比对测试，结果表明anchorwave能够同时识别短的和长的插入缺失变异，全基因加倍事件等，因而anchorwave具有较好的准确性；anchorwave能够全面地覆盖全基因组而其他主流工具不行，因而 anchorwave具有最高的敏感性。AnchorWave它使用蛋白编码基因等保守序列作为锚定位点，设计了一个最长路径算法分析两个基因组的共线性区域。使用目前最快的全局序列比对算法WFA设计了一个2-piece affine gap cost的比对策略，并通过WFA算法对每个锚定位点区和锚定位点间区进行单碱基分辨率的序列比对，进而获得每个共线性区域的序列比对和全基因组水平的序列比对。下文以斑马鱼与金鱼为例进行全基因组比对分析。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwnicYD2AHUFWzhaghjNAhvl8RNFFpUCMqh6gMicdnqDbLTpcaHUOaP2rrJosCPqAbOqZPDc8o7LHUw/640?wx_fmt=png)
+![](../../images/03cb75bef7df1eeb.webp)
 
 **原理介绍**
 
@@ -99,14 +99,14 @@ https://www.pnas.org/doi/10.1073/pnas.2113075119
 
 https://github.com/baoxingsong/anchorwave
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwnicYD2AHUFWzhaghjNAhvl0tDRicvhnF2TAgribTIicN0s1FnPgPI3Bt4V7QHRuX6n2QGVoWmfk21NQ/640?wx_fmt=png)
+![](../../images/eb069478e314d2cf.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490936&idx=1&sn=850dfc45b10a6bd538c81cfbf1d7af37&chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

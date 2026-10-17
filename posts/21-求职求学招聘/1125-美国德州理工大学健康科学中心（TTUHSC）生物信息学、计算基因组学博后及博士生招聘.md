@@ -10,9 +10,9 @@ albums: ["求职/求学/招聘"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503484&idx=2&sn=b7d09e93f6f7e6bc4ad9f9cb63c14314&chksm=9b3cb72cac4b3e3aff4813718f7ecdcd45f621e66ea10012e1ceac61b2f26efac26388168a45#rd
 > 合集：求职/求学/招聘
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/2c562ef3d26044d9.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHA9JiaQLhpPUGODibJugd796M3AFXfCODkCPC5qnaLmic98o404qZXnibylMVPWxjaWlO5VN8pyEMxw/640?wx_fmt=png)
+![](../../images/3320173a3704198a.webp)
 
 德州理工大学健康科学中心 Texas Tech University Health Sciences Center 全美医学排名前一百，其中临床**全美排名****19** （ _U.S. News_ ）。德州理工大学是**R1** 大学。它是**全美第二大** 大学（1900英亩），也是德州唯一包含本科和研究生院及法学院和医学院于一体的综合性大学。
 
@@ -99,21 +99,21 @@ ohttps://www.depts.ttu.edu/biology/academics/graduate/programs/
 
 点击**阅读原文** 即可跳转申请链接
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHA9JiaQLhpPUGODibJugd79eTzshtB4OPA9hL6Nic5ic4mozOnpnHN9X7SNz0bpxib1ZLObcaxxM2wLw/640?wx_fmt=png)
+![](../../images/4d539e674d8d23f8.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHA9JiaQLhpPUGODibJugd79ic8LyK3BH2h0UxSj0E950WeMefgIuiaXW07sNrYe8bibBQWuCw1Lgoo3g/640?wx_fmt=png)
+![](../../images/c8652f5e219f21c0.webp)
 
  _校园风光_
 
  __
 
-_![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHA9JiaQLhpPUGODibJugd79LnKreIBU6c9Zq0b6vRdk52wxwsyydHd3us24PAY7YN1pDNUFpMz6OA/640?wx_fmt=png)_
+_![](../../images/1c161d66e35baccd.webp)_
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzHA9JiaQLhpPUGODibJugd79tbNtfIaHeoib92OuHQy3GsoSpTqqO1s8Uk4L4xzChOWkOgEcfwkyWnA/640?wx_fmt=png)
+![](../../images/89cbceb78f7879a3.webp)
 
 _城市风光_
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8R7P4uvCTeNnic09hKwlnVc74XjVsaY76GoibdzOzCY1t53QkEmpuwByQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/2c562ef3d26044d9.jpg)
 ************往期回顾************
 
 **[歪!?来"Biomamba 生信基地"兼职？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247486521&idx=1&sn=91fde399c7457c4513f0d6ebed08dd62&chksm=9b3f7569ac48fc7fabc7d83e5912ca096714d3d4ab6bdb571eb4ce2796c8da5f03705ae060ea&scene=21#wechat_redirect>)**************
@@ -149,4 +149,4 @@ _城市风光_
 [天津医科大学蔡志刚教授课题组| 博士后招聘](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503152&idx=1&sn=e875cf620ee05ee3f105e040076e6c00&chksm=9b3cb460ac4b3d76b3bab036c168d05efe8f9177146cad3f83e30ef45e7955cdb39dae2a4211&scene=21#wechat_redirect>)
 [求学| 寻找博导~](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503194&idx=1&sn=dfe5a04a99c0fe933458148fe274b455&chksm=9b3cb40aac4b3d1ce8166dd42597532039a66b94994cb0c84119948e3a4c72893dee64fd48ef&scene=21#wechat_redirect>)[求学| 寻找博导. 已发表<Frontiers in immunology>与<Frontiers in genetics>](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503232&idx=1&sn=f95c4f2db6846a0c2d9d4b4267a5c54c&chksm=9b3cb4d0ac4b3dc65988c5ff494bd3b2e5c32bac101952cca72e3c7c223e6c173d201ce80d5c&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/Ljib4So7yuWjl1icpf1AEqjZBoBicMPk0N8oB3jCCYPaee0RxF7IGVhJxjDK3fJ8oHzWcia6ictn1kbLSM26Wjw1cYg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞，我都认真当成了喜欢
+![](../../images/92e152fe9b5bb46e.jpg)![](../../images/0694eb4925c4700f.gif)您点的每个赞，我都认真当成了喜欢

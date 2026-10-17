@@ -12,7 +12,7 @@ albums: ["漫谈胡侃"]
 
 有点幽默了，明显把AI模型返回的画外音也粘贴过来了。但凡作者、导师、审稿人、编辑有一个干好自己的本职工作，也不至于。。。。。。。。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwialibZVkdsgSaOdcFGxv9qGc9fOhbVFWCiaW5j9mT8zMwtTMBibkdCniapSHtUIctuL58g0fw6LU5Abg/640?wx_fmt=png&from=appmsg)
+![](../../images/c5121e7e5fcf8e74.webp)
 
 原文链接：
 

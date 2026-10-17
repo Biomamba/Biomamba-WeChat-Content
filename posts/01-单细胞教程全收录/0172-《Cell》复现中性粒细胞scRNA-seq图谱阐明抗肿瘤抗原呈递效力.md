@@ -12,11 +12,11 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 ****
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 学习手册
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1) 本次教程中，我们复写了题为"**Neutrophil profiling illuminates anti-tumor antigen-presenting potency** "的文章(DOI: 10.1016/j.cell.2024.02.005)。中性粒细胞是最丰富的免疫细胞之一，负责病原体防御，但在不同类型的癌症中发挥着相反的作用。由于中性粒细胞的**半衰期较短** ，研究它们在癌症中的命运变化充满挑战。这篇文章的结果揭示了中性粒细胞在癌症中的异质性，并为抗原呈递中性粒细胞的治疗机会提供了新的思路。本文分析了来自**143名** 患者、**225个** 样本的**17种** 癌症类型的单细胞转录组数据，发现**中性粒细胞** 具有**10种** 不同的状态，包括炎症、血管生成和抗原呈递。主要发现包括：(1)抗原呈递程序与大多数癌症的良好生存预后相关，并且通过亮氨酸代谢和组蛋白H3K27ac修饰激活。(2)中性粒细胞能够促进抗原特异性和非特异性T细胞反应。(3)亮氨酸饮食或中性粒细胞输送可以调节免疫平衡，从而提高小鼠癌症模型中抗PD-1治疗的效果。(4)我们还额外加入了scRNA联合TCGA数据分析流程进行生存分析验证
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png) 本次教程中，我们复写了题为"**Neutrophil profiling illuminates anti-tumor antigen-presenting potency** "的文章(DOI: 10.1016/j.cell.2024.02.005)。中性粒细胞是最丰富的免疫细胞之一，负责病原体防御，但在不同类型的癌症中发挥着相反的作用。由于中性粒细胞的**半衰期较短** ，研究它们在癌症中的命运变化充满挑战。这篇文章的结果揭示了中性粒细胞在癌症中的异质性，并为抗原呈递中性粒细胞的治疗机会提供了新的思路。本文分析了来自**143名** 患者、**225个** 样本的**17种** 癌症类型的单细胞转录组数据，发现**中性粒细胞** 具有**10种** 不同的状态，包括炎症、血管生成和抗原呈递。主要发现包括：(1)抗原呈递程序与大多数癌症的良好生存预后相关，并且通过亮氨酸代谢和组蛋白H3K27ac修饰激活。(2)中性粒细胞能够促进抗原特异性和非特异性T细胞反应。(3)亮氨酸饮食或中性粒细胞输送可以调节免疫平衡，从而提高小鼠癌症模型中抗PD-1治疗的效果。(4)我们还额外加入了scRNA联合TCGA数据分析流程进行生存分析验证
 
 本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：
 [足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247511780&idx=1&sn=3acc0874f7d2fa75f1abbe7a9a9b4069&chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&scene=21#wechat_redirect>)
@@ -26,21 +26,21 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 本教程**复现集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwG8ib3Q1Etq0Xz3p5ljkeBHfVvcUvwiaxk7TxvBBDxhb1Qy8v7YFNcdCSaicZzQwS8TLibw8fcibcLsZw/640?wx_fmt=png&from=appmsg)
+![](../../images/d32531ad62c15ddd.webp)
 
 **-Biomamba**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 所见即所得
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)
 
 学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwG8ib3Q1Etq0Xz3p5ljkeBHVowDo3V5Iu0dWWWJ2I2qo98YttbAOxE0kPARiaxPlt3Rk5HnxicGhXiag/640?wx_fmt=gif&from=appmsg)‍
+![](../../images/724acd94dcefb09c.webp)‍
 
 **
 **
@@ -71,15 +71,15 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 文末下载链接中包含的内容：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwG8ib3Q1Etq0Xz3p5ljkeBHH8b3UADbqMsmZhED2oLFsDic8hLsX0AanA7nK3CgvVmL2eseYaXgiaOw/640?wx_fmt=png&from=appmsg)
+![](../../images/bacb26dc22fdf7c4.webp)
 
 测试文件约**8.94GB** ，大家注意按需下载！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
 解锁前需阅读：**[2025订阅须知](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526751&idx=1&sn=7ca3137d770f23f0c3d6195696618d81&scene=21#wechat_redirect>)**
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 订阅后获取学习手册下载链接：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)

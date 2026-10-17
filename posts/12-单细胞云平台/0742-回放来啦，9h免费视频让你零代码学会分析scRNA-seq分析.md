@@ -10,11 +10,11 @@ albums: ["单细胞云平台"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531106&idx=1&sn=54a0df52671dfbffb9f11350b0836f93&chksm=9b3c0332ac4b8a24a5ec1ce213024f787a15a3be698176f2ae6e07e7d38ae8135d836eb05eec#rd
 > 合集：单细胞云平台
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=0)
+![图片](../../images/c33e327c8d66af99.webp)
 
 视频教程
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=2)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)
 
 希望实现零代码科研绘图？当然可以！上周我们和寻因生物联合推出的[SeekSoul® Online单细胞云平台](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3403706694394970115&scene=21#wechat_redirect>)完整教学视频已在B站上线。同时，我们的同名视频号也在持续更新中，欢迎大家关注~我们也为大家准备了[SeekSoulOnline云平台交流群](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530889&idx=2&sn=f4114c69ce6824248ed76b83a94c8863&scene=21#wechat_redirect>)
 
@@ -55,24 +55,24 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
 注册即免费获得一个月分析权限。完成下方作业打卡，即可免费获取3个月的云平台使用权限！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyL8OZStVBNm99Cf96ibQ1ciaC4CNmx7xmx1Iyhf19BzkGWZTttRich0F4eFmvqwxbXJamGMGVoZkMzg/640?wx_fmt=png&from=appmsg)
+![](../../images/868ad291ca0ef6e6.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=3)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=0)
+![图片](../../images/f74ae4c6b8127d36.webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 课后作业
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=2)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)
 
-作业1：文章标题：Single cell analysis in head and neck cancer reveals potential immune evasion mechanisms during early metastasis文章中文标题：对头颈部癌症的单细胞分析揭示了早期转移过程中潜在的免疫逃逸机制。文章链接：https://www.nature.com/articles/s41467-023-37379-y发表期刊：Nature Communications样本名称：(1)如下图的文章展示 进行大群注释、组间umap图、各细胞类型marker基因小提琴图展示、细胞类型占比分布![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTNNbWAsBWhibj9SEhQl3ALDpJQFLeWkiawdeZkIR8Gtv8Vt2USaFicPVWw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=6)(2)对肿瘤细胞（就是上皮细胞，拷贝数变异已确定）完成细胞亚群分析（图a），对个样本上皮细胞EMT基因集打分（图b）；对HN251、HN279样本的肿瘤细胞进行组间拟时序分析（图c、d）![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTmTIqfIormxhR6UKEsl1VSbuydF0wan8QkjzZX4K44GmLrvib2VMgj3Q/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=7)
-作业2：文章标题：Temporal Analyses of Postnatal Liver Development and Maturation by Single Cell Transcriptomics文章中文标题：单细胞转录组学对出生后肝脏发育和成熟的时间分析文章链接：https://pmc.ncbi.nlm.nih.gov/articles/PMC8842999  / 发表期刊：Developmental Cell① 如下图的展示 进行大群聚类注释（图A）、各细胞类型marker基因气泡图（图b）按照样本分组展示umap降维图（图c），展示组间的tsne图（图d）、以小提琴图展示各样本三个基因表达，代替山脊图![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTa8RzrOFQf1VjgRiaLzEEApwibRLDdTMEGjsWa1icrIjQgKxZ62tziaOic6g/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=8)②对肝细胞进行亚群分析，展示各样本的umap降维图、和scd2基因的featureplot图![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTSOpWXCDRzt4bmoAKpFZa0kMG0kmXSTyb5PICXYGkGCN94GDWVYGfHA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=9)③对不同发育的肝细胞进行拟时序分析，得到如下图类似结果![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxibFIAuWYlaOkdLntmib4WaTibpwIA97Jks4cjib0OnERvnlCbt8BeqOsgDg12ibhEInHxbQ4aowiaF4RQ/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=10)
+作业1：文章标题：Single cell analysis in head and neck cancer reveals potential immune evasion mechanisms during early metastasis文章中文标题：对头颈部癌症的单细胞分析揭示了早期转移过程中潜在的免疫逃逸机制。文章链接：https://www.nature.com/articles/s41467-023-37379-y发表期刊：Nature Communications样本名称：(1)如下图的文章展示 进行大群注释、组间umap图、各细胞类型marker基因小提琴图展示、细胞类型占比分布![图片](../../images/2cf70a78547230e3.webp)(2)对肿瘤细胞（就是上皮细胞，拷贝数变异已确定）完成细胞亚群分析（图a），对个样本上皮细胞EMT基因集打分（图b）；对HN251、HN279样本的肿瘤细胞进行组间拟时序分析（图c、d）![图片](../../images/206a1a3fd42b6531.webp)
+作业2：文章标题：Temporal Analyses of Postnatal Liver Development and Maturation by Single Cell Transcriptomics文章中文标题：单细胞转录组学对出生后肝脏发育和成熟的时间分析文章链接：https://pmc.ncbi.nlm.nih.gov/articles/PMC8842999  / 发表期刊：Developmental Cell① 如下图的展示 进行大群聚类注释（图A）、各细胞类型marker基因气泡图（图b）按照样本分组展示umap降维图（图c），展示组间的tsne图（图d）、以小提琴图展示各样本三个基因表达，代替山脊图![图片](../../images/e0b80f8ffb2a4e98.webp)②对肝细胞进行亚群分析，展示各样本的umap降维图、和scd2基因的featureplot图![图片](../../images/b27b48b920c51f57.webp)③对不同发育的肝细胞进行拟时序分析，得到如下图类似结果![图片](../../images/4b80f6e26a6bee4b.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=3)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=0)
+![图片](../../images/f74ae4c6b8127d36.webp)
+![图片](../../images/c33e327c8d66af99.webp)
 
 更多SeekSoul Online课程
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=1)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=2)
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/00dcbb5df4af21d3.webp)
 
 一、基础教程
 
@@ -137,14 +137,14 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
 持续更新中，敬请期待~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=3)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=wxpic#imgIndex=11)
+![图片](../../images/f74ae4c6b8127d36.webp)![图片](../../images/95968d673495ca4c.png)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=wxpic#imgIndex=12)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=wxpic#imgIndex=13) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/b36f05f29bee05ab.png)![图片](../../images/0667abfe3cfb054d.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=wxpic#imgIndex=15) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/735cbbf3b51b2cbf.gif) 您点的每个赞和在看，我都认真当成了喜欢

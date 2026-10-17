@@ -14,7 +14,7 @@ albums: ["单细胞云平台"]
 
 单细胞表观遗传及其它多模态已然成为scRNA的新趋势，我们也一致致力于给大家分享代码注释丰富、测试文件齐全的教程。此前我们分享了[4.6w字长文| SeekOne®-DD单细胞ATAC+RNA一胞双组学-学习手册](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528858&idx=1&sn=0620dd3681e73858eb47256d785d7437&scene=21#wechat_redirect>)。有同学表示学起来压力山大，想要一款能够界面化、适合零代码基础小白的一款软件。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxJ9mialIB0K4kCz3PGzSMv5n6YuQxcXgBKLiagm92c3RnV4oqUdb4jic8vV8vEaowfuEteo3rthMMicg/640?wx_fmt=png&from=appmsg)
+![](../../images/e7cb9bf3648a74e2.webp)
 
 当然是有的啦，云平台已经悄咪咪更新了很多新功能供大家选择下文我们也将演示scATAC的零代码基础分析流程：
 
@@ -48,62 +48,62 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
 **一、激活流程**
 
-在"我的项目"中大家可以看到一个名为"SeekARCDemoProject"的项目。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YJmKYO2JqCyZxT5b30xGw7wZ1zRkKHzUe4icTZpvMWZ0S8nsnPWIA9TQ/640?wx_fmt=png&from=appmsg)
-启动激活流程，当状态栏变成绿色的"在线"时，就可以点击操作中的"查看"，进入下一步啦~![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YMS73vQ6GS5bNBDhmBEXUL9WFB6m01VYOYe28xD2iaEJPbapIDmyDNXg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YFfoM3KQlNqof9R5peuqLbUia8cgibgUMNBq3KkWfOscn0ia7wZdrITsXA/640?wx_fmt=png&from=appmsg)
+在"我的项目"中大家可以看到一个名为"SeekARCDemoProject"的项目。![](../../images/ac743f95134e8ba9.webp)
+启动激活流程，当状态栏变成绿色的"在线"时，就可以点击操作中的"查看"，进入下一步啦~![](../../images/6756977ef8773143.webp)![](../../images/11aad8104ec936b4.webp)
 
 **二、查看数据并质控过滤**
 
-查看项目进入的首先就是质控页面![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YqEbCp6BNl1n8u1C0lKNXqkkYht9Clm2OoW28JicCy5FFqafGkuCwksg/640?wx_fmt=png&from=appmsg)
-这是推荐的过滤参数：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YUoSd7ZF3nPTPzXTn7xHEkkktN8JDJ3Q7nbd9RIofGsRV4yOzicQJJXA/640?wx_fmt=png&from=appmsg)
-点击过滤后系统会自动给出过滤前后的数据对比：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YJTPiaA9icCxXyjwy13bBSLOHAFzqVoJmcicfdHcU3IngwO5XQVsictAIkQ/640?wx_fmt=jpeg&from=appmsg)
+查看项目进入的首先就是质控页面![](../../images/91e0d661531eafaf.webp)
+这是推荐的过滤参数：![](../../images/5d4a699f5bc9662e.webp)
+点击过滤后系统会自动给出过滤前后的数据对比：![](../../images/800a1a1484d6f047.jpg)
 
 **三、多样本整合**
 
-多样本的整合，我们同样给出了模板参数：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YkLDXbOZGvJqwlprjtu0zLolAibg7jTcZsia9ribD4o7RHfUVCGtfFZl8Q/640?wx_fmt=png&from=appmsg)
-可以看出Harmony整合后样本基本不存在批次效应：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YW0dofKSTWyaA2libvxxMXHiaicENglzhEhCia1Jaicxicm28n7RIsNx29IHA/640?wx_fmt=png&from=appmsg)
+多样本的整合，我们同样给出了模板参数：![](../../images/2b42d5ea9a07758b.png)
+可以看出Harmony整合后样本基本不存在批次效应：![](../../images/3fd80ea973149f25.webp)
 
 **四、聚类分群**
 
-默认聚类参数：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YRWhUyyk0q8ibicAtsl5PSUjsgAlYOT4ib8ZMz0PB2BLdicgxworlBNdgUA/640?wx_fmt=png&from=appmsg)
+默认聚类参数：![](../../images/463e9a46b5549959.png)
 这里分别使用ATAC矩阵、WNN、RNA矩阵进行了降维分群(加权最近邻算法（Weighted Nearest Neighbor，WNN） 是 Seurat 中用于数据整合的核心方法之一，尤其适用于整合异质性较大的数据或多组学数据。WNN通过共享特征（如基因调控关系）建立跨模态的联系，使其与 scRNA-seq 的基因表达量形成对应，从而完成跨模态的降维分群。下文将以RNA矩阵的分群结果进行后续演示。
 
-在分辨率为0.5，dims选择1:30的参数下，共获得0~11这12种cluster![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099Y5FVJ68y5tfQRWjU1xu1Qox2yMRN4nwV7loFiasAXPmPia2J2VeicpNayA/640?wx_fmt=png&from=appmsg)
-到这里基础分析流程就完结啦，可以点击画布右上方的"汇总"即可把当前分析流程的结果整合到结果总览中，最终可以通过网页报告的形式查看所有的分析结果：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099Yun5mpmHbqpibRBVTxHsvyxIS2hLHgGzulHeR9icrgjKWjicUO6dH6HJiag/640?wx_fmt=png&from=appmsg)
+在分辨率为0.5，dims选择1:30的参数下，共获得0~11这12种cluster![](../../images/34a2d6d17b32912c.webp)
+到这里基础分析流程就完结啦，可以点击画布右上方的"汇总"即可把当前分析流程的结果整合到结果总览中，最终可以通过网页报告的形式查看所有的分析结果：![](../../images/baf0fc72b7d8e4d5.webp)
 
 **五、细胞注释**
 
-细胞注释页面会给出对应分群策略下的降维图、气泡图、小提琴图、热图、细胞比例柱状图等信息，帮助你完成细胞类型的注释![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YnWkvlb8AeDbbVXYlrlQ0ksHb7RCYWjP9NGEwWUOjatz9I6ppt3Q5LA/640?wx_fmt=png&from=appmsg)
-可视化内容展示：![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwZ3Knayk7oxp5GkEup099Y9Jc94dOHegrz4MLzmJcamaq1v1EmmibS3OPFDficyWI4dFRk5P7xOtyw/640?wx_fmt=gif&from=appmsg)
-给大家展示一个新功能，利用系统输出的marker结合singleR和AI，能够一键注释细胞类型。![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YkXwib2LPV9TWgkhIC2h0LEYrS4fttPBTQa4FKicCk1Mwk17Lzp7cQdsA/640?wx_fmt=gif&from=appmsg)
-保存后的新注释在这里，我们以CellAnnotation注释进行后续分析：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YARX9lJsA7RAPjibndyCuF09yuFm5JK8fIPcXzXMTJKs8VSMezwfic9iaA/640?wx_fmt=png&from=appmsg)
+细胞注释页面会给出对应分群策略下的降维图、气泡图、小提琴图、热图、细胞比例柱状图等信息，帮助你完成细胞类型的注释![](../../images/a0bc58b5e4b6250a.webp)
+可视化内容展示：![](../../images/80dc3da9cd292dfd.webp)
+给大家展示一个新功能，利用系统输出的marker结合singleR和AI，能够一键注释细胞类型。![](../../images/48d84b2dabd9720e.webp)
+保存后的新注释在这里，我们以CellAnnotation注释进行后续分析：![](../../images/f08fe7eba0026386.webp)
 
 **六、图片美化**
 
-Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴图、降维图、FeaturePlot、DotPlot、分组统计图、热图的绘制与美化。比我们此前分享的[单细胞图片改造计划](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2707677276481814529#wechat_redirect>)可简单多了。大家可以看这个视频进行学习：[零代码分析单细胞测序数据| 图片美化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522176&idx=2&sn=11cc2a6687fb139508644504bbc2f374&scene=21#wechat_redirect>)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YibxCbfFUUt9gKPUhPbsWUn0aPNiclCfh1iaNCsxible3G5BW3iaricNtRYDA/640?wx_fmt=png&from=appmsg)
+Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴图、降维图、FeaturePlot、DotPlot、分组统计图、热图的绘制与美化。比我们此前分享的[单细胞图片改造计划](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2707677276481814529#wechat_redirect>)可简单多了。大家可以看这个视频进行学习：[零代码分析单细胞测序数据| 图片美化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522176&idx=2&sn=11cc2a6687fb139508644504bbc2f374&scene=21#wechat_redirect>)![](../../images/eebc20438cef63ad.webp)
 
 **七、基因集评分**
 
-特征集分析也可以一站式完成，主要完成[单细胞基因集评分](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497831&idx=2&sn=82fa51c76a381fba0b444e9b6b23eb5f&scene=21#wechat_redirect>)工作。Seeksoul Online中内置了几百种特征基因集：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YCJCliam5PgDphapHUkVKicoyOJ0icy3xPQvFW5UBYozYkNU5oINgwC2DQ/640?wx_fmt=png&from=appmsg)
-随便选一个基因集进行提交：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099Y2biaiamTOtQibGK5eOzWh3qcwmgubiajQNC5Z3uhPDCg2nzyefU8uKnEKQ/640?wx_fmt=png&from=appmsg)
-秒出结果：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YOOfs8g8B3dWxTLE13vI8IIXovGh9RibMLibhDX3sZxvvlqKPLZYvkqOw/640?wx_fmt=png&from=appmsg)
+特征集分析也可以一站式完成，主要完成[单细胞基因集评分](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497831&idx=2&sn=82fa51c76a381fba0b444e9b6b23eb5f&scene=21#wechat_redirect>)工作。Seeksoul Online中内置了几百种特征基因集：![](../../images/f6a0137fbd19e20c.webp)
+随便选一个基因集进行提交：![](../../images/4d93db1d4902f576.webp)
+秒出结果：![](../../images/53ffde97a19fde3e.png)
 
 **八、差异与富集分析**
 
-[零代码单细胞| 差异分析与富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)也可以一站式完成![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099Y0IrdvISlsBL6Q2fdLdj7CicDDpw6gaLkVhgj2Z4mJr2ziaOqicic2h7eBg/640?wx_fmt=png&from=appmsg)可以按照如下演示创建你需要的差异分析![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YicpF7DN75FBQibtmKFXDN7UQABzqYvbIZIt4vicGgcU6VbY5Y6BxMsTtQ/640?wx_fmt=gif&from=appmsg)
+[零代码单细胞| 差异分析与富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)也可以一站式完成![](../../images/f02638e4d1200655.webp)可以按照如下演示创建你需要的差异分析![](../../images/241b50459ce11c41.webp)
 
 **九、亚群分析**
 
-通过提交细胞注释类别(参数)、具体需要亚群分析的细胞类群(值)。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YJ0uAJbE52DUviaZOicFNccJqR1VTaHzj2sUePj7wDnZwofiaWcppW1vOQ/640?wx_fmt=png&from=appmsg)完成后点击进入这个加号即可进入与大群一样的预处理流程：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YhwZpkfR1icNyy0crPS5k1HLoTo7mKpDKdgsV4G2VGKibsibSyvfqEtBgw/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YKlqme7FLswpGIZcC6pntLubTQWo3EkuRLMNUJNU9pzgDQrxlLBL72A/640?wx_fmt=png&from=appmsg)
+通过提交细胞注释类别(参数)、具体需要亚群分析的细胞类群(值)。![](../../images/c63c4db49cb3ed9e.png)完成后点击进入这个加号即可进入与大群一样的预处理流程：![](../../images/e907df9d95b72659.png)![](../../images/301d27936a8fc132.webp)
 
 **十、高级分析**
 
-高级分析现SeeksoulOnline已经内置了几十种高级分析，包含monocle3、cellphonedb、infercnv、scenic、monocle2、DiffEnrich、CytoTRACE、CellChat、scMetabolism、copyKAT、GSVA、Nichenet、scVelo、scoring、group_diffenrich、Augur、hdWGCNA、GeneActivity、ATAC_Peak2Gene共19种高级分析，大家可以逐个试一试，我们后面再出一篇推送来演示这些内容~![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YOu0VeBsLjb1qZ8RkkSxdVCLzNZtw8ibDeib6Jg3BgKswWfUv5El3gfqw/640?wx_fmt=png&from=appmsg)
-还有炫酷的交互式分析，绝对值得大家好好探索一番：![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YgxVq6tgNgbIlVveH8NFjrAmJVJumxtGl9DibPd4SqA3IGmxaQhibkYuA/640?wx_fmt=gif&from=appmsg)
+高级分析现SeeksoulOnline已经内置了几十种高级分析，包含monocle3、cellphonedb、infercnv、scenic、monocle2、DiffEnrich、CytoTRACE、CellChat、scMetabolism、copyKAT、GSVA、Nichenet、scVelo、scoring、group_diffenrich、Augur、hdWGCNA、GeneActivity、ATAC_Peak2Gene共19种高级分析，大家可以逐个试一试，我们后面再出一篇推送来演示这些内容~![](../../images/356da88109539d50.webp)
+还有炫酷的交互式分析，绝对值得大家好好探索一番：![](../../images/e41177b851c40789.webp)
 
 **十一、辅助信息与结题报告**
 
-辅助信息上半部分页面包含了各分析流程用到工具的名称、版本、分析内容、参考链接，下半部分页面包含了注释信息。![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YGPUCIgYZw1tFROPia7AMicIvawzYoCt9lmxNTJad3iabaM2SPyTYAAtCw/640?wx_fmt=png&from=appmsg)
-结果总览中包含了活页的结题报告：![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YDUWhX7XzDPoFGFYj5rGkMlJW91mfC2w3kCsKGJB0HAw83eMsGyzr4w/640?wx_fmt=png&from=appmsg)
+辅助信息上半部分页面包含了各分析流程用到工具的名称、版本、分析内容、参考链接，下半部分页面包含了注释信息。![](../../images/89e09d7de56b28e2.webp)
+结果总览中包含了活页的结题报告：![](../../images/8b293fb7ca393b57.webp)
 
 感兴趣的同学可以看看我们此次操作的报告：报告目录：
 
@@ -113,7 +113,7 @@ Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴
 ./└── report    ├── dist    │   └── src    │       ├── assets    │       ├── css    │       ├── file    │       ├── graph    │       ├── img    │       └── js    ├── report.html    └── report.pdf
 ```
 
-报告的html文件是可交互的哦：![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwZ3Knayk7oxp5GkEup099YRC9WDqY8j4KJnicIRvOvwGzbU82Rl7icziaXwy9cia1dkb8c5qPwHOAKCw/640?wx_fmt=gif&from=appmsg)
+报告的html文件是可交互的哦：![](../../images/48b91ea99054664d.webp)
 
 下载链接：
 
@@ -123,7 +123,7 @@ Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴
 
 提取码: bfg8
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwZ3Knayk7oxp5GkEup099Y5tLt1EP4uTl0OQlann6xw5rzzJUdxPXtHPyZ0HnLzsgaPQK5BXib29g/640?wx_fmt=jpeg)
+![](../../images/e134215164546bd9.webp)
 
 **视频教程**
 
@@ -143,16 +143,16 @@ Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴
 
 各位同学需要**联系您的专属在线客服，获取demo数据后，进行操作学习。**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpzlCHzM8BicyYndroTyAQWjdHD5ZO0DJHw7ff3XHNoiaCNmD4eMp5j1yX70aqtS0Y0mFxE32WrlrdCw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)**
+**![图片](../../images/f36b0bfbdc18dab3.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcysqPg5ZJ3sWZ54d3okyxzNK7sicraXvicUxWeic24H8udwKpeYHncdJYoLJgt7Xm11TVY3NH4E9JQ/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/6300ee2640d937c2.webp)![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

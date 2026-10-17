@@ -12,16 +12,16 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 # **写在前面：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 我反复的谈过，细胞类型注释才是单细胞测序中最难的环节，这主要是不同单细胞测序项目中的**取样形式** 、**建库方法** 、**测序平台** 、**分析工具** 、**函数参数** 等多方面造成的。拿笔者的第一个单细胞数据集来说，光是调整过滤参数、分辨率、寻找marker加以注释就花了一个月的时间，属实是既枯燥又乏味，为了给大家提供方便，以后会不定期带领大家复现一些已发表数据集中的细胞类型注释过程，有需要的同学可以持续关注，若有感兴趣的物种、组织器官也可以在文末客服处登记；当然，如果您有好的注释结果，也欢迎以Rmarkdown与工程文件的形式来稿，可以为大家提供稿费。注释后的数据：
+![](../../images/90fab1387787746b.webp) 我反复的谈过，细胞类型注释才是单细胞测序中最难的环节，这主要是不同单细胞测序项目中的**取样形式** 、**建库方法** 、**测序平台** 、**分析工具** 、**函数参数** 等多方面造成的。拿笔者的第一个单细胞数据集来说，光是调整过滤参数、分辨率、寻找marker加以注释就花了一个月的时间，属实是既枯燥又乏味，为了给大家提供方便，以后会不定期带领大家复现一些已发表数据集中的细胞类型注释过程，有需要的同学可以持续关注，若有感兴趣的物种、组织器官也可以在文末客服处登记；当然，如果您有好的注释结果，也欢迎以Rmarkdown与工程文件的形式来稿，可以为大家提供稿费。注释后的数据：
 https://pan.baidu.com/s/13XG4ITR34TzP5EL6FEWl9w?pwd=lisf
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzzfNEwpmbz4YLwmCfFEnyOyqsdictlEx5ziaianjS1icladpTtMNXxu3TAiaadjBYiapySNRzpTPxuxicUw/640?wx_fmt=png)
+![](../../images/037f0533bbcabb83.png)
 
 大家拿到这个数据后，可以用上图中的rds文件参考这个教程(文中的方法三与方法四)对自己手中合适的数据加以注释：[手把手教你做单细胞测序数据分析（五）——‍细胞类型注释](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488597&idx=1&sn=6123d348db245774d4a0db4134a839d4&chksm=9b3f6d05ac48e4132f92ca6c32dab29d2a4e1eb00d1db3b6e10eba7ffc7154e8554a70938583&scene=21#wechat_redirect>)
 
 # **复现过程：**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 **
 **
@@ -61,7 +61,7 @@ https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114530
 
 细胞类型由Biomamba生信基地团队参考原文图表注释
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 **二、数据处****理**
 
@@ -183,11 +183,11 @@ feats = c("percent.mt")p1 = VlnPlot(sce_all,features = feats,pt.size = 0,group.b
 #### (3) feature-feature relationshipp3 = FeatureScatter(sce_all,feature1 = "nCount_RNA",feature2 = "nFeature_RNA",group.by = "orig.ident")ggsave("scatter.pdf",width = 5.5,height = 4.6,dpi = 500)ggsave("scatter.png",width = 5.5,height = 4.6,dpi = 500)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXUqB2hkU2ju9Ric2X9plrAHPSx3rNCffL7HfMT2F4O9AvyXB4WMkshwg/640?wx_fmt=png)
+![](../../images/4f609c4fa090f361.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXpfy0Gf2vibfgI7aMKv67EeOfnebAP2wXpiaXoWMK8DcBKrFJaFMYTzAQ/640?wx_fmt=png)
+![](../../images/df214e6ed2896fcf.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXD0qXic8mFnkpWBOCXN2q7ITicpAXb4xM4vRLOShmwmPiarxAVSwdwLwicQ/640?wx_fmt=png)
+![](../../images/fe823ed42c60c781.webp)
 
 **4\. 质控过滤：基因200-6000，线粒体基因占比 <9%**
 
@@ -219,11 +219,11 @@ feats = c("percent.mt")p1 = VlnPlot(sce_filt,features = feats,pt.size = 0,group.
 ## 保存数据save(sce_filt,file = "sce_filt.RData")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eX1JGFvXjqxjh9zY1DJZefia3jvuCkZK3Uq6coQmumVwFSWRh7Y6gJib9w/640?wx_fmt=png)
+![](../../images/412a1bd0b0f97a06.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXicarlSJuicV6WpfaK2h2rjr1dSGYc9H0AKvO8PuHgybndfvlza0ricJiaw/640?wx_fmt=png)
+![](../../images/8e6d4091c45184a1.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXyVjjQhIzQEIWCsUdkyOj636IrBhFgBWMB3hmxjTEVWiaDBwdqpVvDFA/640?wx_fmt=png)
+![](../../images/8e2afeaedb0c434a.webp)
 
 **step3：数据整合、降维、聚类分群**
 
@@ -258,7 +258,7 @@ sce_ha = sce.all.filtpc.num = 1:30
 sce_har = RunHarmony(sce_ha,group.by.vars = "orig.ident",project.dim = F,plot_convergence = T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eX3tqGBc6mp4IEOgs3gdFPiazAQBfx8lTNG9hTghicYz60d050DW03cOHA/640?wx_fmt=png)
+![](../../images/1465ab53abb16b92.webp)
 
 **3\. 分群**
 
@@ -282,9 +282,9 @@ DimPlot(sce.har,label = T,repel = T) + NoLegend()ggsave('umap.pdf',width = 6,hei
 DimPlot(sce.har,label = F,group.by = 'orig.ident')ggsave('umap_indi.pdf',width = 7,height = 6,dpi = 500)ggsave('umap_indi.png',width = 7,height = 6,dpi = 500)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXKwWbcIic1dKtuD4O3VWbPCGS6cQrCylfXiactbicibIiabtDucqbw8ruBGw/640?wx_fmt=png)
+![](../../images/9c794af734d9ef29.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXPoxDVBmOkmTuwuHymhhKiaB845EqFKYLbjcRTlq8FibLic7mzOI6qynMg/640?wx_fmt=png)
+![](../../images/e3525a04e45b3830.webp)
 
 **step4：细胞注释**
 
@@ -307,7 +307,7 @@ DefaultAssay(sce.har) = "RNA"DotPlot(sce.har,features = unique(genes_to_check),g
 # top10 <- allmarkers %>% group_by(cluster) %>% top_n(10,wt = avg_log2FC)# write.csv(top10,'top10.csv')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eX1tfWnpgricvRIUBqGOAmsr1VZL1BTp70e90DoUtkx1z5W381R0Ur0CA/640?wx_fmt=png)
+![](../../images/20081cf80eaf3071.webp)
 
 **2\. 注释**
 
@@ -331,7 +331,7 @@ DotPlot(sce.har,features = unique(genes_to_check),cols = c("grey","red")) + them
 library(RColorBrewer)color_ct=c(brewer.pal(12, "Set3"),"#b3b3b3",           brewer.pal(5, "Set1"),           brewer.pal(3, "Dark2"),           "#fc4e2a","#fb9a99","#f781bf","#e7298a")if(!require(ggunchull))devtools::install_github("sajuukLyu/ggunchull", type = "source")if(!require(scRNAtoolVis))devtools::install_github('junjunlab/scRNAtoolVis')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXPsBEm9kazszYkUSDGiaNEFCyUnNicic5It3R4j3XO7VoK7QVhlb9crtqw/640?wx_fmt=png)
+![](../../images/677476cc6bd3275d.webp)
 
 **注释后可视化**
 
@@ -353,11 +353,11 @@ clusterCornerAxes(object = sce.har,reduction = 'umap',clusterCol = 'orig.ident',
 save(sce.har,file = 'sce_har_anno.RData')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXUqZSN8arPjWet0LEehdMHdFXsPCmsKoX3D7iaKDT0VYWINWYfXwEGsA/640?wx_fmt=png)
+![](../../images/2310795cb694d4a0.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXj8Xz0TwmrFB4VZiat6nveEeUnKdQhyuWMrr7YN0fNhK4mahtzBFPsuA/640?wx_fmt=png)
+![](../../images/886349f2b949e899.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyJfu8eVxsjdO3zOU7uu1eXZeGgW48XpLA8D3MI6KmC6eTT1O4Yh8mnDZJQPMJweKG3eGvbxDbJHQ/640?wx_fmt=png)
+![](../../images/98b23bf2a8d5e424.webp)
 
 **4\. 注释后查看细胞数**
 
@@ -367,11 +367,11 @@ save(sce.har,file = 'sce_har_anno.RData')
 table(sce.har$celltype)# NPCa    NPCb    NPCc    NPCd     PTA  RVCSBa  RVCSBb  SSBm/d   SSBpr  SSBpod     CnT    DTLH   ErPrT     Pod    UBCD     IPC     ICa     ICb     Mes # 1645     717     838    1699     564     813     268    1468     647    1697    1131     347    1385    7882      89     542    1143    2361     160 # End     Leu Unknown # 706     288     820 as.data.frame(table(sce.har$orig.ident,sce.har$celltype))#     Var1    Var2 Freq# 1    w16    NPCa  703# 2   wk09    NPCa    9# 3   wk11    NPCa  555# 4   wk13    NPCa  238# 5   wk18    NPCa  140# 6    w16    NPCb  491# 7   wk09    NPCb    3# 8   wk11    NPCb  118# 9   wk13    NPCb   45# 10  wk18    NPCb   60# 11   w16    NPCc  307# 12  wk09    NPCc    8# 13  wk11    NPCc  349# 14  wk13    NPCc   88# 15  wk18    NPCc   86# 16   w16    NPCd  706# 17  wk09    NPCd   13# 18  wk11    NPCd  457# 19  wk13    NPCd  270# 20  wk18    NPCd  253# 21   w16     PTA  244# 22  wk09     PTA    6# 23  wk11     PTA  128# 24  wk13     PTA   76# 25  wk18     PTA  110# 26   w16  RVCSBa  265# 27  wk09  RVCSBa    1# 28  wk11  RVCSBa  147# 29  wk13  RVCSBa  207# 30  wk18  RVCSBa  193# 31   w16  RVCSBb   84# 32  wk09  RVCSBb    1# 33  wk11  RVCSBb   52# 34  wk13  RVCSBb   62# 35  wk18  RVCSBb   69# 36   w16  SSBm/d  270# 37  wk09  SSBm/d   12# 38  wk11  SSBm/d  365# 39  wk13  SSBm/d  659# 40  wk18  SSBm/d  162# 41   w16   SSBpr  146# 42  wk09   SSBpr    3# 43  wk11   SSBpr  180# 44  wk13   SSBpr  201# 45  wk18   SSBpr  117# 46   w16  SSBpod  352# 47  wk09  SSBpod    1# 48  wk11  SSBpod  302# 49  wk13  SSBpod  598# 50  wk18  SSBpod  444# 51   w16     CnT  592# 52  wk09     CnT   12# 53  wk11     CnT  118# 54  wk13     CnT  248# 55  wk18     CnT  161# 56   w16    DTLH   54# 57  wk09    DTLH    3# 58  wk11    DTLH   85# 59  wk13    DTLH  171# 60  wk18    DTLH   34# 61   w16   ErPrT  350# 62  wk09   ErPrT    5# 63  wk11   ErPrT  254# 64  wk13   ErPrT  452# 65  wk18   ErPrT  324# 66   w16     Pod  729# 67  wk09     Pod   21# 68  wk11     Pod 1573# 69  wk13     Pod 3675# 70  wk18     Pod 1884# 71   w16    UBCD   68# 72  wk09    UBCD    0# 73  wk11    UBCD    3# 74  wk13    UBCD   10# 75  wk18    UBCD    8# 76   w16     IPC  280# 77  wk09     IPC    5# 78  wk11     IPC  102# 79  wk13     IPC   61# 80  wk18     IPC   94# 81   w16     ICa  582# 82  wk09     ICa    8# 83  wk11     ICa  207# 84  wk13     ICa   87# 85  wk18     ICa  259# 86   w16     ICb 1190# 87  wk09     ICb   12# 88  wk11     ICb  514# 89  wk13     ICb  216# 90  wk18     ICb  429# 91   w16     Mes   87# 92  wk09     Mes    1# 93  wk11     Mes   14# 94  wk13     Mes   14# 95  wk18     Mes   44# 96   w16     End  315# 97  wk09     End    1# 98  wk11     End   86# 99  wk13     End  170# 100 wk18     End  134# 101  w16     Leu  126# 102 wk09     Leu    0# 103 wk11     Leu   38# 104 wk13     Leu   55# 105 wk18     Leu   69# 106  w16 Unknown  211# 107 wk09 Unknown   16# 108 wk11 Unknown  270# 109 wk13 Unknown  162# 110 wk18 Unknown  161
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[你们要的微信、交流群，来了！](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487083&idx=1&sn=312a8435f6b938602624a7e9028ad3c6&chksm=9b3f773bac48fe2d3a2886988b35b006bbd05da11e2d7f735afc78c02ffbd179ebc9722a97cd&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的**微信号** ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：[你们要的微信、交流群，来了！](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247487083&idx=1&sn=312a8435f6b938602624a7e9028ad3c6&chksm=9b3f773bac48fe2d3a2886988b35b006bbd05da11e2d7f735afc78c02ffbd179ebc9722a97cd&scene=21#wechat_redirect>)
 大家可以阅读完这几篇之后添加[笑一笑也就算了](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484685&idx=1&sn=3b47c0bcad97a265650b5f34c00a6a3c&chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&scene=21#wechat_redirect>)[如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)

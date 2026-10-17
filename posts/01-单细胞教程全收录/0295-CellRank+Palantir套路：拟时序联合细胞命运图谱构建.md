@@ -14,11 +14,11 @@ albums: ["单细胞教程全收录"]
 
 [ 单细胞RNA测序](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538934&idx=2&sn=9ae059e29a064302bcb737d23a58d87f&scene=21#wechat_redirect>)能够捕捉到组织中不同细胞的[转录](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=4531298467490824209#wechat_redirect>)状态，但获得的数据通常是不同细胞在某一时刻的“静态快照”，无法直接记录单个细胞随时间发生的连续变化。[拟时序](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535114&idx=1&sn=95b6364b67d7ae9f03ba8455863ddabe&scene=21#wechat_redirect>)与细胞命运分析通过比较不同细胞之间的表达相似性，在低维空间中重建潜在的状态转换过程，从而帮助研究细胞[分化](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531908&idx=1&sn=2f094e390621a57853ba17f59f298ebe&scene=21#wechat_redirect>)、损伤修复及疾病进展中的动态变化。
 
-![截屏2026-07-28 15.30.17](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwm6klIwxhZBKWM8HSTxFbt2TJsQJUwvJXgzmWtFgx0DpNrS8pPhBA0UIVtJicGPeXRo8qVqp416OOiaVAt2D0sR3l2xoTCoQaqX0/640?wx_fmt=png&from=appmsg)
+![截屏2026-07-28 15.30.17](../../images/a0ace974c667270f.webp)
 
 **[ Palantir](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535114&idx=1&sn=95b6364b67d7ae9f03ba8455863ddabe&scene=21#wechat_redirect>)是一种基于扩散映射和马尔可夫过程的单细胞轨迹推断方法，最终在《Nature Biotechnology》上发表。它从一个具有明确生物学意义的起始细胞出发，在多尺度扩散空间中计算细胞的拟时序，并估计分化熵和分支概率。其中，拟时序反映细胞相对于起点的状态进程，分化熵用于描述细胞命运的不确定程度，而分支概率则表示细胞趋向不同终末状态的相对可能性。因此，Palantir尤其适合分析连续、分支且包含过渡状态的生物学过程。**
 
-![light_mode_overview](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwlteHuFmhAZ1tVe9dtSbdrMicJmRqkTqwfRvcoFBMs5ibUBOJLSOYM9tZCGOTWw8PXQjP09CGI9RMqHBEX0ACibicExdgkFbEFK7P0/640?wx_fmt=other&from=appmsg)
+![light_mode_overview](../../images/34868ab284253864.webp)
 
 [CellRank](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507012&idx=1&sn=fb01cca63326fd6e8c682434a53fc2ea&scene=21#wechat_redirect>)是用来进一步从概率转移的角度描述细胞命运的工具，最终发表在了《Nature Methods》。它首先利用[RNA velocity](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535114&idx=1&sn=95b6364b67d7ae9f03ba8455863ddabe&scene=21#wechat_redirect>)、拟时序或其他先验信息构建有向的细胞转移矩阵，再通过马尔可夫链和GPCCA等方法识别宏状态、起始状态与终末状态，并计算每个细胞到达不同终末状态的命运概率。CellRank还能够根据基因表达与命运概率之间的相关性筛选候选驱动基因，并分析这些基因沿不同分化支路的动态表达趋势。
 
@@ -30,11 +30,11 @@ Palantir与CellRank具有良好的互补性：Palantir负责建立连续的拟�
 
 学习手册可视化集锦（文末可获得代码和测试文件）：
 
-![未标题-2](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmMvP9xkSIqJAzbocibg2kqKhRhcHkEgiaaRS0VLk31pE8J8mg2BRgUQXianomVCFETOOsiaGj8oqW2AAYWmqbEgTnzUI68dfKdlFo/640?wx_fmt=png&from=appmsg)
+![未标题-2](../../images/3c68b1b4b6172494.webp)
 
 更多单细胞教程：[承包你未来40年的单细胞学习资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540976&idx=1&sn=178859bc9916bd7ccd9a5303aa10ceda&scene=21#wechat_redirect>)
 
-[![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwniaDJ0aKcPIOIUheqrSYttfdUwa1Cg3KhD9v1gh34lHFJ2lwM7iab8a6Ijnp2lcDKZDexiaicb7fPdRiau7WXAuO1XTPSxIWllOpKE/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=3)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
+[![图片](../../images/837c622fca9b9d8a.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247540932&idx=2&sn=713686d522279f84f3c2cc2aad7cb1bc&scene=21#wechat_redirect>)
 
 **二、 Palantir流程**
 
@@ -339,7 +339,7 @@ plt.close("all")
 
 向下滑动查看全部~
 
-#### ![image-20260819161606864](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlp0Qjibf05NoOKvFUV8uSw7doF6f9mPDNfzNz6cpKrZkZdibXJzKHVCsckweEGjmTMkdDTNbLVaFjtqkZeQGZic1icPeO6fWvmqHA/640?wx_fmt=png&from=appmsg)
+#### ![image-20260819161606864](../../images/29590d1af720d8c9.webp)
 
 2.2 预处理与关键基因
 
@@ -529,7 +529,7 @@ plt.close("all")
 
 向下滑动查看全部~
 
-![image-20260819161625860](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlfoE6XwP3nemYL2znX9msrClaChUWyVk1nfz0eCicMdSC3PBeGxfABg2cRnxZhrulGDKRntWlPf008G0WkpC306Y86Wibv9QyjY/640?wx_fmt=png&from=appmsg)
+![image-20260819161625860](../../images/d8d634d86341d572.webp)
 
 **三、 CellRank 流程**
 
@@ -715,7 +715,7 @@ plt.close(fig)
 
 向下滑动查看全部~
 
-![image-20260819161649293](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlXibpKJHZCppA8m40iafkHP5u9ztNicEvTjkkNPQjE2Dny1rcQLTlCibAdsbJkzCmQT2bGTykmkRdXRMSm9slicNgHkpPut7XpryxY/640?wx_fmt=png&from=appmsg)
+![image-20260819161649293](../../images/03ec310871aafc03.webp)
 
 本次教程我们以 AT2 为起始细胞，可以从上图看出，**大致是 (5，6) 的位置** 。
 
@@ -1102,7 +1102,7 @@ plt.close("all")
 
 向下滑动查看全部~
 
-![image-20260819161801279](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnCHN3k3D1rA8fktFlzdkn7icTvFu3YVPVApvicIibSJsroia0iboN3AI3icrNiaCQmAQ9u01P9DNZFOic3AGeKnlYwW0f2NoO1WiaJOMKA/640?wx_fmt=png&from=appmsg)
+![image-20260819161801279](../../images/227b600b8e4305d8.webp)
 
 ###
 
@@ -1236,7 +1236,7 @@ plt.close("all")
 
 向下滑动查看全部~
 
-![image-20260819161813502](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmIv8GUBg2nY9bGujNDeFUvALoDRSib70wmKGUricHzaZib7zq28lQHtiaJ57NHaMD6906cgmm5hXicXp0NJvhYXavMHibjI5Fu2vCE4/640?wx_fmt=png&from=appmsg)
+![image-20260819161813502](../../images/87bb08b53b6047de.webp)
 ```
 # 从 AT2 群体随机抽起点并模拟 100 条前向游走，观察可能的终末方向。
 ```
@@ -1318,7 +1318,7 @@ ifsave_intermediate_h5ad:
 
 向下滑动查看全部~
 
-![image-20260819161827358](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn3VTvb3tplZ6icZ8RzB7G202amW7ZvdJrpQsoYoIoZsoafVuuRUv7RtTN6lpCkibXdvIFtlEibibXRCIBjYUpKXvs4nNgedFCyVIM/640?wx_fmt=png&from=appmsg)
+![image-20260819161827358](../../images/a30890f403936e56.webp)
 
 3\. GPCCA：Schur 分解、宏状态与手动终末状态
 
@@ -1373,7 +1373,7 @@ plt.close("all")
 
 向下滑动查看全部~
 
-![image-20260819161845017](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl8whUicSC4ks3LO36h8hicrqiclBKJUmmXX1YPn3ZUmdHngH4wPOM31s2I8UEyG9EgYGQcl6XhPte2hhbroAPlicAcGe9BUwqlTGs/640?wx_fmt=png&from=appmsg)
+![image-20260819161845017](../../images/2e6fc7ea871eb278.webp)
 
 从上述图可以看出从**13宏状态 数**之后谱系的间隔有一个较大的下降，因此我们这里选择13个状态进行计算终末状态
 
@@ -1466,7 +1466,7 @@ plt.close("all")
 
 向下滑动查看全部~
 
-#### ![image-20260819161856649](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnZpHTYftMiatNXSYiasw4Huu833s1rmUyv6Pk0XhAdk3N2u3QN4U8h6bz9Exp6YNO1uV4n8saVpibehIeibzlzvHlnuYzOqsnAA8w/640?wx_fmt=png&from=appmsg)
+#### ![image-20260819161856649](../../images/1407e8585137e511.webp)
 
 3.1 终末状态校验
 
@@ -1608,7 +1608,7 @@ plt.close("all")
 
 向下滑动查看全部~
 
-![image-20260819161920100](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmGtic9LaNoA1slebxGjhl1S49fPcQB9G7zvUTBWpkcvu0hY2dtSmpAUEP85z2EofFLZanvyudbqjaUekp2FM7ts8HuV1w3ZFOo/640?wx_fmt=png&from=appmsg)
+![image-20260819161920100](../../images/d94604f423c5e472.webp)
 
 ### 4\. 命运概率与环形投影
 
@@ -1700,11 +1700,11 @@ plt.close("all")
 
 上述代码会绘制如下两图，首先是每种细胞发育到各个终末状态的概率，或者说每种终末状态的发育路径中有哪些细胞。
 
-![image-20260819161938358](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkS5ARPWWEnEUFfwKHPIo83cTJOmel322jJLW98S5Tj64lOMI5IGB6kJIB8V7DVWW3D7X9h8b1wHf2dYDE4FPN5gzib6mRHNR7E/640?wx_fmt=png&from=appmsg)
+![image-20260819161938358](../../images/46b2b9d48c7d1829.webp)
 
 第二张图是计算得出的发育轨迹图，越靠近中间位置的细胞分化程度越低，越靠近5个顶点的终末状态的细胞分化程度越高。
 
-![image-20260819162003246](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnGcpbYZYiabcakqQSMmqqRscuaZa66uEKvTjOspINnoGRZ4VV63lexmAmTcebzOwPpnbBwL9ibQViciayadIoqOem8aIsia3Jyz8nU/640?wx_fmt=png&from=appmsg)
+![image-20260819162003246](../../images/5835a66da9c94a5a.webp)
 
 ### 5\. 驱动基因：筛选、导出与趋势[热图](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522279&idx=1&sn=ea8a9f3c698cb030440f7e097f252803&scene=21#wechat_redirect>)
 
@@ -1969,7 +1969,7 @@ plt.close(heatmap_figure)
 
 向下滑动查看全部~
 
-![image-20260819162022410](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnCjGA0ulmR7dUSAUnLwzs23eWkHHjqeHiciciaTibEyOOV5ibMxvasuoWFgiaxj6s38bdlWJkev7Ho7lbjwzcTcaG1aKqNgeTC7wZlw/640?wx_fmt=png&from=appmsg)
+![image-20260819162022410](../../images/f7c81e0ba513ed73.webp)
 6. 前 500 个驱动基因的趋势聚类
 
 这一步对齐参考notebook的最终分析：
@@ -2194,7 +2194,7 @@ print("返回拟合模型:", trend_modelsisnotNone)
 
 向下滑动查看全部~
 
-**![image-20260819162035785](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnJDR0KficScpQ6X8ZG2uLMysSSgaiaKDvqMY6hxsHVxbO6OsL1Nyiajr91Yc6hsUiba67pUgqQAjzwqoPA61dL0XB7RiaeZqlmu7DA/640?wx_fmt=png&from=appmsg)**
+**![image-20260819162035785](../../images/e98e7cb1bc423c51.webp)**
 
 **如何解释趋势模块**
 
@@ -2313,13 +2313,13 @@ enrichment<-enrich_trend_clusters(
 
 本示例会生成 5 张 PDF 点图、5 张完整结果表和 1 张运行清单。无显著条目的集合不会伪造空点图，具体状态会记录在 `manifest` 中。
 
-![未标题-3](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlQ0HvX2O4edzkCI5DbvA1YxzKCkLIsgxsHrlLo1ldambB4c5l3lypNribRMoGJYvOSYNv6BHnBd74AfxCoH6iaa1PezkIObKGaM/640?wx_fmt=png&from=appmsg)
+![未标题-3](../../images/02271a7f2dbcc743.webp)
 
 **三、资料领取**
 
 本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkEKHEJMAMUbhySImJiczw0CQAllbFSCC4FoxN4TNuYP1XRib5G1libgdlhCm6Cd0tyUcXxeHh1bXiaRFtYZBVkdq0satX0AZ2dfc0/640?wx_fmt=png&from=appmsg)
+![](../../images/c269b98c68230e06.webp)
 
 百度网盘链接: https://pan.baidu.com/s/1VodHExZbiNiUNAw_B0UQeQ
 
@@ -2530,7 +2530,7 @@ loaded via a namespace (and not attached):
 
 向下滑动查看全部~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -2567,11 +2567,11 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/4ec66ccdb832fd05.gif)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢
 
 Evan

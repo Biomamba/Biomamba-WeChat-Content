@@ -36,7 +36,7 @@ albums: ["文献速递"]
 
 首先使用乙二醇双琥珀酰亚胺琥珀酸酯(EGS)和甲醛对细胞进行双重交联，然后进行细胞裂解，染色质的碎裂是使用4碱基的切割器限制性内切酶，然后在相同的反应混合物中进行末端修复和邻近连接。然后用玻璃毛细管将单个细胞核转移到碱性裂解缓冲液中，为随后的单核扩增奠定基础。单核扩增使用了热稳定的phi29DNA聚合酶，以及dNTPs和α-硫醇修饰的ddNTPs的混合物，以及抗外核酸酶的随机引物。在扩增过程中加入α-硫醇修饰的ddNTPs有效地终止了延伸，从而将扩增产物的大小控制在2kb以下。此外，使用快速、耐热的phi29聚合酶将扩增时间减少到大约2小时。然后对扩增产物进行大小选择，然后准备文库进行高通量测序，以便于下游分析。获得的测序数据提供了两种关键类型的信息：染色质三维相互作用数据和全基因组测序数据
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcpYs3bKtZO330LLcOUzPajvHFicqZD3icoz5e9d6LSbyKXaic82DYtoNjw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/b37048b2b67d217c.webp)
 
 2.UNI-C可以在[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)水平上有效地识别SNP和INDELs
 
@@ -46,7 +46,7 @@ albums: ["文献速递"]
 
 在过滤过程后，Uni-C对识别高置信突变体，鉴定SNPs/Indels的真阳性率上有明显提升，假阳性率有明显下降。且观察到碱基转变模式主要是从胞嘧啶(C)到胸腺嘧啶(T)的转变。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcVYN574icJz6iaxCFXFdqia0cSGto3QWRSgtLfibo23icibibnB9f1gHus9Qgw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/df9fcecc8a1356c9.webp)
 
 3.单个肿瘤细胞中结构变异和ecDNA的检测
 
@@ -58,17 +58,17 @@ albums: ["文献速递"]
 
 表明将Uni-C的CNV数据与染色质相互作用信息相结合，可以准确地表征单细胞中焦点扩增的类型和拷贝数。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcqXU1xE1dKZibmlR82tGiaNiajmicZia38Ug4yGdvzEUE78VXbL6icwBq6Ecw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/2e0dfe4cc01da30c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcMWTE4I21wP2z2Dm2kg6p1ANicGNTF6fQ5zssjht7a6bvg1GKew8jNEw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/54398160df293a43.webp)
 
 4.单克隆性细胞系UNI-C准确性的评估
 
 分离单个MC38细胞以评价Uni-C在单细胞水平检测SNPs和Indels的准确性。通过8个Uni-C文库与PTA相比较。在过滤后，Uni-C确定了507,286个高置信度变体，每个细胞的平均真阳性率从36.8%增加到80.7%，平均假阴性率为1.9%，且Uni-C始终实现了略高于PTA的基因组覆盖率。这些结果表明，Uni-C的性能与PTA相当，在基因组覆盖率和单细胞水平的单核苷酸变异检测方面有一定的改进
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcp6HHcT8aoOTYem3b0BaH3WdmxUfsBlK2Iu6XGsG4JsRXMttNlEhF0w/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/a6c5aacbd2780458.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcgkwh7SHsYlZdDHuv4oOJ2AyUQFhgdnzmzzz3ZOaibSTVbycicMoZgX1w/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/5d899fe0e3b38190.webp)
 
 5.研究CTCs的基因组改变
 
@@ -78,7 +78,7 @@ albums: ["文献速递"]
 
 Uni-C确定了12个结构变体。在CTC中，检测到75.0%的肿瘤组织结构变异，每个CTC平均识别约59.8%。且结合至少三个细胞能够检测到74.8%的肿瘤组织中存在的结构变异，统计差异最小。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcvribIH4TMruhdIjoznYfQkByaWVnJyIEWvRCy32tF2uJZ8D5sU4dnqg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fefcbe786bf31915.webp)
 
 6.癌基因在癌组织中的局域扩增研究
 
@@ -88,7 +88,7 @@ Uni-C确定了12个结构变体。在CTC中，检测到75.0%的肿瘤组织结�
 
 PanT24小鼠的七个CTC的分析中，在所有[单细胞](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2168829347397156865#wechat_redirect>)和肿瘤组织中都观察到了MYC基因区域的局部扩增，GWIFA分析表明，MYC扩增区可能易位到该染色体。经使用8号和16号染色体的着丝粒探针以及MYC探针进行了荧光原位杂交(FISH)，证实，MYC基因确实以HSRs的形式在染色体内扩增，并定位于16号染色体
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcxBDWX8JqNIib7r6bYK5hFzUqL41KrSYrfOYhJ23ONMVcrKWD2Q6wuyw/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/18818c9f482f513b.webp)
 
 7.细胞周期各时相CTCs染色质结构的分析
 
@@ -98,7 +98,7 @@ PanT24小鼠的七个CTC的分析中，在所有[单细胞](<https://mp.weixin.q
 
 基于染色质相互作用数据模拟了单细胞有丝分裂和间期的空间染色质结构。有丝分裂细胞中的染色体看起来更紧密，有清晰的轮廓和凝聚。相反，间期细胞的细胞核组织不太明确，不同染色质区域之间没有明显的边界，每个染色体的结构更宽松
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcSia8IP6bt9eFnvj2X3BHUk704JxXzPVsxicicP21VL57aeyW0owODd8yg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/5cb1ba446f4fe57d.webp)
 
 8.CTCs基因突变的检测及新抗原的预测
 
@@ -108,11 +108,11 @@ KPC小鼠的CTCs的基因组变异显示频繁的MUC4突变，关键胰腺癌驱
 
 使用pVACtools47预测了潜在的新抗原，证实两个小鼠品系都有22个新抗原的表达，并为其中10个新抗原合成了多肽。其中五个多肽通过分选小鼠脾中分离的γ+T细胞来刺激干扰素CD8的分泌，新抗原肽和CQ的联合治疗导致肿瘤体积和重量减少，表明有治疗应用的潜力。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRc2d8EoqE8FBHHrI7A4bIupic4hvqNoGZEibATG7hicHgHXM8PMY5RibuE5w/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/9d626c32230f3836.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcicvFvibsvG89akca7MCSfLZKqBe2Jgq8Z5jUYwiaJUOC9DB7EBtXribQKg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/c58492fb96d980a5.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/GQbSTiaXLprOHcoBAPdmnO2XOmMKWybRcmV5kHwo3LQzabicLjNtTNptom5OUNaK81N7ZdeAJRo07Oq1JWxPb3eQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/6414d4d5fd17eb71.webp)
 
 **三、总结与展望**
 
@@ -140,8 +140,8 @@ KPC小鼠的CTCs的基因组变异显示频繁的MUC4突变，关键胰腺癌驱
 
 展望未来在技术优化、临床转化拓展，以及与其他技术联合应用方面的发展方向，如提升检测灵敏度与特异性、扩大临床样本验证范围、结合人工智能分析数据等。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

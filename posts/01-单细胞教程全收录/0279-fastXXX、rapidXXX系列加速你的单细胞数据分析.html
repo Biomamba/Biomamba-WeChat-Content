@@ -1,0 +1,91 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0279-fastXXX、rapidXXX系列加速你的单细胞数据分析</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="fastxxxrapidxxx">fastXXX、rapidXXX系列加速你的单细胞数据分析</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538079&amp;idx=2&amp;sn=9ecd53f31d266d0d3db9db396f8275e2&amp;chksm=9b3c2ccfac4ba5d9fbb82a568a35b2728da5d4cde10ddaa6570f54574c29078421aeb5fb630b#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../../images/f08cdfe212eb6283.png"></p>
+<p>写在前面</p>
+<p><img alt="" src="../../images/2cc9da4d1e6321da.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>最近发现很多带有FastXXX、RapidXXX字符的单细胞分析工具上架，顾名思义，这类工具能够以不同数量级的速度完成原有的单细胞分析。例如FastCCC，利用包含1600万个细胞、450种细胞类型的数据作为参考模板快速获取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=1&amp;sn=c3eb2d3abad1952b3b7fa88099c607b7&amp;scene=21#wechat_redirect">细胞通讯</a>的计算结果。</p>
+<p>在本次学习手册，我们也整理了多款可显著提升分析效率的工具，包括：fastCCC（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=3&amp;sn=e44b787fa7a653fb8d98588d88cf26e0&amp;scene=21#wechat_redirect">细胞通讯分析</a>加速）、fastCNV（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535878&amp;idx=2&amp;sn=6d3315ba0d9d3f3246665f11f30adfb9&amp;scene=21#wechat_redirect">拷贝数变异</a>推断加速）、rapid single-cell（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21#wechat_redirect">GPU加速</a>单细胞流程计算）</p>
+<p>欢迎大家在评论区留言补充更多高效工具。</p>
+<p>学习手册部分图片集锦：<img alt="" src="../../images/28f8b862eb822da8.webp">优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]<img alt="" src="../../images/fe8ecb8594a1f419.webp"><strong>更多生信教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">为什么我们敢开放终身订阅</a></strong><strong>-Biomamba</strong><img alt="" src="../../images/7d247e6c6ef19f87.png"><img alt="" src="../../images/f08cdfe212eb6283.png"></p>
+<p>三款高效加速工具介绍</p>
+<p><img alt="" src="../../images/2cc9da4d1e6321da.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>1. fastCCC</p>
+<p>用途：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=3&amp;sn=e44b787fa7a653fb8d98588d88cf26e0&amp;scene=21#wechat_redirect">细胞通讯</a>加速</p>
+<p>文章链接： https://www.nature.com/articles/s41467-025-66272-z</p>
+<p>代码仓库：https://github.com/Svvord/FastCCC</p>
+<p>特点介绍：FastCCC的速度至少是CPDB V5和V4、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=3&amp;sn=e44b787fa7a653fb8d98588d88cf26e0&amp;scene=21#wechat_redirect">CellChat</a>、SingleCellSignalR、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=3&amp;sn=e44b787fa7a653fb8d98588d88cf26e0&amp;scene=21#wechat_redirect">ICELLNET</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=3&amp;sn=e44b787fa7a653fb8d98588d88cf26e0&amp;scene=21#wechat_redirect">NicheNet</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=3&amp;sn=e44b787fa7a653fb8d98588d88cf26e0&amp;scene=21#wechat_redirect">CellCall</a>这些工具中任意一种的十倍。计算时调用的内存也是所有算法中最小的，并能够支持100万个细胞的数据分析(文中作者最多测试到200w细胞)。除了召回率和FPR外，FastCCC在精度、准确性、特异性、平衡准确率和Jaccard指数、F1分数、马修相关系数均优于其它方法。通过快速傅里叶变换（FFT）利用卷积技术，FastCCC推导出C-S零分布的解析解，实现了p值的可扩展解析计算，而无需计算密集的置换。FastCCC引入了模块化的C-S计算框架，通过配体与受体表达水平之间的代数运算捕捉相互作用强度。它还容纳配体和受体的多亚基蛋白复合物，解释了不同亚基的独特相互作用强度。</p>
+<p><img alt="" src="../../images/c6ca81fe0ba0a3b4.webp"></p>
+<p>2. fastCNV</p>
+<p>用途：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536094&amp;idx=2&amp;sn=a00c0ccd8868781ddbc8ba0eaf874ac8&amp;scene=21#wechat_redirect">拷贝数变异</a>推断加速</p>
+<p>文章链接：https://www.biorxiv.org/content/10.1101/2025.10.22.683855v1.full.pdf</p>
+<p>代码仓库：https://github.com/must-bioinfo/fastCNV/</p>
+<p>特点介绍：基于R语言的fastCNV能够加速空间转录组学、scRNA-seq数据预测拷贝数变异（CNVs），有助于区分恶性细胞与非恶性细胞，并对肿瘤细胞的克隆结构进行表征。fastCNV在样本之间汇集二倍体参考序列，并在每个样本内将读数较少的相似斑点或细胞合并为元斑点或细胞。它会自动构建克隆性树，并且比其他方法运行速度快数倍，同时占用内存更少。通过<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519711&amp;idx=1&amp;sn=d25d4f5daf609bda8367f16db676ecf3&amp;scene=21#wechat_redirect">Seurat</a>数据的输入，fastCNV能够直接返回每个细胞是上皮、肿瘤、还是其它细胞的注释。为了评估fastCNV的准确性，作者使用了117 个同时拥有scRNA-seq和WES数据的癌症细胞系进行测试。fastCNV所识别的CNV与从WES数据计算出的CNV高度相关（中位相关性超过 0.75）。fastCNV首次实现了对Visium HD空间转录组学技术所得CNV的分析。FastCNV相较于现有的R方法在速度、内存使用、灵敏度和准确性等方面具有显著优势。</p>
+<p>3. rapid single-cell</p>
+<p>用途：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21#wechat_redirect">GPU加速</a>单细胞流程计算</p>
+<p>文章链接：https://arxiv.org/pdf/2603.02402</p>
+<p>代码仓库：https://rapids-singlecell.readthedocs.io/en/latest/tutorials.html</p>
+<p>特点介绍：这是由scverse(就是那个开发了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533070&amp;idx=1&amp;sn=eb762b5b475695f418438d6628d8012f&amp;scene=21#wechat_redirect">scanpy</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528513&amp;idx=1&amp;sn=1ff1b8bee321f8f5bcac425ce96dc6ff&amp;scene=21#wechat_redirect">anndata</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532641&amp;idx=1&amp;sn=c8422ab7c1cd70751fb3109a84cb64ea&amp;scene=21#wechat_redirect">squidpy</a>这些神包组织)开发的工具，通过CuPy内核处理SciPy数据，可以借助NVIDIA-GPU(NVIDIA的官网也可以看到这个项目:https://github.com/NVIDIA-AI-Blueprints/single-cell-analysis-blueprint)加速数百倍的提升单细胞数据计算过程，可以无缝接入scanpy分析anndata数据。值得一提的是，通过RAPIDS内存管理系统，可以在GPU显存不足时把数据暂存到内存当中，并且在GPU充足时支持跨GPU的分布式计算，这意味着rapid single-cell支持数<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534670&amp;idx=1&amp;sn=7178b77f1efe4ca253f90b9121231204&amp;scene=21#wechat_redirect">百万单细胞数据</a>的计算(试试上作者测试了100million的数据分析，也只需200min)。在预处理、标准化、高变基因计算、降维(PCA、UMAP、t-SNE)、临近图谱构建、leiden分群等操作时可以提升约120倍计算速度。rapid single-cell准还能支持空间自相关指标、通路及转录因子活性推断、批次矫正、干扰距离计算等操作。只要细胞数超过5w，rapid single-cell准能大大的提升你的计算效率。</p>
+<p><img alt="" src="../../images/faed385df26c56bc.webp"></p>
+<p>以上是三款工具的基本信息，具体实操见我们手册~，领取资料联系客服[Biomamba_zhushou]:<img alt="" src="../../images/fe8ecb8594a1f419.webp">
+<img alt="" src="../../images/7d247e6c6ef19f87.png"><img alt="" src="../../images/f08cdfe212eb6283.png"></p>
+<p>所见即所得</p>
+<p><img alt="" src="../../images/2cc9da4d1e6321da.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>以html格式提供学习手册，可在浏览器中打开并翻阅学习：‍</p>
+<p><img alt="" src="../../images/2e6398108a8fd465.webp"></p>
+<p>学习手册目录：</p>
+<p>零、欢迎关注</p>
+<p>一、写在前面</p>
+<p>二、fastCCC</p>
+<p>2.1 安装</p>
+<p>2.2 测试数据</p>
+<p>2.3 主函数演示</p>
+<p>2.4 输出文件</p>
+<p>2.5 结果可视化</p>
+<p>三、fastCNV</p>
+<p>3.1 安装</p>
+<p>3.2 测试数据</p>
+<p>3.3 运行主函数</p>
+<p>3.3.1 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;scene=21#wechat_redirect">单个样本</a></p>
+<p>3.3.2 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500117&amp;idx=2&amp;sn=cef0b0abec6d73a8c2615980ef68aec1&amp;scene=21#wechat_redirect">多个样本</a>运行</p>
+<p>3.4 CNV频率</p>
+<p>3.5 CNV分群</p>
+<p>3.6 进化树</p>
+<p>四、rapid single-cell</p>
+<p>4.1 安装</p>
+<p>4.2 rapid single-cell流程</p>
+<p>准备工作</p>
+<p>文末下载链接中包含以下内容：</p>
+<p><img alt="" src="../../images/23458d27b7f9b032.webp">测试文件，总大小9.30GB<img alt="" src="../../images/7d247e6c6ef19f87.png"></p>
+<p><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>往期推送</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">为什么我们敢开放终身订阅</a></p>
+<p>2025年我们零差评完成订阅任务（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534690&amp;idx=1&amp;sn=4ff5291b649fb4fe4d703c48a04d37f2&amp;scene=21#wechat_redirect">2026订阅须知</a>），2026已更新订阅内容：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534718&amp;idx=1&amp;sn=f1492239574ad489be9a1aa0c84af87a&amp;scene=21#wechat_redirect">单细胞Figure1的常见图表(Python版)</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534702&amp;idx=1&amp;sn=f1531163f8f620b59cf63dfaa1c03e67&amp;scene=21#wechat_redirect">告别R依赖！一文搞定Python单细胞基础分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535112&amp;idx=1&amp;sn=95a6b88cd49fb2bbb7aa091a00e09e2c&amp;scene=21#wechat_redirect">风靡一时的scTenifoldKnk单细胞虚拟基因敲除,准不准?</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">scRNA拟时序分析三大Python包： palantir、PAGA、RNAvelocity</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535726&amp;idx=1&amp;sn=fa3a01ca6ec0f20d0e9b7ac960712ac3&amp;scene=21#wechat_redirect">正刊都在用的AI驱动蛋白质从头设计流程：RFdiffusion+ProteinMPNN+AlphaFold3</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=1&amp;sn=c3eb2d3abad1952b3b7fa88099c607b7&amp;scene=21#wechat_redirect">CellphoneDB搞定细胞通讯分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536705&amp;idx=1&amp;sn=7fbfeba5dee45f6c3311bd31082a428c&amp;scene=21#wechat_redirect">scRNA-seq肿瘤细胞药物敏感性预测分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536940&amp;idx=1&amp;sn=57eea9f64dfeff9231977ab5028c3dcd&amp;scene=21#wechat_redirect">fastXXX、rapidXXX系列加速你的单细胞数据分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537055&amp;idx=1&amp;sn=170371b86b42d47373bf7f0500031f19&amp;scene=21#wechat_redirect">转录因子、基因共表达网络分析手册：pySCENIC在脑、黑色素瘤中的应用</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537531&amp;idx=1&amp;sn=e5f08c08b352287ddfda069a20019afb&amp;scene=21#wechat_redirect">让你的scRNA数据变得更干净~</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537631&amp;idx=1&amp;sn=b702b29384fd4f4878cc0b4d0fcf51e7&amp;scene=21#wechat_redirect">保姆级视频教程| 空间转录组分析手册(基于Seurat)</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537733&amp;idx=1&amp;sn=b938e687d0acf2d906139314e137b903&amp;scene=21#wechat_redirect">拷贝数变异分析的python实现及R语言对比</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537769&amp;idx=1&amp;sn=5dbfe76b35fd2f7593e55bff48c6fa73&amp;scene=21#wechat_redirect">Ai驱动结合蛋白设计：Bindcraft全流程教学</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537859&amp;idx=1&amp;sn=cd3f1fff64f2147afb6222d65db4917f&amp;scene=21#wechat_redirect">千万级细胞预训练，如何用AI搞定单细胞注释与质控</a></p>
+<p>文件夹中已经更新的教程有：</p>
+<p><strong><img alt="" src="../../images/bc4a928a4947108c.webp"></strong></p>
+<p>持续更新中~</p>
+<p><img alt="" src="../../images/7d247e6c6ef19f87.png"></p>
+<p>解锁前需阅读：<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534690&amp;idx=1&amp;sn=4ff5291b649fb4fe4d703c48a04d37f2&amp;scene=21#wechat_redirect">2026订阅须知</a></strong><img alt="图片" src="../../images/eab31beb8c0e41d2.png"></p>
+<p>学习手册领取：</p>
+<p><img alt="图片" src="../../images/8b04fd62fd8f3d51.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>本推送教程、测试文件下载链接：</p>
+<p>https://pan.baidu.com/s/100GgFRIP51MPo7bakcYPuA</p>
+<p>提取码请联系客服微信获取：</p>
+<p><img alt="" src="../../images/fe8ecb8594a1f419.webp"><img alt="" src="../../images/7d247e6c6ef19f87.png"></p></article></body></html>

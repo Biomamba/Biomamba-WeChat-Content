@@ -16,8 +16,8 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 本教程复现集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwZqh9cm68DpicZyIZ0bKG4U0BLmsFUtSwQFYEHcBZmbt1M4e49OD2VibJlgJicmyUkbLsYbnNquNCbA/640?wx_fmt=jpeg&from=appmsg)复现手册展示：![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwZqh9cm68DpicZyIZ0bKG4UVdQkaZbhrYhaKiaYK7ziaTaB3R2HESiapoT6thfMNFWFylMb5hL1yBgSA/640?wx_fmt=gif&from=appmsg)
-这里也预祝我们的粉丝们早日命中心仪的期刊，若是大家觉得我平时分享的代码或生信教程**有那么点** 好用，可以在文章里以这种格式致谢Biomamba![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpySwypNriboDZ9lfyuaicOZ0LYry7AO5qdo9uwFBbtXiccLCtnIlSvc7fBTibgP9w7kUHygK3pWPOVk6g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/241b51c11fb5f2a7.webp)复现手册展示：![](../../images/c77d33fa8b58c19e.webp)
+这里也预祝我们的粉丝们早日命中心仪的期刊，若是大家觉得我平时分享的代码或生信教程**有那么点** 好用，可以在文章里以这种格式致谢Biomamba![](../../images/78d3d271b34ce951.webp)
 
   *
 
@@ -34,21 +34,21 @@ Since Biomamba and his wechat public account team produce bioinformatics tutor
 。这篇文章中作者经scRNA-seq聚焦于瘢痕样纤维化皮肤疾病的真皮组织，并将其与正常瘢痕真皮组织进行比较（Fig.1a）。首先UMAP聚类分析展示了21个细胞簇（Fig.1b），这些细胞簇通过系统发育聚类树进一步分类，作者共鉴定出了5个成纤维细胞簇和3个内皮细胞簇（Fig.1c）。在此基础上，经特异性标记基因进行细胞谱系的鉴定，其中成纤维细胞谱系由 COL1A1 鉴定，内皮谱系由 ENG 鉴定（Fig.1d-e），对于细胞的比例进行进一步分析，结果显示相比于正常瘢痕组织，瘢痕疙瘩组织中观察到内皮细胞和平滑肌细胞比例增加，与其中血管生成增加的结果一致，且成纤维细胞的比例减少 (Fig. 1f–g)。以上结果揭示了成纤维细胞在纤维化过程中发生了显著变化。
 
 Fig.1
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPaGJ3LqwkoWocvtiaHO1cmm436gs4iawh0cYiax5nq8qdTmSKSMrfbyJno0DtHNffQZjXcfUZ9o5WkQ/640?wx_fmt=png&from=appmsg)
+![](../../images/ecf3b3b22c48f736.webp)
 
 ### (2)瘢痕疙瘩和正常瘢痕中成纤维细胞形成不同的细胞亚群
 
 因成纤维细胞对于纤维化疾病进展非常重要，因此作者对其进行了重点关注，分析结果展示了13个亚型的成纤维细胞簇(Fig. 2a)及不同亚型在疾病发展过程中的变化 ，其中sC4的比例持续增加(Fig. 2b-c)。同时，作者经层次聚类分析发现，瘢痕疙瘩和正常瘢痕的成纤维细胞可以分为4个亚群 (Fig. 2d)。选择特异性标志基因对这些细胞簇进行鉴定，结果显示其中sC2、sC3 和 sC9 是促炎型成纤维细胞，sC6 和 sC7 是分泌状成纤维细胞，sC1 和 sC4 是间充质成纤维细胞，sC5 是分泌网状成纤维细胞(Fig. 2e)。成纤维细胞的功能还与特定胶原蛋白的表达有关。因此，作者还分析了四个成纤维细胞亚群的胶原蛋白表达水平。分析结果显示，与正常瘢痕相比，瘢痕疙瘩中分泌状、分泌性网状和促炎型成纤维细胞的比例减少，而间充质亚群的比例增加（Fig. 2f），且COL11A1、COMP和POSTN等基因在间充质成纤维细胞中的表达显著增加（Fig. 2g）。进一步对这些细胞簇中的差异基因进行GO和GSEA分析，结果显示骨骼系统发育、骨化和成骨细胞相关的信号通路在疾病中显著富集（Fig. 2h-i）。以上结果提示了间充质成纤维细胞在疾病发展中的重要性。
 
 Fig.2
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPaGJ3LqwkoWocvtiaHO1cmmJJ0ibpkvRRBmWHicS11YHJtbSa205OMmzJYBYtibXBQKmJEwW6VaACJKA/640?wx_fmt=png&from=appmsg)
+![](../../images/3d1707f1fd104b14.webp)
 
 ### (3) 纤维化皮肤病中间充质成纤维细胞特征的鉴定
 
 在上述发现的基础上，作者进一步关注了间充质成纤维细胞，首先发现相比于其他细胞亚群，POSTN和COL11A1等与骨骼系统发育、骨化和成骨细胞分化相关的基因，在间充质亚群中显著富集（Fig. 3a）。Heatmap展示了间充质亚群与其他亚群之间的显著差异基因（Fig. 3b），包括升高的POSTN、COMP、COL11A1、COL12A1和COL5A2在内的一些分泌蛋白和降低的SDC1、ADAM12和CD266等膜蛋白（Fig. 3c）。GO和GSEA分析表明，间充质亚群中上调的基因与胶原组织过程、伤口愈合、骨骼系统发育、成骨细胞分化等有关（Fig. 3d）。进而对细胞中的转录因子（TFs）进行分析，结果发现与骨生成、软骨生成以及韧带和肌腱分化相关的TFs，如SCX、CREB3L1和RUNX2，在间充质成纤维细胞亚群中富集，与其细胞表型一致（Fig. 3e）。为验证 scRNA-seq的分析结果，作者经免疫荧光（IF）检测发现，相比与正常组织，瘢痕中间充质成纤维细胞的标志物ADAM12和NREP明显增加（Fig. 3f-g）。
 
 Fig.3
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPaGJ3LqwkoWocvtiaHO1cmmiba9W1tFiaawhUIIMJ5vyWA9mHuCMlpqGHYrjNsF7uDPibVOG6nxM2Q8Q/640?wx_fmt=png&from=appmsg)
+![](../../images/4e2a1031dba20df2.webp)
 
 ### (4) 成纤维细胞亚群中的配体-受体相互作用分析
 
@@ -56,7 +56,7 @@ Fig.3
 
 Fig.4
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPaGJ3LqwkoWocvtiaHO1cmmibAJ7Hg1blaGBbnU8qwiclg3phn1QibyzBY3EOjKD7RHW3l8SMppYCgcQ/640?wx_fmt=png&from=appmsg)
+![](../../images/574b5bcbe0384823.webp)
 
 ### (5) 间充质成纤维细胞通过POSTN促进瘢痕中胶原蛋白表达
 
@@ -64,31 +64,31 @@ Fig.4
 
 Fig.5
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPaGJ3LqwkoWocvtiaHO1cmmMGwtTbayVl1ibPOvCzLYdcXmlCEUcuWtUy3MgIF8CRsibddQWEbniaqRQ/640?wx_fmt=png&from=appmsg)
+![](../../images/4d57d5a0f3c1f412.webp)
 
 ### (6) sC4 成纤维细胞比 sC1 成纤维细胞更像间充质细胞
 
 间充质成纤维细胞亚群包括 sC1 和 sC4 亚群，为进一步探究间充质成纤维细胞亚群的关系，作者进行了diffusion-pseudotime (DPT) 分析（Fig.6a-b），其中sC1细胞主要占据轨迹的下部分，而sC4细胞主要占据上部分。进一步对于间充质细胞的标志基因进行检测，POSTN和COL11A1主要富集在轨迹的上部分（Fig.6c）。RNA速率分析是一种预测细胞状态转变方向和速度的方法，能够得出剪接和未剪接的mRNA计数，作者发现Path1代表成纤维细胞的初始状态，之后分为两个分支，sC4成纤维细胞主要位于“pre-branch”和Path2的，而sC1成纤维细胞主要位于Path3和4分支（Fig.6d）。与此同时，作者关注了两个亚群中的差异表达基因，结果显示与间充质前体相关的基因，如POSTN、ADAM12和COL11A1，在sC4成纤维细胞中的表达高于sC1成纤维细胞。GO和GSEA分析也表明，与sC1成纤维细胞相比，sC4成纤维细胞在细胞外基质组织、骨化、软骨细胞发育存在更多富集（Fig.6e-g）。以上结果提示， sC4 成纤维细胞更像间充质纤维细胞，在疾病发展过程中发挥重要的作用
 
 Fig.6
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPaGJ3LqwkoWocvtiaHO1cmm4DFEYh5DiaVs2ByBfYMQF3tMUf47wziaASBiaenYblxicZf5z7L11Jj8ibA/640?wx_fmt=png&from=appmsg)
+![](../../images/50986ff34e03e525.webp)
 
 ### (7) 间充质成纤维细胞在硬皮病中增加
 
 接下来，为验证发现的一致性，作者将瘢痕中的间充质成纤维细胞亚群sC4与另一种纤维化皮肤疾病——硬皮病（scleroderma）中的成纤维细胞进行了比较，结果显示相比于正常瘢痕，硬皮病中第7亚群的成纤维细胞数量有所增加（Fig.7a-c）;且此亚群中间充质成纤维细胞标记基因POSTN、ADAM12、COMP和NREP表达也明显升高（Fig.7d）。相关性分析也证实硬皮病第7亚群成纤维细胞与瘢痕疙瘩中间充质成纤维细胞最为相似（Fig.7e）。免疫荧光染色结果显示，硬皮病组织中 ADAM12/NREP 细胞的比例高于正常对照组织。以上结果表明间充质成纤维细胞数量的增加可能是纤维化皮肤疾病的普遍机制。
 
 Fig.7
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprPaGJ3LqwkoWocvtiaHO1cmmxiaHtNRpgE2PPKOwfLdX0nywzQhfq0T5EkEgjtoyichxKd2nff1aRbPg/640?wx_fmt=png&from=appmsg)
+![](../../images/3344669d1de4c955.webp)
 
 **三、总结讨论**
 
 总而言之，这篇文章作者通过使用scRNA-seq技术，探索纤维化皮肤病范例瘢痕中的成纤维细胞异质性，同时在硬皮病中也观察到了间充质成纤维细胞亚群的增加，表明间充质成纤维细胞的增加可能是皮肤纤维化的一个普遍机制，这些发现将有助于深入理解皮肤纤维化的病理机制，并开发纤维化疾病治疗的潜在靶点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -97,4 +97,4 @@ Fig.7
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/7ef00c45433a7bde.webp)![](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

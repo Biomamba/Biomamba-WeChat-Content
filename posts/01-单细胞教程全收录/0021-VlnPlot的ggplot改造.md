@@ -10,32 +10,32 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=1&sn=b795a3e36ae092d8f87abb5a87187828&chksm=9b3caa9bac4b238dd33e905c33924b58aa4ff14e83abbf08046fba7fe765ecb0204163cb6acf#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 写在前面
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些**改进的可视化** 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样**信达雅** 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列**单细胞测图片改造计划** 的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
+![](../../images/90fab1387787746b.webp)随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些**改进的可视化** 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样**信达雅** 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列**单细胞测图片改造计划** 的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
 本次推送我们进行VlnPlot的ggplot2改造，主要内容有堆积柱状图、坐标轴更改、海盗船图、箱线图、蜂群图、直方图等，主要结果图片可参考：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdbq1mk0QicgdkkzQSDsF0bLth10LVHDibicUULvqa9mQ6LxCXE7icu82noQ/640?wx_fmt=jpeg)
+![](../../images/26d0c8ba7e5a5d00.webp)
 
 测试文件及可复制学习手册可在文末解锁或添加客服微信**Biomamba_kefu** 获取：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdaicib0vGiakyuTC4FcMYQkzM8FpgPsK04LXKTSykGoaenI2bt6ibmI5g2A/640?wx_fmt=gif)
+![](../../images/246e16049ee70717.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdovGd5WdWzIswAvDmcaYP0OogUFXFZzVLdsPS0HibIOQnBYk8CZ453og/640?wx_fmt=png)
+![](../../images/207256097b65c6e8.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 视频教程
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1iM4y127Ez?p=7
+![](../../images/90fab1387787746b.webp)B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1iM4y127Ez?p=7
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 图文教程
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 # 三 绘图数据整理
 
@@ -164,14 +164,14 @@ plot2 <- plot1+scale_fill_manual(values = ggsci::pal_nejm()(9))
 plot1/plot2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdicFLhiaVicAe841LkvdAIwmGguVWCKriayYLL1VGUWiaaQAbCPWKtwlseDQ/640?wx_fmt=png)
+![](../../images/1d29f7f148f40b63.webp)
 
 ```
 # 如果觉得图注多余，可以隐藏：
 plot2+theme(legend.position = "none")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibd3ibjJhiaHkKqqkBJlbLFr6gicibd80aEqhY9AzwkWLkvyUxibfc061AoCibg/640?wx_fmt=png)
+![](../../images/93c355fa09a38d22.webp)
 
 ```
 # 或者自定义图注的位置：
@@ -179,7 +179,7 @@ plot2+theme(legend.position = c(-0.05,-0.05)# 相对位置，整张图为c(1,1)
             )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibd87sUD6JSt4tMZYmOsVlgOSumlGibUxFNWv2Fo24XWJO0dbP34sib3KsQ/640?wx_fmt=png)
+![](../../images/5221428c754979e5.webp)
 
 ```
 # 调整的舒服一些
@@ -190,7 +190,7 @@ plot2+theme(legend.position = c(0.3,1),# 相对位置，整张图为c(1,1)
             )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdAWibaicvWiaVpPRo5FhJyWyZGWFCvkUVEVtIvUComsXa8tXZBNDc783ng/640?wx_fmt=png)
+![](../../images/fb3f4d857700e3be.webp)
 
 `stack VlnPlot`更改颜色：
 
@@ -209,7 +209,7 @@ copy_stack <- ggplot(data4stack, aes(x = Expression, y =  celltype, fill = Gene)
 copy_stack+scale_fill_manual(values = c(ggsci::pal_nejm()(8),ggsci::pal_aaas()(2)))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdy8bqWToFBIK1jd67bCg6rA8byMrjNC8UZb0s3Yn2pTGJPC78WBHic0A/640?wx_fmt=png)
+![](../../images/211ae1f573e1d8ca.webp)
 
 ```r
 # 把颜色填充由Gene改为Celltype：
@@ -227,7 +227,7 @@ copy_stack <- ggplot(data4stack, aes(x = Expression, y =  celltype, fill = cellt
 copy_stack+scale_fill_manual(values = c(ggsci::pal_nejm()(8),ggsci::pal_aaas()(2)))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdvMnDQTOl2F4N4c0Qh3qoljGESBfdwaeGFfiaLOibWotQjdU8Dphwia1pg/640?wx_fmt=png)
+![](../../images/6c5cfe1f81221708.webp)
 
 ```r
 # 交换x/y轴
@@ -244,7 +244,7 @@ copy_stack <- ggplot(data4stack, aes(x = celltype, y = Expression  , fill = Gene
 copy_stack
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdCW5kCziaxYYoZmCJpQyZfJslEhTloapbKXWeuH76XxZpZvnmVorkHcg/640?wx_fmt=png)
+![](../../images/7323391e50834abb.webp)
 
 ## 4.2 拆分
 
@@ -255,7 +255,7 @@ copy_stack
 VlnPlot(scRNA,features = he_gene[1],split.by = 'group')
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibd2NENSEUSQsCYGzxnbhPLFKWALo90x5VI2GrM2sUNlHcudkkU463QZg/640?wx_fmt=png)
+![](../../images/db89b7c63369e741.webp)
 
 ```
 # 用ggplot拆一下：
@@ -271,7 +271,7 @@ ggplot(data = data4plot, aes(x = celltype, y = Gm42418, fill = group))+ # 同样
         axis.text.y.left = element_text(size=10))  # 横坐标斜体45°
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdy6A7ah0kegLVk5kPIv4HlumakvPNoRLQmOvHOAvEicOs2ichy35ha3Dw/640?wx_fmt=png)
+![](../../images/1d4680791d42dac9.webp)
 
 ```
 # 此时需要自定义颜色应该输入group对应的三个颜色
@@ -288,4 +288,4 @@ ggplot(data = data4plot, aes(x = celltype, y = Gm42418, fill = group)) +
     scale_fill_manual(values = ggsci::pal_aaas()(3))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwlOviceMpuDJYoxtQdgHGibdN6DdyHHFr3VB2D2GI1bnXibAy5CBz9o2pQfrkicb4Ys7fbrKjmiad6TDA/640?wx_fmt=png)
+![](../../images/ec29bb391540d07c.webp)

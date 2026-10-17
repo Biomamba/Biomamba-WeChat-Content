@@ -10,13 +10,13 @@ albums: ["全文复现"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539638&idx=1&sn=e6b10f24ec98c8e15046430307399db8&chksm=9b3c22e6ac4babf0cd7fd192be85e514fdf78e9d415fdc6c1af0b28623888bb41324e923dee9#rd
 > 合集：全文复现
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhESLXO6LYU9sQS49CEHSuaX5hqKoHMbAZDtJJkSOtaLaBqJcN0x5LnibzHS9DOyEN2vcpuaL4ASEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9734e48a74d488fe.png)
 
 **写在前面**
 
 本教程可视化集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlclAqw8GnScdmBUoicE3ODplalw9ibJMZgDTwswGNyyc0ryXHsxVOiaBnWToGpLI4XCvdiaCKSlnmFolJib7cTfpE1UfpFgHhCT25o/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/fdb44039fd3a404d.webp)
 
 单细胞发育轨迹分析（Pseudotime Analysis）是揭开细胞分化、状态转换及发育命运谜团的核心技术。传统的分析往往通过聚类识别离散的细胞群，但难以捕捉从祖细胞到成熟谱系之间连续的转录组流形演变。
 
@@ -48,13 +48,13 @@ albums: ["全文复现"]
 
 ****
 
-[![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmfutKKBp1nNh5hbPFJIpSSXuOiciaVKialU8oNpsTzz5D5ww21Kj3reFwztbcwUmu7qqurPe2nSMW58fbEFFFeicN1na84kvKl2z4/640?wx_fmt=png&from=appmsg)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538934&idx=2&sn=9ae059e29a064302bcb737d23a58d87f&scene=21#wechat_redirect>)
+[![图片](../../images/35e4c65d09fabc5d.webp)](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538934&idx=2&sn=9ae059e29a064302bcb737d23a58d87f&scene=21#wechat_redirect>)
 
 学前tips: 本教程基于[Linux](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505777&idx=1&sn=f3efae390566b838a445ab9f832323c8&scene=21#wechat_redirect>)环境的[jupyter](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531443&idx=3&sn=0930f54959a9bd13b99780d8f26a1155&scene=21#wechat_redirect>)演示，计算资源不足的同学可参考：[足够支持你完成硕博生涯的生信环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532373&idx=2&sn=4708fac31ac8f4e347847e4b7f2a4fed&scene=21#wechat_redirect>)[忘记宣传了，独享用户连技术支持都是独享的](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529475&idx=1&sn=10827e982a637e0fc36e4b6e857736c8&scene=21#wechat_redirect>)[RTX5090、4080S、5070显卡上机](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529840&idx=1&sn=704b0a3d60a17c5bc2445d54c97b834f&scene=21#wechat_redirect>)访问链接：https://biomamba.xiyoucloud.net/欢迎滴滴[Biomamba_zhushou]获取帮助
 
 如果需要[单细胞数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531160&idx=2&sn=04d3798dc60958af2c9020fe7c4bd9b8&scene=21#wechat_redirect>)教学、生信热点[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)、[生信个性化分](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539480&idx=1&sn=9f1d8a76c0a5ddad4983c3fcf7620622&scene=21#wechat_redirect>)析、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530174&idx=1&sn=c3b0499adcc9093546e4ba1cfffba7bd&scene=21#wechat_redirect>)，欢迎滴滴[Biomamba_zhushou]获取帮助。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhESLXO6LYU9sQS49CEHSuaX5hqKoHMbAZDtJJkSOtaLaBqJcN0x5LnibzHS9DOyEN2vcpuaL4ASEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9734e48a74d488fe.png)
 
 **实操流程**
 
@@ -117,7 +117,7 @@ obsp: 'connectivities', 'distances'
 sc.pp.neighbors(adata)# Leiden 聚类：初步划分细胞群体，设置分辨率为 0.2sc.tl.leiden(adata, resolution=0.2)sc.tl.umap(adata)# UMAP 展示：检查细胞类型在降维空间中的分布情况sc.pl.umap(adata, color='cell_type', frameon=False)
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmKTHIZEHC56I4HN6czeNXeEyUstDWLOKdiaLuhSXz8sQndNibmFgba9guEZwRHuODU3obMNE6fn1xQxtrCVWPUVqgZXUDdhib5dBo/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/4fde68099ad3f206.webp)
 
 #### **5\. MAGIC 插补（填补数据缺失）**
 
@@ -127,7 +127,7 @@ sc.pp.neighbors(adata)# Leiden 聚类：初步划分细胞群体，设置分辨�
 # MAGIC 插补：填补 Dropout 数据缺失，使基因表达在流形上更加连续、平滑imputed_X = palantir.utils.run_magic_imputation(adata)# 基因表达可视化：展示插补后关键 Marker 基因的表达丰度genes_to_plot = ["Alb", "Lyz2", "S100a8", "Col1a1"]sc.pl.embedding(    adata,    basis="umap",    layer="MAGIC_imputed_data",    color=genes_to_plot,    frameon=False)plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmIiaiaMvib4AtH44cH4GibcMQQJmnV0oTxubmZEJXTRA3346jZ68LHSseRvGCwXQLRp9JKuMr1WZb8zicNKhibV0X51oD9Cib8I6YsI6E/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/6562fcb81e4d3cc3.webp)
 
 #### **6\. Palantir 核心轨迹推断**
 
@@ -257,7 +257,7 @@ Project results to all cells...
 # 展示拟时间进度图、命运不确定性(熵)图以及各谱系分化概率图palantir.plot.plot_palantir_results(    adata,    s=1,    embedding_basis='X_umap',               # UMAP 展示    pseudo_time_key='palantir_pseudotime',  # 拟时间：颜色渐变 → 细胞从干细胞到成熟细胞的轨迹    entropy_key='palantir_entropy',         # 分化熵；Entropy（命运不确定性）；高熵细胞通常在干细胞或早期祖细胞区域，低熵细胞通常在成熟分支末端    fate_prob_key='palantir_fate_probabilities'  # 分化概率矩阵，颜色表示该细胞向该终点分化的概率)plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmIaTr8k9sic7pdWCnnw1wyJ9iapf3ibibfxvWF7v0henoOKjttRVXUJ6899qVd9S7ficMWuuzIET5Pzv7GM208s9qTEsO3RibRW27m5Y/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/1f9f634039d26d9c.webp)
 
 7\. 分支提取与动态演变
 
@@ -279,13 +279,13 @@ Project results to all cells...
 # 可视化单分支示例for branch_name, cells in zip(        ['Kupffer cells', 'cDC', 'LSECs', 'Hepatocytes'],        [branch_Kupffer_cells, branch_cDC_cells, branch_LSECs_cells, branch_Hepatocytes_cells]    ):    ad_branch = adata[cells, :].copy()    sc.pl.umap(        ad_branch,        color=["total_counts", "palantir_pseudotime"],  # 用 total_counts 替代 n_counts        frameon=False,        cmap="viridis",        title=branch_name    )
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmI7KBQpl8iaChggNS88MZn07NldCzngCQR1HKyTjpYGlAwscDW8jOxwzblhytLjKjljLZyickdysdTcfxMcopGqicMicoWMJlmcja0/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/da8b93455ac61c13.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmLQeFAnJ1VEZhgs97PK1FB3iaC5mXDv3uiaIROEJoEnEiazPu3IiaH4Qp9h8SK3PeGdlpNZohPq9R0mPHDzOVeAcB1lAiaaibOUNiaicUs/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/777d48667ce83dd1.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmIvjGYGugibmhCHXibt0nsRiaSibML821sVc9Qf3KbnODMOVUJM6g9KdVPeFzeib3Lq7ohXicWjPtQG74ib2RKibicHscDg6iczk82iac0C48/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/58e624abecc40d02.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmJlibdmWfIK5ibjjUUazaddmF1Ackr3GAVq1c58p9JC9mAdwJQukemQcaIGmW6S3bvmFsVv8SBzot1wukILuse5RXwibCRS17TqV4/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/85b6fc38cc2e82e6.webp)
 
 #### **8\. 基因表达趋势拟合**
 
@@ -333,9 +333,9 @@ Kupffer cells
 # 绘制趋势# Alb → 肝细胞特异性标记# Lyz2 → 单核/巨噬细胞标记# S100a8 → 中性粒细胞标记# Col1a1 → 纤维细胞/星状细胞标记genes_of_interest = ["Alb", "Lyz2", "S100a8", "Col1a1"]palantir.plot.plot_gene_trends(adata, genes_of_interest)palantir.plot.plot_gene_trend_heatmaps(adata, genes_of_interest)plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmIIicXubFibwlAmdb8cYJUQialYdVtbwHl7SCymJVc8xKZ0vmzaWYF2RVYpWJCSzX5364xWiawN0oD6W5TXeibrDzoQJrwLPsdjIkgs/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/d6403e7bdec3c18f.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmLvO58UTcBgHYrfOqzcIOjNBic5Vb7UiaVjoK0ktO7TbHaZCYcbOiaGxZoXVhde8A0tG08XSYSkoWicYbsHHlm76YMyH5Gmg5hfB34/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/e264ca54a5c26376.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -343,13 +343,13 @@ Kupffer cells
 # 单分支基因趋势聚类top_genes = adata.var_names[:200]branch_list = ['Hepatocytes', 'Kupffer cells', 'cDC', 'LSECs']branch_communities = {}for branch in branch_list:    communities = palantir.presults.cluster_gene_trends(adata, branch, top_genes)    branch_communities[branch] = communities    palantir.plot.plot_gene_trend_clusters(adata, branch)    plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmJBHX39vpwjhx1FZ0Hj19RicwrN26SZuXsicaiaZMN8F5UP6giazVMI8nzUiaJRECAyJibpyDc4FHJQibSnNic7cqElHnPYe9Gxylia2kOc/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/7d07d234b4f6a60c.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmJHxkAuFlsialfUsC3HLNZcucTe5H5fsic5LkZC9Dm8JA3eiaJ7ZRleibibicyPiadfuibf0xRDzIzmkyBZUI90HJxRaWmTudCs6wIMWg8/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/6f13eacde19efe57.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmLfCJdUibker685hkKHiciaVNFyYj8v57fgIl3WQGMaOwYjb1nVLBEKSibhHdT0UdnU50FX5pCobgpu9avxlGu5AeBOAPiceGZnrlfY/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/54b274364cde47ed.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmI6aSYQOzvVE4Blsb14HcupgqnKhoK39xg8TE7iapJd1ibUBORibWG7Sib79aluO6YwEFREZUA3GgeUWu2xQHEclRnX3iaciabIllqDs/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/745cae30bb0575c2.webp)
 
 #### **9.富集分析（GSEA/GO/KEGG）**
 
@@ -406,13 +406,13 @@ LSECs 分支 cluster 1 富集 top5:
 # 分支列表branch_list = ['Hepatocytes', 'Kupffer cells', 'cDC', 'LSECs']# GO librarygo_bp = gp.get_library(name='GO_Biological_Process_2025', organism='Mouse')for branch in branch_list:    # cluster 1 的基因    communities = branch_communities[branch]    cluster_genes = communities[communities == '1'].index.tolist()    if len(cluster_genes) == 0:        print(f"{branch} 分支 cluster 1 没有基因，跳过富集分析")        continue    # 富集分析    enr = gp.enrichr(        gene_list=cluster_genes,        gene_sets=go_bp,        organism='Human'    )    if enr.res2d.empty:        print(f"{branch} 分支 cluster 1 富集无结果，跳过")        continue    # 新增 -log10(FDR) 列（可以作为颜色参考）    enr.res2d['log10_FDR'] = -np.log10(enr.res2d['Adjusted P-value'] + 1e-300)    # -------------------- 绘图 --------------------    # dotplot 返回 matplotlib Axes    ax = dotplot(        enr.res2d,        title=f'{branch} GO Biological Process',        cmap='viridis_r',        size=12,                     # 放大圆圈        figsize=(6, 8),              # 图大小        cutoff=0.25,                  # 富集比例阈值        fontsize=9,                   # 坐标轴字体        show=False,        legend_title='Significance (-log10 FDR)'  # 图例标题    )    # 调整坐标轴字体大小    ax.tick_params(axis='y', labelsize=9)    ax.tick_params(axis='x', labelsize=9)    # 调整图例标题（部分 gseapy 版本需要这样设置）    if ax.get_legend() is not None:        ax.get_legend().set_title("Significance (-log10 FDR)")    # 自动调整布局    plt.tight_layout()    plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmJEs9zMrbvw9lk9ia7WhT8AlLj30Qyf0IL4IuV06813rIK3HIMdWrk3L3wEvPm3JQORmCaoRw77lmTLAjv7knETm6nibibFJYGue4/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/dbf7e41c5fe48f36.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmKzPrtSbDfYUSSr8F0MQbwdoZhJUSuJnNoo58RyGZJjmORNgC1ia3KzQTiaPibXWW2rSnxN1JFnbJRlL8h4cO29uZ29VmUaicLh8ag/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/cca6afd343da13a1.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmJ6S8FDRqh9Qn4nCV3PB48wwO89PYUsmmZtAibF7bGKVJXiaicJOiaCbedYTxfDicnAdga0HzKT1H3hRG1AEfVnVaKp5DkLDj73icLick/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f34b6c97f7e51941.webp)
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmJEGAUeKMa5JPIPiaMMgbMIUibOzAGsqTrxrPIjjrfic2uTvy8GwWyy2MnJseN645WS4fbGOCrEZYwP8WaKfCOdIYLnibVR7rDxG98/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/6c34c0ce8ecaee4a.webp)
 
 10\. Scanpy联合分析10.1 UMAP 可视化 pseudotime 和熵
 
@@ -422,7 +422,7 @@ LSECs 分支 cluster 1 富集 top5:
 fig, axes = plt.subplots(1, 3, figsize=(18,5))# 1️⃣ cell_type（有 legend）sc.pl.umap(    adata,    color='cell_type',    ax=axes[0],    legend_loc='right margin',  # 关键    show=False)axes[0].set_title("Cell type")# 2️⃣ pseudotime（无 legend）sc.pl.umap(    adata,    color='palantir_pseudotime',    ax=axes[1],    show=False)axes[1].set_title("Palantir pseudotime")# 3️⃣ entropy（无 legend）sc.pl.umap(    adata,    color='palantir_entropy',    ax=axes[2],    show=False)axes[2].set_title("Palantir entropy")plt.tight_layout()plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmLarDogHzdRcibXGicmcEddicdlTcwtOPdic04EM0mZJlfZLMfHLTibX892VwibsyzzpUAkh02qSKxskz7uv6iagZorDySlW9kQ8X0fZM/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f695178a873ed78c.webp)
 
 10.2 小提琴图
 
@@ -432,7 +432,7 @@ fig, axes = plt.subplots(1, 3, figsize=(18,5))# 1️⃣ cell_type（有 legend�
 fig, axes = plt.subplots(1, 2, figsize=(14,4))# 左：pseudotimesc.pl.violin(    adata,    keys='palantir_pseudotime',    groupby='cell_type',    rotation=90,    ax=axes[0],    show=False)axes[0].set_title("Palantir pseudotime")# 右：entropysc.pl.violin(    adata,    keys='palantir_entropy',    groupby='cell_type',    rotation=90,    ax=axes[1],    show=False)axes[1].set_title("Palantir entropy")plt.tight_layout()plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmKyY3aTXNnMy7uOXdQhYCSicdtfb8uicqiaSt0JBze4htbn5soHo6jzOsZIzwh4xNCJpe7FL2PYLlXxfwvWz3QDpfHJySWCWzZI0I/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/1b0bc459922dd5f5.webp)
 
 10.3 pseudotime 四等分与堆积图
 
@@ -442,7 +442,7 @@ fig, axes = plt.subplots(1, 2, figsize=(14,4))# 左：pseudotimesc.pl.violin( 
 adata.obs['pseudotime_quartile'] = pd.qcut(adata.obs['palantir_pseudotime'], 4, labels=['Q1','Q2','Q3','Q4'])# 饼图quartile_counts = adata.obs['pseudotime_quartile'].value_counts().sort_index()plt.figure(figsize=(6,6))plt.pie(quartile_counts, labels=quartile_counts.index, autopct='%.1f%%', startangle=90)plt.title('Pseudotime Quartiles')plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmKB3TUDC7Zv1AJhKoKsUVgpyWWz1NyTiccia8070d0amwVoaJAOBfrYXRWz7TdeZl5WLbWWD3ichzkyuEXuYZ84ONBjo7GdkCXkgM/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/13754f24db0524cd.png)
 
   *   *   *   *   *   *   *   *   *   *
 
@@ -450,7 +450,7 @@ adata.obs['pseudotime_quartile'] = pd.qcut(adata.obs['palantir_pseudotime'], 4, 
 # 堆积柱形图：按 cell_type 显示 pseudotime 四分位占比cellnum = pd.crosstab(adata.obs['cell_type'], adata.obs['pseudotime_quartile'])cellprop = cellnum.div(cellnum.sum(axis=0), axis=1).T.reset_index()cellprop.plot(kind='bar', stacked=True, figsize=(8,5))plt.title("Celltype Proportion per Pseudotime Quartile")plt.ylabel("Proportion")plt.xticks(rotation=45)plt.legend(bbox_to_anchor=(1,1))plt.tight_layout()plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmI7ILKot0icdMo1Qp8ibfw4IVpxxGRHEulZJr0H7UwJnOTriaVElsiba7LkLYicM9b0dC8sCFpyfGrdFwQXXVuRqN2ibiaXicpWhicgXPUI/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f853276bc478ac77.webp)
 
 10.4 密度分布
 
@@ -460,7 +460,7 @@ adata.obs['pseudotime_quartile'] = pd.qcut(adata.obs['palantir_pseudotime'], 4, 
 plt.figure(figsize=(8,5))ax = sns.kdeplot(    data=adata.obs,    x='palantir_pseudotime',    hue='cell_type',    fill=True,    alpha=0.3)# 把 legend 移到图外右侧sns.move_legend(    ax,    "center left",    bbox_to_anchor=(1.02, 0.5),    frameon=False)plt.tight_layout()plt.show()
 ```
 
-![No description has been provided for this image](https://mmbiz.qpic.cn/mmbiz_png/hRkOoB5ZTmKpiav7WBE8zWIjcMtKNYr9AdOVUVUSnbWUbWXibhJLMVvXzicDpIqicARgRhW8ZQZfwXckNMeicnxDMBrwoByeNLyLWR6pNicUXCBmk/640?wx_fmt=png&from=appmsg)
+![No description has been provided for this image](../../images/f666ed277161ba38.webp)
 
   *   *   *
 
@@ -471,11 +471,11 @@ plt.figure(figsize=(8,5))ax = sns.kdeplot(    data=adata.obs,    x='palantir
 已保存为 adata_pseudotime.h5ad
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWhESLXO6LYU9sQS49CEHSuaX5hqKoHMbAZDtJJkSOtaLaBqJcN0x5LnibzHS9DOyEN2vcpuaL4ASEQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9734e48a74d488fe.png)
 
 **资料领取**
 
-一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：![](https://mmbiz.qpic.cn/sz_mmbiz_png/hRkOoB5ZTmJtpE4HNJguSblklJ3IPDDE0XlgqD6MtMx4KWZZVsYR7FGya9ERZMDZ0Aqjfl4RKELbFVko3aoxPpAthgJNexezYfXTXiaO5vkA/640?wx_fmt=png&from=appmsg)
+一切不给测试文件和分析环境版本的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：![](../../images/dbfa514d8a686fa2.webp)
 
 通过网盘文件分享的文件：
 
@@ -483,7 +483,7 @@ https://pan.baidu.com/s/1X9xklW5hNCBT0m2EKouzwA
 
 提取码请滴滴我们领取
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -516,8 +516,8 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](../../images/4ec66ccdb832fd05.gif)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=9)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=10) 留一个领取[资](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)[‍](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)[料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**助手[Biomamba_zhushou]** ，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=12)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)[‍](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)[料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**助手[Biomamba_zhushou]** ，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

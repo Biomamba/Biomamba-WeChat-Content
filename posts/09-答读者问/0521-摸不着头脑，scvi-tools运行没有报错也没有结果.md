@@ -32,7 +32,7 @@ albums: ["答读者问"]
 
 **2\. 运行的对象没有任何结果**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmQMflF5lrdOvmGfDicrMicOUd2CuB7qrKsbnmibMOKuMVNHDTvhxshzEZVHbPvnq4CXNvMLYHCvNZO2fJqH3bWfaISbOhsU8gvqw/640?wx_fmt=png&from=appmsg)
+![](../../images/aeef80fae17b49ef.png)
 
 ##  （2）原因
 
@@ -42,11 +42,11 @@ albums: ["答读者问"]
 
 **正确的安装方式：**
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlaibUlpLeLYNxl2fu6gibWiaptAIRBYV96hqfKyzE6csR0kjq0o4KW8aDIBHouy0hW78hpRtZ89IHWQ8xe90ntzgJlTdg8Ajtq7Q/640?wx_fmt=png&from=appmsg)
+![](../../images/92cf65c0cfd2984a.png)
 
 而我一开始的安装方式：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl0964zb6mAlYUv0EXHKvQHD9afLSUOAuhhjKc6j2ytYesJD3ta1FpApEWra4v2ZoibJadgibV2p2dJ4e8WiajHIPsj8iaR3CslMhc/640?wx_fmt=png&from=appmsg)
+![](../../images/606c257e6c1ce234.png)
 
 ## （3）解决方法
 
@@ -57,7 +57,7 @@ pip install -U scvi-tools[tutorials]
 # 如果你安装成功，并且严格按照官网流程得到如下结果，那么恭喜你前面安装都是没有问题的
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwn97qcXjgSe7c9NhwkD0xudNc3f2QOKCWFRjyFXIDp9Uia1SwUtPiaUwp2LAyHtIKcIobgQTLuFe2XBBZvnGQeAeZu2HJR4ClZGA/640?wx_fmt=png&from=appmsg)
+![](../../images/54bbe033b9e374da.png)
 
 **二、打铁还需自身硬**
 
@@ -328,15 +328,15 @@ scFAST系列**[一文学会scFAST-seq数据分析](<https://mp.weixin.qq.com/s?_
 
 向下滑动查看更多
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&#imgIndex=10) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)
+![图片](../../images/bd69821fb60dc828.gif) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247535983&idx=1&sn=99378a252908b06f56432eb08741d278&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=1&sn=8d03259be06f54521aac5251dec988d5&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247536307&idx=2&sn=2d030173f51d24a4fee43bd0d83da03b&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)[没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&#imgIndex=12) 您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/eff615a0a49ee4ca.webp)![图片](../../images/2d4f3b9289619e36.gif) 您点的每个赞和在看，我都认真当成了喜欢

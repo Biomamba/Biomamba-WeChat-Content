@@ -36,8 +36,8 @@ scATAC-seq面临着与scRNA-seq一样的难点——[稀疏性](<https://mp.weix
 
 学习手册可视化集锦（文末可获得代码和测试文件）：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwlslfXNY613Vge4A4dLel6vhnxeXKE5sQO50KqC4AX3SZ2zib5ykicOz7VuVlx5cb9oa00zsASh1SDiavGuHQtCJDPY9d0ER9Gfho/640?wx_fmt=jpeg&from=appmsg)
-更多scATAC教程可见：![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmjmgibzjmzhEKb2InO6B9omM6eHiaPo03iac8UMJyFZ8Pe7uib1ql6O55vhFia8b6nCtNYQdr1x5VqoW0ZpHwS0M3tmqibRETZ2k1So/640?wx_fmt=png&from=appmsg)
+![](../../images/e44ca2ce7abbcce6.webp)
+更多scATAC教程可见：![](../../images/5d1de29dd4020889.webp)
 
 **二、 ArchR绪论
 **
@@ -183,7 +183,7 @@ Arrow文件是ArchR的核心数据格式。createArrowFiles()在创建过程中�
 # TSS富集分数分布(山脊图):p1 <- plotGroups(  ArchRProj = proj,  groupBy = "Sample",            # 按样本分组  colorBy = "cellColData",  name = "TSSEnrichment",        # TSS富集分数  plotAs = "ridges"              # 山脊图展示分布)# 片段大小分布(判断核小体条带模式, 正常应在147bp整数倍处出现周期峰):p2 <- plotFragmentSizes(ArchRProj = proj)# TSS富集分数 vs fragments数量散点图:p3 <- plotTSSEnrichment(ArchRProj = proj)patchwork::wrap_plots(p1, p2, p3, ncol = 3)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkXYQ3Nk9tA3KcYcx9jqM7JGlGhLKaPt1ibCojZPcGx6hTGCjYpw6gOyscjiaanRscLdibI5jLxicp5gUoDwIdlHTXBG8icPic43yKgo/640?wx_fmt=png&from=appmsg)
+![](../../images/7144499f13264f48.webp)
 
 3.2 双细胞鉴定与过滤
 
@@ -219,7 +219,7 @@ ArchR使用迭代LSI(iterative LSI)对tile矩阵进行线性降维——第一�
 # 可视化聚类结果:p1 <- plotEmbedding(ArchRProj = proj, colorBy = "cellColData",                    name = "Clusters", embedding = "UMAP")# 双细胞评分在UMAP上的分布(鉴定潜在双细胞区域):p2 <- plotEmbedding(ArchRProj = proj, colorBy = "cellColData",                    name = "DoubletScore", embedding = "UMAP")p3 <- plotEmbedding(ArchRProj = proj, colorBy = "cellColData",                    name = "DoubletEnrichment", embedding = "UMAP")patchwork::wrap_plots(p1, p2, p3, ncol = 3)
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwncwqXLV2o7jubcwbQ3jJElsS8xHxW2yfjmCu2rZ37IcLIxuJAYQibWYpOSHC05nWde0FYsABzvRicvphb23ZRictuwr9ffBcvIXU/640?wx_fmt=png&from=appmsg)
+![](../../images/d64931bffd6eab00.webp)
 
 5\. 基因评分矩阵与marker基因
 
@@ -237,7 +237,7 @@ scATAC没有表达矩阵，ArchR通过统计基因体及其上游区域的Tn5插
 # PBMC经典marker基因的基因评分可视化(经过插补), 以4x4拼图展示:markerGenes <- c("CD14","CD3D","CD8A","CD4","MS4A1","NKG7","FCGR3A",                 "PPBP","GZMB","LYZ","IL7R","GNLY","CST7","XCR1","TREM1")p <- plotEmbedding(  ArchRProj = proj,  colorBy = "GeneScoreMatrix",  name = markerGenes,  embedding = "UMAP",  imputeWeights = getImputeWeights(proj) # 使用插补后的基因评分)# patchwork拼图(p为ggplot列表):patchwork::wrap_plots(p, ncol = 4)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkW0nTYE7BsQYqZZ3PiayX7W3ka9YicagF5BRn54ibnCNEdnePViaL184nmNnI5It89D9c5GlpoEibWQoHm3Aff6fFuRnwRadajc0fg/640?wx_fmt=png&from=appmsg)
+![](../../images/cc1f42acb7331958.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -253,11 +253,11 @@ scATAC没有表达矩阵，ArchR通过统计基因体及其上游区域的Tn5插
 # marker基因热图(以注释后的细胞类型展示):heatmapGS <- markerHeatmap(  seMarker = readRDS("result/markerFeatures_GS_ct.rds"),  cutOff = "FDR <= 0.01 & Log2FC >= 1.25",  labelMarkers = markerGenes, # 高亮标注经典marker  transpose = TRUE            # 转置(细胞类型为行))
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkN84Vsap1ETGDhW9gyzkp4RTPRBO6kz4Xs4nHOhWk5ib6MqIwcSA92nVccUGHhJpzyQ106NXv7WZdxIIve9fdpIHW4aDlJo2ZM/640?wx_fmt=png&from=appmsg)
+![](../../images/a8cbf27db266a688.webp)
 
 根据marker基因热图及经典marker的显著性(下表)，我们对cluster进行注释。值得注意的是，scATAC的基因评分信号弱于转录组，部分cluster的marker并不典型(C2、C4、C5)，对这些cluster我们保持cluster编号不做强行注释，后续第10节的scRNA整合注释会给出这些cluster的细胞类型预测：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnePBUtrWJgGGeaVbCoRGDN1VxaTcGYJsVdIwprrlqA7ibA9qqLHWyiaep8WFhrHT7QLWHYZvWIo1ibtStFOLgmcpIrjken2AWrpA/640?wx_fmt=png&from=appmsg)
+![](../../images/3a9ed9171354ee69.png)
 
 可以看到，scATAC基因评分注释存在不确定性(C7、C9、C10与整合预测不完全一致)，这正是scATAC单独注释的典型困难，第10节中我们将以scRNA整合结果为准完成注释。
 
@@ -292,7 +292,7 @@ ArchR内置了基于MACS2的peak calling流程——每个cluster分别构建伪
 ComplexHeatmap::draw(heatmapPeaks, heatmap_legend_side = "bot", annotation_legend_side = "bot")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnFZofia0uKZic7s7UR8Rbibavjwr4vNWfva13TnO6Vrf7eAZiaUibIDZiaS5RP35V96YyUENtsFiaxsBcfBdbf11ViarycGeNIoMLGyQM/640?wx_fmt=png&from=appmsg)
+![](../../images/cdf3ecd55a2fd8d0.webp)
 
 7\. motif富集与chromVAR偏差
 
@@ -310,7 +310,7 @@ ComplexHeatmap::draw(heatmapPeaks, heatmap_legend_side = "bot", annotation_lege
 # motif富集热图(每个细胞类型取top10富集motif):m <- readRDS("result/enrichMotifs_mlog10p_top_ct.rds")ht <- ComplexHeatmap::Heatmap(  m, name = "-log10(FDR)",  cluster_rows = TRUE, cluster_columns = TRUE,  col = colorRampPalette(c("white", "#FFF3B0", "#E09F3E", "#9E2A2B"))(100),  row_names_gp = grid::gpar(fontsize = 8),  column_title = "Motif Enrichment (-log10 FDR)")ComplexHeatmap::draw(ht, heatmap_legend_side = "bot")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlSDDrFphX3zgYFHIiabUgqCvGzzkiaMPLWS9oG926EUPujKb4Vlt5jb0mibtgwRNEDww4d8HzpsPbxjYCZYPiaBn1mNuZ17lDdYvo/640?wx_fmt=png&from=appmsg)
+![](../../images/ae5d64f221a107b4.webp)
 
 富集结果中可以看到一些与细胞类型吻合的调控因子：CD14 Mono富集了髓系关键TFCEBPB(p=4.2)，B细胞富集了B细胞谱系决定因子BCL11A(p=3.6)，CD4 T富集了EGR1(p=4.5)、SMAD5，C10富集了EOMES(p=2.9, 与NK细胞标志一致)，C9富集了ETS家族成员ERG、ELK3等，这与marker基因注释的细胞类型相互印证。
 
@@ -322,7 +322,7 @@ ComplexHeatmap::draw(heatmapPeaks, heatmap_legend_side = "bot", annotation_lege
 
 向下滑动查看全部~
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmictPibicxb9h6UbhBWSS3LZHylMzmzrhQMpYTxGicC5Qo9bFEdyicjNLxXTgibFnluFFVSknZf1vVQqJnbibmLyMYWcMJCO8j0ShUico/640?wx_fmt=png&from=appmsg)
+![](../../images/5a1ce31b3b88c325.webp)
 
 8\. TF足迹分析
 
@@ -358,7 +358,7 @@ library(monocle3)# 从ArchR项目构建monocle3 CDS(使用插补后的基因评�
 # 拟时序可视化(仅展示UMAP轨迹面板, plotTrajectory返回列表的第1个元素):p1 <- plotTrajectory(proj, trajectory = "Monocle3", colorBy = "cellColData",                     name = "Monocle3", continuousSet = "horizonExtra")p1[[1]]
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkReiaXRENGTYOHic2l3DV2URauE9v1jiayK9YEKEaQoQEhnyOhmw5oqgMsS7vHiao0k1OCHcicboQ27nTTB8Q1DDYql0f0zqoaGvvo/640?wx_fmt=png&from=appmsg)
+![](../../images/748106906ff0ff8f.webp)
 
   *   *   *   *   *   *
 
@@ -394,7 +394,7 @@ seRNA <- readRDS("result/seRNA_pbmc10k_annotated.rds")proj <- addGeneIntegratio
 # 预测的细胞类型在UMAP上的分布:p1 <- plotEmbedding(proj, colorBy = "cellColData", name = "predictedGroup",                    embedding = "UMAP")p2 <- plotEmbedding(proj, colorBy = "cellColData", name = "predictedScore",                    embedding = "UMAP")p1 + p2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlBGohgicnrAcRlhNjjEFfuRb0wHsytP7pjUGb2k0HsQtPW83SNGQhkTPvwbAAkMWrCaCf4yibzfMs7139fJtFS1yg7lHDTRttec/640?wx_fmt=jpeg)
+![](../../images/5efb99ddaccad197.webp)
 
 11\. 最终效果展示
 
@@ -404,13 +404,13 @@ seRNA <- readRDS("result/seRNA_pbmc10k_annotated.rds")proj <- addGeneIntegratio
 # 综合展示: 细胞类型注释、marker基因、motif偏差与拟时序p_final <- patchwork::wrap_plots(  plotEmbedding(proj, colorBy = "cellColData", name = "CellType", embedding = "UMAP"),  p2,  ncol = 2)p_final
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwnicDy1KA8MlUyGSXbab4icRkm6TCm8HDsWIOKa1y2cHsAgWoNjqTEbLwa8HRSxnEuRtBS3xK0J71rdXG09GBPYQpicibAb3wibDD3g/640?wx_fmt=jpeg)
+![](../../images/e35d1f43841f1cc3.webp)
 
 **五、资料领取**
 
 本推送的代码和测试文件可以在以下链接中下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkYHiamWibCP4L9J7biaDSnUOV1HavtOAHn4txZycP5aDOhPfMGahHlhicIGnZ6CPM5ib92cicTtO0IW4L0sibaxKyAmV4P0B9zy76LnE/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlzVwT4bM514zicwq5UIM6UTEFfzYwYf35sB0j8DfK8RXp8gUJWAib8IFE9UKwUMbxExibqFCMLlTcseibvenFkzwubFqMfGQictTdU/640?wx_fmt=png&from=appmsg)
+![](../../images/6112b49343fc9265.webp)![](../../images/ff40d14bc8f4d4be.png)
 
 百度网盘链接: https://pan.baidu.com/s/1cXBiDtqXTC6Tv1RINkY0lQ
 
@@ -431,7 +431,7 @@ sessionInfo()
 
 向下滑动查看全部~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -470,9 +470,9 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/4ec66ccdb832fd05.gif)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247539170&idx=1&sn=ebd269635da35335554c53709fa0a0c0&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

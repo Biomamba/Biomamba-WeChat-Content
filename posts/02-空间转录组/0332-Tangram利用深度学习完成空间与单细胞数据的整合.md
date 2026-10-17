@@ -40,7 +40,7 @@ Tangram的使用代码教程与测试文件可见：
 
 **Figure 1**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClmNZ2ME9pYtfS4x02ukricLA3iavQ7us1u29jFRZoISchMTZrfdxeHKwQ/640?wx_fmt=png&from=appmsg)
+![](../../images/f16703f06f8a941c.webp)
 
 #### (2)Tangram 比对`MERFISH`数据创建基因组规模水平高分辨率表达图谱
 
@@ -48,7 +48,7 @@ Tangram的使用代码教程与测试文件可见：
 
 **Figure2**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSCloicSfISYdQsfF2eIc3picmTcGDbCaYmVrnNm6aPAkEN3vBPVjeibTH2dg/640?wx_fmt=png&from=appmsg)
+![](../../images/54864b04043c6310.webp)
 
 #### (3)`Tangram`能够精准矫正`STARmap`来源的转录组信息
 
@@ -56,7 +56,7 @@ Tangram的使用代码教程与测试文件可见：
 
 **Figure3**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClaHAnv3XP6LNQmkXbzSQth9jg3rBNMMrKHDseuw1cseSGHib4f6r7fNg/640?wx_fmt=png&from=appmsg)
+![](../../images/6d2457d247188ebc.webp)
 
 #### (4)`Tangram`能够应用`single-cell`数据对空间组学进行去卷积并与组织学数据进行整合
 
@@ -64,7 +64,7 @@ Tangram的使用代码教程与测试文件可见：
 
 **Figure4**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSCl6jmSEGUL4uARq3JQxrFBk84GU5dLnVUvafvuvqXTmHMrBAKkSh4HlA/640?wx_fmt=png&from=appmsg)
+![](../../images/698daac4d1e07923.webp)
 
 #### (5)`Tangram`利用非稀疏性基因对空转数据进行`插补、填充`时更准确
 
@@ -76,7 +76,7 @@ Tangram的使用代码教程与测试文件可见：
 
 **Figure 5**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClIGCUqYmFsu3xDCRxD4XmUXar3QBdMcMLicDBKw1Wrvd05ps1FtmTKaQ/640?wx_fmt=png&from=appmsg)
+![](../../images/69f3e63beeefb553.webp)
 
 #### (7)`Tangram`能够跨物种完成细胞类型的预测¶
 
@@ -84,7 +84,7 @@ Tangram的使用代码教程与测试文件可见：
 
 **Ext.Fig3**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClxjE9ZiafibibsCsJiblJ872iahQBZszMj1sQ8hWiaviaTfoD5rZ2qy9OibNoPw/640?wx_fmt=png&from=appmsg)
+![](../../images/753ba779bbc2d4e8.webp)
 
 #### (8)组织学、解剖学、分子表达的单细胞图谱
 
@@ -92,15 +92,15 @@ Tangram的使用代码教程与测试文件可见：
 
 **Ext.Fig4**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClJcv7oDRx0umHDgPJwmIQkSkAX2UhEP0kpcLcMhrs4BH6gZFHPD5ictQ/640?wx_fmt=png&from=appmsg)
+![](../../images/5ddfe748e02a6b12.webp)
 
 **Ext.Fig.5**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClcP2GNaW1MrpnxUPOAvkBGmA9WvRuyIk6cMl9ouz0USpZner140S2vg/640?wx_fmt=png&from=appmsg)
+![](../../images/35b8f6ce177ff2bf.webp)
 
 Figure 6
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClI63GnG7mKU8p0uRrXaLmbxUhkPLSS0tZibwPxehcQjic9jbGhYsrMXSQ/640?wx_fmt=png&from=appmsg)
+![](../../images/2362caa2acbf4501.webp)
 
 **三、总结**
 
@@ -112,14 +112,14 @@ Tangram的使用代码教程与测试文件可见：
 
 参考：Biancalani, T., Scalia, G., Buffoni, L. et al. Deep learning and alignment of spatially resolved single-cell transcriptomes with Tangram. Nat Methods 18, 1352–1362 (2021).
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530154&idx=2&sn=e5d0a63646094c3094b7b916350d22ad&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/eff615a0a49ee4ca.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

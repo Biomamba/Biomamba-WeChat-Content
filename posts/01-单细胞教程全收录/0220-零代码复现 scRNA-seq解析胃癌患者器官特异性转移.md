@@ -29,24 +29,24 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
 各位同学需要**联系您的专属在线客服，获取demo数据后，进行操作学习。**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz8I2iaXyZBHLogibFELwJEy1A5Nz8UULAIFozj40ZiaXKZzeNTLr9l3cicmrNSD2t6ia7YduIY9KibFAwA/640?wx_fmt=jpeg&from=appmsg)**
+**![图片](../../images/239ea5459d709578.webp)**
 
 **
 **
 
 **文章介绍**
 
-**复现文章****标题：** 《Revealing the transcriptional heterogeneity of organ‐specific metastasis in human gastric cancer using single‐cell RNA Sequencing》复现集锦：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpymPc72Paribbb1XsqyvB2u1KTrwFmrZ47Fx9Hr7WXBXqMHshmico94dC5VuXicrSKURqXluPFV2BibHg/640?wx_fmt=jpeg&from=appmsg)
+**复现文章****标题：** 《Revealing the transcriptional heterogeneity of organ‐specific metastasis in human gastric cancer using single‐cell RNA Sequencing》复现集锦：![](../../images/988ed1cea6a3683b.webp)
 
 **发表日期和杂志：** 2022年发表在Clinical and Translational Medicine上
 
 **在线阅读链接：** https://doi.org/10.1002/ctm2.730
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxTibVZiameOWTbcCXWNAWBhVAM5ib6XqrUYnVfVIPFxemXcVegf01CgmIg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/efe8fb58e1168743.webp)
 
 **单细胞实验设计：** 使用了单细胞RNA测序技术评估了来自6名患者的10个新鲜人体组织样本，共计42,968个细胞。
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxKSnvHibsh3IUU7hxlFf0VOoeNjUdIJ7egsy1gIaj4lcz4EAzttDNy8w/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/a8601ed9df78590f.webp)
 
 **数据链接是：** https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE163558
 
@@ -59,7 +59,7 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
 单细胞数据来自6名患者的10个新鲜人体组织样本，包括3个原发性肿瘤样本(PT)、1个邻近非肿瘤样本(NT)和6个转移样本(M)
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4Cxh043ghdxVO6BoObKia6AjAnJEYOicOB5xdicp1w5ib6hicdic52bcDtaJYHA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/81d215e581ddffd3.webp)
 
 经过质量过滤，共检测到42 968个细胞，在降维和无监督细胞聚类之后，鉴定出七个细胞亚群：
 
@@ -71,15 +71,15 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
   * NK细胞(NK, 1173;KLRD1, GNLY, KLRF1)
   * 髓系(5519;CSF1R、CSF3R、CD68)
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxzGtwCHfZY4mBpAN3ljUpKia6DUZOEy0lkUHDoW8pcibwgSwnBRVnmbTw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/045a3acf439f93ce.webp)
 
 在不同的原发肿瘤和转移瘤中，每种细胞系的比例差异很大，揭示了一种异质性的细胞状态。
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/icQem1PXnP9Z8UXGvZShicPicTftj3MR4Cxwxe6VgM1JuiaiaKHudfUZkyKh3R9OtQWoDnib4JSO8YyMZfxUt5bBbFTg/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/7fe0259115f64d02.webp)
 
 恶性与非恶性上皮细胞分析通过特定的恶性和非恶性评分，系统定义了1615个恶性上皮细胞和128个非恶性上皮细胞，分析发现其中83%的非恶性上皮细胞来源于非肿瘤样本(NT)
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxJcDDCUeMUX1wb0fwpiaAmw1Csesb4PYaUMUTLWIv9ZLsMBGGoXFbiaKw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/c8ebd743e8e07869.webp)
 
 **seeksoul云平台分析复现**
 
@@ -93,19 +93,19 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
 首先是将下载整理好的原始数据上传到云平台，选择**数据上传——单样品数据——matrix矩阵格式，然后上传对应的三个文件即可**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4Cx23IictAtyJLk6fpefGImqDhibb28KeYzCN3EjI09viaQcAhsllsoRHneA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/fb7012a4b7db38ca.webp)
 
 上传好数据后，选择需要进行分析的数据，点击**快速创建流程** ，填写好需要的信息，即可上传数据进行分析，可以再已选数据中整理需要的分组信息
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxsSlwjRsjSv0kDHzEN7znBao99W8ibqLiam4SCxuNDU68EL7kW9nQeBzg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxApVf9Hs4HNK5eH0HQn3jvp9wkA4sw0vlSwf0qoxnibvA9iaSzYUjjsTg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/412e047a1c9c63d8.webp)![图片](../../images/8474a4a5c103448f.webp)
 
 然后就是初始化数据，会统计`nferture、ncount以及mito线粒体基因占比`，然后进行过滤、整合等基本分析流程即可
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxrrjgZXKicC4DIpJjf0xiaeZKrricZdcJsUtsFznwU7nsnhG2kdNnCo5sg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/e0ec571c657f6321.webp)
 
 **细胞注释：使用是0.5的分辨率，基于singleR自动注释+AI注释，结果较为准确**
 
-![0.5分辨率](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxjUBBfBo1eGeX1CZBkENQlGYmO69icUWZ58IicTEkibn5icMybO1kfGPbRw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1) 0.5分辨率![Figure1C](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxzGtwCHfZY4mBpAN3ljUpKia6DUZOEy0lkUHDoW8pcibwgSwnBRVnmbTw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)Figure1C![注释结果](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxaHo2czIBBsKQqGnY4lAWu31GYe1CRq92N0v1wEY9ozEW8a8t7pZFpQ/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)注释结果
+![0.5分辨率](../../images/e8033f6b850cd60b.webp) 0.5分辨率![Figure1C](../../images/045a3acf439f93ce.webp)Figure1C![注释结果](../../images/37fca0399b4be4d3.webp)注释结果
 
 **当运行完基础分析，以及进行细胞注释之后，可以使用画图工具，基于需要展示的分组信息进行可视化**
 
@@ -113,68 +113,68 @@ https://seeksoul.online/t_static/Biomamba/Biomamba.html
 
 **打开画图工具之后，可以使用右下角的添加图组——添加一块新的画布，比如新建一个新的tsne结果，用于展示文献的Figure1B**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxNEUVY9s3GcxsrmJB1PLmDmEIHuBWBjQtKZJdJmLfS4Z5XNNP0EEUJA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/833d0ccf0903be72.webp)
 
 **添加好图组之后，在打开图组的情况下，选择` 添加模块`，即可新建新的图表，可以展示的图表类型有小提琴图、降维图、FeaturePlot、Dotplot、分组统计图以及热图**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxxiaWKlRPDwbr64cVyugy6ZqYiaJKpEfQRSNx4cxANWUElK1IKRmriaboA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/7934dc8511c1c4f7.webp)
 
-**文献中的figure1B就是展示了不同分组的tsne结果，所以我们在图组里面选择需要的分组进行展示即可**![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxALgG7wQAQ4bzNWiaibTCLRDsicBHsvLia22tmTFg5eT7Jw6dFR2kuHDaYg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+**文献中的figure1B就是展示了不同分组的tsne结果，所以我们在图组里面选择需要的分组进行展示即可**![图片](../../images/f9865f086d3cd5e0.webp)
 
-![Figure1B](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4Cxh043ghdxVO6BoObKia6AjAnJEYOicOB5xdicp1w5ib6hicdic52bcDtaJYHA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1) Figure1B![复现结果](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxH4sJBmbyFpR52l9iaic3a8N5gJMSajwkic1AzOXiaZ6FwjibuPicNTpAYclA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)复现结果
+![Figure1B](../../images/81d215e581ddffd3.webp) Figure1B![复现结果](../../images/43c8c1e588c2b965.webp)复现结果
 
 **top基因集热图展示**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxlEwDBbuq00Unk8SCLUlpgQjcfIQyflulLneq3GaFoNb6PmliclGjR2Q/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/bea3d6a1c2ee5503.webp)
 
 **细胞比例图**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxXcKaltg9UzwVfovKo19J2qSTfUYSNfIu0hF9J0gh2iav1GBnQ1JkwAQ/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/54d5f471c71870ca.webp)
 
 **文献中是汇总了两个分组的细胞比例堆叠柱状图，所以可以选择不同的分组进行展示**
 
-![Figure1F](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxJ7qpHMqBfQXia4CWutweIm70qIWtQYNYUH5ibu6vEfF5dIT5zYQeZgPQ/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1) Figure1F
+![Figure1F](../../images/61ed46a436529bf5.webp) Figure1F
 
 **添加模块之后，选择分组统计图进行展示，这时候要注意选择分组因子为celltype的注释信息，拆分因子为需要展示分组信息**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxibNHsmoibYDNtuOpDicTL2lkoZbyvjibDP5uqQc1TKjZDE8xBbPdZ7Duicw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4Cx9YEAhTut2Ngic7Gp88yriawhpHSgeTJyOU3MNljlOrDKHPwETW1xURtg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/bdb4796128720ea3.webp)![图片](../../images/c9868c3bddb4660a.webp)
 差异富集分析
 
 **在差异富集分析选项中，可以选择全部的细胞亚群作为细胞分组，在比较组合里面可以选择需要的分组信息，这边选择是PT、NT以及转移M的分组**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4Cxmd5FIHOKW0122EJM2rsBgTGRmcRPXfNtlnYbUnD93kFezgo6Lz3yeA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/9caa381717f5fd96.webp)
 
 选择全部细胞亚群进行分组，会依次基于B细胞亚群，在PT和NT之间的差异，PT和M之间的差异，选择好需要的分组信息
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxBUCLbwS7FOU4bMticGUVXSzMGQF04BLMl2X5SpDqlbo9lL5T8eIg5Tg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/e9d718df4e8e3e10.webp)
 
 选择展示哪一群就会高亮哪一群，可以使用火山图等展示差异基因
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxVCFfLkftIgVUk7k8kXwa3rSZA2eq3BTwIC1jMaDyIz4uvZq9UZYcBg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4Cxdd2IbjFwCVxpENibftsLLVicNibtdVU3EOf2k3oIlInANZP15P2aHZHKg/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxkChe1heMibjbfMvqkwZN8SWnYJodSiaarMHIftc2fbD1bTaA2wodMiblw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxSvNyRfTzILVVic26ibqVwUHuoxcEH53icqTxkEbyHUF6ibXIRXbAhfOd2Q/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/93c94d2d225cd725.png)![图片](../../images/f79318b489ef1e0c.webp)![图片](../../images/8cbc41b580a6ab25.webp)![图片](../../images/2a479f245c514ba3.webp)
 
 ### 高级分析系列
 
 **在seeksoul云平台上面提供了很多可供选择的高级分析系列，比如拟时序分析，可以选择moncle3或者monocle2，还有infercnv分析和copyKAT分析**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxjvicQSDibb3JhC12aALzLBHO9s5piaKAfLNp1DibkuPcCchVxB2tsKkZaA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/f3943e72c49940d7.png)
 
 在FAQ帮助文档里面有详细的介绍
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxX33XjIxTQquy2G1kg5nBFKZiblgGf5MWmvjyJzmSZN8uTChEUibt267w/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/3d75cc2e37e8e347.webp)
 
 #### infercnv分析
 
 尝试了使用infercnv去分析上皮细胞，选择的是B细胞和mast细胞作为参考，提交后15分钟完成了分析，速度较快
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxGWniauuy2dIXSllMrsOfpbibwUib3ickic90d76INdlMsbtb9NuUQCtYnJA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/3645b8611910339b.webp)
 
 **分析完后，提供了可以下载的分析报告**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxrETicRArrmEA7oaIRrnLEmOQaCV0WywQf83sBaY1U5tKv4ykkZ2B1Ig/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/49340fa64072b9cd.png)
 
 **结果中有完整的分析结果报告的html文档**
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxX7o833MoJicxHXJHlve4BNyjs8aLsquVjlnnSLT7gc4OjvuqLBxaP4A/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/icQem1PXnP9Z8UXGvZShicPicTftj3MR4CxvKj5ywQxJVNFbEibCpuecATLxNtaKTVaYU8XJwYZLJe7viatTvZwTkgQ/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](../../images/7c0fc2abb79a4471.webp)![图片](../../images/5a608b1c13c8effc.webp)
 
 **高级分析可选择内容较多，就没有一一尝试啦，但整体分析耗时较少，可供选择内容较多，对分析有很大的帮助**
 
@@ -210,17 +210,17 @@ Seeksoul 单细胞平台使用感受
 
 各位同学需要**联系您的专属在线客服，获取demo数据后，进行操作学习。**
 
-**![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz8I2iaXyZBHLogibFELwJEy1A5Nz8UULAIFozj40ZiaXKZzeNTLr9l3cicmrNSD2t6ia7YduIY9KibFAwA/640?wx_fmt=jpeg&from=appmsg)**
+**![图片](../../images/239ea5459d709578.webp)**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_yunying]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxEp5Ccx2XagqZBDqc4uRZRiam2VnJ4zKUOUpEISgCCAV3vmicFiahOYn58rRTEemQceib0PHBACsFGRA/640?wx_fmt=png&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/19b4ec51a30e79aa.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

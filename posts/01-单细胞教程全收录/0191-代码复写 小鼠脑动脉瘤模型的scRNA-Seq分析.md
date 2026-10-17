@@ -16,13 +16,13 @@ albums: ["单细胞教程全收录", "全文复现"]
 
 首届“[寻因杯](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506477&idx=2&sn=155b83716930e4ae956604f7745a6fe4&chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&scene=21#wechat_redirect>)”单细胞代码复写大赛正在展开评审环节，这次带来的是18号作品。本作品复写了题为"文章标题: Single-Cell Transcriptome Analysis of the Circle of Willis in a Mouse Cerebral Aneurysm Model"的论文.**文章链接** ：https://www.ahajournals.org/doi/10.1161/STROKEAHA.122.038776**数据原始链接：** https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193533**复现图片集锦** ：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUM1SdpgAHyImM0kD3KHAuAKIQiao0ZpxEKEPJJxQm2hM5jxVMC7EP32hw/640?wx_fmt=png&from=appmsg)
+![](../../images/74710a0bc85812fa.webp)
 
 **文献简介** ：发表日期和杂志：2022 年发表在STROKE上研究对象：成年雄性小鼠研究问题：确定Circle of Willis（CoW）血管细胞与脑动脉瘤（CAs）相关的转录特征。研究方法：使用单细胞RNA 测序技术对健康小鼠和脑动脉瘤（CAs ）小鼠的CoW 血管细胞进行了全面的谱系异质性和转录组学改变分析。实验设计：对照组：采用假手术的方式处理成年雄性小鼠。实验组：使用弹性蛋白酶模型在成年雄性小鼠中诱导脑动脉瘤。然后对动脉瘤诱导后 14 天获得的 Willis 样本进行单细胞 RNA 测序。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMyW5c6WkTaw4LWMDsxZGZF0GxBx8CbZP3aPAFL5Xu0ico6fD7PfzYrUQ/640?wx_fmt=png&from=appmsg)
+![](../../images/47bf1bb2e0140ac9.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMuoJgGEEkEqMNK4y3A0pfrS8snRaGnqB4u8l6gJmngq7N8kHWalN2Ow/640?wx_fmt=png&from=appmsg)
+![](../../images/553225fa3819aa4d.webp)
 
 对来自假手术组、形成脑动脉瘤的动物以及患有破裂动脉瘤的动物所采集的Willis环动脉的单细胞悬浮液进行了单细胞RNA 测序。
 
@@ -76,61 +76,61 @@ ggplot(bar.chart,aes(cluster,proportion,fill=sample))+    geom_bar(stat="identit
 
 ‍
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUM4L5dcHMF3tudAuLY96VMBeuI2cqPhNnwkvX4Mznv4CcYSL2p079zUA/640?wx_fmt=png&from=appmsg)
+![](../../images/cc156c47ebf0825e.webp)
 
 对应附件中Figure S1的B 图 (过滤后nFeature_RNA在三组样本间的含量图)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMAVbwOTmM66hcrO4ibBkNsracMVqsgndsq93RvOhQksyYiatswtZzy2uw/640?wx_fmt=png&from=appmsg)
+![](../../images/b79dcf968746d5de.webp)
 
 对应附件中Figure S1的C图 (过滤后nCount_RNA在三组样本间的含量图)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMpepVjYZpuGib0ibBdicibiaJZvaUw6H1z7GtJyj8Shvib8Wptveun2Snd0hQ/640?wx_fmt=png&from=appmsg)
+![](../../images/30966937ef7f0081.webp)
 
 对应附件中Figure S1的D图 (过滤后percent.m在三组样本间的含量图)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMd1WgZ9LSUk9k1whZicay3hASaiah7K1DicY3GCssIRQFy8MtDtgic0AEeg/640?wx_fmt=png&from=appmsg)
+![](../../images/27b83abd85ffacc6.webp)
 
 (clustree聚类可视化)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMgR2tN9P6A9Cc4HFP2jfo3e8XJE0NbrEnbxMsNOtsgbza0MyGfk27yg/640?wx_fmt=png&from=appmsg)
+![](../../images/542d3b8e474bc5db.webp)
 
 对应正文中Figure 1的B图
 
 (合并的CoW细胞的UMAP 图)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMjicJSEuKpHzIMporUuQF1tFrkQiaEfuzcYbyPYBQ6EOeB5B58UREPJWQ/640?wx_fmt=png&from=appmsg)
+![](../../images/13aad70e2e8abb02.webp)
 
 对应附件中Figure S2的B图
 
 （可视化CoW 细胞中红细胞选择性标记基因的表达）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUM5EuzoCDcIQxmJPiaO1c5pzBnxpGkFkuyIFkh4HGVOk3RtdcwBEGR2JQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3d1e5910426d3aa3.webp)
 
 (标记基因注释细胞类型)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMfqALibtqp5chxwEWalqBlnHicib9DVDNaMW4nSpJZF53hIXGMcag9qaAw/640?wx_fmt=png&from=appmsg)
+![](../../images/61faeadf05bfc95c.webp)
 
 对应正文中Figure 1的D图
 
 （Circos plot）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMWic06obic4rqhbO4GjicZuqJoqzj4nxsP0ffuTkh3Hx4IN4pYNhIxH35Q/640?wx_fmt=png&from=appmsg)
+![](../../images/46d15cda7844139c.webp)
 
 对应正文中Figure 1的F图
 
 （气泡图）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMRLaFPEUU87cEcFIxk656iaqBdc36YsZo8EP0icvVuibsWB1s89WKo6kGQ/640?wx_fmt=png&from=appmsg)
+![](../../images/77015230868c1919.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMvibicm6tD2K16Vfmb5oCILaXguEsvNoibqsXleDu67ZLUeM9Rc5xwsBxA/640?wx_fmt=png&from=appmsg)
+![](../../images/83a26551087b46d3.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMfE4fbpPTng92YZu67wXnaWctmZFM3fmJAfMQZ64Qz1TXGtaxtfrJOg/640?wx_fmt=png&from=appmsg)
+![](../../images/b3c62715ef616deb.png)
 
 对应正文中Figure 2的B图
 
 （不同条件下Cow细胞中每种细胞类型的比例）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMYl3znibxXhbmSsHNCRdQyOl7HxzmnicPeviayWn5ia0fmQYk0XeaF7GoGQ/640?wx_fmt=png&from=appmsg)
+![](../../images/42d75e4eb175aa76.png)
 
 对应正文中Figure 2的C图
 
@@ -146,7 +146,7 @@ ggplot(bar.chart,aes(cluster,proportion,fill=sample))+    geom_bar(stat="identit
 
 提取码：lv4a
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwxdbamLWBib7PmbMTA9diaUMGTs1CYqOndc4I5aSV94umJkdmxHicFCrQicaN9Yto3rhnZKHKRaHD6icg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/9c4f07119463ce3f.jpg)
 
 02
 
@@ -190,17 +190,17 @@ ggplot(bar.chart,aes(cluster,proportion,fill=sample))+    geom_bar(stat="identit
 
 **本次活动最终解释权归主办方所有!********主办方拥有对作品的编辑、宣发权利!**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/d0a809a43821e1e5.png)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/feb9903c31c83e08.png)![](../../images/349b3050f055aa44.gif) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506420&idx=1&sn=6867471200293a24ff3122583585da33&chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

@@ -22,7 +22,7 @@ albums: ["空间转录组", "文献速递"]
 
 目前的空间转录组主要有两种种策略：(1)基于下一代测序(Next-Generation Sequencing, **NGS**)的**策略** ，这一策略的核心思想是给不同位置来源的reads带上具有空间信息的短序列(空间barcode/ID)；(2)基于**图像**(Image)的**策略** ，这一策略主要完成方式为原位扩增+**原位测序** 、**原位杂交** 。无论是那种策略，最终目的都是得到带有坐标信息的基因矩阵，再加上分组中设置的时间关系，甚至可以得到**时空转录组** 数据。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpynLSufCxrjiaib6lNbkJYAMq5iat6xTD90uC3buy0NzYZUeYiadia2V82ZibI38mE47IGNOiaIUM7x9JGbA/640?wx_fmt=png)
+![](../../images/845506d2e8ea281b.webp)
 
 **Figure 1**
 
@@ -40,7 +40,7 @@ Image策略中的另一种类型——原位杂交，这相当于之前RNA原位
 
 这部分内容是我们最需要关注的，毕竟技术层面的内容测序公司一般是全包的，下游的数据分析往往决定了大家项目的完成度以及文章的水平。各位下游的实验设计与理论验证也离不开精妙的数据处理与分析。目前也有很多能够分析空转数据的工具包，例如Giotto、Seurat、STUtility、STLearn等。在测序质量方面，除了做定量时可以观察信噪比，对于不同spots捕获到的转录本数量也可以一定程度上反应测序质量与批次效应。而在许多空间转录组可以达到亚细胞分辨率的现在，如何将spots划分到不同的细胞中也成为了一种“幸福的烦恼”。如示意图中展示的那样(Figure 2A)，空转的分析内容也十分众多，接下来我们一个个的谈。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpynLSufCxrjiaib6lNbkJYAMqLFRicUg9WHGUjIVe2xDDYqbms315YLj6WDJle4piabQeXXBU6glXg0Eg/640?wx_fmt=png)**Figure 2****● 1、cluster：**
+![](../../images/f0d91cf5beed35a0.webp)**Figure 2****● 1、cluster：**
 
 聚类分群在单细胞中就是一个棘手的问题，我们也用过一些推送带大家排雷([细胞类型注释从入门到入土 ](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500167&idx=2&sn=8de136b938e8d4753042d23166a24026&chksm=9b3cb8d7ac4b31c19c843810c7fe4341515df8ba6fff86a0ebff9d830edfcd656a29d18011c9&scene=21#wechat_redirect>)& [为什么总把分辨率调的很高](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247495765&idx=1&sn=2ec5e3e26491e28c92e25c40630bffae&chksm=9b3c8905ac4b0013a23f9cda2cccd67cdf3c4a941bac161e3a15a12ab98cd4e5eca8aeedbe96&scene=21#wechat_redirect>))。原来单细胞中利用相关性、欧氏距离等计算基因矩阵相似性的降维方法如PCA、tSNE、UMAP等依旧可以用来帮助spots聚类。还有一些更复杂的矩阵分析方法，例如共表达模块分析、非负矩阵分解、因子分析(如果有时间，我真的会更教程)等依然可以用于识别特定的基因或细胞cluster。但在空转数据里，聚类不仅要考虑到细胞/spots之间的表达相似程度，还需要考虑到spots在空间中是否**相邻或连续** 。
 
@@ -60,7 +60,7 @@ Image策略中的另一种类型——原位杂交，这相当于之前RNA原位
 
 我们在单细胞中常用到的进阶分析如拟时序分析、RNA动力学分析、拷贝数变异分析、细胞通讯分析等也都可以用空间转录组数据中进行计算。cellchat甚至专门设计了针对空间转录组的细胞通讯分析：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwS9ZeSKtuCAIjaLEsWw7CuYdV1j40zvWAFQpIcWWichEbpibMmyQZdaCBZP1sB4CeogffdL4x5hX2A/640?wx_fmt=png)
+![](../../images/642baf237e4b4786.webp)
 
 此外，一些组织病理学方面的机器学习方法也可以与空间转录组联合分析，或是一些DNA seqFISH、RNA seqFISH等杂交技术亦可以与空间转录组相互佐证。目前，MIBI、CODEX、t-cyCIF等空间蛋白高通量检测技术与空间转录组也能形成很好的互补。
 
@@ -68,7 +68,7 @@ Image策略中的另一种类型——原位杂交，这相当于之前RNA原位
 
 空间转录组仍在发展中，为当下的生物学及医学体内外研究提供了许多种研究思路(Figure 3)，大胆的畅想一下，为了也许会有3D器官或组织的测序(虽然现在通过做多张空转切片也能够实现)。这些进步需要计算方法和仪器设备的共同进步。我们后续也会考虑像单细胞转录组那样给大家出一系列**空间转录组的教学内容** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpwS9ZeSKtuCAIjaLEsWw7CunmcheacUuFDo1S6gtjj9zLHaMkmrJqpiagdtAbEPSqHibSicUDjFceRog/640?wx_fmt=png)
+![](../../images/1890fc59f35d0ba4.webp)
 
 **Figure 3**
 
@@ -77,15 +77,15 @@ Image策略中的另一种类型——原位杂交，这相当于之前RNA原位
 1、Rao A, Barkley D, França GS, Yanai I. Exploring tissue architecture using spatial transcriptomics. Nature. 2021 Aug;596(7871):211-220.
 2、Moffitt JR, Lundberg E, Heyn H. The emerging landscape of spatial profiling technologies. Nat Rev Genet. 2022 Dec;23(12):741-759. doi: 10.1038/s41576-022-00515-3. Epub 2022 Jul 20. PMID: 35859028.3、Vandereyken K, Sifrim A, Thienpont B, Voet T. Methods and applications for single-cell and spatial multi-omics. Nat Rev Genet. 2023 Mar 2:1–22.
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4EiaLjQXteia730VKnC0j8Tkgu6hkTs7ZO0JRFyw8riaczdNlQQKsOnfIQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/56869e2cc75aa830.png)
 
 如何联系我们
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWjsU2VMXgI8TRjfwVeo0Aj4z284kwxMryKUBLBbNicjxYMDvWxmosNGHmIW66jtmJuia0pe51q8hFzQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
+![](../../images/7c0febec2249cfa6.gif)公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的**微信号** ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：[永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpx6Htt0YEibg4Pn7N7fFUdclZQH9RX6YAUqQG98l3jcz9XjCiatucDpyE0o10sotnD7jiaEIFDOmv8Yw/640?wx_fmt=png)
+![](../../images/fdb4c49c78e6216c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/0694eb4925c4700f.gif)您点的每个赞和在看，我都认真当成了喜欢

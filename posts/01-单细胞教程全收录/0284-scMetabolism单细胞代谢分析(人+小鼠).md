@@ -16,7 +16,7 @@ scMetabolism 是发表在 Cancer Discovery 一个用于[单细胞转录组数据
 
 更多单细胞教程可见：[趁着暑假拿捏单细胞，带着分析技能入组](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247538847&idx=1&sn=2ad605c6d70d4e6ee921fda1798bfd8b&scene=21#wechat_redirect>)
 
-![截屏2026-05-25 15.37.34](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkfEmITMRf42ys5ZSgM6cR1ic9OVRbYiano2zzMd5qZMrz5TMHCsVlR2gB60WRZFZwtpomILAbWN6JIQHpY8NNb3M0icnKU3Ygq4Y/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-25 15.37.34](../../images/a0ec8d4f7f69f2c0.webp)
 
 该工具支持基于 Seurat 对象或普通表达矩阵进行分析，内置[ KEGG](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247490795&idx=1&sn=65dbe1a8e026466d0c5ce391c823c215&scene=21#wechat_redirect>) 和 Reactome 代谢通路基因集，其中 KEGG 包含 85 条代谢通路，Reactome 包含 82 条代谢通路。[评分算法](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247497831&idx=2&sn=82fa51c76a381fba0b444e9b6b23eb5f&scene=21#wechat_redirect>)方面，scMetabolism 支持 VISION、[AUCell](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491761&idx=1&sn=41f5c1ceaacf6a1c4840567f8a349e06&scene=21#wechat_redirect>)、ssGSEA 和 [GSVA](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484701&idx=1&sn=ad90680f252d092a2e21f349c8f32cab&scene=21#wechat_redirect>) 等方法，并提供可选的数据插补功能。计算完成后，代谢评分会以矩阵形式保存，可以进一步结合细胞注释、分组信息或降维结果进行可视化和统计比较。
 
@@ -35,7 +35,7 @@ scMetabolism 是发表在 Cancer Discovery 一个用于[单细胞转录组数据
 
 如果是macOS在安装loe包时会遇到如下报错
 
-![截屏2026-05-26 14.08.58](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnq2qRibZGX1iabBpDcibJrgHE7rXMatyGtOVWoj4iansR8bMia2d0MtklNP1wHgP2NObP8pxyuo1CdFwMjFeV7rHSRBurN1JAV3flk/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 14.08.58](../../images/e8cc16143f6d98d5.webp)
 
 需要在官方页面（https://mac.r-project.org/tools/）下载gfortran-14.2-universal.pkg进行安装，下载完成后直接双击打开进行安装即可。安装完成后重启R再此安装即可成功
 
@@ -49,7 +49,7 @@ scMetabolism 是发表在 Cancer Discovery 一个用于[单细胞转录组数据
 # 加载函数sce.all.int <- readRDS('./data/Human_sce_epi.rds')FeaturePlot(sce.all.int,features = "EPCAM")table(sce.all.int$RNA_snn_res.0.01)DimPlot(sce.all.int,group.by = "RNA_snn_res.0.01",label = T)
 ```
 
-![截屏2026-05-26 15.11.44](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkLKicStrIpicDaW6HeTuBWk8N8Fe3sq4geAN206L197NRssia80HJcvRtrv5t0fO6Jc59knDgliciaTZlFf6o6ccKeiacJVibSg0MGYQ/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 15.11.44](../../images/4953f2126b0c9007.webp)
 
 如果你使用的[seurat](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537631&idx=1&sn=b702b29384fd4f4878cc0b4d0fcf51e7&scene=21#wechat_redirect>)版本是v5版本，在使用此包前需要先要修改一下函数
 
@@ -59,7 +59,7 @@ scMetabolism 是发表在 Cancer Discovery 一个用于[单细胞转录组数据
 # 执行后会打开如下弹窗，进行修改fix(sc.metabolism.Seurat)#把countexp读取counts代码修改为countexp <- LayerData(obj, assay = "RNA", layer = "counts")
 ```
 
-![scmet_1](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwk25mFFibWexsw1V0TqWl4sZhwGqpBkCBETEbBqJjGcyYZBjoMhsvX4ibzsahrUrQzarug2kP7UqJBR3vZGBwSOdT7zF6qFlWRWo/640?wx_fmt=png&from=appmsg)
+![scmet_1](../../images/3af7efd4f0f35b4f.webp)
 
 接着载入功能函数，使用source函数加载
 
@@ -87,11 +87,11 @@ scMetabolism 是发表在 Cancer Discovery 一个用于[单细胞转录组数据
 
 上述函数会自动进行矩阵的预处理，执行scMetabolism的代谢分析，并挑选出在所选分组中有变化的通路，接着绘制点图保存在指定文件夹内，执行结束后文件夹结构如下：
 
-![截屏2026-05-26 15.38.21](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlEW8RaoSlAVz1AiaPjtWpdKMWjUw2Zk5nnVSvhiab76MiaVV0L68EicBOw309VQp92xEmpPRBwmPoTpGAvviakVTrcFRKwlxDwwIDE/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 15.38.21](../../images/1a6288d21838e3c3.webp)
 
 valid_pathways.csv文件中是所选出在各组中有变化的通路名，matrix.rds文件则是代谢分析的结果文件，点图内容则如下所示
 
-![截屏2026-05-26 15.41.00](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkLaPmKLzLrNeibleBsFyXDKrgzbCibdCWjrOuaR9XcFicpicMHPqbu2DrViaDZjD6AuyJIoiaXK2AtMopjvtF93gibQup7K4wrw4PsXc/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 15.41.00](../../images/b8af77f54c779372.webp)
 
 接着可以利用matrix.rds此进一步绘图。
 
@@ -101,7 +101,7 @@ valid_pathways.csv文件中是所选出在各组中有变化的通路名，matri
 # 载入matrix.rds数据pathways_matrix <- readRDS("~/work/scMetabolism_test/scMetabolism/epi-human/kegg/kegg_epi_core_matrix.rds")pathways_matrix[1:5,1:5]# 挑选通路进一步可视化#pathways_to_add <- rownames(pathways_matrix)pathways_to_add <- c(  "Glycolysis / Gluconeogenesis",  "Pentose phosphate pathway")common_cells <- intersect(colnames(pathways_matrix), rownames(sce.all.int@meta.data))for (pw in pathways_to_add) {  meta_col <- pw  sce.all.int@meta.data[common_cells, meta_col] <- as.numeric(pathways_matrix[pw, common_cells])}head(sce.all.int$"Glycolysis / Gluconeogenesis")FeaturePlot(sce.all.int,             features = pathways_to_add,            cols = c("gray90","#C1362B") ,order = T)
 ```
 
-![截屏2026-05-26 15.45.02](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnyEO6sqaUJFuPp2ebhH1ex5xemDue5XkibZLMzxRSpEzrv7MbhfIpu4YYqKSmKRtnS9VkIN5Bo9hPQefmZl2b1O9wIEku0ee3M/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 15.45.02](../../images/31b8fa9f934bb766.webp)
 
 ```
 3. 小鼠样本代谢分析流程
@@ -115,7 +115,7 @@ valid_pathways.csv文件中是所选出在各组中有变化的通路名，matri
 # 载入并浏览数据sce.all.int <- readRDS('./data/Mouse_sce_endo.rds')DimPlot(sce.all.int, group.by = "celltype", label = T)FeaturePlot(sce.all.int,features = "Pecam1")table(sce.all.int$RNA_snn_res.0.3)DimPlot(sce.all.int,group.by = "RNA_snn_res.0.3",label = T)
 ```
 
-![截屏2026-05-26 15.49.55](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwniaSSSdc1uN7p8ibeXBAHEEm2R29ksTwlXcTNiaTnmxeibjIlpWCkHdpdbPmYRnm36EMUQibaoZC0KHt0ISFicgfZhKNDicAhfbiarU4Q/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 15.49.55](../../images/1cf6f594a462fe9b.webp)
 
 与人类样本流程相同，如果你使用的seurat版本是v5版本，在使用此包前也需要先要修改一下函数
 
@@ -151,11 +151,11 @@ dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)prepared_input <- 
 
 与人类样本流程不同，小鼠样本的处理流程是提取出表达矩阵后，进行了同源转换为了人类基因名，再进行计算代谢通路，接着挑选出在所选分组中有变化的通路，接着绘制点图保存在指定文件夹内，执行结束后文件夹结构如下：
 
-![截屏2026-05-26 16.03.17](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwl0fLbhUPVwmS8VwQ6Lb1INuUvibVSicREV5qqvrMibsTbjUAKnUbA7zibWsKibpLMUtwTWxAPU6PhEzia2XIV8FgmkK112icmGRicHPBA/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 16.03.17](../../images/4cef3a7c4a348660.webp)
 
 valid_pathways.csv文件中是所选出在各组中有变化的通路名，matrix.rds文件则是代谢分析的结果文件，会比人类样本流程中多一个基因转化的对应文件mouse_to_human_gene_map.csv，点图内容则如下所示
 
-![截屏2026-05-26 16.04.09](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkkKy9aMHcpxdC8pDv7SBswKaiaiaPmeu8VEzvRQPBPJib6Jib4ibZHDdibp8qcLgmQqaYonM7CtsCgza46v0C3jPX5U6USCPcJdDzOI/640?wx_fmt=png&from=appmsg)
+![截屏2026-05-26 16.04.09](../../images/acd630f738c523cd.webp)
 
 接着可以利用matrix.rds此进一步绘图。
 
@@ -195,13 +195,13 @@ Mouse_sc_metabolism.R内容如下
 
 本推送的相关源代码和文件可通过下方链接下载：
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/buxFNhaTGwkfOzvWbC6CicuibiaRYAjdzbr7ERfrry8DyvZekHydiaaGBibKFbicXf4IOfDqG3D5eqgWibaBRsBwOBSSibh33BlFG0LZQNF0YRXDunA/640?wx_fmt=jpeg)
+![](../../images/3b41aa17d16f03d9.webp)
 
 链接：https://pan.baidu.com/s/19_X16CbTPGPGDkqVr_9KbA
 
 提取码获取请联系客服：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgDzj66ZOwl0njbJ30HMFyLcZsxrqT3UCOtf50I0DiaBmLhnRTDiayCiaYq073krS7LYKf3pdaISNvMg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=qywuinol&tp=wxpic#imgIndex=77)
+![](../../images/fe8ecb8594a1f419.webp)![图片](../../images/cb4255ab8010219d.webp)
 
 **欢迎致谢**
 
@@ -238,4 +238,4 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 欢迎大家致谢~
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpx2dVa7tC0UYQRDUr6TnenA8vsST0iaFjDqdO9ecITMbpF2CD5mWr6Z30yXOIcj45qtdIpia3zh8POQ/640?wx_fmt=gif&from=appmsg&wxfrom=5&wx_lazy=1&randomid=7lj2ti0t&tp=wxpic#imgIndex=78)
+![图片](../../images/4ec66ccdb832fd05.gif)

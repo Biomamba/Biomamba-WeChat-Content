@@ -10,13 +10,13 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528216&idx=1&sn=a12e276a7dac4df56d24b5a92dd78a24&chksm=9b3c1648ac4b9f5e08379a1d5a5d8aa80f93373da2e6d057b219d732168707ac830002267c03#rd
 > 合集：单细胞教程全收录
 
-一、写在前面![图片](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+一、写在前面![图片](../../images/27f2585316cbf2c3.webp)
 
 总有小伙伴购买服务器([足够支持你完成硕博生涯的生信环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526504&idx=2&sn=417d07347cebe0a1bd403f6c3e7d9b29&scene=21#wechat_redirect>))时不知道哪个版本的配置适合自己，这里我们对Monocle拟时序运行进行了内存和时间占用的压力测试。往期测试可见：[服务器压力测试](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=3771935244480249861#wechat_redirect>)
 
 简单从测试结果来看，目前monocle2最多能计算[4.5w，5w)细胞，占用内存峰值接近200GB。考虑到系统本身以及环境中的其它变量，推荐大家至少准备256GB内存为宜。若采取并行计算等操作，占据的内存数量会更多！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZwp3Dtlm9DbNfoPZXPJiawHafChibEPRadsSLVQDTuafRlHhsDTIyDMag/640?wx_fmt=png&from=appmsg)
+![](../../images/1a852b5ace67109c.webp)
 
 本教程基于Linux中的Rstudio环境（[足够支持你完成硕博生涯的生信环境](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247526504&idx=2&sn=417d07347cebe0a1bd403f6c3e7d9b29&scene=21#wechat_redirect>)）演示，计算资源不足的同学可参考：
 [生信分析为什么要使用服务器？](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247491007&idx=1&sn=8619c2bad23791b3252a1c4cb1831931&chksm=9b3f64efac48edf9c02f84959aeee9b12480736fce70c5ddb8b41d79cfc22ce590ea2cb60fba&token=1760636281&lang=zh_CN&scene=21#wechat_redirect>)
@@ -33,7 +33,7 @@ albums: ["单细胞教程全收录"]
 [
 ](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492383&idx=1&sn=b8d912877cb38e8d8c9084d1d9370ded&chksm=9b3c9a4fac4b135926091a8af972c45a17a2fa1f94c704779c60df5f733847036c3797894c1c&scene=21#wechat_redirect>)
 
-**二、测试过程**![图片](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+**二、测试过程**![图片](../../images/27f2585316cbf2c3.webp)
 
 1、准备工作
 
@@ -168,13 +168,13 @@ for ( obj in c(obj_1w,obj_2w,obj_3w,obj_4w,obj_5w,obj_6w,obj_8w)){  # prin
 
 细胞数为1万时的时间和内存消耗：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZFQX6rzK2MWRyJqxpqvdc7wnMQdMrS0CtlVhh81ZcGbmGKynMTlvISQ/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/22e7549ccf617883.jpg)
 
-细胞数为2万时的时间和内存消耗：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZiaEp8icvrIM0mTNiar18NCs5pYNSS4WqH05R94KI1wzRmInvLLeQStcWw/640?wx_fmt=jpeg&from=appmsg)细胞数为3万时的时间和内存消耗：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZesKL7fYl8ia2mZd3IIbTBhwd8LHbv12uFPibia0E6Nu0pc4m2NrQK5TFg/640?wx_fmt=jpeg&from=appmsg)
+细胞数为2万时的时间和内存消耗：![](../../images/5c9643382ba7c97f.jpg)细胞数为3万时的时间和内存消耗：![](../../images/0aff15c86056c06a.jpg)
 
 细胞数为4万时的时间和内存消耗：
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZI4Qf5Qeia7TibKdKDeeziau8HicrIQlmzVdp9QeI4obLfs1asFjBJqdGRg/640?wx_fmt=jpeg&from=appmsg)细胞数为4万时的时间和内存消耗：![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZstdRYlibQqtxscBOvcplFCvQ6Mb0MlwicF14kjrx9c8l0Sh9qTKubZZg/640?wx_fmt=jpeg&from=appmsg)
-**三、遇到点小问题**![图片](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp) 上文可以看到我们只展示了细胞数为1w、2w、3w、4w和4.5w时候的时间和内存结果，那么其他的测试结果为什么没有展示出来呢？这是因为我们在测试过程中遇到了以下的一些问题，导致细胞数达到某些数量级的时候是无法利用monocle来进行轨迹推断的。以下是我们遇到的问题展示和部分解决方法，大家可以做个参考。问题1
+![](../../images/9989ea9ebf496997.jpg)细胞数为4万时的时间和内存消耗：![](../../images/964d231719f2e101.jpg)
+**三、遇到点小问题**![图片](../../images/27f2585316cbf2c3.webp) 上文可以看到我们只展示了细胞数为1w、2w、3w、4w和4.5w时候的时间和内存结果，那么其他的测试结果为什么没有展示出来呢？这是因为我们在测试过程中遇到了以下的一些问题，导致细胞数达到某些数量级的时候是无法利用monocle来进行轨迹推断的。以下是我们遇到的问题展示和部分解决方法，大家可以做个参考。问题1
 
   *   *   *   *
 
@@ -204,7 +204,7 @@ for ( obj in c(obj_1w,obj_2w,obj_3w,obj_4w,obj_5w,obj_6w,obj_8w)){  # prin
 for ( obj in c(obj_1w,obj_2w,obj_3w,obj_4w,obj_5w,obj_6w,obj_8w)){  counts <- GetAssayData(obj, layer = "counts")  print(sum(is.na(counts)))  print(sum(is.na(obj@meta.data)))}
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZtuxAHzic3xAqS3xJ7PMYvthuzZ82oQy3Im2xZRbuKcTGLaWTlzFVEQQ/640?wx_fmt=jpeg&from=appmsg)问题4
+![](../../images/e672a9a4e17f45a3.jpg)问题4
 
   *   *   *   *
 
@@ -213,7 +213,7 @@ for ( obj in c(obj_1w,obj_2w,obj_3w,obj_4w,obj_5w,obj_6w,obj_8w)){  counts <
 ```
 
 **
-****四、总结数据**![图片](https://mmbiz.qpic.cn/mmbiz_png/bL2iaicTYdZn5RYeZyo5amnOAgOiaRia5pTmJkLwBXH0J3icajPObPVuj8C5TeYLc8fI9KZickXDnsa1EvhSibltJv7VQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+****四、总结数据**![图片](../../images/27f2585316cbf2c3.webp)
 
   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
 
@@ -221,7 +221,7 @@ for ( obj in c(obj_1w,obj_2w,obj_3w,obj_4w,obj_5w,obj_6w,obj_8w)){  counts <
 sum <- data.frame(matrix(NA, nrow = 5, ncol = 2))colnames(sum) <- c("time","peak_mem")row.names(sum) <- c("1w","2w","3w","4w","4.5w")sum["1w",] <- c(9,18979)sum["2w",] <- c(28,59923)sum["3w",] <- c(55,106038)sum["4w",] <- c(90,129860)sum["4.5w",] <- c(116,167045)sum$Category <- rownames(sum)sum$Category <- factor(sum$Category, levels=sum$Category)ggplot(sum, aes(x = Category , y = time, fill= Category)) + geom_bar(stat = "identity")+labs(x = "Category", y = "Time(min)", title = "Monocle Time Compare") +  theme_minimal() +   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12),        axis.text.y = element_text(size = 12),         axis.title = element_text(size = 14, face = "bold"),         plot.title = element_text(size = 16, face = "bold", hjust = 0.5),        legend.title = element_text(size = 12, face = "bold"),        legend.text = element_text(size = 10))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZXYnCWZ1y3cSJXgWsofpUutdDLr4Z8ju1kFicXfH7DINomclzVPYsib5A/640?wx_fmt=png&from=appmsg)
+![](../../images/5740864c52aea98d.webp)
 
   *   *   *   *   *   *   *   *   *
 
@@ -229,18 +229,18 @@ sum <- data.frame(matrix(NA, nrow = 5, ncol = 2))colnames(sum) <- c("time","p
 ggplot(sum, aes(x = Category, y = peak_mem, fill= Category)) + geom_bar(stat = "identity")+labs(x = "Category", y = "peak_mem(MB)", title = "Monocle Peak Mem Compare") +  theme_minimal() +   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12),         axis.text.y = element_text(size = 12),         axis.title = element_text(size = 14, face = "bold"),        plot.title = element_text(size = 16, face = "bold", hjust = 0.5),        legend.title = element_text(size = 12, face = "bold"),        legend.text = element_text(size = 10))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpz1ibfuzV67bSCvhLN1QELbZ5A4u3brdD1PAiaO8Kia97YtBbNVnRM53Ol7nal8tNjfHezlq23J0l2BQ/640?wx_fmt=png&from=appmsg)
+![](../../images/4ef306230adb6e56.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版上](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版上](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyZBGOXDqRYHpgiczxr9PX8gliblp8giaPGsr7w6IeoU6lExTAeEjx48Ke4LEJQfbdiarzXwUGvoRFvyA/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢**
+![图片](../../images/7ef00c45433a7bde.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢**
 **

@@ -14,7 +14,7 @@ albums: ["单细胞教程全收录", "文献速递"]
 
 这又是一篇在Acknowledgement对我们进行**致谢** 的文章：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpyoz7lXIq3WmZfG86ax6pJyvhibnln9PfGojT5KOP1X2Gksb5iaOjkoZmMGVgzwWiczfsFUYcHaXxwdA/640?wx_fmt=png&from=appmsg)
+![](../../images/049c5b8b944835fb.webp)
 
 **内容简介**
 
@@ -28,7 +28,7 @@ IF：16.806
 
 https://onlinelibrary.wiley.com/doi/10.1002/advs.202404442
 
-这里也预祝我们的粉丝们早日命中心仪的期刊，若是大家觉得我平时分享的代码或生信教程**有那么点** 好用，可以在文章里以这种格式致谢Biomamba，希望咱们这个系列也能**更新个百八十篇**![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpySwypNriboDZ9lfyuaicOZ0LYry7AO5qdo9uwFBbtXiccLCtnIlSvc7fBTibgP9w7kUHygK3pWPOVk6g/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp) :
+这里也预祝我们的粉丝们早日命中心仪的期刊，若是大家觉得我平时分享的代码或生信教程**有那么点** 好用，可以在文章里以这种格式致谢Biomamba，希望咱们这个系列也能**更新个百八十篇**![](../../images/78d3d271b34ce951.webp) :
 
   *
 
@@ -52,41 +52,41 @@ Since Biomamba and his wechat public account team produce bioinformatics tutoria
 
 利用果蝇干细胞肿瘤系统，作者筛选并发现了两种新型强效小分子Arf1抑制剂，分别为DU101和DU102（图1a–d；图S1a–c，详细信息见STAR方法），它们能够特异性和有效地杀死癌症干细胞。作者首先验证了DU101和DU102对Arf1的生化和生物物理效应。研究表明，高尔基体相关的Arf-GEF（GBF1）的Sec7结构域 与GDP结合的Arf1相互作用，以调节Arf1的GDP-GTP交换，从而激活Arf1。作者进行了高精度的分子对接分析，发现DU101和DU102均与Arf1-GDP-Sec7复合体的催化口袋结合，结合距离为2.40 Å（图1b,d）。接着，作者通过等温滴定量热法直接检测了DU101或DU102与GBF1的Sec7结构域的结合效率，发现这两种抑制剂均能有效结合纯化的Arf1-GDP-Sec7结构域（图S2a,b，详细信息见Supporting Information）。药物亲和力响应靶标稳定性（DARTS）用于追踪和识别靶标蛋白，基于靶标蛋白与小分子结合时稳定性变化的原理。通过DARTS，作者显示DU101和DU102能够显著增强Arf1的稳定性，并且这种增强效果是剂量依赖的。如图S2c,d所示（Supporting Information），只有在与蛋白酶共同处理的细胞中，DU101或DU102处理组的Arf1蛋白水平有所增加，表明这些抑制剂对Arf1稳定性具有特定的保护作用。而作者测试的其他ARF同源物，包括Arf3、Arf5、Arf6和泛Ras，在与DU101或DU102处理组相比，蛋白水平在蛋白酶处理的细胞中没有明显差异（图S2c,d，Supporting Information）。对于Arf1活性检测，GST-GGA3-PBD融合蛋白能够选择性结合激活形式的GTP结合Arf1，通过沉淀GST-hGGA3-Arf1可以检测细胞中的Arf1活性。作者发现DU101或DU102处理显著抑制了Arf1的活性（图1e,f）。这些结果表明，作者的新型Arf1抑制剂可以通过与Arf1和Arf-GEF结合来抑制Arf1的活性。为了评估DU101和DU102的细胞毒性，研究人员检测了果蝇正常干细胞以及CT26、4T1、B16-F10和LLC细胞在DMSO和DU101或DU102处理后的细胞活性，发现这两种新型Arf1抑制剂展现了较低的细胞毒性。此外，为了评估体内毒性，研究人员还比较了接受DU102治疗和未治疗小鼠不同器官的组织学变化，通过苏木精-伊红（HE）染色，未发现明显的组织学改变。综合这些结果，表明DU101和DU102不仅毒性低，而且可能是有效的Arf1抑制剂。研究还发现，Arf1抑制剂能够诱导抗肿瘤M1型巨噬细胞的浸润、激活树突状细胞（DCs），并减少促肿瘤M2型巨噬细胞的浸润，从而促进了促炎性肿瘤微环境（TME）的重塑，支持了抗肿瘤免疫。这些发现表明，DU101和DU102作为一种新的癌症免疫治疗策略，具有很大的潜力，目前这些抑制剂正在进行临床前研究，并计划在晚期实体瘤患者中进行临床试验评估。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxHfYD3IvrLTlnFzwd99Atz7iay1lx77Y68BH7Zicw13n4x2BWN1Gj0W9DKVy5LGUCAMeKgKJ23fPQA/640?wx_fmt=png&from=appmsg)
+![](../../images/051a2ed67dd49fbe.webp)
 
 图1.DU101和DU102是新型强效的Arf1抑制剂。DU101的化学结构和其与Arf1-GEF的Sec7结构域的对接情况已被详细描述。研究表明，DU101和DU102显著降低了GBF1依赖的Arf1活性。在Huh7细胞中，使用DMSO、BFA、DU101或DU102处理后，通过GGA3拉下和西方印迹实验评估了Arf1的活性。结果显示，DU101和DU102的处理显著抑制了Arf1的活性，数据以均值±标准误表示，统计分析采用学生t检验，结果显示***p < 0.001；n.s.，无显著性。
 
 **新型 Arf1抑制剂诱导肿瘤退缩并延长了多种小鼠和PDX肿瘤模型的生存期。**为了探究DU101和DU102对肿瘤的治疗作用，研究人员在C57小鼠中生成了小鼠肝癌细胞Hepa1-6的异种移植瘤，并分别用DMSO、DU101或DU102对小鼠进行治疗。结果观察到，与使用DMSO治疗的小鼠相比，使用DU101和DU102治疗的小鼠在2周内，以5 mg/kg的剂量通过口服给药，肿瘤的大小和体积显著减小（图2a–c），但体重没有减少（图2d）。这些发现表明，DU101和DU102在抑制肿瘤生长方面具有显著效果，并且对小鼠的体重没有负面影响，显示出良好的治疗潜力和安全性。为了进一步探究DU101和DU102的抗肿瘤效果，研究人员在先前使用的Axin2-CreER驱动的MYC-ON小鼠肝癌模型中进行了实验。在小鼠6周龄时，通过正常饮食诱导肿瘤形成，随后分别用DMSO、DU101或DU102进行治疗，剂量为每公斤体重5毫克，通过口服灌胃的方式持续治疗6周（图2e）。研究发现，与DMSO处理的小鼠相比，DU101和DU102治疗显著减小了肝脏肿瘤（图2f–h），并且延长了MYC-ON小鼠的寿命（图2i）。这些结果表明，这两种新型Arf1抑制剂DU101和DU102具有较低的毒性，并且可能成为有效的Arf1抑制剂，为癌症治疗提供了新的策略和希望。为了检验这些抑制剂的广泛应用潜力，研究人员还对小鼠结肠癌细胞CT-26异种移植瘤、小鼠乳腺癌4T1细胞、小鼠黑色素瘤B16-F10细胞进行了处理，这些细胞中分别含有98.3%、40.1%和76.6%的CD133+CD44hi细胞（潜在的癌症干细胞标记）。研究发现，使用DU101或DU102处理的肿瘤显著缩小，但与使用DMSO处理的小鼠相比，小鼠的体重没有受到影响，在三种小鼠异种移植瘤模型中均观察到了这一现象（详细信息见支持材料中的图S3a–i）。这些结果表明，这两种新型Arf1抑制剂DU101和DU102具有较低的毒性，并且可能成为有效的Arf1抑制剂。为了探究新型Arf1抑制剂对人类肿瘤的抗肿瘤效果，研究人员在人源化HSC-NCG小鼠中植入了新鲜的人类肝癌样本，进而培育出肝癌患者源性异种移植瘤（PDX）。这些PDX模型保留了原始人类肿瘤的主要特征以及肿瘤免疫微环境。随后，研究人员对这些人类化小鼠使用DMSO或DU102进行了为期一周的治疗，剂量为每公斤体重5毫克，通过口服灌胃的方式给药。与DMSO处理组相比，DU102处理组的肝癌PDX模型显示出显著减小的肿瘤体积（图2k–l；支持信息中的图S4a），并且对小鼠的体重没有影响（支持信息中的图S4b）。这些发现表明，DU101和DU102这两种新型Arf1抑制剂具有较低的毒性，并且可能成为有效的Arf1抑制剂，为癌症治疗提供了新的策略和希望。为了测试DU102治疗是否能够产生免疫记忆，研究人员在经过DU102治疗的小鼠中进行了第二次肿瘤挑战，实验方案如图2m所示。研究结果显示，DU102治疗在第一次肿瘤挑战后能有效抑制肿瘤生长（图2n–o）。在切除肿瘤后，进行了第二次肿瘤挑战。接受DU102治疗的小鼠肿瘤发生率较低（5只中只有1只，与DMSO治疗组的5只中有4只相比，图2p）。因此，DU102治疗支持免疫记忆的形成。为了证明DU101和DU102的特异性，研究人员还用Arf1缺失的CT26细胞、对照CT26细胞、Arf4缺失的CT26细胞、Arf5缺失的CT26细胞和Arf6缺失的CT26细胞处理了BALB/c小鼠的异种移植瘤（详细信息见支持材料中的图S4c–e、图S4f,j、图S4g,h,l、图S4g,i,m、图S4g,j,n）。DU101或DU102治疗对Arf1缺失的CT26细胞携带的肿瘤小鼠的肿瘤和体重没有进一步影响，这表明DU101和DU102是特异性的Arf1抑制剂。而在其他组中，DU102治疗仍然能有效抑制肿瘤生长。总体而言，上述结果表明，新型特异性Arf1抑制剂DU101和DU102能在多种小鼠和肝脏PDX模型中显著缩小肿瘤，并最小化毒性效应，因此这些抑制剂可能具有很大的转化潜力。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxHfYD3IvrLTlnFzwd99AtzCcAcfbSjcxQTPZhqxoTxzn8WfkIGXHmNArXUHXLJIjuFgFtdh0s7ibA/640?wx_fmt=png&from=appmsg)
+![](../../images/c0043c99539aa649.webp)
 
 图2.DU101和DU102在小鼠和PDX肝癌模型中诱导肿瘤退缩并延长了寿命。（a) 展示了移植了Hepa1-6细胞的C57BL/6J小鼠的肿瘤大小图片，以及用指定试剂处理后的效果。（b–d) 柱状图显示了肿瘤重量（b）、肿瘤体积曲线（c）和（a) 中描述的小鼠体重的柱状图。每组有6只小鼠。（e) MYC-ON小鼠的实验设置。（f–i) 展示了用DMSO、DU101或DU102处理的MYC-OFF或MYC-ON小鼠的肝脏图片（f）、肝脏表面肿瘤计数（g）、肝脏重量（h）和指定处理的MYC-ON小鼠的生存曲线（i）每组有10只小鼠。（j) 用于生成人源化免疫和肝癌PDX小鼠的实验设置（k–l) 展示了用指定试剂处理的人源化免疫和肝癌PDX小鼠的代表性肿瘤图片（k）和肿瘤重量（l）每组有5只小鼠。（m) 第二次肿瘤挑战实验的设置。n-o) 展示了第一次CT26肿瘤细胞挑战后用指定试剂处理的小鼠的代表性肿瘤生长曲线（n）和肿瘤重量（o）每组有5只小鼠。（p) 展示了第二次CT26肿瘤细胞挑战后每只小鼠的肿瘤生长曲线。每组有5只小鼠。数据表示为均值 ± 标准误差。使用学生t检验，D-Kaplan‒Meier和log-rank检验（i）*p < 0.05, **p < 0.01, ****p < 0.0001; n.s., 无显著性差异。
 
 **新的 Arf1抑制剂诱导肿瘤细胞老化级联反应**作者之前报道过，在果蝇干细胞和小鼠癌症干细胞中遗传敲除Arf1会导致细胞老化级联反应，包括脂滴积累、活性氧产生、线粒体损伤、内质网应激和溶酶体蛋白聚集。然后作者将Arf1抑制剂的效果与遗传敲除进行了比较，发现用DU101和DU102处理CT26细胞显著降低了线粒体膜电位，增加了活性氧产生（通过提高Mitosox水平检测），诱导溶酶体蛋白LAMP1的表达，以及增加了蛋白聚集（通过增加Proteostat染料染色显示），与用DMSO处理的CT26细胞相比。由Arf1敲除触发的细胞器老化级联与众所周知的细胞衰老有一些相似之处。衰老相关的β-半乳糖苷酶（SA-β-gal）是衰老细胞的分子标记。作者对SA-β-gal进行了染色，发现与用DMSO处理的细胞相比，用Arf1抑制剂处理的细胞没有变化。这些数据表明，与遗传敲除Arf1的先前报道效果一致，新的Arf1抑制剂DU101和DU102也促进了细胞老化级联，这可能与通常所知的细胞衰老不同。**新型 Arf1抑制剂促进T细胞浸润、激活和记忆T细胞群的形成**在之前的研究中，作者发现通过Lgr5-CreER和Axin2-CreER在小鼠癌症干细胞中敲除Arf1通路，激活了一种系统性的抗肿瘤免疫反应来摧毁肿瘤。为了证明DU101和DU102的抗肿瘤活性特别依赖于免疫反应，作者首先用CT26细胞的异体移植瘤处理裸鼠，发现DU101或DU102处理并不影响肿瘤重量。进一步的流式细胞仪分析显示，在用DU101或DU102处理后的MYC-ON小鼠的肝脏肿瘤中，CD3+ T细胞显著增加，同样在Arf1敲除后也是如此。在用DU101或DU102处理的Hepa1-6异体移植瘤中，CD3+ T细胞也显著升高。这些数据表明，DU101和DU102的处理促进了T细胞渗入肿瘤。作者还报告说，在肿瘤细胞中通过Lgr5-CreER和Axin2-CreER降低Arf1通路的活性，可以导致系统性的抗肿瘤免疫反应，从而破坏肿瘤。为了证明DU101和DU102的抗肿瘤活性特别依赖于免疫反应，作者首先用CT26细胞的异体移植瘤处理裸鼠，发现DU101或DU102处理并不影响肿瘤重量。进一步的流式细胞仪分析显示，在用DU101或DU102处理后的MYC-ON小鼠的肝脏肿瘤中，CD3+ T细胞显著增加，同样在Arf1敲除后也是如此。在用DU101或DU102处理的Hepa1-6异体移植瘤中，CD3+ T细胞也显著升高。这些数据表明，DU101和DU102的处理促进了T细胞渗入肿瘤。**新型 Arf1抑制剂激发了肿瘤微环境的炎症反应**接下来，作者系统地分析了DU101和DU102处理对肿瘤浸润免疫细胞以及细胞间相互作用的影响，使用了单细胞转录组分析。为此，作者对经DU101处理、DU102处理和DMSO处理的小鼠MYC-ON肝脏肿瘤中分选的CD45+免疫细胞和CD45−非免疫细胞进行了单细胞RNA测序（scRNA-seq）。作者在每组中以10:1的比例混合分选的CD45+免疫细胞和CD45−非免疫细胞进行scRNA-seq，并在质量控制和去除双细胞后，总共获得了35,468个细胞。为了找出肿瘤微环境（TME）的主要组成部分，作者整合了不同处理组的样本，进行了无监督聚类，并得到了24个细胞簇。然后作者使用经典和众所周知的标记对这些细胞进行注释，并将其定义为13种细胞类型。比较不同处理组之间的细胞比例，作者发现与DMSO处理相比，经DU101或DU102处理后T细胞的比例显著增加，而髓系细胞的比例减少。这些结果表明，Arf1抑制剂增强了杀伤肿瘤的T细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxHfYD3IvrLTlnFzwd99AtzRRd49yW1yPgIPmbHmleA2ZtX0gZLhyZlTh3OaUCT1agLmKhsZpUCbg/640?wx_fmt=png&from=appmsg)
+![](../../images/cba22d8b75935b8a.webp)
 
 图3.新型Arf1抑制剂激发肿瘤微环境中的炎症反应。a) 肿瘤微环境中免疫细胞和非免疫细胞的UMAP（均匀流形近似和投影）。b) 肿瘤微环境中免疫细胞和非免疫细胞的注释。c) 每种处理组中免疫细胞和非免疫细胞的细胞密度投影。d) 柱状图显示每种处理组中不同类型免疫细胞的比例。e) 基于选定的细胞标记物对肿瘤微环境中的髓系细胞进行注释。f) 柱状图显示每种处理组中不同亚型的髓系细胞的比例。g) 基于选定的细胞标记物对肿瘤微环境中的树突细胞进行注释。h) 对DU101和DU102处理组中cDC1s的上调基因进行GO（基因本体）分析。
 
 作者进一步检查了髓系细胞，它们是除了T细胞之外占最大比例的免疫细胞。作者获得了髓系细胞并进行了无监督聚类，得到了23个细胞簇。然后作者基于它们的特征基因对髓系细胞进行了注释，并得到了10个亚型。作者观察到，在DU101和DU102处理后，表达Pglyrp1的TAMs（肿瘤相关巨噬细胞）数量增加，而表达Spp1和Igf1的TAMs数量减少。增加的表达Pglyrp1的TAMs表现出促炎特征，并在T细胞招募和激活方面表现出强大的能力，因为它们高度表达T细胞趋化因子Cxcl9和Cxcl10，以及I型IFN途径基因Isg15和Ifit2。相比之下，减少的TAM_Spp1和TAM_Igf1群体表现出免疫抑制特征，因为它们高度表达与血管生成和免疫调节因子相关的基因，如Arg1和Spp1。为了进一步评估髓系细胞的功能，作者收集了先前报道的巨噬细胞M1和M2极化基因列表[25]，并从GSEA数据库下载了IFN产生和响应基因列表。作者发现，在DU101和DU102处理后，M1极化基因、I型和II型IFN产生和响应途径的表达上调，而M2极化基因在DU101和DU102处理后下调。最后，作者对DU101和DU102处理后的髓系细胞的DEGs进行了GO分析，发现与防御反应、细胞因子信号通路和IFNβ途径相关的途径被富集。树突状细胞（DCs）在抗原呈递和先天免疫反应中发挥着至关重要的作用。作者进行了无监督聚类分析，并注释了19个细胞簇为cDC1、cDC2、cDC3和pDC。由于cDC1是主要向CD8 T细胞呈递抗原的细胞类型，作者对DU101和DU102处理后cDC1的上调差异表达基因（DEGs）进行了GO分析，并观察到抗原呈递途径的富集，表明cDC1向CD8 T细胞的抗原呈递能力得到了增强。此外，作者选择了与DC激活、抗原呈递和IFN信号通路相关的几个基因，并观察到它们在不同亚型的DCs中的上调。这些结果表明，在DU101和DU102处理后，髓系细胞极化为M1促炎类型，DCs被激活并增强了抗原呈递能力，Arf1抑制剂将髓系细胞亚群编程为具有炎症性肿瘤微环境（TME）特征的促炎表型。上述数据共同表明，Arf1抑制剂诱导了抗肿瘤M1型巨噬细胞的浸润、激活了树突状细胞（DC），并减少了促进肿瘤的M2型巨噬细胞的浸润。因此，Arf1抑制剂促进了肿瘤微环境（TME）的促炎性重构，以支持抗肿瘤免疫。**新型 Arf1抑制剂重新编程了具有更强抗肿瘤活性的T细胞**为了进一步研究新型Arf1抑制剂处理后T细胞的变化，作者获得了注释的T细胞，并使用ProjecTILs将它们投影到参考小鼠T细胞图谱上。作者发现，具有效应和记忆特征的CD8 T细胞比例（CD8_EffectorMemory）增加了，而具有耗竭相关特征的CD8 T细胞（CD8_Tex）和Tregs在DU101或DU102处理后减少了。CD8_EffectorMemory T细胞与CD8_Tex细胞的比例、CD8_EffectorMemory T细胞与CD8_NaiveLike细胞的比例，以及Th1细胞和Tfh细胞总和与Tregs的比例也明显增加，这表明T细胞除了整体浸润增加外，激活程度更高，具有更好的杀伤肿瘤能力。接下来，作者分析了CD8 T细胞中的差异表达基因，并发现细胞毒性相关基因如Gzma、Gzmb、Gzmk和Nkg7、T细胞激活相关基因Stat1和Ifng，以及T细胞趋化相关基因Cxcr6的表达显著增加。作者发现，细胞毒性相关基因和T细胞激活相关基因在CD8_EarlyActiv和CD8_EffectorMemory T细胞中最上调。在对DU101和DU102处理组的上调DEGs进行GSEA通路富集分析后，作者发现T细胞增殖、白细胞细胞毒性、淋巴细胞迁移、对IFNγ的反应、JAK-STAT通路激活等方面有显著富集。因此，DU101和DU102处理将CD8+ T细胞重新编程为更具激活性的T细胞，具有提高的效应功能、减少的耗竭、增加的增殖和更强的细胞毒性活动。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxHfYD3IvrLTlnFzwd99AtzPbXeSdpeJT4GRvic8Et8GicIicLLLPicJ6ZJbFajZBko844pTWI6q6hgRA/640?wx_fmt=png&from=appmsg)
+![](../../images/555a3199246d04a5.webp)
 
 图4.新型Arf1抑制剂的处理诱导了T细胞的激活，并阻断了T细胞的耗竭。a)通过ProjecTILs将T细胞投影到参考T细胞图谱上。从左到右：参考T细胞图谱中T细胞亚群的标准注释，DMSO处理组的T细胞投影，DU101处理组的T细胞投影，以及DU102处理组的T细胞投影。轮廓线显示了投影T细胞的细胞密度。b) 柱状图显示了每种处理组中不同亚型T细胞的比例。c) 不同处理组中不同亚型T细胞比例的比率。左图：CD8_T_EffectorMemory细胞与CD8_Tex细胞的比例。中间：CD8_T_EffectorMemory细胞与CD8_NaiveLike细胞的比例。右图：Th1和Tfh细胞与Treg细胞的比例。d) 火山图显示了DU101和DU102处理组中CD8 T细胞的上调和下调基因。超级注释的阈值：|avg_log2FC| > 0.3 和 -Log10. p值 ≥ 5。正常DEGs的阈值：0.2 ≤ |avg_log2FC| ≤0.3 和 p值 < 0.05。e) 热图显示了每种处理组中不同T细胞亚群选定基因的表达。f,g) 对DU101和DU102处理组中CD8 T细胞的上调基因进行GSEA分析。f) DU101和DU102处理组中CD8 T细胞最有代表性的三条上调途径。g) 岭图显示了DU101和DU102处理组中CD8 T细胞的其他13条上调途径。**新型 Arf1抑制剂促进了在肝肿瘤中表达PD-1和TCF1的CD8+ CD4+干细胞样T细胞群体的形成**有趣的是，在作者的单细胞RNA测序分析中，作者注意到在用DU101或DU102处理的组中，一种特殊的CD4和CD8双阳性的T细胞亚群也显著增加了。首先，作者通过FACS分析确认了在DU101和DU102处理或Arf1基因敲除后，MYC-ON肝脏肿瘤中特殊CD4和CD8双阳性细胞（DPT细胞）的显著增加，但在脾脏中没有。对MYC-ON小鼠的肿瘤进行免疫荧光组织染色也验证了在用DU101或DU102处理的小鼠的肿瘤中，DPT细胞的数量显著增加，与用载体处理的小鼠相比。然后作者对CD8+ CD4+ T细胞亚群进行了系统分析。为了获得一个纯净的CD8+ CD4+ T细胞簇，作者仅使用Cd4、Cd8a和Cd8b1重新对所有T细胞进行了受监督的伪时间排序分析。T细胞被聚类为2种CD8单阳性T（SPT）细胞的状态，1种CD4 SPT细胞的状态，1种CD8+ CD4+ T细胞的状态，以及几种CD8 CD4双阴性T（DNT）细胞的状态。根据特征基因比较，DPT细胞与CD8 SPT细胞更为相似。具体来说，DPT细胞高度表达细胞毒性基因（Nkg7、Gzmk、Prf1、Eomes）、T细胞趋化因子受体（Cxcr6）和干细胞样T细胞标记（Tcf7）。值得注意的是，作者发现在用DU101或DU102处理后，干细胞样T细胞（PD-1+ TCF1+）的比例在DPT细胞中显著增加。一致地，在CT26同种异体移植中，DPT细胞中PD-1+ TCF1+干细胞样T细胞的比例高于CD8 SPT细胞。此外，作者发现与CD8 SPT细胞相比，DPT细胞在体内表现出更大的中心记忆T细胞分化潜力。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxHfYD3IvrLTlnFzwd99AtzG1riaFygytDRFVSRo5oMGoA2VNauGujnpd0bbTdwjsibcXZnpEiajjaaQ/640?wx_fmt=png&from=appmsg)
+![](../../images/0918d7fc20530349.webp)
 
 图5.新型Arf1抑制剂在肝肿瘤中促进了PD-1+TCF1+CD8+ CD4+干细胞样T细胞群体的形成。免疫荧光染色（IF）显示，与用DMSO处理的小鼠相比，经DU101或DU102处理的MYC-ON小鼠肝肿瘤中，CD8+ CD4+ T细胞的数量显著增加。红色代表CD4，绿色代表CD8，DAPI为蓝色。白色虚线圈出了CD8+ CD4+ T细胞。比例尺，50微米。(n = 3只小鼠)。数据表示为平均值 ± 标准误差。学生t检验。*p < 0.05，**p < 0.01，***p < 0.001；n.s.，无显著性差异。a) 根据Cd4、Cd8a和Cd8b1的表达进行T细胞的受监督聚类。b)根据Cd4、Cd8a和Cd8b1的表达对T细胞状态进行注释。c)热图显示CD8 SPT、CD4 SPT、DPT和DNT细胞的顶级特征基因。d) 根据Tcf7和Pdcd1的表达对DPT细胞进行受监督聚类。e) 根据Tcf7和Pdcd1的表达对DPT细胞状态进行注释。f) 每种处理组中干细胞样DPT细胞与其他DPT细胞的比例。g) 流式细胞术分析肿瘤浸润的CD8+ CD4− T细胞和CD8+ CD4+ T细胞中PD-1+ TCF1+干细胞样T细胞。h)分析肿瘤浸润的CD8+ CD4− T细胞和CD8+ CD4+ T细胞中PD-1+ TCF1+干细胞样T细胞。i) 分析肿瘤浸润的CD8+ CD4− T细胞和CD8+ CD4+ T细胞中CD62L+ CD44+中央记忆T细胞
 
 总之，作者发现新型Arf1抑制剂DU101和DU102的处理丰富了CD8CD4 DPT细胞群体。DPT细胞在表达干细胞样T细胞标记TCF1和T细胞耗竭标记PD-1方面有更高的阳性百分比（PD-1+ TCF1+ CD8+ CD4+），并且也有记忆T细胞标记（包括Sell/CD62L、CCR7、CD27、CD28和IL7R）以及活化T细胞标记（包括CD44、CD69、EOMES和GZMB）的协同表达。PD-1+TCF1+CD8+ CD4+ T细胞，据作者所知，首次在这里报道，可能包含一种新型的超级抗肿瘤T细胞。**CD8+CD4+ T****细胞表现出比 CD8+CD4− T细胞更高的活性和更强的细胞毒性功能**作者进一步对这四种（CD8 SPT、CD4 SPT、DPT和DNT）T细胞类型的特征基因进行了GSEA分析，发现DPT细胞在对肿瘤细胞的反应、MHC蛋白结合、αβ T细胞激活和T细胞选择方面具有优越的特征，这表明DPT细胞更加活化，可能具有更强的抗肿瘤能力。为了验证DPT细胞的活性，作者比较了DPT细胞与CD8 SPT细胞在体外有或没有抗TCR刺激下的活化标记表达水平和细胞因子表达水平。DPT细胞显示出比SPT细胞更高的CD69、GZMB和IL-2的表达，无论是在体外还是在CT26同种异体移植瘤中。尽管在体外抗TCR刺激下，DPT细胞与CD8 SPT细胞的CD69百分比没有差异，但在抗TCR激活后，DPT细胞的平均荧光强度更高。这些数据共同表明，DPT细胞是比CD8 SPT细胞更活跃的、具有更强细胞毒性的T细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxHfYD3IvrLTlnFzwd99AtzIkD16meRicfODffGU00zlsZriarYoUJia9kxBf0mx3V0vBWpwOP4220jQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a38708a81c8b5e78.webp)
 
 图6.CD8+CD4+ T细胞表现出比CD8+ CD4− T细胞更高的活性和更强的细胞毒性功能。a) 对CD8 SPT、CD4 SPT、DPT和DNT细胞的顶级特征基因进行GSEA分析。b) 在用抗CD3和抗CD28抗体刺激24小时后，定量检测CD8+ CD4−或CD8+ CD4+ T细胞中的CD69、GZMB、IFNγ和IL-2。(n = 3)。c) 在CT26同种异体移植瘤中，定量检测CD8+ CD4−或CD8+ CD4+ T细胞中CD69+ T细胞、GZMB+ T细胞和IL-2+ T细胞的百分比。(n = 10)。d) 过继T细胞实验和抗CD4处理的设置。e) B16-F10同种异体移植瘤两组治疗组中标记有荧光素酶的肿瘤荧光的代表性图像。(n = 5)。f) 第10天总肿瘤荧光的定量。g) 经IgG或抗CD4处理后B16-F10-OVA-荧光素酶同种异体移植瘤的肿瘤图像。(n = 5)。h) IgG或抗CD4处理的B16-F10-OVA-荧光素酶同种异体移植瘤的肿瘤重量。(n = 5)。i) 肿瘤中CD8+ CD4+ T细胞百分比的定量。(j) 脾脏中CD8+ CD4+ T细胞百分比的定量。k) 肿瘤中CD69+ T细胞平均荧光的定量。数据表示为平均值 ± 标准误差。学生t检验。*p < 0.05，**p < 0.01，***p < 0.001，****p < 0.0001；n.s.，无显著性差异。
 
 为了探究DPT细胞在体内T细胞介导的抗肿瘤免疫中的作用，作者将从OT1小鼠纯化的CD8+ T细胞移植到带有B16F10-OVA肿瘤的免疫缺陷小鼠中，然后通过抗CD4处理消除DPT细胞。作者发现，抗CD4处理显著降低了T细胞的杀伤肿瘤功能，与用IgG处理的小鼠相比，用抗CD4处理的小鼠肿瘤消退速度较慢。抗CD4处理的小鼠的肿瘤大小和重量也更大。相应地，与IgG处理相比，抗CD4处理的小鼠的脾脏和肿瘤中DPT细胞的百分比都降低了。此外，通过CD69表达水平评估的肿瘤浸润T细胞的活化水平，在用抗CD4处理的小鼠中比用IgG处理的小鼠降低了。**干细胞样的 DPT细胞存在于人类肝脏肿瘤中，并与更好的无病生存期（DFS）相关**接下来，作者试图揭示这种DPT细胞是否也存在于肝癌患者的样本中。作者利用了深度整合的人类单细胞组学数据（DISCO），这是一个公开的人类单细胞RNA测序数据集。作者从DISCO下载了肝脏组织单细胞RNA测序数据，筛选了低质量的细胞，去除了双细胞，并基于CD3、CD4和CD8的阳性表达隔离了潜在的DPT细胞。然后作者构建了第一个人类肝脏组织DPT细胞图谱，包含来自28个项目和139个样本的4062个高质量DPT细胞。基于CD4、CD8A、CD8B、TCF7、PDCD1的表达进行了受监督的聚类，并将所有DPT细胞分为32个簇。簇17中的DPT细胞表达了TCF7和PDCD1，被鉴定为干细胞样DPT细胞。作者对样本进行了聚类，并将它们分为八组，发现干细胞样DPT细胞在肿瘤样本中的浸润率高于正常组织，这可能是肿瘤抗原刺激的结果。作者使用了干细胞样DPT细胞的前十个特征基因的表达，连同CD3D、CD3E、CD3G、CD4、CD8A和CD8B作为基因签名，分析了它与人类肝脏肿瘤中肝细胞癌（LIHC）患者的预后的关联。作者发现表达干细胞样DPT基因签名更高的患者倾向于拥有更好的无病生存期（DFS），这表明人类肝脏肿瘤中的干细胞样DPT细胞也可能介导抗肿瘤免疫反应。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxHfYD3IvrLTlnFzwd99AtzqpQDPngq59KvNGpsGBr8S2Hu0k7wYhPLk3bphcUhwHNGXibibgxQeoBg/640?wx_fmt=png&from=appmsg)
+![](../../images/c2b03a2e77fbfab8.webp)
 
 图7.构建人类肝脏组织DPT细胞图谱a) 基于CD4、CD8A、CD8B、TCF7和PDCD1的表达水平对人类肝脏DPT图谱进行受监督的聚类。b) 参与人类肝脏DPT图谱的项目。c) 基于TCF7和PDCD1的表达对DPT亚型进行注释，如图d所示。d) 特征图显示了人类肝脏DPT图谱中TCF7和PDCD1的基因表达。e) 条形图显示了每种类型患者样本中干细胞样DPT的比例。f) Kaplan–Meier曲线图显示了干细胞样DPT细胞特征基因表达与肝细胞癌（LIHC）患者无病生存（DFS）预后之间的关联。g) 模型显示了靶向肿瘤细胞中的Arf1以诱导系统性抗肿瘤免疫。
 
@@ -192,17 +192,17 @@ DISCOtoolkit（https://github.com/JinmiaoChenLab/DISCOtoolkit）被用来从DISC
 **定量和统计分析**
 
 有关全面的实验细节，包括样本（细胞、小鼠）描述和统计信息，请参考图表说明。图表注释中指明了使用的实验小鼠数量，而细胞实验使用了三个重复样本，并在两个独立的实验中进行。数据分析是使用GraphPad Prism 8.0软件（GraphPad Software）进行的。数据以均值 ± SEM（均值的标准误差）呈现。使用双尾学生t检验和单向方差分析（Bonferroni事后检验）来检验统计差异，显著性水平设定为p值 ≤ 0.05。
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
+![](../../images/3b8e21da777157f9.webp)![](../../images/7a5130b05d387a24.webp) 公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器([生信分析为什么要使用服务器？](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=2&sn=c2ba75edc0382855cfc914c3bb713e7e&chksm=9b3caa9bac4b238d0690d2aa5a236c18c8ad8f0d7a23421eb63b5236ff1201c9ec99e12efc8f&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的千人生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247492981&idx=1&sn=aed903c4b853113d8c89e13848ea3365&chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&scene=21#wechat_redirect>)
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247488966&idx=1&sn=9e9e7659b4cf00ac3173d21e88e1602b&chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpwcHwaYgTDhqNg4hlJKR8HwvI9245ZYFHUETVz0nWvgeIficicsu9Y7U0xeO6F1UibHwUia5BHuyZVHBQ/640?wx_fmt=webp&from=appmsg)
+![](../../images/e29532a7f035a4ca.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp)您点的每个赞和在看，我都认真当成了喜欢
+![](../../images/acba43cb3408c3d0.webp)您点的每个赞和在看，我都认真当成了喜欢

@@ -12,9 +12,9 @@ albums: ["单细胞教程全收录"]
 
 # 一、写在前面
 
-大家都看了蜘蛛侠崭新之日了吗？影片中蜘蛛侠和班纳博士交流后手搓复刻(大概率也有名为EV的专属AI介入)了班纳手中抑制浩克基因的一个RNAi抑制器。Biomamba显然是没有这种发明创造能力了，不过找一个蜘蛛的RNAi单细胞数据，再通过scTenifoldKnk评估下抑制效果还是没问题的。通过[单细胞Figure 1常见图表](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509260&idx=1&sn=9ff90a428c3f22d43a31ec864e2d8a94&scene=21#wechat_redirect>)、[改造单细胞DoHeatmap的美化后，可视化集锦如下：](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527762&idx=1&sn=ba7c8a4cb704e71fa86ebfe1f19bffea&scene=21#wechat_redirect>)![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwkwxpjpKOcd5MzibcYj02AFv9dPah20caGotgjB0ibeickOuZfGX7jwyragMAyyW9vkLkIUiapDvTODH8YpgFuU3YFzibkcwfvWZAIk/640?wx_fmt=jpeg)
-![](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwmuzLjwzVbChuANs3YeD0q68xF5LjbD8MKg6iaiaFadN8PngoSq0KMHQ4ia8qk3Oz3yAYJVLqFhE4ibFOdA1WVNq5aibNljIrXW6GlY/640?wx_fmt=jpeg&from=appmsg)
-MJ和蜘蛛侠正在讨论抑制器的过热问题![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkdXsQHFVYM1VicpNEzO7rPw87Xc42uk0h6E5zvib1sAenia1v6fH2SeDh8nj5KLYv11ibNOrjcduXhPerstic1SWMPlt2icxia1GXp44/640?wx_fmt=png&from=appmsg)
+大家都看了蜘蛛侠崭新之日了吗？影片中蜘蛛侠和班纳博士交流后手搓复刻(大概率也有名为EV的专属AI介入)了班纳手中抑制浩克基因的一个RNAi抑制器。Biomamba显然是没有这种发明创造能力了，不过找一个蜘蛛的RNAi单细胞数据，再通过scTenifoldKnk评估下抑制效果还是没问题的。通过[单细胞Figure 1常见图表](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247509260&idx=1&sn=9ff90a428c3f22d43a31ec864e2d8a94&scene=21#wechat_redirect>)、[改造单细胞DoHeatmap的美化后，可视化集锦如下：](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527762&idx=1&sn=ba7c8a4cb704e71fa86ebfe1f19bffea&scene=21#wechat_redirect>)![](../../images/873a906e14a71afa.webp)
+![](../../images/7c91ff0414396efb.webp)
+MJ和蜘蛛侠正在讨论抑制器的过热问题![](../../images/8194152ce3aa8d25.webp)
 
 省流，先上分析总结
 
@@ -31,7 +31,7 @@ MJ和蜘蛛侠正在讨论抑制器的过热问题![](https://mmbiz.qpic.cn/mmbi
 
 更多单细胞教程可见：
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwniaDJ0aKcPIOIUheqrSYttfdUwa1Cg3KhD9v1gh34lHFJ2lwM7iab8a6Ijnp2lcDKZDexiaicb7fPdRiau7WXAuO1XTPSxIWllOpKE/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=3)
+![图片](../../images/837c622fca9b9d8a.webp)
 
 # 二、环境与数据加载
 
@@ -227,7 +227,7 @@ ggtitle("Germ Layers")
 p1 +p2
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmUd7AURA7ibiciarehGel69Dmd5yYIdib2CmbKic4tXCRByia6QZ2ibqmpK6y2cnGGoibBgrbd04lwQgwxIP5Xib5WBDYHuMcHfDWcDRF8/640?wx_fmt=png&from=appmsg)
+![](../../images/dc01bbc7e64fa873.webp)
 
 # 四、Hedgehog通路基因表达全景
 
@@ -253,7 +253,7 @@ FeaturePlot(scRNA, features=c("LOC107451809","LOC107440240"),
 order=TRUE, ncol=2, pt.size=0.3)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkWU8f4JNBukibWTouv8DkLNwDybzVmYHtDjnOQ1EOFyBQB7z6ZvKxlHqKcKkJvTV3mD4fibdrzV2jctBcb1V1X0MsynmFps29JQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3f53cecb60c0aea6.webp)
 ```
 # DotPlot
 DotPlot(scRNA, features=c("LOC107451809","LOC107440240","LOC107452113"),
@@ -265,7 +265,7 @@ ggtitle("Hh Pathway Genes across Germ Layers")
 ## results
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkzicYJ2iaUiaogib2odf7kOUicp9uBJS2NficRwTiaFar9QJRT9vaQyLLF52U7SGr0bVKTvwX5xugUQLDpXAwyOEYVSMhOc5eFS1D3dA/640?wx_fmt=png&from=appmsg)
+![](../../images/b7a0858b3ba8e0cb.webp)
 ```
 # 按cluster的VlnPlot
 VlnPlot(scRNA, features=c("LOC107451809","LOC107440240"),
@@ -273,7 +273,7 @@ group.by="seurat_clusters", pt.size=0, ncol=1) +
 ggtitle("hh & ptc Expression per Cluster")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlQC7HJMzNKTREkIfRibBgfic7CkibGWicZBiaibvT8CjkkojaS7lmeibJUoYofNBET7ia9fibRl7qKTrplS4CRVIdfrpmHTbe8IXowGHAo/640?wx_fmt=png&from=appmsg)
+![](../../images/dbc0e5306ffaeae4.webp)
 
 # 五、hh+ vs hh- 差异基因
 
@@ -354,7 +354,7 @@ x="log2 Fold Change", y="-log10(p-value)") +
 theme_bw() +theme(plot.title=element_text(hjust=0.5, face="bold"))
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwmO55WbnPIbSqKbj4J6yqAUibyPENCc72duVIu5jawy2B25VjpRic9cmTgBlB5CvP9oUGGiaLQaLJWibCaKic1uD4Cv5cLWet9Olib6Q/640?wx_fmt=png&from=appmsg)
+![](../../images/5ff2a4c8ef8aac1f.webp)
 
 ## 2、Top DEGs 热图
 ```r
@@ -368,7 +368,7 @@ disp.min=-2, disp.max=2) +
 ggtitle("Top 30 DEGs: hh+ vs hh-")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwnTA8EKmGJLSuWXxqF94gBdGXFyEEKknibzibncBYibuib1EibwIQYLm1q2mtAn3KpibyADjqV0o4X4iaShTS2kuRMTXTPHib8A61uLs1s/640?wx_fmt=png&from=appmsg)
+![](../../images/7654d024d04c0cd2.webp)
 
 ## 3、hh DEG 的功能注释
 ```r
@@ -515,7 +515,7 @@ x="log2FC", y="-log10(p)") +
 theme_bw() +theme(plot.title=element_text(hjust=0.5, face="bold"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlltvFHCibC2XdRpsWFiaRvTIzZJePw7nOs9o6U5HBxSAlQSNHut1vJBLrmkGRFUnZyuzdAFY0BFc6kJic98eEH8JicXbMR9iaq2XdQ/640?wx_fmt=png&from=appmsg)
+![](../../images/485f94423ff70ae7.webp)
 
 # 七、hh与PTC差异基因交叉比较
 
@@ -593,7 +593,7 @@ legend.position="bottom")
 ## `geom_smooth()` using formula = 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkUm4icYV2aNO6aEA1HHHq4FV7tfcbJXFviaTHEf1hrwsugDMd4QcWmmmN6eC7XAIc4oUwicGPh8jcfJGkyYNicP1U4KavZeGhlDHs/640?wx_fmt=png&from=appmsg)
+![](../../images/774001e70c886252.webp)
 
 # 八、scTenifoldKnk虚拟基因敲除与FC相关性验证
 
@@ -708,7 +708,7 @@ theme_bw() +theme(plot.title=element_text(hjust=0.5, face="bold"))
 ## increasing max.overlaps
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmibiaGImU9q7RSSTgdBBpCic56Z1fAtAw18rAW6KyAtkNFN4bKjVKdBlm9N8ULudwQDL2lEoM8w5HmuQMOgd6LaaJ0ibGMY4KZUP8/640?wx_fmt=png&from=appmsg)
+![](../../images/13723885c81a242f.webp)
 ```r
 # ========== ptc KO 扰动火山图 ==========
 diff_ptc <-knk_result_ptc$diffRegulation %>%
@@ -745,7 +745,7 @@ theme_bw() +theme(plot.title=element_text(hjust=0.5, face="bold"))
 ## increasing max.overlaps
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmtaeNTx0812HTAjvTU4r7Om6c51qiajY98VKkqw96S253BPwrNrmHH82BiapaJLjrib2w9Cqj2flAdnCU8MrdADjibQ5ShsdjKDGs/640?wx_fmt=png&from=appmsg)
+![](../../images/c48cdc73213d0d4a.webp)
 
 ## 3、核心分析：虚拟KO FC vs 直接DEG FC 相关性
 
@@ -834,7 +834,7 @@ legend.position ="bottom")
 ## `geom_smooth()` using formula = 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwmk3rDhCYc5a9rS34QovGiamoPuGvr4DGHhMhPGGVhTLZkh9ImBxXct8755GwnZRVgk1zj6WJS2BU3ruicHbYXdekAe9xF6cpgR0/640?wx_fmt=png&from=appmsg)
+![](../../images/a765a20fe41e93b7.webp)
 ```r
 # ========== ptc: scTenifoldKnk虚拟KO FC vs 直接DEG log2FC ==========
 compare_knk_deg_ptc <-merge(
@@ -915,7 +915,7 @@ legend.position ="bottom")
 ## `geom_smooth()` using formula = 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwk8x3Zic7EHmmmibfnStSC4PE7WD9xbiaByjFibDgqwkJIJiaiaFQcyOUziceFI0N2zvjE6O2NDSlRglETfeE7X4ZpwPN0Qia8N7XJkmbQ/640?wx_fmt=png&from=appmsg)
+![](../../images/7924a26ee1f26a10.webp)
 
 ## 4、虚拟KO vs 真实pRNAi实验数据验证
 ```r
@@ -1006,7 +1006,7 @@ common.legend =TRUE, legend ="bottom")
 ## `geom_smooth()` using formula = 'y ~ x'
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwlC5TDwCpewk01qEicHiaRkzy75nlu05aQIsA9AHHAZudN1NIxY1es0qchNTfoibHYH6m8vUwANPD2iauURTrvO4FYtLMOsosRQZGo/640?wx_fmt=png&from=appmsg)可以看出scTenifoldKnk的差异基因与真实RNAi干扰的效果之间线性关系不太好
+![](../../images/c519e8ba83a5a5e1.webp)可以看出scTenifoldKnk的差异基因与真实RNAi干扰的效果之间线性关系不太好
 
 ## 5、GRN调控网络可视化
 
@@ -1023,7 +1023,7 @@ title(main ="Gene Regulatory Network: Hedgehog (hh) Virtual KO",
 sub ="Red = positive co-expression | Blue = negative co-expression")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwlMIlK6OY3icsVVd2YVAGMpvzGNzyXpaSvE3ic8mjzt14srL20mDoSo6wC44Blwv1NaqbH36VkKbh1wEBhIibYtjxYVXHymiaGDmibw/640?wx_fmt=png&from=appmsg)
+![](../../images/572779a611ff02a2.webp)
 ```
 # ========== ptc KO调控网络 ==========
 plotKO(
@@ -1036,7 +1036,7 @@ title(main ="Gene Regulatory Network: Patched (ptc) Virtual KO",
 sub ="Red = positive co-expression | Blue = negative co-expression")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkoPFYgCkajIv1fIZHlibs5ujDo48QGl5mXlO8t7DPDhcZc7vsNaIWwXapWLibepmFdzVySMqG4ic4a3V0bpqE6jsan2ydMNnhDPE/640?wx_fmt=png&from=appmsg)
+![](../../images/e543a249fb601443.webp)
 
 ## 6、hh与ptc虚拟KO效应的交叉比较
 ```r
@@ -1066,7 +1066,7 @@ color ="") +
 theme_bw() +theme(plot.title =element_text(hjust =0.5, face ="bold"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwl6poFn96icZzZa9KDPfSiacYze5jU0q60xF6XjPBmc2QAibaHevvGzGDzHmaSuf3Hcka634YACOAwWqhEiaM7WS0Uj5fzhlib9r45I/640?wx_fmt=png&from=appmsg)
+![](../../images/3bf9765a45459240.webp)
 ```r
 # ========== 扰动距离分布对比 ==========
 ko_comparison <-rbind(
@@ -1087,7 +1087,7 @@ theme_bw() +theme(plot.title =element_text(hjust =0.5, face ="bold"),
 legend.position ="none")
 ```
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwkmD8O0z9b31P9eI75qWiaKPGy2CibYTRjWibO3jUMoJ6DVBphiaqHNvwV5qJ5EbJTcvp12AQXfJR53BxfUH8SgVcEibelGPdu6iaB28/640?wx_fmt=png&from=appmsg)
+![](../../images/493f271a8860e788.webp)
 
 # 九、与已知Hh通路生物学的一致性验证
 
@@ -1170,16 +1170,16 @@ else"Not found", "\n")
 
 测试文件下载链接：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=20)![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=21)本推送测试文件下载链接：
+![图片](../../images/3ff4011fef611c1c.webp)![图片](../../images/16945f74335466c1.webp)本推送测试文件下载链接：
 
 链接: https://pan.baidu.com/s/1DkdD3khdv_JmgOo36cx4oQ
 
 提取码请联系客服微信获取
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=23)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/8403a0af367dd562.webp)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **欢迎交流**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=32)
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24)您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家一起讨论。![图片](../../images/e43581b4f5118aad.webp)
+![图片](../../images/4ccf87cacd1143af.webp)您点的每个赞和在看，我都认真当成了喜欢

@@ -20,18 +20,18 @@ albums: ["文献速递"]
 
 基于个体化新抗原的疗法有望解决这一未被满足的临床需求，mRNA-4157(V940)是Moderna与Merck公司合作开发的一款个体化新抗原疗法（Individualized Neoantigen Therapies, INT），在代号为INTerpath-001的针对高危[黑色素瘤](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247537055&idx=1&sn=170371b86b42d47373bf7f0500031f19&scene=21#wechat_redirect>)患者的III期临床试验中，疫苗与默沙东的帕博利珠单抗（Keytruda）联合使用，能显著延长患者的无复发生存期，数据显示复发或死亡风险降低了49%，在关键的次要终点上，联合疗法将癌症向远处器官转移或死亡的风险降低了62%。这一成果不仅标志着mRNA技术在传染病之外的广阔治疗潜力得到验证，更意味着人类在攻克癌症的征途中迈出了关键一步。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwltyVZbBLh2l1xt0USyQx5jeiaRMvBMicVeLJ6o9T4woAOR4uHsvexiabdcibWKuqzENdmviaQFflPicVQhjNbqeBX8icCTwicK775I7y4/640?wx_fmt=png&from=appmsg)
+![](../../images/047b1d1fb6f5a448.webp)
 
 此利好消息影响，资本市场反应热烈。Moderna股价在消息公布后暴涨，默沙东股价亦大幅收涨。这一成功被视为Moderna摆脱对新冠疫苗依赖、成功转型为肿瘤药企的关键转折点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/buxFNhaTGwkLZKGDXCPaYia9Kev3l7UibBnNkia4ZD8WEueEaXUKRvOHRXE4icOMeiaUUHsGENMbdvP0e06zGnrkn6Cz5iaYgz6KfHTtxdMoYNFSI/640?wx_fmt=png&from=appmsg)
+![](../../images/d2702507dd09d45a.webp)
 
 **二、主要内容
 **
 
 1、这款mRNA疫苗究竟有何特别之处？
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/buxFNhaTGwnegmibDgbMr0zuztQfCYt7libKkquR1R2W4F5PhHFSPo2R3XmL0dPQSqD5dlsPcLD2kNeswDwQxQqIHImgaEYIxMP60Xicx0uUJE/640?wx_fmt=png&from=appmsg)
+![](../../images/8a56ad916660d521.webp)
 
 新抗原是一类具有免疫原性的分子，通常源自细胞内蛋白质的非同义癌症特异性突变；这些突变蛋白经加工处理后，以肽的形式与主要组织相容性复合体分子结合，呈递于细胞表面。新抗原能够激发强效的抗肿瘤 T 细胞反应。
 

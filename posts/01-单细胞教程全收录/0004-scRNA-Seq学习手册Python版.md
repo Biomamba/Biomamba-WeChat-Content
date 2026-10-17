@@ -10,34 +10,34 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504877&idx=2&sn=2b56a9cfa19fcc918ee6c2ed88fed017&chksm=9b3caabdac4b23ab6e28425a4a5eb4d40ee3612e51f84f5d1e53ac91bef93f717e9e754398e3#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/399758fa7d6941c2.png)
 
 学习手册
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)我们B站的[十八万播放量的单细胞教程](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503465&idx=1&sn=e62ea7c78885c6959a535c2f1a10cd6d&chksm=9b3cb739ac4b3e2ffb60d625dc83b0b914d2956a64a6e8400712920dd2ac4c9f11e4e7752d74&scene=21#wechat_redirect>)是基于**R语言** 实现的。因此这里我们再整理一个scRNA-Seq学习手册的**Python版**(基于scanpy)，包含"准备工作"、"Anndata数据结构理解"、"单样本分析"、"scanpy可视化"、"多样本整合"、"PAGA轨迹推断"共六个章节。文末下载链接包含代码、学习手册、测试文件和输出结果。希望该手册可以帮助大家完成Python环境中单细胞基础分析的一站式学习，学习手册的演示可以看如下动图，翻阅起来比较方便：
+![](../../images/fbfc4b8be383f432.png)![](../../images/007e970626afa0b7.png)我们B站的[十八万播放量的单细胞教程](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503465&idx=1&sn=e62ea7c78885c6959a535c2f1a10cd6d&chksm=9b3cb739ac4b3e2ffb60d625dc83b0b914d2956a64a6e8400712920dd2ac4c9f11e4e7752d74&scene=21#wechat_redirect>)是基于**R语言** 实现的。因此这里我们再整理一个scRNA-Seq学习手册的**Python版**(基于scanpy)，包含"准备工作"、"Anndata数据结构理解"、"单样本分析"、"scanpy可视化"、"多样本整合"、"PAGA轨迹推断"共六个章节。文末下载链接包含代码、学习手册、测试文件和输出结果。希望该手册可以帮助大家完成Python环境中单细胞基础分析的一站式学习，学习手册的演示可以看如下动图，翻阅起来比较方便：
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/ImlBFVOwwpxVWJhdK7UA2qmdqpdF2dJQIEvTcYpIIry0axrcLpsaCl6bzDPO1sXicKnfg9KquV0JmjaGPCLic0Hw/640?wx_fmt=gif)
+![](../../images/abc9781887b03d2a.webp)
 
 文末下载资料包含测试数据、**单细胞** 学习手册、输出文件、输出图片、标记语言文件(jupyter notebook和Rmarkdown，感兴趣的同学也可以点开学一学咱们的手册是怎么制作出来的)以及scanpy的**空间转录组学习** 手册：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxVWJhdK7UA2qmdqpdF2dJQjcZAyxcsrXN19M83hdyJiaSZv5WTf9xsL0Nb084VPycpq7x2zdAI3ibg/640?wx_fmt=png)
+![](../../images/6bfcb97d12ae393a.webp)
 
 学习手册中的主要输出图片可参考：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxVWJhdK7UA2qmdqpdF2dJQ9gEEuxicSdDhkEB1wQfFXXEciaP5UibHDCpHSbEJX13uZlLWq7ichIicpvw/640?wx_fmt=jpeg)
+![](../../images/52a73f790141eedc.webp)
 
 当然，也更推荐大家直接在scanpy的官网学习：
 https://scanpy.readthedocs.io/en/latest/_tutorials.html
 
 **-Biomamba**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/7d247e6c6ef19f87.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png)
+![](../../images/f08cdfe212eb6283.png)
 
 文末还可解锁以下内容
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png)![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTEibOfQmUibFo1TWGFrZ8LI3j3ZN9qAx7HgOkrkI8sgwEbqpVH4MBDESg/640?wx_fmt=png)
+![](../../images/2cc9da4d1e6321da.png)![](../../images/556752da2b520ff6.png)
 
 公众号至今的573篇推送中，刚好有20篇付费内容，联系文末微信可以以119￥获取全部资料(包括今年后面更新的内容)。当然，付费不是目的，以下资料都可以通过**转发领取**(更推荐这种方式)。
 
@@ -58,9 +58,9 @@ https://scanpy.readthedocs.io/en/latest/_tutorials.html
 [《拟时序分析》3.monocle2实操：完整版](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247501684&idx=2&sn=45c8b083e1094718d7fc4b97e370b01d&chksm=9b3cbe24ac4b3732e6eb04084fe3af4419c817755e4eb9a11ba1fb9f68488d12fe7bc865ad0b&scene=21#wechat_redirect>)
 [ComplexHeatmap学习手册](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503470&idx=1&sn=81b5142c5c4f1af9ae87bdc480d5469b&chksm=9b3cb73eac4b3e285467305c2a8d08b07d8b56d85bce96bd978c422d1f22b2c0dad0ed1dc752&scene=21#wechat_redirect>)[沉浸式统计细胞比例](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503971&idx=2&sn=7dafb1e743ebbb95e488d8d1b7024448&chksm=9b3ca933ac4b2025f922a325ec6893e93613f130ff1d4fd609e2d7274f7f1fdb5134092e28ad&scene=21#wechat_redirect>)[VlnPlot的ggplot改造](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247504843&idx=1&sn=b795a3e36ae092d8f87abb5a87187828&chksm=9b3caa9bac4b238dd33e905c33924b58aa4ff14e83abbf08046fba7fe765ecb0204163cb6acf&scene=21#wechat_redirect>)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT9Zzd1lKB0SwRxGa2K2TFUMTLxa4y2FeHzUy5ARvwyD3mVwFloGqhww/640?wx_fmt=png)
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJT4fWv4qtNOib05eia9YjiaabjHRtwFYQOf0ed7ZbssruN898rzEHiciaFN3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/3536da08710707f3.png)
+![](../../images/399758fa7d6941c2.png)
 
 订阅后获取学习手册下载链接：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiadRtBxBtRH1nZ4ZpFgkFJTZ0PAotm6HriciaNkJfsbicJA31YqibhSZOAIfxNibE0blibyPGNkLiadxwzMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/fbfc4b8be383f432.png)

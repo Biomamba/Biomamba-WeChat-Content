@@ -10,28 +10,28 @@ albums: ["单细胞教程全收录"]
 > 原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527750&idx=1&sn=55f4645a82ac055cc0bfdbed3375fc06&chksm=9b3c1416ac4b9d004ff72fa21006598211570ddfd6f0cde32d78f67388d260c00a5414a8980a#rd
 > 合集：单细胞教程全收录
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 写在前面
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些**改进的可视化** 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样**信达雅** 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列[**单细胞测图片改造计划**](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2707677276481814529#wechat_redirect>)的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
+![](../../images/90fab1387787746b.webp)随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些**改进的可视化** 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样**信达雅** 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列[**单细胞测图片改造计划**](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2707677276481814529#wechat_redirect>)的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
 这次的内容为对DotPlot的改造，主要DIY的地方是加上了顶部的Celltype注释条与侧面的基因聚类树。本教程需要有一定的[R语言基础](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506720&idx=1&sn=fe897ba3c33a8e63bf6a4e35aeac1896&scene=21#wechat_redirect>)方可放心食用。本周末[R语言学习计划启动](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527337&idx=1&sn=6893269670fc98b41d6bb1decf5abadb&scene=21#wechat_redirect>)！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyE2yqLAl3nCjLcA02snw0lxDDmh50MWGicBdd0Gb9n9icWs8icpoJFD8tA/640?wx_fmt=png&from=appmsg)
+![](../../images/d177e2eb51b3b086.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 视频教程
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1S44y1b76Z?p=19
+![](../../images/90fab1387787746b.webp)B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1S44y1b76Z?p=19
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 代码及测试文件
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
+![](../../images/90fab1387787746b.webp)不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或**扫码打开** ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyVj5HgRraHcpqBHm1QhKnCOArEobOS9a3mpMvDGXeT5DUDiaHfdWVsHA/640?wx_fmt=png&from=appmsg)
+![](../../images/b1e5f33320c540b9.png)
 
 通过网盘分享的文件：改造单细胞DotPlot
 
@@ -39,15 +39,15 @@ albums: ["单细胞教程全收录"]
 
 提取码: gdvk
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyu7PibiaZIgY8a0njpicNKV7oWc0E5szTM6Q1xVBQNHnAiak85J3b8GZGtg/640?wx_fmt=png&from=appmsg)
+![](../../images/9f681d6a794eff65.webp)
 
 若链接失效可以文末联系客服领取~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqxYF92esgbSzibpibzibzTHwLVVnyELLK10c4Gtwf2KmsmltWyKV9Iiar8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](../../images/ceac53a8b65f5faf.png)
 
 图文教程
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWgEPt6jo0gEwibQzFX4zmOqqiaM9bZyTy3bIjLJcicVlkUFwFvyicJx8wR2ZslWiaBicM4nw9AtyQ7k7ugA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![](../../images/90fab1387787746b.webp)
 
 # 一、测试数据处理
 
@@ -99,7 +99,7 @@ RunUMAP(dims = 1:10)
 DimPlot(sce_final, label=T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcydFRoASkHcnLyicuibj22rTV9UqjHiaRURuAfIg1wdGumZicPFsBB3nJRNg/640?wx_fmt=png&from=appmsg)
+![](../../images/398ad19c0c3d8d2c.webp)
 ```r
 #参考seurat官网添加细胞标签
 new.cluster.ids <- c("TCells", "Myeloid", "TCells", "BCells", "TCells", "Myeloid", "TCells", "Myeloid", "Platelet")
@@ -109,7 +109,7 @@ sce_final@meta.data$celltype <- Idents(sce_final)
 DimPlot(sce_final, label=T)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyaLyTCIqlsCxPnqN7F56sCh3I7fu5xWqnzAnMCyCkNRj7Plgyd1rXHQ/640?wx_fmt=png&from=appmsg)
+![](../../images/c7edc38b6c1dc8c3.webp)
 
 ```r
 # 计算每个机械分群的差异基因，并提取top3基因
@@ -153,7 +153,7 @@ DotPlot(
 DotPlot(sce_final, features = marker)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcy8Cz6PN5B1Y761pGm1BlibFbEVvvRQesvoykt6YIibHGUh2LoIJyyhnCg/640?wx_fmt=png&from=appmsg)
+![](../../images/257871bb6366a3a3.webp)
 
 ```
 # 修改参数展示
@@ -162,21 +162,21 @@ DotPlot(sce_final, features = marker)
 DotPlot(sce_final, features = marker, idents = c("0", "2","4","6"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcy32aaX5tP6RM7dS6Lo0KibtTJJO2ypicatbQdEkPAdiaETf3DDLwxRNugQ/640?wx_fmt=png&from=appmsg)
+![](../../images/151e5cdb311d15a9.png)
 
 ```
 # （2） 按照指定列作为分组信息展示，例如使用seurat_clusters分组
 DotPlot(sce_final, features = marker, group.by = "celltype")
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcylxcRgt8yP7ePFIAokOaQMe5ACvafZbWliahn66QFgNbESDvZ8OueYFg/640?wx_fmt=png&from=appmsg)
+![](../../images/bef9ccdacfd24288.webp)
 
 ```
 # （3） 修改渐变色
 DotPlot(sce_final, features = marker, cols = c("white", "red"))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcysU4nJ7CEWFJZ32GuPttbkwPiaibBp6GjedfNicXJvnpMXvqYq05NJfTrA/640?wx_fmt=png&from=appmsg)
+![](../../images/01013c9525402505.webp)
 
 ```r
 # （4） 不同类别的features，分类展示
@@ -184,7 +184,7 @@ marker_split <- list(TCells=c("IL32","CD3D","CD3E","MALAT1","LDHB"),Myeloid=c("L
 DotPlot(sce_final, features = marker_split )
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyzfEoAfgSFm25ib3KLsYnaib7lZO8XWibAjy9JmSKgHicic8ic8MJQGWzLQvw/640?wx_fmt=png&from=appmsg)
+![](../../images/473fe644354f53dc.webp)
 
 # 四、DotPlot联合ggplot2美化
 
@@ -194,21 +194,21 @@ DotPlot(sce_final, features = marker_split )
 DotPlot(sce_final, features = marker) + RotatedAxis()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyj5drF89qBZ3ibpAjkvVw1t7GQUicGaFavLXy49S1vv0hoGeGtvbHN5Sw/640?wx_fmt=png&from=appmsg)
+![](../../images/df86729bd79446a8.webp)
 
 ```
 # （2）ggplot2的theme函数，调整坐标轴字符倾斜角度
 DotPlot(sce_final, features = marker) + theme(axis.text.x=element_text(angle=45, hjust = 1))
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyj5drF89qBZ3ibpAjkvVw1t7GQUicGaFavLXy49S1vv0hoGeGtvbHN5Sw/640?wx_fmt=png&from=appmsg)
+![](../../images/df86729bd79446a8.webp)
 
 ```
 # （3）ggplot2的coord_flip函数，坐标轴翻转
 DotPlot(sce_final, features = marker) + coord_flip()
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyrE4KFKY5IrF2AysjbNCyHSZFpuz5U3FdbeTzibGRMm58OR7fpM9XfFg/640?wx_fmt=png&from=appmsg)
+![](../../images/788a61c76f2f6844.webp)
 
 # 五、ggplot2复现DotPlot
 
@@ -432,7 +432,7 @@ DotPlot <- function(
 
 从中可以看到，DotPlot函数主要依赖于下面这段代码绘图，使用到的主要绘图函数是ggplot2
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyaFEaTYI9rBM8Kwdp9NWGrmkXJMjgeehviaJibIzcE8behAGuEg15RF0Q/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/15ab82b62876cc78.jpg)
 
 接下来我们尝试用终极大法“ggplot2”还原DotPlot的结果
 
@@ -442,7 +442,7 @@ p1 <- DotPlot(sce_final, features = marker)
 p1
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcy8Cz6PN5B1Y761pGm1BlibFbEVvvRQesvoykt6YIibHGUh2LoIJyyhnCg/640?wx_fmt=png&from=appmsg)
+![](../../images/257871bb6366a3a3.webp)
 
 ```r
 data <- p1$data
@@ -478,7 +478,7 @@ p2 <- ggplot(data , aes(x = features.plot, y = id, size = pct.exp, color = avg.e
 p2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcy4XjkA0NBIMNtFpuXeiazGce3WSaibOFqwfIAlqoLNR3v2zCCxm3EpRAQ/640?wx_fmt=png&from=appmsg)
+![](../../images/68e48cec1c6a4934.webp)
 
 ```r
 #绘制细胞类型注释条
@@ -515,14 +515,14 @@ p2_anno <- ggplot(anno1,aes(x=cluster,y=other,fill=new.cluster.ids))+
 p2_anno
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyHR5N3f6EVqMOIf72j5LwKcTRTC8eLVEknlxHpJWNkO5mrXC8pwpNVw/640?wx_fmt=png&from=appmsg)
+![](../../images/e1e878c89d297d16.png)
 
 ```
 # 合并dotplot和细胞注释条
 p2 %>% insert_top(p2_anno,height = .05)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyEV9Z8yrTFqficUI34NPqSylQm1sUSu6lLcr897PsEFiaHzoZCIiagfCnA/640?wx_fmt=png&from=appmsg)
+![](../../images/82e53147ba109adc.webp)
 
 ```r
 #列（基因）聚类树
@@ -532,14 +532,14 @@ hc <- hclust(dist(expr))
 ggtree(hc)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcysTOK8IWboQFDxy4RaEhk3kAyhckGao4Czia24WVicSVic23mBhtLV0h1w/640?wx_fmt=png&from=appmsg)
+![](../../images/569690570ec74f7c.png)
 
 ```
 #查看所有的节点编号
 ggtree(hc)+geom_text(aes(label = node), hjust = -0.3, vjust = -0.3)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcysj8Qzu802U3zt24VRFSoyhlVxibqdZltCptIgyHO7JJhHIF7D0zFQMQ/640?wx_fmt=png&from=appmsg)
+![](../../images/96ce04bd4e8a5335.png)
 
 ```r
 #美化聚类树
@@ -547,7 +547,7 @@ hcc1 <- ggtree(hc) + geom_nodepoint(color="#b5e521", alpha=1/4, size=10) + geom_
 hcc1
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcy85Knhfah8R7ETZdARjfTJsJ4ftlN4zIcKQhulalXxeJ976dMPY04dA/640?wx_fmt=png&from=appmsg)
+![](../../images/2346af68955d90cb.png)
 
 ```r
 #每个分支加不同的颜色区分
@@ -561,7 +561,7 @@ hcc2 <- ggtree(hc) +
 hcc2
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcydNwnlfIoj4ia9TJrWmv1qRZoXXY0A8Pf4ticicotubupbLzWOtI3wTOkQ/640?wx_fmt=png&from=appmsg)
+![](../../images/6d90090b097ca4d9.png)
 
 ```
 # 合并dotplot、细胞注释条和基因聚类树
@@ -569,20 +569,20 @@ p2 %>% insert_top(p2_anno,height = .05) %>%
   insert_left(hcc1, width = 1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcyCHK9JibfTDGYgaNXL4mVpFtuUO8py1YRkSMtMHIejpldp29IcyYt54A/640?wx_fmt=png&from=appmsg)
+![](../../images/f4b1343965435774.webp)
 
 ```
 p2 %>% insert_top(p2_anno,height = .05) %>%
   insert_left(hcc2, width = 1)
 ```
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxOwX1Cz1O5BBngmR7FhDcylibLNxt29icKp9XoJxvRibWVOpjB0iabjsz5WicXCnRuHib9X0Iom0zJfx3Q/640?wx_fmt=png&from=appmsg)
+![](../../images/a6b2ffcea2d25a28.webp)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器([足够支持你完成硕博生涯的生信环境](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247507693&idx=1&sn=d9517a0803ad75cb7be430806834e7b8&chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&scene=21#wechat_redirect>))的**微信号** ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的**交流群** 也建好了，欢迎大家入群讨论：
 
 [永久免费的生信、科研交流群](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247505868&idx=2&sn=20c81313eaef9a7031a84ef3a691d1b5&chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&scene=21#wechat_redirect>)
 
@@ -591,4 +591,4 @@ p2 %>% insert_top(p2_anno,height = .05) %>%
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpxcrsdfpdpTib36DuVPM9ibrLlVsCT9Eq6sBGBpkFFaiaro1pdJZGCXHZs67Aib6FATAdKIwhJ5IY8ASQ/640?wx_fmt=png&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/52dfc495fd16977e.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

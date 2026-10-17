@@ -24,7 +24,7 @@ DOI: 10.1002/advs.202413474
 
 本文图片集锦：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyN00o5T0LevX01eJ1e05knk3YpTfWdb2BIIc4biaDv6lFBiaTzsPicfrf8g07PB8ozWySctbfSCxTibg/640?wx_fmt=jpeg&from=appmsg)
+![](../../images/6877bb975466cfdf.webp)
 
 近年来，随着高分辨率超声的广泛应用，甲状腺乳头状微癌（Papillary Thyroid Microcarcinoma, PTMC，定义为最大直径≤1cm的PTC）的检出率显著上升，构成了甲状腺癌发病率增长的主要部分。尽管大多数PTMC表现为惰性生长，预后良好，但仍有部分病例会在短期内出现肿瘤增大、淋巴结转移（LNM）和甲状腺外扩展（ETE）等侵袭性行为。这种临床异质性导致了针对PTMC“过度诊断与过度治疗”的反思，并使主动监测（AS）成为低风险PTMC的一种管理策略。然而，如何准确识别出具有进展风险、需要早期干预的PTMC患者，仍是当前临床面临的核心挑战。
 
@@ -44,7 +44,7 @@ DOI: 10.1002/advs.202413474
 
 本研究对来自 15 名患者的 19 份手术组织标本进行了[单细胞RNA测序](<https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&mid=2247485774&idx=2&sn=44f273ec0559b80cacf0243ac5dc0965&scene=21#wechat_redirect>)，分析的样本包括 4 个瘤旁（正常）组织、4 个非进展性 PTMC（来自接受 5 年主动监测且无临床进展的患者）、5 个进行性 PTMC 和 6 个进展性 PTC 组织。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXSja6XF4dmNno5Nma9oD6y0BP8HnjQmAOM33ic9IsaibrNjfBXukic7mxg/640?wx_fmt=png&from=appmsg)
+![](../../images/6522546415be9376.webp)
 
 Normal thyroid tissue：正常甲状腺组织，作为对照。
 
@@ -60,21 +60,21 @@ Macrocarcinoma PTC：大型乳头状甲状腺癌（通常指 >1cm），更具临
 
 在排除低质量细胞后，[主成分分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500010&idx=2&sn=2f9fd1b0101d579bcd250fdc24e98bfc&scene=21#wechat_redirect>)将正常、I 期、II 期和 III 期组织的 28 377、28 284、40 788 和 49 080 个细胞分别分为 32 个不同的聚类。平均而言，每个细胞包含≈3000 个基因和 10000 个UMI（图 1B，图 S1A-F）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXzRicBBekysaXVRsJRYuib52tAVV8HeP5sSu7A6gYkFYjJSh6odibDKQXQ/640?wx_fmt=png&from=appmsg)
+![](../../images/92f9457e21b9eefa.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXqDgI0j5TDAfwuslxBmmibCCcunSpCJYgia52zeWCuGP2V6rCAk56KOVg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXwZInzrtufkGPECOuFYU1FIabUqAX1GX6IBy0nxxMiacpjiak5sX6Oiatw/640?wx_fmt=png&from=appmsg)
+![](../../images/e89c6dd2f7cb5e33.webp)![](../../images/01347ed051b80889.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXujweIA6J8l0Qhv6aiacic2SxnJsUCO1ibtKemonzhC75o4Q6dDBEMbEeA/640?wx_fmt=png&from=appmsg)
+![](../../images/7f5f974196505d60.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXOlmQibh3XzvMod9JZchdric2goREAicKeN3B0x18gJxtE0mXrFajPuViag/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXHYU1377aibZSnbb4VgfeQkuy6z7cbhLhcC3S9Yub45C5epADGDpGSuQ/640?wx_fmt=png&from=appmsg)
+![](../../images/3a07fc08c66e801f.webp)![](../../images/d5237d87d4e0155e.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXAzb60J2SYnNkB0VAUQh9xSzqF9RiaAcguSwNdRhVOfKicJoTOe6YPiaag/640?wx_fmt=png&from=appmsg)
+![](../../images/e33562946264c86b.webp)
 
 [单细胞测序数据](<https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&mid=2247485809&idx=6&sn=c0cd5e07a0803a282fc036cca935798b&scene=21#wechat_redirect>)的质量控制。A)、B)、C) 分别为质量控制前的线粒体含量、基因数量和计数分布。D)、E)、F) 对应质量控制后的线粒体含量、基因数量及计数分布。G) 条形图展示各样本中32个细胞簇的占比情况。H) 10x Visium捕获芯片中肿瘤（及毗邻）组织切片的H&E染色与不同细胞簇的空间分布图谱。I) 通过单细胞测序鉴定的3个甲状腺细胞簇在其他组织切片中的空间映射。J) 热图展示各甲状腺细胞簇（列）显著富集的50条标志性通路（行）。
 
 图 1C 中的热图显示了每个簇的差异基因表达谱。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXtzbiaiaxDYKCCwaGljCH6d4wfCKLEHF83YicRBLNdSNhZwt8wvNEichzyw/640?wx_fmt=png&from=appmsg)
+![](../../images/9a5934b41c753807.webp)
 
 这是一张**基因表达热图 （heatmap）**，常用于生物信息学中展示基因在不同样本 / 细胞群中的表达模式差异：
 
@@ -84,9 +84,9 @@ Macrocarcinoma PTC：大型乳头状甲状腺癌（通常指 >1cm），更具临
 
 根据原型细胞类型特异性标记基因的表达，将细胞分为 6 种原代细胞类型：甲状腺细胞（EPCAM）、成纤维细胞（ACTA2）、髓系细胞（LYZ）、内皮细胞（PECAM1）、T 细胞和 NK 细胞（CD3D）和 B 细胞（MS4A1;图 1D-F）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXJXBwWkP5hgoSiaL6JpyXBdBCiaXMkUQqyibPfvCek4928QsNlJWa8ZNtw/640?wx_fmt=png&from=appmsg)
+![](../../images/3f5ee0236a3cc85e.webp)
 
-**![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXiaIjTBuKh0WyrJsZzZokmCvdlicofpSiaOP6Zj70C6ZhDLatUW6vibSNfw/640?wx_fmt=png&from=appmsg)**
+**![](../../images/446a2914ee74497c.webp)**
 
 **图 D（左图）：细胞分群的整体视图**
 
@@ -112,15 +112,15 @@ Macrocarcinoma PTC：大型乳头状甲状腺癌（通常指 >1cm），更具临
 
 这些[细胞类型的比例](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247503971&idx=2&sn=7dafb1e743ebbb95e488d8d1b7024448&scene=21#wechat_redirect>)因患者样本而异（图 S1G）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXNv1YaRY4PuJR3sibic5iarWVxAicf54o6TQJHmhSYqvgY50P9jia15SLYrA/640?wx_fmt=png&from=appmsg)
+![](../../images/e34a111d600e012e.webp)
 
 疾病进展与 T 细胞和 NK 细胞的逐渐下降以及成纤维细胞的增加有关（图 1G）。此外，与正常或 I 期样品相比，II 期和 III 期 B 细胞的比例有所下降（图 1G）。在上皮细胞中观察到最明显的变化（图 1G）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXsMkuwzYbzRVnBDynra9O0gAG2icmicovmKRbn9tMa2pCib38x3zJiaxrgQ/640?wx_fmt=png&from=appmsg)
+![](../../images/03f9f0023e8a9aa2.webp)
 
 图 1H 中的热图说明了来自正常组织和肿瘤组织的细胞簇中癌症标志基因的差异富集。来自正常组织的上皮细胞高度富集氧化磷酸化，而肿瘤上皮细胞在细胞衰老、铁死亡、抗原加工和呈递、癌症途径和 ECM 受体相互作用方面表现出富集（图 1H）。 来自正常组织的内皮细胞富集自身免疫性甲状腺疾病、同种异体移植物排斥反应、细胞粘附分子以及抗原加工和呈递，而肿瘤内皮细胞在 MAPK 信号通路、癌症通路和 ECM 受体相互作用中表现出显著[富集](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247510401&idx=5&sn=8cde5a0101cdf1da4a24e614b05cedfa&scene=21#wechat_redirect>)（图 1H）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX2FSaLkxUn1MwNwWgialdaXFJZE4iaj4h8BZOU0XZhVjCibzPwRT1DRuGg/640?wx_fmt=png&from=appmsg)
+![](../../images/5b865acbb4f3cf17.webp)
 
 ### 第一部分：上皮细胞（Epithelial Cells）的变化
 
@@ -171,75 +171,75 @@ Macrocarcinoma PTC：大型乳头状甲状腺癌（通常指 >1cm），更具临
 
 为了进一步研究 PTC 进展过程中肿瘤微环境的变化，对接受单细胞治疗的同一患者从三个进展阶段的 PTC 组织进行了[空间转录组测序](<https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&mid=2247484558&idx=3&sn=b6dfff9e4f452a3f429e823bec306578&scene=21#wechat_redirect>)。进行苏木精和曙红（H&E）染色（图 1I，图 S1H），
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX8R4LtX4Qhh2poKfL3st0x04NsTN8hdybN6HfQRX0l6efQPKVSWAgiaw/640?wx_fmt=png&from=appmsg)
+![](../../images/9c226daf62de42d2.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXiat3ylichebTBAOzfic5TRn5TNlzos9xcdNpbx3KjKPM4725UugusgLWg/640?wx_fmt=png&from=appmsg)
+![](../../images/7a48e84e5d438dac.webp)
 
 将[10x Visium](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247522444&idx=2&sn=3ab5deb0b2a6db78ba2997bacbf869b9&scene=21#wechat_redirect>)从所有 6 个标本中捕获的斑点分成 15 个簇，与 H&E 图像对齐。这些簇在标本中表现出显著的异质性。在 I、II 和 III 期，观察到肿瘤与邻近组织之间有明显的边界。I 期和 II 期肿瘤区域表现出相对均匀的一致性，而 III 期肿瘤区域明显分为两类不同的类别，表明晚期 PTC 肿瘤存在显著的异质性（图 1J-l，图 S1H）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXMTKFd3ib1MN05SHqYp65FMdEqROgBfoUicEaCAOR3Q1vib02upZAETSDQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9c135bf670cae737.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX0rMLxufPXqzhbrq3G1NSIEwuBzLWYBnt2pjgcJJYQBK8ybRzDSVNWQ/640?wx_fmt=png&from=appmsg)
+![](../../images/c7033fd828651e00.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXiat3ylichebTBAOzfic5TRn5TNlzos9xcdNpbx3KjKPM4725UugusgLWg/640?wx_fmt=png&from=appmsg)
+![](../../images/7a48e84e5d438dac.webp)
 
 2.2. PTC 中癌细胞状态的鉴定和表征
 
 使用修拉对上皮细胞群进行基于图形的聚类，确定了八个簇（C0-C7）（图 2A）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXGrblNRj9FibhYQokRIGX3fe675OyubbNDqibibphNSxnPkbdaw6ianibayA/640?wx_fmt=png&from=appmsg)
+![](../../images/7f0b4543fc3e965b.webp)
 
 来自正常组织的大多数上皮细胞集中在簇 C1 中，而癌细胞表现出患者特异性的表达模式（图 2B，C）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXaib2plR4ts9jnUUH7GWGQSlLsVCEYEugnHbbFNbJ4ibY7JazJiakfULXQ/640?wx_fmt=png&from=appmsg)
+![](../../images/c10af74e0c1a793b.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXDvIwd6dY2xEhqJ1kJxn04HYpQP5QvAo2ZpmPcB370jicYkHoUqBeibeQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a0dcfac179b20b9c.webp)
 
 甲状腺分化评分（TDS）显示，簇 C1表现出最高程度的分化（图 2D），与其在正常组织中的优势一致（图 2E）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXFXbFqBzgKUTd5yvrTNcMDwAQbuiaEQD5DEzroEDUVkicZRk8QN879JvA/640?wx_fmt=png&from=appmsg)
+![](../../images/708ab4bc25df264c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXxBCEr48D8iaEabC6YTJ1nj8jfgVZ7zkqvFDpz3dMGZxDsia9WolRvdnA/640?wx_fmt=png&from=appmsg)
+![](../../images/99986b73eb565d39.webp)
 
 随着疾病的进展，C1 细胞的比例显著下降，从正常组织的平均 74%下降到 I 期的 14%、II 期的 6%和 III 期的 2%，表明这是一个去分化过程（图 2E）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXxBCEr48D8iaEabC6YTJ1nj8jfgVZ7zkqvFDpz3dMGZxDsia9WolRvdnA/640?wx_fmt=png&from=appmsg)
+![](../../images/99986b73eb565d39.webp)
 
 相比之下，簇 C0、C2、C3、C6 和 C7 在肿瘤组织中表现出显著增加的比例，特别是在 III 期样本中，一小部分起源于 II 期（图 2D，E）。主要来源于肿瘤组织的 C3、C6 和 C7 被指定为肿瘤相关上皮细胞。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXK2mCnLskXvpiaxnvnMre5KHia1NCtFW7Sl62l9DS3WibNuvlWAR6XKaEw/640?wx_fmt=png&from=appmsg)
+![](../../images/22add328083e2f01.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXRFpgZPBuen7UIgtRcticHyq30x309tn7LiaJiaSEaiblWznMXP7Xc6ea0w/640?wx_fmt=png&from=appmsg)
+![](../../images/39c4b8444790749c.webp)
 
 [空间转录组](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531916&idx=4&sn=e1714c7c1c1a33fa47ffa0b2d5015670&scene=21#wechat_redirect>)结果证实了这些发现，因为与相邻的非癌性区域相比，将 C3、C6 和 C7 映射到空间切片上显示出肿瘤区域的显著分布。C3 分布最大，C6 和 C7 更局部化。随着 PTC 的进展，C6 和 C7 的比例逐渐增加，尤其是 C7，在 III.期丰度明显增加。值得注意的是，III 期切片的左下角主要由间质组织和一些局部卫星病灶组成，显示出这些病灶与 C7 肿瘤细胞的显着共定位，表明 C7 和 PTC 进展之间密切相关（图2F，图 S1I）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXhrdmycDsOsHXEFDoZiaC5AWWC9Anp6Hd92q0rrcSwWz2QkxXD50pbGQ/640?wx_fmt=png&from=appmsg)
+![](../../images/9787b0cbf4bcbe3f.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXzJI5OxdDnGR2ibvauPTqTsICHkRHP1X8ibLf0RfTq7oFhBiaAaJdokicgw/640?wx_fmt=png&from=appmsg)
+![](../../images/59652407bb39e95f.webp)
 
 [伪时间轨迹分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528666&idx=1&sn=d29545d296bac3e41de322e43fde80dd&scene=21#wechat_redirect>)证实，簇 C3、C6 和 C7 主要代表晚期伪时间阶段的细胞，而 C1 主要由早期细胞组成，表明从正常上皮细胞逐渐转变为高度恶性肿瘤细胞（图 2G）。每个子集群中的顶级 DEG 通过热图可视化（图 2H）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXNTZ0YiaB0P77pcWmwLvibe3oDO1vHic2FicqlYUUs5zJ4icuWb33mPqCC3g/640?wx_fmt=png&from=appmsg)
+![](../../images/10ad7fd34e43bebb.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXPjBANRSL4tEDJcTKAJ2TDEeusVl5ZNI4E1aSzFU7VggjHMeFLVDLCg/640?wx_fmt=png&from=appmsg)
+![](../../images/3e5b6f7015df7c05.webp)
 
 基于 KEGG 的功能[富集分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500357&idx=2&sn=40034079b771c478b482e849ed4b216c&scene=21#wechat_redirect>)显示，C1中的 DEGs 主要与正常的代谢途径相关，而肿瘤来源的上皮细胞中的 DEGs 富集在各种癌症相关途径和参与外部相互作用的功能中（图 S2A-H）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX0juyQFdLdkP6ibgwbI6qZbEREpw58cKdDKcvKN8SbN9NsljMYN2HyvQ/640?wx_fmt=png&from=appmsg)
+![](../../images/8a29730b34e3fc11.webp)
 
 [GSVA ](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484701&idx=1&sn=ad90680f252d092a2e21f349c8f32cab&scene=21#wechat_redirect>)进一步证实了肿瘤来源上皮细胞中血管生成、Hedgehog 信号传导、Kras 信号传导、炎症（包括炎症反应和 IL6JAK-STAT3 信号传导）、Wnt-β连环蛋白信号传导和蛋白质分泌的上调（图 2I，图 S1J）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXQnrvlpVJCajLbRkPyoic2VnwbDx2WUZUStnGd2Wa4ickXfYMKEIkiab4g/640?wx_fmt=png&from=appmsg)
+![](../../images/41a8b16980fde52b.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXC9aeyp3GBiaVB1VibShVicJfvsa4DBqYElzfpPnuVia8feI24Pa9yGZU3Q/640?wx_fmt=png&from=appmsg)
+![](../../images/1e6419693e92538d.webp)
 
 这些结果表明，肿瘤来源的上皮细胞表现出更活跃的生物学过程和与肿瘤微环境更强的[相互作用](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528770&idx=1&sn=6242bce437a9d60f81a8651ea9b57e0b&scene=21#wechat_redirect>)。相比之下，C1 在与脂质代谢（包括脂肪酸代谢、胆汁酸代谢和脂肪生成）、氧化应激和未折叠蛋白质反应相关的代谢途径中表现出高活性（图 S1J），与甲状腺细胞中甲状腺激素产生的生物学功能一致。相反，脂肪酸代谢在 C6 和 C7 中下调（图 S1J），进一步证实了它们的去分化。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX9xlTaecVXxtJQcfrSgja3XVctlicrOaTIgl0Cqxgt0SX73jYRxnQOZg/640?wx_fmt=png&from=appmsg)
+![](../../images/bcb9fc3be5fa6fdb.webp)
 
 在 II 期和 III 期样品中观察到类似的通路，具有明显的差异，例如 II 期炎症反应的显着上调，III 期糖酵解和 NOTCH 信号通路的显着上调（图 2I）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXQnrvlpVJCajLbRkPyoic2VnwbDx2WUZUStnGd2Wa4ickXfYMKEIkiab4g/640?wx_fmt=png&from=appmsg)
+![](../../images/41a8b16980fde52b.webp)
 
 2.3．PROS1-MERTK 介导的成纤维细胞-肿瘤上皮[细胞通讯](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528770&idx=1&sn=6242bce437a9d60f81a8651ea9b57e0b&scene=21#wechat_redirect>)在 PTMC 中随着进展的增强
 
@@ -247,117 +247,117 @@ Macrocarcinoma PTC：大型乳头状甲状腺癌（通常指 >1cm），更具临
 
 比较 I 期与正常组织、II.期和 I 期、III.期和 II.期的信号通路。与正常对照相比，I 期上皮细胞，成纤维细胞和内皮细胞之间相互作用的数量和强度普遍增加（图 3A，B）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX1QxrTcf1wMsCIHjDNpl2ib2SwQicc0fbw3hjGQBVTBbNibVEklhrD1Fxg/640?wx_fmt=png&from=appmsg)
+![](../../images/52624c02493f091d.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXFuN5FSmnm1Klgat0gYHCbbMiaBoTz4U16qTJvWIAQRV6JYYofGSiaSxA/640?wx_fmt=png&from=appmsg)
+![](../../images/1b239ed7257312ef.webp)
 
 然而，成纤维细胞和内皮细胞之间的相互作用在 II 期（图 3A，C）和 III 期（图 3A，D）减少。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX1QxrTcf1wMsCIHjDNpl2ib2SwQicc0fbw3hjGQBVTBbNibVEklhrD1Fxg/640?wx_fmt=png&from=appmsg)
+![](../../images/52624c02493f091d.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXhRNl7KE8SVYc4dutOH87icxFqMFkTKlCDbgsm3mqh6Om4jJnRgdujFQ/640?wx_fmt=png&from=appmsg)
+![](../../images/b43ce73bb6c4ee23.webp)
 
 对每个信号通路的信息流进行量化，确定了 PROS1，INF-II 和 POSTN 信号网络，具有正常I 期>II 期≥III 期（图 3E，F;图 S2I-N）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXJsBy68tl4A7ha1xp2ISG9lGrxS6f8U7GqjxRQGy006YcU8mq25L28g/640?wx_fmt=png&from=appmsg)
+![](../../images/caf4df2519347158.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXXV1G1CQwicBQtFcDTsPM4jicEhmg6DHtbBBfjPR2hzNdl0lYxKribT9ibA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXTDlskvepg5oDStDuicuz0rvibeXPYll7plPG4F5O62J1A8EULXcjOSAg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX7CdibhIImlT6Z5W3eKdqHevNoyTQQXJ7zvJX453vgspiawHvSBZ0GW1A/640?wx_fmt=png&from=appmsg)
+![](../../images/ea17bcae217ca521.webp)![](../../images/cb9a8062e38bf872.webp)![](../../images/2c16655a0c562486.webp)
 
 对[ scRNA-Seq 数据](<https://mp.weixin.qq.com/s?__biz=Mzk0ODQwNTU5NQ==&mid=2247485531&idx=1&sn=d72136317b1a085a45f513c9f9d75cab&scene=21#wechat_redirect>)的分析表明，TAM 信号配体 PROS1 在 II 期和 III 期的肿瘤相关上皮细胞、CAF 和内皮细胞中特异性表达（图 3F，图 S2O）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXEjibYeyYd4UiadGkvqKXddBaob6IYp0rwPyEEibCq1q4AUT2nzsDrh8KA/640?wx_fmt=png&from=appmsg)
+![](../../images/b734f20e4bb4181a.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX6hDotfW97S7kVvxiaCiaaLj04KbVC1ghAv0rYV8ibuTepIbGgS8JhYBVQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a424aba2136829f5.webp)
 
 上皮细胞和成纤维细胞之间的相互作用比其他细胞类型更强（图 3E）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXECjR3picUB69sFspeWtj6NVLPJBmZBMUYCAaaCBNicvyOHrOJ5n8JeXA/640?wx_fmt=png&from=appmsg)
+![](../../images/31d57376b076d407.webp)
 
 此外，GAS6 在髓系细胞、成纤维细胞、内皮细胞、甲状腺上皮细胞和肿瘤细胞（图 3F）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXQqFpCSsL8YlRozicicreX5zNq2nTrhbjb4x9EA3WibqUOaswNicNhC6kww/640?wx_fmt=png&from=appmsg)
+![](../../images/a535ab49e0afbca9.webp)
 
 TYRO3 表达很少被检测到，而AXL 在髓系细胞、肿瘤上皮细胞和 CAF 中表达。MERTK主要在 II 期和 III 期组织的骨髓细胞和肿瘤上皮细胞中表达（图 3F，图 S2O）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX0OdpRktkhwy3kFYFAypteGVicc8qHQrTJnibGBpRGvFia6ltpc68ZMu1g/640?wx_fmt=png&from=appmsg)
+![](../../images/306cebbbe6443894.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX0TjxVZmc7zicy7NLXtOhSgZeygTicfcEELfvHE6Kx7NKwHhMuOEKlcow/640?wx_fmt=png&from=appmsg)
+![](../../images/3a79b4c6a3fb7cf5.webp)
 
 此外，在肿瘤相关巨噬细胞中检测到 MERTK 表达，在 II 期和III 期组织中观察到显著上调（图 S2P）。如 KEGG 和 GO 分析所示，肿瘤相关巨噬细胞中的高 MERTK 表达与多种癌症相关途径相关（图 S2Q）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXNC1ThnBLPbSPzrsicQSk9UpDoydM5vicmyMhMIbCJvGwgqYXVwnKQLicg/640?wx_fmt=png&from=appmsg)
+![](../../images/e6162046856261e7.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXexY6zEkwSKSCibibjm6iaaLosGsnjoawO895ywCNUQe8xELeFPlZGIZGA/640?wx_fmt=png&from=appmsg)
+![](../../images/bd5a6355d6fcc429.webp)
 
 对单个 TAM受体介导的信号通路的检查表明，GAS6-AXL 通路在正常组织和肿瘤组织中都很普遍，尽管具有不同的[细胞间通讯](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529343&idx=2&sn=905ed3c49959e3527adbaaf2800e29a7&scene=21#wechat_redirect>)模式（图 S2I）。在正常组织中，GAS6 信号传导涉及甲状腺细胞、成纤维细胞和内皮细胞，其中髓系细胞是唯一的受体（图 S2I，J）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX9sEVIqEPicmOwicTssDk9icvKtHdGzyTqImysglq4pwicibQc3ZmD22yyAg/640?wx_fmt=png&from=appmsg)
+![](../../images/4c5e16901d145bc8.webp)
 
 在肿瘤组织中，GAS6-AXL 介导的通讯更为复杂，涉及髓系细胞、成纤维细胞、内皮细胞，偶尔还涉及甲状腺细胞（图 S2I）。PROS1-AXL 通讯是肿瘤特异性的，在正常组织中不存在（图 S2J）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXyVpKaHhD8cfoqicBroUBZztDba3VgicPf8HGOfUuOhLLfZNS4ky6KjyA/640?wx_fmt=png&from=appmsg)
+![](../../images/6c7f1111b252ff23.webp)
 
 在 II 和 III 阶段，成纤维细胞充当 PROS1 信号的发送者和接收者（图 3E，图 S2J）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX6emK5K8JbrX9vwllAoZbNwRlyhgI7d9OVKFa1krE7JjuwDF5OHgHWw/640?wx_fmt=png&from=appmsg)
+![](../../images/6f08fde801a0dd7f.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXn34TV3wyzqNRKTQSZREGawUDibZS2z8oEaaiakQdw7oJjpXr6ATxyvPA/640?wx_fmt=png&from=appmsg)
+![](../../images/7bcdfde129e90177.webp)
 
 PROS1 和 MERTK 在 H&E 病理切片上的空间表达和分布与[单细胞分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529901&idx=1&sn=3e9cb1075a3b0b4c253ca19addf8b387&scene=21#wechat_redirect>)一致，显示它们在肿瘤区域的主要分布，并且随着 PTC 的进展而表达增加（图 3G，图S2R）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXxkhXat78R9KJ90AR0ib0ZLZ4rqnZhPJT0rQjSzIf2ibdzFoKlFuLhlYg/640?wx_fmt=png&from=appmsg)
+![](../../images/4f6f95e445081e80.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXibCY0ibjfEjjVUJYlVu6zSubaU7OOonOa63bm4Ve3DOcGzS0icbuqkmcA/640?wx_fmt=png&from=appmsg)
+![](../../images/04d9c7e9bf8241c8.webp)
 
 在 IFN-II 信号通路网络中，IFNG是 T 和 NK 细胞在 II 期和 III 期组织中产生的一种特异性信号分子，促进 T 和 NK 细胞、髓系细胞、成纤维细胞、甲状腺细胞和内皮细胞之间的通讯（图 S2K，L）。相比之下，POSTN 充当自分泌信号，主要由 II 期和 III 期组织中的 CAF产生（图 S2M，N）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXZ6GeWRC6Dv0qdv97zYLaqJHuYaXUw0M4JnU95xrVbljibQRDdTFQicGw/640?wx_fmt=png&from=appmsg)
+![](../../images/d3c9f1bb0b0ee0bc.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX8hEeQlibSia3DKr9Dl9xnJqI3tq8ctNsJPy9GSgAnQpnemqlnefI56vQ/640?wx_fmt=png&from=appmsg)
+![](../../images/c3f2ae63bad86139.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX2wFibicu78hrjFwkibHqxjVmlyfjW6lFflVnrHA00Bz5IThP7Bxd6DJng/640?wx_fmt=png&from=appmsg)
+![](../../images/58f64bba7631563d.webp)
 
 2.4. PTMC 中产脂 CAF 释放 PROS1 并伴有进展
 
 POSTN 和 INF-II 信号仅由成纤维细胞、T 细胞和 NK 细胞产生，而PROS1 的表达则源于上皮细胞、成纤维细胞和内皮细胞。考虑到肿瘤细胞在微环境中的关键作用以及成纤维细胞对PROS1 信号传导的主导贡献，对成纤维细胞群进行了进一步的[主成分分析PCA](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247500010&idx=2&sn=2f9fd1b0101d579bcd250fdc24e98bfc&scene=21#wechat_redirect>)。成纤维细胞根据表达变化最大的基因分为四个亚群：血管平滑肌细胞 （VSMC）、癌症相关肌成纤维细胞 （myo-CAF）、炎症 CAF （infla-CAFs） 和脂肪生成 CAF （adi-CAF）。这些亚群在四种样本类型的浸润比例上表现出显着的异质性（图 4A-C，图 S3A，B）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXeIgfict0Y9WcXJ7JvQichZxfhhedVetg2GjLxco96SLD33icXltlv8uYA/640?wx_fmt=png&from=appmsg)
+![](../../images/fd145a4817cd896b.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXJvbnGK4NtsyFtxJFCXVvOo2ANnvR4s8sDvmcOYKPXF35WtoawUiaWVQ/640?wx_fmt=png&from=appmsg)
+![](../../images/5611bdc3be1c8f23.webp)
 
 在肿瘤样本中，myo-CAFs 所占比例最高.随着肿瘤分期的推进而减少。Adi-CAF 在 II 期和 III 期显着富集，而infla-CAF 主要存在于肿瘤中，在所有阶段保持一致的比例。差异基因表达的热图分析显示成纤维细胞亚群之间存在显著的转录谱变异（图 4D）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXyWgUZnmYQy5CzZ97akuo8T7p8LCn87E8MC7HyiacspURndmS9J8VSRg/640?wx_fmt=png&from=appmsg)
+![](../../images/e4b8530c1e8d223a.webp)
 
 [GSVA 分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247484701&idx=1&sn=ad90680f252d092a2e21f349c8f32cab&scene=21#wechat_redirect>)进一步表明，与 E2F 靶标，MYC 靶标 V1 和 V2，myo-CAF 中的 DNA 修复以及VSMC 中与 G2M 检查点，肌发生和胆固醇稳态相关的通路的上调（图 4E）。相比之下，adi-CAF 和infla-CAF 显示出与肿瘤进展相关的通路的上调，包括 Hedgehog，PI3K / Akt / mTOR，Wnt / β-Catenin 和 TGF-β信号通路（图 4E）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXnSuDWFiaf8nuOyS2W2bLvSWdDaBlwSPvpXEnq7akbtWRVIH6v1AZxtg/640?wx_fmt=png&from=appmsg)
+![](../../images/a0fbfe7b9f5f0da0.webp)
 
 值得注意的是，adi-CAFs高度表达 PROS1（图 4F，图 S3C），
 
 III 期 adi-CAF 被确定为 PROS1 表达的主要来源（图 4G，图 S3D）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXkEuWuWWQZCI0hia8mwWULqH1sicsgKqXYhmFbEWcbHr826HGNcqrdFyA/640?wx_fmt=png&from=appmsg)
+![](../../images/d7527d68f69ef79a.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXDibsibWMZ8OrfJAYn7tFGmWbZE0CPPeCNY5Lib7ZCKp3ESRf9vcIde6mw/640?wx_fmt=png&from=appmsg)
+![](../../images/ebae01b45e56b74f.webp)
 
 [伪时间轨迹分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528666&idx=1&sn=d29545d296bac3e41de322e43fde80dd&scene=21#wechat_redirect>)显示，adi-CAFs 的伪时间得分最高，而 VSMC 和 myo-CAFs 处于早期伪时间阶段，表明 adi-CAFs 可能对肿瘤刺激做出反应而与 VSMCs 或 myo-CAFs 分化（图 4H，I，图 S3E，F）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXibN4mL0Zs6W6rCzCYg9ibGIYv29BbXZ0j2WaCeYnmfs6qHYdPmaJKTOA/640?wx_fmt=png&from=appmsg)
+![](../../images/350d8aa944f21395.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXIcLpl1zynylqdCXDbiaAzdg9dYKhicXQtxqYnlYhVVscGCu3gQPafnXA/640?wx_fmt=png&from=appmsg)
+![](../../images/f14005e31ad4ad5d.webp)
 
 [空间转录组学分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531858&idx=3&sn=d910f0bab1834b08a073b2b7b79b3947&scene=21#wechat_redirect>)表明，VSMCs 亚群未能映射到空间切片上，这可能是由于其比例低。其余[成纤维细胞](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247530338&idx=1&sn=2d092e76080359f5a169ec14d54d1241&scene=21#wechat_redirect>)亚群表现出显着的空间异质性（图 4J，图 S3G-I）。
 
 Adi-CAF 主要位于肿瘤周围的间质区域，浸润水平随着肿瘤的进展而增加。 在 I 期，infla-CAFs 和 myoCAFs 均呈从肿瘤外围向中心浸润的趋势，但随着肿瘤进展，这种趋势逐渐减弱，到III 期，肌 CAFs 浸润几乎不存在。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXK8SEXvsfc2oh7JDosf83vcr9hQIDxCJia8lib0lBXOpKjZJ198lRVWzw/640?wx_fmt=png&from=appmsg)
+![](../../images/dbc0282bf6379329.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXhMVPJRjZp6VlL1iaep9rt5jSkxy4nxUOXFSOc2dkI2MALRfqfU0OImQ/640?wx_fmt=png&from=appmsg)
+![](../../images/0d22db0a96fc3c11.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXa1GBhKHOwcNoQGQ98x0yBU0S204hI9s6g6xyibqn6dhbVEJGkUKyyzg/640?wx_fmt=png&from=appmsg)
+![](../../images/1285fa1cf1e37a1c.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXXmHdfUkU5E0F27kVWX7vyf0kDXmyIrz1jPpI9kEoGibNPzicOsDMPFIw/640?wx_fmt=png&from=appmsg)
+![](../../images/66f7dc48269a2566.webp)
 
 2.5. PTC 中 TAM 受体介导的细胞间通讯
 
@@ -365,83 +365,83 @@ Adi-CAF 主要位于肿瘤周围的间质区域，浸润水平随着肿瘤的进
 
 为了验证TAM 受体（MERTK 和 AXL）及其配体（GAS6 和 PROS1）在不同肿瘤阶段的表达模式，进行了多次[免疫荧光](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532039&idx=2&sn=1e7a1ae6097fe217182f1ff305325512&scene=21#wechat_redirect>)测定（图 5A，图 S4A）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXfSAqc0d4UDmnYLViapgdNrB8VSzKykibTxukOnd2eWiaQltShw69zFycg/640?wx_fmt=png&from=appmsg)
+![](../../images/ee847a2cc38c40e5.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXAibVicK8poZHiaavTWVibCOPkImSS4h4LxBQQgGQdQSkU5YiaHFmHxqvP6g/640?wx_fmt=png&from=appmsg)
+![](../../images/1e64c071be503461.webp)
 
 GAS6 信号在非进行性 PTMC 组织中最为突出，在侵袭性 PTMC 和进行性 PTC 之间没有观察到显着差异（图 S4A）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXbbMlXEzmtG6NnGK04wLt7dMqCyAeibayjpQTWvq4ShdFlQ5hGH66dmw/640?wx_fmt=png&from=appmsg)
+![](../../images/2f36518bd0b9234c.webp)
 
 PROS1 和 MERTK 信号在侵袭性 PTMC 和进行性 PTC 中均显着升高，其中 MERTK 显示出特别高的表达（图 5A）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX4Qepr6l1Wfsx3FfgEMYvAPr2GXb4f5VM907oicJAnjEZ4LDkRYMXMxA/640?wx_fmt=png&from=appmsg)
+![](../../images/92506e8aee26b07a.webp)
 
 在进行性 PTC（II 期和 III 期）中，几乎所有肿瘤细胞都表现出强烈的 MERTK 表达，而 AXL 表达在正常组织和肿瘤组织之间保持不变（图 S4A）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXbbMlXEzmtG6NnGK04wLt7dMqCyAeibayjpQTWvq4ShdFlQ5hGH66dmw/640?wx_fmt=png&from=appmsg)
+![](../../images/2f36518bd0b9234c.webp)
 
 免疫荧光测定与单细胞测序数据一致，显示 ACTA2+ 成纤维细胞和 PROS1 在正常组织或非进行性 PTMC 中没有共定位，但在侵袭性 PTMC 和进行性 PTC 中，共定位很明显（图 5B）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXNAiagYVvr1tOeWxxRPwIIn5ZH6H8CJMLhib8y2trYCQB6l26GAGoJUww/640?wx_fmt=png&from=appmsg)
+![](../../images/90534a95137355af.webp)
 
 对来自正常组织、I 期、II 期和 III 期标本的 50 个样本的免疫组织化学证实，II 期和 III 期的 MERTK 表达显着升高。与正常组织相比，PROS1 在肿瘤中的表达显着更高（图 5C，图 S4B）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXlekkudcia2F8ic5y0Fe4jMnBOywKrzy3gfAAbCNbeNE85k0PM54SYq5Q/640?wx_fmt=png&from=appmsg)
+![](../../images/017194ec51b01234.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXAfHKtsuWOKWOvquZQ0bKYlUzlGUvfo0fhdwAC34bvu6BlOXvJOEu6w/640?wx_fmt=png&from=appmsg)
+![](../../images/f10fc13f0ae31338.webp)
 
 我们对 50 个非进展性 PTMC（I 期）和 100 个临床进展的 PTMC（II 期、III 期）之间的 MERTK 表达进行了免疫反应评分分析。结果显示，与临床进展的 PTMC 相比，非进展性 PTMC 的免疫反应评分显著降低（图 S4B）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXAfHKtsuWOKWOvquZQ0bKYlUzlGUvfo0fhdwAC34bvu6BlOXvJOEu6w/640?wx_fmt=png&from=appmsg)
+![](../../images/f10fc13f0ae31338.webp)
 
 与 I 期 CAF 和 NF 相比，原代成纤维细胞培养显示 PROS1 在 II 期和 III 期 CAF 中显着过表达（图 5D）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXu5yYv032lKJzenLBXZxEiciaLKfuIxJkrHcWqIQyVUjXVzV8eCADs3VQ/640?wx_fmt=png&from=appmsg)
+![](../../images/d110ac7557820d6b.webp)
 
 类似地，相对于正常甲状腺滤泡上皮细胞，原代 PTC 细胞培养物在 PTC 细胞中表现出显着的 PROS1 过表达（图 5D）。与 I 期和正常甲状腺滤泡上皮细胞相比，II 期和 III 期 PTC 细胞中的 MERTK 表达也显着更高（图 5D）。相比之下，AXL 和 TYRO3 表达在正常组织和肿瘤组织之间没有显着差异（图 5D，图 S4C）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXbhibKSqibwBKY7hcN0IOlaqejQmauy3nJlfYVQnkAjSZhIb7FgmQkfDQ/640?wx_fmt=png&from=appmsg)
+![](../../images/01141aa36acc59ac.webp)
 
 点印迹测定显示，与 I 期 CAF 或 NF 相比，II 期和 III 期 CAF 中的 PROS1 释放增加（图 5E），NF和 CAF 之间的 GAS6 分泌没有显着差异（图 S4D）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXg9kpKton756R78DziaOfN0paI5uhrUNBuhrYY5PtTcs1Op3SRMkWIfA/640?wx_fmt=png&from=appmsg)
+![](../../images/ff294b495120304a.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXibKRML4jMJIib3BgSam32iaXdKVu0kaZsKOfWBuLqQddb7qMvID5X9OYw/640?wx_fmt=png&from=appmsg)
+![](../../images/7db7f885bff17e03.webp)
 
 [单细胞数据](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247499776&idx=2&sn=7fc250d94ed88cfd5e2224f071bb1742&scene=21#wechat_redirect>)进一步支持甲状腺细胞中 MERTK 的上调，特别是在与肿瘤进展相关的簇 2、3、6 和 7 中（图 5F，图 S4E）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXeIecZnLSib8icwB0sTNNXQvKop5HSGbWE5pJr1dsbP1O62sEZjkISUaw/640?wx_fmt=png&from=appmsg)
+![](../../images/7dfaf95b8052107d.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXMuz2BSkJGpdqiaF4FWbibNic1FVWrnXliakmicE7tH3iaSlEuD92QxMHiaEAQ/640?wx_fmt=png&from=appmsg)
+![](../../images/a3c761215d8308c4.webp)
 
 TCGA [Bulk RNA-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529986&idx=2&sn=301d44caa8d63cba8243d13579775cf5&scene=21#wechat_redirect>)数据（568 个样本）证实，与邻近组织相比，肿瘤中 PROS1 和 MERTK 显着上调（图 5G，图S4F）。对 TCGA 队列的亚组分析显示，高 PROS1 表达与较高的 T 分期和 LNM 呈正相关，导致预后较差（图 5H-J）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX5LsibtyHwsicexI0s1EZtBmUT7vp5yabIuWZcTah3y4kAJwACGzbXuaA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXpo8XChd2PnO8pVh2YJWIGhDZicdDiapmzGeOiaCRCxhUpdwMJVelDI4gg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXWK1EBNVNPxHq6icmic3Ruic8WPzFJ7PG62icmsx3FkmKhr3KrEXQsxQAdg/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnX7hr5ueuKw4lV3vhIfqkhZr4BmzyzGvibAuXKhFQKplClnib220PhJcwg/640?wx_fmt=png&from=appmsg)
+![](../../images/f24f3bfad96d3b4f.webp)![](../../images/6c60f88cc2ea871a.webp)![](../../images/d4363f13e12800e8.webp)![](../../images/c046f2428f52cfed.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXw7F5P8p2icSVgNSBpViasa5oGLZMIesQl27KhZKZpp0dECv2HqiaFB1Qg/640?wx_fmt=png&from=appmsg)
+![](../../images/e99d7f65a312c832.webp)
 
 2.6. PROS1-MERTK 通过旁分泌和自分泌途径促进 PTC 进展
 
 细胞功能测定证实了 PROS1-MERTK 配体-受体相互作用在 PTC 中的作用。结果表明，PROS1 过表达 CAF 的上清液显著增强了 sh-PROS1、TPC1 和 K1 细胞的迁移、侵袭和增殖。在 shPROS1、TPC1 或 K1 细胞中用 PROS1 中和抗体和 MERTK 敲低处理可降低这些效应（图 6A-C）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXLIlOD5DQ7zSHicb7fmOwAEv1FZ5Wpw9GpeYhiadDAG0QCUNHicY79uF9A/640?wx_fmt=png&from=appmsg)
+![](../../images/ef20e661c786f3a5.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXx7rwUEjhafPicxr5WCb7E5ichNs73liaibPW3OhTz2HEBmqFrEnm4XuKdg/640?wx_fmt=png&from=appmsg)
+![](../../images/b87f1737d8a2981e.webp)
 
 小鼠模型中的皮下植入表明，与 NC 组相比，注射 sh-PROS1 K1 细胞和 PROS1 过表达 CAF 的 1：1 混合物的肿瘤表现出明显更大的体积。然而，sh-PROS1 K1 细胞中的 MERTK 敲低减少了 PROS1 过表达 CAF 诱导的肿瘤生长（图 6D）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXUvdic9dJLas9FWdBJoBQxEQajYWVXNjJyz6DXJ8YbdicYcuUy1FDeZzQ/640?wx_fmt=png&from=appmsg)
+![](../../images/5ca1d86951d71f12.webp)
 
 为了探索PROS1-MERTK 相互作用的潜在自分泌效应，PROS1 在 PTC 细胞中过表达。结果表明，PROS1 过表达促进了迁移、侵袭和增殖，而抗 PROS1 处理或 MERTK 敲低减轻了 PROS1 诱导的 PTC 细胞迁移和侵袭（图 S5A-C）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXsRbRNV6KOibt5Z4qico2NOeqicib4yXUqS5PQlx0hu0Pe7Bvgx9SRfkRPA/640?wx_fmt=png&from=appmsg)
+![](../../images/571ad3a01b041591.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXWHMhEyCn4Z4QuWrvyicX4INKdrR8voicZnDdcoWxBxExbPMdSnCUPO7w/640?wx_fmt=png&from=appmsg)
+![](../../images/b1306f78a01e8454.webp)
 
 体内皮下植入还表明，注射 PROS1 过表达 K1 细胞的肿瘤明显大于 NC 组，K1 细胞中的 MERTK 敲低减少了 PROS1 过表达驱动的肿瘤生长（图 S5D）。这些结果表明，PROS1-MERTK 相互作用通过旁分泌和自分泌机制促进 PTC 中的肿瘤进展。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXZEbibDJH001qZKo1OGMgael4f04iapxWqGatOpiaPD3vZwUmrgCySHb3Q/640?wx_fmt=png&from=appmsg)
+![](../../images/4e27aa1b88a5283d.webp)
 
 2.7. NFYB、FOXP2 转录激活 PROS1 并通过 MERTK /WNT/TGF-β 途径促进 PTC 进展
 
@@ -449,17 +449,17 @@ TCGA [Bulk RNA-seq](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=22475
 
 tSNE 和 TF 富集热图表明，adi-CAF 过表达 FOXP2 和 NFYB，与PROS1 表达一致（图 7A，B）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXMzy5luEfHeNAp9vmRP0JXp96IbsWZ4Fu3mXl9mI3EfojxNgBibibQcHw/640?wx_fmt=png&from=appmsg)
+![](../../images/672a6961a2e2a1df.webp)
 
 敲低 CAF 中的 FOXP2 和 NFYB 显著降低PROS1 mRNA 和蛋白质表达（图 7C）。双荧光素酶报告基因测定证实 FOXP2 和 NFYB 与PROS1 启动子结合（图 7D，E）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXxqHJ7BKo0EkXoKjicIG7fXuTm6xgalTgq3KA08AJuRpZNB0GmgVfehA/640?wx_fmt=png&from=appmsg)![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXNHicndbjtntSoXMCWFicpib3whNJE61kDwgT1rdia3nhHl8GYXzRkpzwsw/640?wx_fmt=png&from=appmsg)
+![](../../images/a2c967008f5dc2a8.webp)![](../../images/197fba2b26e03829.webp)
 
 这些结果表明，FOXP2 和 NFYB 在 CAF 中转录激活 PROS1。
 
 为探究MERTK 的潜在下游机制，对 21 份单细胞转录样本中MERTK 高表达和低表达的肿瘤细胞数据进行 GSEA 分析。结果显示 WNT/β-Catenin 和TGF-β信号通路显著激活（图 7F）。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXAOryaL3Ph9j5UqicWHf9RCatnZhBiaPhzlfxpP0bib29FPla6AKHTnictg/640?wx_fmt=png&from=appmsg)
+![](../../images/f14ee66280d1999b.webp)
 
 蛋白质印迹分析进一步证实，PROS1 通过旁分泌或自分泌途径影响 MERTK 下游信号传导（图 7G，H）。来自过表达 PROS1 的 CAF 的条件培养基显著上调甲状腺癌细胞中 β-catenin、C-myc、CCND1 和p-SMAD2 的表达。
 
@@ -467,20 +467,20 @@ tSNE 和 TF 富集热图表明，adi-CAF 过表达 FOXP2 和 NFYB，与PROS1 表
 
 WNT 或 TGF-β 通路激活剂（CHIR-99021 和SRI-011381）有效挽救了 PROS1 中和抗体或 MERTK 敲低诱导的作用（图 7H）。这些结果表明，PROS1 通过MERTK/WNT/TGF-β 途径促进 PTC 进展。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXmvT6gwrib3S77YEIqpNADIpO8DicjRKy8nfk15Oqy4FDMPucJJOScibrQ/640?wx_fmt=png&from=appmsg)
+![](../../images/8d1875818cc7f1b1.webp)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/GQbSTiaXLprMNDaE69iaNHqDOvFFDhvJnXJphNnLIaQ9Y812eibHBReFulT6Ks3ibmSZAdibc9uDrO5Wu5iakxpzMRBA/640?wx_fmt=png&from=appmsg)
+![](../../images/d93b45553932ce88.webp)
 
 如果需要[数据分析](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529435&idx=1&sn=cc7e9ff271f0ce0157008532ef4829c3&scene=21#wechat_redirect>)**指导** 、生信热点**[全文复现](<https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&action=getalbum&album_id=2981710763847614469#wechat_redirect>)** 、自测/数据库数据**个性化分析** 辅导、[常态化实验学习](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247531145&idx=1&sn=5cbe98083cb0fd67f2b0c18ea3c5fe74&scene=21#wechat_redirect>)，欢迎联系客服微信[**Biomamba_zhushou**]
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=6yqn0s1k&tp=webp#imgIndex=20)
+![图片](../../images/2b97050f06208e7a.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=5w77y1os&tp=webp#imgIndex=21)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=5ixl8h41&tp=webp#imgIndex=22) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/fb7650d03b8755cc.webp)![图片](../../images/ec72a80f59849127.webp) 留一个领取[资料](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247532585&idx=1&sn=e265d2846ec66e5faaaf21403d274d2f&scene=21#wechat_redirect>)、[开箱即用的单细胞分析镜像](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528410&idx=2&sn=0f2bac25479cf8d20dab5d82ae986f2e&scene=21#wechat_redirect>)的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [没有检索，就没有发言权](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247529398&idx=2&sn=5a429852d61721916a405712677d5905&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ImlBFVOwwpyQnz4vf7GibVdoavE7dBqK3fMn0I2ONlp8LNpd3Pp9sGmfg4SegHNqkP7ZwUKwWP9licLaB3RiabA0Q/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=15)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&randomid=3hy3u99m&tp=webp#imgIndex=24) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/0afa34cf8c4b5e66.webp)![图片](../../images/4ccf87cacd1143af.webp) 您点的每个赞和在看，我都认真当成了喜欢

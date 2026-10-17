@@ -26,7 +26,7 @@ albums: ["空间转录组", "文献速递"]
 
 **Figure1**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClI5OibwmD3wt7kYQl4pWXUu6XMhViaSHds7hJLb2Oh46QCGhEib9jiaHGQg/640?wx_fmt=png&from=appmsg)
+![](../../images/8625841336d0a179.webp)
 
 #### (2)`RCTD`能够跨平台解卷积识别细胞类型¶
 
@@ -34,19 +34,19 @@ albums: ["空间转录组", "文献速递"]
 
 **Figure2**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClWlXZNj91Y2q210Ys5hAYsxeJAPNLoTVfaepVZiaRuXxIxsf2Y7icNEmQ/640?wx_fmt=png&from=appmsg)
+![](../../images/cb465c7754ee975b.webp)
 
 考虑到空转数据没有真正的`Ground thruth`，作者进一步使用分别来源于`singlet`和`doublets`的单细胞数据集验证`RCTD`的**准确性**(Fig.3a)， 最终发现在`singlet`的数据集中的准确率(89.1)要高于`doublets`(81.1)。而在`doublets`的细胞类型判定上，`RCTD`的准确率高达98.2%(Fig.3b)，在细胞比例的计算中均方根误差仅12.8%(Fig.3c-d)。这算是以有"测试数据集"`ground truth`的情况下验证了`RCTD`对于`singlet`、`doublets`中细胞类型及比例识别的能力进行了评估。在进一步的评估中，作者发现`RCTD`在每个`spot`包含**`UMI` 数量大于100**时计算结果较为准确，并能够识别3~4种细胞类型混合的`spot`，而当参考数据集中没有相似的细胞类型时，准确率会下降。
 
 **Figure3**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClFWP9A2EmYzUWHywgb2ic3dqBkdbbJWSZtRPDb1kszVcgH9r7RHgIIhA/640?wx_fmt=png&from=appmsg)
+![](../../images/011efaf645112579.webp)
 
 #### (3)`RCTD`能够定位空转数据中的**细胞类型**
 
 在细胞类型的定位(实际上就是对应位置每种细胞类型的权重)中(Fig.4a)，可以明显发现不同的细胞类型明显分为不同的`layer`，在`singlet`中`Bergmann`与`Purkinje`的marger基因表达有明显的分群(Fig.4b)，而在`doublets`的细胞划分结果中也可以看出`Bergmann`与`Purkinje`的marger基因具有显著的差别(Fig.4c)。此外，`granular`的maker和其`localization`也十分的一致。有瑕疵的是，在`granular layer`和`molecular layer`之间的`Bergmann`与`Purkinje`存在大量的混合情况(Fig.4e)，即双细胞以及**`layer` 的边界**不利于`RCTD`对细胞进行定位，而这些部位的双细胞数量也远大于被良好分层的区域(Fig.4f)，不知谁是**因** ，谁是**果** 。注意，这部分结果并没有`Ground truth`做对照，因此结果的真实性其实还有考究的余地。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClFoHpb9Y5YSlR5lTfCKjS40ahFk0KOAnJUqicgbiap1ZPKiao5iaNUc4How/640?wx_fmt=png&from=appmsg)
+![](../../images/6bfca817da122e09.webp)
 
 #### (4)`RCTD`能够定位空转数据中的细胞亚型¶
 
@@ -54,7 +54,7 @@ albums: ["空间转录组", "文献速递"]
 
 **Figure5**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClz1OTGKayKZviahrt2oL7icjVtsib5mJCTibDOfqvojTN8IolY8ogqMetuQ/640?wx_fmt=png&from=appmsg)
+![](../../images/0a7f3431363e8f56.webp)
 
 #### (5)`RCTD`能识别细胞类型内的空间可变基因
 
@@ -62,7 +62,7 @@ albums: ["空间转录组", "文献速递"]
 
 **Figure6**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ImlBFVOwwpzTtSagSa5PLhjIqf3hwSClRPfZ1BiaWDdPlfQofabLMJmGq6Wc0APxcibGoiaNKiaDiaW1tfa35iapeZibA/640?wx_fmt=png&from=appmsg)
+![](../../images/abfe81253c62cb03.webp)
 
 **总结**
 
@@ -72,15 +72,15 @@ albums: ["空间转录组", "文献速递"]
 
 参考：Cable DM, Murray E, Zou LS, Goeva A, Macosko EZ, Chen F, Irizarry RA. Robust decomposition of cell type mixtures in spatial transcriptomics. Nat Biotechnol. 2022 Apr;40(4):517-526.
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5O8mjlC4kPOluxibs4oDot7AXe0RgoXgMeiaB3KYViadIQqXRoRicyian7KUg/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)
+![图片](../../images/68adda3cdb14540f.webp)
 
 **如何联系我们**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/Ljib4So7yuWiaFyWDMZJ2713X3DwiaQicG5OSxqKNRib39TuLic5NT2iaJaI0mIicuvjMZlRPvlqPfgjzg001qlRJTBDRA/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWiaC0oer2QpXIolHVU3Xibtm9BNWiav660mHaB5qEd1dibMibUicNYmAzBBiadQP2s7HArdUxoWL5cDkTEbQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
+![图片](../../images/3b8e21da777157f9.webp)![图片](../../images/7a5130b05d387a24.webp) 留一个领取资料、[免费两周学习版](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247527585&idx=1&sn=fa32112c11b215b33096cab43baf08ea&scene=21#wechat_redirect>)服务器的**微信号[Biomamba_zhushou]**，方便各位随时交流。同时我们也构建了[交流群矩阵](<https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247528057&idx=1&sn=bb348c2a88c977c7cce67ee6731a3591&scene=21#wechat_redirect>)，欢迎大家入群讨论。
 
 大家可以阅读完这几篇之后添加[给生信入门初学者的小贴士](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247493329&idx=1&sn=597870b7f7ce10346da3561e7c281627&chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&scene=21#wechat_redirect>)
 [如何搜索公众号过往发布内容](<http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&mid=2247506266&idx=2&sn=22b1164bc9602c25620d058847785422&chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&scene=21#wechat_redirect>)
 
 **已有生信基地联系方式的同学****无需重复添加**
 
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/buxFNhaTGwlxxs2EwjbalTy4G7CnEVlvsNkqHWzLq6ocwk7w6JiaDXz3DibHxHBFgw13jzLJEXQIRSQbFsMHgT0SknUlCZsRRAEib0xHWicZ2wM/640?wx_fmt=jpeg&from=appmsg)![图片](https://mmbiz.qpic.cn/mmbiz_gif/Ljib4So7yuWhFTIP7DCMLPwWh8Yhjs079f1vMqlYdExqbWaZVJyiawKkr21EDSNW740b4yMzkeHxFJULTpZGzYwQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&tp=webp) 您点的每个赞和在看，我都认真当成了喜欢
+![图片](../../images/fe8ecb8594a1f419.webp)![图片](../../images/acba43cb3408c3d0.webp) 您点的每个赞和在看，我都认真当成了喜欢

@@ -1,0 +1,84 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0267-一文学会四种scRNA-seq拷贝数变异分析 肿瘤异质性分析必备</title><link rel="stylesheet" href="../../style.css"></head><body><header class="nav"><a href="../../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="scrna-seq">一文学会四种scRNA-seq拷贝数变异分析| 肿瘤异质性分析必备</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535878&amp;idx=2&amp;sn=6d3315ba0d9d3f3246665f11f30adfb9&amp;chksm=9b3c3456ac4bbd401603ab6bdf8960c5a26a9699a905732853799d171729dc8024b591398d3a#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>scRNA-seq拷贝数变异分析</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png">**拷贝数变异（Copy number alterations，以下简称CNA；infercnv包也习惯描述为 Copy Number Variation，CNV）是一种重要的基因组变异，在癌症的发生和发展过程中起着至关重要的作用。确定肿瘤细胞中CNA的特征对早期肿瘤检测、划分肿瘤异质性、了解肿瘤进展模式和揭示耐药机制具有重要意义。随着单细胞RNA测序（scRNA-seq）的蓬勃发展，研究人员开发出了多种计算方法来从scRNA-seq研究中推断CNA。目前从scRNA-seq数据中推断CNA的计算方法大致可分为两类。一类是基于表达的，即直接从基因表达推断CNA。这类工具包括inferCNV、copykat和SCEVAN。这些工具的工作原理是，CNA扩增（AMPs）或缺失（DELs）将分别导致受影响基因组区域内基因的上调或下调。InferCNV利用基因窗口的校正移动平均数；copykat采用综合贝叶斯分割方法；SCEVAN采用多通道分割算法。第二类将基因表达与等位基因信息相结合，相关工具有Numbat和CaSpER等。**更多单细胞技巧教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535408&amp;idx=1&amp;sn=1f3b4b99bab378887d11dd83fd87feb7&amp;scene=21#wechat_redirect">限时回归！两个月时间，手把手教会你scRNA-seq数据分析！</a>专题教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535877&amp;idx=6&amp;sn=6b2682106ed9a84c5bf57dadec45a0d3&amp;scene=21#wechat_redirect">R语言scRNA-seq拷贝数变异分析专题</a>
+<strong>更多生信教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528482&amp;idx=1&amp;sn=7cc0715eace4f592a62bdaf157b25c01&amp;scene=21#wechat_redirect"> 生信基地终身订阅须知</a></strong>
+本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529471&amp;idx=2&amp;sn=c191f2df999820bf7f1f96832d120d2d&amp;scene=21#wechat_redirect">选择西柚云的11个理由</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503618&amp;idx=1&amp;sn=ca47ca985aa8560f6b38f15f210519e2&amp;chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&amp;scene=21#wechat_redirect">独享服务器，生信分析不求人</a></p>
+<p>本教程可视化集锦<img alt="" src="../../images/cdad48471321b87c.webp"> <strong>-Biomamba</strong>
+<img alt="" src="../../images/7d247e6c6ef19f87.png"><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>所见即所得</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：</p>
+<p><img alt="" src="../../images/72dc5b2b4d98badc.webp"></p>
+<p>‍</p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、写在前面</strong></p>
+<p><strong>二、可视化集锦</strong></p>
+<p><strong>三、绪论</strong></p>
+<p><strong>3.1 定义</strong></p>
+<p><strong>3.2 主要研究成果</strong></p>
+<p><strong>（1）区分肿瘤细胞与正常细胞</strong></p>
+<p><strong>（2） 推断的拷贝数变异（CNA）谱的准确性</strong></p>
+<p><strong>（3） 亚克隆结构推断准确性的评估</strong></p>
+<p>（4）计算效率</p>
+<p><strong>3.3 小结</strong></p>
+<p><strong>四、infercnv</strong></p>
+<p>4.1 简介</p>
+<p>4.2 安装</p>
+<p>4.3 输入文件</p>
+<p>4.4 infercnv workflow</p>
+<p>4.5 infercnv实战</p>
+<p>（1）数据概况</p>
+<p>（2）infercnv流程</p>
+<p>（3）热图优化</p>
+<p>（4）小提琴图</p>
+<p><strong><strong>五、copykat</strong></strong></p>
+<p>5.1 copykat介绍</p>
+<p>（1）简介</p>
+<p>（2）copykat工作流程描述</p>
+<p>（3）性能评估</p>
+<p>（4）实体肿瘤中肿瘤细胞和正常细胞的分类</p>
+<p>（5）应用于其他scRNA-seq技术</p>
+<p>（6）推断乳腺肿瘤的克隆亚结构</p>
+<p>（7）小结</p>
+<p>5.2 copykat流程（1）安装（2）counts矩阵预处理（3）常用参数（4）copykat（5）整理数据（6）绘制热图5.3 copykat实战（1）数据概况（2）copykat（3）整理数据（4）热图绘制（5）探究一下拷贝数变异与原来亚群之间的关系（6）CNA score小提琴图</p>
+<p><strong>六</strong><strong>、SCEVAN</strong>****</p>
+<p><strong><strong>6.1 安装R包</strong></strong></p>
+<p><strong><strong>6.2 加载R包</strong></strong><strong><strong>6.3 单样本分析</strong></strong><strong><strong>（1）加载数据</strong></strong><strong><strong>（2）执行分析</strong></strong><strong><strong>（3）结果查看</strong></strong><strong><strong>6.4 多样本分析</strong></strong><strong><strong>（1）加载数据 （2）执行分析（3）结果查看</strong></strong><strong><strong>6.5 联合Seurat对象</strong></strong><strong><strong>（1）创建</strong></strong>Seurat对象**** （2）将拷贝数变异结果加入<strong><strong>Seurat对象</strong></strong> （3）降维分群（4）可视化****</p>
+<p><strong><strong>七</strong></strong>、numbat********</p>
+<p><strong><strong><strong><strong>7.1<strong><strong>安装R包</strong></strong></strong></strong></strong></strong></p>
+<p><strong><strong>7.2</strong></strong>加载R包************7.3 数据下载<strong><strong><strong><strong>7.4 等位基因数据准备</strong></strong></strong></strong>（1）运行参数解释 （2）示例脚本（3）可能出现的报错（4）执行分析<strong><strong><strong><strong>7.5 运行numbat</strong></strong></strong></strong>（1）运行参数解释********（2）运行<strong><strong>numbat</strong></strong><strong><strong><strong><strong>7.6 结果解读</strong></strong></strong></strong>（1）拷贝数景观和单细胞系统发育 （2）在系统发育上完善亚克隆（3）共识拷贝数区段（4）pseudobulks水平拷贝数变异（5）进化树<strong><strong><strong><strong>八、环境版本信息</strong></strong></strong></strong>
+<strong><strong><strong><strong>九、参考</strong></strong></strong></strong>十、单细胞教程全收录****<strong><strong>十一、欢迎致谢</strong></strong></p>
+<p>文末下载链接中包含以下内容：</p>
+<p><img alt="" src="../../images/69b4cb61ee653655.webp"></p>
+<p>测试文件约<strong>55.57GB</strong> ，大家注意按需下载！</p>
+<p><img alt="" src="../../images/7d247e6c6ef19f87.png">
+<img alt="图片" src="../../images/eab31beb8c0e41d2.png"></p>
+<p>往期订阅</p>
+<p><img alt="图片" src="../../images/8b04fd62fd8f3d51.png"><img alt="图片" src="../../images/4064a50c19e8ad22.png"></p>
+<p>生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528482&amp;idx=1&amp;sn=7cc0715eace4f592a62bdaf157b25c01&amp;scene=21#wechat_redirect">那就开放一个终身订阅吧~</a></p>
+<p>2025已更新订阅内容：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526776&amp;idx=1&amp;sn=99eb6a16c7bf345445b6ff4b61110138&amp;scene=21#wechat_redirect">《Cell》复现|中性粒细胞scRNA-seq图谱阐明抗肿瘤抗原呈递效力</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527498&amp;idx=1&amp;sn=c8282e9d4175bfb2e572278312073d81&amp;scene=21#wechat_redirect">代码复现|scRNA-seq绘制透明细胞肾癌的免疫微环境</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527762&amp;idx=1&amp;sn=ba7c8a4cb704e71fa86ebfe1f19bffea&amp;scene=21#wechat_redirect">改造单细胞DoHeatmap</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527850&amp;idx=1&amp;sn=f4e2ca5e2e5e71eeaf132375bb8270eb&amp;scene=21#wechat_redirect">Slingshot拟时序分析学习手册</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528056&amp;idx=1&amp;sn=73c0da3ff7ff50bafbb9315fd5b60f15&amp;scene=21#wechat_redirect">《Cancer Cell》|时空单细胞揭示CRC的PD-1治疗免疫细胞动态</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">scRNA-seq数据基础</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">分析手册(2025最新修订</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">)</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528289&amp;idx=1&amp;sn=b56f00f3d8a4b152e54f3acd40aef21d&amp;scene=21#wechat_redirect">代码复现|吞噬作用增强肿瘤中巨噬细胞的氧化代谢和免疫抑制特征</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528458&amp;idx=1&amp;sn=900357283922571c6294435be409a2f3&amp;scene=21#wechat_redirect">一文学会scRNA Velocity剪切速率分析</a></p>
+<h1 id="scrna-seq_1"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq轨迹分析</a></h1>
+<h1 id="scrna-seq_2"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528770&amp;idx=1&amp;sn=6242bce437a9d60f81a8651ea9b57e0b&amp;scene=21#wechat_redirect">一文学会四种</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528770&amp;idx=1&amp;sn=6242bce437a9d60f81a8651ea9b57e0b&amp;scene=21#wechat_redirect">scRNA-seq细胞通讯分析</a></h1>
+<h1 id="_1"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529410&amp;idx=1&amp;sn=9bbaf955d93ddce60874e1cdc2f16115&amp;scene=21#wechat_redirect">一文学会四种基因共表达网络分析</a></h1>
+<p><img alt="图片" src="../../images/697dd2eb5e60e8d8.png">解锁前需阅读：<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526751&amp;idx=1&amp;sn=7ca3137d770f23f0c3d6195696618d81&amp;scene=21#wechat_redirect">2025订阅须知</a></strong><img alt="" src="../../images/399758fa7d6941c2.png"></p>
+<p>学习手册链接：</p>
+<p><img alt="" src="../../images/fbfc4b8be383f432.png"><img alt="" src="../../images/007e970626afa0b7.png"></p>
+<p>资料连接：</p>
+<p>https://pan.baidu.com/s/1wGR2oZT3bw7wkbOdUI6hnA</p>
+<p>联系客服微信Biomamba_zhushou获取提取码</p>
+<p><img alt="图片" src="../../images/e43581b4f5118aad.webp"></p>
+<p><strong>-Biomamba</strong>
+<img alt="" src="../../images/7d247e6c6ef19f87.png"></p></article></body></html>
