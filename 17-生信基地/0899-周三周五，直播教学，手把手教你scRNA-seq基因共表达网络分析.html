@@ -1,0 +1,116 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0899-周三周五，直播教学，手把手教你scRNA-seq基因共表达网络分析</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="scrna-seq">周三周五，直播教学，手把手教你scRNA-seq基因共表达网络分析</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537996&amp;idx=2&amp;sn=a2660712893f1a6eec12faeba6fc43d7&amp;chksm=9b3c2c1cac4ba50a57d477ac223acc3ab1b0232fa36bb3e8fee80842ea41a9b59be6a9f1797e#rd
+合集：生信基地</p>
+</blockquote>
+<p>下周三、周五09:00（5月20号、22号）进行<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535877&amp;idx=5&amp;sn=23f42e58509a93e1f91c09cad53ccbdf&amp;scene=21#wechat_redirect">R语言scRNA-seq基因共表达网络分析专题</a>教学，详细介绍与课程大纲可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536612&amp;idx=1&amp;sn=19032a541a2b5a9f07d64981cc22069f&amp;scene=21#wechat_redirect">视频介绍，学单细胞你应该按照这个节奏</a>，还没有报名的同学，可联系客服微信[Biomamba_zhushou]报名参加课程哦~<img alt="" src="../images/fe8ecb8594a1f419.webp">课程直播链接：https://meeting.tencent.com/dm/zTy2CEbGtanU</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535927&amp;idx=2&amp;sn=86947f0522de0d9785865bd24115b002&amp;scene=21#wechat_redirect"><img alt="" src="../images/678b12746ead366a.webp"></a><img alt="图片" src="../images/c33e327c8d66af99.webp"></p>
+<p>单细胞基因共表达网络分析教学内容</p>
+<p><img alt="图片" src="../images/3ff4011fef611c1c.webp"><img alt="图片" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[Biomamba_zhushou]领取：</p>
+<p>教程图片集锦：</p>
+<h1 id="_1"><img alt="" src="../images/b8d2c1317161cd0d.webp"></h1>
+<h1 id="_2">**</h1>
+<p>**</p>
+<h1 id="_3"><strong><strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529410&amp;idx=1&amp;sn=9bbaf955d93ddce60874e1cdc2f16115&amp;scene=21#wechat_redirect">基因共表达网络分析学习手册</a></strong></strong></h1>
+<h1 id="_4"><strong><strong><img alt="" src="../images/9e903714dea3c244.webp"></strong></strong></h1>
+<p>基因共表达网络分析教程目录：</p>
+<p>一、写在前面</p>
+<p>二、可视化集锦</p>
+<p>三、绪论</p>
+<p>3.1 研究背景</p>
+<p>3.2 主要结果</p>
+<p>（1）合成网络数据集</p>
+<p>（2）精选模型数据</p>
+<p>（3）实验性的单细胞RNA-Seq数据集</p>
+<p>3.3 小结</p>
+<p>四、简单的共表达网络分析</p>
+<p>4.1 加载R包</p>
+<p>4.2 计算相关性</p>
+<p>五、SCENIC</p>
+<p>5.1 软件安装</p>
+<p>5.2 加载R包</p>
+<p>5.3 官方手册</p>
+<p>5.4 测试数据</p>
+<p>（1）直接读取loom文件</p>
+<p>（2）创建loom文件</p>
+<p>5.5 RcisTarget数据库</p>
+<p>（1）文件获取</p>
+<p>（2）RcisTarget数据库文件初始化</p>
+<p>5.6 分析流程</p>
+<p>（1）初步设置</p>
+<p>（2）共表达网络(Co-expression network)计算</p>
+<p>（3）构建基因调控网络(Gene regulatory network, GRN)</p>
+<p>（4）runSCENIC_3_scoreCells()分解步骤</p>
+<p>（5）二元矩阵及可视化</p>
+<p>（6）对regulon活性进行聚类分群、降维分析</p>
+<p>5.7 下游探索工作</p>
+<p>（1）交互式的探索</p>
+<p>（2）在tSNE中绘制TF的表达水平</p>
+<p>（3）探究regulon，靶基因，motif的关系</p>
+<p>（4）用热图探究细胞与regulon的关系</p>
+<p>（5）调控网络的绘制</p>
+<p>六、hdWGCNA</p>
+<p>6.1 数据准备</p>
+<p>（1）加载R包</p>
+<p>6.2 数据读入</p>
+<p>6.3 为 WGCNA 设置 Seurat 对象</p>
+<p>6.4 创建metacells</p>
+<p>6.5 构建共表达网络</p>
+<p>（1）设置表达矩阵</p>
+<p>（2）设置软阈值</p>
+<p>6.6 可视化</p>
+<p>（1）模块特征图</p>
+<p>（2）雷达图</p>
+<p>（3）相关性热图</p>
+<p>（4）DotPlot</p>
+<p>（5）VlnPlot</p>
+<p>（6）网络图</p>
+<p>（7）UMAP图</p>
+<p>（8）module与表型数据相关性分析</p>
+<p>（9）Enrichment analysis基因集（module）富集分析</p>
+<p>（10）模块之间的差异分析</p>
+<p>七、SCORPION</p>
+<p>7.1 安装R包</p>
+<p>7.2 加载R包</p>
+<p>7.3 示例数据展示</p>
+<p>7.4 小鼠肠上皮单细胞数据</p>
+<p>（1）安装R包</p>
+<p>（2）数据准备</p>
+<p>（3）scorpion分析</p>
+<p>7.5 人类胚胎干细胞</p>
+<p>（1）定义QC质控函数</p>
+<p>（2）导入单细胞数据</p>
+<p>（3）单细胞数据处理</p>
+<p>（4）单细胞分群展示</p>
+<p>（5）8C-like细胞鉴定</p>
+<p>（6）8C-like和其他亚群差异基因鉴定</p>
+<p>（7）导入TF和PPT网络</p>
+<p>（8）scorpion分析</p>
+<p>7.6 结果可视化和解读</p>
+<p>（1）导入Hnf4α和Hnf4γ分析结果</p>
+<p>（2）Hnf4a密度图</p>
+<p>（3）Hnf4a差异值分布</p>
+<p>（4）Hnf4g密度图</p>
+<p>（5）Hnf4g差异值分布</p>
+<p>（6）Hnf4a线性回归与靶基因富集分析</p>
+<p>（7）Hnf4g线性回归与靶基因富集分析</p>
+<p>（8）加载DUX4分析结果</p>
+<p>（9）转录因子调控分布散点图</p>
+<p>（10）DUX4密度图</p>
+<p>（11）DUX4差异值分布</p>
+<p>（12）DUX4线性回归与靶基因富集分析</p>
+<p>八、参考</p>
+<p>九、环境版本信息</p>
+<p>十、单细胞教程全收录</p>
+<p>十一、欢迎致谢</p>
+<p><strong><img alt="" src="../images/e4acc1dbdaf16a06.webp"></strong></p>
+<p>测试文件，总大小 12.53GB</p>
+<p><img alt="图片" src="../images/f74ae4c6b8127d36.webp">还想要了解更多单细胞/空转课程：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536399&amp;idx=2&amp;sn=6c73155a0393ed9c246fee69cb06341f&amp;scene=21#wechat_redirect">共计251小时视频教程，保姆级单细胞&amp;空转教学</a>，都欢迎找我们聊聊~
+<img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532717&amp;idx=2&amp;sn=eb98e578098b9f432ea6ecbdc3c0d74b&amp;scene=21#wechat_redirect">免费两周学习版</a>服务器的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

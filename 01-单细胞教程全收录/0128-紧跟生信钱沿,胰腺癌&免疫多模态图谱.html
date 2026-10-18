@@ -1,0 +1,126 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0128-紧跟生信钱沿,胰腺癌&免疫多模态图谱</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">紧跟生信"钱"沿,胰腺癌&amp;免疫多模态图谱</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498668&amp;idx=2&amp;sn=50cb239885bed65d3d3702c813d8e354&amp;chksm=9b3c82fcac4b0beabece692f6e2d89c5fe4adf3a268e2944d8f0df4393cc554de5432086d6c1#rd
+合集：单细胞教程全收录 / 文献速递</p>
+</blockquote>
+<p><strong><strong>Biomamba荐语</strong></strong></p>
+<p>这是一篇粉丝来稿，分享的是一篇于2020年发表在《Nature Cancer》上的一篇文章，这是个新刊，在2020年才被JCR收录，今年刚好有影响因子，并于前两天发布(2021.IF=23.18)。从这个角度来说这当然是一篇高分文献啦，只是细读这篇文章大家会发现，该文的思路、分析手段、可视化方式、研究结果都很普通并且显得套路十足。尤其是其亚群分析的过程，很多亚群甚至都没有自己的marker，这十分值得人诟病，整体来说这篇文章的数据分析很可能是测序公司包办的。好在这篇文章提供了几十例临床PDAC的单细胞自测样本，这也就是为什么我在标题说紧跟了生信"钱沿"。总之，当做一个"单细胞&amp;肿瘤"研究文章的套路模板来研读，是一个不错的选择。而且，人家都帮你测了这么多样本，还分析的很烂，大家不是正好可以利用起来重挖掘一下<img alt="" src="../images/c7066030b2f7741f.png">。</p>
+<p><strong>doi:</strong></p>
+<p>10.1038/s43018-020-00121-4</p>
+<p><strong>链接：</strong></p>
+<p>https://doi.org/10.1038/s43018-020-00121-4</p>
+<p><strong>New findings</strong></p>
+<p>PDAC的特点是肿瘤微环境免疫抑制程度极高，很大程度上难以免疫治疗。作者采用多模态分析方法来阐明PDAC中的免疫图谱。通过结合CyTOF、scRNA-seq和对患者肿瘤、匹配的血液和非恶性样本进行mfIHC（多重荧光免疫组化），发现了一个免疫抑制细胞相互作用的复杂网络。主要发现如下：</p>
+<p>● 免疫检查点受体在每个患者T细胞中的异质表达</p>
+<p>● 疾病晚期CD8+T细胞中功能障碍标志物的增加</p>
+<p>● 肿瘤浸润CD8+T细胞中耗竭细胞比例增加，免疫检查点TIGIT上调</p>
+<p>● 通过CyTOF和IF在蛋白水平上验证这一发现。表明肿瘤的免疫系统发生了深刻的变化，当联合免疫疗法用于治疗胰腺癌时，需要考虑患者免疫系统的改变。</p>
+<p><strong>Introduction</strong></p>
+<p>● PDAC是<strong>最致命</strong> 的人类恶性肿瘤之一，其特点是肿瘤微环境广泛而复杂，含有丰富的<strong>浸润性免疫细胞</strong> 。使用<strong>PD-1和CTLA4抑制剂</strong> 作为单一药物的免疫治疗临床试验效果不佳，但最近使用免疫调节剂组合的临床试验显示了初步的积极结果(NCT02588443)。这表明免疫治疗需要针对基质的多种成分，并需要更好地了解人类PDAC的免疫状况。此外，CD8+T细胞的分布在不同的患者中有所不同，CD8+T细胞在胰腺肿瘤中的分布可能比以前认为的更复杂，免疫抑制的机制可能在不同的患者中不尽相同。● 细胞毒性T细胞在PDAC中的分布与预后相关，如CD8+T细胞增加与总体生存率增加相关。此外，对PDAC的罕见幸存者分析显示，患者体内<strong>持续存在肿瘤抗原特异性的T细胞克隆</strong> 。相反的是，髓系细胞的浸润，特别是肿瘤相关的巨噬细胞（TAM）与预后负相关，也与这些细胞的免疫抑制作用相一致。CD4+T与Treg细胞在肿瘤内大量存在，它们在人类PDAC中的作用目前还不清楚，我们对肿瘤中其他免疫细胞类型的了解也十分有限。</p>
+<p>● 作者使用<strong>多种互补的方法</strong> ，如CyTOF免疫表型，scRNA-seq和mfIHC，来深入刻画胰腺肿瘤的免疫状况。收集的样本包括手术切除样本和细针活检样本，以及匹配的血液样本。作者观察到尽管有一些共同的特征，但每个患者的免疫图谱都存在异质性。细胞毒性T细胞在患者中表现出耗竭的基因表达特征，且在疾病晚期更加明显。且每个患者CD8+T细胞中表达的免疫检查点基因的组合是不同的。肿瘤浸润CD8+T细胞有更高比例的细胞表达T细胞衰竭相关的基因，这些细胞也富集表达了免疫检查点TIGIT。预测相互作用分析显示，与非恶性组织相比，肿瘤中多种潜在的细胞相互作用上调。总的来说，该研究提供了丰富的数据，有利于推动PDAC的免疫治疗研究。</p>
+<p><strong>Results</strong></p>
+<p><strong>● 1. CyTOF和mfIHC图谱显示人胰腺癌存在异质性免疫浸润</strong></p>
+<p>● 对手术切除肿瘤样本(n=10）、细针活检样本(n=3)和正常组织样本(n=8)进行CyTOF免疫表型测定。PCA显示正常胰腺样本与肿瘤样本之间略有偏移，表明免疫细胞组成存在差异。</p>
+<p><img alt="" src="../images/8f519d741e55c901.webp"></p>
+<p>● 肿瘤样本中有丰富的免疫细胞。多种免疫群体在肿瘤样本中升高，包括髓系细胞、B细胞、NK细胞、CD4+T细胞、Treg细胞和CD8+T细胞。</p>
+<p>● 髓系细胞和CD8+T细胞的比例呈负相关，这与之前在小鼠模型中观察到的结果一致，也与髓系细胞是PDAC中关键的免疫抑制成分的观点一致。</p>
+<p>● 为了测量组织中的免疫成分并确定微环境中免疫细胞之间的空间关系，作者在福尔马林固定、石蜡包埋的肿瘤组织微阵列(TMA)上进行了七色mfIHC，该微阵列包含7<strong>1个PDAC</strong> 和<strong>34个慢性胰腺炎</strong> 样本。结果显示慢性胰腺炎样本上皮细胞更多，PDAC组织中免疫细胞浸润更为丰富。与CyTOF分析一致，mfIHC显示Treg细胞(FOXP3+)和巨噬细胞(CD163+)增加。然而与CyTOF数据不同，CD8+T细胞没有改变，可能反映了对照组织(慢性胰腺炎与邻近/正常胰腺)的差异。个别患者的肿瘤在CD8+T细胞浸润方面是可变的，在CyTOF数据中PDAC样本中CD8+T细胞和髓系细胞之间存在负相关，表明该细胞群发挥了关键的免疫抑制作用。总的来说PDAC具有复杂的肿瘤微环境且个体患者具有相当大的可变性。</p>
+<p><img alt="" src="../images/f97a1d29a48caa8c.webp"></p>
+<p><strong>● 2. scRNA-seq揭示了胰腺癌微环境中免疫检查点和配体的异质表达的复杂免疫图谱</strong></p>
+<p>● 这里作者对16个PDA样(手术切除(n=6)、穿刺活检样本(n=10)和正常样本(n=3))进行了scRNA-seq，包括。与此同时，作者还收集了这些患者和健康受试者的外周血单个核细胞(PBMC)。测序了来自正常样本的8541个细胞和来自PDAC的46,244个细胞，经过去批次和降维，并根据已发表的谱系标记对每个亚群进行注释，结果显示总免疫细胞组成和个体免疫细胞组成的<strong>相对丰度存在异质性</strong> ，与CyTOF和mfIHC的数据类似。</p>
+<p>● 为了深入了解预防抗肿瘤免疫反应的可能机制，作者根据细胞类型分析了PDAC患者肿瘤中免疫检查点受体和配体的平均表达。T细胞和NK细胞亚群中表达多个<strong>免疫检查点</strong> 受体，而相应的配体富集在髓系细胞中。CD8+T细胞ICOS、TIGIT、PDCD1、LAG3等表达升高，CTLA4表达相对较低。除LAG3外的所有检查点，包括CTLA4，在CD4+T细胞中都很高。NK细胞中CD47、TIGIT、TNFRSF18和LAG3升高，PDCD1表达适度。检查点配体的表达不均匀，上皮细胞主要表达PVR和LGALS9，髓细胞和树突状细胞表达多种编码检查点配体的基因，包括SIRPA、LGALS9、PVR和ICOSLG。</p>
+<p><img alt="" src="../images/ba3fa60e34a6d536.webp"></p>
+<p>● 单细胞数据揭示了一个复杂的、患者特异性的免疫检查点配体和受体表达情况。</p>
+<p><img alt="" src="../images/ed12d8ac7679b647.webp"></p>
+<p><strong>● 3. 肿瘤浸润CD8+ T细胞具有独特的基因表达谱，在疾病晚期具有进行性功能障碍</strong></p>
+<p>● <strong>细胞毒性T细胞</strong> 是<strong>抗肿瘤免疫反应</strong> 的基本组成部分也是免疫治疗的靶点。为了更深入地了解肿瘤浸润CD8+T细胞的功能状态，作者研究了其转录谱。为了研究患者特异性的变异性，绘制了每个患者肿瘤和血液样本中CD8+T细胞中免疫检查点受体的平均表达。在肿瘤样本中，1141、1294、1261和1229例患者LAG3均升高。患者1229(局部晚期)也高表达ICOS、CTLA4、TIGIT和CD47。相反，患者1261(也是局部晚期)CD27、LAG3、PDCD1、HAVCR2、TNFRSF18、CSF1、TIGIT、CD40LG、CD47和CD28升高，但CTLA4没有升高。免疫检查点并不按疾病阶段聚集，一些转移患者多个免疫检查点高表达(3210)，而另一些患者只表达有限的子集(1253)。</p>
+<p><img alt="" src="../images/221b47b5c66068dc.webp"></p>
+<p>● 随后作者研究了肿瘤浸润CD8+T细胞与邻近/正常组织中的CD8+T细胞的比较。通过功能注释，与邻近/正常组织CD8+T细胞相比，PDAC样本中与细胞毒性、趋化因子信号转导、T细胞受体信号转导和抗原加工相关的通路大量富集，这表明肿瘤中已经<strong>引发了免疫应答</strong> 。</p>
+<p><img alt="" src="../images/c24fefa6ef21a79b.webp"></p>
+<p>● 肿瘤组织浸润CD8+T细胞与邻近/正常组织的差异表达分析显示：健康和肿瘤浸润的CD8+T细胞表达模式不同。正常样本聚集在一起，肿瘤样本聚集在一起，疾病晚期样本与正常样本差异更明显。肿瘤CD8+T细胞中T细胞活化和转运标志物(GZMB、GZMA和KLF2)增加。此外T细胞衰竭标志物如EOMES和GZMK在大多数肿瘤CD8+T细胞样本中升高。与邻近/正常组织中的CD8+T细胞相比，唯一在浸润肿瘤的CD8+T细胞中被鉴定为差异过表达的免疫检查点受体是<strong>TIGIT</strong> 。</p>
+<p><img alt="" src="../images/6313ff21aa0d5754.webp"></p>
+<p>● 总的来说，比较肿瘤和邻近/正常浸润CD8+T细胞的转录谱，发现个体患者免疫检查点基因表达具有异质性。当然也有一些共同的特征，如激活标志物的表达，以及耗竭标志物的表达，这些特征随着疾病阶段的进展逐渐增加。</p>
+<p><strong>● 4</strong><strong>. 浸润肿瘤的CD8+T细胞包括一个表达TIGIT的耗竭细胞群体</strong></p>
+<p>● 考虑到肿瘤浸润的CD8+T细胞是进行性功能障碍，作者推测其转录谱的改变可能是由<strong>CD8+亚群的改变</strong> 引起的。通过无偏聚类在邻近/正常和PDAC样本中划分了6个表达cd8a的T细胞群体：两个表达PRF1和GZMB的CD8+效应T细胞(Teff)亚群；一个可能表达CCR6的记忆/前体效应CD8+T细胞(Tmem/pec)亚群；两个表达EOMES、GZMK和TIGIT的CD8+耗尽T细胞(Tex)亚群。</p>
+<p><img alt="" src="../images/358daa8f839f8fcc.webp"></p>
+<p>● PDAC中Tex细胞和Tmem/pec细胞增加，Teff细胞减少。TIGIT在Tex细胞中富集（44.2%）。</p>
+<p><img alt="" src="../images/63029cebe32e9ba5.webp"></p>
+<p>● 比较PDAC中各个亚群的基因表达谱发现：肿瘤浸润CD8+Teff细胞中GZMA和GZMB较高，表明<strong>T细胞活化</strong> 。与Teff细胞相关的标记物RORA的表达上调，与持续的免疫反应相一致。浸润肿瘤的<strong>CD8+Tex</strong> 细胞具有更高的EOMES和KLF2标记物的表达。</p>
+<p><img alt="" src="../images/50f780e91d15ccc9.webp"></p>
+<p><strong>● 5</strong><strong>. 胰腺癌中NK细胞和CD4+T细胞亚群的复杂情况</strong></p>
+<p>● 与CD8+Teff细胞类似，NK细胞也具有细胞毒性并表达免疫检查点受体。NK细胞的无监督亚聚类显示出三个亚群。另外还发现了另外两个表达NKG7、CD3E和CD8A的群体，将其标记为cluster1和cluster2，可能是表达NK细胞标志物的CD8+T细胞。NK1富集免疫检查点HAVCR2，而NK3高表达免疫检查点TNFRSF4。</p>
+<p><img alt="" src="../images/0666d0eef26a0557.webp"></p>
+<p><img alt="" src="../images/f7cecdd5b241def1.webp"></p>
+<p>● 差异基因表达分析显示可切除的肿瘤样本与非肿瘤样本紧密聚集，疾病晚期样本与健康样本有不同的表达谱，如激活标志物GZMA的表达增加以及两个免疫检查点基因<strong>TIGIT</strong> 和<strong>HAVCR2</strong> 的表达升高。</p>
+<p><img alt="" src="../images/87650b84f3b654cc.webp"></p>
+<p>● CD4+T细胞是一个包括Treg细胞的复杂群体，在胰腺癌的发生发展中发挥调节作用。作者鉴定了13种不同转录本的CD4+T细胞，尽管许多亚群倾向于合并在一起。cluster0中有native T细胞标记物CCR7和SELL43的表达，在cluster3中有Treg细胞标记物FOXP3的表达。CTLA4在Treg细胞中高表达，TIGIT在Treg中高表达。</p>
+<p><img alt="" src="../images/a7ed875fe59f15ba.webp"></p>
+<p>● 综上所述，这些分析表明多种免疫检查点受体在CD4+和NK细胞亚群中表达。特别是免疫检查点TIGIT在浸润肿瘤的CD8+T细胞、Treg细胞和NK细胞中差异过表达。</p>
+<p><strong>● 6</strong><strong>. 髓系和树突状细胞是PDAC免疫检查点配体的重要来源</strong></p>
+<p>● 接下来作者分析了髓系细胞，它是PDAC中免疫检查点配体的重要来源。作者确定了6个髓系细胞亚群，粒细胞（表达CXCR1、CXCR2、FCGR3B和S100A8），常驻型巨噬细胞和选择性激活巨噬细胞，以及经典单核细胞。还观察到一个额外的髓系细胞群(称为选择性激活的巨噬细胞2)，类似于选择性激活的巨噬细胞，但高表达CHIT1等多个免疫检查点配体。</p>
+<p><img alt="" src="../images/ec16916d3c35c142.webp"></p>
+<p><img alt="" src="../images/45b1e8f4fd4363c1.webp"></p>
+<p>● 作者发现免疫检查点在特定簇中异质表达，肿瘤浸润髓系细胞亚群有多个<strong>检查点配体表达上调</strong> ，LGALS9(HAVCR2的配体)在激活的巨噬细胞中显著增加，SIRPA(CD47的配体)在粒细胞中显著增加。PVR(TIGIT的配体)在总巨噬细胞中富集。</p>
+<p><img alt="" src="../images/3b2996275741f7ce.webp"></p>
+<p><img alt="" src="../images/88d394dfe34d55a7.webp"></p>
+<p>● 树突状细胞是专业的抗原提呈髓系细胞，通过刺激T细胞来发挥抗肿瘤活性。它们在PDAC中的相对罕见也是在这种疾病无效免疫反应的潜在原因之一。聚类分析显示肿瘤浸润的DC存在多个群体，激活的DC1细胞中几乎所有的免疫检查点配体的表达都升高了，包括PVR，表明PDAC中树突状细胞的某些亚群可能具有<strong>免疫抑制作用</strong> 。</p>
+<p><img alt="" src="../images/61a5f8e34930c284.webp"></p>
+<p><img alt="" src="../images/4ebfbac0bef881d6.webp"></p>
+<p><strong>● 7</strong><strong>. 通过scRNA-seq在胰腺癌样本中绘制预测的相互作用</strong></p>
+<p>● 为了探索T/NK和髓系细胞之间潜在的交互作用，作者应用了一种基于已知高亲和力的配体受体对的预测交互算法。巨噬细胞与CD4+T细胞、CD8+T细胞和NK细胞之间的TIGIT/PVR相互作用增强，肿瘤内皮细胞和上皮细胞与T细胞和NK细胞亚群之间的TIGIT/PVR相互作用也升高了。</p>
+<p><img alt="" src="../images/b7a75a261e3f29f3.webp"></p>
+<p>● 进一步研究TIGIT通路中其他基因的表达，结果显示TIGIT的共刺激受体DNAM1(CD226，竞争结合PVR和PVRL2,促进T细胞活化)在CD8+T细胞中的表达没有改变，CD96和PVRIG的表达也没有改变。（CD96和PVRIG的作用类似于TIGIT，抑制T细胞活化）。</p>
+<p><img alt="" src="../images/e366cf6eb9b8c361.webp"></p>
+<p><img alt="" src="../images/3587e9f63dd88158.webp"></p>
+<p><strong>● 8</strong><strong>. PDAC中T细胞和NK细胞上的TIGIT蛋白表达增高，肿瘤中TIGIT蛋白的表达与其在匹配血液中的表达相关</strong></p>
+<p>● 为了确定蛋白水平是否反映免疫检查点的RNA表达，作者对肿瘤和邻近/正常未参与组织样本进行了CyTOF。结果显示大多数样本中肿瘤浸润的CD8+T细胞中TIGIT表达升高，而PD-1和LAG3没有显著改变；PDAC样本中CD4+T细胞中CTLA4表达显著增加，TIGIT在Treg中高表达；且TIGIT在NK细胞中同样高表达。</p>
+<p><img alt="" src="../images/7cb5bb400cfb99d2.webp"></p>
+<p>● 对患者组织进行TIGIT和PVR的免疫荧光染色，结果显示CD8+T细胞和Treg表达TIGIT，上皮细胞、内皮细胞、髓系细胞和成纤维细胞表达其配体PVR。</p>
+<p><img alt="" src="../images/47f4e096a66384de.webp"></p>
+<p>● 由于TIGIT在肿瘤中普遍上调，所以作者研究了外周血中TIGIT蛋白表达是否与肿瘤中TIGIT蛋白的表达相关。鉴于血液样本相对容易获取，这是一个有潜力可用于临床的检测手段。对36名胰腺癌患者、18名健康志愿者和8名慢性胰腺炎患者的PBMC成分进行了CyTOF检测，结果显示来自PDAC和慢性胰腺炎患者的血液中循环的CD8+T细胞更少，但CD8+T细胞的TIGIT表达更高。进一步分析肿瘤样本和PBMC样本匹配的患者子集，结果显示外周血TIGIT表达与CD8+T细胞中TIGIT表达正相关。</p>
+<p><img alt="" src="../images/3a63d189ac0c4625.webp"></p>
+<p><img alt="" src="../images/f4473e6977369336.webp"></p>
+<p><strong>总结与思考</strong></p>
+<p><img alt="" src="../images/d527606bc3321a84.webp"></p>
+<p><strong>●</strong> 最近通过scRNA-seq或高含量原位杂交检测胰腺导管癌基因表达的报道主要关注CAF群体的复杂性，本文作者通过结合<strong>CyTOF、mfIHC</strong> 和<strong>scRNA-seq</strong> 来描绘人类PDAC中的免疫浸润复杂性，揭示了患者间的异质性，且发现TIGIT差异高表达，而不是PD-1或CTLA4等免疫检查点的变化，这提示PDAC的免疫治疗也许要针对TIGIT进行探究，也佐证了目前<strong>PD-1抑制剂等对PDAC效果不佳</strong> 。目前Insight数据库显示共有47款TIGIT抗体药物在研（35个单抗和12个双抗），ClinicalTrials数据库显示共有71项TIGIT临床试验正在进行，其中进展最快的是罗氏的Tiragolumab，处于临床三期。但就在上个月，5月11日，其III期临床的中期数据显示两个主要终点PFS（无进展生存期）和ORR（客观缓解率）都未达到，OS数据暂未公布。TIGIT是否能作为免疫治疗2.0的“杠把子”还有待商榷。</p>
+<p><strong>●</strong> 总之，本文提供了关于人类PDAC肿瘤免疫情况的一个宝贵资源。</p>
+<p><strong>吐槽篇</strong></p>
+<p>Nature cancer作为nature旗下子刊，是一个比较新的杂志，于2020年1月创刊，首个影响因子为21.937，本文发表于2020年11月。本文作者收集样本的时间就长达两年，做scRNA-seq、CyTOF和七色mfIHC更是花费不少，但数据处理和分析略显粗糙（可能是外包公司分析的？）大家觉得发表在nature cancer是赚了还是亏了？</p>
+<p><strong>● 1</strong><strong>. “我们对10个胰腺肿瘤样本和8个正常样本进行了CyTOF。”</strong></p>
+<p><img alt="" src="../images/0b0219f418ec70be.png"></p>
+<p>● 请派列文虎克来看，我看不到第10个PDAC样本。</p>
+<p><strong>● 2</strong><strong>. “我观察到髓系细胞和CD8+T细胞的比例呈负相关。”</strong></p>
+<p><img alt="" src="../images/38d54935368b27b0.webp"></p>
+<p><img alt="" src="../images/266d818e2787a3d0.png"></p>
+<p><img alt="" src="../images/61348c35d1817283.webp"></p>
+<p><img alt="" src="../images/01df679e6050b311.webp"></p>
+<p>● 相关性分析好像是要r&gt;0.3且p&lt;0.05吧，还一会儿R一会儿r。</p>
+<p><strong>● 3</strong><strong>. “我们观察到个体肿瘤的总免疫细胞组成和个体免疫细胞成分的相对丰度存在差异。”</strong></p>
+<p><img alt="" src="../images/830d71689d2f22c7.webp"></p>
+<p><img alt="" src="../images/c308d4c366b275f1.webp"></p>
+<p>● 癌旁组织和癌组织的总细胞数量有差异，不进行统计学检验，仅仅是split.by=“group”就可以得到结论组成成分存在差异了吗？</p>
+<p><strong>● 4</strong><strong>. “我们分析了不同细胞群中免疫检查点受体和配体的平均表达。”</strong></p>
+<p><img alt="" src="../images/59f4f6391895d4ad.webp"></p>
+<p>● 第一次看的时候以为左边是配体右边是受体并形成了聚类，查阅资料发现蓝色高亮标出的是免疫检查点，未高亮的是其配体，并不是聚在一起的状态（还特意去GitHub看了代码，就是这样迷幻的顺序），作者的结论是：T细胞和NK细胞中多种免疫检查点高表达，相应的配体富集在髓系和DC中。</p>
+<p>● 调整后如右图所示，可以得出结论：T细胞和NK细胞中多种免疫检查点高表达，相应的配体富集在髓系、DC和B细胞中。好在问题不大。</p>
+<p><strong>● 5</strong><strong>. “通过功能注释，PDAC样本中与细胞毒性、趋化因子信号转导、T细胞受体信号转导和抗原处理相关的通路大量富集，这表明肿瘤中已经引发了免疫应答。”</strong></p>
+<p><img alt="" src="../images/3aa960c482f40bac.webp"></p>
+<p><img alt="" src="../images/4842a5b212febea0.webp"></p>
+<p>● 就图论图，咱就是说富集（红色）好像不等于上调，也可以是显著下调吧，为什么不是抑制了免疫应答呢？富集的含义：差异基因中注释到某个代谢通路的基因数目在所有差异基因中的比例显著大于背景基因中注释到某个代谢通路的基因数目在所有背景基因中的比例。</p>
+<p><strong>● 6</strong><strong>. “我们鉴定了13种不同的CD4+T细胞亚群，尽管许多不同的亚群倾向于合并在一起。”</strong></p>
+<p>● 有没有一种可能是分辨率有点高了呢？</p>
+<p><img alt="" src="../images/19142295583ea160.webp"></p>
+<p><strong>● 7</strong><strong>. “为了探索T/NK和髓系细胞间潜在的相互作用，我们应用了一种基于已知高亲和力的配体受体对的预测交互算法。”</strong></p>
+<p><img alt="" src="../images/8a41a6c9e6e953c1.webp"></p>
+<p><img alt="" src="../images/e26a5afa1109d41f.webp"></p>
+<p>● 好歹也是正文里的一张大图，怎么大小高低还不一样，能不能学学人家五环的画法，强迫症真的难受。另外曲线上也没有箭头，不看原文真不知道是谁跟谁的相互作用。最大的问题是仅仅通过scale的表达量就可以量化不同细胞间的配受体相互作用强度吗？我不认同。唯一能帮作者圆一圆的就是，她没有下一个很明确的结论，她说我推测它们的相互作用增强了。另外看了一下本文引用的ref 50，是2015年发表在nature communication的《A draft network of ligand–receptor-mediated multicellular signalling in human》，没有精读，但总有一种买家秀和卖家秀既视感，卖家秀如下。</p>
+<p><img alt="" src="../images/71ee8c4897460791.webp"></p>
+<p>● 可以看出作者确实是癌症生物学专家，但不是搞数据的。由于我既不是癌症生物学专家更不是数据专家，如果有什么不对的地方，恳请大家：</p>
+<p><img alt="" src="../images/4aa4aa8185059f11.webp"></p>
+<p><img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/40f123a2b5b5abee.webp"></p>
+<p><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

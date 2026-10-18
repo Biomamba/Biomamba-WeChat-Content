@@ -1,0 +1,182 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0083-单细胞对象(数据格式)转换大全2. h5ad转Seuratobj</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="2-h5adseuratobj">单细胞对象(数据格式)转换大全|2. h5ad转Seuratobj</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496786&amp;idx=1&amp;sn=408a81e4824c33eaefe6e9e7f0143c7e&amp;chksm=9b3c8d02ac4b0414bc1d11762b870248743bd9aaaef9d15480fd99a36322d47b448b229345be#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/0af487e28068baf6.png"></p>
+<p>前言</p>
+<p><img alt="" src="../images/02f14f010ed4c880.png"></p>
+<p>作为近年来科研界的香饽饽，单细胞测序技术自身蓬勃发展的同时，其对应的分析软件也在不断地涌现。目前我使用过的单细胞测序R包也已经有十余种了，例如Seurat、iCellR、Monocle、Cellchat、iTalk、NicheNet、CellphoneDB、infercnv、scWGCNA、SingleR、DropletTestFiles、velocyto.R等。虽然它们实际运行时的”容器“结构可能会有所不同，但这些R包的核心作用都是用来分析scRNA-Seq所产生的矩阵，因此这些包的数据对象之间又可以通过一定的方式进行转化、运用。并且，它们大都可以通过Seurat相互转换。此前就给大家列出一些<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485925&amp;idx=1&amp;sn=14e08440200f0f5cb4dcc2dc615efeb8&amp;chksm=9b3f70b5ac48f9a37a43cc2a8b2a5e485a3f84b4ef87949dfe99056bc6301b110e80800f6bb1&amp;scene=21#wechat_redirect">各类单细胞对象（数据格式）转换大全（一）</a>。这次的内容主要是介绍几种<strong>h5ad</strong> 文件转为Seurat对象的方法。</p>
+<p><img alt="" src="../images/0af487e28068baf6.png"></p>
+<p>01</p>
+<p>利用SeuratDisk转换</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">remotes::install_github(&quot;mojaveazure/seurat-disk&quot;)library(SeuratDisk)filname &lt;- 'core_atlas_cellxgene_schema.h5ad'Convert(filname, &quot;h5seurat&quot;,#先转换为h5seurat        overwrite = TRUE,assay = &quot;RNA&quot;)scRNA &lt;- LoadH5Seurat(filname)scRNA
+</code></pre>
+<p>可能会出现以下报错：</p>
+<p><img alt="" src="../images/ee2b4e15821cc96d.png"></p>
+<p><img alt="" src="../images/560955d18e83ad93.png"></p>
+<p>02</p>
+<p>利用reticulate转换</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">reticulate::py_config()use_python(&quot;/home/biomamba/miniconda3/bin/python&quot;)Sys.which('python')  # 该python 下要安装了anndataad &lt;- import(&quot;anndata&quot;, convert = FALSE)final_ad &lt;- ad$read_h5ad(filname)#获取anndata数据class(final_ad)
+mymatrix &lt;- final_ad$Xmymetadata &lt;- final_ad$obsrownames(mymatrix) &lt;- rownames(mymetadata)mygene &lt;- final_ad$var %&gt;% rownames()scRNA &lt;- CreateSeuratObject(counts = mymatrix)scRNA &lt;- AddMetaData(scRNA ,metadata  =mymetadata )
+</code></pre>
+<p>可能会因为python版本不兼容而报错：</p>
+<p><img alt="" src="../images/bf42012819523d93.png"></p>
+<p><img alt="" src="../images/560955d18e83ad93.png"></p>
+<p>03</p>
+<p>利用scanpy转换[1]</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">  import scanpy as sc  from scipy import io  adata = sc.read_h5ad(filename)  adata = adata.raw.to_adata()  with open('barcodes.tsv','w') as f:    for item in adata.obs_names:    f.write(item + '\n')  adata.obs_names    with open('features.tsv','w') as f:    for item in ['\t' .join([x,x, 'Gene Expression']) for x in adata.var_names]:    f.write(item + '\n')   io.mmwrite('matrix',adata.X.T)  adata.obs.to_csv('metadata.csv')  mymatrix &lt;- Read10X('./')    scRNA &lt;- CreateSeuratObject(counts = mymatrix)  mymetadata  &lt;- read.csv('metadata.csv')  scRNA &lt;- AddMetaData(scRNA,metadata  =mymetadata )
+</code></pre>
+<p>以上两种方法均是基于R语言的，因为跨平台操作以及版本问题等，很容易遇到报错，因此用scanpy直接输出单细胞对象的各类信息其实是最稳的，缺点就是需要在python里操作(会python了还转换啥，<strong>直接用scanpy分析</strong> 即可)。
+<img alt="" src="../images/560955d18e83ad93.png">参考：https://www.youtube.com/watch?v=como93CmnS8<img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不许回复读者消息，这里给大家留一下领取资料及免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/fdb4c49c78e6216c.webp"></p>
+<p><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

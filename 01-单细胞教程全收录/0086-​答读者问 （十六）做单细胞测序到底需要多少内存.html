@@ -1,0 +1,119 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0086-​答读者问 （十六）做单细胞测序到底需要多少内存</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">​答读者问 （十六）做单细胞测序到底需要多少内存</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487923&amp;idx=1&amp;sn=15043c6d729b0d5493ab875b0e54a259&amp;chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0#rd
+合集：单细胞教程全收录 / 答读者问</p>
+</blockquote>
+<p>往期回顾</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484175&amp;idx=1&amp;sn=3e45ad62b045a541874e5ae7ca03f849&amp;chksm=9b3f7a5fac48f349f8893500825d2c6b4ff581fbb0816c1074d88a0dbbb4a612c1e1bb3740bb&amp;scene=21#wechat_redirect">答读者问 （一）单基因究竟能否进行GSEA</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484248&amp;idx=1&amp;sn=b1fe7174a28562d01422e43609f41709&amp;chksm=9b3f7a08ac48f31e3bbfdb4a9824dadf25a8fa3ff9b78dd15d646ae4c3da5db04e2e4acfba3d&amp;scene=21#wechat_redirect">答读者问 （二）为什么我的PCA分析报错了？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484280&amp;idx=2&amp;sn=844af02070012a1c2681880596ba51a2&amp;chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&amp;scene=21#wechat_redirect">答读者问 （三）单细胞测序前景</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=2&amp;sn=e8d02fddc80d1137bb64c55541f1651d&amp;chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&amp;scene=21#wechat_redirect">答读者问 （四）如何分析细胞亚群</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484353&amp;idx=2&amp;sn=8fccb88c871a42c803e313be157ab293&amp;chksm=9b3f7a91ac48f387df8b462f7318596fc5c645d6f05eefac2c598ff6875c0a2eeb902aaf5a15&amp;scene=21#wechat_redirect">答读者问 （五）如何实现各物种基因的ID/symbol的转换</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484376&amp;idx=2&amp;sn=9fda8a5261e86f889a58d607163ce0fd&amp;chksm=9b3f7a88ac48f39ea9c19e256a513c9ae80c6f6dc1724b7783884e23981e2061c78fa67071c9&amp;scene=21#wechat_redirect">答读者问 （六）Seurat中如何让细胞听你指挥</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484550&amp;idx=1&amp;sn=ec4466084c1c9eba7eb292e95f33b5bb&amp;chksm=9b3f7dd6ac48f4c042b4e9df2abd717b1354b4914c3f7510eaf444e97965a0f6622979e710e0&amp;scene=21#wechat_redirect">答读者问 （七）有人问我Biomamba何解</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485012&amp;idx=1&amp;sn=6007c8d7cb2a236dd7240a678dac0391&amp;chksm=9b3f7f04ac48f612f811c1df9e9450dc8112d343e4bf245be5149c2e2a073d3e339cd0e3ff61&amp;scene=21#wechat_redirect">答读者问 （八）为什么Read10X也会报错?</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485032&amp;idx=1&amp;sn=7d4777589fa1f92d26ad05ffe3e02f6a&amp;chksm=9b3f7f38ac48f62e0d2e4d46a13c21e440295aef4cba08214527d7b7d2e1959a0b4cebe4143a&amp;scene=21#wechat_redirect">答读者问 （九） 如何将数百个文件整合为一个矩阵</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485134&amp;idx=1&amp;sn=13f5f8c47d8af2beeca4e103a5f5e26d&amp;chksm=9b3f7f9eac48f688b454a1062ee4e41f7072ac9d58e5466fa7ed4bb05018adbfe167bb3a445a&amp;scene=21#wechat_redirect">答读者问 （十）整合后的表达矩阵，如何拆分出分组信息？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485145&amp;idx=1&amp;sn=402cb28c16aba0dc647037c9b7aba8f7&amp;chksm=9b3f7f89ac48f69fe27cd427df3eff2e88c240bf20dfe92d8b522eecd7302d132d880bf29047&amp;scene=21#wechat_redirect">答读者问 （十一）如何一次性读取一个目录下的cellranger输出文件？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485290&amp;idx=1&amp;sn=1e77059439342374ea03496cbba08070&amp;chksm=9b3f7e3aac48f72ca08f5e73496e6f8c99c5fd74a39daa626d636ba5a7b0b89873437ebcb6d4&amp;scene=21#wechat_redirect">答读者问 （十二）ERROR: have no zero exit status</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485859&amp;idx=1&amp;sn=a014c4cb6034551e57c70820c7781e49&amp;chksm=9b3f70f3ac48f9e52620e3ff197eb98e58836e8bb6baad634387a521fdda1e4a194356517c73&amp;scene=21#wechat_redirect">答读者问 （十三）查看Seurat对象时的ERROR：type='text'</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486134&amp;idx=1&amp;sn=e581b8ac20bbc968aeef3f9cf56f3a0f&amp;chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&amp;scene=21#wechat_redirect">答读者问 （十四）Seurat中分类变量处理技巧</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486259&amp;idx=1&amp;sn=97de5c9e15e48cb62c8a680376a4ee0d&amp;chksm=9b3f7263ac48fb75a91b40416826fe35b340284cf38255925ac447443a62cdc1df082d20fb61&amp;scene=21#wechat_redirect">答读者问 （十五）稀疏矩阵转matrix, as.matrix函数是下下策</a></p>
+<p>问题</p>
+<h4 id="20128gb">因为咱们现在能够为大家提供服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486561&amp;idx=1&amp;sn=7cf9102cc2b6b402b7fe95e966cec49f&amp;chksm=9b3f7531ac48fc27c59de45eb36ffaa41a6aacf0fb58c463ecb15a846ce5382f22682ea5fa3b&amp;scene=21#wechat_redirect">独享服务器2.0即将上线，128GB免费试用</a>)，经常有读者问我做单细胞测序需要多大的内存或至少需要准备多少内存，这个问题我相信很多同学都思考，值得探究一番。</h4>
+<p>怎么解决问题</p>
+<h4 id="fastqseuratcca30gbcellrangercellranger384gb48shiny-serverlinux">内存与线程最大的不同是，线程少了无非就是任务算的慢些，若是内存少了，任务是无法正常启动的，所以保障内存充足是重中之重。对于大部分用户来说，目前来说单细胞测序最吃内存的还是上游的fastq文件处理，在Seurat中最吃内存的CCA，处理六万个细胞(你如果处理几百万个细胞那当我没说)可能也就占用不到30GB，但使用cellranger做定量时占用的内存远大于此。那我们便以一个cellranger实例来做测评。以下测试于一台刚重启过的384GB、48线程的服务器中执行，理论上除了shiny-server以外没有其他用户进程在后台运行(Linux系统自带进程除外)，开始操作：</h4>
+<p>拿我这个真实的数据(10X Genomics)来举例，这是2019年测得的一个lane的数据量，加起来差不多刚好<strong>40G</strong>(采取.gz的形式压缩后)。</p>
+<ul>
+<li>*</li>
+</ul>
+<pre><code> ll -h H2*fastq.gz #看看文件
+</code></pre>
+<p><img alt="" src="../images/93d8c71a8cdd25fc.webp"></p>
+<p>那我们用20线程的参数走一下cellranger的定量流程看看。教程可参考：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484923&amp;idx=1&amp;sn=b5876af14fbee68d1e9db4b0f70cd1c8&amp;chksm=9b3f7cabac48f5bdb3aac7d20201d89121a83720b41a10017564fedbb8c4a13df0da92daffd7&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：cellranger</a></p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>  nohup cellranger  count \ --id=H2result \  --transcriptome=/home/biomamba/biosoft/refdata-gex-mm10-2020-A  \  --fastqs=./ \  --sample=H2 \  --expect-cells=5000 \  --localcores=20\  --nosecondary &amp;#把程序给挂上
+
+watch -n 60 'free -h &gt;&gt; my.memo.txt'#把内存进程监控下来    less nohup.out
+</code></pre>
+<p>首先等程序成功运行完：</p>
+<p><img alt="" src="../images/d0898e9db9f00baf.webp"></p>
+<p>开始复盘内存：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>cat  my.memo.txt | \ sed 's/ * /\t/g'| \ cut -f 4| sort |grep -v free| \  grep -v 8.0Gi|sort -n|head
+</code></pre>
+<p>可以发现，空余的空间最少的时候只有25GB，我的服务器是384GB，简单的算一下，你<strong>最多</strong> 需要准备359GB的内存，基本任何数据和流程对你来说都可高枕无忧。</p>
+<p><img alt="" src="../images/f5c7b308b8ce9570.png"></p>
+<p>但总内存=free(真正空闲内存)+buff/cache(缓存)+used(实际用掉的内存)，buff/cache的内存其实也可以整理出来给cellranger使用，所以你最少需要准备多少内存呢，我们来看一下<strong>used</strong> 的监控情况：</p>
+<ul>
+<li>*</li>
+</ul>
+<pre><code> cat  my.memo.txt | sed 's/ * /\t/g'| \ cut -f 3|sort|grep -v free| grep Gi | sort -nr|head
+</code></pre>
+<p><img alt="" src="../images/deec0acfb70a81d8.webp"></p>
+<p>可以发现程序占用的其实最多也就64G，保险一点，再算上系统本身进程波动可能要再吃一些内存，80G差不多能搞定（这是理论，实际上没试过，但我觉得大概率会死机，谁正好有那么大内存来帮我试一试<img alt="" src="../images/dd4b0994560a9c8d.png">，如果有加测fastq的更别试了，64G肯定不够）。好了，就谈这么多，具体情况还是需要取决于大家的数据大小与执行任务种类。</p>
+<p><img alt="" src="../images/2cc9316bafeedaf7.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/9b3df9175ed77a7e.gif">公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的<strong>微信号</strong> ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487083&amp;idx=1&amp;sn=312a8435f6b938602624a7e9028ad3c6&amp;chksm=9b3f773bac48fe2d3a2886988b35b006bbd05da11e2d7f735afc78c02ffbd179ebc9722a97cd&amp;scene=21#wechat_redirect">你们要的微信、交流群，来了！</a>
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484685&amp;idx=1&amp;sn=3b47c0bcad97a265650b5f34c00a6a3c&amp;chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&amp;scene=21#wechat_redirect">笑一笑也就算了</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486435&amp;idx=1&amp;sn=c61124eb7c0fd6cc0eaefb639b551092&amp;chksm=9b3f72b3ac48fba5c0091fd843c98d504d4aefe0ba01a2fed966f897f58d8924ace8df07955e&amp;scene=21#wechat_redirect">有关提高"Biomamba 生信基地"运行效率事宜</a></p>
+<p><img alt="" src="../images/fdb4c49c78e6216c.webp"></p></article></body></html>

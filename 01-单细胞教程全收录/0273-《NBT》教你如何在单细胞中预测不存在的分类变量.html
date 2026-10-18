@@ -1,0 +1,1018 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0273-《NBT》教你如何在单细胞中预测不存在的分类变量</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="nbt">《NBT》教你如何在单细胞中预测不存在的分类变量</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537576&amp;idx=1&amp;sn=5b89e2808f9b059087c6acf7db81e40b&amp;chksm=9b3c2af8ac4ba3ee02c6777ef0c16a9dceaf38c071f1af7052418e111a4e78c301688f3255d0#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>Biolord是一种深度生成方法，用于将<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">单细胞</a>多组数据与已知和未知属性（包括空间、时间和疾病状态）分离，用于揭示不同单细胞模式和生物系统的解耦生物特征(细胞的基因表达谱同时编码了多个属性的信息，如细胞类型、起源组织和分化阶段)。通过<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535112&amp;idx=1&amp;sn=95a6b88cd49fb2bbb7aa091a00e09e2c&amp;scene=21#wechat_redirect">虚拟</a>地跨状态移动细胞，biolord生成了你当前数据中不存在的变量，可用于预测细胞对未知<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536705&amp;idx=1&amp;sn=7fbfeba5dee45f6c3311bd31082a428c&amp;scene=21#wechat_redirect">药物</a>和基因等因素干扰的反应方面，可以说是让数据挖掘党狂喜，导师也直呼这不得省好几组样本的经费→_→。当然，预测的含金量不如真的做一组这样的实验并测序。</p>
+<p><strong>该工具于2024年发表于《Nature Biotechnology》上，感兴趣的同学可以直达方法学文章与工具主页： Piran Z, Cohen N, Hoshen Y, Nitzan M. Disentanglement of single-cell data with biolord. Nat Biotechnol. 2024 Nov;42(11):1678-1683. https://www.nature.com/articles/s41587-023-02079-x</strong></p>
+<p><strong>https://biolord.readthedocs.io/en/latest/</strong></p>
+<p><img alt="" src="../images/7a1668e1c3537958.webp"></p>
+<p>**
+**</p>
+<p>如果你希望有人真的手把手教你学单细胞：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535927&amp;idx=2&amp;sn=86947f0522de0d9785865bd24115b002&amp;scene=21#wechat_redirect"> R语言scRNA-seq数据分析全程班</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=2&amp;sn=f1b479a1469dfe46bd8bb0b0bd1b470d&amp;scene=21#wechat_redirect">Python版scRNA-seq数据分析全程班</a></p>
+<p>如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531388&amp;idx=3&amp;sn=dfaf8cac9db70bb408206fb3da27ffda&amp;scene=21#wechat_redirect">单细胞数据分析</a>指导、生信热点<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469&amp;token=1729645779&amp;lang=zh_CN#wechat_redirect">全文复现</a>、自测数据个性化分析辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530174&amp;idx=1&amp;sn=c3b0499adcc9093546e4ba1cfffba7bd&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[Biomamba_zhushou]。</p>
+<p><strong><strong>二、实操流程</strong></strong></p>
+<pre><code>1. biolord安装
+</code></pre>
+<pre><code>这里我们通过conda联合JupyterHub完成biolord安装，没有conda、JupyterHub基础的同学可参考：
+</code></pre>
+<pre><code>生信软件管家——conda的安装、使用、卸载
+</code></pre>
+<pre><code>JupyterHub：多人使用jupyter的最佳选择
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>!conda create -n biolord!conda activate biolord!conda install python=3.10!pip install biolord  -i https://pypi.tuna.tsinghua.edu.cn/simple/!pip install ipykernel -i https://pypi.tuna.tsinghua.edu.cn/simple/!python -m ipykernel install --user --name biolord_10 --display-name &quot;biolord学习_V10&quot;
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>import pandas as pdimport numpy as np
+import scanpy as scimport biolord
+import seaborn as snsimport matplotlib.pyplot as pltimport warningsfrom scipy.stats import ttest_rel
+</code></pre>
+<pre><code>/data2/analysis/biomamba_tutor/miniconda3/envs/biolord_10/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+</code></pre>
+<pre><code class="language-python">   from .autonotebook import tqdm as notebook_tqdm
+</code></pre>
+<ul>
+<li>*</li>
+</ul>
+<pre><code># 不显示warningswarnings.simplefilter(&quot;ignore&quot;, UserWarning)
+</code></pre>
+<p><code>biolord</code>支持GPU加速，没有计算设备的同学可参考：
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21#wechat_redirect">RTX5090、4080S、5070显卡上机</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529989&amp;idx=1&amp;sn=94d64b24a28c6da3c752e2a5b135b50a&amp;scene=21#wechat_redirect">免费使用|共享服务器上线RTX3080(20GB显存)</a>
+需要帮助请联系客服[Biomamba_zhushou]</p>
+<pre><code>2. 测试数据
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code># 读取测试文件adata = sc.read(&quot;adata_infected.h5ad&quot;, backup_url=&quot;https://figshare.com/ndownloader/files/39375713&quot;)adata
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code># 有可能你会被墙，无法直接读取，这里我们也给大家准备了本地的文件adata = sc.read('data/adata_infected.h5ad')adata
+</code></pre>
+<pre><code>AnnData object with n_obs × n_vars = 19053 × 8203     obs: 'barcode', 'mouse', 'marker', 'time', 'infected', 'experiment', 'coarse_time', 'MB', 'eta', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 'pct_counts_mt', 'mt_qc', 'SUMPBA', 'n_counts', 'n_genes', 'mus_rRNA', 'pba_rRNA', 'pba_rRNA_fraction', 'nCount_PBA', 'nFeature_PBA', 'nCount_MUS', 'nFeature_MUS', 'RNA_snn_res.0.2', 'seurat_clusters', 'MBinfected', 'cluster_names', 'ident', 'eta_normalized', 'nCounts_tot', 'normalized_PBA', 'coarse_time_orig', 'zone', 'status', 'status_control', 'time_int', 'split_random'     var: 'org', 'highly_variable', 'highly_variable_rank', 'means', 'variances', 'variances_norm'     uns: 'coarse_time_colors', 'hvg', 'log1p', 'neighbors', 'pca', 'status_colors', 'status_control_colors', 'umap', 'zone_colors'     obsm: 'X_pca', 'X_umap'     varm: 'PCs'     layers: 'counts', 'logcounts', 'scaledata'     obsp: 'connectivities', 'distances'
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 这个数据包括时间、空间、状态三类变量fig, axs = plt.subplots(1, 3, figsize=(15, 4))for i, c in enumerate([&quot;coarse_time&quot;, &quot;zone&quot;, &quot;status_control&quot;]):    sc.pl.umap(adata, color=[c], ax=axs[i], show=False)    axs[i].set_axis_off()plt.tight_layout()plt.show()
+</code></pre>
+<p>[/code]</p>
+<pre><code>  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+
+[code]
+import pandas as pdimport seaborn as snsimport matplotlib.pyplot as pltimport warningsimport matplotlib# ========== 1. 彻底重置matplotlib字体配置（核心解决字体警告） ==========# 清除所有现有字体配置，指定系统通用的无衬线字体（避免查找SimHei）matplotlib.rcParams.update(matplotlib.rcParamsDefault)  # 恢复默认配置# 指定系统可用的sans-serif字体（DejaVu Sans是Linux/macOS/Windows通用字体）plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'Helvetica']plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题# ========== 2. 精准过滤所有冗余警告 ==========# 过滤pandas的FutureWarningwarnings.filterwarnings('ignore', category=FutureWarning, module='pandas')# 过滤matplotlib所有字体相关警告（包括findfont）warnings.filterwarnings('ignore', message='.*Generic family \'sans-serif\' not found.*', module='matplotlib')warnings.filterwarnings('ignore', category=UserWarning, module='matplotlib.font_manager')# ========== 3. 交叉统计（无警告） ==========# zone × status_control 交叉表cross_zone_status = pd.crosstab(adata.obs['zone'], adata.obs['status_control'])print(&quot;=== zone × status_control 交叉计数 ===&quot;)print(cross_zone_status)# coarse_time × status_control 交叉表cross_time_status = pd.crosstab(adata.obs['coarse_time'], adata.obs['status_control'])print(&quot;\n=== coarse_time × status_control 交叉计数 ===&quot;)print(cross_time_status)# 三者交叉统计（加observed=True消除pandas警告）cross_three = adata.obs.groupby(['zone', 'coarse_time', 'status_control'], observed=True).size().reset_index(name='样本数')print(&quot;\n=== zone × coarse_time × status_control 三者交叉计数 ===&quot;)print(cross_three)# 计算占比cross_three['占比(%)'] = (cross_three['样本数'] / adata.n_obs * 100).round(2)print(&quot;\n=== 三者交叉占比（%） ===&quot;)print(cross_three)# ========== 4. 可视化（无字体警告） ==========fig, axes = plt.subplots(1, 2, figsize=(16, 6))# 热图1：zone × status_controlsns.heatmap(    cross_zone_status,     annot=True, fmt='d', cmap='Blues', ax=axes[0],    cbar_kws={'label': 'Cell Number'})axes[0].set_title('zone × status_control distribution', fontsize=12)axes[0].set_xlabel('status_control')axes[0].set_ylabel('zone')# 热图2：coarse_time × status_controlsns.heatmap(    cross_time_status,     annot=True, fmt='d', cmap='Greens', ax=axes[1],    cbar_kws={'label': 'Cell Number'})axes[1].set_title('coarse_time × status_control distribution', fontsize=12)axes[1].set_xlabel('status_control')axes[1].set_ylabel('coarse_time')plt.tight_layout()plt.show()
+</code></pre>
+<pre><code>=== zone × status_control 交叉计数 ===
+</code></pre>
+<pre><code>status_control  Control  Infected  Uninfected zone
+</code></pre>
+<pre><code>Pericentral         546      1554        3484
+</code></pre>
+<pre><code>Periportal         2659      2555        8255
+</code></pre>
+<pre><code>=== coarse_time × status_control 交叉计数 ===
+</code></pre>
+<pre><code>status_control  Control  Infected  Uninfected coarse_time
+</code></pre>
+<pre><code>Control            3205         0           0
+</code></pre>
+<pre><code>2 hpi                 0       191        1917
+</code></pre>
+<pre><code>12 hpi                0       894        2308
+</code></pre>
+<pre><code>24 hpi                0      1452        2838
+</code></pre>
+<pre><code>30 hpi                0       489        1560
+</code></pre>
+<pre><code>36 hpi                0      1083        3116
+</code></pre>
+<pre><code>=== zone × coarse_time × status_control 三者交叉计数 ===
+</code></pre>
+<pre><code>            zone coarse_time status_control   样本数
+</code></pre>
+<pre><code>0   Pericentral     Control        Control   546
+</code></pre>
+<pre><code>1   Pericentral       2 hpi       Infected    69
+</code></pre>
+<pre><code>2   Pericentral       2 hpi     Uninfected   587
+</code></pre>
+<pre><code>3   Pericentral      12 hpi       Infected   179
+</code></pre>
+<pre><code>4   Pericentral      12 hpi     Uninfected   408
+</code></pre>
+<pre><code>5   Pericentral      24 hpi       Infected   760
+</code></pre>
+<pre><code>6   Pericentral      24 hpi     Uninfected  1117
+</code></pre>
+<pre><code>7   Pericentral      30 hpi       Infected   182
+</code></pre>
+<pre><code>8   Pericentral      30 hpi     Uninfected   597
+</code></pre>
+<pre><code>9   Pericentral      36 hpi       Infected   364
+</code></pre>
+<pre><code>10  Pericentral      36 hpi     Uninfected   775
+</code></pre>
+<pre><code>11   Periportal     Control        Control  2659
+</code></pre>
+<pre><code>12   Periportal       2 hpi       Infected   122
+</code></pre>
+<pre><code>13   Periportal       2 hpi     Uninfected  1330
+</code></pre>
+<pre><code>14   Periportal      12 hpi       Infected   715
+</code></pre>
+<pre><code>15   Periportal      12 hpi     Uninfected  1900
+</code></pre>
+<pre><code>16   Periportal      24 hpi       Infected   692
+</code></pre>
+<pre><code>17   Periportal      24 hpi     Uninfected  1721
+</code></pre>
+<pre><code>18   Periportal      30 hpi       Infected   307
+</code></pre>
+<pre><code>19   Periportal      30 hpi     Uninfected   963
+</code></pre>
+<pre><code>20   Periportal      36 hpi       Infected   719
+</code></pre>
+<pre><code>21   Periportal      36 hpi     Uninfected  2341
+</code></pre>
+<pre><code>=== 三者交叉占比（%） ===
+</code></pre>
+<pre><code>            zone coarse_time status_control   样本数  占比(%)
+</code></pre>
+<pre><code>0   Pericentral     Control        Control   546   2.87
+</code></pre>
+<pre><code>1   Pericentral       2 hpi       Infected    69   0.36
+</code></pre>
+<pre><code>2   Pericentral       2 hpi     Uninfected   587   3.08
+</code></pre>
+<pre><code>3   Pericentral      12 hpi       Infected   179   0.94
+</code></pre>
+<pre><code>4   Pericentral      12 hpi     Uninfected   408   2.14
+</code></pre>
+<pre><code>5   Pericentral      24 hpi       Infected   760   3.99
+</code></pre>
+<pre><code>6   Pericentral      24 hpi     Uninfected  1117   5.86
+</code></pre>
+<pre><code>7   Pericentral      30 hpi       Infected   182   0.96
+</code></pre>
+<pre><code>8   Pericentral      30 hpi     Uninfected   597   3.13
+</code></pre>
+<pre><code>9   Pericentral      36 hpi       Infected   364   1.91
+</code></pre>
+<pre><code>10  Pericentral      36 hpi     Uninfected   775   4.07
+</code></pre>
+<pre><code>11   Periportal     Control        Control  2659  13.96
+</code></pre>
+<pre><code>12   Periportal       2 hpi       Infected   122   0.64
+</code></pre>
+<pre><code>13   Periportal       2 hpi     Uninfected  1330   6.98
+</code></pre>
+<pre><code>14   Periportal      12 hpi       Infected   715   3.75
+</code></pre>
+<pre><code>15   Periportal      12 hpi     Uninfected  1900   9.97
+</code></pre>
+<pre><code>16   Periportal      24 hpi       Infected   692   3.63
+</code></pre>
+<pre><code>17   Periportal      24 hpi     Uninfected  1721   9.03
+</code></pre>
+<pre><code>18   Periportal      30 hpi       Infected   307   1.61
+</code></pre>
+<pre><code>19   Periportal      30 hpi     Uninfected   963   5.05
+</code></pre>
+<pre><code> 20   Periportal      36 hpi       Infected   719   3.77
+</code></pre>
+<pre><code>21   Periportal      36 hpi     Uninfected  2341  12.29
+</code></pre>
+<p>[/code]</p>
+<pre><code>注意coarse_time的control与status_control和zone中的control是不互相交叉的
+</code></pre>
+<pre><code>3. biolord流程演示
+</code></pre>
+<pre><code>这里我们通过biolord模型在时空单细胞数据图谱中重现与感染相关的基因表达。
+</code></pre>
+<pre><code>3.1 训练参数定义
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 将adata设置解偶联的属性，这里把&quot;time_int&quot;, &quot;status_control&quot;, &quot;zone&quot;均输入：biolord.Biolord.setup_anndata(    adata,# 单细胞adata对象    ordered_attributes_keys=None,# 选择anndata.AnnData.obs与~anndata.AnnData.obsm中的key进行排序    categorical_attributes_keys=[&quot;time_int&quot;, &quot;status_control&quot;, &quot;zone&quot;],)
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 设置模型参数：# 定义模型的核心超参数字典# 这些参数主要用于配置带有属性感知的解码器/属性神经网络相关的模型结构和训练惩罚项module_params = {    # 解码器网络的隐藏层宽度（特征维度），决定了解码器每一层的神经元数量    &quot;decoder_width&quot;: 1024,    # 解码器网络的深度，即解码器包含的隐藏层数量    &quot;decoder_depth&quot;: 4,    # 属性感知神经网络（attribute_nn）的隐藏层宽度    &quot;attribute_nn_width&quot;: 512,    # 属性感知神经网络的深度，即该网络包含的隐藏层数量    &quot;attribute_nn_depth&quot;: 2,    # 潜在分类属性的数量（用于建模离散型的潜在属性）    &quot;n_latent_attribute_categorical&quot;: 4,    # 基因表达数据的似然函数类型，&quot;normal&quot;表示使用正态分布拟合基因数据分布    &quot;gene_likelihood&quot;: &quot;normal&quot;,    # 重构损失的惩罚系数，用于控制重构误差在总损失中的权重，数值越大对重构效果的约束越强    &quot;reconstruction_penalty&quot;: 1e2,    # 未知属性的惩罚系数，用于约束模型对未知/缺失属性的预测行为，避免过拟合    &quot;unknown_attribute_penalty&quot;: 1e1,    # 未知属性的噪声参数，为未知属性的建模过程添加少量噪声，提升模型鲁棒性    &quot;unknown_attribute_noise_param&quot;: 1e-1,    # 属性层的dropout率，随机丢弃10%的神经元，防止模型过拟合    &quot;attribute_dropout_rate&quot;: 0.1,    # 是否使用批量归一化（Batch Normalization），False表示不使用    &quot;use_batch_norm&quot;: False,    # 是否使用层归一化（Layer Normalization），False表示不使用    &quot;use_layer_norm&quot;: False,    # 随机种子，固定种子可保证实验结果的可复现性（每次运行代码生成的随机数一致）    &quot;seed&quot;: 42,}# 初始化 Biolord 模型实例model = biolord.Biolord(    adata=adata,               # 输入的AnnData对象（scanpy/biolord核心数据结构），存储单细胞/空间转录组等生物组学数据    n_latent=32,               # 模型学习的隐变量（latent）维度，即把高维基因表达数据降维到32维的隐空间    model_name=&quot;spatio_temporal_infected&quot;,  # 指定模型架构名称，适配「时空动态的感染相关数据」（如感染过程中不同时间/空间的单细胞数据）    module_params=module_params,            # 模型模块的自定义参数字典（覆盖默认超参数，如网络层数、学习率等）    train_classifiers=False,                # 是否训练分类器（如细胞类型/感染状态分类），False表示仅做表征学习，不训练分类器    split_key=&quot;split_random&quot;,             # 数据拆分关键字，对应adata.obs中的列名（用于划分训练/验证/测试集）)# 定义训练器（trainer）的核心超参数配置字典trainer_params = {    # 预热（warmup）的轮数：设置为0表示不进行学习率预热    &quot;n_epochs_warmup&quot;: 0,    # 隐变量（latent）的学习率（learning rate）    &quot;latent_lr&quot;: 1e-4,    # 隐变量的权重衰减（weight decay），用于防止过拟合    &quot;latent_wd&quot;: 1e-4,    # 解码器（decoder）的学习率    &quot;decoder_lr&quot;: 1e-4,    # 解码器的权重衰减    &quot;decoder_wd&quot;: 1e-4,    # 属性神经网络（attribute_nn）的学习率，通常比其他网络学习率更高    &quot;attribute_nn_lr&quot;: 1e-2,    # 属性神经网络的权重衰减，值很小表示几乎不做权重衰减    &quot;attribute_nn_wd&quot;: 4e-8,    # 学习率调度器的步长：每训练45个epoch调整一次学习率    &quot;step_size_lr&quot;: 45,    # 是否使用余弦退火学习率调度器（cosine annealing scheduler）    &quot;cosine_scheduler&quot;: True,    # 余弦调度器的最终学习率：学习率衰减的下限    &quot;scheduler_final_lr&quot;: 1e-5,}
+</code></pre>
+<pre><code>Seed set to 42
+</code></pre>
+<p>3.2 模型训练与效果评估</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 启动模型训练model.train(    max_epochs=500,               # 训练的最大轮数：最多训练500个epoch，即使未触发早停也会停止    batch_size=512,               # 批次大小：每次迭代处理512个样本    plan_kwargs=trainer_params,   # 训练器参数配置：传入预定义的训练器参数字典（如优化器、学习率等）    early_stopping=True,          # 开启早停机制：当验证集性能不再提升时提前终止训练，避免过拟合    early_stopping_patience=20,   # 早停耐心值：连续20个epoch验证集性能无提升则停止训练    check_val_every_n_epoch=10,   # 验证频率：每训练10个epoch，在验证集上评估一次模型性能    num_workers=1,                # 数据加载线程数：使用1个进程加载数据（适合小数据集或低配设备）    enable_checkpointing=False,   # 禁用模型检查点：训练过程中不保存模型权重文件)
+</code></pre>
+<pre><code>GPU available: True (cuda), used: True TPU available: False, using: 0 TPU cores You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0] /data2/analysis/biomamba_tutor/miniconda3/envs/biolord_10/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=75` in the `DataLoader` to improve performance. /data2/analysis/biomamba_tutor/miniconda3/envs/biolord_10/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=75` in the `DataLoader` to improve performance.
+</code></pre>
+<pre><code>Epoch 65/500:  13%|█▎        | 65/500 [12:12&lt;1:21:40, 11.26s/it, v_num=1, val_generative_mean_accuracy=0.964, val_generative_var_accuracy=0.783, val_biolord_metric=0.873, val_reconstruction_loss=18.8, val_unknown_attribute_penalty_loss=22.6, generative_mean_accuracy=0, generative_var_accuracy=0, biolord_metric=0, reconstruction_loss=18, unknown_attribute_penalty_loss=30.4]   Monitored metric val_biolord_metric did not improve in the last 20 records. Best score: 0.874. Signaling Trainer to stop.
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>### 评估模型效果 ### size = 4vals = [&quot;generative_mean_accuracy&quot;, # 生成均值准确率。这是评估生成模型（如 GAN、VAE 等）生成数据质量的指标，核心是衡量生成数据的均值与真实数据均值的吻合程度，计算方式通常是生成数据均值和真实数据均值的相似度（比如误差率、相关系数等），数值越高代表生成数据的均值越接近真实数据，模型在均值维度的生成效果越好。        &quot;generative_var_accuracy&quot;, # 生成方差准确率        &quot;biolord_metric&quot;]# BIOLORD 指标，是一种针对多模态单细胞数据整合的方法，biolord_metric 是该方法配套的评估指标，用于衡量多模态单细胞数据整合后的效果，核心评估维度包括模态间的一致性、细胞类型注释的准确性、生物学特征的保留程度等。fig, axs = plt.subplots(nrows=1, ncols=len(vals), figsize=(size * len(vals), size))model.epoch_history = pd.DataFrame().from_dict(model.training_plan.epoch_history)# 循环展示u各项指标随训练轮次的关系：for i, val in enumerate(vals):    sns.lineplot(        x=&quot;epoch&quot;,# x轴：训练轮次（epoch）        y=val,# y轴：当前遍历的验证指标        hue=&quot;mode&quot;,# 按mode列分组（虽然这里只筛选了valid，但保留hue便于扩展）        data=model.epoch_history[model.epoch_history[&quot;mode&quot;] == &quot;valid&quot;],# 仅筛选验证集（valid）的数据        ax=axs[i],# 指定绘制在第i个子图上    )plt.tight_layout()# 自动调整子图间距，避免标签/标题重叠plt.show()# 显示绘制好的图形
+</code></pre>
+<p><img alt="No description has been provided for this image" src="../images/02f5c35daa523c83.webp"></p>
+<p>3.3 恢复感染信号</p>
+<p>coarse_time的control与status_control和zone中的control是不互相交叉的,因此取出训练集中时间为Control的细胞，可以预测剩余细胞的状态</p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>idx_source = np.where((adata.obs[&quot;split_random&quot;] == &quot;train&quot;) &amp; (adata.obs[&quot;coarse_time&quot;] == &quot;Control&quot;))[0]# 进行anndata切片：adata_source = adata[idx_source].copy()
+</code></pre>
+<p>利用<code>biolord.Biolord.compute_prediction_adata()</code>获得预测（去噪）的表达矩阵并预测另外两种变量的状态。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>adata_preds = model.compute_prediction_adata(    adata, # 一个已经注释后的anndata数据    adata_source, # 待预测数据    target_attributes=[&quot;status_control&quot;], # “连接”两个数据集的变量    add_attributes=[&quot;zone&quot;, &quot;eta_normalized&quot;]# 原始数据中的其它变量。最终可以添加在预测生成的数据集中)
+</code></pre>
+<pre><code>INFO     AnnData object appears to be a copy. Attempting to transfer setup.
+</code></pre>
+<pre><code>0it [00:00, ?it/s]
+</code></pre>
+<pre><code>INFO     AnnData object appears to be a copy. Attempting to transfer setup.
+</code></pre>
+<pre><code>1it [00:01,  1.68s/it]
+</code></pre>
+<pre><code>INFO     AnnData object appears to be a copy. Attempting to transfer setup.
+</code></pre>
+<pre><code>2it [00:03,  1.92s/it]
+</code></pre>
+<pre><code>INFO     AnnData object appears to be a copy. Attempting to transfer setup.
+</code></pre>
+<pre><code>3it [00:09,  3.19s/it] /data2/analysis/biomamba_tutor/miniconda3/envs/biolord_10/lib/python3.10/site-packages/anndata/_core/anndata.py:381: FutureWarning: The dtype argument is deprecated and will be removed in late 2024.   warnings.warn( /data2/analysis/biomamba_tutor/miniconda3/envs/biolord_10/lib/python3.10/site-packages/biolord/_model.py:916: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '['Periportal', 'Pericentral', 'Periportal', 'Periportal', 'Periportal', ..., 'Pericentral', 'Periportal', 'Periportal', 'Periportal', 'Periportal'] Length: 2865 Categories (2, object): ['Pericentral', 'Periportal']' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.   adata_preds.obs.iloc[start : start + adata_source.shape[0], -1] = adata_source.obs[attribute_]
+</code></pre>
+<p>其实我觉得作者这里应该分两个数据集来演示这个流程，可能你看到此处不太明白<code>adata</code>、<code>adata_source</code>三者的关系，我们可以通过三个对象的细胞名称交叉韦恩图来理解一下：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>import anndata as adimport matplotlib.pyplot as pltfrom matplotlib_venn import venn3  # 韦恩图绘制核心函数import warningswarnings.filterwarnings('ignore')  # ========== 核心步骤1：提取三个AnnData的细胞名称（转为集合，方便交集/并集分析） ==========# 提取细胞名并去重（AnnData的obs_names默认唯一，转集合仅为适配venn3函数）cells_preds = set(adata_preds.obs_names)cells_source = set(adata_source.obs_names)cells_adata = set(adata.obs_names)# ========== 核心步骤2：绘制3组韦恩图（带计数+自定义样式） ==========plt.figure(figsize=(10, 8))  # 设置图大小# 绘制韦恩图：传入三个细胞名集合，设置标签、颜色venn_plot = venn3(    subsets=(cells_preds, cells_source, cells_adata),  # 三个集合    set_labels=('adata_preds', 'adata_source', 'adata'),  # 每个圈的标签（对应三个对象）    set_colors=('#1f77b4', '#ff7f0e', '#2ca02c'),  # 自定义颜色（蓝、橙、绿）    alpha=0.7,  # 透明度（避免颜色重叠后过暗）    normalize_to=1.0  # 按比例缩放韦恩图（适配画布）)# 关键：显示每个区域的细胞数量（核心判断重叠/包含的依据）for text in venn_plot.set_labels:    text.set_fontsize(12)  # 调整标签字体大小for text in venn_plot.subset_labels:    if text:  # 避免空区域（无细胞）的None值报错        text.set_fontsize(10)        text.set_weight('bold')  # 计数加粗，更清晰# 添加标题和坐标轴标签plt.title('Overlap of Cell Names in adata_preds/adata_source/adata', fontsize=14, pad=20)plt.tight_layout()  # 自动调整布局，避免标签重叠plt.show()# ========== 可选：输出文字版统计结果（辅助解读韦恩图） ==========print(&quot;=== 细胞名称统计结果 ===&quot;)print(f&quot;adata_preds 总细胞数：{len(cells_preds)}&quot;)print(f&quot;adata_source 总细胞数：{len(cells_source)}&quot;)print(f&quot;adata 总细胞数：{len(cells_adata)}&quot;)print(f&quot;\nadata_preds ∩ adata_source 重叠数：{len(cells_preds &amp; cells_source)}&quot;)print(f&quot;adata_preds ∩ adata 重叠数：{len(cells_preds &amp; cells_adata)}&quot;)print(f&quot;adata_source ∩ adata 重叠数：{len(cells_source &amp; cells_adata)}&quot;)print(f&quot;三者共同重叠数：{len(cells_preds &amp; cells_source &amp; cells_adata)}&quot;)
+</code></pre>
+<p><img alt="No description has been provided for this image" src="../images/dfb076d057546f37.webp"></p>
+<pre><code>=== 细胞名称统计结果 ===
+</code></pre>
+<pre><code>adata_preds 总细胞数：8595
+</code></pre>
+<pre><code>adata_source 总细胞数：2865
+</code></pre>
+<pre><code>adata 总细胞数：19053
+</code></pre>
+<pre><code>adata_preds ∩ adata_source 重叠数：0
+</code></pre>
+<pre><code>adata_preds ∩ adata 重叠数：0
+</code></pre>
+<pre><code>adata_source ∩ adata 重叠数：2865
+</code></pre>
+<pre><code>三者共同重叠数：0
+</code></pre>
+<p>所以biolord的操作就是，假设你的数据集（上文的adata_source）中没有<code>status_control</code>、<code>zone</code>这两个变量，但<code>adata</code>中存在，那么你就可以通过<code>adata</code>的模型，依靠<code>adata_source</code>数据集去生成一个包含<code>status_control</code>、<code>zone</code>的新数据集。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 利用预测数据进行降维：sc.pp.pca(adata_preds)sc.pp.neighbors(adata_preds)sc.tl.umap(adata_preds)# 可视化：adata_preds.obs[&quot;status_control_counter&quot;] = adata_preds.obs[&quot;status_control&quot;].copy()adata_preds.obs[&quot;status_control_counter&quot;] = adata_preds.obs[&quot;status_control_counter&quot;].cat.rename_categories(    {&quot;Infected&quot;: &quot;Infected (c-pred.)&quot;, &quot;Uninfected&quot;: &quot;Uninfected (c-pred.)&quot;})adata_preds.uns[&quot;status_control_counter_colors&quot;] = [&quot;#bdc3c7&quot;, &quot;#f01313&quot;, &quot;#6f8e32&quot;]size = 4fig, axs = plt.subplots(1, 2, figsize=(2 * (size + 1), size))for i, c in enumerate([&quot;status_control_counter&quot;, &quot;zone&quot;]):    sc.pl.umap(adata_preds, color=[c], ax=axs[i], show=False)    axs[i].set_axis_off()plt.tight_layout()plt.show()
+</code></pre>
+<p><img alt="No description has been provided for this image" src="../images/fa5d1d80bc028585.webp"></p>
+<p>此时可以明显看出status_control_counter、zone分类变量下的各细胞类型区分的很明显。此时我们就可以进行差异分析，来研究Infected vs Uninfected的差异：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>sc.tl.rank_genes_groups(adata_preds,                         groupby='status_control', #计算分组                        method='wilcoxon' # 计算方法                       )sc.pl.rank_genes_groups_violin(adata_preds, n_genes=10, jitter=False)
+</code></pre>
+<p><img alt="No description has been provided for this image" src="../images/a7f5d25a8a2c69df.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/1f4dc1ce2aa24a8b.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/89337b716dded0d7.webp"></p>
+<p>因此，我能想到比较好的应用，便是药敏测试，例如你手中的疾病模型数据，可以用OA数据中包含药物处理的矩阵，来获得预测的对象，以判断该药物是否会在你的数据中发生对应基因调控，从而安排一些实验验证。亦或是你手中只有药物处理的单细胞数据，通过OA的疾病模型和健康对照，来判断你手中药物的治疗效果。</p>
+<p><strong>三、资料领取</strong></p>
+<p>更多编程教程可见：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505777&amp;idx=1&amp;sn=f3efae390566b838a445ab9f832323c8&amp;scene=21#wechat_redirect">十小时学会Linux</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535038&amp;idx=2&amp;sn=717a8673a8bf82d5ac40af4441a07f65&amp;scene=21#wechat_redirect">5.5小时掌握R语言</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537399&amp;idx=1&amp;sn=d14c7987d1384fe133094748844b8d59&amp;scene=21#wechat_redirect">8小时掌握生信Python</a></p>
+<p>一切不给测试文件的教程都是耍流氓，本推送的代码和测试文件可以在以下链接中下载：</p>
+<p><img alt="" src="../images/2fd6f4924c39ed3e.png"></p>
+<p>链接:</p>
+<p>https://pan.baidu.com/s/11RygGOL1M0paElz4jLc7hA</p>
+<p>提取码: 6hm8</p>
+<p><img alt="" src="../images/5cc3cf2d409cea13.jpg"><img alt="图片" src="../images/cb4255ab8010219d.gif"></p>
+<p><strong>欢迎致谢</strong></p>
+<p>如果以上内容对你有帮助，欢迎在文章的Acknowledgement中加上这一段，联系客服微信可以发放奖励：</p>
+<pre><code>Since Biomamba and his wechat public account team produce bioinformatics tutorials and share code with annotation, we thank Biomamba for their guidance in bioinformatics and data analysis for the current study.
+</code></pre>
+<p><strong>欢迎在发文/毕业时向我们分享你的喜悦~</strong></p>
+<p><strong>已致谢文章</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510548&amp;idx=1&amp;sn=58048c46e837b1d56dffa282272c6d96&amp;chksm=9b3cd344ac4b5a52369e91b4e61fa0a2c951b82cc21165b99f42ba2c2191d4add803bd73c928&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect"> 鼻咽癌的Bulk RNA-Seq与scRNA-Seq联合分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511886&amp;idx=1&amp;sn=31c712d00377b0f0ed33703b5b4fbfd8&amp;chksm=9b3cd61eac4b5f084fde14a2eb50356f2f40a66c608d38909f12a3d81f48cff029a09ce2ee8c&amp;token=1453608870&amp;lang=zh_CN&amp;scene=21#wechat_redirect">13分+文章利用scRNA-Seq揭示地铁细颗粒物引起肺部炎症的分子机制</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247518144&amp;idx=1&amp;sn=d036f1bb04b09eb73f53e2104d69404c&amp;chksm=9b3cfe90ac4b77862f2f463b42132c7bfdb687a1b61d350dcf656117b1331271e179710fd4fa&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">除了铁死亡，还有铜死亡？！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520900&amp;idx=1&amp;sn=157134292ffc2e5df730c5ba8a357b61&amp;chksm=9b3cebd4ac4b62c286543c30381e9b4fdb8b44b28d4fa902fb963bbd45b28e1d3f1bc98eb148&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">IF14.3| scRNA-seq+脂质组多组学分析揭示宫内生长受限导致肝损伤的性别差异</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247521069&amp;idx=1&amp;sn=4ef441a885cb2525ee3b5c81001feddf&amp;chksm=9b3cea7dac4b636be9f10ffdf75e13531fccae62129944b21a457db2e08c3f2db1e1b553ac34&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">银屑病和脂肪肝病中共同病理和免疫特征</a> <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522233&amp;idx=1&amp;sn=287a380de741ff55f0ce78dc9c727985&amp;chksm=9b3ceee9ac4b67ffd925abafeba2cb215a5984e6dc85f0d8607340a07ec9208f1d19eae0e04b&amp;scene=21#wechat_redirect">《Advanced Science》新型Arf1抑制剂促进癌症干细胞衰老并增强抗肿瘤免疫</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522281&amp;idx=1&amp;sn=f95eb12fdc340b8da1123ec6253e6fac&amp;chksm=9b3ceeb9ac4b67afa587e5fa3a2a8960e9bb28a1ad6dc48e49120a76154417a4c8be95af90b0&amp;scene=21#wechat_redirect">scRNA-seq揭示脓毒症预后水平预测的关键靶点！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527168&amp;idx=1&amp;sn=0791d2bf53a9a60015577f892b10d370&amp;scene=21#wechat_redirect">机器学习+生信多组学联合构建牙周炎"线粒体功能障碍与免疫微环境"关联网络</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528014&amp;idx=1&amp;sn=d285c9ebd415be328fc682d00e6182c0&amp;scene=21#wechat_redirect">KIF18A在肝细胞癌转移中的双重角色</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530000&amp;idx=1&amp;sn=e8ddca4e1b2e60839cdf2a7fe87b3dfe&amp;chksm=9b3c0f40ac4b86562e0e307b9dbb8688159e72b3c19d9ceebf8a4bb2e21638896f005b497b11&amp;scene=21&amp;cur_album_id=3425248581018714114&amp;search_click_id=#wechat_redirect">bulk+scRNA-seq挖掘BCL2-MAPK14-TXN氧化应激诊断模型，鉴定脓毒症中氧化应激关键基因</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536407&amp;idx=1&amp;sn=4da88e13f112662a02fea89d1b7798e9&amp;scene=21#wechat_redirect">致谢文章+1，中科院1区，scRNA-seq揭示麻黄-甘草配对治疗呼吸系统症状和多(I:C)诱发肺炎模型机制</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537544&amp;idx=1&amp;sn=6e5bb738eb11af53173f9fef67b977df&amp;scene=21#wechat_redirect">致谢文章又+1，生物信息学+机器学习鉴定驱动糖尿病肾病免疫激活和小管间隙损伤的PANoptosis枢纽基因</a></p>
+<p>向下滑动查看更多</p>
+<p>欢迎大家致谢~</p>
+<p><img alt="图片" src="../images/4ec66ccdb832fd05.gif">
+<img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

@@ -1,0 +1,97 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0646-NC 单细胞分析揭示头颈部癌早期转移过程中潜在的免疫逃逸机制</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="nc">NC | 单细胞分析揭示头颈部癌早期转移过程中潜在的免疫逃逸机制</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536091&amp;idx=1&amp;sn=9c5c8e70ee8855be14ef34489c364ba5&amp;chksm=9b3c348bac4bbd9d950cbbffad245fb71f6d30c450e27be9aa0b03d9907f56adfa909bdeac17#rd
+合集：文献速递</p>
+</blockquote>
+<hr>
+<p><strong>一、写在前面</strong></p>
+<p><strong>文章《</strong> Single cell analysis in head and neck cancer reveals potential immune evasion mechanisms during early metastasis》（单细胞分析揭示头颈部癌早期转移过程中潜在的免疫逃逸机制），该文献发表于杂志《Nature Communications》，2023 年影响因子为 17.7。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532107&amp;idx=1&amp;sn=9bc143d8c0edd8ddd72d0caf9396b86d&amp;scene=21#wechat_redirect">头颈部鳞状细胞癌</a>（HNSCC）是常见的恶性实体瘤，淋巴转移是其预后不良的关键标志，通常先于远处转移发生，严重影响患者生存率。目前，临床针对HNSCC淋巴转移患者以手术联合放疗的根治性治疗为主，核心目标是清除具有转移潜能的肿瘤克隆，但疗效仍受限于对转移机制的认知不足。<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">肿瘤</a>转移是一个连续的表型过程，涵盖从原发灶局部浸润、循环肿瘤细胞形成，到淋巴结微转移、大体转移及远处扩散等阶段。传统观点认为上皮-间质转化（EMT）是肿瘤淋巴转移的必要前提，但<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2959853503529910274#wechat_redirect">bulk测序分析</a>显示，HNSCC中EMT并非淋巴转移的必需条件，且EMT本身呈谱系化特征，肿瘤细胞具有显著的表型可塑性，这可能是临床转移表现异质性的重要原因。此外，传统检测方法分辨率有限，难以识别具有真实转移潜能的稀有肿瘤亚克隆，也无法精准定位可干预的转移相关通路，导致抗转移治疗进展缓慢。单细胞技术的发展为解决上述问题提供了新工具，既能识别稀有的高转移潜能肿瘤亚群，又能解析肿瘤微环境中细胞间的动态互作。同时，随着免疫检查点阻断疗法在肿瘤治疗中的应用，免疫系统在转移级联中的作用愈发受到关注。淋巴结作为T细胞活化、扩增和迁移的主要器官，肿瘤在淋巴结内如何逃避免疫杀伤，是靶向早期转移的关键科学问题，但目前相关机制尚不明确。</p>
+<p>在此背景下，本研究通过<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">单细胞</a>RNA测序和<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530826&amp;idx=1&amp;sn=f95a284a432695c9b8f6878cd3691bfc&amp;scene=21#wechat_redirect">单细胞T细胞受体</a>测序技术，对 HNSCC 原发灶与早期淋巴结转移灶进行多维度分析，旨在揭示转移前肿瘤亚群及可靶向的脆弱点、明确肿瘤靶向性T细胞的演化轨迹，以及揭示肿瘤在淋巴结转移过程中逃避免疫杀伤的通路，为开发精准抗转移治疗策略提供依据。</p>
+<p>如果你希望有人真的手把手教你学<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535927&amp;idx=2&amp;sn=86947f0522de0d9785865bd24115b002&amp;scene=21#wechat_redirect">R语言单细胞</a>：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535927&amp;idx=2&amp;sn=86947f0522de0d9785865bd24115b002&amp;scene=21#wechat_redirect"><img alt="" src="../images/5a4d7525434fc445.webp"></a></p>
+<p>更多课程：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533067&amp;idx=1&amp;sn=7ef76058cbcf7bd45f58147766c75854&amp;scene=21#wechat_redirect">Python版scRNA-seq分析全流程</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533721&amp;idx=1&amp;sn=9648ed4701224e5d2e4c704d7046d9de&amp;scene=21#wechat_redirect">Python 空间转录组全程班</a>
+如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531160&amp;idx=2&amp;sn=04d3798dc60958af2c9020fe7c4bd9b8&amp;scene=21#wechat_redirect">单细胞数据分析</a><strong>指导</strong> 、生信热点<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469#wechat_redirect">全文复现</a>、自测数据<strong>个性化分析</strong> 辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530174&amp;idx=1&amp;sn=c3b0499adcc9093546e4ba1cfffba7bd&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[<strong>Biomamba_zhushou</strong>]。</p>
+<p><strong>二、主要内容</strong></p>
+<p><strong>（1） 头颈部鳞状细胞癌原发灶与转移灶的单细胞转录景观（对应图 1）</strong></p>
+<p>①研究纳入 14 例未经治疗的局部晚期 HPV 阴性 HNSCC 患者，获取原发灶和颈部淋巴结样本，对 7 对样本进行单细胞 RNA 测序（scRNAseq）和单细胞 T 细胞受体测序（scTCRseq），成功构建 7 例患者来源的原代培养体系（PDCs） 。最终获得 53459 个细胞（涵盖 23148 个基因）的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535927&amp;idx=2&amp;sn=86947f0522de0d9785865bd24115b002&amp;scene=21#wechat_redirect"> scRNAseq</a> 数据，通过 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;scene=21#wechat_redirect">Seurat v3.0</a> 软件完成细胞标准化、聚类与注释 。</p>
+<p>②细胞类型与分布差异：通过经典标志物将细胞注释为上皮细胞（KRT7、KRT17）、唾液腺细胞（STATH）、成纤维细胞（COL1A2）、内皮细胞（PECAM）和免疫细胞（PTPRC）五大类，其中成纤维细胞进一步分为癌相关成纤维细胞（CAFs，MMP2⁺）和肌成纤维细胞（ACTA2⁺），免疫细胞细分为 T 细胞、NK 细胞、B 细胞等 。空间分布上，原发灶中 CAFs 和肿瘤相关巨噬细胞（TAMs）比例更高，转移灶中 B 细胞、浆细胞和树突状细胞更富集，符合淋巴结组织免疫特征 。</p>
+<p>癌细胞<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535878&amp;idx=2&amp;sn=6d3315ba0d9d3f3246665f11f30adfb9&amp;scene=21#wechat_redirect">拷贝数变异</a>验证：对上皮细胞的拷贝数变异（CNA）分析显示，&gt;95% 的细胞存在明显拷贝数改变（如 7 号染色体扩增、3p 染色体缺失），证实该亚群以癌细胞为主，且原发灶与转移灶癌细胞的 CNA 存在显著重叠，提示两者的演化关联性 。</p>
+<p>③图 1 关键信息</p>
+<p><img alt="" src="../images/f6b02e381a3e2151.webp"></p>
+<p>Fig.1</p>
+<p>图 1 展示了样本处理流程（a）、所有细胞的 UMAP 聚类（按组织来源和细胞类型，b、c）、不同患者原发灶与转移灶的细胞组成差异（d），以及癌细胞染色体拷贝数变异情况（e）。该图清晰呈现了 HNSCC 原发灶与转移灶的单细胞景观差异，为后续聚焦癌细胞和 CD8⁺T 细胞分析奠定基础 。</p>
+<p>（2）转移前肿瘤细胞的识别与靶向验证（对应图 2、图 3）</p>
+<p>①癌细胞转移轨迹与转移前细胞特征（图 2）</p>
+<p><img alt="" src="../images/787da885ae00ba37.webp"></p>
+<p>Fig.2</p>
+<p>EMT 梯度化特征：对比原发灶与转移灶癌细胞的 EMT <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497831&amp;idx=2&amp;sn=82fa51c76a381fba0b444e9b6b23eb5f&amp;scene=21#wechat_redirect">评分</a>，发现除 1 例患者（HN257）外，其余患者转移灶癌细胞 EMT 评分均高于原发灶，但整体无统一的 “全或无” EMT 模式，支持 “EMT 呈梯度化” 的结论 。</p>
+<p>转移前细胞亚群识别：识别出三种转移轨迹模式：①有序渐进型（如 HN251、HN242）：原发灶→转移灶呈阶段性转变，EMT、氧化磷酸化通路富集；②原发灶持续演化型（如 HN272）：转移前通路可识别，但原发灶同时存在独立演化；③无方向杂乱型（如 HN257）：原发灶 EMT 评分更高，存在高侵袭性去分化亚群（SNAI2⁺），且该亚群基因特征与 TCGA 数据库中 HNSCC 患者不良预后相关 。</p>
+<p>可干预靶点筛选：通过 GeneSwitches 算法，在转移前细胞中筛选出 AXL、AURKB（极光激酶 B）等关键基因，且在外部验证数据集（Puram 等人的 HNSCC scRNAseq 数据）中也检测到这些基因的高表达 。</p>
+<p>②靶点功能验证（图 3）</p>
+<p><img alt="figure 3" src="../images/a0d3cca02d979e8b.webp"></p>
+<p>Fig.3</p>
+<p>患者来源培养体系（PDCs）验证：在 PDCs 中，HN137原发灶的 “转移前细胞” 高表达 AXL，HN159、HN220 的 “转移前细胞” 高表达 AURKB，且免疫组化、流式细胞术均证实这些基因的蛋白表达 。</p>
+<p>抑制剂功能实验：使用 AXL 抑制剂（BGB324）和 AURK 抑制剂（巴拉塞替）处理 PDCs，结果显示：BGB324 可显著降低 HN137 原发灶和转移灶细胞的侵袭能力，且仅特异性抑制 AXL 高表达亚群；巴拉塞替可降低 HN159、HN220 转移灶细胞的侵袭能力，但对克隆形成能力无影响 、。此外，TCGA 数据显示 AXL 表达与 EMT 评分呈正相关，进一步支持 AXL 作为抗转移靶点的潜力 。</p>
+<p>③图 2、图 3 关键信息</p>
+<p>图 2 通过 UMAP 聚类、EMT 评分箱线图、Monocle 轨迹及生存分析，明确转移前细胞的特征与临床意义；图 3 则通过 PDCs 的 PAGODA 分析、靶点表达验证及抑制剂功能实验，证实 AXL 和 AURKB 对肿瘤侵袭的调控作用。</p>
+<p>（3）CD8⁺T 细胞功能异常轨迹与调控机制（对应图 4、图 5）</p>
+<p>①CD8⁺T 细胞的分化轨迹（图 4）</p>
+<p><img alt="figure 4" src="../images/24770234917e5cb3.webp"></p>
+<p>Fig.4</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532453&amp;idx=1&amp;sn=d9cce237c0ff8e1d58d0596b0975ecce&amp;scene=21#wechat_redirect">T 细胞聚类与亚群定义</a>：从 10168 个 T 细胞（涵盖 13729 个基因）中提取 3387 个 CD8⁺T 细胞，注释为 naive 样、过渡型、组织驻留记忆型（TRM）、前功能异常型、增殖型和晚期功能异常型 6 个亚群 。</p>
+<p>两条功能异常轨迹：利用 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529396&amp;idx=2&amp;sn=dbbde796be7d76d979265d869094c0f3&amp;scene=21#wechat_redirect">Slingshot </a>软件以 “CXCL13⁺LAYN⁺耗竭细胞” 为终点，识别出两条分化轨迹：①Trajectory 1（naive→功能异常）：naive 细胞从淋巴结迁移至原发灶，逐渐丢失 naive 标志物（TCF7、IL7R），获得功能异常标志物（TIM3、CTLA4），中间伴随增殖爆发（MKI67⁺）；②Trajectory 2（TRM→功能异常）：TRM 细胞本身高表达组织驻留标志物（ITGA4）和功能异常标志物，基因激活事件更少 。</p>
+<p>②SOX4 的功能验证与 T 细胞克隆结构（图 5）</p>
+<p><img alt="figure 5" src="../images/5c17ac61eb4bbdaf.webp"></p>
+<p>Fig.5</p>
+<p>SOX4 与 T 细胞耗竭的关联：在外部数据集（Puram 的 HNSCC scRNAseq、皮肤鳞状细胞癌 PD-1 治疗前后 scRNAseq）中，SOX4 在功能异常 / 耗竭型 CD8⁺T 细胞中高表达，且 PD-1 治疗后 SOX4 表达降低 。RNA 干扰实验显示，敲低 SOX4 可显著减少 PBMC 和肿瘤浸润淋巴细胞（TILs）中 PD1⁺、CD39⁺功能异常细胞的比例，证实 SOX4 对 T 细胞耗竭的调控作用 。</p>
+<p>T 细胞克隆结构分析：scTCRseq 共识别 1590 个独特 TCR 序列，17.39% 的 CD8⁺T 细胞存在克隆扩增，且 7 例患者中有 6 例的原发灶与转移灶存在克隆重叠 。克隆演化支持两种模型：①克隆替换（如 HN272）：淋巴结 naive 克隆迁移至原发灶并分化为功能异常型；②克隆复苏（如 HN263）：原发灶 TRM 细胞重新激活并扩增 。</p>
+<p>③图 4、图 5 关键信息</p>
+<p>图 4 通过 UMAP 聚类、基因表达热图和轨迹分析，明确 CD8⁺T 细胞的分化路径与基因表达变化；图 5 通过外部数据集验证、RNA 干扰实验和 scTCRseq，证实 SOX4 的调控作用及 T 细胞克隆的双向迁移特征，为免疫治疗联合靶向 SOX4 提供依据 。</p>
+<p>④转移前细胞与 CD8⁺T 细胞的免疫逃逸通路（对应图 6）</p>
+<p>（1）细胞相互作用组分析</p>
+<p>利用 Cellchat 软件分析原发灶 “普通细胞”“转移前细胞” 与免疫细胞的相互作用，发现转移前细胞与 CD8⁺T 细胞的相互作用显著增强，且中期因子（MDK）通路是核心免疫抑制通路 —— 肿瘤细胞分泌的 MDK 可与 CD8⁺T 细胞表面的 ITGA4、ITGB1 等受体结合 。</p>
+<p>（2）MDK通路的功能验证</p>
+<p>体外抑制实验：用 MDK 抑制剂处理患者肿瘤单细胞悬液，可降低非 T 细胞比例、提高 CD8⁺T 细胞比例，同时减少癌细胞（panCK⁺）及增殖型癌细胞（ki67⁺）数量，提示 MDK 可抑制 CD8⁺T 细胞的抗肿瘤活性 。</p>
+<p>人源化小鼠模型验证：将 HN279 转移前细胞移植到 NOG-EXL 人源化小鼠中，抗 PD-1 治疗（帕博利珠单抗）可缩小肿瘤体积，但 MDK⁺癌细胞比例无变化；进一步分析发现，MDK 受体⁺CD8⁺T 细胞中功能异常型比例升高、增殖型比例降低，且与 NFKB1 激活相关，证实 MDK 通路可削弱 PD-1 治疗的 T 细胞激活效应 。</p>
+<p>（3）图 6 关键信息</p>
+<p><img alt="figure 6" src="../images/01e7fafccb47e6bc.webp"></p>
+<p>Fig.6</p>
+<p>图 6 通过 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501735&amp;idx=2&amp;sn=35fc792961507f4ae1cbae3a2882fba6&amp;scene=21#wechat_redirect">Cellchat</a> 相互作用网络图、MDK 通路 ligand-receptor 分析、体外抑制实验及人源化小鼠实验，明确 MDK 通路在转移前细胞免疫逃逸中的核心作用，为 “MDK 抑制剂联合 PD-1抑制剂” 的联合治疗策略提供了实验依据。</p>
+<p><strong>三、总结与展望</strong></p>
+<p>本研究通过单细胞技术解析HNSCC早期淋巴结转移机制，核心结论包括：</p>
+<p>（1）转移前细胞与可干预靶点：识别出三种癌细胞转移轨迹，筛选出 AXL、AURKB 为转移前细胞的关键靶点，抑制剂可显著降低肿瘤侵袭能力；</p>
+<p>（2）CD8⁺T 细胞功能异常机制：CD8⁺T 细胞存在两条功能异常轨迹，SOX4 是介导 T 细胞耗竭的核心调控因子，敲低 SOX4 可逆转功能异常表型；</p>
+<p>（3）免疫逃逸通路：MDK 通路是转移前细胞与 CD8⁺T 细胞相互作用的关键免疫抑制通路，可削弱 PD-1 治疗效果，MDK 抑制剂有望增强免疫治疗应答。</p>
+<p>创新点：</p>
+<p>①技术与分析创新：整合 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535927&amp;idx=2&amp;sn=86947f0522de0d9785865bd24115b002&amp;scene=21#wechat_redirect">scRNAseq</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531444&amp;idx=2&amp;sn=77ad356b087fca6a03e90d4f9cc973de&amp;scene=21#wechat_redirect">scTCRseq </a>与<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">轨迹分析</a>（Monocle、Slingshot）、相互作用组分析（Cellchat），首次在单细胞水平完整解析 HNSCC 早期转移的 “肿瘤 - 免疫” 双向机制；</p>
+<p>②靶点与通路创新：发现 AXL/AURKB 对转移前细胞侵袭的调控作用，明确 SOX4 介导 T 细胞耗竭、MDK 通路介导免疫逃逸的新机制，为抗转移与免疫治疗联合提供新方向；</p>
+<p>③临床转化价值创新：通过患者来源培养体系和人源化小鼠模型验证靶点功能，结果与 TCGA 临床数据关联，为 HNSCC 精准治疗提供可转化的靶点与策略。</p>
+<p>本研究综合运用多种前沿技术与分析方法，具体包括：</p>
+<p>① <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">单细胞</a>RNA测序（scRNAseq）</p>
+<p>构建原发灶与淋巴结转移灶的 “全肿瘤” 单细胞转录组图谱，识别肿瘤细胞、免疫细胞及基质细胞的亚型与基因表达特征。研究对 14 例未治疗局部晚期 HPV 阴性 HNSCC 患者的原发灶与颈部淋巴结标本进行处理，其中 7 对标本用于 scRNAseq 分析，共获得 53,459 个细胞（每例患者 3,553-11,308 个细胞）和 23,148 个基因的表达数据，同时对 7 例患者来源的原代细胞（PDCs）进行 C1 平台 scRNAseq 分析，获取 1,317 个细胞和 55,216 个基因的信息。</p>
+<p>② 单细胞 T 细胞受体测序（scTCRseq）</p>
+<p>解析 CD8+T 细胞的克隆结构、克隆扩增特征及迁移规律，验证 T 细胞功能分化轨迹的克隆关联性。研究对 7 对 HNSCC 标本中的 T 细胞进行 scTCRseq 分析，共恢复 1,461 个 TCRα 和 1,948 个 TCRβ 有效序列，识别出 1,590 个独特 TCR 序列。</p>
+<p>③ 人源化小鼠模型与体内药效实验</p>
+<p>采用 NOG-EXL（hGM-CSF/hIL-3 NOG）雌性小鼠，预先移植人脐带血来源的 CD34 + 造血干细胞构建人源化免疫系统，随后在小鼠双侧 flank 接种 HNSCC 患者 HN279 的转移前细胞，建立 HNSCC 异种移植模型。将模型小鼠随机分为对照组（PBS 处理）与抗 PD-1 治疗组（pembrolizumab 处理），定期监测肿瘤大小；实验终点收集肿瘤组织进行 scRNAseq 分析，比较两组小鼠肿瘤细胞的增殖相关基因（AURKB、TOP2A）表达、CD8+T 细胞亚型分布（增殖型、功能障碍型等）及 MDK-NFKB1 信号通路活性，验证 MDK 通路对免疫检查点阻断治疗效果的影响。</p>
+<p>④ 免疫组化（IHC）与免疫荧光（IF）</p>
+<p>验证关键靶点（AXL、AURKB）在患者肿瘤组织及 PDCs 中的蛋白表达水平。研究对 HN137 PDCs 中的 AXL、HN159/HN220 PDCs 中的 AURKB 进行 IHC/IF 染色，通过显微镜观察蛋白定位与表达强度，结合 ImageJ 定量分析，确认靶点在转移前细胞中的高表达特征，为靶点的临床相关性提供组织层面证据。</p>
+<p>⑤ 流式细胞术（Flow Cytometry）</p>
+<p>检测细胞表面标志物（如 AXL、CD8、PD1）、 intracellular 蛋白（如 AURKB、Ki67）的表达，分选特定细胞亚群（如 AXL 高 / 中 / 低表达细胞），以及分析 T 细胞功能（如 IFN-γ 分泌、CD107a 脱颗粒）。研究通过流式细胞术验证 AXL、AURKB 在 PDCs 中的表达差异，分选 AXL 不同表达亚群进行侵袭实验；同时检测 MDK 抑制剂处理后 CD8+T 细胞、癌细胞的比例变化，量化免疫细胞功能状态，为功能实验提供定量数据。</p>
+<p>⑥ <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">拷贝数变异（CNA）分析</a></p>
+<p>采用<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530697&amp;idx=1&amp;sn=1e10a4463fdb93534b99aa2bfc9d947e&amp;scene=21#wechat_redirect"> InferCNV</a>（v1.2.2）和 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530392&amp;idx=1&amp;sn=0d426f34e172e29cf09aaf14242ac534&amp;scene=21#wechat_redirect">CopyKat</a>（v1.0.8）算法，以免疫细胞、成纤维细胞等非恶性细胞为对照，对上皮细胞（癌细胞）的染色体拷贝数变异进行推断与量化。验证上皮细胞的恶性属性（&gt;95% 上皮细胞存在明显 CNA），并检测到 HNSCC 中常见的 CNA 事件（如 7 号染色体和 8q 扩增、3p 和 5q 缺失）；通过比较原发灶与转移灶的 CNA 重叠情况，证实转移灶癌细胞与原发灶癌细胞的克隆关联性，为肿瘤进化模式分析提供遗传变异依据。</p>
+<p>研究局限性与未来展望：</p>
+<p>（1）局限性</p>
+<p>1. 样本量限制：仅纳入 14 例患者，7 对样本用于测序，样本量较小可能影响结论的普适性；</p>
+<p>2. 细胞类型覆盖不足：聚焦于癌细胞和 CD8⁺T 细胞，对 CAFs、TAMs 等其他细胞类型的作用未深入探讨；</p>
+<p>（2）未来展望</p>
+<p>1. 扩大样本与多中心验证</p>
+<p>2. 空间转录组整合</p>
+<p>3. 动态模型构建</p>
+<p><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/e43581b4f5118aad.webp"><img alt="图片" src="../images/4ccf87cacd1143af.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

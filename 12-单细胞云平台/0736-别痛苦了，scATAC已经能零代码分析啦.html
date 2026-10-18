@@ -1,0 +1,199 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0736-别痛苦了，scATAC已经能零代码分析啦</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="scatac">别痛苦了，scATAC已经能零代码分析啦</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529409&amp;idx=1&amp;sn=6323b50872b8eebf67c995277e9e97a0&amp;chksm=9b3c0a91ac4b83870688a3ee21d4aba245ca8825ebed8cf111fca375084cd2d3505c35e1d45b#rd
+合集：单细胞云平台</p>
+</blockquote>
+<p><strong>写在前面</strong></p>
+<p>单细胞表观遗传及其它多模态已然成为scRNA的新趋势，我们也一致致力于给大家分享代码注释丰富、测试文件齐全的教程。此前我们分享了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528858&amp;idx=1&amp;sn=0620dd3681e73858eb47256d785d7437&amp;scene=21#wechat_redirect">4.6w字长文| SeekOne®-DD单细胞ATAC+RNA一胞双组学-学习手册</a>。有同学表示学起来压力山大，想要一款能够界面化、适合零代码基础小白的一款软件。</p>
+<p><img alt="" src="../images/e7cb9bf3648a74e2.webp"></p>
+<p>当然是有的啦，云平台已经悄咪咪更新了很多新功能供大家选择下文我们也将演示scATAC的零代码基础分析流程：</p>
+<table>
+<thead>
+<tr>
+<th>软件包/云平台包名称</th>
+<th>云平台更新内容</th>
+<th>功能分类</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>signac</td>
+<td>细胞类型uMAP/tSNE降维图（ATAC、RNA、ATAC+RNA 三种降维结果）</td>
+<td>降维聚类</td>
+<td>将高维的单细胞 ATAC 和 RNA 数据投影到二维空间，直观展示细胞间的相似性与异质性，识别细胞亚群结构。</td>
+</tr>
+<tr>
+<td>signac</td>
+<td>样本uMAP/tSNE降维图（ATAC、RNA、ATAC+RNA 三种降维结果）</td>
+<td>降维聚类</td>
+<td>通过整合多组学特征，揭示不同样本间的细胞组成差异。</td>
+</tr>
+<tr>
+<td>signac+寻因AI</td>
+<td>SingleR+AI注释</td>
+<td>细胞注释</td>
+<td>基于已知标记基因库和 AI 算法，自动识别单细胞类型（如 T 细胞、巨噬细胞），提高注释准确性与效率。</td>
+</tr>
+<tr>
+<td>signac</td>
+<td>peak鉴定</td>
+<td>可视化</td>
+<td>识别染色质开放区域（peak），并在基因组上定位，辅助调控元件发现与可视化。</td>
+</tr>
+<tr>
+<td>GeneActivity</td>
+<td>基因活性分析</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>通过 peak 与基因启动子 / 增强子的关联性，推断基因表达调控活性，弥补 ATAC 数据与 RNA 表达的直接关联缺口。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ATAC_diffEnrich</td>
+<td>差异peak分析</td>
+<td>差异分析</td>
+<td>比较不同细胞群体间染色质开放区域的差异，发现潜在的细胞特异性调控元件。</td>
+</tr>
+<tr>
+<td>ATAC_diffEnrich</td>
+<td>peak富集分析</td>
+<td>富集分析</td>
+<td>对差异 peak 进行功能注释（如 GO/KEGG 通路），解析调控元件参与的生物学过程。</td>
+</tr>
+<tr>
+<td>ATAC_diffEnrich</td>
+<td>差异motif分析</td>
+<td>motif分析</td>
+<td>识别差异 peak 中的转录因子结合基序（motif），预测潜在的上游调控因子。</td>
+</tr>
+<tr>
+<td>ATAC_Peak2Gene</td>
+<td>Peak2GeneLink关联分析</td>
+<td>peak gene联合分析</td>
+<td>整合 ATAC 的 peak 数据与 RNA 表达，建立非编码调控元件（如增强子）与靶基因的功能性联系，解析基因表达调控网络。</td>
+</tr>
+<tr>
+<td>ataCNV、epiAneufinder、CopyscAT</td>
+<td>ATAC 数据CNV分析</td>
+<td>肿瘤细胞分析</td>
+<td>通过 ATAC-seq 数据中染色质可及性的拷贝数变异（CNV），识别肿瘤细胞克隆及其演化关系，辅助肿瘤异质性研究。</td>
+</tr>
+</tbody>
+</table>
+<p>云平台现开放用户自行上传数据一键分析，5例/季度免费分析联系客服微信[Biomamba_yunying]开通权限。</p>
+<p>云平台地址：</p>
+<p>https://seeksoul.online/t_static/Biomamba/Biomamba.html</p>
+<p>使用教程可见：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511007&amp;idx=1&amp;sn=e7be3d9775890e5717889714629cfaf5&amp;chksm=9b3cd28fac4b5b9936428d5f74d8b581b5cddc18d0fc42e2a5d75604cce080588d50f1304a17&amp;scene=21#wechat_redirect">一文学会零代码单细胞分析</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_2095d655e3b&amp;enterid=1715838775&amp;from_msgid=2247510401&amp;from_itemidx=1&amp;count=3&amp;nolastread=1#wechat_redirect">零代码单细胞视频教程</a></p>
+<p>注，为了保证界面演示的完整性，图中的文字可能有些小，请点击拉大观看哦~</p>
+<p><strong>一、激活流程</strong></p>
+<p>在"我的项目"中大家可以看到一个名为"SeekARCDemoProject"的项目。<img alt="" src="../images/ac743f95134e8ba9.webp">
+启动激活流程，当状态栏变成绿色的"在线"时，就可以点击操作中的"查看"，进入下一步啦~<img alt="" src="../images/6756977ef8773143.webp"><img alt="" src="../images/11aad8104ec936b4.webp"></p>
+<p><strong>二、查看数据并质控过滤</strong></p>
+<p>查看项目进入的首先就是质控页面<img alt="" src="../images/91e0d661531eafaf.webp">
+这是推荐的过滤参数：<img alt="" src="../images/5d4a699f5bc9662e.webp">
+点击过滤后系统会自动给出过滤前后的数据对比：<img alt="" src="../images/800a1a1484d6f047.jpg"></p>
+<p><strong>三、多样本整合</strong></p>
+<p>多样本的整合，我们同样给出了模板参数：<img alt="" src="../images/2b42d5ea9a07758b.png">
+可以看出Harmony整合后样本基本不存在批次效应：<img alt="" src="../images/3fd80ea973149f25.webp"></p>
+<p><strong>四、聚类分群</strong></p>
+<p>默认聚类参数：<img alt="" src="../images/463e9a46b5549959.png">
+这里分别使用ATAC矩阵、WNN、RNA矩阵进行了降维分群(加权最近邻算法（Weighted Nearest Neighbor，WNN） 是 Seurat 中用于数据整合的核心方法之一，尤其适用于整合异质性较大的数据或多组学数据。WNN通过共享特征（如基因调控关系）建立跨模态的联系，使其与 scRNA-seq 的基因表达量形成对应，从而完成跨模态的降维分群。下文将以RNA矩阵的分群结果进行后续演示。</p>
+<p>在分辨率为0.5，dims选择1:30的参数下，共获得0~11这12种cluster<img alt="" src="../images/34a2d6d17b32912c.webp">
+到这里基础分析流程就完结啦，可以点击画布右上方的"汇总"即可把当前分析流程的结果整合到结果总览中，最终可以通过网页报告的形式查看所有的分析结果：<img alt="" src="../images/baf0fc72b7d8e4d5.webp"></p>
+<p><strong>五、细胞注释</strong></p>
+<p>细胞注释页面会给出对应分群策略下的降维图、气泡图、小提琴图、热图、细胞比例柱状图等信息，帮助你完成细胞类型的注释<img alt="" src="../images/a0bc58b5e4b6250a.webp">
+可视化内容展示：<img alt="" src="../images/80dc3da9cd292dfd.gif">
+给大家展示一个新功能，利用系统输出的marker结合singleR和AI，能够一键注释细胞类型。<img alt="" src="../images/48d84b2dabd9720e.gif">
+保存后的新注释在这里，我们以CellAnnotation注释进行后续分析：<img alt="" src="../images/f08fe7eba0026386.webp"></p>
+<p><strong>六、图片美化</strong></p>
+<p>Seeksoulonline提供了发表级的画图工具，可以一站式完成小提琴图、降维图、FeaturePlot、DotPlot、分组统计图、热图的绘制与美化。比我们此前分享的<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2707677276481814529#wechat_redirect">单细胞图片改造计划</a>可简单多了。大家可以看这个视频进行学习：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522176&amp;idx=2&amp;sn=11cc2a6687fb139508644504bbc2f374&amp;scene=21#wechat_redirect">零代码分析单细胞测序数据| 图片美化</a><img alt="" src="../images/eebc20438cef63ad.webp"></p>
+<p><strong>七、基因集评分</strong></p>
+<p>特征集分析也可以一站式完成，主要完成<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497831&amp;idx=2&amp;sn=82fa51c76a381fba0b444e9b6b23eb5f&amp;scene=21#wechat_redirect">单细胞基因集评分</a>工作。Seeksoul Online中内置了几百种特征基因集：<img alt="" src="../images/f6a0137fbd19e20c.webp">
+随便选一个基因集进行提交：<img alt="" src="../images/4d93db1d4902f576.webp">
+秒出结果：<img alt="" src="../images/53ffde97a19fde3e.png"></p>
+<p><strong>八、差异与富集分析</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510401&amp;idx=5&amp;sn=8cde5a0101cdf1da4a24e614b05cedfa&amp;scene=21#wechat_redirect">零代码单细胞| 差异分析与富集分析</a>也可以一站式完成<img alt="" src="../images/f02638e4d1200655.webp">可以按照如下演示创建你需要的差异分析<img alt="" src="../images/241b50459ce11c41.gif"></p>
+<p><strong>九、亚群分析</strong></p>
+<p>通过提交细胞注释类别(参数)、具体需要亚群分析的细胞类群(值)。<img alt="" src="../images/c63c4db49cb3ed9e.png">完成后点击进入这个加号即可进入与大群一样的预处理流程：<img alt="" src="../images/e907df9d95b72659.png"><img alt="" src="../images/301d27936a8fc132.webp"></p>
+<p><strong>十、高级分析</strong></p>
+<p>高级分析现SeeksoulOnline已经内置了几十种高级分析，包含monocle3、cellphonedb、infercnv、scenic、monocle2、DiffEnrich、CytoTRACE、CellChat、scMetabolism、copyKAT、GSVA、Nichenet、scVelo、scoring、group_diffenrich、Augur、hdWGCNA、GeneActivity、ATAC_Peak2Gene共19种高级分析，大家可以逐个试一试，我们后面再出一篇推送来演示这些内容~<img alt="" src="../images/356da88109539d50.webp">
+还有炫酷的交互式分析，绝对值得大家好好探索一番：<img alt="" src="../images/e41177b851c40789.gif"></p>
+<p><strong>十一、辅助信息与结题报告</strong></p>
+<p>辅助信息上半部分页面包含了各分析流程用到工具的名称、版本、分析内容、参考链接，下半部分页面包含了注释信息。<img alt="" src="../images/89e09d7de56b28e2.webp">
+结果总览中包含了活页的结题报告：<img alt="" src="../images/8b293fb7ca393b57.webp"></p>
+<p>感兴趣的同学可以看看我们此次操作的报告：报告目录：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>./└── report    ├── dist    │   └── src    │       ├── assets    │       ├── css    │       ├── file    │       ├── graph    │       ├── img    │       └── js    ├── report.html    └── report.pdf
+</code></pre>
+<p>报告的html文件是可交互的哦：<img alt="" src="../images/48b91ea99054664d.gif"></p>
+<p>下载链接：</p>
+<p>通过网盘分享的文件：SeekARCDemoProject_SeekARCDemoProcess_云分析标准报告</p>
+<p>链接: https://pan.baidu.com/s/1VvBMqRX7Muh5qZMbP4j_qw?pwd=bfg8</p>
+<p>提取码: bfg8</p>
+<p><img alt="" src="../images/e134215164546bd9.webp"></p>
+<p><strong>视频教程</strong></p>
+<p>本系列视频我们将进行拆解动作，完整视频教程可见合集：</p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_1006a9b5456&amp;enterid=1729128003&amp;from_msgid=2247522176&amp;from_itemidx=2&amp;count=3&amp;nolastread=1#wechat_redirect">SeekSoul® Online单细</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_1006a9b5456&amp;enterid=1729128003&amp;from_msgid=2247522176&amp;from_itemidx=2&amp;count=3&amp;nolastread=1#wechat_redirect">胞云平台</a></p>
+<p>总是有小伙伴在学我们的单细胞<strong>代码</strong> 教程(<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522475&amp;idx=1&amp;sn=84dd9a65348528be9aa2b8d2711d776c&amp;scene=21#wechat_redirect">两百篇单细胞知识帖</a></strong>)时深感头疼，密密麻麻的代码、繁琐的流程、巨大的数据量，这些都是劝退大家的门槛。这对这一现象，<strong>Biomamba</strong> 联合<strong>寻因生物</strong> 发布了科研利器——<strong><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_69f8cb7b2da&amp;enterid=1713928791&amp;from_msgid=2247510401&amp;from_itemidx=1&amp;count=3&amp;nolastread=1&amp;token=1053256417&amp;lang=zh_CN#wechat_redirect">SeekSoul Online单细胞云平台</a></strong> 及对应的**《<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_69f8cb7b2da&amp;enterid=1713928791&amp;from_msgid=2247510401&amp;from_itemidx=1&amp;count=3&amp;nolastread=1&amp;token=1053256417&amp;lang=zh_CN#wechat_redirect"> 2周教你学会单细胞生信全套分析</a>》<strong>课程，准备好</strong>零代码** 发单细胞文章吧！</p>
+<p>云平台访问链接：https://seeksoul.online/t_static/Biomamba/Biomamba.html</p>
+<p>往期云平台使用视频教程可参考：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3403706694394970115&amp;scene=173&amp;subscene=&amp;sessionid=svr_69f8cb7b2da&amp;enterid=1713928791&amp;from_msgid=2247510401&amp;from_itemidx=1&amp;count=3&amp;nolastread=1#wechat_redirect">单细胞云平台教程全收录</a></p>
+<p>体验反馈问卷链接：https://www.wjx.cn/vm/QIX0xRI.aspx#</p>
+<p>各位同学需要<strong>联系您的专属在线客服，获取demo数据后，进行操作学习。</strong></p>
+<p><strong><img alt="图片" src="../images/f36b0bfbdc18dab3.webp"></strong></p>
+<p><img alt="图片" src="../images/6300ee2640d937c2.webp"><img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取资料、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527585&amp;idx=1&amp;sn=fa32112c11b215b33096cab43baf08ea&amp;scene=21#wechat_redirect">免费两周学习版</a>服务器的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/fe8ecb8594a1f419.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

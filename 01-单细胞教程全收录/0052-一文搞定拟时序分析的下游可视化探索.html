@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0052-一文搞定拟时序分析的下游可视化探索</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">一文搞定拟时序分析的下游可视化探索</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494479&amp;idx=1&amp;sn=32f39c79c4c9fc07aa829eed49016da3&amp;chksm=9b3c921fac4b1b091efcdd151500b69d19f71d5ca518122af697fc37e87acd915f3be5f63fb8#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>订阅合辑</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">订阅功能已经开了有一段时间了，这是一个付费合辑，文末可解锁资料的下载链接，并且付费一篇即可<strong>自动解锁</strong> 后续合辑中的其他推送，考虑到不会发很多付费推送，偶尔发两篇付费内容也是为了让大家尊重我的劳动，这个合辑已经出到第三篇了，共包含了<strong>一百多个学习文件</strong> ，可以说是白菜价了。请各位请<strong>理性消费</strong> ，看看合辑中的内容，用得到的时候再解锁！ <strong>-Biomamba</strong></p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png"></p>
+<h1 id="_2"><strong>一、写在前面：</strong></h1>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<p>前面我们已经花了<strong>11个视频</strong> 以及超过<strong>四个小时</strong> 的时间，以monocle2和monocle3为例给大家介绍了拟时序分析的主要流程，但是很多同学还是反馈不知道如何对拟时序分析的结果进行<strong>生物学解释</strong> 从而<strong>撰文</strong> ，亦或是不知道如何再进下一步的<strong>探索与可视化</strong> 。所以这里就给大家出一个教程，带领大家完成一些monocle运行后的探索。</p>
+<p>主要是完成这些图表的绘制：</p>
+<p><img alt="" src="../images/bba0179be98c259f.webp">
+那就意味着你需要先掌握这些内容：
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;chksm=9b3c9b97ac4b1281ab462f866538f096ba2473a3d1426a27d8d97ccc636bfd081e1ba8934dfd&amp;scene=21#wechat_redirect">单细胞数据基础分析学习手册</a></p>
+<p>拟时序分析系列B站连续播放起来比较方便：
+https://www.bilibili.com/video/BV1br4y1x7Hf?p=1<strong>推送</strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486553&amp;idx=1&amp;sn=b689ec962a17ca1a1ada29ae8ff8c019&amp;chksm=9b3f7509ac48fc1f0f81e288de8f15c86548215a1cd9d5c740dc63f2421371d13890398ab1df&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》1.概论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487001&amp;idx=1&amp;sn=329129e75f703e3f332e76af9c66871e&amp;chksm=9b3f7749ac48fe5f081248c2a48c56685e3915015036c73f8f67ec3e6acc246ddf815daedb22&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》2.monocle概论</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487400&amp;idx=1&amp;sn=223a96a245c408c31e2c3c16afac88fc&amp;chksm=9b3f76f8ac48ffee769dc76870e15bbd0275647dcfb9bf21bf499b7eaee86121b254e4b2da54&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》3.monocle2实操：完整版</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489044&amp;idx=1&amp;sn=061dbfc34d200b73a8227d0bb28a1d27&amp;chksm=9b3f6f44ac48e65251f7e5ecce84637c05d50ecb92769e8386f221f8e7b9bfeb719232def863&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》4.初识monocle3</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489494&amp;idx=1&amp;sn=44f0a44857c12fcf9a1ab84e4f2cbebf&amp;chksm=9b3f6e86ac48e79026321de2fdca81a139d104d655884ffe87a68e0a1551ddffa5af7919d19e&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》5.monocle3的降维、分群、聚类</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;chksm=9b3f6222ac48eb3450de0b02a34eb5fff2db89ab8f155460d554cbb23be0cd27fd349079e7b2&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》6.monocle3的拟时序分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491083&amp;idx=1&amp;sn=c5697ab024193cb6595d27e4f4d3bfaf&amp;chksm=9b3f675bac48ee4d7244d9819e14fe210f7e42e40fc7a6a8df7b95bfd92f06334d60d226cb93&amp;scene=21#wechat_redirect">解决monocle2的orderCells报错的两种方法</a></p>
+<h1 id="_3"><strong>二、视频教程：</strong></h1>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<p>B站连播更方便：</p>
+<p>https://www.bilibili.com/video/BV1br4y1x7Hf?p=12</p>
+<h1 id="_4"><strong>三、测试文件及代码下载：</strong></h1></article></body></html>

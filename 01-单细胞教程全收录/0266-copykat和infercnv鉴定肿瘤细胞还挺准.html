@@ -1,0 +1,68 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0266-copykat和infercnv鉴定肿瘤细胞还挺准</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="copykatinfercnv">copykat和infercnv鉴定肿瘤细胞还挺准</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535878&amp;idx=1&amp;sn=ff9527456bf977fa615fe7f725a3a039&amp;chksm=9b3c3456ac4bbd4038559b4cf750e87ab4706c7fbf9bb094fffe754dae4ebe31be8950de788e#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>我们此前的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">scRNA-seq拷贝数变异学习手册</a>，演示数据来源于转移性肺腺癌的单细胞转录组谱，共包含从44例正常组织或早期到转移期癌症患者的208,506个细胞。该数据集的原文发表在《Nature communication》上[1]。数据GSE131907可以从GEO数据库中直接下载[2]，原文是作者手搓了个函数，通过染色体区段的表达量滑动平均推断 CNV[3]，鉴定出来的肿瘤细胞与正常上皮(AT1、tS1)与infercnv鉴定出来的肿瘤细胞和正常上皮分布高度一致。更多单细胞技巧教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535408&amp;idx=1&amp;sn=1f3b4b99bab378887d11dd83fd87feb7&amp;scene=21#wechat_redirect">限时回归！两个月时间，手把手教会你scRNA-seq数据分析！</a>专题教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535877&amp;idx=6&amp;sn=6b2682106ed9a84c5bf57dadec45a0d3&amp;scene=21#wechat_redirect">R语言scRNA-seq拷贝数变异分析专题</a>原文的分群：<img alt="" src="../images/74314bd2a7dc4d3d.webp">经infercnv预测通过CNV score聚类、注释得到的结果，可以看出与作者注释的肿瘤细胞分布基本一致，当然也存在少量难以界定的"transition cells"：<img alt="" src="../images/37fea49e90ab8b9f.webp">
+infercnv热图如下，可以理解为白色区域不发生拷贝数变异，途中可以明显发现原文作者标注的Malignant cells包含大量的拷贝数变异事件:<img alt="" src="../images/06a6ffbba9fd1443.webp">小提琴中也可以观察到Malignant cells的CNV score明显高于身为正常上皮细胞的AT1与tS1。<img alt="" src="../images/3d869b556e6f07e3.webp">
+再看看copykat，值得一提的是copykat的计算是不需要像infercnv那样选定参考细胞群体的。并且在返回的预测数据框中能够直接给出包含diploid和aneuploid的标签：<img alt="" src="../images/58a758e5d98a7471.png">
+热图可以看出diploid(双倍体，绿色侧栏标注)和aneuploid(非整倍体，红色侧栏标注)之间的cnv score差别非常大：<img alt="" src="../images/f2ba4efa952d0d8b.webp">我们实际测试的时候混入了Naive CD4+ T Cell观察效果，可以看出T Cell的CNV score非常接近1，且没有一个 T Cell被标注为aneuploid，不过Malignant Cell当中出现了部分diploid，可以看出Copykat并非"贪心算法"。<img alt="" src="../images/b1154b328f350668.webp"><img alt="" src="../images/3a11a8fd3132cc6e.png">
+更多拷贝数变异教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532924&amp;idx=1&amp;sn=46b87151e30163e393cf2c1751360bac&amp;scene=21#wechat_redirect">空间转录组数据拷贝数变异分析学习手册</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">肿瘤异质性分析必备| 一文学会四种scRNA-seq拷贝数变异分析</a></p>
+<p>如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531160&amp;idx=2&amp;sn=04d3798dc60958af2c9020fe7c4bd9b8&amp;scene=21#wechat_redirect">单细胞数据分析</a>教学、生信热点<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469#wechat_redirect">全文复现</a>、自测数据个性化分析辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530174&amp;idx=1&amp;sn=c3b0499adcc9093546e4ba1cfffba7bd&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[Biomamba_zhushou]。<img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>联系客服微信获取学习资料</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：</p>
+<p><img alt="" src="../images/72dc5b2b4d98badc.gif"></p>
+<p>‍</p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、写在前面</strong></p>
+<p><strong>二、可视化集锦</strong></p>
+<p><strong>三、绪论</strong></p>
+<p><strong>3.1 定义</strong></p>
+<p><strong>3.2 主要研究成果</strong></p>
+<p><strong>（1）区分肿瘤细胞与正常细胞</strong></p>
+<p><strong>（2） 推断的拷贝数变异(CNA)谱的准确性</strong></p>
+<p><strong>（3） 亚克隆结构推断准确性的评估</strong></p>
+<p>（4）计算效率</p>
+<p><strong>3.3 小结</strong></p>
+<p><strong>四、infercnv</strong></p>
+<p>4.1 简介</p>
+<p>4.2 安装</p>
+<p>4.3 输入文件</p>
+<p>4.4 infercnv workflow</p>
+<p>4.5 infercnv实战</p>
+<p>（1）数据概况</p>
+<p>（2）infercnv流程</p>
+<p>（3）热图优化</p>
+<p>（4）小提琴图</p>
+<p><strong><strong>五、copykat</strong></strong></p>
+<p>5.1 copykat介绍</p>
+<p>（1）简介</p>
+<p>（2）copykat工作流程描述</p>
+<p>（3）性能评估</p>
+<p>（4）实体肿瘤中肿瘤细胞和正常细胞的分类</p>
+<p>（5）应用于其他scRNA-seq技术</p>
+<p>（6）推断乳腺肿瘤的克隆亚结构</p>
+<p>（7）小结</p>
+<p>5.2 copykat流程（1）安装（2）counts矩阵预处理（3）常用参数（4）copykat（5）整理数据（6）绘制热图5.3 copykat实战（1）数据概况（2）copykat（3）整理数据（4）热图绘制（5）探究一下拷贝数变异与原来亚群之间的关系（6）CNA score小提琴图</p>
+<p><strong>六</strong><strong>、SCEVAN</strong>****</p>
+<p><strong><strong>6.1 安装R包</strong></strong></p>
+<p><strong><strong>6.2 加载R包</strong></strong><strong><strong>6.3 单样本分析</strong></strong><strong><strong>（1）加载数据</strong></strong><strong><strong>（2）执行分析</strong></strong><strong><strong>（3）结果查看</strong></strong><strong><strong>6.4 多样本分析</strong></strong><strong><strong>（1）加载数据 （2）执行分析（3）结果查看</strong></strong><strong><strong>6.5 联合Seurat对象</strong></strong><strong><strong>（1）创建</strong></strong>Seurat对象**** （2）将拷贝数变异结果加入<strong><strong>Seurat对象</strong></strong> （3）降维分群（4）可视化****</p>
+<p><strong><strong>七</strong></strong>、numbat********</p>
+<p><strong><strong><strong><strong>7.1<strong><strong>安装R包</strong></strong></strong></strong></strong></strong></p>
+<p><strong><strong>7.2</strong></strong>加载R包************7.3 数据下载<strong><strong><strong><strong>7.4 等位基因数据准备</strong></strong></strong></strong>（1）运行参数解释 （2）示例脚本（3）可能出现的报错（4）执行分析<strong><strong><strong><strong>7.5 运行numbat</strong></strong></strong></strong>（1）运行参数解释********（2）运行<strong><strong>numbat</strong></strong><strong><strong><strong><strong>7.6 结果解读</strong></strong></strong></strong>（1）拷贝数景观和单细胞系统发育 （2）在系统发育上完善亚克隆（3）共识拷贝数区段（4）pseudobulks水平拷贝数变异（5）进化树<strong><strong><strong><strong>八、环境版本信息</strong></strong></strong></strong>
+<strong><strong><strong><strong>九、参考</strong></strong></strong></strong>十、单细胞教程全收录****<strong><strong>十一、欢迎致谢</strong></strong></p>
+<p>文末下载链接中包含以下内容：</p>
+<p><img alt="" src="../images/69b4cb61ee653655.webp"></p>
+<p>测试文件约<strong>55.57GB</strong> ，大家注意按需下载！</p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png">
+参考：[1]https://pmc.ncbi.nlm.nih.gov/articles/PMC7210975  /[2]https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131907</p>
+<p>[3]https://github.com/SGI-LungCancer/SingleCell/blob/master/R/calInferredCNA_for_CEP.R</p>
+<p><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532585&amp;idx=1&amp;sn=e265d2846ec66e5faaaf21403d274d2f&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/e43581b4f5118aad.webp"><img alt="图片" src="../images/4ccf87cacd1143af.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

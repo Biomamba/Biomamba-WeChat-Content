@@ -1,0 +1,195 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0040-《细胞通讯》2.2CellChat多组别分析</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="22cellchat">《细胞通讯》2.2CellChat多组别分析</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501523&amp;idx=2&amp;sn=6fa803f256c2e0b945f93ae7d8245f50&amp;chksm=9b3cbf83ac4b3695b587e9817840f419104c8680f5ef08ee39aa149b79852f48b179f68e3397#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/32d1a043631a4178.png"></p>
+<p>前言</p>
+<p><img alt="" src="../images/806f50c6211bc173.gif">在前面的一讲内容里(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501296&amp;idx=2&amp;sn=fb3e252d95ee8b50cd446e71335b1aa0&amp;chksm=9b3cbca0ac4b35b621b4f51d2c3a130f00461faeeff067396222c2fc2eeb53f3544664d7d9bc&amp;scene=21#wechat_redirect">《细胞通讯》2.CellChat基础分析教程</a>)我们已经给大家介绍了CellChat单样本数据处理的实操。本讲的内容主要向大家展示如何挖掘细胞通讯在<strong>不同组别中的差异</strong> 。本次课程所涉及的可复制<strong>代码</strong> 、<strong>测试文件</strong> 可在文末订阅获取或转发找客服微信[Biomamba]领取，当然你也可以参考这里：https://github.com/sqjin/CellChat。后续的代码如果不出意外都会在服务器中演示（<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501099&amp;idx=1&amp;sn=78446147184292fad3417495926b3096&amp;chksm=9b3cbc7bac4b356dcf0460781f9bf16df4ede481f8cc57282c7384b9d2baccaa820d64c89bab&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>）。</p>
+<p><img alt="" src="../images/ce02095ce6a12b35.png"></p>
+<p>分析图表展示：</p>
+<p><img alt="" src="../images/f10396d16f7e3596.webp"></p>
+<p><img alt="" src="../images/32d1a043631a4178.png"></p>
+<p>视频教程</p>
+<p><img alt="" src="../images/806f50c6211bc173.gif">B站同步播出：https://www.bilibili.com/video/BV1Ab4y1W7qx?p=4</p>
+<p><img alt="" src="../images/32d1a043631a4178.png"></p>
+<p>图文教程</p>
+<p><img alt="" src="../images/806f50c6211bc173.gif"></p>
+<h3 id="r">安装并加载R包</h3>
+<pre><code>suppressMessages(if(!require(CellChat))devtools::install_github(&quot;sqjin/CellChat&quot;))
+#需要安装rtools才能运行
+#suppressMessages(reticulate::py_install(packages = 'umap-learn'))
+###通过minicnda安装帮助后续评估通路间得相似性
+suppressMessages(if(!require(ggplot2))install.packages('ggplot2'))
+suppressMessages(if(!require(patchwork))install.packages('patchwork') )
+suppressMessages(if(!require(ggalluvial))install.packages('ggalluvial'))
+suppressMessages(if(!require(igraph))install.packages('igraph'))
+suppressMessages(if(!require(dplyr))install.packages('dplyr'))
+suppressMessages(options(stringsAsFactors = FALSE))
+suppressMessages(options(futrue.globlas.Maxsize=2*1024**3))
+suppressWarnings(suppressMessages(future::plan(&quot;multiprocess&quot;, workers = 8)))
+#设置硬件参数，四线程
+#win+r wmic cpu get numberOfLogicalProcessors
+</code></pre>
+<h3 id="cellchat">下载、读取、创建cellchat对象</h3>
+<pre><code class="language-r">#load(url(&quot;https://ndownloader.figshare.com/files/25950872&quot;))#读取示例数据集
+#View(data_humanSkin)
+#saveRDS(data_humanSkin,'data_humanSkin.rds')
+data_humanSkin &lt;- readRDS('data_humanSkin.rds')
+class(data_humanSkin)
+## [1] &quot;list&quot;
+#示例数据：来源于人类皮肤
+#作者发表文献 #https://www.nature.com/articles/s41467-021-21246-9.pdf
+data.input &lt;- data_humanSkin$data # normalized data matrix
+#pbmc[[&quot;RNA&quot;]]@data
+meta &lt;- data_humanSkin$meta # a dataframe with rownames containing cell mata data
+unique(meta$condition)
+## [1] &quot;LS&quot; &quot;NL&quot;
+cell.use &lt;- rownames(meta)[meta$condition == &quot;LS&quot;] # 按指定的变量提取细胞
+data.input &lt;- data.input[, cell.use]#取出对应细胞
+meta = meta[cell.use, ]#取出对应细胞的meta信息
+# meta = data.frame(labels = meta$labels[cell.use], row.names = colnames(data.input)) # manually create a dataframe consisting of the cell labels
+unique(meta$labels)
+##  [1] Inflam. FIB  FBN1+ FIB    APOE+ FIB    COL11A1+ FIB cDC2
+##  [6] LC           Inflam. DC   cDC1         CD40LG+ TC   Inflam. TC
+## [11] TC           NKT
+## 12 Levels: APOE+ FIB FBN1+ FIB COL11A1+ FIB Inflam. FIB cDC1 cDC2 ... NKT
+cellchat &lt;- createCellChat(object = data.input, meta = meta, group.by = &quot;labels&quot;)
+## Create a CellChat object from a data matrix
+## Set cell identities for the new CellChat object
+## The cell groups used for CellChat analysis are  APOE+ FIB FBN1+ FIB COL11A1+ FIB Inflam. FIB cDC1 cDC2 LC Inflam. DC TC Inflam. TC CD40LG+ TC NKT
+#创建celllchat对象，group.by指定通讯间的对象，用meta中的注释作为分组依据
+
+######如果上述没有指定meta=meta，可以如下手动加入
+#cellchat &lt;- createCellChat(object = data.input, group.by = &quot;labels&quot;)
+cellchat &lt;- addMeta(cellchat, meta = meta)
+cellchat &lt;- setIdent(cellchat, ident.use = &quot;labels&quot;) # set &quot;labels&quot; as default cell identity
+#Idents(pbmc) &lt;- 'group'
+levels(cellchat@idents) # show factor levels of the cell labels
+##  [1] &quot;APOE+ FIB&quot;    &quot;FBN1+ FIB&quot;    &quot;COL11A1+ FIB&quot; &quot;Inflam. FIB&quot;  &quot;cDC1&quot;
+##  [6] &quot;cDC2&quot;         &quot;LC&quot;           &quot;Inflam. DC&quot;   &quot;TC&quot;           &quot;Inflam. TC&quot;
+## [11] &quot;CD40LG+ TC&quot;   &quot;NKT&quot;
+groupSize &lt;- as.numeric(table(cellchat@idents)) # number of cells in each cell group
+groupSize
+##  [1] 1228  813  181  484  121  294   67   81  765  266  630   81
+</code></pre>
+<h3 id="_1">载入数据库并开始计算</h3>
+<pre><code class="language-r">CellChatDB &lt;- CellChatDB.human # use CellChatDB.mouse if running on mouse data
+showDatabaseCategory(CellChatDB)
+</code></pre>
+<p><img alt="" src="../images/c7f5f0495c602f69.webp"></p>
+<pre><code class="language-r">#展示细胞组成的比例:
+dplyr::glimpse(CellChatDB$interaction)#展示互作的记录
+## Rows: 1,939
+## Columns: 11
+## $ interaction_name   &lt;chr&gt; &quot;TGFB1_TGFBR1_TGFBR2&quot;, &quot;TGFB2_TGFBR1_TGFBR2&quot;, &quot;TGFB…
+## $ pathway_name       &lt;chr&gt; &quot;TGFb&quot;, &quot;TGFb&quot;, &quot;TGFb&quot;, &quot;TGFb&quot;, &quot;TGFb&quot;, &quot;TGFb&quot;, &quot;TG…
+## $ ligand             &lt;chr&gt; &quot;TGFB1&quot;, &quot;TGFB2&quot;, &quot;TGFB3&quot;, &quot;TGFB1&quot;, &quot;TGFB1&quot;, &quot;TGFB2…
+## $ receptor           &lt;chr&gt; &quot;TGFbR1_R2&quot;, &quot;TGFbR1_R2&quot;, &quot;TGFbR1_R2&quot;, &quot;ACVR1B_TGFb…
+## $ agonist            &lt;chr&gt; &quot;TGFb agonist&quot;, &quot;TGFb agonist&quot;, &quot;TGFb agonist&quot;, &quot;TG…
+## $ antagonist         &lt;chr&gt; &quot;TGFb antagonist&quot;, &quot;TGFb antagonist&quot;, &quot;TGFb antagon…
+## $ co_A_receptor      &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ co_I_receptor      &lt;chr&gt; &quot;TGFb inhibition receptor&quot;, &quot;TGFb inhibition recept…
+## $ evidence           &lt;chr&gt; &quot;KEGG: hsa04350&quot;, &quot;KEGG: hsa04350&quot;, &quot;KEGG: hsa04350…
+## $ annotation         &lt;chr&gt; &quot;Secreted Signaling&quot;, &quot;Secreted Signaling&quot;, &quot;Secret…
+## $ interaction_name_2 &lt;chr&gt; &quot;TGFB1 - (TGFBR1+TGFBR2)&quot;, &quot;TGFB2 - (TGFBR1+TGFBR2)…
+#CellChatDB.use &lt;- CellChatDB
+CellChatDB.use &lt;- subsetDB(CellChatDB, search = &quot;Secreted Signaling&quot;)#取出相应分类用作分析数据库
+#CellChatDB.use &lt;- CellChatDB # simply use the default CellChatDB
+cellchat@DB &lt;- CellChatDB.use#将数据库内容载入cellchat对象中
+
+#表达量预处理
+cellchat &lt;- subsetData(cellchat,features = NULL)#取出表达数据
+
+cellchat &lt;- identifyOverExpressedGenes(cellchat)#寻找高表达的基因#
+#FindVariableFeatures()
+cellchat &lt;- identifyOverExpressedInteractions(cellchat)#寻找高表达的通路
+cellchat &lt;- projectData(cellchat, PPI.human)#投影到PPI
+cellchat &lt;- computeCommunProb(cellchat, raw.use = T)#默认计算方式为type = &quot;truncatedMean&quot;,
+#默认cutoff的值为20%，即表达比例在25%以下的基因会被认为是0， trim = 0.1可以调整比例阈值
+cellchat &lt;- filterCommunication(cellchat, min.cells = 10)
+#去掉通讯数量很少的细胞
+df.net &lt;- subsetCommunication(cellchat)#将细胞通讯预测结果以数据框的形式取出
+
+DT::datatable(df.net)
+</code></pre>
+<p><img alt="" src="../images/fd7a60ac1136d21e.webp"></p>
+<pre><code class="language-r">write.csv(df.net,'01.df.net.csv')
+#df.net &lt;- subsetCommunication(cellchat,slot.name = &quot;netP&quot;)
+##这种方式只取通路，数据结构更简单
+#df.net &lt;- subsetCommunication(cellchat, sources.use = c(1,2), targets.use = c(4,5))
+#source可以以细胞类型的名称定义，也可以按照细胞名称中的顺序以数值向量直接取
+#指定输入与输出的细胞集群
+#df.net &lt;- subsetCommunication(cellchat, signaling = c(&quot;WNT&quot;, &quot;TGFb&quot;))#指定通路提取
+cellchat &lt;- computeCommunProbPathway(cellchat)
+#每对配受体的预测结果存在net中，每条通路的预测结果存在netp中
+cellchat &lt;- aggregateNet(cellchat)
+#计算联路数与通讯概率，可用sources.use and targets.use指定来源与去向
+</code></pre>
+<h3 id="_2">可视化</h3>
+<pre><code class="language-r">##################可视化######################
+groupSize
+##  [1] 1228  813  181  484  121  294   67   81  765  266  630   81
+library(patchwork)
+par(mfrow = c(1,3), xpd=TRUE)
+netVisual_circle(cellchat@net$count, vertex.weight = groupSize, weight.scale = T,
+                 label.edge= F, title.name = &quot;Number of interactions&quot;)
+
+netVisual_circle(cellchat@net$weight, vertex.weight = groupSize, weight.scale = T,
+                 label.edge= F, title.name = &quot;Interaction weights/strength&quot;)
+
+netVisual_circle(cellchat@net$weight, vertex.weight = groupSize, weight.scale = T,
+                 label.edge= F, title.name = &quot;Interaction weights/strength&quot;,
+                 targets.use = 'cDC2')
+</code></pre>
+<p><img alt="" src="../images/12a590ae3c5f5b82.webp"></p>
+<pre><code class="language-r">#互作数量与重要性图
+mat &lt;- cellchat@net$weight
+par(mfrow = c(3,4), xpd=TRUE)
+for (i in 1:nrow(mat)) {#
+  mat2 &lt;- matrix(0, nrow = nrow(mat), ncol = ncol(mat), dimnames = dimnames(mat))
+  mat2[i, ] &lt;- mat[i, ]
+  netVisual_circle(mat2, vertex.weight = groupSize, weight.scale = T,
+                   edge.weight.max = max(mat), title.name = rownames(mat)[i])
+}#循环绘出每种与其他细胞之间互作的关系
+
+for (i in 1:nrow(mat)) {
+  mat2 &lt;- matrix(0, nrow = nrow(mat), ncol = ncol(mat), dimnames = dimnames(mat))
+  mat2[i, ] &lt;- mat[i, ]
+
+  netVisual_circle(mat2, vertex.weight = groupSize, weight.scale = T,
+                   edge.weight.max = max(mat), title.name = rownames(mat)[i])
+}#循环绘出每种与其他细胞之间互作的关系
+</code></pre>
+<p><img alt="" src="../images/167fb2a5260bd632.webp"></p>
+<h3 id="_3">进阶可视化</h3>
+<pre><code class="language-r">pathways.show &lt;- df.net$pathway_name#计算到的所有通路
+# Hierarchy plot
+par(mfrow = c(1,2), xpd=TRUE)
+vertex.receiver = seq(1,4)
+netVisual_aggregate(cellchat, signaling =pathways.show[1],
+                    vertex.receiver = vertex.receiver,layout = 'hierarchy')
+</code></pre>
+<p><img alt="" src="../images/5291d635af6a3a8a.webp"></p>
+<pre><code>#左侧显示只当细胞的的通讯，右侧显示剩余细胞的通讯情况
+
+# Circle plot
+netVisual_aggregate(cellchat, signaling = pathways.show[1], layout = &quot;circle&quot;)
+#以circle的方式展示通讯
+
+netVisual_aggregate(cellchat, signaling = pathways.show[1], layout = &quot;chord&quot;)
+</code></pre>
+<p><img alt="" src="../images/3efa2f5e369983b4.webp"></p>
+<pre><code class="language-r"># Chord diagram
+group.cellType &lt;- c(rep(&quot;FIB&quot;, 4), rep(&quot;DC&quot;, 4), rep(&quot;TC&quot;, 4)) # grouping cell clusters into fibroblast, DC and TC cells
+names(group.cellType) &lt;- levels(cellchat@idents)
+par(mfrow = c(1,2), xpd=TRUE)
+netVisual_chord_cell(cellchat, signaling = pathways.show[1],
+                     group = group.cellType, #分组展示的顺序
+                     title.name = paste0(pathways.show[1], &quot; signaling network&quot;))
+## Plot the aggregated cell-cell communication network at the signaling pathway level
+
+netVisual_chord_cell(cellchat, signaling = pathways.show[1],
+                     title.name = paste0(pathways.show[1], &quot; signaling network&quot;))
+## Plot the aggregated cell-cell communication network at the signaling pathway level
+</code></pre></article></body></html>

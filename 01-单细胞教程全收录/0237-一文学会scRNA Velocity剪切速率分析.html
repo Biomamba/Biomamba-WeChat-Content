@@ -1,0 +1,74 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0237-一文学会scRNA Velocity剪切速率分析</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="scrna-velocity">一文学会scRNA Velocity剪切速率分析</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529963&amp;idx=2&amp;sn=149c902aabdb2b4fa1fc2d148949b154&amp;chksm=9b3c0cbbac4b85add0c2dbbae73d8e320bc6bdad4f20ceecdf8a2e95ce32219b487a586e4c51#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>RNA Velocity</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">RNA丰度是单个细胞状态的一个强有力的指标。目前，单细胞RNA测序能够以高定量精度、灵敏度和通量揭示RNA丰度。然而，目前这种方法只能捕获到某一时间点的静态快照，这给诸如胚胎发生或组织再生等时间动态变化研究带来了挑战。因此，作者提出了RNA速率的概念(基因表达状态的时间导数)。通过RNA速率分析区分常见单细胞RNA测序中的未剪接和已剪接mRNA直接估算。RNA速率是一个高维向量，能够在数小时的时间尺度上预测单个细胞的未来状态。本次教程我们从RNA Velocity原文解读、**数据下载、软件安装、生成loom文件、 R中实现RNA速率分析、Python中实现RNA速率分析。**参考内容：</p>
+<p>https://velocyto.org/velocyto.py/install/index.html</p>
+<p>https://scvelo.readthedocs.io/en/latest/VelocityBasics.html</p>
+<p>https://satijalab.org/seurat/articles/pbmc3k_tutorial.html</p>
+<p>本教程基于R语言和Python完成，没有基础的小伙伴可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">5.5h入门R语言</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499921&amp;idx=1&amp;sn=dcd6f95596e3de9bf378d850c217fe78&amp;scene=21#wechat_redirect">生信Python速查手册</a>
+本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491007&amp;idx=1&amp;sn=8619c2bad23791b3252a1c4cb1831931&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519707&amp;idx=1&amp;sn=73dcab26f9b2ed75a954327317d07112&amp;chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea&amp;scene=21#wechat_redirect">配置一个心仪的工作站(硬件+环境配置)</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503618&amp;idx=1&amp;sn=ca47ca985aa8560f6b38f15f210519e2&amp;chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&amp;scene=21#wechat_redirect">独享服务器，生信分析不求人</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492383&amp;idx=1&amp;sn=b8d912877cb38e8d8c9084d1d9370ded&amp;chksm=9b3c9a4fac4b135926091a8af972c45a17a2fa1f94c704779c60df5f733847036c3797894c1c&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a>
+本教程可视化集锦<img alt="" src="../images/5acd8a0ea89e35df.webp"> <strong>-Biomamba</strong>
+<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>所见即所得</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍</p>
+<p><img alt="" src="../images/859f0d1ac006995d.gif"></p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、文献解读</strong></p>
+<p>1.0 RNAvelocity原文解读‍1.1 摘要1.2 结果</p>
+<p>(1)提出转录动力学模型</p>
+<p>(2)小鼠嗜铬细胞验证</p>
+<p>(3)小鼠海马体验证</p>
+<p>(4)人类前脑验证</p>
+<p>1.3 小结</p>
+<p><strong>二、数据下载</strong></p>
+<p>2.1 bam文件
+2.2 repeatmask文件2.3gtf文件</p>
+<p><strong>三、软件安装</strong></p>
+<p><strong>四、生成loom文件</strong></p>
+<p><strong><strong>五、R中实现RNA速率分析</strong></strong></p>
+<p>5.1 安装R包</p>
+<p>5.2 加载R包5.3 处理测试数据5.4 统计spliced和unspliced区域5.5RNA速率推断</p>
+<p><strong>六</strong><strong>、python中实现RNA速率分析</strong>****</p>
+<p><strong><strong>6.1 文件准备</strong></strong></p>
+<p><strong><strong>6.2 加载python模块</strong></strong><strong><strong>6.3 导入loom文件</strong></strong><strong><strong>6.4 导入细胞降维坐标和分群文件</strong></strong><strong><strong>6.5 轨迹推断</strong></strong></p>
+<p><strong><strong>七</strong></strong>、欢迎致谢********</p>
+<p><strong><strong><strong><strong>7.1 关注基因可视化</strong></strong></strong></strong></p>
+<p><strong><strong>7.2 鉴定重要基因</strong></strong><strong><strong>7.3 细胞周期分析</strong></strong><strong><strong>7.4 RNA速率的置信度</strong></strong><strong><strong>7.5 潜在时间（latent time）分析</strong></strong><strong><strong>7.6 Cluster-specific top-likelihood 基因</strong></strong><strong><strong>八、参考</strong></strong><strong><strong>九、单细胞教程全收录</strong></strong><strong><strong>十、欢迎致谢</strong></strong></p>
+<p>文末下载链接中包含以下内容：</p>
+<p><img alt="" src="../images/fb4923242db2656b.webp"></p>
+<p>测试文件约<strong>36.57GB</strong> ，大家注意按需下载！</p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png">
+<img alt="图片" src="../images/eab31beb8c0e41d2.png"></p>
+<p>往期订阅</p>
+<p><img alt="图片" src="../images/8b04fd62fd8f3d51.png"><img alt="图片" src="../images/4064a50c19e8ad22.png"></p>
+<p>生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528482&amp;idx=1&amp;sn=7cc0715eace4f592a62bdaf157b25c01&amp;scene=21#wechat_redirect">那就开放一个终身订阅吧~</a></p>
+<p>2025已更新订阅内容：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526776&amp;idx=1&amp;sn=99eb6a16c7bf345445b6ff4b61110138&amp;scene=21#wechat_redirect">《Cell》复现|中性粒细胞scRNA-seq图谱阐明抗肿瘤抗原呈递效力</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527498&amp;idx=1&amp;sn=c8282e9d4175bfb2e572278312073d81&amp;scene=21#wechat_redirect">代码复现|scRNA-seq绘制透明细胞肾癌的免疫微环境</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527762&amp;idx=1&amp;sn=ba7c8a4cb704e71fa86ebfe1f19bffea&amp;scene=21#wechat_redirect">改造单细胞DoHeatmap</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527850&amp;idx=1&amp;sn=f4e2ca5e2e5e71eeaf132375bb8270eb&amp;scene=21#wechat_redirect">Slingshot拟时序分析学习手册</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528056&amp;idx=1&amp;sn=73c0da3ff7ff50bafbb9315fd5b60f15&amp;scene=21#wechat_redirect">《Cancer Cell》|时空单细胞揭示CRC的PD-1治疗免疫细胞动态</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">scRNA-seq数据基础</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">分析手册(2025最新修订</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">)</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528289&amp;idx=1&amp;sn=b56f00f3d8a4b152e54f3acd40aef21d&amp;scene=21#wechat_redirect">代码复现|吞噬作用增强肿瘤中巨噬细胞的氧化代谢和免疫抑制特征</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528458&amp;idx=1&amp;sn=900357283922571c6294435be409a2f3&amp;scene=21#wechat_redirect">一文学会scRNA Velocity剪切速率分析</a></p>
+<h1 id="scrna-seq"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq轨迹分析</a></h1>
+<h1 id="scrna-seq_1"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528770&amp;idx=1&amp;sn=6242bce437a9d60f81a8651ea9b57e0b&amp;scene=21#wechat_redirect">一文学会四种</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528770&amp;idx=1&amp;sn=6242bce437a9d60f81a8651ea9b57e0b&amp;scene=21#wechat_redirect">scRNA-seq细胞通讯分析</a></h1>
+<h1 id="_1"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529410&amp;idx=1&amp;sn=9bbaf955d93ddce60874e1cdc2f16115&amp;scene=21#wechat_redirect">一文学会四种基因共表达网络分析</a></h1>
+<h1 id="scrna-seq_2"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">肿瘤异质性分析必备| 一文学会四种scRNA-seq拷贝数变异分析</a></h1>
+<p><img alt="图片" src="../images/697dd2eb5e60e8d8.png">解锁前需阅读：<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526751&amp;idx=1&amp;sn=7ca3137d770f23f0c3d6195696618d81&amp;scene=21#wechat_redirect">2025订阅须知</a></strong><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>订阅后获取学习手册下载链接：</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>请联系[Biomamba_zhushou]获取文件提取码</p>
+<p>本推送教程链接：</p>
+<p>https://pan.baidu.com/s/1dewgNR3EhDUjh96wHqoPDA?</p>
+<p>整个2025订阅合集的百度云下载地址可见:</p>
+<p>https://pan.baidu.com/s/1yXzQi0zBqh4ZLR6Hznckiw?</p>
+<p><strong>-Biomamba</strong>
+<img alt="" src="../images/7d247e6c6ef19f87.png"></p></article></body></html>

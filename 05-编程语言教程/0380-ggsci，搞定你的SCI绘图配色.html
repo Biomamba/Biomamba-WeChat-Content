@@ -1,0 +1,611 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0380-ggsci，搞定你的SCI绘图配色</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="ggscisci">ggsci，搞定你的SCI绘图配色</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532785&amp;idx=1&amp;sn=f38558755961700d588e038e548e934f&amp;chksm=9b3c39a1ac4bb0b7a820019bd062883f6e1c22e2fee9bdb3f25b428236c4895bac651f6bc6cf#rd
+合集：编程语言教程</p>
+</blockquote>
+<h1 id="_1"><strong>一、视频教程：</strong></h1>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<p>前段时间分析数据绘图时总为选图片的<strong>配色</strong> 而烦恼，经人提醒学习了一手<code>ggsci</code>，果然药到病除。<code>ggsci</code>中收录了来自于<strong>科研文献</strong> ，<strong>可视化数据库</strong> 、<strong>科幻电影</strong> 、<strong>电视节目</strong> 的配色方案。此外 <strong>ColorBrewer</strong> 和<strong>viridis</strong> 也能提供优秀的配色方案，感兴趣的同学可以试一试。</p>
+<p>大家可以先做一做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528153&amp;idx=1&amp;sn=a6e1015ac93a6e1d310039f91230e14a&amp;scene=21#wechat_redirect">R语言基础小测验</a>，看看自己是否需要跟我们<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">5.5h入门R语言</a>的课程。</p>
+<p>先上教程视频，B站同步播出：</p>
+<p>https://www.bilibili.com/video/BV1miNVeWEkw</p>
+<p>完整视频回放和答疑服务可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">5.5h入门R语言</a></p>
+<p>本节课程视频：</p>
+<h1 id="_2"><strong>二、离散型数据</strong></h1>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<p>ggsci具体收录的配色方案有：</p>
+<p><img alt="" src="../images/e2d292b0b685828f.webp"></p>
+<h2 id="20"><strong>2.0 装包</strong></h2>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>#安装并加载包if(!require(ggsci))library(&quot;ggsci&quot;)if(!require(ggplot2))library(&quot;ggplot2&quot;)if(!require(gridExtra))library(&quot;gridExtra&quot;)#又一个调整data(&quot;diamonds&quot;)#测试数据
+</code></pre>
+<h2 id="21"><strong>2.1 准备离散型数据</strong></h2>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1 = ggplot(subset(diamonds, carat &gt;= 2.2),       aes(x = table, y = price, colour = cut)) +  geom_point(alpha = 0.7) +  geom_smooth(method = &quot;loess&quot;, alpha = 0.05, size = 1, span = 1) +  theme_bw()+  labs(title = 'ggplot2配色')
+p2 = ggplot(subset(diamonds, carat &gt; 2.2 &amp; depth &gt; 55 &amp; depth &lt; 70),       aes(x = depth, fill = cut)) +  geom_histogram(colour = &quot;black&quot;, binwidth = 1, position = &quot;dodge&quot;) +  theme_bw()+  labs(title = 'ggplot2配色')library(patchwork)p1|p2#ggplot2的配色其实也还不错
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/2ab6f8db3f51ab95.webp"></p>
+<h2 id="21_1"><strong>2.1 离散型数据可视化</strong></h2>
+<h2 id="221-npg"><strong>2.2.1 NPG主题配色</strong></h2>
+<p><strong>NPG全称Nature Publishing Group，即Nature系的配色. 在ggplot2中可以用<code>scale_color_pal</code>和<code>scale_fill_npg</code>直接更改配色(<code>pal</code>替换为主题名称即可)</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_npg = p1 + scale_color_npg()+labs(title = 'npg配色')p2_npg = p2 + scale_fill_npg()+labs(title = 'npg配色')grid.arrange(p1_npg, p2_npg, ncol = 2)#这个拼图包看起来也很好用，下次出个教程
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/953cf9df3f5802ad.webp"></p>
+<h2 id="222-aaas"><strong>2.2.2 AAAS</strong></h2>
+<p><strong>AAAS全称American Association for the Advancement of Science，来感受一下画风：</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_aaas = p1 + scale_color_aaas()+labs(title = 'aaas配色')p2_aaas = p2 + scale_fill_aaas()+labs(title = 'aaas配色')grid.arrange(p1_aaas, p2_aaas, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/4c76102c108936f5.webp"></p>
+<h2 id="223-nejm"><strong>2.2.3 NEJM</strong></h2>
+<p><strong>New England Journal of Medicine</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_nejm = p1 + scale_color_nejm()+labs(title = 'nejm配色')p2_nejm = p2 + scale_fill_nejm()+labs(title = 'nejm配色')grid.arrange(p1_nejm, p2_nejm, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/27a8838acf1378a2.webp"></p>
+<h2 id="224-lancet"><strong>2.2.4 Lancet</strong></h2>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_lancet = p1 + scale_color_lancet()+labs(title = 'lancet配色')p2_lancet = p2 + scale_fill_lancet()+labs(title = 'lancet配色')grid.arrange(p1_lancet, p2_lancet, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/697a14b76f77d0e9.webp"></p>
+<p><strong>2.2.5 JAMA</strong></p>
+<p><strong>The Journal of the American Medical Association</strong></p>
+<p>*</p>
+<pre><code>p1_jama = p1 + scale_color_jama()+ scale_color_lancet()+labs(title = 'jama配色')
+</code></pre>
+<ul>
+<li>*</li>
+</ul>
+<pre><code>## Scale for 'colour' is already present. Adding another scale for 'colour',## which will replace the existing scale.
+</code></pre>
+<ul>
+<li>*</li>
+</ul>
+<pre><code>p2_jama = p2 + scale_fill_jama()+labs(title = 'jama配色')grid.arrange(p1_jama, p2_jama, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/21583cf69f75a2aa.webp"></p>
+<p><strong>2.2.6 JCO</strong></p>
+<p><strong>Journal of Clinical Oncology</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_jco = p1 + scale_color_jco()+labs(title = 'jco配色')p2_jco = p2 + scale_fill_jco()+labs(title = 'jco配色')grid.arrange(p1_jco, p2_jco, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/70193c11cade4739.webp"></p>
+<p><strong>2.2.7 USCGB</strong></p>
+<p><strong>UCSC Genome Browser for representing chromosomes</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_ucscgb = p1 + scale_color_ucscgb()+labs(title = 'ucscgb配色')p2_ucscgb = p2 + scale_fill_ucscgb()+labs(title = 'ucscgb配色')grid.arrange(p1_ucscgb, p2_ucscgb, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/69f54264e408e626.webp"></p>
+<h2 id="228-locuszoom"><strong>2.2.8 LocusZoom</strong></h2>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_locuszoom = p1 + scale_color_locuszoom()+labs(title = 'locuszoom配色')p2_locuszoom = p2 + scale_fill_locuszoom()+labs(title = 'locuszoom配色')grid.arrange(p1_locuszoom, p2_locuszoom, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/e814b2d44de2cd19.webp"></p>
+<h2 id="229-d3"><strong>2.2.9 D3</strong></h2>
+<p>D3是一个依赖java的可视化库:https://d3js.org/</p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_d3 = p1 + scale_color_d3()+labs(title = 'd3配色')p2_d3 = p2 + scale_fill_d3()+labs(title = 'd3配色')grid.arrange(p1_d3, p2_d3, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/6618f6cf1dc98c4b.webp"></p>
+<h2 id="2210-igv"><strong>2.2.10 IGV</strong></h2>
+<p><strong>Integrative Genomics Viewer</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_igv_default = p1 + scale_color_igv()+labs(title = 'igv_default配色')p2_igv_default = p2 + scale_fill_igv()+labs(title = 'igv_default配色')grid.arrange(p1_igv_default, p2_igv_default, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/993e77ef7fea81df.webp"></p>
+<h2 id="2211-uchicago"><strong>2.2.11 UChicago</strong></h2>
+<p><strong>University of Chicago</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_uchicago = p1 + scale_color_uchicago()+labs(title = 'uchicago配色')p2_uchicago = p2 + scale_fill_uchicago()+labs(title = 'uchicago配色')grid.arrange(p1_uchicago, p2_uchicago, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/16a4020a2226c790.webp"></p>
+<h2 id="2212-star-trek"><strong>2.2.12 Star Trek</strong></h2>
+<p><strong>星际迷航</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_startrek = p1 + scale_color_startrek()+labs(title = 'startrek配色')p2_startrek = p2 + scale_fill_startrek()+labs(title = 'startrek配色')grid.arrange(p1_startrek, p2_startrek, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/ca8ce70e97a4e550.webp"></p>
+<h2 id="2213-tron-legacy"><strong>2.2.13 Tron Legacy</strong></h2>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_tron = p1 + theme_dark() + theme(    panel.background = element_rect(fill = &quot;#2D2D2D&quot;),    legend.key = element_rect(fill = &quot;#2D2D2D&quot;)) +  scale_color_tron()+labs(title = 'tron配色')p2_tron = p2 + theme_dark() + theme(    panel.background = element_rect(fill = &quot;#2D2D2D&quot;)) +  scale_fill_tron()+labs(title = 'tron配色')grid.arrange(p1_tron, p2_tron, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/671731da7aaa6906.webp"></p>
+<h2 id="2214-futurama"><strong>2.2.14 Futurama</strong></h2>
+<p><strong>来自Futurama</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_futurama = p1 + scale_color_futurama()+labs(title = 'Futurama配色')p2_futurama = p2 + scale_fill_futurama()+labs(title = 'Futurama配色')grid.arrange(p1_futurama, p2_futurama, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/6ef0ed03c3f1a58a.webp"></p>
+<h2 id="2215-rick-and-morty"><strong>2.2.15 Rick and Morty</strong></h2>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_rickandmorty = p1 + scale_color_rickandmorty()+labs(title = 'rickandmorty配色')p2_rickandmorty = p2 + scale_fill_rickandmorty()+labs(title = 'rickandmorty配色')grid.arrange(p1_rickandmorty, p2_rickandmorty, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/e172bcf6afca2a47.webp"></p>
+<h2 id="2216-the-simpsons"><strong>2.2.16 The Simpsons</strong></h2>
+<p><strong>《辛普森一家人》</strong></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p1_simpsons = p1 + scale_color_simpsons()+labs(title = 'simpsons配色')p2_simpsons = p2 + scale_fill_simpsons()+labs(title = 'simpsons配色')grid.arrange(p1_simpsons, p2_simpsons, ncol = 2)
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/87813d247a1b10d3.webp"></p>
+<h1 id="_3"><strong>三、连续性数据</strong></h1>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<h2 id="31"><strong>3.1 准备工作</strong></h2>
+<p>*</p>
+<pre><code class="language-r">library(&quot;reshape2&quot;)
+</code></pre>
+<p>*</p>
+<pre><code>## Warning: package 'reshape2' was built under R version 4.0.5
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>data(&quot;mtcars&quot;)cor = cor(unname(cbind(mtcars, mtcars, mtcars, mtcars)))cor_melt = melt(cor)head(mtcars)
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>##                    mpgcyldisphpdratwtqsecvsamgearcarb## MazdaRX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4## MazdaRX4Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1## HornetSportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>p3 = ggplot(cor_melt,            aes(x = Var1, y = Var2, fill = value)) +  geom_tile(colour = &quot;black&quot;, size = 0.3) +  theme_bw() +  theme(axis.title.x = element_blank(),        axis.title.y = element_blank())p3#看看原图
+</code></pre>
+<p><img alt="" src="../images/8247eb3878cf5f3c.webp"></p>
+<h2 id="32"><strong>3.2 连续性数据可视化</strong></h2>
+<h2 id="321-gsea"><strong>3.2.1 GSEA</strong></h2>
+<p>这一配色由GSEA GenePattern (https://www.genepattern.org/)[https://www.genepattern.org/]启发而来</p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>p3_gsea     = p3 + scale_fill_gsea()p3_gsea_inv = p3 + scale_fill_gsea(reverse = TRUE)grid.arrange(p3_gsea, p3_gsea_inv, ncol = 2)
+</code></pre>
+<p>Hide</p>
+<p><img alt="" src="../images/a7cd70292680f5c5.webp"></p>
+<h3 id="material-design"><strong>Material Design</strong></h3>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">library(&quot;reshape2&quot;)set.seed(42)k = 9x = diag(k)x[upper.tri(x)] = runif(sum(1:(k - 1)), 0, 1)#upper.tri返回一个上三角是TRUE的布尔值矩阵，runif指定最大值与最小值生成一些列均匀分布的值x_melt = melt(x)
+p4 = ggplot(x_melt, aes(x = Var1, y = Var2, fill = value)) +  geom_tile(colour = &quot;black&quot;, size = 0.3) +  scale_x_continuous(expand = c(0, 0)) +  scale_y_continuous(expand = c(0, 0)) +  theme_bw() + theme(    legend.position = &quot;none&quot;, plot.background = element_blank(),    axis.line = element_blank(), axis.ticks = element_blank(),    axis.text.x = element_blank(), axis.text.y = element_blank(),    axis.title.x = element_blank(), axis.title.y = element_blank(),    panel.background = element_blank(), panel.border = element_blank(),    panel.grid.major = element_blank(), panel.grid.minor = element_blank())p1
+</code></pre>
+<p>*</p>
+<pre><code>## `geom_smooth()` using formula 'y ~ x'
+</code></pre>
+<p><img alt="" src="../images/fcb13a8328ec875a.webp">
+Material Design主要用于生成色系：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>grid.arrange(  p4 + scale_fill_material(&quot;red&quot;),         p4 + scale_fill_material(&quot;pink&quot;),  p4 + scale_fill_material(&quot;purple&quot;),      p4 + scale_fill_material(&quot;deep-purple&quot;),  p4 + scale_fill_material(&quot;indigo&quot;),      p4 + scale_fill_material(&quot;blue&quot;),  p4 + scale_fill_material(&quot;light-blue&quot;),  p4 + scale_fill_material(&quot;cyan&quot;),  p4 + scale_fill_material(&quot;teal&quot;),        p4 + scale_fill_material(&quot;green&quot;),  p4 + scale_fill_material(&quot;light-green&quot;), p4 + scale_fill_material(&quot;lime&quot;),  p4 + scale_fill_material(&quot;yellow&quot;),      p4 + scale_fill_material(&quot;amber&quot;),  p4 + scale_fill_material(&quot;orange&quot;),      p4 + scale_fill_material(&quot;deep-orange&quot;),  p4 + scale_fill_material(&quot;brown&quot;),       p4 + scale_fill_material(&quot;grey&quot;),  p4 + scale_fill_material(&quot;blue-grey&quot;),  ncol = 6)
+</code></pre>
+<p><img alt="" src="../images/4b4afa8c31d88833.webp"></p>
+<h1 id="ggplot2">**四、**<strong>非ggplot2图形</strong></h1>
+<h1 id="_4">****</h1>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<p>上面我们用<code>scale_fill_pal</code>和<code>scale_fill_pal</code>调整图片的色系，若需要在其它可视化软件中使用<code>ggsci</code>，则可使用<code>pal_pal名</code>的形式生成rgb颜色调用</p>
+<ul>
+<li>*</li>
+</ul>
+<pre><code>mypal = pal_npg(&quot;nrc&quot;, alpha = 0.7)(9)#调整透明度mypal
+</code></pre>
+<ul>
+<li>*</li>
+</ul>
+<pre><code>## [1] &quot;#E64B35B2&quot; &quot;#4DBBD5B2&quot; &quot;#00A087B2&quot; &quot;#3C5488B2&quot; &quot;#F39B7FB2&quot; &quot;#8491B4B2&quot;## [7] &quot;#91D1C2B2&quot; &quot;#DC0000B2&quot; &quot;#7E6148B2&quot;
+</code></pre>
+<ul>
+<li>*</li>
+</ul>
+<pre><code class="language-r">library(&quot;scales&quot;)show_col(mypal)
+</code></pre>
+<p><img alt="" src="../images/c4899525c3017415.webp"></p>
+<p><strong>大家更喜欢哪一款呢</strong></p>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">library(patchwork)p1+p1_npg+p1_aaas+p1_nejm+p1_lancet+p1_jama+p1_jco+  p1_ucscgb+p1_locuszoom+p1_d3+p1_igv_default+  p1_uchicago+p1_startrek+p1_tron+p1_futurama+p1_rickandmorty+p1_simpsons
+</code></pre>
+<p><img alt="" src="../images/48e7a6fafc39a7fc.webp"></p>
+<p><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=2&amp;sn=e5d0a63646094c3094b7b916350d22ad&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../images/4ccf87cacd1143af.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

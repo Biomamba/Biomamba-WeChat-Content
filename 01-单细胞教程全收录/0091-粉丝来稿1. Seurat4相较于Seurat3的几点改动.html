@@ -1,0 +1,41 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0091-粉丝来稿1. Seurat4相较于Seurat3的几点改动</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="1-seurat4seurat3">粉丝来稿|1. Seurat4相较于Seurat3的几点改动</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494516&amp;idx=1&amp;sn=cb2d4e6b182428ce7b98e7fff2e8729a&amp;chksm=9b3c9224ac4b1b32c4fe99758960305c4845395cfe03851d70a0407043ee36250e55d20106fc#rd
+合集：单细胞教程全收录 / 粉丝来稿</p>
+</blockquote>
+<p><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>写在前面</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">总是我一个人在推送里做代码整理和分享实在是有点枯燥，并且有一点闭门造车的感觉。学术嘛，众人拾柴火焰高，而且大家讨论起来也热闹些。我这里有很多idea和想做的教程，欢迎大家联系文末客服<strong>领作业/话题</strong> ，或者自行提交相关学习笔记，整理好之后反馈给客服，可以酌情给予<strong>稿费</strong> ~以下内容就是粉丝整理的“<strong>Seurat4相较于Seurat3的几点改动</strong> ”。<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>1.删除的函数</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>a.GeneActivity代替CreateGeneActivityMatrix</p>
+<p>b.RunTFIDF和RunSVD代替RunLSI</p>
+<p>c.ReadAlevin和ReadAlevinCsv移至SeuratWrappers</p>
+<p>d.ExportToCellbrowser和StopCellbrowser移至SeuratWrappers</p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>2.FindNeighbors</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">在“annoy”中设置了用于识别k-nearest neighbors的默认方法。这种方法广泛应用于许多高维分析，包括单细胞分析。广泛测试证实“annoy”大大提高速度且降低对内存的需求，对下游结果的影响可忽略不计。利用nn.method="rann"，可切换回以前默认模式。<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<ol>
+<li>FindMarkers</li>
+</ol>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">重构了FindMarkers()函数代码。现在默认预过滤基因和报告fold change使用底数为2，替代了之前使用natural log。即默认状态下FindMarkers() 将用avg_log2FC，取代avg_logFC。可以利用base = exp(1)进行更改。<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>4.IntegrateData/TransferData</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">对锚定点权重矩阵函数的计算进行了细微的更改，但不会对下游分析产生有意义的差异。<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<ol>
+<li>SCTransform</li>
+</ol>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">在SCTransform()中修改了部分默认参数。在预估mu和theta间正则化关系时，ncells参数设置为5000. vst() 函数对正则化过程进行了细微更改以改善速度和内存。<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<ol>
+<li>Integrative multimodal analysis</li>
+</ol>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">新增WNN分析，用于学习每个细胞中每种模态的信息内容，并根据两种模态的加权组合来定义细胞状态。适用于：CITE-seq, ASAP-seq, 10X Genomics ATAC + RNA, and SHARE-seq.<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<ol>
+<li>Rapid mapping of query datasets to references</li>
+</ol>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">可以将任何人类PBMC单细胞数据映射到我们的参考数据集上，从而自动执行可视化，聚类注释和差异表达过程。<img alt="" src="../images/7d247e6c6ef19f87.png">
+<img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复消息，这里留一下领取资料、免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490936&amp;idx=1&amp;sn=850dfc45b10a6bd538c81cfbf1d7af37&amp;chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a>
+<img alt="" src="../images/fdb4c49c78e6216c.webp"><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞，我都认真当成了喜欢</p></article></body></html>

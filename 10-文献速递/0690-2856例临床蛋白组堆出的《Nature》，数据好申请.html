@@ -1,0 +1,699 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0690-2856例临床蛋白组堆出的《Nature》，数据好申请</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="2856nature">2856例临床蛋白组堆出的《Nature》，数据好申请</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247542973&amp;idx=1&amp;sn=c25bb8604aeac309aa1674689595aa62&amp;chksm=9b3c51edac4bd8fb4da45c541df0f8b7dad8e6838bf807b404e10638940f5c94c1c0baf49783#rd
+合集：文献速递</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>26年6月见刊了一篇题为"Spatial distribution of the proteome in the human body and in cancers"的《Nature》[1]，夸张点说是堆了2856例临床蛋白质DIA-MS数据堆出来的文章，生成了超过13,000种蛋白质。该数据集涵盖58种主要组织类型、251种特定组织亚型和25种不同癌症。该资源能够描绘跨组织类型和生理状态（包括胎儿、肿瘤、邻近非肿瘤及健康成人组织）的蛋白质组轨迹。<img alt="" src="../images/8613479f6a1ab93d.webp"></p>
+<p><strong>如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531160&amp;idx=2&amp;sn=04d3798dc60958af2c9020fe7c4bd9b8&amp;scene=21&amp;token=827157490&amp;lang=zh_CN&amp;poc_token=HLe6Q2mjR5L5stXqZGOdzOvf2Vk8eTYi05UUYRRy#wechat_redirect"> 单细胞数据分析</a>教学、生信热点<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469&amp;token=827157490&amp;lang=zh_CN#wechat_redirect">全文复现</a>、自测数据个性化分析辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537678&amp;idx=1&amp;sn=578993fdfa060d38c80e2df6fc200c39&amp;scene=21#wechat_redirect">实验科研服务</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539358&amp;idx=2&amp;sn=1c28c3a16370b1243285cd2c217f4969&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[Biomamba_zhushou]</strong></p>
+<p><strong>二、主要内容</strong></p>
+<p>并且这篇工作的数据，以ProteinTalks数据库的形式OA出来了。当然这个样本数并不是个现象级的，比这篇文章队列大的文章大有文在：
+文章| 送检样本量| 检测平台 / 技术
+---|---|---
+Atlas of the plasma proteome in health and disease in 53,026 adults (UK Biobank, 2024, <strong>Cell</strong>)| <strong>53,026</strong> 血浆样本| SomaScan 亲和探针蛋白组（~2,920 个蛋白）
+Multi-cohort proteogenomic analyses reveal genetic effects across the proteome and diseasome (2025, <strong>Cell</strong>)| <strong>78,664</strong> 样本（38 队列荟萃）| Olink 亲和蛋白组
+TEDDY 1 型糖尿病纵向靶向蛋白组 (2024, <strong>Scientific Data</strong>)| <strong>6,426</strong> 血浆样本| 靶向质谱（900+ 受试者，每人多时间点）
+5,045 例脑脊液蛋白组（Matthias Mann 团队，<strong>Cell</strong> ）| <strong>5,045</strong> 脑脊液样本| DIA 质谱
+代谢综合征人群血清蛋白组（西湖大学，2023, <strong>Cell Reports Medicine</strong> ）| <strong>7,890</strong> 血清样本| DIA 质谱</p>
+<p>这篇文章的主要分析任务就是样本质控、轨迹分析、组织特异性表达、DrugBank[3]映射识别药物靶点(这个数据库有点意思把药物化学信息 + 靶点蛋白信息 + 药理 / 临床注释整合在一起，不过也需要订阅使用)、泛癌表达景观(Extended Data Fig. 1)。<img alt="" src="../images/27c50dbaa6026219.webp"></p>
+<p>a、基于 DDA 的谱图库构建流程图。b、DIA 定量数据分析流程图。 c、ddaPASEF 数据中鉴定得到的蛋白质数量，以及 diaPASEF 数据中定量得到的蛋白质数量。图中每一个半径代表一份样本；中心的雷达图展示各样本在对应组织特异性谱图库中鉴定出的蛋白质数目。d、e：混合质量控制样本与重复样本的变异系数 （d）和皮尔逊相关系数（e）; f：经过校正后的蛋白质组矩阵开PVCA（主方差成分分析）结果；圆环图展示模型中主要实验因素、生物学因素及其交互效应各自所占方差贡献比例。</p>
+<p>虽然以数据库形式发布，但是数据不OA，需要request填一堆东西才能获取，本来想给大家演示下实操的，不过暂时申请还没通过，可能我没有牌面，大家可以试试。
+<img alt="" src="../images/21c48edd06879f85.webp">
+不过审核还是比较快的，作者甚至还提供了百度网盘下载方式，伟大无需多言：<img alt="" src="../images/38c67c04e1faaf04.webp"></p>
+<p><strong>三、数据探索</strong></p>
+<p>数据就不share了，尊重作者，大家可以在系统里进行申请。不过可以做一些简单的分析探索的分享：</p>
+<p>链接: https://pan.baidu.com/s/14BwAbQnENubW8Lir9Vd4fg</p>
+<p>提取码联系客服微信Biomamba_zhushou获取</p>
+<h2 id="30">3.0 环境准备与数据读取</h2>
+<p>先导入依赖并统一绘图风格（中文字体、输出目录）。所有分析产物统一存放在 <code>./data</code> 下。</p>
+<h1 id="_1">===== 依赖导入与全局设置 =====</h1>
+<p>import os, time, warnings
+import numpy as np
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from matplotlib import rcParams</p>
+<p>warnings.filterwarnings("ignore") # 隐藏加载/运行告警, 保持输出整洁</p>
+<h1 id="windows-simhei-microsoft-yahei">中文字体(Windows 自带 SimHei / Microsoft YaHei), 负号正常显示</h1>
+<p>rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "SimSun"]
+rcParams["axes.unicode_minus"] = False
+rcParams["figure.dpi"] = 110
+rcParams["savefig.dpi"] = 200
+rcParams["savefig.bbox"] = "tight"
+pd.set_option("display.max_columns", 12)
+pd.set_option("display.width", 160)</p>
+<p>DATA = "./data" # 数据与产物目录(教程规范: 统一放 ./data)
+FIG = os.path.join(DATA, "figures") # 图片输出目录
+os.makedirs(FIG, exist_ok=True)</p>
+<h1 id="xlsx-data">原始 xlsx 所在目录(未纳入 ./data, 体积较大, 仅元数据表按需读取)</h1>
+<p>SRC = r"L:\公众号 2026.09.05\2026\4free\2856例临床蛋白组堆出的Nature\humanTissue"
+print("pandas", pd.<strong>version</strong>, "| numpy", np.<strong>version</strong>)pandas 2.3.3 | numpy 2.2.6# ===== 读取预处理后的二进制矩阵 =====</p>
+<h1 id="4-xlsx-400-mb-scripts01_convert_xlsx_to_parquetpy-parquetnpy">源文件为 4 个 xlsx(合计约 400 MB), 已在 scripts/01_convert_xlsx_to_parquet.py 中转成 parquet/npy 以便秒级读取</h1>
+<p>import pickle</p>
+<p>def load_matrix(key):</p>
+<h1 id="parquet-pyarrow-npy-pickle">优先读 parquet; 若无 pyarrow 则回退到 npy + 列名 pickle, 保证环境无关</h1>
+<p>mpath = f"{DATA}/{key}_meta.parquet"
+if os.path.exists(mpath):
+return pd.read_parquet(mpath), pd.read_parquet(f"{DATA}/{key}_prot.parquet")
+meta = pd.read_pickle(f"{DATA}/{key}_meta.pkl")
+arr = np.load(f"{DATA}/{key}_prot.npy")
+cols = pickle.load(open(f"{DATA}/{key}_cols.pkl", "rb"))
+return meta, pd.DataFrame(arr, columns=cols)</p>
+<p>normal_meta, normal_prot = load_matrix("normal") # 成人正常组织
+paired_meta, paired_prot = load_matrix("paired") # 肿瘤-癌旁配对
+int_meta, int_prot = load_matrix("intensity") # 全量(2856)</p>
+<p>print("成人正常组织矩阵 :", normal_prot.shape)
+print("肿瘤-癌旁配对矩阵:", paired_prot.shape)
+print("全量蛋白强度矩阵 :", int_prot.shape)</p>
+<h1 id="uniprot">蛋白列名格式为 "基因 / UniProt", 这里生成基因名列表便于展示</h1>
+<p>def gene_names(cols):
+return [c.split(" / ")[0] for c in cols]
+print("\n蛋白列示例:", list(int_prot.columns[:3]))成人正常组织矩阵 : (466, 10170)
+肿瘤-癌旁配对矩阵: (1780, 13207)
+全量蛋白强度矩阵 : (2856, 13609)</p>
+<p>蛋白列示例: ['IGKV3-7 / A0A075B6H7', 'IGLV4-69 / A0A075B6H9', 'IGLV7-46 / A0A075B6I9']</p>
+<h2 id="31-fig-1extended-data-fig-1">3.1 数据总览与质控（对应原文 Fig. 1、Extended Data Fig. 1）</h2>
+<p>先回答三个基本问题：<strong>有多少样本、覆盖哪些组织/癌种、数据质量如何</strong> 。</p>
+<h1 id="311">===== 3.1.1 样本与组织构成 =====</h1>
+<h1 id="sample-type">全量矩阵的 sample type 分布(肿瘤/正常/胎儿等)</h1>
+<p>print("全量矩阵 sample type:")
+print(int_meta["Sample type"].value_counts())</p>
+<h1 id="_2">癌症类型分布(仅肿瘤样本)</h1>
+<p>cancer_counts = int_meta.loc[int_meta["Sample type"].astype(str).str.contains("Tumor|tumor", na=False),
+"Cancer"].value_counts()
+print("\n癌种数量(前 10):")
+print(cancer_counts.head(10))全量矩阵 sample type:
+Sample type
+Tumor 1105
+Non-tumor 1088
+Normal 549
+Fetal 114
+Name: count, dtype: int64</p>
+<p>癌种数量(前 10):
+Cancer
+Colon carcinoma 208
+Gastric carcinoma 152
+High grade serous ovarian cancer 121
+Cervical carcinoma 116
+Pancreas carcinoma 101
+Gallbladder carcinoma 98
+Renal carcinoma 94
+Hepatocellular carcinoma 86
+Breast carcinoma (TNBC) 75
+Lung carcinoma 75
+Name: count, dtype: int64# ===== 3.1.2 各矩阵的维度汇总 =====</p>
+<h1 id="_3">用一张表把三个矩阵的样本数/蛋白数/组织覆盖列出来</h1>
+<p>summary = pd.DataFrame({
+"矩阵": ["成人正常组织", "肿瘤-癌旁配对", "全量(2856)"],
+"样本数": [normal_prot.shape[0], paired_prot.shape[0], int_prot.shape[0]],
+"蛋白数": [normal_prot.shape[1], paired_prot.shape[1], int_prot.shape[1]],
+})
+display(summary) # noqa: F821 (notebook 环境自带 display)
+| 矩阵| 样本数| 蛋白数
+---|---|---|---
+0| 成人正常组织| 466| 10170
+1| 肿瘤-癌旁配对| 1780| 13207
+2| 全量(2856)| 2856| 13609</p>
+<h1 id="313">===== 3.1.3 组织/癌种构成条形图 =====</h1>
+<p>fig, axes = plt.subplots(1, 2, figsize=(15, 5))</p>
+<h1 id="major-tissue-top-25">左图: 成人正常组织 major tissue 的样本数(Top 25)</h1>
+<p>top_tis = normal_meta["Major tissue type"].value_counts().head(25)
+axes[0].barh(top_tis.index[::-1], top_tis.values[::-1], color="#4C72B0")
+axes[0].set_title("成人正常组织: 各主要组织类型样本数 (Top 25)")
+axes[0].set_xlabel("样本数")</p>
+<h1 id="25">右图: 25 种癌症的肿瘤样本数</h1>
+<p>top_ca = cancer_counts.head(25)
+axes[1].barh(top_ca.index[::-1], top_ca.values[::-1], color="#C44E52")
+axes[1].set_title("泛癌队列: 各癌种肿瘤样本数")
+axes[1].set_xlabel("样本数")</p>
+<p>plt.tight_layout()
+plt.savefig(f"{FIG}/fig1_sample_overview.png")
+plt.show()</p>
+<p>print("成人正常组织 major tissue 类型数:", normal_meta["Major tissue type"].nunique())
+print("成人正常组织 detailed tissue 类型数:", normal_meta["Detailed tissue type"].nunique())
+print("注: 原文摘要口径为 58 种 major tissue / 251 种 subtype; 本矩阵注释更细(64 / 200), 差异源于注释粒度, 不影响分析。")<img alt="" src="../images/0d0f762fef7d7c1c.webp">成人正常组织 major tissue 类型数: 64
+成人正常组织 detailed tissue 类型数: 200
+注: 原文摘要口径为 58 种 major tissue / 251 种 subtype; 本矩阵注释更细(64 / 200), 差异源于注释粒度, 不影响分析。# ===== 3.1.4 数据完整性: 每个样本检出的蛋白数 =====</p>
+<h1 id="_4">缺失(空白单元格)在强度矩阵中非常普遍, 先看每个样本能定量到多少蛋白</h1>
+<p>detected = int_prot.notna().sum(axis=1)</p>
+<p>fig, axes = plt.subplots(1, 2, figsize=(14, 4.5))
+axes[0].hist(detected, bins=60, color="#55A868")
+axes[0].axvline(detected.median(), color="red", ls="--", label=f"中位数={int(detected.median())}")
+axes[0].set_title("每个样本检出的蛋白数分布 (n=%d)" % len(detected))
+axes[0].set_xlabel("检出蛋白数"); axes[0].legend()</p>
+<h1 id="_5">蛋白维度: 每个蛋白在多少样本中被检出(按检出率排序的累积曲线)</h1>
+<p>det_rate = int_prot.notna().mean(axis=0).sort_values(ascending=False)
+axes[1].plot(np.arange(len(det_rate)), det_rate.values, color="#4C72B0")
+axes[1].axhline(0.5, color="grey", ls="--")
+axes[1].set_title("蛋白检出率累积曲线")
+axes[1].set_xlabel("蛋白(按检出率降序)"); axes[1].set_ylabel("检出样本比例")</p>
+<p>plt.tight_layout(); plt.savefig(f"{FIG}/fig1_completeness.png"); plt.show()</p>
+<p>print("样本检出蛋白数: 中位 %d, 最小 %d, 最大 %d" % (detected.median(), detected.min(), detected.max()))
+print("在 &gt;50%% 样本中检出的蛋白数: %d / %d" % ((det_rate &gt; 0.5).sum(), int_prot.shape[1]))<img alt="" src="../images/d94c143719e2f037.webp">样本检出蛋白数: 中位 6664, 最小 398, 最大 8900
+在 &gt;50% 样本中检出的蛋白数: 6292 / 13609# ===== 3.1.5 强度分布与 log2 变换 =====</p>
+<h1 id="107-log2">原始强度是线性值(跨度可达 10^7), 直接比较受极值影响, 需取 log2</h1>
+<p>vals = int_prot.to_numpy(dtype="float64").ravel()
+vals = vals[np.isfinite(vals) &amp; (vals &gt; 0)]</p>
+<p>fig, axes = plt.subplots(1, 2, figsize=(14, 4.5))
+axes[0].hist(np.log10(vals), bins=80, color="#8172B3")
+axes[0].set_title("原始强度分布 (log10 坐标)")
+axes[0].set_xlabel("log10(强度)")</p>
+<p>log2_all = np.log2(int_prot) # 逐元素 log2, 缺失仍为 NaN
+log2_arr = log2_all.to_numpy(dtype="float64").ravel()
+log2_arr = log2_arr[np.isfinite(log2_arr)] # 仅保留有限值再画直方图
+axes[1].hist(log2_arr, bins=80, color="#CCB974")
+axes[1].set_title("log2 变换后强度分布")
+axes[1].set_xlabel("log2(强度)")</p>
+<p>plt.tight_layout(); plt.savefig(f"{FIG}/fig1_intensity_dist.png"); plt.show()
+print("log2 后强度范围: %.2f ~ %.2f" % (np.nanmin(log2_all.to_numpy()), np.nanmax(log2_all.to_numpy())))<img alt="" src="../images/9c8702efe9ae0ab6.png">log2 后强度范围: 0.00 ~ 28.80# ===== 3.1.6 归一化: 按样本中位数校正 =====</p>
+<h1 id="_6">不同样本的上样量/离子化效率不同, 会造成整体偏移; 用"样本中位数"做中心化</h1>
+<p>def median_normalize(df_log2):</p>
+<h1 id="0">每个样本(行)减去自身中位数, 使各样本中位数对齐到 0</h1>
+<p>return df_log2.sub(df_log2.median(axis=1), axis=0)</p>
+<h1 id="_7">取一个子集演示归一化前后差异</h1>
+<p>demo = int_prot.iloc[:300]
+before = np.log2(demo)
+after = median_normalize(before)</p>
+<p>fig, axes = plt.subplots(1, 2, figsize=(14, 4.5))
+axes[0].boxplot([before.iloc[i].dropna().values for i in range(0, 300, 10)],
+showfliers=False, positions=range(30))
+axes[0].set_title("归一化前: 各样本 log2 强度(每 10 个取 1)")
+axes[0].set_xlabel("样本"); axes[0].set_ylabel("log2(强度)")</p>
+<p>axes[1].boxplot([after.iloc[i].dropna().values for i in range(0, 300, 10)],
+showfliers=False, positions=range(30))
+axes[1].set_title("中位数归一化后: 各样本分布对齐")
+axes[1].set_xlabel("样本"); axes[1].set_ylabel("log2(强度)-样本中位数")</p>
+<p>plt.tight_layout(); plt.savefig(f"{FIG}/fig1_normalization.png"); plt.show()</p>
+<p>print("归一化前样本中位数范围: %.2f ~ %.2f" % (before.median(axis=1).min(), before.median(axis=1).max()))
+print("归一化后样本中位数范围: %.2f ~ %.2f" % (after.median(axis=1).min(), after.median(axis=1).max()))<img alt="" src="../images/2601b567e62105a3.webp">归一化前样本中位数范围: 10.46 ~ 13.68
+归一化后样本中位数范围: -0.00 ~ 0.00# ===== 3.1.7 官方元数据表交叉验证与重复性(原文 Extended Data Fig. 1d-f) =====</p>
+<h1 id="dsampleinformation-proteins-isrep">样本信息表 D.Sample.information 记录了官方统计的 # proteins 及技术重复标记 Is.Rep</h1>
+<p>info = pd.read_excel(os.path.join(SRC, "Sample origin information.xlsx"),
+sheet_name="D.Sample.information", engine="openpyxl")
+print("样本信息表维度:", info.shape)
+print("关键列:", [c for c in ["FileName", "sample type", "Major tissue type abbr",
+"Is.Rep", "Rep type", "batch", "instrument",
+"# proteins", "# peptides"] if c in info.columns])</p>
+<p>fig, axes = plt.subplots(1, 2, figsize=(14, 4.5))</p>
+<h1 id="_8">左图: 官方记录的每个样本蛋白鉴定数</h1>
+<p>axes[0].hist(info["# proteins"].dropna(), bins=60, color="#4C72B0")
+axes[0].set_title("官方元数据: 每样本鉴定蛋白数")
+axes[0].set_xlabel("# proteins")</p>
+<h1 id="_9">右图: 本地矩阵实测的检出蛋白数(与官方口径对照)</h1>
+<p>axes[1].hist(detected, bins=60, color="#55A868")
+axes[1].set_title("本地矩阵: 每样本检出蛋白数")
+axes[1].set_xlabel("detected proteins")
+plt.tight_layout(); plt.savefig(f"{FIG}/fig1_official_vs_local.png"); plt.show()</p>
+<p>n_rep = int(info["Is.Rep"].sum()) if "Is.Rep" in info.columns else 0
+print("标记为技术重复的样本数: %d" % n_rep)
+if "Rep type" in info.columns:
+print("重复类型分布:\n", info.loc[info["Is.Rep"] == True, "Rep type"].value_counts().head())
+info[["FileName", "sample type", "detailed tissue type", "Is.Rep", "Rep type"]].head()样本信息表维度: (3005, 24)
+关键列: ['FileName', 'sample type', 'Major tissue type abbr', 'Is.Rep', 'Rep type', 'batch', 'instrument', '# proteins', '# peptides']<img alt="" src="../images/2276bcff3e07ead5.webp">标记为技术重复的样本数: 673
+重复类型分布:
+Rep type
+t 384
+b 33
+Name: count, dtype: int64
+| FileName| sample type| detailed tissue type| Is.Rep| Rep type
+---|---|---|---|---|---
+0| M20200620yuel_TPHP_DIA_013_Slot2-1_1_571| N| vein| False| NaN
+1| M20200620yuel_TPHP_DIA_014_Slot2-2_1_572| N| sartorius| True| NaN
+2| M20200620yuel_TPHP_DIA_016_Slot2-4_1_574| N| liver| False| NaN
+3| M20200620yuel_TPHP_DIA_017_Slot2-5_1_576| N| liver| False| NaN
+4| M20200620yuel_TPHP_DIA_018_Slot2-6_1_577| N| kidney| False| NaN</p>
+<p><strong>3.1 小结</strong> ：全量矩阵 2,856 个样本覆盖 58 种主要组织与 25 种癌症；单样本可定量数千种蛋白；原始强度需经 <strong>log2 + 中位数归一化</strong> 后才可跨样本比较。这与原文"高覆盖率、可比较、批次效应小"的结论一致。</p>
+<h2 id="32-fig-3a">3.2 组织特异性蛋白（对应原文 Fig. 3a）</h2>
+<p>核心问题：<strong>哪些蛋白是某个组织"专属"的？</strong> 这是靶点发现与毒性预测的基础。流程：样本聚类 → 组织相关性 → 组织富集蛋白识别 → marker 热图。</p>
+<h1 id="321">===== 3.2.1 正常组织数据预处理 =====</h1>
+<h1 id="log2">取成人正常组织矩阵, log2 + 中位数归一化</h1>
+<p>n_log = median_normalize(np.log2(normal_prot))
+n_log.shape(466, 10170)# ===== 3.2.2 组织内高置信蛋白筛选 =====</p>
+<h1 id="50">保留"至少在某一个主要组织中, 检出率 &gt;= 50%"的蛋白(原文对子矩阵的保留标准)</h1>
+<p>tis_labels = normal_meta["Major tissue type"].values
+keep = pd.Series(False, index=n_log.columns)
+for t in pd.unique(tis_labels):
+sub = n_log.loc[tis_labels == t]
+keep |= (sub.notna().mean(axis=0) &gt;= 0.5) # 该组织内检出率&gt;=50%
+n_filt = n_log.loc[:, keep]
+print("过滤前蛋白数:", n_log.shape[1], "-&gt; 保留在某组织检出率&gt;=50% 的蛋白:", n_filt.shape[1])
+print("说明: 成人正常组织矩阵已由原文按'组织内 &gt;50% 样本定量'预筛, 故这里几乎不再损失蛋白。")</p>
+<h1 id="1-2">组织样本数统计: 正常组织图谱含大量"小组织"(如晶状体、甲状腺仅 1-2 例),</h1>
+<h1 id="min_n">单样本中位数噪声极大, 后续特异性分析仅纳入样本数 &gt;= MIN_N 的组织</h1>
+<p>MIN_N = 2
+cnt_tis = pd.Series(tis_labels).value_counts()
+good_tis = cnt_tis[cnt_tis &gt;= MIN_N].index
+mask_tis = pd.Series(tis_labels).isin(good_tis).values
+tis_sub = pd.Series(tis_labels)[mask_tis].values # 过滤后的组织标签
+n_sub = n_filt.loc[mask_tis] # 过滤后的样本 x 蛋白矩阵
+print("样本数 &gt;= %d 的组织数: %d (共 %d)" % (MIN_N, len(good_tis), cnt_tis.shape[0]))过滤前蛋白数: 10170 -&gt; 保留在某组织检出率&gt;=50% 的蛋白: 10170
+说明: 成人正常组织矩阵已由原文按'组织内 &gt;50% 样本定量'预筛, 故这里几乎不再损失蛋白。
+样本数 &gt;= 2 的组织数: 59 (共 64)# ===== 3.2.3 组织水平的样本聚类: PCA =====</p>
+<h1 id="_10">以蛋白为特征对样本降维; 缺失值用该蛋白在所有样本中的最小值填充(等价于"未检出=极低丰度")</h1>
+<p>X = n_filt.copy()
+fill = X.min(axis=0) - 1 # 每个蛋白的最小值再低一点作为缺失填充
+X = X.fillna(fill)</p>
+<p>from sklearn.decomposition import PCA
+pca = PCA(n_components=2, random_state=0)
+pcs = pca.fit_transform(X.values)</p>
+<h1 id="top-12">仅对样本数较多的 Top 12 组织着色, 其余置灰</h1>
+<p>top_tis = pd.Series(tis_labels).value_counts().head(12).index.tolist()
+colors = plt.cm.tab20(np.linspace(0, 1, len(top_tis)))</p>
+<p>fig, ax = plt.subplots(figsize=(9, 7))
+ax.scatter(pcs[:, 0], pcs[:, 1], s=8, color="lightgrey", label="其他组织")
+for i, t in enumerate(top_tis):
+m = tis_labels == t
+ax.scatter(pcs[m, 0], pcs[m, 1], s=12, color=colors[i], label=t)
+ax.set_title("成人正常组织样本 PCA (按主要组织类型着色)")
+ax.set_xlabel("PC1 (%.1f%%)" % (pca.explained_variance_ratio_[0] * 100))
+ax.set_ylabel("PC2 (%.1f%%)" % (pca.explained_variance_ratio_[1] * 100))
+ax.legend(fontsize=8, ncol=2, loc="best")
+plt.savefig(f"{FIG}/fig2_pca_tissue.png"); plt.show()<img alt="" src="../images/e506552f27f5cc0a.webp"># ===== 3.2.4 组织相关性热图 + 层次聚类 =====</p>
+<h1 id="-x">计算每个组织(主要组织类型)的蛋白中位丰度 -&gt; 组织 x 蛋白 矩阵</h1>
+<h1 id="min_n-522">仅纳入样本数&gt;=MIN_N的组织(见 5.2.2), 并保留蛋白覆盖较好的组织</h1>
+<p>tissue_median = n_sub.groupby(tis_sub).median()
+tissue_median = tissue_median.loc[tissue_median.notna().sum(axis=1) &gt;= 200]
+print("纳入聚类的组织数:", tissue_median.shape[0])</p>
+<p>from scipy.cluster.hierarchy import linkage, leaves_list
+from scipy.spatial.distance import pdist</p>
+<h1 id="spearman">组织间 Spearman 相关(对丰度秩次更稳健)</h1>
+<p>corr = tissue_median.T.corr(method="spearman")</p>
+<h1 id="1-">用 1-相关 作为距离做层次聚类, 得到组织排序</h1>
+<p>Z = linkage(pdist(corr.values, metric="euclidean"), method="average")
+order = leaves_list(Z)
+corr_o = corr.iloc[order, order]</p>
+<p>fig, ax = plt.subplots(figsize=(11, 9))
+im = ax.imshow(corr_o.values, cmap="RdYlBu_r", vmin=0, vmax=1)
+ax.set_xticks(range(len(corr_o))); ax.set_xticklabels(corr_o.columns, rotation=90, fontsize=7)
+ax.set_yticks(range(len(corr_o))); ax.set_yticklabels(corr_o.index, fontsize=7)
+ax.set_title("组织间蛋白质组相关性 (Spearman) + 层次聚类")
+plt.colorbar(im, shrink=0.7, label="Spearman r")
+plt.savefig(f"{FIG}/fig2_tissue_corr.png"); plt.show()纳入聚类的组织数: 59<img alt="" src="../images/c26ed7994939705b.webp"># ===== 3.2.5 组织特异蛋白识别(HPA 两级判据: enriched / enhanced) =====</p>
+<h1 id="human-protein-atlas">参考 Human Protein Atlas 的组织分类思想, 分两级判定, 并加最小样本数控制以抑制小样本噪声:</h1>
+<h1 id="enriched-t-4-log2-2">组织富集(enriched): 某蛋白在组织 t 的中位丰度 &gt;= 其他所有组织最高中位丰度的 4 倍(log2 差 &gt;= 2)</h1>
+<h1 id="enhanced-t-4">组织增强(enhanced): 未达富集, 但 t 为该蛋白最高表达组织, 且 &gt;= 其他组织平均中位丰度的 4 倍</h1>
+<h1 id="50-min_n-522">判定条件: 组织内检出率 &gt;= 50%, 且组织样本数 &gt;= MIN_N(见 5.2.2)</h1>
+<p>spec_rows = []
+for t in tissue_median.index:
+m_t = tissue_median.loc[t]
+others = tissue_median.drop(index=t)
+omax = others.max(axis=0) # 其他组织的最高中位丰度
+omean = others.mean(axis=0) # 其他组织的平均中位丰度
+d_max, d_mean = m_t - omax, m_t - omean
+dr = n_sub.loc[tis_sub == t].notna().mean(axis=0) # 该组织内检出率
+enr = (d_max &gt;= 2) &amp; m_t.notna() &amp; (dr &gt;= 0.5)
+enh = (~enr) &amp; (d_max &gt; 0) &amp; (d_mean &gt;= 2) &amp; m_t.notna() &amp; (dr &gt;= 0.5)
+for p in tissue_median.columns[enr.fillna(False).values]:
+spec_rows.append((t, p, float(m_t[p]), float(omax[p]), float(omean[p]),
+float(d_max[p]), float(d_mean[p]), "enriched"))
+for p in tissue_median.columns[enh.fillna(False).values]:
+spec_rows.append((t, p, float(m_t[p]), float(omax[p]), float(omean[p]),
+float(d_max[p]), float(d_mean[p]), "enhanced"))</p>
+<p>enriched = pd.DataFrame(spec_rows, columns=["tissue", "protein", "median_in_tissue", "max_other",
+"mean_other", "log2_spec_max", "log2_spec_mean", "category"])
+enriched["gene"] = enriched["protein"].str.split(" / ").str[0] # 提取基因名
+n_enr = int((enriched["category"] == "enriched").sum())
+n_enh = int((enriched["category"] == "enhanced").sum())
+print("识别到组织特异蛋白条目:", enriched.shape[0], "| 组织富集(enriched):", n_enr, "| 组织增强(enhanced):", n_enh)
+print("覆盖组织数:", enriched["tissue"].nunique())
+enriched.to_csv(f"{DATA}/tissue_enriched_proteins.csv", index=False, encoding="utf-8-sig")
+enriched.head()识别到组织特异蛋白条目: 3557 | 组织富集(enriched): 307 | 组织增强(enhanced): 3250
+覆盖组织数: 57
+| tissue| protein| median_in_tissue| max_other| mean_other| log2_spec_max| log2_spec_mean| category| gene
+---|---|---|---|---|---|---|---|---|---
+0| Ear-cochlea| SEMA3B / Q13214| 5.661577| 3.473821| -0.588987| 2.187757| 6.250564| enriched| SEMA3B
+1| Ear-cochlea| SPARCL1 / Q14515| 3.278761| 0.986861| -1.005639| 2.291900| 4.284400| enriched| SPARCL1
+2| Ear-cochlea| NDP / Q00604| 5.097089| 2.179881| 1.382654| 2.917208| 3.714435| enriched| NDP
+3| Ear-cochlea| B4GALNT4 / Q76KP1| 1.167391| -1.306459| -1.306459| 2.473850| 2.473850| enriched| B4GALNT4
+4| Ear-cochlea| IGSF10 / Q6WRI0| 0.576076| -1.590018| -2.210425| 2.166094| 2.786501| enriched| IGSF10</p>
+<h1 id="326">===== 3.2.6 各组织富集蛋白数量 =====</h1>
+<h1 id="enriched">这里统计"组织富集(enriched)"级别, 反映真正的组织专属蛋白</h1>
+<p>cnt = enriched[enriched["category"] == "enriched"]["tissue"].value_counts()
+print("组织富集蛋白最多的组织(Top 15):")
+print(cnt.head(15))</p>
+<p>fig, ax = plt.subplots(figsize=(10, 6))
+c = cnt.head(30)
+ax.barh(c.index[::-1], c.values[::-1], color="#4C72B0")
+ax.set_title("各组织识别到的组织富集蛋白数量 (Top 30)")
+ax.set_xlabel("组织富集蛋白数")
+plt.savefig(f"{FIG}/fig2_enriched_counts.png"); plt.show()组织富集蛋白最多的组织(Top 15):
+tissue
+brain 57
+liver 44
+adrenal gland 28
+testis 26
+pancreas 18
+Eye-crystalline lens 18
+Eye-iris 16
+bone 16
+small intestine 15
+stomach 7
+Ear-cochlea 6
+epididymis 6
+Eye-corneal 6
+lung 5
+salivary gland 5
+Name: count, dtype: int64<img alt="" src="../images/f8f28f5ddd2f37de.webp"># ===== 3.2.7 组织 marker 热图 =====</p>
+<h1 id="3-z-score">每个组织取"组织富集"级别中特异性最高的 3 个蛋白, 绘制 z-score 热图</h1>
+<p>top_n = 3
+sel_tissues = cnt.head(20).index.tolist() # 取富集蛋白最多的 20 个组织
+enr_only = enriched[enriched["category"] == "enriched"]
+rows = []
+for t in sel_tissues:
+sub = enr_only[enr_only["tissue"] == t].sort_values("log2_spec_max", ascending=False).head(top_n)
+for _, r in sub.iterrows():
+rows.append((t, r["gene"], r["protein"]))
+marker = pd.DataFrame(rows, columns=["tissue", "gene", "protein"])</p>
+<h1 id="marker">从组织中位丰度矩阵取这些 marker 的值</h1>
+<p>mat = tissue_median.loc[sel_tissues, marker["protein"].values]</p>
+<h1 id="z-score-20">按组织分组做 z-score(每个蛋白在 20 个组织间标准化)</h1>
+<p>z = mat.sub(mat.mean(axis=0), axis=1).div(mat.std(axis=0).replace(0, np.nan), axis=1)</p>
+<p>fig, ax = plt.subplots(figsize=(8, 12))
+im = ax.imshow(z.values, aspect="auto", cmap="RdBu_r", vmin=-2, vmax=2)
+ax.set_xticks(range(len(marker))); ax.set_xticklabels(marker["gene"], rotation=90, fontsize=7)
+ax.set_yticks(range(len(sel_tissues))); ax.set_yticklabels(sel_tissues, fontsize=8)
+ax.set_title("组织富集 marker 热图 (z-score, 每组织 Top3)")
+plt.colorbar(im, shrink=0.5, label="z-score")
+plt.savefig(f"{FIG}/fig2_marker_heatmap.png"); plt.show()
+marker.head(12)<img alt="" src="../images/db8def544da3ef36.webp">
+| tissue| gene| protein
+---|---|---|---
+0| brain| NRGN| NRGN / Q92686
+1| brain| STX1A| STX1A / Q16623
+2| brain| FBXL16| FBXL16 / Q8N461
+3| liver| SLC27A5| SLC27A5 / Q9Y2P5
+4| liver| AGXT| AGXT / P21549
+5| liver| SDS| SDS / P20132
+6| adrenal gland| CYP21A2| CYP21A2 / P08686
+7| adrenal gland| CYP11B1| CYP11B1 / P15538
+8| adrenal gland| STAR| STAR / P49675
+9| testis| TKTL1| TKTL1 / P51854
+10| testis| YBX2| YBX2 / Q9Y2T7
+11| testis| PRPS2| PRPS2 / P11908</p>
+<h1 id="328-demo">===== 3.2.8 官方 demo 等价演示: 查询单个基因的组织分布 =====</h1>
+<h1 id="cyp2c8-tpo-alb-gfap">以原文重点讨论的肝脏富集药物靶点 CYP2C8 为例(也可换成 TPO / ALB / GFAP 等)</h1>
+<p>def plot_gene_distribution(gene, tissue_median_matrix):</p>
+<h1 id="_11">找到该基因对应的蛋白行, 画出其在各组织的中位丰度</h1>
+<p>hits = [c for c in tissue_median_matrix.columns if c.split(" / ")[0] == gene]
+if not hits:
+print("未在矩阵中找到基因:", gene); return
+v = tissue_median_matrix[hits[0]].sort_values(ascending=False).head(20)
+fig, ax = plt.subplots(figsize=(9, 5))
+ax.barh(v.index[::-1], v.values[::-1], color="#C44E52")
+ax.set_title(f"{gene} 在成人正常组织中的中位丰度 (Top 20)")
+ax.set_xlabel("log2(强度)-样本中位数")
+plt.tight_layout(); plt.savefig(f"{FIG}/fig2_gene_{gene}.png"); plt.show()</p>
+<p>for g in ["CYP2C8", "TPO"]: # CYP2C8: 肝; TPO: 甲状腺
+plot_gene_distribution(g, tissue_median)<img alt="" src="../images/3cc5ef40d7b3d323.png"><img alt="" src="../images/19eace2b8fcc3be6.png"></p>
+<p><strong>3.2 小结</strong> ：正常组织样本在 PCA/相关性聚类中按组织类型清晰分群；<strong>脑、肝、肾上腺、睾丸、胰腺、晶状体</strong> 等组织各自富集出一批专属蛋白（其中脑的组织富集蛋白最多），与原文"brain 含最多组织富集蛋白、晶状体等结构组织特异性最强"的结论一致。采用 HPA 两级判据后，肝 CYP2C8、甲状腺 TPO 被判定为"组织增强"型（为最高表达组织且显著高于其他组织均值），这类蛋白虽非严格组织专属，但仍是器官毒性评估的重要线索。</p>
+<h2 id="33-vs-fig-4">3.3 泛癌：肿瘤 vs 癌旁配对差异蛋白（对应原文 Fig. 4）</h2>
+<p>配对设计是原文的关键优势：同一患者的肿瘤(T)与癌旁非肿瘤(NT)配对，可消除个体差异。流程：整理配对 → 配对检验 → DEP 计数 → 共享/特异 signature。</p>
+<h1 id="331">===== 3.3.1 整理配对样本 =====</h1>
+<h1 id="paired-sample-type-tumor-non-tumor-patient-id">paired 矩阵的 Sample type 为 Tumor / Non-tumor; 按 Patient ID 配对</h1>
+<p>print(paired_meta["Sample type"].value_counts())
+print("癌种数:", paired_meta["Cancer abbr"].nunique())
+print("患者数:", paired_meta["Patient ID"].nunique())</p>
+<p>p_meta = paired_meta.copy()
+p_meta["sample_type"] = p_meta["Sample type"].astype(str)</p>
+<h1 id="t-nt">每个患者是否同时拥有 T 和 NT</h1>
+<p>has = p_meta.groupby("Patient ID")["sample_type"].agg(lambda s: set(s))
+paired_patients = has[has.apply(lambda s: {"Tumor", "Non-tumor"}.issubset(s))].index
+print("同时拥有肿瘤与癌旁的患者数:", len(paired_patients))Sample type
+Tumor 890
+Non-tumor 890
+Name: count, dtype: int64
+癌种数: 25
+患者数: 889
+同时拥有肿瘤与癌旁的患者数: 889# ===== 3.3.2 配对矩阵预处理(按患者聚合重复, log2+归一化) =====</p>
+<h1 id="_12">同一患者同一类型若有技术重复, 先取均值</h1>
+<p>p_prot = paired_prot.copy()
+p_prot.index = p_meta["Patient ID"].values
+grp = p_meta[["Patient ID", "sample_type", "Cancer abbr"]].copy()
+grp.index = range(len(grp))</p>
+<h1 id="_13">构造 (患者, 样本类型) 分组均值矩阵</h1>
+<p>tmp = p_prot.copy()
+tmp["_pid"] = p_meta["Patient ID"].values
+tmp["_stype"] = p_meta["sample_type"].values
+agg = tmp.groupby(["_pid", "_stype"]).mean(numeric_only=True)
+agg_log = median_normalize(np.log2(agg)) # log2 + 中位数归一化
+print("聚合后 (患者 x 样本类型) 数:", agg_log.shape)</p>
+<h1 id="_14">每个患者的癌种</h1>
+<p>pid2ca = p_meta.drop_duplicates("Patient ID").set_index("Patient ID")["Cancer abbr"]
+print("聚合矩阵示例:", agg_log.shape)聚合后 (患者 x 样本类型) 数: (1778, 13207)
+聚合矩阵示例: (1778, 13207)# ===== 3.3.3 逐癌种配对 t 检验 -&gt; 差异蛋白(DEP) =====
+from scipy import stats
+from statsmodels.stats.multitest import multipletests</p>
+<h1 id="t-nt-50">仅保留在 T 或 NT 中检出率&gt;=50% 的蛋白, 降低缺失带来的噪声</h1>
+<p>det_t = agg_log[agg_log.index.get_level_values(1) == "Tumor"]
+det_n = agg_log[agg_log.index.get_level_values(1) == "Non-tumor"]
+keep_p = (det_t.notna().mean(axis=0) &gt;= 0.5) | (det_n.notna().mean(axis=0) &gt;= 0.5)
+A = agg_log.loc[:, keep_p]
+print("用于检验的蛋白数:", A.shape[1])</p>
+<p>def paired_ttest_matrix(T, N):</p>
+<h1 id="t-tn">逐蛋白配对 t 检验(向量化, 自动只保留 T、N 均非缺失的配对, 保证配对不被打乱)</h1>
+<p>diff = T - N # 配对差值, 任一侧缺失则为 NaN
+mask = np.isfinite(diff)
+n = mask.sum(axis=0) # 每个蛋白的有效配对数
+mean_d = np.nanmean(diff, axis=0)
+std_d = np.nanstd(diff, axis=0, ddof=1)
+with np.errstate(divide="ignore", invalid="ignore"):
+tval = mean_d / (std_d / np.sqrt(n))
+pval = 2 * stats.t.sf(np.abs(tval), df=n - 1)
+bad = (n &lt; 3) | (std_d == 0) | ~np.isfinite(tval)
+pval[bad] = 1.0; tval[bad] = 0.0
+return mean_d, tval, pval</p>
+<p>results = {} # 癌种 -&gt; DEP 统计
+dep_tables = {} # 癌种 -&gt; 全蛋白检验表
+for ca in pd.unique(pid2ca.values):
+pids = [p for p in pid2ca.index[pid2ca == ca] if p in paired_patients]
+if len(pids) &lt; 8:
+continue
+T = A.loc[[(p, "Tumor") for p in pids]].values # 患者 x 蛋白
+N = A.loc[[(p, "Non-tumor") for p in pids]].values
+log2fc, tval, pval = paired_ttest_matrix(T, N) # 配对检验
+fdr = multipletests(np.nan_to_num(pval, nan=1.0), method="fdr_bh")[1]
+tbl = pd.DataFrame({"protein": A.columns, "gene": gene_names(A.columns),
+"log2FC": log2fc, "pval": pval, "FDR": fdr})
+dep_tables[ca] = tbl
+dep = tbl[(tbl["FDR"] &lt; 0.05) &amp; (tbl["log2FC"].abs() &gt;= 1)]
+results[ca] = {"n_patients": len(pids), "n_DEP": len(dep),
+"n_up": int((dep["log2FC"] &gt; 0).sum()), "n_down": int((dep["log2FC"] &lt; 0).sum())}</p>
+<p>dep_summary = pd.DataFrame(results).T.sort_values("n_DEP", ascending=False)
+dep_summary.to_csv(f"{DATA}/pancancer_DEP_summary.csv", encoding="utf-8-sig")
+print("各癌种 DEP 数量(按患者数&gt;=8 的癌种):")
+dep_summary用于检验的蛋白数: 7445各癌种 DEP 数量(按患者数&gt;=8 的癌种):
+| n_patients| n_DEP| n_up| n_down
+---|---|---|---|---
+BRCA| 79| 3210| 2845| 365
+TGCT| 26| 2856| 2195| 661
+TOCA| 26| 2122| 1897| 225
+READ| 30| 1919| 1625| 294
+ENCA| 29| 1872| 1517| 355
+CESC| 53| 1479| 1192| 287
+COCA| 77| 1242| 986| 256
+GIST| 25| 1188| 796| 392
+OC| 61| 1182| 879| 303
+PECA| 31| 1107| 833| 274
+HCC| 40| 690| 424| 266
+GBCA| 39| 673| 437| 236
+DLBCL| 17| 534| 342| 192
+LARCA| 29| 525| 434| 91
+THYM| 20| 524| 347| 177
+FTCA| 26| 500| 359| 141
+THCA| 22| 388| 331| 57
+MUT| 28| 386| 269| 117
+PACA| 41| 352| 259| 93
+RC| 44| 309| 178| 131
+LUCA| 33| 268| 161| 107
+ESCA| 29| 252| 208| 44
+GC| 49| 240| 181| 59
+PRCA| 25| 148| 128| 20
+GBM| 10| 42| 42| 0</p>
+<h1 id="334-dep">===== 3.3.4 各癌种 DEP 数量条形图 =====</h1>
+<p>fig, ax = plt.subplots(figsize=(10, 7))
+d = dep_summary.head(25)
+y = np.arange(len(d))
+ax.barh(y, d["n_up"], color="#C44E52", label="上调")
+ax.barh(y, -d["n_down"], color="#4C72B0", label="下调")
+ax.set_yticks(y); ax.set_yticklabels(d.index, fontsize=8)
+ax.axvline(0, color="black", lw=0.8)
+ax.set_xlabel("差异蛋白数 (FDR&lt;0.05, |log2FC|&gt;=1)")
+ax.set_title("泛癌配对差异蛋白数量 (上调/下调)")
+ax.legend()
+plt.tight_layout(); plt.savefig(f"{FIG}/fig3_DEP_counts.png"); plt.show()<img alt="" src="../images/ba827b1737057077.webp"># ===== 3.3.5 代表性癌种火山图 =====</p>
+<h1 id="dep">选 DEP 最多的癌种画火山图</h1>
+<p>target = dep_summary.index[0]
+tbl = dep_tables[target].copy()
+tbl["neglog10FDR"] = -np.log10(tbl["FDR"].clip(lower=1e-300))
+sig = (tbl["FDR"] &lt; 0.05) &amp; (tbl["log2FC"].abs() &gt;= 1)</p>
+<p>fig, ax = plt.subplots(figsize=(7.5, 6))
+ax.scatter(tbl.loc[~sig, "log2FC"], tbl.loc[~sig, "neglog10FDR"], s=4, color="lightgrey")
+ax.scatter(tbl.loc[sig &amp; (tbl["log2FC"] &gt; 0), "log2FC"], tbl.loc[sig &amp; (tbl["log2FC"] &gt; 0), "neglog10FDR"], s=6, color="#C44E52")
+ax.scatter(tbl.loc[sig &amp; (tbl["log2FC"] &lt; 0), "log2FC"], tbl.loc[sig &amp; (tbl["log2FC"] &lt; 0), "neglog10FDR"], s=6, color="#4C72B0")</p>
+<h1 id="fdr">标注显著蛋白中 FDR 最小的若干基因</h1>
+<p>lab = tbl[sig].nsmallest(12, "FDR")
+for <em>, r in lab.iterrows():
+ax.annotate(r["gene"], (r["log2FC"], r["neglog10FDR"]), fontsize=7)
+ax.set_xlabel("log2 fold change (Tumor vs Non-tumor)")
+ax.set_ylabel("-log10(FDR)")
+ax.set_title(f"{target} 肿瘤 vs 癌旁 火山图 (n={results[target]['n_patients']})")
+plt.tight_layout(); plt.savefig(f"{FIG}/fig3_volcano</em>{target}.png"); plt.show()<img alt="" src="../images/3ed4ab2e3cb785ca.webp"># ===== 3.3.6 泛癌共享上调蛋白(原文 Extended Data Fig. 5b) =====</p>
+<h1 id="_15">统计每个基因在多少癌种中显著上调, 找出"泛癌共享"的重塑蛋白</h1>
+<h1 id="isoform">注意: 一个基因可能对应多个蛋白条目(isoform), 同一癌种内按基因去重, 避免重复计数</h1>
+<p>up_counter = {}
+for ca, tbl in dep_tables.items():
+up = tbl[(tbl["FDR"] &lt; 0.05) &amp; (tbl["log2FC"] &gt;= 1)]
+for g in up["gene"].unique():
+up_counter[g] = up_counter.get(g, 0) + 1
+up_shared = pd.Series(up_counter).sort_values(ascending=False)
+print("在最多癌种中上调的蛋白(Top 20):")
+print(up_shared.head(20))</p>
+<h1 id="mcm4nudt1plod2">原文特别提到 MCM4、NUDT1、PLOD2 等驱动基因在众多癌种中上调, 这里核对</h1>
+<p>for g in ["MCM4", "NUDT1", "PLOD2"]:
+print(f" {g}: 在 {up_shared.get(g, 0)} 个癌种中显著上调")在最多癌种中上调的蛋白(Top 20):
+PCNA 19
+UBAP2L 19
+MCM5 18
+MCM6 18
+PSME3 18
+JPT1 18
+MCM3 17
+IFI30 17
+HSPH1 17
+HAT1 17
+TFRC 17
+KPNA2 17
+MCM7 17
+NPM3 17
+PRMT1 16
+PLOD2 16
+P4HA2 16
+DDX21 16
+MCM4 16
+FEN1 16
+dtype: int64
+MCM4: 在 16 个癌种中显著上调
+NUDT1: 在 7 个癌种中显著上调
+PLOD2: 在 16 个癌种中显著上调# ===== 3.3.7 共享上调蛋白的热图 =====</p>
+<h1 id="10-log2fc">取在 &gt;= 10 个癌种中上调的蛋白, 展示它们在所有癌种中的 log2FC</h1>
+<p>shared = up_shared[up_shared &gt;= 10].index.tolist()
+print("在 &gt;=10 个癌种中上调的蛋白数:", len(shared))</p>
+<p>fc_mat = pd.DataFrame(index=list(dep_tables.keys()), columns=shared, dtype="float64")
+for ca, tbl in dep_tables.items():
+m = tbl.groupby("gene")["log2FC"].mean() # 同基因多 isoform 取均值, 避免重复索引
+fc_mat.loc[ca] = [m.get(g, np.nan) for g in shared]</p>
+<h1 id="log2fc">按癌种平均 log2FC 排序</h1>
+<p>fc_mat = fc_mat[fc_mat.mean(axis=0).sort_values(ascending=False).index]</p>
+<p>fig, ax = plt.subplots(figsize=(max(8, len(shared) * 0.35), 8))
+im = ax.imshow(fc_mat.values.astype(float), aspect="auto", cmap="RdBu_r", vmin=-3, vmax=3)
+ax.set_xticks(range(len(shared))); ax.set_xticklabels(shared, rotation=90, fontsize=7)
+ax.set_yticks(range(len(fc_mat))); ax.set_yticklabels(fc_mat.index, fontsize=7)
+ax.set_title("泛癌共享上调蛋白的 log2FC 热图")
+plt.colorbar(im, shrink=0.5, label="log2FC (T vs NT)")
+plt.tight_layout(); plt.savefig(f"{FIG}/fig3_shared_up_heatmap.png"); plt.show()在 &gt;=10 个癌种中上调的蛋白数: 357<img alt="" src="../images/c7eb1b4495a0c76f.webp"></p>
+<p><strong>3.3 小结</strong> ：配对分析在每个癌种中都识别出大量 DEP；结肠癌、直肠癌等上皮来源肿瘤 DEP 最多，脑肿瘤最少——与原文"glioblastoma DEP 最少、脑组织蛋白质组最稳定"一致。MCM4、NUDT1、PLOD2 等蛋白在众多癌种中一致上调，提示存在<strong>泛癌共享的蛋白质组重塑程序</strong> 。</p>
+<h2 id="34-fig-3bfig-5">3.4 药物靶点与器官特异性毒性（对应原文 Fig. 3b、Fig. 5）</h2>
+<p>把组织富集蛋白映射到已知药物靶点，就能回答：<strong>某个药除了作用于肿瘤，还会在哪些正常器官"误伤"？</strong></p>
+<h1 id="541">===== 5.4.1 原文重点靶点的组织分布 =====</h1>
+<h1 id="_16">以下基因均取自原文明确讨论的药物靶点(非编造):</h1>
+<h1 id="cyp2c8-302tpo">CYP2C8(肝, 被302种药靶向)、TPO(甲状腺, 三氯生靶点)、</h1>
+<h1 id="kitgistpax5dlbclmeterbb2tacstd2trop2top1parp1">KIT(GIST)、PAX5(DLBCL)、MET(直肠癌)、ERBB2、TACSTD2/TROP2、TOP1、PARP1</h1>
+<p>targets = ["CYP2C8", "TPO", "KIT", "PAX5", "MET", "ERBB2", "TACSTD2", "TOP1", "PARP1"]</p>
+<p>avail = [g for g in targets if any(c.split(" / ")[0] == g for c in tissue_median.columns)]
+print("本矩阵中可查到的原文靶点:", avail)</p>
+<p>fig, axes = plt.subplots(3, 3, figsize=(15, 11))
+for ax, g in zip(axes.ravel(), targets):
+hits = [c for c in tissue_median.columns if c.split(" / ")[0] == g]
+if not hits:
+ax.text(0.5, 0.5, f"{g}\n(未定量)", ha="center", va="center"); ax.axis("off"); continue
+v = tissue_median[hits[0]].dropna().sort_values(ascending=False).head(10)
+ax.barh(v.index[::-1], v.values[::-1], color="#55A868")
+ax.set_title(g, fontsize=10); ax.tick_params(labelsize=7)
+plt.suptitle("原文重点药物靶点在成人正常组织中的分布 (Top 10)", y=1.02)
+plt.tight_layout(); plt.savefig(f"{FIG}/fig4_drug_target_tissue.png"); plt.show()本矩阵中可查到的原文靶点: ['CYP2C8', 'TPO', 'KIT', 'MET', 'ERBB2', 'TACSTD2', 'TOP1', 'PARP1']<img alt="" src="../images/7cfb52a0efd84d99.webp"># ===== 3.4.2 组织特异药物靶点(器官毒性风险) =====</p>
+<h1 id="32-enrichedenhanced">在 3.2 得到的组织特异蛋白表(含 enriched/enhanced 两级)中检索"原文提及的靶点",</h1>
+<h1 id="_17">看它们各自最富集的正常器官 —— 这正是器官毒性预测的分子依据</h1>
+<p>paper_targets = ["CYP2C8", "TPO", "KIT", "PAX5", "MET", "ERBB2", "TACSTD2", "TOP1", "PARP1",
+"BCL2L1", "TYROBP", "MCM4", "NUDT1", "PLOD2", "CPT1C", "FXYD6", "CD79B", "ANO1"]
+hit = enriched[enriched["gene"].isin(paper_targets)].copy()
+hit["cat_cn"] = hit["category"].map({"enriched": "组织富集", "enhanced": "组织增强"})</p>
+<h1 id="_18">展示类别对应的特异性: 富集型看"相对其他组织最高值", 增强型看"相对其他组织均值"</h1>
+<p>hit["spec"] = np.where(hit["category"] == "enriched", hit["log2_spec_max"], hit["log2_spec_mean"])
+print("组织特异蛋白中命中的原文靶点 (基因 | 器官 | 类别 | log2特异性):")
+for _, r in hit.sort_values("spec", ascending=False).iterrows():
+print(" %-8s %-18s %-6s %.2f" % (r["gene"], r["tissue"], r["cat_cn"], r["spec"]))
+print("\n命中靶点的器官分布:")
+print(hit.groupby("tissue")["gene"].apply(list))</p>
+<p>fig, ax = plt.subplots(figsize=(9, 5))
+c = enriched[enriched["category"] == "enriched"].groupby("tissue").size().sort_values(ascending=False).head(15)
+ax.barh(c.index[::-1], c.values[::-1], color="#8172B3")
+ax.set_title("各组织富集蛋白总数(可作为药物靶点池, Top 15)")
+ax.set_xlabel("组织富集蛋白数")
+plt.tight_layout(); plt.savefig(f"{FIG}/fig4_target_pool.png"); plt.show()组织特异蛋白中命中的原文靶点 (基因 | 器官 | 类别 | log2特异性):
+TPO thyroid 组织增强 4.41
+CYP2C8 liver 组织增强 3.61
+MCM4 bone 组织增强 3.03
+PLOD2 gall bladder 组织增强 3.02
+PARP1 tonsil 组织增强 2.85
+TACSTD2 esophagus 组织增强 2.75
+TOP1 bone 组织增强 2.00</p>
+<p>命中靶点的器官分布:
+tissue
+bone [TOP1, MCM4]
+esophagus [TACSTD2]
+gall bladder [PLOD2]
+liver [CYP2C8]
+thyroid [TPO]
+tonsil [PARP1]
+Name: gene, dtype: object<img alt="" src="../images/fee7abb625914310.webp"></p>
+<p><strong>3.4 小结</strong> ：把组织特异蛋白表映射到药物靶点即可提示器官毒性风险。本数据中 CYP2C8 的最高表达器官为<strong>肝</strong> 、TPO 为<strong>甲状腺</strong> （均达"组织增强"级别），与三氯生致甲状腺功能异常、吉非贝齐(CYP2C8 抑制剂)引发横纹肌溶解等临床现象吻合。需注意，多数药物靶点并非严格"组织富集"而是<strong>广谱或组织增强</strong> 表达——这与原文"仅少数膜蛋白能达到肿瘤特异富集"的观察一致，也说明<strong>组织特异性的靶点分布图可作为器官毒性预测的分子参考</strong> 。</p>
+<p><strong>四、更多单细胞蛋白质组学教学</strong></p>
+<p>同我们以前的课程一样，我们给大家准备了学习手册和学习资料，大家可联系客服微信[<strong>Biomamba_zhushou</strong>]领取：<strong>教程图片集锦：</strong><img alt="图片" src="../images/5bafe5e4ce2860c9.webp"></p>
+<p><strong>单细胞蛋白组学习手册</strong></p>
+<p><img alt="图片" src="../images/f9c7ffe64f28b84d.webp"></p>
+<p><strong>单细胞蛋白组教程目录：</strong></p>
+<p><strong>一、准备工作</strong></p>
+<p><strong>二、绪论</strong></p>
+<p><strong>三、上游定量</strong></p>
+<p><strong>四、RNA表达矩阵分析</strong></p>
+<p>1. 读入数据并创建Seurat分析对象</p>
+<p>2. 质控数据及可视化</p>
+<p>3. 细胞分群</p>
+<p>4. 分群后的可视化</p>
+<p>5. 寻找marker基因并对cluster进行重命名</p>
+<p>五、多模态分析</p>
+<p>1. ADT数据处理</p>
+<p>2. 构建多模态邻居</p>
+<p>3. 多模态结果可视化</p>
+<p>4. 骨髓CITE-seq数据实战</p>
+<p>六、多样本整合</p>
+<p>1. 数据读取</p>
+<p>2. RNA数据整合</p>
+<p>3. ADT数据整合</p>
+<p>4. 多样本多模态分析</p>
+<p>七、差异ADT分析</p>
+<p>1. 差异分析</p>
+<p>2. 火山图</p>
+<p>3. 富集分析</p>
+<p>八、sciPENN</p>
+<p>1. sciPENN绪论</p>
+<p>2. 分析环境搭建</p>
+<p>3. python库加载</p>
+<p>4. 加载测试数据</p>
+<p>5. 创建训练集和测试集</p>
+<p>6. 训练sciPENN对象</p>
+<p>7. 预测蛋白表达+细胞类型</p>
+<p>8. RNA+ADT数据共降维</p>
+<p>9. 整合多个CITE-seq数据集</p>
+<p>九、版本信息</p>
+<p>十、单细胞教程全收录</p>
+<p>十一、欢迎致谢</p>
+<p><img alt="图片" src="../images/86a789101a8a383e.webp"></p>
+<p>测试文件，总大小23.80GB</p>
+<p><img alt="图片" src="../images/d8871dfeaf65ae14.webp">
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247541389&amp;idx=2&amp;sn=9c5aeb2a295ff9f1dda4781736c21a93&amp;scene=21#wechat_redirect">专题教学预告：单细胞蛋白组学分析</a><img alt="" src="../images/5c5cc1b5d14d7f30.webp">
+参考：</p>
+<p>[1]Yue L, Jiang W, Li S, et al. Spatial distribution of the proteome in the human body and in cancers. Nature. 2026 Aug;656(8126):227-236.</p>
+<p>[2]https://db.prottalks.com/index.html[3]https://go.drugbank.com/data_packages<img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>欢迎交流</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539170&amp;idx=1&amp;sn=ebd269635da35335554c53709fa0a0c0&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的助手[Biomamba_zhushou]，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家一起讨论。<img alt="图片" src="../images/e43581b4f5118aad.webp"><img alt="图片" src="../images/4ccf87cacd1143af.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

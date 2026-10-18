@@ -1,0 +1,99 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0268-空间转录组数据拷贝数变异分析学习手册</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">空间转录组数据拷贝数变异分析学习手册</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535878&amp;idx=3&amp;sn=261bcb4d8110b913731659780cc2fba0&amp;chksm=9b3c3456ac4bbd400410b52fce004a87e64dd695615d847effaaa82460251e18477c14242922#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>空间转录组数据拷贝数变异分析手册</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">**<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">拷贝数变异</a> （Copy number alterations，以下简称CNA；infercnv包也习惯描述为Copy Number Variation，CNV）是一种重要的基因组变异，在癌症的发生和发展过程中起着至关重要的作用。确定肿瘤细胞中CNA的特征对早期肿瘤检测、划分肿瘤异质性、了解肿瘤进展模式和揭示耐药机制具有重要意义。在传统的CNV分析中，<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510793&amp;idx=1&amp;sn=bfa69e8f261932d9bea74443fab732f0&amp;scene=21#wechat_redirect">Bulk测序</a>只能给整个肿瘤的平均拷贝数→掩盖了克隆异质性；<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">单细胞CNV</a>（scCNV）虽然能看到每个细胞的拷贝数，但完全丢失了空间位置。空间转录组CNV保留每个spot真实组织坐标的前提下，同时推断其染色体拷贝数状态。**<strong>工具简介：</strong></p>
+<p>1、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">Infercnv</a>是一个可扩展的python库，用于从单细胞转录组学数据中推断拷贝数变异(CNV) 事件。它在很大程度上受到 InferCNV 的启发，但与 scanpy 配合得很好，并且更具可扩展性</p>
+<p>2、CalicoST是一款专门针对空间转录组(ST)数据开发的概率模型和算法，主要用于癌症研究。它的核心目标是同时推断肿瘤的等位基因特异性拷贝数异常(CNA)，并重建肿瘤的遗传进化和空间传播模式（即系统发育地理）。</p>
+<p>本教程基于Python完成，没有基础的小伙伴可见<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499921&amp;idx=1&amp;sn=dcd6f95596e3de9bf378d850c217fe78&amp;scene=21#wechat_redirect">生信Python速查手册</a>，自学有困难的小伙伴可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531284&amp;idx=1&amp;sn=cc785f60e85a3caa8117792de60e1393&amp;scene=21#wechat_redirect">Python实战-玩转空间转录组分析</a>本教程基于Linux中的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531443&amp;idx=3&amp;sn=0930f54959a9bd13b99780d8f26a1155&amp;scene=21#wechat_redirect">Jupyter</a>环境演示，计算资源不足的同学可参考：
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519707&amp;idx=1&amp;sn=73dcab26f9b2ed75a954327317d07112&amp;chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea&amp;scene=21#wechat_redirect">配置一个心仪的工作站(硬件+环境配置)</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503618&amp;idx=1&amp;sn=ca47ca985aa8560f6b38f15f210519e2&amp;chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&amp;scene=21#wechat_redirect">独享服务器，生信分析不求人</a></p>
+<p>本教程<strong>复现集锦</strong> ：</p>
+<p><img alt="图片" src="../images/3effc86f4a552d33.webp">
+<strong>-Biomamba</strong>
+<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>所见即所得</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>InferCNV</p>
+<p>InferCNV学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍</p>
+<p><img alt="" src="../images/40a4d1e31cfdcf5f.gif"></p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、写在前面</strong></p>
+<p><strong>二、 空间 CNV（spatial CNV）</strong></p>
+<p><strong>2.1 什么是 CNV？为什么肿瘤里这么重要？</strong></p>
+<p><strong>2.2 传统 CNV 分析的三大盲区</strong></p>
+<p><strong>2.3 空间 CNV（spatial CNV）到底是什么？</strong></p>
+<p><strong>2.4 空间 CNV 能回答哪些过去 10 年答不了的问题？</strong></p>
+<p><strong>2.5 总结</strong></p>
+<p><strong>三、InferCNV</strong></p>
+<p><strong>3.1 导入所需库</strong></p>
+<p><strong>3.2 读取测试文件</strong></p>
+<p><strong>3.3 上游预处理</strong></p>
+<p>3.4 基因注释</p>
+<p>3.5 CNV分析</p>
+<p>3.6 CNV可视化</p>
+<p>3.7 基于CNV信息的聚类结果</p>
+<p>环境信息</p>
+<p><strong><strong>空间转录组教程全收录</strong></strong></p>
+<p><strong><strong><strong><strong>欢迎致谢</strong></strong></strong></strong></p>
+<p>文末下载链接中包含的内容：</p>
+<p><img alt="" src="../images/710542a4cb679e11.webp"></p>
+<p>测试文件约<strong>22.59GB</strong> ，大家注意按需下载！</p>
+<p>CalicoST</p>
+<p>CalicoST学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：</p>
+<p><img alt="" src="../images/658b4c311b52bcd8.gif"></p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、写在前面</strong></p>
+<p><strong>二、CalicoST 软件介绍</strong></p>
+<p><strong>2.1 核心功能与分析目标</strong></p>
+<p><strong>2.2 关键优势</strong></p>
+<p><strong>2.3 肿瘤等位基因频率变异</strong></p>
+<p><strong>三、代码实操</strong></p>
+<p><strong>3.1 下载数据</strong></p>
+<p>3.2 预输入文件准备</p>
+<p>（1）准备SNP信息文件</p>
+<p>（2）准备configuration文件</p>
+<p>（3）运行 CalicoST</p>
+<p>（4）python可视化</p>
+<p><strong>环境信息</strong></p>
+<p><strong><strong>空间转录组教程全收录</strong></strong></p>
+<p><strong><strong><strong><strong>欢迎致谢</strong></strong></strong></strong></p>
+<p><strong><strong><strong><strong>文末下载链接中包含的内容</strong></strong></strong></strong></p>
+<p><img alt="" src="../images/4393e0a24677c5c7.webp"></p>
+<p>******测试文件约 519.62MB，大家注意按需下载！ ******</p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png"></p>
+<p><img alt="图片" src="../images/eab31beb8c0e41d2.png"></p>
+<p>往期订阅</p>
+<p><img alt="图片" src="../images/8b04fd62fd8f3d51.png"><img alt="图片" src="../images/4064a50c19e8ad22.png"></p>
+<p>生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=2&amp;sn=e5d0a63646094c3094b7b916350d22ad&amp;scene=21#wechat_redirect">那就开放一个终身订阅吧~</a></p>
+<p>2025已更新订阅内容：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526751&amp;idx=1&amp;sn=7ca3137d770f23f0c3d6195696618d81&amp;scene=21#wechat_redirect">2025订阅须知</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526776&amp;idx=1&amp;sn=99eb6a16c7bf345445b6ff4b61110138&amp;scene=21#wechat_redirect">《Cell》复现|中性粒细胞scRNA-seq图谱阐明抗肿瘤抗原呈递效力</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527498&amp;idx=1&amp;sn=c8282e9d4175bfb2e572278312073d81&amp;scene=21#wechat_redirect">代码复现|scRNA-seq绘制透明细胞肾癌的免疫微环境</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527762&amp;idx=1&amp;sn=ba7c8a4cb704e71fa86ebfe1f19bffea&amp;scene=21#wechat_redirect">改造单细胞DoHeatmap</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527850&amp;idx=1&amp;sn=f4e2ca5e2e5e71eeaf132375bb8270eb&amp;scene=21#wechat_redirect">Slingshot拟时序分析学习手册</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528056&amp;idx=1&amp;sn=73c0da3ff7ff50bafbb9315fd5b60f15&amp;scene=21#wechat_redirect">《Cancer Cell》|时空单细胞揭示CRC的PD-1治疗免疫细胞动态</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">scRNA-seq数据基础分析手册(2025最新修订)</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528289&amp;idx=1&amp;sn=b56f00f3d8a4b152e54f3acd40aef21d&amp;scene=21#wechat_redirect">代码复现|吞噬作用增强肿瘤中巨噬细胞的氧化代谢和免疫抑制特征</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528458&amp;idx=1&amp;sn=900357283922571c6294435be409a2f3&amp;scene=21#wechat_redirect">一文学会scRNA Velocity剪切速率分析</a></p>
+<h1 id="scrna-seq"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq轨迹分析</a></h1>
+<h1 id="scrna-seq_1"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528770&amp;idx=1&amp;sn=6242bce437a9d60f81a8651ea9b57e0b&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq细胞通讯分析</a></h1>
+<h1 id="_2"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529410&amp;idx=1&amp;sn=9bbaf955d93ddce60874e1cdc2f16115&amp;scene=21#wechat_redirect">一文学会四种基因共表达网络分析</a></h1>
+<h1 id="scrna-seq_2"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq拷贝数变异分析</a></h1>
+<h1 id="_3"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=1&amp;sn=90de71a3b453e635920d309faedb36c7&amp;scene=21#wechat_redirect">分子批量对接与亲和力热图绘制</a></h1>
+<h1 id="scrna-seq_3"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530338&amp;idx=1&amp;sn=2d092e76080359f5a169ec14d54d1241&amp;scene=21#wechat_redirect">代码复现| scRNA-seq揭示人纤维化皮肤病中的成纤维细胞异质性与增殖</a></h1>
+<h1 id="sctcrscbcrwgbs"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530826&amp;idx=1&amp;sn=f95a284a432695c9b8f6878cd3691bfc&amp;scene=21#wechat_redirect">单细胞免疫组库测序(scTCR+scBCR)学习手册</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531339&amp;idx=1&amp;sn=83d6e80e24494cc7080188d5c9e695e2&amp;scene=21#wechat_redirect">一文掌握WGBS分析流程</a></h1>
+<h1 id="ncsnatacscrna-seq"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531908&amp;idx=1&amp;sn=2f094e390621a57853ba17f59f298ebe&amp;scene=21#wechat_redirect">《NC》代码复现|snATAC联合scRNA-seq揭示小鼠肾脏细胞分化程序与疾病靶点</a></h1>
+<h1 id="_4"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532178&amp;idx=1&amp;sn=2cc8f5453765bd68b8ddacf2c2e3d5e7&amp;scene=21#wechat_redirect">空间转录组数据基础分析手册</a></h1>
+<h1 id="_5"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532349&amp;idx=1&amp;sn=59c0f14043906ff50c56dea3b16e9200&amp;scene=21#wechat_redirect">空间转录组|多样本整合分析手册</a></h1>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=1&amp;sn=cd16d0151ef19c9a2dcfcba6ee09f431&amp;scene=21#wechat_redirect">一文学会三种空转数据共表达网络分析</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532458&amp;idx=1&amp;sn=f8ec547187374fe77c38fc1125709b3b&amp;scene=21#wechat_redirect">一文搞定空转数据反卷积分析</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532641&amp;idx=1&amp;sn=c8422ab7c1cd70751fb3109a84cb64ea&amp;scene=21#wechat_redirect">三种方法教你搞定空转数据邻域分析：squidpy+stSME+NMF分解</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532763&amp;idx=1&amp;sn=f6e4df9242f1341d2dc7e6154c33aa46&amp;scene=21#wechat_redirect">空转细胞通讯分析学习手册：CellPhoneDB+Commot+stLearn</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532806&amp;idx=1&amp;sn=7d7ecf4977cb2cc9ace0e4e31941a1ac&amp;scene=21#wechat_redirect">空间转录组轨迹分析学习手册</a>
+<img alt="图片" src="../images/697dd2eb5e60e8d8.png">
+解锁前需阅读：<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526751&amp;idx=1&amp;sn=7ca3137d770f23f0c3d6195696618d81&amp;scene=21#wechat_redirect">2025订阅须知</a></strong><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>下载链接</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>资料连接：https://pan.baidu.com/s/1EDC7FXVXJqYZ6RPpN_3kbA</p>
+<p>联系客服微信Biomamba_zhushou获取提取码</p>
+<p><img alt="图片" src="../images/e43581b4f5118aad.webp"> <strong>-Biomamba</strong>
+<img alt="" src="../images/7d247e6c6ef19f87.png"></p></article></body></html>

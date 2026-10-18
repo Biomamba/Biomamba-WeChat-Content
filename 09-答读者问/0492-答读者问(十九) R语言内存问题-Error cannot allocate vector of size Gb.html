@@ -1,0 +1,161 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0492-答读者问(十九) R语言内存问题-Error cannot allocate vector of size Gb</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="r-error-cannot-allocate-vector-of-size-gb">答读者问(十九): R语言内存问题-Error: cannot allocate vector of size ** Gb</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492912&amp;idx=1&amp;sn=c721a8d64e621832bf5518ab1f26d9fe&amp;chksm=9b3c9c60ac4b1576ad617ff9f2f13a8d811ce41dab4a178c8e00a940fd1d3c4400c6b39d779e#rd
+合集：答读者问</p>
+</blockquote>
+<p>问题</p>
+<h4 id="error-cannot-allocate-vector-of-size-gb-rmemorysize-memorylimit-r421memorylimit-is-no-longer-supported-r">相信很多同学都遇到过"<strong>Error: cannot allocate vector of size ** Gb</strong> "这个问题，这是因为R语言的可支配内存不足了。大家如果在网上搜索一般是告诉你通过<strong>memory.size</strong> 或<strong>memory.limit</strong> 函数来解决这个问题，但是从R4.2.1开始这两个函数已经不再支持了(会返回"'<strong>memory.limit()' is no longer supported</strong> ")，因为这一版的R开始默认能够调用你的<strong>最大内存</strong> 。</h4>
+<h4 id="r">所以我们还是得了解一下这些函数以及R语言中内存的分配方法。如果下面的内容不能够帮助你解决内存的问题，那可能真的是硬件配置不够啦，出路可能就是上服务器了(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491007&amp;idx=1&amp;sn=8619c2bad23791b3252a1c4cb1831931&amp;chksm=9b3f64efac48edf9c02f84959aeee9b12480736fce70c5ddb8b41d79cfc22ce590ea2cb60fba&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>)。</h4>
+<p><img alt="" src="../images/808f2bf5a5fd3602.png"></p>
+<p>那就谈谈R语言的内存问题</p>
+<p>这个问题的答案很简单，运行一下memory.size()大家就会明白：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">#查看最大可调用内存，我的电脑是32GB的，下面返回的单位是字节memory.size(NA) ## [1] 34359738368
+#查看当前已用内存ls()#现在我的环境是空的## character(0)memory.size(F) #查看已用内存，返回的单位应该是MB## [1] 121.9
+#这时如果我创建一个变量biomamba &lt;- rep('biomamba',8100000)memory.size(F)#可以发现已占用内存点多了[1] 278.71
+#我们可以删除这个变量试试rm(biomamba)
+#但是已调用内存并没有发生变化memory.size(F)## [1] 278.71
+gc()#这是因为需要garbage collection来回收内存memory.size(F)#可以看到调用的内存又重新变小## [1] 121.9
+</code></pre>
+<p>在R&lt;4.2.1的版本中如何调用最大内存：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>#所以对于我32GB的电脑来说，如果想要调用最大的可用内存：memory.size(32*1024*1024*1024)#这里的单位是字节memory.limit(size = 32*1024*1024*1024)
+#但其实这里填的内存可以略大于你的真实物理内存，具体能调用多少我就没试过了：memory.size(34*1024*1024*1024)
+</code></pre>
+<p><img alt="" src="../images/3e4b08701b289d78.png"></p>
+<p>往期回顾</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484175&amp;idx=1&amp;sn=3e45ad62b045a541874e5ae7ca03f849&amp;chksm=9b3f7a5fac48f349f8893500825d2c6b4ff581fbb0816c1074d88a0dbbb4a612c1e1bb3740bb&amp;scene=21#wechat_redirect">答读者问 （一）单基因究竟能否进行GSEA</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484248&amp;idx=1&amp;sn=b1fe7174a28562d01422e43609f41709&amp;chksm=9b3f7a08ac48f31e3bbfdb4a9824dadf25a8fa3ff9b78dd15d646ae4c3da5db04e2e4acfba3d&amp;scene=21#wechat_redirect">答读者问 （二）为什么我的PCA分析报错了？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484280&amp;idx=2&amp;sn=844af02070012a1c2681880596ba51a2&amp;chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&amp;scene=21#wechat_redirect">答读者问 （三）单细胞测序前景</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=2&amp;sn=e8d02fddc80d1137bb64c55541f1651d&amp;chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&amp;scene=21#wechat_redirect">答读者问 （四）如何分析细胞亚群</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484353&amp;idx=2&amp;sn=8fccb88c871a42c803e313be157ab293&amp;chksm=9b3f7a91ac48f387df8b462f7318596fc5c645d6f05eefac2c598ff6875c0a2eeb902aaf5a15&amp;scene=21#wechat_redirect">答读者问 （五）如何实现各物种基因的ID/symbol的转换</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484376&amp;idx=2&amp;sn=9fda8a5261e86f889a58d607163ce0fd&amp;chksm=9b3f7a88ac48f39ea9c19e256a513c9ae80c6f6dc1724b7783884e23981e2061c78fa67071c9&amp;scene=21#wechat_redirect">答读者问 （六）Seurat中如何让细胞听你指挥</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484550&amp;idx=1&amp;sn=ec4466084c1c9eba7eb292e95f33b5bb&amp;chksm=9b3f7dd6ac48f4c042b4e9df2abd717b1354b4914c3f7510eaf444e97965a0f6622979e710e0&amp;scene=21#wechat_redirect">答读者问 （七）有人问我Biomamba何解</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485012&amp;idx=1&amp;sn=6007c8d7cb2a236dd7240a678dac0391&amp;chksm=9b3f7f04ac48f612f811c1df9e9450dc8112d343e4bf245be5149c2e2a073d3e339cd0e3ff61&amp;scene=21#wechat_redirect">答读者问 （八）为什么Read10X也会报错?</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485032&amp;idx=1&amp;sn=7d4777589fa1f92d26ad05ffe3e02f6a&amp;chksm=9b3f7f38ac48f62e0d2e4d46a13c21e440295aef4cba08214527d7b7d2e1959a0b4cebe4143a&amp;scene=21#wechat_redirect">答读者问 （九） 如何将数百个文件整合为一个矩阵</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485134&amp;idx=1&amp;sn=13f5f8c47d8af2beeca4e103a5f5e26d&amp;chksm=9b3f7f9eac48f688b454a1062ee4e41f7072ac9d58e5466fa7ed4bb05018adbfe167bb3a445a&amp;scene=21#wechat_redirect">答读者问 （十）整合后的表达矩阵，如何拆分出分组信息？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485145&amp;idx=1&amp;sn=402cb28c16aba0dc647037c9b7aba8f7&amp;chksm=9b3f7f89ac48f69fe27cd427df3eff2e88c240bf20dfe92d8b522eecd7302d132d880bf29047&amp;scene=21#wechat_redirect">答读者问 （十一）如何一次性读取一个目录下的cellranger输出文件？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485290&amp;idx=1&amp;sn=1e77059439342374ea03496cbba08070&amp;chksm=9b3f7e3aac48f72ca08f5e73496e6f8c99c5fd74a39daa626d636ba5a7b0b89873437ebcb6d4&amp;scene=21#wechat_redirect">答读者问 （十二）ERROR: have no zero exit status</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485859&amp;idx=1&amp;sn=a014c4cb6034551e57c70820c7781e49&amp;chksm=9b3f70f3ac48f9e52620e3ff197eb98e58836e8bb6baad634387a521fdda1e4a194356517c73&amp;scene=21#wechat_redirect">答读者问 （十三）查看Seurat对象时的ERROR：type='text'</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486134&amp;idx=1&amp;sn=e581b8ac20bbc968aeef3f9cf56f3a0f&amp;chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&amp;scene=21#wechat_redirect">答读者问 （十四）Seurat中分类变量处理技巧</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486259&amp;idx=1&amp;sn=97de5c9e15e48cb62c8a680376a4ee0d&amp;chksm=9b3f7263ac48fb75a91b40416826fe35b340284cf38255925ac447443a62cdc1df082d20fb61&amp;scene=21#wechat_redirect">答读者问 （十五）稀疏矩阵转matrix, as.matrix函数是下下策</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487923&amp;idx=1&amp;sn=15043c6d729b0d5493ab875b0e54a259&amp;chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0&amp;scene=21#wechat_redirect">答读者问 （十六）做单细胞测序到底需要多少内存</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488995&amp;idx=1&amp;sn=7140e0d037671542fb37dff3a3c94b28&amp;chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&amp;scene=21#wechat_redirect">答读者问 （十七）调用的线程越多就算的越快嘛?</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490010&amp;idx=1&amp;sn=24c55fa4bd5d7d829625cb67dbaf321a&amp;chksm=9b3f608aac48e99c9f27e3423c8398034a1819d0ccebbf21170b955461d2c335132d6f3cce25&amp;scene=21#wechat_redirect">答读者问 （十八）、一个我至少被问过30遍的monocle报错</a></p>
+<p><img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的<strong>微信号</strong> ，方便随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490936&amp;idx=1&amp;sn=850dfc45b10a6bd538c81cfbf1d7af37&amp;chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a>
+<img alt="" src="../images/fdb4c49c78e6216c.webp"></p></article></body></html>

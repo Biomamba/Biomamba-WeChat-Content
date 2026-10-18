@@ -1,0 +1,121 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0337-三种方法教你搞定空转数据邻域分析：squidpy+stSME+NMF分解</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="squidpystsmenmf">三种方法教你搞定空转数据邻域分析：squidpy+stSME+NMF分解</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538803&amp;idx=2&amp;sn=54db98682dcff3feb04a5623c37546ce&amp;chksm=9b3c2123ac4ba835ea136c12212da54b0bf9147192926e16b6027dfc1735e56a0c21aaf8d130#rd
+合集：空间转录组</p>
+</blockquote>
+<p><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>空间转录组数据邻域分析手册</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">邻域分析是基于空间位置的细胞/spot邻域划分与表达谱分析，具有从“单细胞”到“细胞群落”的表型解析，揭示群体功能的核心价值，以及阐明细胞间通讯、微环境异质性、结构-功能关联的生物学意义，为肿瘤微环境解析、组织发育机制等研究提供空间维度证据。与传统分析相比，邻域分析可以将空间位置权重纳入基因表达解读，突破纯表达谱分析的局限。工具简介：</p>
+<p>1、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505844&amp;idx=2&amp;sn=5756c0702d080d6e602c504e7d461013&amp;scene=21#wechat_redirect">squidpy</a>的邻域分析的核心目标是在Visium空间转录组分析中，Spot的基因表达数据提供了分子信息，而高分辨率组织图像则提供了细胞形态和组织结构的视觉信息。我们可以从组织图像中计算每个Visium spot(Spot)的图像特征。这些特征将作为一个obs × 特征矩阵，与obs×基因表达矩阵一起存储在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528513&amp;idx=1&amp;sn=1ff1b8bee321f8f5bcac425ce96dc6ff&amp;scene=21#wechat_redirect">AnnData</a>对象中，用于下游的联合分析。</p>
+<p>2、stSME是通过spot图像的相似性来调整基因表达，使相似的组织区域在表达上更一致。</p>
+<p>3、NMF分解是一种降维技术，它将一个输入矩阵V分解为两个非负矩阵W矩阵（Spot×成分）和H矩阵（成分×细胞类型）。具有识别共现模式、处理混合信号、跨区域共享信息和简化可视化的优势与生物学意义。</p>
+<p>本教程基于Python完成，没有基础的小伙伴可见<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499921&amp;idx=1&amp;sn=dcd6f95596e3de9bf378d850c217fe78&amp;scene=21#wechat_redirect">生信Python速查手册</a>，自学有困难的小伙伴可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533721&amp;idx=1&amp;sn=9648ed4701224e5d2e4c704d7046d9de&amp;scene=21#wechat_redirect">Python实战-玩转空间转录组分析</a>
+本教程基于Linux中的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531443&amp;idx=3&amp;sn=0930f54959a9bd13b99780d8f26a1155&amp;scene=21#wechat_redirect">Jupyter</a>环境演示，计算资源不足的同学可参考：
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519707&amp;idx=1&amp;sn=73dcab26f9b2ed75a954327317d07112&amp;chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea&amp;scene=21#wechat_redirect">配置一个心仪的工作站(硬件+环境配置)</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503618&amp;idx=1&amp;sn=ca47ca985aa8560f6b38f15f210519e2&amp;chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&amp;scene=21#wechat_redirect">独享服务器，生信分析不求人</a></p>
+<p>本教程<strong>复现集锦</strong> ：</p>
+<p><img alt="" src="../images/470bac0700dfe587.webp"> <strong>-Biomamba</strong>
+<img alt="" src="../images/7d247e6c6ef19f87.png"><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>所见即所得</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>Squidpy学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：‍</p>
+<p><img alt="" src="../images/bae7212fa177e3b2.gif"></p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、写在前面</strong></p>
+<p><strong>二、 邻域分析</strong></p>
+<p><strong>2.1 空间转录组图像特征提取：结合形态与分子信息</strong></p>
+<p><strong>2.2 图像特征的价值：互补与融合</strong></p>
+<p><strong>2.3 应用</strong></p>
+<p><strong>三、 代码实操</strong></p>
+<p><strong>3.1 加载所需库</strong></p>
+<p><strong>3.2 读取数据</strong></p>
+<p><strong>3.3 计算不同尺度的特征</strong></p>
+<p><strong>3.4 数据聚合</strong></p>
+<p><strong>3.5 数据基础分析</strong></p>
+<p><strong>3.6 可视化聚类信息</strong></p>
+<p><strong>3.7 邻域富集</strong></p>
+<p><strong>（1）空间邻域富集分析：识别组织中 Spot 簇的共现模式</strong></p>
+<p>（2）分析步骤</p>
+<p>（3）配体 - 受体相互作用分析</p>
+<p>环境信息</p>
+<p><strong><strong>空间转录组教程全收录</strong></strong></p>
+<p><strong><strong><strong><strong>欢迎致谢</strong></strong></strong></strong></p>
+<p>文末下载链接中包含的内容：</p>
+<p><img alt="" src="../images/a3d9c664db47c9a7.webp"></p>
+<p>测试文件约<strong>355.71MB</strong> ，大家注意按需下载！</p>
+<p>stSME聚类方法学习手册以html文件格式提供，可在浏览器中打开并翻阅学习：</p>
+<p><img alt="" src="../images/24ee50b1245d7bab.gif"></p>
+<p><strong>教程目录</strong> ：</p>
+<p><strong>一、写在前面</strong></p>
+<p><strong>二、SME 算法</strong></p>
+<p><strong>2.1 背景</strong></p>
+<p><strong>2.2 方法原理（SME = Spatial Morphology Expression）</strong></p>
+<p><strong>（1）提取形态学特征</strong></p>
+<p><strong>（2）计算形态学相似性</strong></p>
+<p><strong>（3）基因表达调整（Morphological normalization）</strong></p>
+<p><strong>（4）形态调整后的基因表达矩阵 (Morph)</strong></p>
+<p><strong>2.3 特点与优势</strong></p>
+<p><strong>三、代码实操</strong></p>
+<p><strong>3.1 例1：小鼠大脑（冠状面）</strong></p>
+<p><strong>（1）数据预处理</strong></p>
+<p><strong>（2）运行stSME聚类</strong></p>
+<p><strong>3.2 例2：小鼠大脑 (后矢状面)</strong></p>
+<p>（1）数据预处理</p>
+<p>（2）<strong>运行stSME聚类</strong></p>
+<p><strong>环境信息</strong></p>
+<p><strong><strong>空间转录组教程全收录</strong></strong></p>
+<p><strong><strong><strong><strong>欢迎致谢</strong></strong></strong></strong></p>
+<p><strong><strong><strong><strong>文末下载链接中包含的内容</strong></strong></strong></strong></p>
+<p><img alt="" src="../images/3450d418532683e4.webp"></p>
+<p>******测试文件约 909.84MB，大家注意按需下载！ ******</p>
+<hr>
+<hr>
+<p><strong><strong><strong>NMF分解学习手册 以html文件格式提供，可在浏览器中打开并翻阅学习：‍</strong></strong></strong></p>
+<p><img alt="" src="../images/ebc1a4458ef7fc0c.gif"></p>
+<hr>
+<hr>
+<p><strong><strong><strong><strong>教程目录</strong> ：</strong></strong></strong></p>
+<p><strong><strong><strong>一、写在前面</strong></strong></strong></p>
+<p><strong><strong><strong>二、非负矩阵分解 (NMF) 识别细胞区室 / 组织区域</strong></strong></strong></p>
+<p><strong><strong><strong>三、代码实操</strong></strong></strong></p>
+<p><strong><strong><strong>3.1 导入数据和库</strong></strong></strong></p>
+<p><strong><strong><strong>3.2 使用Cell2location进行空间共定位</strong></strong></strong></p>
+<p><strong><strong><strong>3.3 输出共定位结果</strong></strong></strong></p>
+<p><strong><strong><strong>3.4 可视化共定位热图</strong></strong></strong></p>
+<p><strong><strong><strong>环境信息</strong></strong></strong></p>
+<p><strong><strong><strong>空间转录组教程全收录</strong></strong></strong></p>
+<p><strong><strong><strong>欢迎致谢</strong></strong></strong></p>
+<p><strong><strong><strong>文末下载链接中包含的内容</strong></strong></strong></p>
+<p><img alt="" src="../images/6f3c44cf92532501.webp"></p>
+<p>******测试文件约 8.54GB，大家注意按需下载！ ******</p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png"></p>
+<p><img alt="图片" src="../images/eab31beb8c0e41d2.png"></p>
+<p>往期订阅</p>
+<p><img alt="图片" src="../images/8b04fd62fd8f3d51.png"><img alt="图片" src="../images/4064a50c19e8ad22.png"></p>
+<p>生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=2&amp;sn=e5d0a63646094c3094b7b916350d22ad&amp;scene=21#wechat_redirect">那就开放一个终身订阅吧~</a></p>
+<p>2025已完结，内容如下：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526751&amp;idx=1&amp;sn=7ca3137d770f23f0c3d6195696618d81&amp;scene=21#wechat_redirect">2025订阅须知</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526776&amp;idx=1&amp;sn=99eb6a16c7bf345445b6ff4b61110138&amp;scene=21#wechat_redirect">《Cell》复现|中性粒细胞scRNA-seq图谱阐明抗肿瘤抗原呈递效力</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527498&amp;idx=1&amp;sn=c8282e9d4175bfb2e572278312073d81&amp;scene=21#wechat_redirect">代码复现|scRNA-seq绘制透明细胞肾癌的免疫微环境</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527762&amp;idx=1&amp;sn=ba7c8a4cb704e71fa86ebfe1f19bffea&amp;scene=21#wechat_redirect">改造单细胞DoHeatmap</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527850&amp;idx=1&amp;sn=f4e2ca5e2e5e71eeaf132375bb8270eb&amp;scene=21#wechat_redirect">Slingshot拟时序分析学习手册</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528056&amp;idx=1&amp;sn=73c0da3ff7ff50bafbb9315fd5b60f15&amp;scene=21#wechat_redirect">《Cancer Cell》|时空单细胞揭示CRC的PD-1治疗免疫细胞动态</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528199&amp;idx=1&amp;sn=ab75e7d7987ab233c675455188f10f33&amp;scene=21#wechat_redirect">scRNA-seq数据基础分析手册(2025最新修订)</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528289&amp;idx=1&amp;sn=b56f00f3d8a4b152e54f3acd40aef21d&amp;scene=21#wechat_redirect">代码复现|吞噬作用增强肿瘤中巨噬细胞的氧化代谢和免疫抑制特征</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528458&amp;idx=1&amp;sn=900357283922571c6294435be409a2f3&amp;scene=21#wechat_redirect">一文学会scRNA Velocity剪切速率分析</a></p>
+<h1 id="scrna-seq"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq轨迹分析</a></h1>
+<h1 id="scrna-seq_1"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528770&amp;idx=1&amp;sn=6242bce437a9d60f81a8651ea9b57e0b&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq细胞通讯分析</a></h1>
+<h1 id="_1"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529410&amp;idx=1&amp;sn=9bbaf955d93ddce60874e1cdc2f16115&amp;scene=21#wechat_redirect">一文学会四种基因共表达网络分析</a></h1>
+<h1 id="scrna-seq_2"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529921&amp;idx=1&amp;sn=93f8ad6655ee6d2b036cd557a6a74be6&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq拷贝数变异分析</a></h1>
+<h1 id="_2"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=1&amp;sn=90de71a3b453e635920d309faedb36c7&amp;scene=21#wechat_redirect">分子批量对接与亲和力热图绘制</a></h1>
+<h1 id="scrna-seq_3"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530338&amp;idx=1&amp;sn=2d092e76080359f5a169ec14d54d1241&amp;scene=21#wechat_redirect">代码复现| scRNA-seq揭示人纤维化皮肤病中的成纤维细胞异质性与增殖</a></h1>
+<h1 id="sctcrscbcrwgbs"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530826&amp;idx=1&amp;sn=f95a284a432695c9b8f6878cd3691bfc&amp;scene=21#wechat_redirect">单细胞免疫组库测序(scTCR+scBCR)学习手册</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531339&amp;idx=1&amp;sn=83d6e80e24494cc7080188d5c9e695e2&amp;scene=21#wechat_redirect">一文掌握WGBS分析流程</a></h1>
+<h1 id="ncsnatacscrna-seq"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531908&amp;idx=1&amp;sn=2f094e390621a57853ba17f59f298ebe&amp;scene=21#wechat_redirect">《NC》代码复现|snATAC联合scRNA-seq揭示小鼠肾脏细胞分化程序与疾病靶点</a></h1>
+<h1 id="_3"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532178&amp;idx=1&amp;sn=2cc8f5453765bd68b8ddacf2c2e3d5e7&amp;scene=21#wechat_redirect">空间转录组数据基础分析手册</a></h1>
+<h1 id="_4"><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532349&amp;idx=1&amp;sn=59c0f14043906ff50c56dea3b16e9200&amp;scene=21#wechat_redirect">空间转录组|多样本整合分析手册</a></h1>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=1&amp;sn=cd16d0151ef19c9a2dcfcba6ee09f431&amp;scene=21#wechat_redirect">一文学会三种空转数据共表达网络分析</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532458&amp;idx=1&amp;sn=f8ec547187374fe77c38fc1125709b3b&amp;scene=21#wechat_redirect">一文搞定空转数据反卷积分析</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532641&amp;idx=1&amp;sn=c8422ab7c1cd70751fb3109a84cb64ea&amp;chksm=9b3c3931ac4bb0275fe5fd89712535cce677a308ac5a2c4e85d6f2a8785a4c76359e6612553c&amp;token=2143911808&amp;lang=zh_CN&amp;scene=21#wechat_redirect">三种方法教你搞定空转数据邻域分析：squidpy+stSME+NMF分解</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532763&amp;idx=1&amp;sn=f6e4df9242f1341d2dc7e6154c33aa46&amp;chksm=9b3c398bac4bb09d978dddd3f44c04c855ec89f6cd949fccbe497c515a62440f58dca31b4885&amp;token=2143911808&amp;lang=zh_CN&amp;scene=21#wechat_redirect">空转细胞通讯分析学习手册：CellPhoneDB+Commot+stLearn</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532806&amp;idx=1&amp;sn=7d7ecf4977cb2cc9ace0e4e31941a1ac&amp;chksm=9b3c3856ac4bb140a5f0955158656f458951cfe9bdd0a68d8c8ff74bd1e3f7adcc4da76197f0&amp;token=2143911808&amp;lang=zh_CN&amp;scene=21#wechat_redirect">空间转录组轨迹分析学习手册</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532924&amp;idx=1&amp;sn=46b87151e30163e393cf2c1751360bac&amp;chksm=9b3c382cac4bb13ad9aecd8783f1c6b0c576b1a25d04c3d15fa95a7e4fd5fdd8090cba7ce027&amp;token=2143911808&amp;lang=zh_CN&amp;scene=21#wechat_redirect">空间转录组数据拷贝数变异分析学习手册</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533068&amp;idx=1&amp;sn=52cbc8d161ec216b5d7a8238a49d47c6&amp;chksm=9b3c3b5cac4bb24a1b5c8ee1304f896c2ccea583e81bda4f9fae26564bc7d77c09a58baef3de&amp;token=2143911808&amp;lang=zh_CN&amp;scene=21#wechat_redirect">《Nature Genetics》文献复写 | 结直肠癌免疫细胞的高清空转分析（Visium HD+Xenium）</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534421&amp;idx=1&amp;sn=2c80be7809a97981bab3f76fae55ac20&amp;scene=21#wechat_redirect">2025订阅资料已完结，请留下你的评价！</a><img alt="图片" src="../images/697dd2eb5e60e8d8.png">
+更多订阅请阅读：<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247526751&amp;idx=1&amp;sn=7ca3137d770f23f0c3d6195696618d81&amp;scene=21#wechat_redirect">2025订阅须知</a></strong><img alt="图片" src="../images/eab31beb8c0e41d2.png"></p>
+<p>学习手册下载链接：</p>
+<p><img alt="图片" src="../images/8b04fd62fd8f3d51.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>链接:https://pan.baidu.com/s/1v_4WQmqqcu7m9BGJ-0z6Gg</p>
+<p>提取码请联系客服微信获取：</p>
+<p><img alt="" src="../images/fe8ecb8594a1f419.webp"><img alt="" src="../images/7d247e6c6ef19f87.png"></p></article></body></html>

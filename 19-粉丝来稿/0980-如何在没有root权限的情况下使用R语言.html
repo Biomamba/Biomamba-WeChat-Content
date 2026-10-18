@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0980-如何在没有root权限的情况下使用R语言</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="rootr">如何在没有root权限的情况下使用R语言</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510663&amp;idx=1&amp;sn=4d572352e146e60668ed667f42efc070&amp;chksm=9b3cd3d7ac4b5ac1c47b4cc7cc17823c2c37091fc89d07054844bd539f3eb251f1c540269590#rd
+合集：粉丝来稿</p>
+</blockquote>
+<p>01</p>
+<p><strong>写在前面</strong></p>
+<p>大部分共享服务器没有root权限(当然也有例外：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503869&amp;idx=1&amp;sn=142f8c7ba8620815a8770773df077f12&amp;chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&amp;scene=21#wechat_redirect">有root权限的共享服务器,报我名字立减200￥</a>)，装不了Rstudio-server。而<strong>R终端</strong> 虽然可以完成一些基本任务，但对于数据分析、画图等高级操作则显得不够便利。因此，我们需要一种能够轻松应对这些任务的IDE。幸运的是，<strong>Jupyterlab</strong> 为我们提供了一个交互式计算环境，让我们可以直接输入代码并立即查看结果。这个功能强大的工具已经成为了数据分析领域的瑰宝，被广泛应用于各种数据分析、可视化等任务中。接下来，我们就来在Linux中配置能够使用R语言的Jupyterlab吧。</p>
+<p>02</p>
+<p>**安装并配置juputer的R语言环境
+**</p>
+<p>创建R语言的虚拟环境</p>
+<p>首先，我们需要用conda创建一个含有R语言的虚拟环境，这样也方便管理不同的R版本。在Linux终端中运行以下命令查找R不同版本：</p>
+<pre><code class="language-bash">conda search -c conda-forge r-base
+</code></pre>
+<p>结果：</p>
+<p><img alt="" src="../images/ba62556d3fa545a3.png"></p>
+<p>然后我们就可以根据需求下载合适版本啦，这里我选择比较新的R4.3.0，先创建一个新的R环境：R430，然后安装，命令如下：</p>
+<pre><code class="language-bash">conda create -y -n R430
+conda activate R430
+conda install -y -c conda-forge r-base==4.3.0
+</code></pre>
+<p>安装完成之后，在终端中输入R，结果如下证明安装成功：<img alt="" src="../images/d3ff4375954a5425.png"></p>
+<p>接着安装必须的R包"IRkernel"</p>
+<pre><code>install.packages(&quot;IRkernel&quot;, repos=&quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;)
+</code></pre>
+<p>之后，退出R，准备安装Jupyterlab</p>
+<h2 id="jupyterlab">安装Jupyterlab</h2>
+<p>直接运行：</p>
+<pre><code class="language-bash">conda install -y jupyterlab
+#安装成功之后，在terminal中输入命令：
+jupyter-lab
+</code></pre>
+<p>我们会看到一大串信息，此时我们需要复制以下链接，在浏览器中打开：</p>
+<p><img alt="" src="../images/7dcd008781427d47.png"></p>
+<p>界面如下：</p>
+<p><img alt="" src="../images/d51e03ea8a8ce88c.webp"></p>
+<p>这就是Jupyterlab的界面了，此时我们可以新建并运行Python文件，但还没有R语言的，所以下一步我们需要将R语言和Jupyterlab关联起来。</p>
+<h2 id="rjupyterlab">关联R和Jupyterlab</h2>
+<p>再激活jupyter-lab之后，如果要退出的话很简单，只需要在终端中Ctrl+C并确认即可。然后我们再次运行R，在命令行中输入：</p>
+<pre><code>IRkernel::installspec()
+</code></pre>
+<p><img alt="" src="../images/215e9c08601a54e7.png"></p>
+<p>运行完成退出即可，再次运行jupyter-lab，打开链接，此时我们可以看到Jupyter中出现了R！然后我点击就可以创建一个新的R脚本文件了：</p>
+<p><img alt="" src="../images/cb4e6f79d61acc4b.webp"></p>
+<p>然后在单元格中输入简单的代码测试，使用快捷键Shift+回车或者点击圆圈中的按钮即可运行代码：</p>
+<p><img alt="" src="../images/0237dc5635820825.webp"></p>
+<p>每个单元格的运行结果会在下面展示。单元格除了代码之外还可以添加markdown，右键单元格我们还可以看到一系列操作：</p>
+<p><img alt="" src="../images/5b33452fabb9012d.webp">
+<img alt="" src="../images/221d70c41a28cd1e.webp"></p>
+<p>运行结束后我们记得Ctrl+S保存代码哦！</p>
+<p><img alt="" src="../images/abee6e7cbc56b2d0.webp"></p>
+<p><img alt="" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../images/3b8e21da777157f9.webp"><img alt="" src="../images/7a5130b05d387a24.gif"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../images/acba43cb3408c3d0.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

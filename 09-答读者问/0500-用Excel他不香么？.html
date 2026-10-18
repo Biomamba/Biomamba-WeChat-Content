@@ -1,0 +1,50 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0500-用Excel他不香么？</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="excel">用Excel他不香么？</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484071&amp;idx=1&amp;sn=58d09c6198e3ee0ad6a87281b2686f7b&amp;chksm=9b3f7bf7ac48f2e1977a75fb8e9dd3c15253bab9f5c5859b0cd8339d87b388277c47d4e0fa29#rd
+合集：答读者问 / 漫谈胡侃</p>
+</blockquote>
+<p>最近有粉丝求助，希望能够按照其要求对文件进行拆分，具体要求如下：A014行的中位值7.92，分别输出文件的A014行大于中位数的列与小于中位数的列。讲道理，中位数都求出来了，这种操作在Excel中进行排序岂不是最简单的方式。既然希望通过R实现，那就写一手吧。</p>
+<p>数据如下：</p>
+<p><img alt="" src="../images/8a93b4c8c71e8488.webp">
+代码也很简单，仅仅几行：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">setwd(&quot;工作路径&quot;)#设置工作路径yourdata &lt;- read.table(&quot;test.txt&quot;,sep = &quot;\t&quot;,header = T,row.names = 1)mediannumber &lt;- fivenum(yourdata[row.names(yourdata)==&quot;A014&quot;,])[[3]]#还是先求个中位数吧big &lt;- yourdata[,yourdata[row.names(yourdata)==&quot;A014&quot;,]&gt;mediannumber]#取出对应的列small &lt;- yourdata[,yourdata[row.names(yourdata)==&quot;A014&quot;,]&lt;mediannumber]#同上write.csv(big,&quot;big.csv&quot;)write.csv(small,&quot;small.csv&quot;)#write。table有时会造成行首的平移-
+</code></pre></article></body></html>

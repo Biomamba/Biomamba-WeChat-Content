@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0077-答读者问（十）整合后的表达矩阵，如何拆分出分组信息？</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">答读者问（十）整合后的表达矩阵，如何拆分出分组信息？</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485134&amp;idx=1&amp;sn=13f5f8c47d8af2beeca4e103a5f5e26d&amp;chksm=9b3f7f9eac48f688b454a1062ee4e41f7072ac9d58e5466fa7ed4bb05018adbfe167bb3a445a#rd
+合集：单细胞教程全收录 / 答读者问</p>
+</blockquote>
+<p>往期回顾</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484175&amp;idx=1&amp;sn=3e45ad62b045a541874e5ae7ca03f849&amp;chksm=9b3f7a5fac48f349f8893500825d2c6b4ff581fbb0816c1074d88a0dbbb4a612c1e1bb3740bb&amp;scene=21#wechat_redirect">答读者问 （一）单基因究竟能否进行GSEA</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484248&amp;idx=1&amp;sn=b1fe7174a28562d01422e43609f41709&amp;chksm=9b3f7a08ac48f31e3bbfdb4a9824dadf25a8fa3ff9b78dd15d646ae4c3da5db04e2e4acfba3d&amp;scene=21#wechat_redirect">答读者问 （二）为什么我的PCA分析报错了？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484280&amp;idx=2&amp;sn=844af02070012a1c2681880596ba51a2&amp;chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&amp;scene=21#wechat_redirect">答读者问 （三）单细胞测序前景</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=2&amp;sn=e8d02fddc80d1137bb64c55541f1651d&amp;chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&amp;scene=21#wechat_redirect">答读者问 （四）如何分析细胞亚群</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484353&amp;idx=2&amp;sn=8fccb88c871a42c803e313be157ab293&amp;chksm=9b3f7a91ac48f387df8b462f7318596fc5c645d6f05eefac2c598ff6875c0a2eeb902aaf5a15&amp;scene=21#wechat_redirect">答读者问 （五）如何实现各物种基因的ID/symbol的转换</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484376&amp;idx=2&amp;sn=9fda8a5261e86f889a58d607163ce0fd&amp;chksm=9b3f7a88ac48f39ea9c19e256a513c9ae80c6f6dc1724b7783884e23981e2061c78fa67071c9&amp;scene=21#wechat_redirect">答读者问 （六）Seurat中如何让细胞听你指挥</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484550&amp;idx=1&amp;sn=ec4466084c1c9eba7eb292e95f33b5bb&amp;chksm=9b3f7dd6ac48f4c042b4e9df2abd717b1354b4914c3f7510eaf444e97965a0f6622979e710e0&amp;scene=21#wechat_redirect">答读者问 （七）有人问我Biomamba何解</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485012&amp;idx=1&amp;sn=6007c8d7cb2a236dd7240a678dac0391&amp;chksm=9b3f7f04ac48f612f811c1df9e9450dc8112d343e4bf245be5149c2e2a073d3e339cd0e3ff61&amp;scene=21#wechat_redirect">答读者问 （八）为什么Read10X也会报错?</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485032&amp;idx=1&amp;sn=7d4777589fa1f92d26ad05ffe3e02f6a&amp;chksm=9b3f7f38ac48f62e0d2e4d46a13c21e440295aef4cba08214527d7b7d2e1959a0b4cebe4143a&amp;scene=21#wechat_redirect">答读者问 （九） 如何将数百个文件整合为一个矩阵</a></p>
+<p>问题</p>
+<p>粉丝提问：从GEO中下载了一个文件，作者提供的是所有文件整合在一起的表达矩阵，如何从中取出样本与分组信息并加入到Seurat对象之中呢？</p>
+<p>怎么解决问题</p>
+<h4 id="_2"></h4>
+<p>我们先来看一下数据</p>
+<pre><code class="language-r">library(data.table)
+library(Seurat)
+## Attaching SeuratObject
+suppressWarnings(mycount &lt;- fread('GSE172495_RNA_Matrix_PBMC.csv',sep=','))#用data.table中的fread读起来会快很多
+mycount &lt;- as.data.frame(mycount)
+mynames&lt;- mycount$V1
+rownames(mycount) &lt;- mynames
+mycount &lt;- mycount[,-1]
+mycount[1:5,1:5]
+##          CAGCGTCGCAAT_350C GATTAAGTGTGN_350C AGATGCTGATTA_350C
+## A1BG                     0                 0                 0
+## A1BG-AS1                 0                 0                 0
+## A1CF                     0                 0                 0
+## A2M                      0                 0                 0
+## A2M-AS1                  0                 0                 0
+##          AGGAACCAAAGG_350C ACCCCTATTAAT_350C
+## A1BG                     0                 0
+## A1BG-AS1                 0                 0
+## A1CF                     0                 0
+## A2M                      0                 0
+## A2M-AS1                  0                 0
+</code></pre>
+<p>看一下每个细胞的名称，其中暗藏玄机</p>
+<pre><code class="language-r">mycellname &lt;- colnames(mycount)
+mycellname[1:5]
+</code></pre>
+<pre><code>## [1] &quot;CAGCGTCGCAAT_350C&quot; &quot;GATTAAGTGTGN_350C&quot; &quot;AGATGCTGATTA_350C&quot;
+## [4] &quot;AGGAACCAAAGG_350C&quot; &quot;ACCCCTATTAAT_350C&quot;
+</code></pre>
+<p>可以看出，这里细胞名中’_’后的就是样本名，那我们把这个字符串拆出来，并制作成metadata</p>
+<pre><code class="language-r">samplename &lt;-  as.vector(lapply(mycellname, function(x){
+  as.character(strsplit(x,'_')[[1]][2])
+}))
+samplename &lt;- as.data.frame(unlist(samplename))
+rownames(samplename) &lt;- colnames(mycount)
+colnames(samplename)[1] &lt;- 'sample'
+head(samplename)
+##                   sample
+## CAGCGTCGCAAT_350C   350C
+## GATTAAGTGTGN_350C   350C
+## AGATGCTGATTA_350C   350C
+## AGGAACCAAAGG_350C   350C
+## ACCCCTATTAAT_350C   350C
+## CCCAGTCACCTA_350C   350C
+</code></pre>
+<p>存入Seurat对象之中</p>
+<pre><code class="language-r">pbmc &lt;- CreateSeuratObject(counts = mycount)
+pbmc &lt;- AddMetaData(pbmc,metadata = samplename)
+unique(pbmc$sample)#这就是存进去了
+##  [1] &quot;350C&quot;  &quot;459C&quot;  &quot;851C&quot;  &quot;865C&quot;  &quot;866C&quot;  &quot;868C&quot;  &quot;A307C&quot; &quot;A311C&quot; &quot;350P&quot;
+## [10] &quot;459P&quot;  &quot;851P&quot;  &quot;865P&quot;  &quot;866P&quot;  &quot;868P&quot;  &quot;A307P&quot; &quot;A311P&quot;
+</code></pre>
+<p>接下来就是走一遍单样本分析，就能查看了，这部分不懂的同学看看这两讲</p>
+<pre><code>手把手教你做单细胞测序（三）——单样本分析
+</code></pre>
+<pre><code>手把手教你做单细胞测序（四）——多样本整合
+</code></pre>
+<p><img alt="" src="../images/c19511c077f535c9.webp"></p>
+<p><img alt="" src="../images/00953f40945fbabd.webp"></p>
+<p><img alt="" src="../images/2cc9316bafeedaf7.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/9b3df9175ed77a7e.gif">最近发现后台中有一些消息我没能及时看到并答复，微信后台中超过48h后便不允许回复读者消息，这里还是再给大家留一下答疑的扣扣号，方便大家随时交流。微信号可以点击<strong>喜欢作者</strong> 后自动回复里有。欢迎大家向我咨询或者提供建议。大家可以阅读完这几篇之后添加我：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484331&amp;idx=1&amp;sn=94ad9cabc39f13fabf08a31862373093&amp;chksm=9b3f7afbac48f3edc011f3e587920da27e68f7870fcfd119a7269b7053662e8bc85941a58d0b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=1&amp;sn=9bae98ae031cc9e546c35c4d2e60efd1&amp;chksm=9b3f7accac48f3da7c3ee8ed308de8e52aa92284f6985ba43b59b70b3610cecb01c7295f7521&amp;scene=21#wechat_redirect">答疑公约</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484685&amp;idx=1&amp;sn=3b47c0bcad97a265650b5f34c00a6a3c&amp;chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&amp;scene=21#wechat_redirect">笑一笑也就算了</a></p>
+<p><img alt="" src="../images/d3f344df2ff09261.webp"></p></article></body></html>

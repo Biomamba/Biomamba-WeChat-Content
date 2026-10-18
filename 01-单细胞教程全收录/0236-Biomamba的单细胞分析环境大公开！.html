@@ -1,0 +1,50 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0236-Biomamba的单细胞分析环境大公开！</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="biomamba">Biomamba的单细胞分析环境大公开！</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529901&amp;idx=1&amp;sn=3e9cb1075a3b0b4c253ca19addf8b387&amp;chksm=9b3c0cfdac4b85eb37539a9c48eea51dcaf72aabc0c895c85066939a8f8fc2b8b7d13648499f#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p>一、学生信最大的障碍</p>
+<p>正如大家所见，我们在制作教程时往往会附上sessionInfo信息，毕竟生信代码千千万，安装R包占一半。毕竟一样的数据、一样的代码，如果运行报错，大概率就是分析的软件环境不一样了。大家平时看教程时也可以留意，尽量挑选提供数据、代码、分析环境详细版本信息的教程去follow。很多时候，我们自己的代码换一台新设备也需要调试很久，解决各种包的版本和依赖问题。<img alt="" src="../images/1a883a6a5a4ff3c4.webp"></p>
+<p>二、分析环境获取</p>
+<p>1、R包库下载此外，我们还给大家准备了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529640&amp;idx=2&amp;sn=b52cd3ca727044a967a6fa2a9e395079&amp;scene=21#wechat_redirect">开箱即用的单细胞分析环境</a>(基于R4.4.1)，可以配合<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529379&amp;idx=1&amp;sn=10283cee636a7bc706f145edc791fe7c&amp;scene=21#wechat_redirect">scRNA-seq数据分析小白全程班</a>食用，如果大家更希望用自己的电脑做分析，我们也把R包.libPaths给大家打包好了，大家通过这些文件可以调用与Biomamba版本一样打R包。<img alt="" src="../images/5a1448357108b470.webp"></p>
+<p>通过网盘分享的文件：</p>
+<p>链接: https://pan.baidu.com/s/1jD8EW2L99RVlREsCRVrVUw?pwd=zvxw</p>
+<p>提取码: zvxw</p>
+<p>其中包含了632个单细胞分析常见R包(Linux环境)，大家可以需要时下载对应的R包即可<img alt="" src="../images/4e6a7bb785ce0cd4.png"></p>
+<p>2、如何使用R包库(1)、.libPaths()</p>
+<p>.libPaths() 是一个用于管理 R 包安装路径的重要函数，它决定了 R 在安装、加载包时搜索的目录位置。理解并灵活使用 .libPaths() 有助于更好地管理R包，避免版本冲突或权限问题。例如<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247524106&amp;idx=6&amp;sn=ac90e4f01b1653ef9eb54640f73e81b1&amp;scene=21#wechat_redirect">在Rstudio中使用同一个R包的不同版本</a>，便是.libPaths() 的灵活运用。</p>
+<p>运行无参数的 .libPaths() 会返回一个字符向量，包含 R 在加载或安装包时优先搜索的目录（顺序越靠前，优先级越高）。</p>
+<p><img alt="图片" src="../images/8840c05f679f2147.webp"></p>
+<p>这三个R包路径有一些不同的用途和特点：</p>
+<p>"/usr/local/lib/R/site-library":</p>
+<p>这个路径通常用于存放系统级别的R包，这些包是由系统管理员安装的，供所有系统用户使用。位于<code>/usr/local/lib</code>的路径表明这些库可能是由管理员或通过超级用户权限安装的，通常不受R默认安装过程的影响，而是独立安装的包。</p>
+<p>"/usr/lib/R/site-library":</p>
+<p>这个路径与<code>/usr/local/lib/R/site-library</code>相似，也是用来存放系统级的R包。位置在<code>/usr/lib</code>，这通常意味着这些包可能是由操作系统的包管理系统安装的（如使用APT或YUM的Linux系统），或者是系统在初始安装时预装的包。</p>
+<p>"/usr/lib/R/library":</p>
+<p>这个路径是R的默认库路径，存放的是R的基础包和核心包，这些包随R软件一起被安装。这些包通常是R安装过程的一部分，是R运行的基本组件，包括了统计、图形处理等基础功能的包。</p>
+<p>(2) 使用Biomamba的.libPaths()使用方法非常简单，大家只需要下载上面的文件，然后在你即将运行的R语言环境中运行(注意，只在当前R会话中生效)：</p>
+<p>*</p>
+<pre><code>.libPaths(c(&quot;下载文件的存放地址&quot;,.libPaths()))
+</code></pre>
+<p>再次运行.libPaths查看是否生效，上面代码若运行成功，则返回信息中会出现你下载的文件地址</p>
+<p>*</p>
+<pre><code>.libPaths()
+</code></pre>
+<p>或者你也可以加载R包时指定路径</p>
+<p>*</p>
+<pre><code class="language-r">library(&quot;你需要的包&quot;, lib = &quot;下载文件的存放地址&quot;)
+</code></pre>
+<p>3、R包信息当然，大家如果愿意挑战下自己，也可以顺着我们的R包信息列表自行安装对应的版本，以下信息由"installed.packages()"函数导出<img alt="" src="../images/d2ac294373923582.webp"></p>
+<p>package_list.txt</p>
+<p>下载链接: https://pan.baidu.com/s/1M5C-IgI7Efc8eBXTe213EA?pwd=ey2c</p>
+<p>提取码: ey2c</p>
+<p><img alt="" src="../images/ee1999ac3a5a3bc1.webp"></p>
+<p>三、分析流程</p>
+<p>以上的环境可以支持你完成《<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529435&amp;idx=1&amp;sn=cc7e9ff271f0ce0157008532ef4829c3&amp;scene=21#wechat_redirect">scRNA-seq，从小白到文献复现大神</a>》的学习。也就是说，我们的以下教程都可以用这个R包环境去运行：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">R语言入门课</a><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2048416764685762560#wechat_redirect">R语言及生信技巧</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505777&amp;idx=1&amp;sn=f3efae390566b838a445ab9f832323c8&amp;scene=21#wechat_redirect">十小时学会Linux</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528512&amp;idx=1&amp;sn=d316bffcbe59e676cd22248936f07b69&amp;scene=21#wechat_redirect">《手把手教你做scRNA-seq数据基础分析》</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq轨迹分析</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528770&amp;idx=1&amp;sn=6242bce437a9d60f81a8651ea9b57e0b&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq细胞通讯分析</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522733&amp;idx=1&amp;sn=4e3a0707fd8f83b5ad9377bc91ee8e53&amp;scene=21#wechat_redirect">单细胞拷贝数变异学习手册</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529410&amp;idx=1&amp;sn=9bbaf955d93ddce60874e1cdc2f16115&amp;scene=21#wechat_redirect">一文学会四种基因共表达网络分析</a>
+<img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528482&amp;idx=1&amp;sn=7cc0715eace4f592a62bdaf157b25c01&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

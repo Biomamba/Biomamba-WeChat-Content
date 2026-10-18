@@ -1,0 +1,154 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0473-OpenAI编程助手插件，把Codex装进VSCode！</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="openaicodexvscode">OpenAI编程助手插件，把Codex装进VSCode！</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536883&amp;idx=1&amp;sn=8fbf4b133e87049cdab88571807027ea&amp;chksm=9b3c29a3ac4ba0b57dbd5503c4321a063e2c559dc9ac15ab2d4a7583e6a70f004b8d9ad2360d#rd
+合集：AI时代，不用就会被淘汰</p>
+</blockquote>
+<h1 id="_1">写在前面</h1>
+<p>现在的生信领域没AI已经完全无法干活了。西柚云结合大家对AI编程以及日常运行任务时的实际需求，推出了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528429&amp;idx=1&amp;sn=64fda7160dc6b4e5b962170aa3a9043c&amp;scene=21#wechat_redirect">AI无缝接入Rstudio≈言出法随</a>帮助大家做到在Rstudio中直接调用AI进行对话、代码修改、代码注释，结合分析环境（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=2&amp;sn=4708fac31ac8f4e347847e4b7f2a4fed&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的共享服务器</a>）。几乎能做到数据分析的言出法随，反馈的代码直接就能在Rstudio里跑。</p>
+<p>今天为大家分享：如何在VSCode中通过Codex插件实现AI辅助编程，覆盖<strong>本地与远程</strong> 两种使用场景。无需依赖命令行，直接在 IDE 中通过插件即可便捷使用 Codex。使用过程中有任何问题欢迎联系：</p>
+<p><img alt="图片" src="../images/0afa34cf8c4b5e66.webp"></p>
+<h1 id="_2">本地使用</h1>
+<h2 id="codex">安装Codex插件</h2>
+<ol>
+<li>打开VSCode，本地安装Codex插件（认准openai）</li>
+</ol>
+<p><img alt="图片" src="../images/2e9e7895a64891fd.webp"></p>
+<ol>
+<li>安装完成后，右侧活动栏会出现Codex图标</li>
+</ol>
+<p><img alt="图片" src="../images/8aa2ac4cf7c2429a.webp"></p>
+<ul>
+<li>此时点击图标会出现下图界面，由于还未进行环境配置，无法正常使用，我们需要根据后面的教程进行环境配置</li>
+</ul>
+<p><img alt="图片" src="../images/bc8f7f7bc0c84590.webp"></p>
+<h2 id="_3">配置环境</h2>
+<ol>
+<li>新建auth.json文件</li>
+</ol>
+<p>Windows用户需要在C:\Users\你的用户名\.codex\目录新建auth.json文件，填入下面的内容</p>
+<pre><code>{
+  &quot;OPENAI_API_KEY&quot;: &quot;你的API_KEY&quot;
+}
+</code></pre>
+<ol>
+<li>新建config.toml文件</li>
+</ol>
+<p>依旧在C:\Users\你的用户名\.codex\目录新建config.toml文件，填入下面的内容，配置URL</p>
+<pre><code>model_provider = &quot;xiyou&quot;
+model = &quot;gpt-5.2-codex&quot;
+model_reasoning_effort = &quot;xhigh&quot;
+disable_response_storage = true
+preferred_auth_method = &quot;apikey&quot;
+
+[model_providers.xiyou]
+name = &quot;xiyou&quot;
+base_url = &quot;https://api.0daysci.com/v1/&quot;
+wire_api = &quot;responses&quot;
+</code></pre>
+<ol>
+<li>保存之后重启VSCode，即可调用成功</li>
+</ol>
+<p><img alt="图片" src="../images/79fe820d0a4660d5.webp"></p>
+<h1 id="_4">服务器使用</h1>
+<h2 id="vscode">使用VSCode连接远程服务器</h2>
+<p>先按照教程通过VSCode连接服务器：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528883&amp;idx=2&amp;sn=9d0b262d04667d22d97ff1583e136660&amp;scene=21#wechat_redirect">手把手教你用VS Code连接服务器</a></p>
+<h2 id="codex_1">安装Codex插件</h2>
+<ol>
+<li>在VSCode左侧扩展图标搜索Codex并安装，认准openai。</li>
+</ol>
+<p><img alt="图片" src="../images/954a4d6c617f21c8.webp"></p>
+<ol>
+<li>此安装是在远程主机上安装，安装完成之后会显示已在远程主机启用扩展，且右侧活动栏出现Codex图标</li>
+</ol>
+<p><img alt="图片" src="../images/e4c4b4a8e7f04e86.webp"></p>
+<ul>
+<li>和本地使用类似，如果未进行环境配置会无法正常使用，服务器使用时依旧需要根据后面的教程进行环境配置</li>
+</ul>
+<h2 id="_5">配置环境</h2>
+<ul>
+<li>在远程服务器创建配置文件</li>
+</ul>
+<pre><code class="language-bash"># 创建配置目录
+mkdir ~/.codex
+
+# 配置KEY
+vim ~/.codex/auth.json
+
+{
+&quot;OPENAI_API_KEY&quot;: &quot;你的API_KEY&quot;
+}
+
+# 配置URL
+vim ~/.codex/config.toml
+
+model_provider = &quot;xiyou&quot;
+model = &quot;gpt-5.2-codex&quot;
+model_reasoning_effort = &quot;xhigh&quot;
+disable_response_storage = true
+preferred_auth_method = &quot;apikey&quot;
+
+[model_providers.xiyou]
+name = &quot;xiyou&quot;
+base_url = &quot;https://api.0daysci.com/v1/&quot;
+wire_api = &quot;responses&quot;
+</code></pre>
+<ul>
+<li>保存后重启VSCode，再次打开即可使用。</li>
+</ul>
+<p><img alt="图片" src="../images/03057ef864f66d68.webp"></p>
+<h1 id="_6">使用测试</h1>
+<ul>
+<li>点击右侧Codex图标或者左侧活动栏打开对话框</li>
+</ul>
+<p><img alt="图片" src="../images/44d224501e66eb67.webp"></p>
+<ul>
+<li>直接描述任务，例如："请生成一个R脚本，使用DESeq2对一个假想的表达矩阵进行标准化，并输出前10个最差异表达的基因"</li>
+</ul>
+<p><img alt="图片" src="../images/cf2e651706337c58.webp"></p>
+<h1 id="token">怎么购买Token</h1>
+<h2 id="ai">打开西柚云AI服务平台</h2>
+<p><img alt="图片" src="../images/045a17dca9af5aff.webp"></p>
+<h2 id="_7">充值</h2>
+<ol>
+<li>点击右上角个人中心，点击钱包管理。</li>
+</ol>
+<p><img alt="图片" src="../images/c4351adafd01c734.webp"></p>
+<ol>
+<li>
+<p>点击跳转购买对应的商品，购买后系统将自动充值Token。</p>
+</li>
+<li>
+<p>免费体验版：5百万Token。</p>
+</li>
+<li>正式版：1千万Token/18元。</li>
+</ol>
+<p><img alt="图片" src="../images/8b8c1b8d9e0ea779.webp"></p>
+<h2 id="_8">令牌管理</h2>
+<ol>
+<li>进入令牌管理</li>
+</ol>
+<p><img alt="图片" src="../images/9ba945fde62dc201.webp"></p>
+<ol>
+<li>
+<p>创建令牌</p>
+</li>
+<li>
+<p>名称：填便于自己识别的名称</p>
+</li>
+<li>令牌分组：选择默认分组</li>
+</ol>
+<p><img alt="图片" src="../images/7c0bf3b411a9969c.webp"></p>
+<ol>
+<li>复制令牌配置到对应的配置文件</li>
+</ol>
+<p><img alt="图片" src="../images/d25992a9e960196a.webp"></p>
+<h1 id="_9">西柚云在售算力</h1>
+<p>我们长期提供GPU、CPU算力，欢迎大家联系客服微信[Biomamba_zhushou]优惠下单。<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=2&amp;sn=4708fac31ac8f4e347847e4b7f2a4fed&amp;scene=21#wechat_redirect"><img alt="" src="../images/4e16848e78ab0800.webp"></a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534707&amp;idx=2&amp;sn=2844377758ce00e07435a5dd376b4715&amp;scene=21#wechat_redirect"><img alt="" src="../images/7639767d80b412ae.webp"></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21#wechat_redirect"><img alt="图片" src="../images/d6125d14730a8fb1.webp"></a>
+<img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../images/fe8ecb8594a1f419.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

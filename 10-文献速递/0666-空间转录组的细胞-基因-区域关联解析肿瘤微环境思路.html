@@ -1,0 +1,67 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0666-空间转录组的细胞-基因-区域关联解析肿瘤微环境思路</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="-">空间转录组的细胞-基因-区域关联解析肿瘤微环境思路</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538748&amp;idx=2&amp;sn=e0800af6696cffeb6304d73d678d49c6&amp;chksm=9b3c216cac4ba87a904edddb1e118828de9ffb60c28faf4f7e65f8964ba5c66f3065c058fee9#rd
+合集：文献速递</p>
+</blockquote>
+<hr>
+<p><strong>一、写在前面</strong></p>
+<p>本次分享文献发布于Nature Communications（IF=15.7）的文章。原文题目为：“Dissecting tumor microenvironment from spatially resolved transcriptomics data by heterogeneous graph learning“</p>
+<p>肿瘤免疫微环境（TME）具有显著的空间异质性，不同细胞类型在组织中的空间分布与互作模式决定了免疫应答和治疗反应。</p>
+<p>尽管<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">单细胞</a>测序（scRNA-seq）能够揭示细胞转录状态，但其破坏了空间结构；而<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2879312479804489730#wechat_redirect">空间转录组</a>技术（SRT）保留了组织学背景，却存在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528207&amp;idx=1&amp;sn=13aafaa75639311cfd0940c34dc25dbe&amp;scene=21#wechat_redirect">空间分辨率</a>有限、细胞混合信号等问题。</p>
+<p>当前的分析方法多聚焦于“<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503971&amp;idx=2&amp;sn=7dafb1e743ebbb95e488d8d1b7024448&amp;scene=21#wechat_redirect">细胞比例</a>估计”或“配体–受体信号”，忽略了基因–细胞–组织区域三者的复杂耦合关系。因此，本研究旨在建立一个新的计算框架，以更全面地解析<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536705&amp;idx=1&amp;sn=7fbfeba5dee45f6c3311bd31082a428c&amp;scene=21#wechat_redirect">肿瘤</a>组织中细胞状态、分子特征及其空间交互。</p>
+<p>研究目标：提出一种整合空间、细胞和分子层面的解析框架，以揭示肿瘤微环境中细胞–基因–组织区域的复杂关系。</p>
+<p>方法核心：</p>
+<p>（1）开发了 CCGR（Complex Cell–Gene–Region）模型，基于异质图学习（heterogeneous graph learning）思想，将<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532178&amp;idx=1&amp;sn=2cc8f5453765bd68b8ddacf2c2e3d5e7&amp;scene=21#wechat_redirect">细胞类型</a>、基因表达和组织区域视为三类节点；</p>
+<p>（2）构建跨层图结构（cell–gene–region graph, CGR），实现空间共表达与<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532641&amp;idx=1&amp;sn=c8422ab7c1cd70751fb3109a84cb64ea&amp;scene=21#wechat_redirect">邻域</a>依赖的联合建模；</p>
+<p>（3）采用消息传递神经网络（GNN）学习不同层次的交互特征，并生成可解释的空间嵌入表示；</p>
+<p>（4）在多个肿瘤类型（乳腺癌、黑色素瘤、胶质瘤等）中验证方法性能，并与现有算法（如SpaGCN、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532763&amp;idx=1&amp;sn=f6e4df9242f1341d2dc7e6154c33aa46&amp;scene=21#wechat_redirect">stLearn</a>、Giotto）进行对比。</p>
+<p>如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531160&amp;idx=2&amp;sn=04d3798dc60958af2c9020fe7c4bd9b8&amp;scene=21&amp;token=827157490&amp;lang=zh_CN&amp;poc_token=HLe6Q2mjR5L5stXqZGOdzOvf2Vk8eTYi05UUYRRy#wechat_redirect">单细胞数据分析</a>教学、生信热点<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469&amp;token=827157490&amp;lang=zh_CN#wechat_redirect">全文复现</a>、自测数据个性化分析辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537678&amp;idx=1&amp;sn=578993fdfa060d38c80e2df6fc200c39&amp;scene=21#wechat_redirect">实验科研服务</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537678&amp;idx=2&amp;sn=1d329f22e35586dc794ce30aa6bd0ce4&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[Biomamba_zhushou]。</p>
+<p><strong>二、主要内容</strong></p>
+<p><strong>1. 构建空间转录组异质图学习框架</strong></p>
+<p><img alt="" src="../images/3ecb59db1dd5a373.webp"></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538071&amp;idx=1&amp;sn=6ec47cc597d974809d116c74b29e5481&amp;scene=21#wechat_redirect"> Fig.1</a>研究者提出一种全新的<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2879312479804489730#wechat_redirect">空间转录组</a>分析框架——CCGR（Complex Cell–Gene–Region）模型，旨在通过整合“细胞类型–基因表达–组织区域”三层关系，克服现有空间转录组算法仅基于空间<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532641&amp;idx=1&amp;sn=c8422ab7c1cd70751fb3109a84cb64ea&amp;scene=21#wechat_redirect">邻域</a>或基因表达的局限，从而更全面刻画肿瘤免疫微环境（TME）的空间结构与信号互作。CCGR的算法流程：将每个<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532178&amp;idx=1&amp;sn=2cc8f5453765bd68b8ddacf2c2e3d5e7&amp;scene=21#wechat_redirect">空间点</a>（spot）视为细胞复合体节点，与基因和组织区域节点共同组成异质图（heterogeneous graph）；通过图<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532458&amp;idx=1&amp;sn=f8ec547187374fe77c38fc1125709b3b&amp;scene=21#wechat_redirect">卷积</a>神经网络（GNN）在多层关系图上传递信息，捕捉细胞–基因–区域之间的高阶依赖；模型可生成多维空间嵌入，用于空间聚类与功能分区；与主流算法（SpaGCN、STAGATE、BayesSpace）比较，CCGR在空间分区精度（ARI上调25%，NMI上调18%）与生物一致性上均显著优越。</p>
+<p>CCGR通过异质图学习实现空间多模态信息整合，能高效识别组织学相关区域与功能模块。将细胞、基因与空间组织纳入同一学习框架，实现从二维空间到多层语义的“空间-分子联合解析”。</p>
+<p>2. 在乳腺癌组织中的空间聚类与亚型标注</p>
+<p><img alt="" src="../images/514f26ef02ffdd46.webp"></p>
+<p>Fig.2 利用CCGR模型解析乳腺癌（IDC、BAS1、TNBC等）空间转录组数据，识别不同上皮细胞亚型及肿瘤相关微环境结构。在组织切片中实现高分辨空间聚类，准确区分肿瘤区、基质区、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532107&amp;idx=2&amp;sn=7afc7517afb7dbdefeb7fd3312c1d5e8&amp;scene=21#wechat_redirect">免疫浸润</a>区；鉴定出多个特征性上皮亚型，如 KRT23⁺、S100A1⁺、CNN1⁺、FST⁺ 群；myoepithelial 2亚群富集COMP信号，参与细胞外基质重塑与肿瘤侵袭；CAF与肌上皮细胞间存在明显的COMP–ITGAV/ITGB5配体–受体互作；TCGA数据库验证COMP高表达与TNBC患者较差生存显著相关（p&lt;0.01）。</p>
+<p>CCGR在乳腺癌中揭示了肌上皮–基质互作驱动的空间重构机制，为理解肿瘤基质塑形提供新思路。COMP信号轴促进CAF与肌上皮细胞黏附及迁移 → 形成促侵袭空间微区 → 影响患者预后。</p>
+<p>3. 空间异质性与细胞通信的量化分析</p>
+<p><img alt="" src="../images/e40df1a0e0aca943.webp"></p>
+<p>Fig. 3探究CCGR在解析肿瘤局部免疫结构和配体–受体信号互作中的应用。模型识别免疫活跃区与免疫排除区；免疫区富集PD-L1、CXCL13、CD8A、GZMB等免疫活化标志物；基质富集FN1、COL1A1、POSTN等基质重塑信号；<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532763&amp;idx=1&amp;sn=f6e4df9242f1341d2dc7e6154c33aa46&amp;scene=21#wechat_redirect">配体–受体</a>分析显示PDCD1–CD274及CXCL13–CXCR5轴在免疫富集区活跃。</p>
+<p>免疫细胞在空间上呈现“功能分区”，免疫激活与抑制信号共存，解释了肿瘤免疫反应的空间限制性。肿瘤免疫反应并非均匀发生，而是在特定区域形成“免疫热点”与“免疫空白带”，决定治疗响应。</p>
+<p>4. 模型的可解释性与跨癌种泛化能力</p>
+<p><img alt="" src="../images/e8fdb7a2a942bcf0.webp"></p>
+<p>Fig.4评估CCGR模型的普适性与可解释性，验证其在不同癌种及平台中的鲁棒性。在脑组织DLPFC数据上保持准确空间聚类，验证非肿瘤组织适用性；在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533068&amp;idx=1&amp;sn=52cbc8d161ec216b5d7a8238a49d47c6&amp;scene=21#wechat_redirect">结直肠癌</a>（CRC）与肝转移样本中，模型同样准确识别免疫与基质分区；潜变量分析表明CCGR能提取跨样本一致的空间特征。</p>
+<p>CCGR具备跨癌种泛化能力，可作为统一的空间组学解释框架。通过图学习抽取“空间-功能潜变量”，实现跨组织、跨疾病类型的统一解析。</p>
+<p>5. 空间信号通路与免疫细胞互作模式</p>
+<p><img alt="" src="../images/01c51d900bb2de04.webp"></p>
+<p>Fig.5在多肿瘤类型中解析关键信号通路的空间富集与细胞间互作网络。免疫富集区中CXCL9/10–IFNγ轴活跃，驱动T细胞募集；基质区VEGFA–COL1A1上调，促进血管生成与纤维化；在胶质瘤中发现LAG3–MHCII免疫抑制轴，解释免疫冷区现象；构建免疫–基质–代谢通路的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=1&amp;sn=cd16d0151ef19c9a2dcfcba6ee09f431&amp;scene=21#wechat_redirect">空间互作网络</a>图。</p>
+<p>CCGR揭示肿瘤不同空间区域存在特异的信号通路模式，反映免疫应答与代谢重编程的空间协调性。CXCL9/10轴激活免疫区 → VEGFA轴促进血管生成 → LAG3轴形成免疫抑制带，构成空间信号环路。</p>
+<p>6. 结直肠癌及肝转移中的空间重编程</p>
+<p><img alt="" src="../images/7386852b07f16b9e.webp"></p>
+<p>Fig.6利用<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533068&amp;idx=1&amp;sn=52cbc8d161ec216b5d7a8238a49d47c6&amp;scene=21#wechat_redirect">结直肠癌</a>（P1）及肝转移（LM1/LM2）样本探讨肿瘤转移过程中空间互作的变化。CCGR聚类结果与病理H&amp;E标注高度一致；原发灶中SPP1、FN1、APOE高表达区域与侵袭边缘重叠；肝转移样本中EREG–ERBB3、AREG–ERBB3互作显著增强，提示EGFR信号激活；富含成纤维细胞与上皮细胞<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534453&amp;idx=2&amp;sn=b6e2150b75e22b9c42a7536dd5785e06&amp;scene=21#wechat_redirect">共定位</a>的空间区域中，检测到TGFβ1上调和免疫细胞减少。</p>
+<p>CCGR揭示肿瘤从原发至转移阶段的空间信号重塑，表明EGFR–TGFβ轴可能驱动转移微环境重编程。原发灶：SPP1–FN1促迁移。转移灶：EGFR信号激活 + TGFβ抑制免疫 → 构建免疫逃逸生态位。</p>
+<p><strong>三、总结与展望</strong></p>
+<p>CCGR模型实现了细胞–基因–区域的多层整合分析，全面揭示了肿瘤免疫微环境的空间<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528663&amp;idx=1&amp;sn=460a3f22e4ea1dd77b57ec07a7e716f0&amp;scene=21#wechat_redirect">异质性</a>。研究展示了空间信号通路的区域特征，为理解免疫应答的空间调控及精准治疗策略的制定提供了新方向。</p>
+<p>1.创新与意义</p>
+<p>本研究提出异质图学习模型 CCGR，将细胞、基因与组织区域纳入同一分析框架，突破了传统空间聚类方法的局限。模型能精准解析肿瘤免疫微环境的空间结构，揭示免疫与基质区的分布规律及信号互作模式，如CXCL9/10–IFNγ和VEGFA–COL1A1轴等。该工作为理解肿瘤空间免疫机制和优化免疫治疗提供了新思路。</p>
+<p>2.局限与未来方向</p>
+<ul>
+<li>尽管CCGR模型显著提升了空间转录组的解析精度，但仍存在若干局限：</li>
+</ul>
+<p>1.空间分辨率依赖性强——在低分辨率平台（如<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538389&amp;idx=1&amp;sn=bad365ac03ef12959f12bb0a362ec361&amp;scene=21#wechat_redirect">Visium</a>）上，<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532178&amp;idx=1&amp;sn=2cc8f5453765bd68b8ddacf2c2e3d5e7&amp;scene=21#wechat_redirect">spot</a>混合信号仍可能影响模型准确性；</p>
+<p>2.实验验证有限——部分空间互作仅基于计算推断，缺乏免疫组化或原位杂交等实验支撑；</p>
+<p>3.模型可迁移性需进一步验证——当前主要聚焦于肿瘤组织，尚未验证其在炎症、发育或神经系统中的适用性。</p>
+<ul>
+<li>未来研究可从以下方向拓展：</li>
+</ul>
+<p>1.结合空间多组学（转录组 + 蛋白组 + 代谢组），进一步提高空间信号解析深度；</p>
+<p>2.与病理图像特征融合，建立端到端的多模态AI模型；</p>
+<p>3.利用空间单细胞测序（Spatial-Seq）或空间多重免疫染色验证关键互作网络；</p>
+<p>4.将该模型扩展至<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537240&amp;idx=2&amp;sn=ec9fdf89154ed90a695cde251308e92e&amp;scene=21#wechat_redirect">药物反应</a>预测与空间免疫耐药研究中，促进精准免疫治疗的应用。</p>
+<p><img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532717&amp;idx=2&amp;sn=eb98e578098b9f432ea6ecbdc3c0d74b&amp;scene=21#wechat_redirect">免费两周学习版</a>服务器的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/0afa34cf8c4b5e66.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

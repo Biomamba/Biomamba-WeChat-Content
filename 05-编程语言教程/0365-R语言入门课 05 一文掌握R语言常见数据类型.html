@@ -1,0 +1,128 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0365-R语言入门课 05 一文掌握R语言常见数据类型</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="r-05-r">R语言入门课| 05 一文掌握R语言常见数据类型</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529424&amp;idx=1&amp;sn=3e8c9aa0050ec8627959933a4f10d44c&amp;chksm=9b3c0a80ac4b8396ca59adcc994ce8001333c10b9fa9feb6da64c46507b28a51ffd98d102150#rd
+合集：编程语言教程</p>
+</blockquote>
+<p><img alt="" src="../images/c33e327c8d66af99.webp"></p>
+<p>视频教程</p>
+<p><img alt="" src="../images/3ff4011fef611c1c.webp"><img alt="" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>大家可以先做一做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528153&amp;idx=1&amp;sn=a6e1015ac93a6e1d310039f91230e14a&amp;scene=21#wechat_redirect">R语言基础小测验</a>，看看自己是否需要跟我们<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">5.5h入门R语言</a>的课程。</p>
+<p>先上教程视频，B站同步播出：</p>
+<p>https://www.bilibili.com/video/BV1miNVeWEkw</p>
+<p>完整视频回放和答疑服务可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">5.5h入门R语言</a></p>
+<p>本节课程视频：</p>
+<p>"R语言入门课"是我们认为<strong>生信小白入门</strong> 不得不听的一个课程，我们也为这个课程准备了许多<strong>干货</strong> 。R语言的精髓便是数据处理，在本节课中，我们详细介绍了向量、矩阵、数据框、数组、因子、列表的创建方法与数据访问方式，为以后的生物信息学数据处理打下牢固的基础！</p>
+<p><img alt="" src="../images/f74ae4c6b8127d36.webp"></p>
+<p><img alt="图片" src="../images/c33e327c8d66af99.webp"></p>
+<p>本次课程代码</p>
+<p><img alt="图片" src="../images/3ff4011fef611c1c.webp"><img alt="图片" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>大家可以跟着视频练习如下代码：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">####  创建数据集 ########## 一、向量(vector) ####### 1 定义# 是用于存储数值型、字符型或逻辑型数据的一维数组。 例如：a &lt;- c(1,2,3,4,5,6,-2,4)b &lt;- c(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,'four')c1 &lt;- c(TRUE,TRUE,TRUE,FALSE,FALSE)# 布尔值c2 &lt;- c(T,T,T,F,F)# 布尔值# a为数值型向量，b字符型（必须加&quot;&quot;），c逻辑型向量。# 单个向量中的数据类型必须相同c &lt;- c(1,'asjhg')cclass(c)as.numeric(c)# ***标量（scalar)是只含一个元素的向量g &lt;-1
+# 2 访问向量中的元素# **注：R中位置索引从1开始，而不是0**# 1) 访问单个元素a &lt;- c(&quot;k&quot;,&quot;q&quot;,&quot;e&quot;,&quot;f&quot;,&quot;a&quot;,&quot;w&quot;,&quot;p&quot;,&quot;m&quot;)a[3]
+# 2）访问多个元素a &lt;- c(&quot;k&quot;,&quot;q&quot;,&quot;e&quot;,&quot;f&quot;,&quot;a&quot;,&quot;w&quot;,&quot;p&quot;,&quot;m&quot;)a[   c(1,2,4,6)    ]# 3）连续访问多个元素a &lt;- c(&quot;k&quot;,&quot;q&quot;,&quot;e&quot;,&quot;f&quot;,&quot;a&quot;,&quot;w&quot;,&quot;p&quot;,&quot;m&quot;)a[   c(2:6)  ]length(a)
+###### 二、矩阵(matrix) ####### 1 定义# 是一个**二维变量**，只是每个元素都拥有相同的模式（数值型、字符型或逻辑型）。#可以通过函数matrix()创建矩阵，格式如下：# mymatrix &lt;- matrix(vector,nrow = number_of_rows,#                    ncol = number_of_columns,#                    byrow = logical_value,dimnames = list(char_vector_rownames,#                                                          char_vector_colnames))
+#vector:矩阵的元素#nrow:行的维数#ncol:列的维数
+#dimnames:可选的、以字符型向量表示的行名和列名，如果没有设定可以不写#byrow = TRUE：矩阵按行填充，byrow = FALSE:矩阵按列填充。\*\*如果不做设定，默认情况下按列填充。#   **因此，创建矩阵时至少包括vector,nrow,ncol**
+# 2 创建矩阵y &lt;- matrix(1:20,nrow = 5,ncol = 4)y
+
+cells &lt;- c(1,2,3,4)rnames &lt;- c(&quot;R1&quot;,&quot;R2&quot;)cnames &lt;- c(&quot;C1&quot;,&quot;C2&quot;)
+mymatrix1 &lt;- matrix(cells,nrow = 2,ncol = 2,byrow = FALSE,                    dimnames = list(rnames,cnames))mymatrix1
+#可以看到优先按列填充，且行名为rnames，列名为cnames。# 下面改变一些参数:cells &lt;- c(1,2,3,4)rnames &lt;- c(&quot;R1&quot;,&quot;R2&quot;)cnames &lt;- c(&quot;C1&quot;,&quot;C2&quot;)
+mymatrix2 &lt;- matrix(cells,nrow = 2,ncol = 2,byrow = TRUE,                    dimnames = list(cnames,rnames))mymatrix2
+# 可以看的变成了优先按行填充，行名变为cnames，列名变为rnames。# 如何访问矩阵中的元素 # 使用下标和方括号来选择矩阵中的行、列或元素。# x[i,] 矩阵x中的第i行# x[,j]:矩阵x中的第j列**# x[i,j]:矩阵x中第i行第j列个元素# x[i,c(h,j)]:矩阵x中第i行,第h和j列# x[c(h:i),j]：矩阵x中第h-i行,第j列
+# 举例x &lt;- matrix(21:40,nrow = 4,ncol = 5 )x
+x[1,]x[,5]x[c(1,2,3),5]x[c(2:4),c(2:4)]
+dim(x)nrow(x) ncol(x)
+# 矩阵也只能包含一种数据类型，当维度超过2时，可以使用数组
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r">###### 三、 数组(array) ####### 1 定义# 数组(array)与矩阵类似，但是维度可以大于2,例如可以是三维的。# 通过函数**array()**创建：# myarray &lt;- array(vector,dimensions,dimnames)# vector:数组中的数据# dimensions:数值型向量,给出了各个维度下标的最大值，# 按行，列，面进行排序  # dimnames:可选的、各维度名称标签的列表# 2 创建数组dim1 &lt;- c(&quot;A1&quot;,&quot;A2&quot;)dim2 &lt;- c(&quot;B1&quot;,&quot;B2&quot;,&quot;B3&quot;)dim3 &lt;- c(&quot;C1&quot;,&quot;C2&quot;,&quot;C3&quot;,&quot;C4&quot;)z &lt;- array(1:24,c(2,3,4),dimnames = list(dim1,dim2,dim3))z# 可以看到这里c(2,3,4)表示的3个维度分别为2，3，4个，即2行3列4面。# 3 访问数组中的元素#和矩阵类似，使用下标和方括号来选择。z[1,3,4]#这表示选择是维度1中的1(第一行)，维度2中的3(第三列)，维度3中的4(第4个矩阵) ***可以某种程度上将数组看出几个矩阵的组合。***dim(z)
+###### 四、 数据框(data) ####### 1 定义# 数据框的不同列可以包含不同模式（数值型、字符型、逻辑型）数据，更类似于常见的数据集。# 通过函数**data.frame()**创建：mydata &lt;- data.frame(col1,col2,col3,...)#col1,col2,col3,...:列向量，可以为任何类型的数据，每一列的名称由函数names指定。 **但通常不同列（变量）的向量中的数据（观测值）个数相同，且每一列数据的模式必须相同**
+# 2 创建数据框patientID &lt;- c(1,2,3,4)age &lt;- c(25,34,28,52)diabetes &lt;- c(&quot;Type1&quot;,&quot;Type2&quot;,&quot;Type1&quot;,&quot;Type1&quot;)status &lt;- c(&quot;Poor&quot;,&quot;Improved&quot;,&quot;Excellent&quot;,&quot;Poor&quot;)patientdata &lt;- data.frame(patientID,age,diabetes,status)patientdata# 3 选取数据框中的元素#1）用方括号和下标来选取，[n]和[n1:n2]格式下标的数字表示第n1到n2变量（列）patientdata[2]patientdata[,1:2]# 而[n1,n2]则选取的依然是第n1行，n2列对应的元素patientdata[3,4]# 2）直接利用函数制定特定变量名来获取patientdata[c(&quot;age&quot;,&quot;status&quot;)]patientdata[,c(&quot;age&quot;,&quot;status&quot;)]#* 注意变量名是字符型数据，所以要加双引号# 3）利用$符号+变量名（不用双引号）patientdata$status# **with()**函数#在每个变量名前都输入一次patientdata$比较繁琐，可以借助with()函数简化代码#以内置数据框mtcars为例：mtcarssummary(mtcars$mpg)# summary()获取描述性统计量，可以提供最小值、最大值、四分位数和数值型变量的均值，以及因子向量和逻辑型向量的频数统计等。结果输出中的1Q和Q3分别为残差第一四分位数（1Q）和第三分位数（Q3）。***plot(mtcars$mpg,mtcars$disp)with(mtcars,     {       plot(mpg,disp)       plot(mpg,gear)       plot(mpg,carb)     }     )dim(mtcars)  ###### 五、因子(factor) ####### 1 定义#谈因子前首先要了解变量的分类，可以分为：# +----------------------+----------------------------------------------------+----------------------------------------+-----------------------------------+# | 变量分类             | 定义                                               | 包括                                   | 具体举例                          |# +======================+====================================================+========================================+:==================================+# | 名义变量（分类变量） | 没有顺序之分的分类变量                             | 性别，省份，职业、分型等               | Diabetes(Type1、Type2)            |# |                      |                                                    |                                        |                                   |# | nominal variable     |                                                    |                                        |                                   |# +----------------------+----------------------------------------------------+----------------------------------------+-----------------------------------+# | 顺序变量             | 一种顺序关系而非数量关系                           | 班级，名次，病情等                     | Status(poor、improved、excellent) |# |                      |                                                    |                                        |                                   |# | ordinal variable     |                                                    |                                        |                                   |# +----------------------+----------------------------------------------------+----------------------------------------+-----------------------------------+# | 连续变量             | 可呈现为某个范围内的任意值，并同时表示了顺序和数量 | 连续的数值，可以进行求和，平均值等运算 | age(15、21、33)                   |# |                      |                                                    |                                        |                                   |# | continuous variable  |                                                    |                                        |                                   |# +----------------------+----------------------------------------------------+----------------------------------------+-----------------------------------+# **其中名义变量和顺序变量称为因子**
+# 2 名义变量作为因子时#函数factor()以一个整数向量的形式存储类别值，#整数的取值范围是[1...k](其中k是名义变量中唯一值的个数)。同时，一个由字符串（原始值）组成的内部向量将映射到这些整数上。diabetes &lt;- c(&quot;Type1&quot;,&quot;Type2&quot;,&quot;Type1&quot;,&quot;Type1&quot;)diabetesdiabetes1 &lt;- factor(diabetes)diabetes1str(diabetes)str(diabetes1)#可以看到用factor()将向量存储为(1,2,1,1),并在内部将其关联为1=Type1,2=Type2.# 3 顺序变量作为因子时#表示顺序变量时，要指定ordered=TRUEstatus&lt;- c(&quot;poor&quot;,&quot;improved&quot;,&quot;excellent&quot;,&quot;poor&quot;)status1 &lt;- factor(status,ordered = TRUE)str(status)str(status1)# 对于字符型向量，因子的水平(level)默认依字母顺序创建，但很少情况是理想的，# 可以用levels选项覆盖默认排序，重新排序：**status&lt;- c(&quot;poor&quot;,&quot;improved&quot;,&quot;excellent&quot;,&quot;poor&quot;)status2 &lt;- factor(status,ordered = TRUE,                  levels = c(&quot;poor&quot;,&quot;improved&quot;,&quot;excellent&quot;))str(status1)str(status2)# 这样排序从原来的3213变成了1231。# 数值型变量可以用参数levels和labels来编码因子 例如，男性被编码为1，女性被编码为2：sex &lt;- c(1,2,2,1)sex&lt;- factor(sex,levels = c(1,2),labels = c(&quot;Male&quot;,&quot;Female&quot;))sex# **归根结底，因子和非因子到底什么区别？我们用一张图就可以直观感受** plot函数的数据集是向量的作图输出散点图：mtcars$cylplot(mtcars$cyl)# plot函数的数据集是因子的作图输出条形图：mtcars$cylmtcars1 &lt;- factor(mtcars$cyl)plot(mtcars1)mtcars2 &lt;- factor(mtcars$cyl,levels = c('8','6','4'))plot(mtcars2)
+###### 六、列表(list) ####### 1 定义#一些对象（或成分）的有序集合。一个列表中可能包含若干对象（可能无关的）如向量，矩阵，数据框甚至其他列表。#用函数**list()**创建，也可以对列表中的对象命名：#mylist &lt;- list(object1,object2,...)#mylist &lt;- list(name1=object1,name2=object2,...)
+# 2 创建一个列表g &lt;- &quot;My Frist list&quot;h &lt;- c(25,23,11,13)j &lt;- matrix(1:10,nrow = 5)k &lt;- c(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;)mylist &lt;- list(title=g,ages=h,               j,k)mylist#这个列表中包含了字符型、数值型向量，矩阵。
+# 3 选取列表中的元素#一般用[[]],双重方括号加数字或名称来访问mylist[[2]]mylist[[&quot;title&quot;]]mylist[&quot;title&quot;]
+</code></pre>
+<p><img alt="图片" src="../images/f74ae4c6b8127d36.webp"></p>
+<p><img alt="" src="../images/c33e327c8d66af99.webp"></p>
+<p>R语言入门课</p>
+<p><img alt="" src="../images/3ff4011fef611c1c.webp"><img alt="" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>1、课程简介</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522649&amp;idx=1&amp;sn=a3a3df860fd162691403281356dcbf1d&amp;chksm=9b3ce009ac4b691fc8679c43988a0a36e176760d3e21b2489b43184f0248b6409cbe8dcbb96a&amp;scene=21#wechat_redirect">生信基地</a>希望能够给大家提供<strong>系统性</strong> 、<strong>形成性</strong> 、<strong>规范性</strong> 的生信教学。前面几次活动中同学们表示希望能够有线下集中学习以及<strong>针对性的指导、答疑</strong> 。所以，此次我们已推出"生信<strong>R语言入门课</strong> "，分为"R介绍"、"R语言数据对象"、"基本数据管理"、"图形初级(ggplot2)"四个模块共12节课。当然，我们也<strong>不做生信快餐</strong> ，本次活动回放已剪辑完毕，方便错过活动的小伙伴加入。后续我们会<strong>持续拉群</strong> 在群里进行<strong>课程内容</strong> 的答疑。</p>
+<p>2、R语言介绍R语言是一种专门为统计分析、数据可视化和计算而设计的编程语言，广泛应用于各个领域。R语言支持各种统计分析方法，如线性回归、方差分析、聚类分析等，同时也能够进行复杂的图形和数据可视化。R语言凭借其开源、免费、工具包丰富、数据处理能力强、可视化丰富的特性在<strong>生物信息学中被广泛应用</strong> 。例如RNA-Seq差异分析常用的DESeq2、edgeR的引用次数多达数万次。我们制作的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522475&amp;idx=1&amp;sn=84dd9a65348528be9aa2b8d2711d776c&amp;scene=21#wechat_redirect">单细胞</a>教程几乎也全是基于R语言环境。很多同学找我们学习单细胞的时候都表示不想学习R语言，直接学习单细胞分析，<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=2&amp;sn=f77d7ad73e7cb9c76ea2fb7fbf7a5cd1&amp;scene=21#wechat_redirect">不积跬步无以至千里</a>，这显然是不现实的，所以，欢迎大家来参加此次的课程。</p>
+<p><strong>报名/缴费二维码：</strong></p>
+<p><img alt="图片" src="../images/fe8ecb8594a1f419.webp"><img alt="" src="../images/f74ae4c6b8127d36.webp"><img alt="" src="../images/c33e327c8d66af99.webp"></p>
+<p>资料&amp;课表</p>
+<p><img alt="" src="../images/3ff4011fef611c1c.webp"><img alt="" src="../images/00dcbb5df4af21d3.webp">本次课程的学习资料可以联系文末客服微信领取:
+<img alt="" src="../images/e71650e138890536.gif"></p>
+<p>目前12节总计5.5h的视频课程回放已剪辑完毕，方便错过直播的同学随时加入学习：</p>
+<p><img alt="" src="../images/177afabf2d0f198e.webp"></p>
+<p>除了学习视频外，还给大家准备了学习资料，包括学习手册、课后习题。大家人手一份资料可以跟着视频联系：</p>
+<p><img alt="" src="../images/0f6d77700b56e7bd.png"></p>
+<p>课程目录：</p>
+<p><strong>1 、R介绍</strong></p>
+<p>1.1 R 下载与安装</p>
+<p>1.1.1 RStudio1.1.2 R的帮助函数1.1.3 用于管理R工作区的函数</p>
+<p>1.2 包（Packages)</p>
+<p>1.2.1 包的基本函数1.2.2 包处理大型数据集的示例展示</p>
+<p><strong>2、 R语言数据对象</strong></p>
+<p>2.1 理解数据集</p>
+<p>2.2 数据结构</p>
+<p>2.2.1 向量(vector)2.2.2 矩阵(matrix)2.2.3 数组(array)2.2.4 数据框(data)2.2.5 因子(factor)2.2.6 列表(list)</p>
+<p>2.3 数据输入</p>
+<p>2.3.1 从带分隔符的文本文件导入数据2.3.2 导入Excel数据</p>
+<p><strong>3、基本数据管理</strong></p>
+<p>3.1 创建新变量</p>
+<p>3.2 变量的重编码(recoding)</p>
+<p>3.3 变量的重命名</p>
+<p>3.4.缺失值（NA）</p>
+<p>3.5 类型判断和转换</p>
+<p>3.6 数据排序</p>
+<p>3.7 数据集的合并</p>
+<p>3.8 选取变量</p>
+<p>3.9 选取观测值</p>
+<p>3.10 subset()函数选择观测值或变量</p>
+<p>3.11 剔除变量</p>
+<p>3.12 dplyr包</p>
+<p>3.13 使用管道操作符对语句进行串接</p>
+<p><strong>4、图形初级(ggplot2)</strong></p>
+<p>4.1 使用ggplot2包创建图形</p>
+<p>4.1.1 函数ggplot2()4.1.2 geom()函数4.1.3 分组4.1.4 标尺4.1.5 刻面4.1.6 标签4.1.7主题</p>
+<p>4.2 ggplot2包的详细信息</p>
+<p>4.2.1 放置数据和映射选项4.2.2 将图形作为对象使用4.2.3 保存图形<img alt="" src="../images/f74ae4c6b8127d36.webp"><img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取资料、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527585&amp;idx=1&amp;sn=fa32112c11b215b33096cab43baf08ea&amp;scene=21#wechat_redirect">免费两周学习版</a>服务器的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/fe8ecb8594a1f419.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

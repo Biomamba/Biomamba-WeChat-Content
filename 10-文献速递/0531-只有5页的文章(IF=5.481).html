@@ -1,0 +1,48 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0531-只有5页的文章(IF=5.481)</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="5if5481">只有5页的文章(IF=5.481)</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497741&amp;idx=2&amp;sn=2853695ce9d55fd5edc0314d46ad86a0&amp;chksm=9b3c815dac4b084be8ff6e20367c7331c3dba901057d7f1c8f76397b17932bbfd3229f3f280c#rd
+合集：文献速递</p>
+</blockquote>
+<p><strong>文献信息</strong></p>
+<p>●Genome-wide analysis of DNA methylation profiles in a senescence-accelerated mouse prone 8 brain using whole-genome bisulfite sequencing●Bioinformatics●IF: 5.481</p>
+<p><strong>一、背景介绍</strong></p>
+<p>在介绍这篇文章之前，我们先花一些篇幅介绍一下<strong>表观遗传学及DNA甲基化</strong> 的主要研究方法。
+DNA甲基化的研究是现阶段表观遗传学的主要内容，甲基化的程度能够与多种细胞进程相关联，如转录抑制、胚胎发育、基因组印记、染色体结构变化及转座子失活。而目前甲基化的研究领域也主要集中于5-methylcytosine（5mC）上，5mC的结构如下图所示。<img alt="" src="../images/652764d7eb19a0af.jpg"></p>
+<p>甲基化的研究方式有许多种，显然，以本人的习惯是不可能用焦磷酸光化测序的方法去检测具体的甲基化位点，这里我仍然是偏爱生信手段——Genome-wide DNA methylation analysis，目前全基因组甲基化的测定流程如下图所示。</p>
+<p><img alt="" src="../images/98c279b5627c4a50.webp"></p>
+<p>下表展示了目前主流的全基因组甲基化研究方法特点对比。这里我们主要关注一下MBDCap-seq与WGBS（没有为什么，单纯因为我现在在做这两个项目<img alt="" src="../images/6bfc7945802a1ca8.png">）。其中MBDCap-Seq通过可以与甲基化DNA特异性结合的蛋白将DNA“捕获”从而做到仅对甲基化的区域进行测序，显然仅测甲基化的区域使这一方法变得十分经济，但带来的弊端是分辨率的损失（分辨率仅为150bp）。而另一种方法whole genome bisulfite sequencing（WGBS）可以实现对全基因组的所有甲基化位点的测定（分辨率为单个碱基），其主要原理是使用重亚硫酸盐处理DNA，使DNA中未甲基化的C脱氨基变成U，那么在扩增测序的过程中U转变为T，与未经重亚硫酸盐处理的序列比对，即可获得甲基化位点。显然WGBS的优点是分辨率、覆盖度更高，弊端则是花费大、数据处理对设备和分析人员的要求也更高，并且在重亚硫酸盐的处理过程中可能会引起DNA的降解，此外WGBS的方法无法区分5mc与5hmc。</p>
+<p><img alt="" src="../images/7664a36978095cb2.webp"></p>
+<p><img alt="" src="../images/6c48f9f5570ad1a2.webp"></p>
+<p><strong>Introduction</strong></p>
+<p>这篇文章便是利用上面提到的WGBS技术研究了阿尔兹海默症模型鼠的大脑皮层的甲基化差异。如大家所知阿尔兹海默症（AD）作为一种神经退行性疾病，其病因及治疗方案都有待阐明，目前也有研究发现AD的发病与大脑中甲基化水平的失调相关，比如在AD患者体内内秀皮层II 型神经元的甲基化水平降低。因此作者在此研究中选取了senescence-accelerated mouse prone 8 (SAMP8) 、senescence-accelerated mouse resistant 1 (SAMR1) mice这两种模型，其中SAMP8在行为、认知能力及神经生理学变化上均是研究AD的良好模型。SAMR一般作为AD的control模型。</p>
+<p><strong>Methods</strong></p>
+<p>将上述两种模式动物饲养至7月龄后收集其大脑皮层用于WGBS与RNA-seq。对两组动物的空间学习能力及记忆能力评估主要通过MOEEIS水迷宫实验（MWM test，简而言之认知能力未受到损伤的小鼠会在短时间内找到水中的平台并上岸）。</p>
+<p><strong>Results</strong></p>
+<p><strong><strong>●</strong> 1、上游数据：</strong></p>
+<p>利用MWM test测得的数据如下图，可以发现，SAMP8组的上岸时间明显比SAMR1组的更高，且SAMP8组的游动路线显得更随机、无规则，导致其路线的交叉点也更少。SAMR1组在目标1/4区域的停留时间也更长，即其空间感与学习能力更强，并且两组的游动速度并无显著差异，表明两组间只存在认知障碍而不存在运动能力的障碍。由这些数据可以判断SAMP8组已出现了类似AD的症状。</p>
+<p><img alt="" src="../images/3071270729a66b1b.webp"></p>
+<p>经WGBS测序后获得甲基化位点数量如下表所示，小小的计算一下，这些甲基化的比例大约为62%的mCG，32%mCHH与6%的mCHG，甲基化比例如下列饼图所示。</p>
+<p><img alt="" src="../images/6370f1c902b9fb8d.webp"></p>
+<p><img alt="" src="../images/d69a12c02c5096ae.webp"></p>
+<p>**●**<strong>2、甲基化位点：</strong></p>
+<p>mCHG与mCHH的分布如下图所示，可以看出mCHG位点主要为mCAG，mCHH的位点主要为mCAC，这与此前的报道相一致。在获得甲基化的位点信息后，作者探究了promoter、TSS、5'UTR、exons、introns、3'UTR区域的甲基化水平，结果如下列线图所示，可以看出，甲基化水平在两组间并无明显差异，promoter到TSS这段距离的甲基化水平均是递减，5'UTR的甲基化水平在所有元件中最低，intron的甲基化水平最高。</p>
+<p><img alt="" src="../images/e56f2b4da35a2f0b.webp"></p>
+<p><img alt="" src="../images/120417f567d82dab.webp"></p>
+<p><strong><strong>●</strong> 3、甲基化区域：</strong></p>
+<p>在两组对比中发现共存在63个DMRs（different methylation regions），以SAMP8为研究对象，共有41高甲基化位点、22个低甲基化位点。各DMRs的热图如下图所示。这些DMRs共能注释到124个GO term，其中不乏与AD相关的term——glial cell apoptotic process（比较诡异的是作者这里只举了这么一个例子）。在RNA测序的结果共发现了2505条差异基因，其中1019条在SAMP8中表达下降，1486条上升（这里作者也未做常规的GO注释、KEGG注释等操作）。</p>
+<p><img alt="" src="../images/fbecc2dbeda646ec.webp"></p>
+<p>最终作者按标准筛选出了由于甲基化水平变化最终导致AD的几个基因，筛选标准为：
+（1）该基因的表达水平在两组间有显著性差异
+（2）该基因存在DMR
+（3）该基因与AD的病理发生过程相关按照上述标准，最终共得到了Dlgap1（SAP90/PSD95-associated protein genes）在SAMP8组中的表达量明显高于SARM1组，该基因的内含子甲基化水平在两组间也具有显著差异。 <em>TMEM51</em> 在SAMP8组中的甲基化水平、表达量均更高（具体数据如下表所示）。</p>
+<p><img alt="" src="../images/6512e5f35acf92c0.webp"></p>
+<p><strong>五、谈谈个人想法</strong></p>
+<p>到此处为止本文的实质性内容便结束了，大家可以看出这篇文章的内容确实很少，不仅仅是数据展示的少，对于展示出的数据也并没有进行进一步的挖掘与分析。但少也不是缺点，作者从庞大的WGBS数据中最终筛选出了三种可能与AD发生进程相关的基因，通过对这三种基因的进一步研究可能会对AD的发病过程与治疗方案提供新的思路。最重要的是，WGBS这一技术单样本的花费过万(现在应该最低三四千就可以搞定)，有投入就有回报。。。</p>
+<p>参考文献DOI：10.1093/bioinformatics/btx040</p>
+<p><img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/fdb4c49c78e6216c.webp"></p>
+<p><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

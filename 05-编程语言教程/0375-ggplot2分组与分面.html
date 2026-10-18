@@ -1,0 +1,447 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0375-ggplot2分组与分面</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="ggplot2">ggplot2分组与分面</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531405&amp;idx=1&amp;sn=7fc338d49d4b740fc45c73063526d108&amp;chksm=9b3c02ddac4b8bcb1e8a00c59fa9ae7d03c217ff5bffb9b47522373c85d1376aa47186e0499f#rd
+合集：编程语言教程</p>
+</blockquote>
+<p><img alt="图片" src="../images/c33e327c8d66af99.webp"></p>
+<p>ggplot2分组与分面</p>
+<p><img alt="图片" src="../images/3ff4011fef611c1c.webp"><img alt="图片" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>在ggplot2中，分组（Grouping）和分面（Facetting）是处理多类别数据可视化的两种核心方法，用于在同一图表中展示不同组别的数据关系，帮助发现数据中的模式和差异。</p>
+<p>1、分组（Grouping）</p>
+<p>分组用于将数据按某个类别变量拆分，并在同一坐标系中用不同视觉属性（颜色、形状、线条类型等）区分各组，适合比较组间趋势或分布。通过 aes()映射分组变量来实现分组操作</p>
+<p>2、分面（Facetting）</p>
+<p>分面将数据按类别变量拆分成多个子图（小面板），每个子图对应一个组别，共享坐标轴或独立缩放，适合展示组间差异或复杂分组。主要函数为facet_wrap()、facet_grid()</p>
+<p><img alt="图片" src="../images/f74ae4c6b8127d36.webp"><img alt="图片" src="../images/c33e327c8d66af99.webp"></p>
+<p>视频教程</p>
+<p><img alt="图片" src="../images/3ff4011fef611c1c.webp"><img alt="图片" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>大家可以先做一做<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528153&amp;idx=1&amp;sn=a6e1015ac93a6e1d310039f91230e14a&amp;scene=21#wechat_redirect">R语言基础小测验</a>，看看自己是否需要跟我们<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">5.5h入门R语言</a>的课程。</p>
+<p>先上教程视频，B站同步播出：</p>
+<p>https://www.bilibili.com/video/BV1miNVeWEkw</p>
+<p>完整视频回放和答疑服务可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">5.5h入门R语言</a></p>
+<p>本节课程视频：</p>
+<p>"R语言入门课"是我们认为<strong>生信小白入门</strong> 不得不听的一个课程，我们也为这个课程准备了许多<strong>干货</strong> 。R语言的精髓便是数据处理，在本节课中，我们详细介绍了向量、矩阵、数据框、数组、因子、列表的创建方法与数据访问方式，为以后的生物信息学数据处理打下牢固的基础！</p>
+<p><img alt="图片" src="../images/f74ae4c6b8127d36.webp"><img alt="图片" src="../images/c33e327c8d66af99.webp"></p>
+<p>本次课程代码</p>
+<p><img alt="图片" src="../images/3ff4011fef611c1c.webp"><img alt="图片" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>大家可以跟着视频练习如下代码：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>###### 4.1.3 分组与分面 ######### 分组 ####将变量值映射到颜色、形状、大小、透明度、线条样式和几何对象的其它视觉特征，#使得多组观测值在单个图形中叠加，这一过程称为分组。 library(ggplot2)library(mosaicData)head(CPS85)ggplot(data = CPS85,mapping = aes(x=exper,y=wage))+  geom_point(color=&quot;blue&quot;,alpha=0.5,size=1.5)+  geom_smooth(method=lm,se=FALSE)#例如，我们添加sex变量，并用color，shape和linetype表示该变量。ggplot(data = CPS85,mapping = aes(x=exper,y=wage,                                  color=sex,shape=sex,linetype=sex))+  geom_point(color=&quot;blue&quot;,alpha=0.5,size=1.5)+  geom_smooth(method=lm,se=FALSE)# 1. 按性别 (sex) 分组的散点图 + 回归线ggplot(CPS85, aes(x=exper, y=wage, color=sex)) +  geom_point() +  geom_smooth(method=lm, se=FALSE)# 2. 按婚姻状况 (married) 分组的箱线图ggplot(CPS85, aes(x=married, y=wage, fill=married)) +  geom_boxplot()# 3. 按行业 (sector) 分组的点图ggplot(CPS85, aes(x=sector, y=wage, color=sector)) +  geom_point(position=position_jitter(width=0.2))# 4. 按工会成员 (union) 和性别 (sex) 双重分组ggplot(CPS85, aes(x=educ, y=wage, shape=union, color=sex)) +  geom_point()# 5. 按地区 (south) 分组并分面展示ggplot(CPS85, aes(x=age, y=wage)) +  geom_point() +  facet_wrap(~south)  # 按地区分面# 6. 按种族 (race) 分组的密度图ggplot(CPS85, aes(x=wage, fill=race)) +  geom_density(alpha=0.5)### 分面 #### 下一个问题是：对于每个职业来说，工资年薪、薪资和性别之间的关系又具体如何？# 分面可以帮我们解决这一问题# # 分面为给定的某个变量（或变量组合）的每一个水平分别绘制一张图。# # 语法：# # +----------------------------+------------------------------------------------------------+# | 语法                       | 结果                                                       |# +============================+============================================================+# | facet_wrap(~var,ncol=n)   | 将每个var水平排列为n列的独立图                             |# +----------------------------+------------------------------------------------------------+# | facet_wrap(~var,nrow=n)   | 将每个var水平排列为n行的独立图                             |# +----------------------------+------------------------------------------------------------+# | facet_grid(rowvar~colvar) | rowvar和colvar组合的独立图，其中rowvar表示行，colvar表示列 |# +----------------------------+------------------------------------------------------------+# | facet_grid(rowvar~.)      | 每个rowvar水平的独立图，配置成一个单列                     |# +----------------------------+------------------------------------------------------------+# | facet_grid(.~colvar)      | 每个colvar水平的独立图，配置成一个单行                     |# +----------------------------+------------------------------------------------------------+# # var,colvar,rowvar表示因子。# # 例如，在本数据框中，研究不同职业的工资年薪、薪资和性别三者之间的关系：ggplot(data = CPS85,mapping = aes(x=exper,y=wage,color=sex,shape=sex,linetype=sex))+  geom_point(alpha=0.5)+  geom_smooth(method=&quot;lm&quot;,se=FALSE)# 当然你也可以按照多个分类变量去拆分数据，例如我们这里按照married与sector进行分面ggplot(data = CPS85,mapping = aes(x=exper,y=wage,color=sex,shape=sex,linetype=sex))+  geom_point(alpha=0.5)+  geom_smooth(method=&quot;lm&quot;,se=FALSE)+  facet_wrap(married~sector)ggplot(data = CPS85,mapping = aes(x=exper,y=wage,color=sex,shape=sex,linetype=sex))+  geom_point(alpha=0.5)+  geom_smooth(method=&quot;lm&quot;,se=FALSE)+  facet_wrap(~sector,ncol = 4)ggplot(data = CPS85,mapping = aes(x=exper,y=wage,color=sex,shape=sex,linetype=sex))+  geom_point(alpha=0.5)+  geom_smooth(method=&quot;lm&quot;,se=FALSE)+  facet_wrap(~sector,ncol = 2)# 结果显示了每种职业的工资年薪、薪资和性别三者之间的关系# 试试其他的写法与输出的格式-# facet_wrap(~var,ncol=n):每行的列数ggplot(data = CPS85,mapping = aes(x=exper,y=wage,color=sex,shape=sex,linetype=sex))+  geom_point(alpha=0.5)+  geom_smooth(method=&quot;lm&quot;,se=FALSE)+  facet_wrap(~sector,ncol = 1)#facet_grid(.~colvar):输出单行ggplot(data = CPS85,mapping = aes(x=exper,y=wage,color=sex,shape=sex,linetype=sex))+  geom_point(alpha=0.5)+  geom_smooth(method=&quot;lm&quot;,se=FALSE)+  facet_grid(.~sector)#facet_grid(rowvar~.)：输出单列ggplot(data = CPS85,mapping = aes(x=exper,y=wage,color=sex,shape=sex,linetype=sex))+  geom_point(alpha=0.5)+  geom_smooth(method=&quot;lm&quot;,se=FALSE)+  facet_grid(sector~.)
+</code></pre>
+<p><img alt="图片" src="../images/f74ae4c6b8127d36.webp"><img alt="图片" src="../images/c33e327c8d66af99.webp"></p>
+<p>R语言入门课</p>
+<p><img alt="图片" src="../images/3ff4011fef611c1c.webp"><img alt="图片" src="../images/00dcbb5df4af21d3.webp"></p>
+<p>1、课程简介</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522649&amp;idx=1&amp;sn=a3a3df860fd162691403281356dcbf1d&amp;chksm=9b3ce009ac4b691fc8679c43988a0a36e176760d3e21b2489b43184f0248b6409cbe8dcbb96a&amp;scene=21#wechat_redirect">生信基地</a>希望能够给大家提供<strong>系统性</strong> 、<strong>形成性</strong> 、<strong>规范性</strong> 的生信教学。前面几次活动中同学们表示希望能够有线下集中学习以及<strong>针对性的指导、答疑</strong> 。所以，此次我们已推出"生信<strong>R语言入门课</strong> "，分为"R介绍"、"R语言数据对象"、"基本数据管理"、"图形初级(ggplot2)"四个模块共12节课。当然，我们也<strong>不做生信快餐</strong> ，本次活动回放已剪辑完毕，方便错过活动的小伙伴加入。后续我们会<strong>持续拉群</strong> 在群里进行<strong>课程内容</strong> 的答疑。</p>
+<p>2、R语言介绍R语言是一种专门为统计分析、数据可视化和计算而设计的编程语言，广泛应用于各个领域。R语言支持各种统计分析方法，如线性回归、方差分析、聚类分析等，同时也能够进行复杂的图形和数据可视化。R语言凭借其开源、免费、工具包丰富、数据处理能力强、可视化丰富的特性在<strong>生物信息学中被广泛应用</strong> 。例如RNA-Seq差异分析常用的DESeq2、edgeR的引用次数多达数万次。我们制作的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522475&amp;idx=1&amp;sn=84dd9a65348528be9aa2b8d2711d776c&amp;scene=21#wechat_redirect">单细胞</a>教程几乎也全是基于R语言环境。很多同学找我们学习单细胞的时候都表示不想学习R语言，直接学习单细胞分析，<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=2&amp;sn=f77d7ad73e7cb9c76ea2fb7fbf7a5cd1&amp;scene=21#wechat_redirect">不积跬步无以至千里</a>，这显然是不现实的，所以，欢迎大家来参加此次的课程。</p>
+<p><strong>报名二维码：</strong></p>
+<p><img alt="图片" src="../images/7ef00c45433a7bde.webp"><img alt="图片" src="../images/f74ae4c6b8127d36.webp"><img alt="图片" src="../images/c33e327c8d66af99.webp"></p>
+<p>资料&amp;课表</p>
+<p><img alt="图片" src="../images/3ff4011fef611c1c.webp"><img alt="图片" src="../images/00dcbb5df4af21d3.webp">本次课程的学习资料可以联系文末客服微信领取:
+<img alt="图片" src="../images/f94ff1279b2a77aa.gif"></p>
+<p>目前12节总计5.5h的视频课程回放已剪辑完毕，方便错过直播的同学随时加入学习：</p>
+<p><img alt="图片" src="../images/784fdfd3a0834115.webp"></p>
+<p>除了学习视频外，还给大家准备了学习资料，包括学习手册、课后习题。大家人手一份资料可以跟着视频联系：</p>
+<p><img alt="图片" src="../images/391e1fc5efca5fed.webp"></p>
+<p>课程目录：</p>
+<p><strong>1 、R介绍</strong></p>
+<p>1.1 R 下载与安装</p>
+<p>1.1.1 RStudio1.1.2 R的帮助函数1.1.3 用于管理R工作区的函数</p>
+<p>1.2 包（Packages)</p>
+<p>1.2.1 包的基本函数1.2.2 包处理大型数据集的示例展示</p>
+<p><strong>2、 R语言数据对象</strong></p>
+<p>2.1 理解数据集</p>
+<p>2.2 数据结构</p>
+<p>2.2.1 向量(vector)2.2.2 矩阵(matrix)2.2.3 数组(array)2.2.4 数据框(data)2.2.5 因子(factor)2.2.6 列表(list)</p>
+<p>2.3 数据输入</p>
+<p>2.3.1 从带分隔符的文本文件导入数据2.3.2 导入Excel数据</p>
+<p><strong>3、基本数据管理</strong></p>
+<p>3.1 创建新变量</p>
+<p>3.2 变量的重编码(recoding)</p>
+<p>3.3 变量的重命名</p>
+<p>3.4.缺失值（NA）</p>
+<p>3.5 类型判断和转换</p>
+<p>3.6 数据排序</p>
+<p>3.7 数据集的合并</p>
+<p>3.8 选取变量</p>
+<p>3.9 选取观测值</p>
+<p>3.10 subset()函数选择观测值或变量</p>
+<p>3.11 剔除变量</p>
+<p>3.12 dplyr包</p>
+<p>3.13 使用管道操作符对语句进行串接</p>
+<p><strong>4、图形初级(ggplot2)</strong></p>
+<p>4.1 使用ggplot2包创建图形</p>
+<p>4.1.1 函数ggplot2()4.1.2 geom()函数4.1.3 分组4.1.4 标尺4.1.5 刻面4.1.6 标签4.1.7主题</p>
+<p>4.2 ggplot2包的详细信息</p>
+<p>4.2.1 放置数据和映射选项4.2.2 将图形作为对象使用4.2.3 保存图形<img alt="图片" src="../images/f74ae4c6b8127d36.webp"><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=2&amp;sn=e5d0a63646094c3094b7b916350d22ad&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_yunying]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/337c39af396aebb8.webp"><img alt="图片" src="../images/4ccf87cacd1143af.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

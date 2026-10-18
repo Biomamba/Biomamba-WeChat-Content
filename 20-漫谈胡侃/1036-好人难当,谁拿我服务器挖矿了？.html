@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>1036-好人难当,谁拿我服务器挖矿了？</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">好人难当,谁拿我服务器挖矿了？</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487979&amp;idx=1&amp;sn=2ad31f5dff96143b437655a7d678ac55&amp;chksm=9b3f68bbac48e1ad54b17744e8fb403bc86df3395e5ab0aede4f4ac6a43f12035ab70f63421f#rd
+合集：漫谈胡侃</p>
+</blockquote>
+<p>之前想着大家使用起来方便，就自己拉了台服务器部署了一些App(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487051&amp;idx=1&amp;sn=c161c002171a61be28172e155c492cd7&amp;chksm=9b3f771bac48fe0db73f68316bdda0a9ebc9fe9e10c867f540aba7b6ef3d1d86b2ab9e8dcbb9&amp;scene=21#wechat_redirect">我把之前的在线工具都挪了个窝</a>)，并且全部对大家<strong>免费开放</strong> 。今天一觉睡醒好家伙整台服务器的线程都满了，正好在跑cellranger，本以为是cellranger占用了太多线程，仔细一想我48线程的服务器应该最多只用了<strong>20线程</strong> 才对，部署的shiny-server也不太可能吃那么多线程。</p>
+<p><img alt="" src="../images/6544c43b428c6150.webp"></p>
+<p>找找原因，<strong>htop</strong> 打开任务管理器一看，好家伙谁拿xmrig在我服务器挖矿呢，可恶的mei国病毒，想偷我大天朝的电（但我实际调查了一下发现是<strong>德克萨斯</strong> 的IP拿着咱们<strong>北面</strong> 的好兄弟开发的病毒<img alt="" src="../images/60c58a7d48901b96.png">攻击了我，这如何评价呢。。。）。到底是我孤陋寡闻了，我这没有GPU的机器现在居然仅靠CPU也能挖矿了。</p>
+<p><img alt="" src="../images/498ec863a26465c3.webp"></p>
+<p>先把程序杀了再说：</p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>sudo kill -9 2728463sudo passwd root#大家自己的机器记得养成定时改密码的好习惯
+</code></pre>
+<p>为了给大家提供方便，我的App先暂时不做处理，仍然部署并对外开放，下次再有类似情况，可能就要关闭我的端口啦。希望大家共同维护我这个小破号的良好环境，方便你我他。</p>
+<p><img alt="" src="../images/2cc9316bafeedaf7.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/9b3df9175ed77a7e.gif">公众号后台中消息更新不及时，超过48h后便不允许回复读者消息，这里给大家留一下领取资料、咨询服务器的<strong>微信号</strong> ，方便大家随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487083&amp;idx=1&amp;sn=312a8435f6b938602624a7e9028ad3c6&amp;chksm=9b3f773bac48fe2d3a2886988b35b006bbd05da11e2d7f735afc78c02ffbd179ebc9722a97cd&amp;scene=21#wechat_redirect">你们要的微信、交流群，来了！</a>
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484685&amp;idx=1&amp;sn=3b47c0bcad97a265650b5f34c00a6a3c&amp;chksm=9b3f7c5dac48f54be9cde50ab7a1147c55a36b980ffa0e721c02c05cbb88fef41a8fbc13d599&amp;scene=21#wechat_redirect">笑一笑也就算了</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486435&amp;idx=1&amp;sn=c61124eb7c0fd6cc0eaefb639b551092&amp;chksm=9b3f72b3ac48fba5c0091fd843c98d504d4aefe0ba01a2fed966f897f58d8924ace8df07955e&amp;scene=21#wechat_redirect">有关提高"Biomamba 生信基地"运行效率事宜</a></p>
+<p><img alt="" src="../images/fdb4c49c78e6216c.webp"></p></article></body></html>

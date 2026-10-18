@@ -1,0 +1,71 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0535-IgA肾病 & STRT-Seq</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="iga-strt-seq">IgA肾病 &amp; STRT-Seq</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498665&amp;idx=2&amp;sn=c32affcb095e485f30ee80838c6876ab&amp;chksm=9b3c82f9ac4b0bef42405982960035b9d48a92453da8639d9dd3ac59779be6e7ea7b294c7275#rd
+合集：文献速递</p>
+</blockquote>
+<p><strong><strong>Biomamba荐语</strong></strong></p>
+<p>不必多说这篇文章是北京大学汤富酬（单细胞鼻祖）教授课题组的作品，学习价值应当较高。</p>
+<p><strong>doi:</strong></p>
+<p>10.1016/j.celrep.2020.108525</p>
+<p><strong>链接：</strong></p>
+<p>https://www.sciencedirect.com/science/article/pii/S221112472031514X?via%3Dihub</p>
+<p><strong>Summary</strong></p>
+<p>●<strong>1 lgAN</strong></p>
+<p>IgA nephropathy (IgAN)是肾衰的原因之一，其发生机制尚未完全解析清楚（套话）</p>
+<p>●<strong>2 主要发现</strong></p>
+<p><strong>1、</strong> Jchain作为免疫球蛋白的连接成分，在IgAN患者的系膜细胞处高表达，并引起IgAN在这一部位的沉积，引起后续的并发症。</p>
+<p><strong>2、</strong> 作者通过细胞通讯发现IgAN的整个过程可能是由系膜细胞为中心引发。</p>
+<p><strong>3、</strong> 差异分析解释肾脏浸润的Mac与CD8 T Cell起到了促增生、促炎的作用。</p>
+<p><strong>4、</strong> 经拟时序分析发现了收集管夹层细胞在IgAN中发生了一种转变，使其具有部分CD-PC的特性，这种变化参与了纤维化。（这其实并不是新发现，早前在慢性肾病中就已经发现了这种现象）</p>
+<p><strong>Introduction</strong></p>
+<p>●<strong>1 lgAN</strong> IgAN是一个公认的自身免疫性疾病，主要的并发症为肾小球肾炎，大约30~40%的病人最终会发展成终末期肾病。其最主要的诱因是IgAN在肾小球系膜部位的沉积：</p>
+<p><img alt="" src="../images/5012c551e58ff6bb.webp"></p>
+<p>但奇怪的是，系膜细胞并不能表达任何IgA的受体，因此，IgAN真正的发病原因仍不得而知，这是这一领域亟待解决的问题。</p>
+<p>●<strong>2</strong><strong>测序技术</strong></p>
+<p>目前来说，主流的单细胞测序平台有两种，一种是基于液滴捕获（droplet based），这类测序捕获细胞数多但测序深度低；另一种是以SMAT-Seq为代表的技术，一般是经过流式或磁珠分选后进行建库，能对特定的细胞种类进行深度测序，因而捕获细胞数量少，但测序深度极高。</p>
+<p><img alt="" src="../images/41ba2265a7dc54ee.webp"></p>
+<p>**Methods
+**</p>
+<p>●<strong>1 样本信息</strong></p>
+<p>通过肾组织活检收取了13个病人的肾脏穿刺样本。</p>
+<p>在来自患者肾脏摘除的样本中选取宏观观测正常的组织用于对照。</p>
+<p>抽取了六个患者与六个健康人的外周血。</p>
+<p>这些受试对象的主要临床信息如下：</p>
+<p><img alt="" src="../images/473d75cd3a433675.webp"></p>
+<p>●<strong>2 操作流程</strong> 下面这张图形摘要很好地展示了这篇文章的主要流程，具体的取材、制样过程不多赘述，感兴趣的同学可以去看看原文。大家知晓作者通过磁力分选，利用CD14、EPCAM等标志物分离得到单核/巨噬细胞、并分离肾小球组织用于STRT-Seq即可。</p>
+<p><img alt="" src="../images/771c99624cda938c.webp"></p>
+<p>●<strong>3 分析流程</strong> 首选STRT-Seq与我们之前所介绍的10X Genomics存在一些差异的，具体表现为前者每个细胞的测序深度更高、获得的基因(1000~12000)与分子数量（4000~600000）更多。与一般分析流程不同的是，作者将两组的细胞分别进行分群注释后利用scran包进行去批次整合（主流做法是先整合去批次，再进行分群注释）。在第一轮注释结束后，仍剩下两类细胞未能得到有效注释，因此作者利用了此前的一个snRNA-Seq的数据帮助注释（具体原理和过程可以参考这个：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484198&amp;idx=1&amp;sn=35d70e1f86d212ed3d253d933e98f711&amp;chksm=9b3f7a76ac48f3604ff794f9d0528f4c9152baf066485335c02bc7dc13c51dee0b36429dd886&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（五）、细胞类型注释——从入门到入土</a>）。
+在细胞通讯的分析之中，作者先在linux中利用cellphonedb进行了细胞互作的计算，后接R语言的igraph进行可视化（有些托大，其实可以通过cellchat、italk等R包一站式搞定，Biomamba后续的课程会出）。富集分析用的是DAVID，一个在线工具，不是很推荐，更新速度要比clusterprofiler慢很多（<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484738&amp;idx=1&amp;sn=96a7e1d3c7fd249f3a7e4d77e7ea0613&amp;chksm=9b3f7c12ac48f5045fbc2b1cf0ff7d9f0cf5147e170802428a5a17475ad7e8c45faa00e983c4&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（七）—— 基因集富集分析</a>）。</p>
+<p>**Results
+**</p>
+<p>●<strong>1 分群</strong></p>
+<p>经基本的reads、count质控后，测得的八千多个细胞最终只剩下了3620个</p>
+<p><img alt="" src="../images/bccb58ea2f797367.webp"></p>
+<p>两组分开分群的方式确实有一些怪异，并且有些marker表达的特异性并不高，此前我在其他文章的阅读过程中发现过不错的marker展示（小鼠）：</p>
+<p><img alt="" src="../images/87606095ac0391d1.webp"></p>
+<p><img alt="" src="../images/66015ee1c769c658.webp"></p>
+<p>●<strong>2 J chain</strong> 首先作者对两组间的系膜细胞进行了差异分析，从下面的火山图中我们可以较为明显的看到，JCHAIN在IgAN组中高表达，并且这一结果是可以通过免疫荧光被重复出来的。</p>
+<p><img alt="" src="../images/216830cc6cb68a9c.webp"></p>
+<p><img alt="" src="../images/2a07b2e5eaa94b81.webp"></p>
+<p>我们来了解一下J chain，有免疫背景的同学可能比较熟悉一些，IgA的完整结构如下图所示，一个IgA分子由两个Y型免疫球蛋白组成，而这两个Y连接的部分，正是这个J chain。换句话说，正是系膜细胞高表达JCHAIN，才给此处IgA的沉积带来了可能性。</p>
+<p><img alt="" src="../images/54ac15ee767488a0.webp"></p>
+<p>●<strong>3 富集分析</strong> 差异基因的富集分析在两组间也有明显不同：在normal中被富集的通路主要与肾脏发育、分化相关，而在IgAN中被富集的通路主要体现在免疫应答和纤维化：</p>
+<p><img alt="" src="../images/2f05fe982220c6d7.webp"></p>
+<p>●<strong>4 细胞通讯</strong> 在笔者的概念里，任何一个疾病的发生均是多因素共同作用的结果，基本发生过程中必然存在着细胞与细胞之间的互作。这里对两组分别进行了细胞通讯的预测，并发现由normal（下图左）到IgAN（下图中）的过程中，系膜细胞与其余细胞的互作均上升，而CD-IC与其他细胞的互作均下降（下图右）。
+<img alt="" src="../images/ce201e45a75053c4.webp">●<strong>5 免疫</strong> 作为一种自身免疫类的疾病，IgAN的免疫微环境是最值得关注的，这里作者通过GSEA分析发现巨噬细胞的NOTCH通路、及与糖、氨基酸、脂类代谢的通路在IgAN中被显著富集；并且无论是肾脏浸润的巨噬细胞还是外周血中的巨噬细胞（终于提到外周血了）均在IgAN组表现出了激活的现象，因此作者认为巨噬细胞内的代谢通路改变重新编辑了IgAN的免疫微环境（我个人认为这一点有些牵强。。。）。<img alt="" src="../images/a6febd0210b48386.webp"><img alt="" src="../images/a088e7459df44383.webp">●<strong>6 分群CD-IC的转变</strong> 作为一种自身免疫类的疾病，IgAN的免疫微环境是最值得关注的，此前作者已经发现了CD-IC在IgAN组中与其他细胞的互作全线下降，引起了作者的关注。通过CD-IC、CD-PC这两种细胞marker的展示，作者发现CD-IC中存在着一种特殊的类型——可以高表达CD-IC与CD-PC两种细胞的marker。这在之前的CKD研究中也已经被证实过了。<img alt="" src="../images/7e797dc5f6f8ada6.webp"></p>
+<p>经拟时序分析后，作者发现这些CD-IC能够被分为3类IC1、IC2与纯正的CD-IC：<img alt="" src="../images/3ff77057e0f08fa3.webp"></p>
+<p>其中IC1与IC2便是上述提到能够表达CD-PC特征Gene的类群：<img alt="" src="../images/7f87370bf45d175a.webp"></p>
+<p>这两类细胞能够高表达WNT、FGF信号通路的基因，这是一些与先维护和EMT相关的基因。
+<img alt="" src="../images/cf5c8623eeb39d7f.webp"></p>
+<p>**Discussion
+**</p>
+<p>作者的讨论我就不重复了，这里主要表达一下我对这篇文章的看法：</p>
+<p><strong>B站同步播出</strong></p>
+<p>https://www.bilibili.com/video/BV1ja411t7JL/</p>
+<p><img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/fdb4c49c78e6216c.webp"></p>
+<p><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

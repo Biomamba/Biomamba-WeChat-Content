@@ -1,0 +1,180 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0339-除了image和NGS-base，也许空间转录组平台该按分辨率划分：单细胞、亚细胞、多细胞</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="imagengs-base">除了image和NGS-base，也许空间转录组平台该按分辨率划分：单细胞、亚细胞、多细胞</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247539361&amp;idx=1&amp;sn=d8d15b8a3920eee01752249010cb03b4&amp;chksm=9b3c23f1ac4baae7e3e9041fc89d5da23f8e086732e8507f68e750e80da8204057c1303a10b8#rd
+合集：空间转录组</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501296&amp;idx=1&amp;sn=cf4762197652fb023618bea6234f6343&amp;scene=21#wechat_redirect"> 此前我们在分享</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501296&amp;idx=1&amp;sn=cf4762197652fb023618bea6234f6343&amp;scene=21#wechat_redirect">《Nature》空间转录组综述时学习过，空转平台可按信号测定原理分为</a>image和NGS-base，但站在应用端，也许我们更应该关注空转平台的分辨率，划分为单细胞、亚细胞、多细胞，更有利于我们挑选符合自己课题设计的平台。</p>
+<p><img alt="图片" src="../images/263921758f83cf63.webp"></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2879312479804489730#wechat_redirect">空间转录组</a>学是一种能够在组织空间上下文中同时分析基因表达的方法，为理解组织结构、细胞类型分布和细胞互作提供了新的视角。</p>
+<p><img alt="" src="../images/92b812acc413e806.webp"></p>
+<p>本文将介绍：空间转录组概述（主要是阐述发展历程、技术分类、平台对比）和<strong>上游测序数据定量 （主要介绍三大平台10x Visium、 SeekSpace、Stereo-seq软件安装、定量实操、读取andata对象等手把手教你学会上游定量分析）</strong></p>
+<p>如果你想彻底吃透<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2879312479804489730#wechat_redirect">空间转录组</a>全套内容、跟着老师系统学习，可以报名参加我们的课程：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533721&amp;idx=1&amp;sn=9648ed4701224e5d2e4c704d7046d9de&amp;scene=21#wechat_redirect">Python空间转录组数据分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247533721&amp;idx=1&amp;sn=9648ed4701224e5d2e4c704d7046d9de&amp;scene=21&amp;token=1258697299&amp;lang=zh_CN&amp;poc_token=HMBPW2qjSKdDOXcv4X0Q9B4dmudp4aDIek9Wo0rM#wechat_redirect"><img alt="图片" src="../images/85b902e5e0713493.webp"></a></p>
+<p><strong>二、<strong>空间转录组概述</strong></strong></p>
+<p>2.1 背景与发展历程</p>
+<ul>
+<li>传统转录组学</li>
+</ul>
+<p>1、<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2959853503529910274#wechat_redirect">bulk RNA-seq</a>：平均化了组织内所有细胞的表达信息</p>
+<p>2、<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">scRNA-seq</a>：单细胞<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501241&amp;idx=1&amp;sn=9e15d23f721ad7f4ae1335ce5362031b&amp;scene=21#wechat_redirect">分辨率</a>，但失去了空间信息</p>
+<p>3、组织结构与功能密切相关</p>
+<p>4、需要保留细胞在组织中的空间位置</p>
+<ul>
+<li>发展历程</li>
+</ul>
+<p>1、早期：基于原位杂交（ISH/FISH）</p>
+<p>2、高通量空间捕获技术：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522444&amp;idx=1&amp;sn=91ddf9e2ca3fb75db3ad524fe0042fab&amp;scene=21&amp;token=106440264&amp;lang=zh_CN&amp;poc_token=HJmqw2mjCGMEC34r_0xfziZSwLozSIfG4chhS3D-#wechat_redirect">10x Visium</a>、Slide-seq</p>
+<p>3、高分辨率方法：MERFISH、seqFISH+</p>
+<p>4、多组学整合：空间转录组 + 单细胞RNA-seq + xxx</p>
+<p><img alt="" src="../images/0100c9b5843991fc.webp"></p>
+<h2 id="22">2.2 常见技术分类</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>方法</th>
+<th>特点</th>
+<th>分辨率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基于条码捕获</td>
+<td>10x Visium、Slide-seq、SeekSpace、Stereo</td>
+<td>高通量，覆盖整个组织</td>
+<td>~50-100 μm</td>
+</tr>
+<tr>
+<td>基于成像</td>
+<td>MERFISH、seqFISH+</td>
+<td>单细胞/亚细胞级别，高分辨率</td>
+<td>&lt;1 μm</td>
+</tr>
+<tr>
+<td><img alt="" src="../images/f54aaf285a1ee14e.webp"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="23">2.3 分辨率划分的平台代表</h2>
+<h3 id="231-10x-visium">2.3.1 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522444&amp;idx=1&amp;sn=91ddf9e2ca3fb75db3ad524fe0042fab&amp;scene=21#wechat_redirect">10x Visium(多细胞分辨率)</a></h3>
+<p>1、组织制备：组织切片（一般 5-10 μm），固定于Visium空间条码芯片上</p>
+<p>2、染色与成像：H&amp;E染色，获取组织图像</p>
+<p>3、RNA捕获：组织切片上mRNA被芯片上的空间条码捕获</p>
+<p>4、cDNA 合成与测序文库构建</p>
+<p>5、高通量测序：生成空间基因表达矩阵</p>
+<p>6、初步分析：图像对齐、空间坐标匹配</p>
+<p>7、优势：全转录组、大片组织覆盖、兼容临床 FFPE、成本低、适合宏观组织图谱</p>
+<p><img alt="" src="../images/106da1441b57e2e8.webp"></p>
+<p>目前10x Visium已经推出HD版本，精度可以达到 2×2 μm大小的spot</p>
+<p><img alt="" src="../images/30a4ea44df84083e.webp"></p>
+<p>可以看出分辨率简直天差地别</p>
+<h3 id="232-seekspace">2.3.2<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3274738305204781059#wechat_redirect"> SeekSpace</a>（单细胞分辨率：高通量条码捕获 + 空间分辨率优化）</h3>
+<p>1、组织切片：固定并贴附于高密度条码芯片</p>
+<p>2、高分辨率 RNA 捕获：每个 spot 更小（如 8 μm bin）</p>
+<p>3、cDNA 文库构建：优化 PCR 扩增，保证高灵敏度</p>
+<p>4、测序：生成高密度空间基因表达矩阵</p>
+<p>5、数据预处理：</p>
+<pre><code>* 空间坐标映射
+
+* 图像和表达矩阵结合
+</code></pre>
+<p>6、分析：</p>
+<pre><code>* 高分辨率细胞类型定位
+
+* 空间邻域分析
+</code></pre>
+<p>7、优势：</p>
+<p>· 分析简单、成本适中、真实还原组织微环境</p>
+<p><img alt="" src="../images/da947e518d7a1d2e.webp"></p>
+<h3 id="233-stereo-seq">2.3.3 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529258&amp;idx=1&amp;sn=a3463f650d93ef66419cbb880eb2d10a&amp;scene=21#wechat_redirect">Stereo-seq (亚细胞分辨率)</a></h3>
+<p>1、组织切片：固定在 DNA nanoball（DNB）芯片上</p>
+<p>2、RNA 捕获：超高密度 DNB 条码捕获 mRNA</p>
+<p>3、cDNA 合成与测序文库构建</p>
+<p>4、超高通量测序：生成亿级 spot 的表达矩阵</p>
+<p>5、数据处理：</p>
+<pre><code>* 空间坐标精确定位到亚细胞级
+
+* 可进行单细胞或亚细胞分析
+</code></pre>
+<p>6、下游分析：</p>
+<pre><code>* 细胞类型分布
+
+* 细胞-细胞通讯
+
+* 组织微结构重建
+</code></pre>
+<p>7、优势：</p>
+<pre><code>* 极致精细、局部微区分析
+</code></pre>
+<p><img alt="" src="../images/572d695f9274bf19.webp"></p>
+<h4 id="stereo-seq-dna-nanoball-dnb">Stereo-seq 的 DNA Nanoball (DNB) 技术</h4>
+<p><img alt="" src="../images/2fc8bdfd55c517d3.webp"></p>
+<h5 id="1">(1) 纳米球是什么？</h5>
+<ul>
+<li><strong>定义： DNA nanoball（DNB）是一种高度紧密的环状 DNA 分子，通过滚环扩增（Rolling Circle Amplification, RCA）形成直径约 <strong>200–300 nm 的球状 DNA 聚合物</strong> 。</strong></li>
+<li><strong>特点：</strong><ul>
+<li>体积小，密度高 → 可以在芯片上排列得非常密集</li>
+<li>每个 DNB 含有大量相同的 DNA 拷贝 → 提高信号强度</li>
+<li>可附带 <strong>独特条码序列</strong> → 精确标记空间位置</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-stereo-seq">(2) 纳米球在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505686&amp;idx=2&amp;sn=925ce770136ec3e964b954c639eed29e&amp;scene=21&amp;poc_token=HKmsw2mjzWoWPjGiyFow_qQH3qySDBWd99fqWIk_#wechat_redirect">Stereo-seq</a>中的作用</h5>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>芯片排列</td>
+<td>DNB 被固定在硅片芯片表面形成超高密度阵列，每个 spot ~200 nm</td>
+</tr>
+<tr>
+<td>mRNA 捕获</td>
+<td>DNB 上的 polyT 引物捕获组织切片的 mRNA</td>
+</tr>
+<tr>
+<td>条码定位</td>
+<td>每个 DNB 携带唯一空间条码，测序后可以回溯 RNA 的空间位置</td>
+</tr>
+<tr>
+<td>信号放大</td>
+<td>DNB 内含多拷贝 DNA → 测序信号强，减少测序噪声</td>
+</tr>
+</tbody>
+</table>
+<h5 id="3">(3) 相比传统平台的优势</h5>
+<p>1、超高分辨率：</p>
+<pre><code>* [10x Visium](&lt;https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522444&amp;idx=1&amp;sn=91ddf9e2ca3fb75db3ad524fe0042fab&amp;scene=21&amp;token=106440264&amp;lang=zh_CN&amp;poc_token=HJmqw2mjCGMEC34r_0xfziZSwLozSIfG4chhS3D-#wechat_redirect&gt;)：~50 μm
+
+* ### [SeekSpace](&lt;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=3274738305204781059#wechat_redirect&gt;)：~8 μm
+
+* [Stereo-seq](&lt;https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505686&amp;idx=2&amp;sn=925ce770136ec3e964b954c639eed29e&amp;scene=21&amp;poc_token=HKmsw2mjzWoWPjGiyFow_qQH3qySDBWd99fqWIk_#wechat_redirect&gt;)：~200 nm → 接近单细胞甚至亚细胞级别
+</code></pre>
+<p>2、高通量：</p>
+<pre><code>* 单个芯片可容纳亿级 DNB spots
+
+* 可覆盖大面积组织
+</code></pre>
+<p>3、信号稳定性：</p>
+<pre><code>* DNB 多拷贝 → 测序噪声低
+</code></pre>
+<p>4、灵活组合：</p>
+<pre><code>* 可与 scRNA-seq 或蛋白质组等多组学整合
+</code></pre>
+<h2 id="24">2.4 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500243&amp;idx=1&amp;sn=b0e513e85a202ec7ca4041a700a7ae10&amp;scene=21#wechat_redirect">空间转录组平台对比</a></h2>
+<p><img alt="" src="../images/0a82f9dcc2cb1027.webp"></p>
+<p><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/bd69821fb60dc828.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。</p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../images/2d4f3b9289619e36.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

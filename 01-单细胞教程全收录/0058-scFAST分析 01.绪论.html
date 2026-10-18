@@ -1,0 +1,34 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0058-scFAST分析 01.绪论</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="scfast-01">scFAST分析| 01.绪论</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503875&amp;idx=1&amp;sn=2b5ca0c57e17e51abb52adfe199c5736&amp;chksm=9b3ca953ac4b20450f643b94bcfc95aa2b04ded197ce93e455a281901d7ccba099b48cfd03d9#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>scFAST介绍</strong></p>
+<p><img alt="" src="../images/07e88994d32c0968.png"></p>
+<h2 id="11">1.1 写在前面</h2>
+<p>单细胞的论文我们介绍过很多，大家可以前往合集查看更多内容：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2802463431357661184&amp;scene=173&amp;from_msgid=2247498597&amp;from_itemidx=1&amp;count=3&amp;nolastread=1&amp;uin=&amp;key=&amp;devicetype=Windows+11+x64&amp;version=63090621&amp;lang=zh_CN&amp;ascene=1">文献速递</a>。此处我们需要向大家介绍一个单细胞组学新技术，该文于3月23号发布在预印本，题为”High throughput detection of variation in single-cell whole transcriptome through streamlined scFAST-seq”的文章。这项技术(single cell Full-length RNA Sequence, <strong>scFAST-seq</strong>)。该单细胞平台由<strong>寻因生物</strong> 历时三年开发完成，可以在<code>8h</code>内建库构建约<code>12,000</code>个细胞的全长RNA文库。这是一种依托于随机引物建库策略的单细胞全新技术。传统的<code>3'</code>端建库策略由于其通过<code>oligo-dT</code>去捕获转录本的<code>polyA</code>尾，因此对非polyA尾的<code>lncRNA</code>、<code>rRNA</code>、<code>circRNA</code>、<code>eRNA</code>等RNA分子敏感性不足。因此，相较于3‘端策略来说，<code>scFAST-seq</code>利用随机引物进行随机捕获，避免poly A尾的介入，使得其在检测<code>非polyA</code>的转录本、覆盖 <em>更长的转录本</em> 长度和鉴定更多的 <em>剪接位点</em> 方面具有明显的优势（这意味着能够更深入的挖掘转录本层面的信息）。对于细胞分化、拟时序分析、RNA动力学分析等进阶分析内容来说，scFAST-seq也较3’端策略而言具有更好的效果。在cDNA终文库的基础上也可以灵活选择 <em>cDNA巢式扩增</em> 或测序文库的探针捕获，从而针对不同的研究目的富集对应的序列。</p>
+<p>视频教程可见(文末阅读原文可跳转)：https://www.bilibili.com/video/BV1F94y1879j/?vd_source=6335356a0d3631ad476b7c7de83892db</p>
+<h2 id="12">1.2 主要结果</h2>
+<h3 id="121">1.2.1 建库流程与特征</h3>
+<p>具体建库的实验流程的受众比较少，感兴趣的同学可以阅读一下原文的methods(https://www.biorxiv.org/content/10.1101/2023.03.19.533382v1.full)。大致来说，与大家熟悉的<code>10X Genomics</code>一样，单细胞悬液会被制备成一个<strong>油包水</strong> 的体系，但<code>scFAST-seq</code>使用随机引物而非3’端的oligo-dT去捕获RNA分子参与逆转录，优化后的随机引物<code>12N7F</code>能够捕获到更多的转录本与RNA分子：
+<img alt="" src="../images/9c89850943524424.webp"></p>
+<p>以往的<code>5'</code>策略在<code>Bulk RNA-Seq</code>中被频繁使用，因为Bulk RNA-Seq可以很方便的使用<code>RNase H</code>降解<code>rRNA</code>，但在单细胞建库中，这就是个难题。因此<code>scFAST-seq</code>使用在使用随机引物的同时加入了一种”阻断”探针，能够特异性的 <em>阻断</em><code>rRNA</code>与<code>mtRNA</code>的逆转录从而大大降低文库中<code>rRNA(30%→10%)</code>与<code>mtRNA(6%→1%)</code>的占比：
+<img alt="" src="../images/9b3b0b55fd6b58ca.png"></p>
+<p><code>scFAST-seq</code>的流程示意图如下所示：
+<img alt="" src="../images/698fda5787b6dbbe.webp"></p>
+<h3 id="122-scfast-seq3scrna-seq">1.2.2 <code>scFAST-seq</code>与<code>3'</code>策略的<code>scRNA-seq</code>一致性评价</h3>
+<p>作者对<code>K562</code>、<code>A549</code>、<code>HCC827</code>混合细胞系、乳腺癌、胶质母细胞瘤、小鼠胰腺癌、外周血等样本分别进行了<code>scFAST-seq</code>与<code>3'</code>策略的<code>scRNA-seq</code>的测序，与上文表述的一样，<code>scFAST-seq</code>获得的<code>mtRNA</code>与<code>rRNA</code>数量都更少(图A)。与此同时，<code>scFAST-seq</code>的<code>reads</code>分布在基因中的位置更加的均匀，而不是像<code>3'</code>测序那般主要集中在<code>RNA</code>分子的<code>3'</code>端(图B)；这显然更有利于 <em>转录本结构</em> 的研究。在基因定量方面，相关性分析(图D)、降维分析(图E)与细胞比例分析(图F)均显示<code>scFAST-seq</code>与<code>3' scRNA-seq</code>具有极为相似的表达矩阵；<code>infercnv</code>分析方面两种技术的一致性极高(图G)。但在转录本的捕获数量上而言，在对应样本中<code>scFAST-seq</code>依旧是更胜一筹(图C)。 <img alt="" src="../images/5c00f8f5ac337397.webp"></p>
+<h3 id="123-scfast-seq">1.2.3 <code>scFAST-seq</code>与目的区域富集技术的结合</h3>
+<p>期望简单的通过增大测序量来增大目的区域的<code>reads</code>数是不切实际的，因此通过生物素探针或<code>巢式PCR</code>可以提升目的区域的捕获效率，例如<code>EGFR 19del</code>可通过生物素探针 <em>提升近一倍</em>(图A)、巢式PCR也可以在少量的细胞中捕获到更多对应的转录本(图B)。<code>scFAST-seq</code>与目的区域富集策略的结合可以用最低的测序成本获取更多的目的信息。</p>
+<p><img alt="" src="../images/a3ec521598401010.webp"></p>
+<h2 id="13">1.3 小结</h2>
+<p>作为全序列的产品，相较于3’单细胞测序而言，其有以下优势：</p>
+<p><img alt="" src="../images/cb85758a68ebbe1b.webp"></p>
+<p>作为一款对标SMART-Seq2的国产测序技术，scFAST-seq的表现十分优秀。scFAST-seq与SMART-Seq2对比可见：</p>
+<p><img alt="" src="../images/af59d4d08f9f1208.webp"></p>
+<p>当然，scFAST-seq也并不是没有缺点，其对于低丰度的转录本捕获效率稳定性不足。为寻因生物点赞的同时也期待单细胞领域出现越来越多有竞争力的国产平台！</p>
+<p><strong>学习手册</strong></p>
+<p><img alt="" src="../images/07e88994d32c0968.png"></p>
+<h2 id="_1"><img alt="" src="../images/086c3b2d9d29435d.gif"></h2>
+<p>与以往的教程一样，我们给大家准备了数据分析的学习手册，目前分为scFAST绪论、准备工作、fast模块、Seurat分析与可视化、mut模块等五节内容及对应测试文件(更多章节持续创作中)，大家可以填写问卷后添加企业微信回复关键字"<strong>scFAST学习手册即领</strong> ":</p>
+<p><img alt="" src="../images/f3d1cbca29e2a21a.png"></p></article></body></html>

@@ -1,0 +1,194 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0196-如何选取适合自己的单细胞测序平台</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">如何选取适合自己的单细胞测序平台</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527807&amp;idx=1&amp;sn=84381d363ee36d00394c0ec95c0a6795&amp;chksm=9b3c142fac4b9d391db9f0e2cb2989d98e5f130700bd118d34ff3b91a79c162700eb95dff4a3#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>现在的单细胞市场，早就不是10下、BD瓜分天下的年代了，越来越多性能不俗的国产平台走上饭桌。多种多样的单细胞测序平台也给大家带来了过剩的<strong>备选方案</strong> ，此时如何选择适合自己组织类型/研究目的需求的单细胞平台就成了一个难题。毕竟单细胞也是种单样本接<strong>近万元级</strong> 的技术，立项前对平台的评估与选择显得尤为重要。这里我们收集了来源于三个单细胞平台、年份相近的肺部组织数据，从nCount、nFeature、分群注释效果等方面对这些平台的数据进行了评估。希望对大家后续选择单细胞平台提供一些启示，大家立项前也可以挑选自己熟悉平台与组织进行测试。如果你看不懂以下分析流程，那么你需要学习：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522475&amp;idx=1&amp;sn=84dd9a65348528be9aa2b8d2711d776c&amp;scene=21#wechat_redirect">不知不觉，已分享了近两百篇单细胞知识帖</a></p>
+<p>本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491007&amp;idx=1&amp;sn=8619c2bad23791b3252a1c4cb1831931&amp;chksm=9b3f64efac48edf9c02f84959aeee9b12480736fce70c5ddb8b41d79cfc22ce590ea2cb60fba&amp;token=1760636281&amp;lang=zh_CN&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519707&amp;idx=1&amp;sn=73dcab26f9b2ed75a954327317d07112&amp;chksm=9b3cf48bac4b7d9df5b5a432fbe70d4f9c13bc8d739aa401732614f022223d1912642a7e4bea&amp;scene=21#wechat_redirect">配置一个心仪的工作站(硬件+环境配置)</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503618&amp;idx=1&amp;sn=ca47ca985aa8560f6b38f15f210519e2&amp;chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&amp;scene=21#wechat_redirect">独享服务器，生信分析不求人</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492383&amp;idx=1&amp;sn=b8d912877cb38e8d8c9084d1d9370ded&amp;chksm=9b3c9a4fac4b135926091a8af972c45a17a2fa1f94c704779c60df5f733847036c3797894c1c&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a></p>
+<p><strong>二、数据准备</strong></p>
+<h2 id="1">1、环境设置</h2>
+<pre><code class="language-r">setwd(&quot;/home/cwj/project/08_depth_compar/&quot;)
+suppressMessages({
+library(Seurat)
+library(Matrix)
+library(ggplot2)
+library(patchwork)
+library(magrittr)
+})
+</code></pre>
+<h2 id="2">2、下载、解压及格式处理</h2>
+<h3 id="1-10x">(1) 10x</h3>
+<pre><code>来源：https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE266323
+物种：Mus musculus
+组织：肺
+公布时间：2024
+
+mkdir -p /home/cwj/project/08_depth_compar/data/GSE266323_RAW
+cd /home/cwj/project/08_depth_compar/data/GSE266323_RAW
+for i in d10_1 d10_2 dTom_1 dTom_2;do
+mkdir $i
+mv /home/cwj/project/08_depth_compar/data/GSE266323_RAW/*${i}*barcodes.tsv.gz /home/cwj/project/08_depth_compar/data/GSE266323_RAW/$i/barcodes.tsv.gz
+mv /home/cwj/project/08_depth_compar/data/GSE266323_RAW/*${i}*features.tsv.gz /home/cwj/project/08_depth_compar/data/GSE266323_RAW/$i/features.tsv.gz
+mv /home/cwj/project/08_depth_compar/data/GSE266323_RAW/*${i}*matrix.mtx.gz /home/cwj/project/08_depth_compar/data/GSE266323_RAW/$i/matrix.mtx.gz
+done
+</code></pre>
+<pre><code class="language-r">(2) BD来源：Apelin modulates inflammation and leukocyte recruitment in experimental autoimmune encephalomyelitis
+物种：Mus musculus
+组织：肺
+公布时间：2024
+
+cd /home/cwj/project/08_depth_compar/data/GSE230551_RAW
+for i in`ls /home/cwj/project/08_depth_compar/data/GSE230551_RAW`;do
+gzip -d $i
+done
+(3) SeekGene来源：https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283551
+物种：Mus musculus
+组织：肺
+公布时间：2025
+
+rm -rf /home/cwj/project/08_depth_compar/data/GSE283551_RAW
+mkdir -p &quot;GSE283551_RAW&quot;&amp;&amp; tar -xf &quot;GSE283551_RAW.tar&quot;-C &quot;GSE283551_RAW&quot;
+cd /home/cwj/project/08_depth_compar/data/GSE283551_RAW
+for i in C73 C80 E19 E27;do
+mkdir $i
+mv /home/cwj/project/08_depth_compar/data/GSE283551_RAW/*${i}*barcodes.tsv.gz /home/cwj/project/08_depth_compar/data/GSE283551_RAW/$i/barcodes.tsv.gz
+mv /home/cwj/project/08_depth_compar/data/GSE283551_RAW/*${i}*features.tsv.gz /home/cwj/project/08_depth_compar/data/GSE283551_RAW/$i/features.tsv.gz
+mv /home/cwj/project/08_depth_compar/data/GSE283551_RAW/*${i}*matrix.mtx.gz /home/cwj/project/08_depth_compar/data/GSE283551_RAW/$i/matrix.mtx.gz
+done
+
+3、数据读入(1) 10xdir &lt;-list.dirs(&quot;/home/cwj/project/08_depth_compar/data/GSE266323_RAW&quot;)[-1]
+names(dir) &lt;-c(&quot;d101&quot;,&quot;d102&quot;,&quot;dTom1&quot;,&quot;dTom2&quot;)
+dir
+obj_list &lt;-list()
+for(i in1:length(dir)){
+  counts &lt;-Read10X(data.dir = dir[i])
+  obj_list[[i]] &lt;-CreateSeuratObject(counts,project =names(dir)[i],min.cells=0,min.features=0)
+}
+obj_list
+obj_10x &lt;-merge(x=obj_list[[1]],y=obj_list[-1])
+obj_10x &lt;-JoinLayers(obj_10x)
+obj_10x
+table(obj_10x@meta.data$orig.ident)
+(2) BDdir &lt;-list.files(&quot;/home/cwj/project/08_depth_compar/data/GSE230551_RAW&quot;,recursive = F)
+names(dir) &lt;-c(&quot;Cont&quot;,&quot;EAE-Cont&quot;,&quot;EAE-A13&quot;)
+dir
+obj_list &lt;-list()
+for(i in1:length(dir)){
+counts &lt;-read.table(paste0(&quot;/home/cwj/project/08_depth_compar/data/GSE230551_RAW/&quot;,dir[i]),header = T)
+print(head(counts))
+colnames(counts)[2] &lt;-&quot;Gene&quot;#有的基因列名是&quot;Bioproduct&quot;
+sparse_matrix &lt;-sparseMatrix(
+i =as.numeric(factor(counts$Gene)),
+j =as.numeric(factor(counts$Cell_Index)),
+x = counts$RSEC_Adjusted_Molecules
+  )
+# 将行和列名称设置为基因名称和细胞索引
+rownames(sparse_matrix) &lt;-levels(factor(counts$Gene))
+colnames(sparse_matrix) &lt;-levels(factor(counts$Cell_Index))
+obj_list[[i]] &lt;-CreateSeuratObject(sparse_matrix,project =names(dir)[i],min.cells=0,min.features=0)
+}
+#BD平台得到的矩阵文件，features.tsv.gz中基因数目并不是固定的，即每个样本基因数目不同
+obj_list
+obj_BD &lt;-merge(x=obj_list[[1]],y=obj_list[-1])
+obj_BD &lt;-JoinLayers(obj_BD)
+obj_BD
+table(obj_BD@meta.data$orig.ident)
+(3) SeekGenedir &lt;-list.dirs(&quot;/home/cwj/project/08_depth_compar/data/GSE283551_RAW&quot;)[-1]
+names(dir) &lt;-c(&quot;C73&quot;,&quot;C80&quot;,&quot;E19&quot;,&quot;E27&quot;)
+dir
+obj_list &lt;-list()
+for(i in1:length(dir)){
+  counts &lt;-Read10X(data.dir = dir[i])
+  obj_list[[i]] &lt;-CreateSeuratObject(counts,project =names(dir)[i],min.cells=0,min.features=0)
+}
+obj_list
+obj_SK &lt;-merge(x=obj_list[[1]],y=obj_list[-1])
+obj_SK &lt;-JoinLayers(obj_SK)
+obj_SK
+table(obj_SK@meta.data$orig.ident)
+</code></pre>
+<p><strong>三、数据质量展示</strong></p>
+<pre><code class="language-r">1、肺组织质量展示lung_summary_after_filtering &lt;- summary_after_filtering[which(summary_after_filtering$group %in%c(&quot;10X&quot;,&quot;BD&quot;,&quot;SK&quot;)),]
+ggplot(lung_summary_after_filtering, aes(x = Cell_Count.Var1 , y = Cell_Count.Freq, fill= group)) +geom_bar(stat =&quot;identity&quot;)+
+labs(x =&quot;Sample&quot;, y =&quot;Cell Number&quot;, title =&quot;cell number among 10X BD SeeKGene after filtering&quot;) +
+theme_minimal() +
+theme(axis.text.x =element_text(angle =45, hjust =1, size =12),
+axis.text.y =element_text(size =12),
+axis.title =element_text(size =14, face =&quot;bold&quot;),
+plot.title =element_text(size =16, face =&quot;bold&quot;, hjust =0.5),
+legend.title =element_text(size =12, face =&quot;bold&quot;),
+legend.text =element_text(size =10))
+ggplot(lung_summary_after_filtering, aes(x = Cell_Count.Var1 , y = Median_nFeature_RNA, fill= group)) +geom_bar(stat =&quot;identity&quot;)+
+labs(x =&quot;Sample&quot;, y =&quot;Median_nFeature_RNA&quot;, title =&quot;median nFeature RNA among 10X BD SeeKGene after filtering&quot;) +
+theme_minimal() +
+theme(axis.text.x =element_text(angle =45, hjust =1, size =12),
+axis.text.y =element_text(size =12),
+axis.title =element_text(size =14, face =&quot;bold&quot;),
+plot.title =element_text(size =16, face =&quot;bold&quot;, hjust =0.5),
+legend.title =element_text(size =12, face =&quot;bold&quot;),
+legend.text =element_text(size =10))
+ggplot(lung_summary_after_filtering, aes(x = Cell_Count.Var1 , y = Median_nCount_RNA, fill= group)) +geom_bar(stat =&quot;identity&quot;)+
+labs(x =&quot;Sample&quot;, y =&quot;Median_nCount_RNA&quot;, title =&quot;median nCount RNA among 10X BD SeeKGene after filtering&quot;) +
+theme_minimal() +
+theme(axis.text.x =element_text(angle =45, hjust =1, size =12),
+axis.text.y =element_text(size =12),
+axis.title =element_text(size =14, face =&quot;bold&quot;),
+plot.title =element_text(size =16, face =&quot;bold&quot;, hjust =0.5),
+legend.title =element_text(size =12, face =&quot;bold&quot;),
+legend.text =element_text(size =10)) 2、10x、BD、SeeKGene降维分群# 运行时间较长，可以将结果运行一次后保存rds,后续直接读取
+# obj_10x_filter &lt;- readRDS(&quot;/home/cwj/project/08_depth_compar/result/obj_10x_filter.rds&quot;)
+# obj_10x_res1.0&lt;- obj_10x_filter %&gt;%
+#   NormalizeData() %&gt;%
+#   FindVariableFeatures() %&gt;%
+#   ScaleData() %&gt;% RunPCA() %&gt;%
+#   FindNeighbors() %&gt;%
+#   FindClusters(resolution = 1.0) %&gt;%
+#   RunTSNE(dims = 1:10) %&gt;%
+#   RunUMAP(dims = 1:10)
+#saveRDS(obj_10x_res1.0, &quot;/home/cwj/project/08_depth_compar/result/obj_10x_filter_res1.0.rds&quot;)
+obj_10x_res1.0&lt;-readRDS(&quot;/home/cwj/project/08_depth_compar/result/obj_10x_filter_res1.0.rds&quot;)
+DimPlot(obj_10x_res1.0, reduction ='umap', label=T)  +NoLegend() +NoAxes()
+# obj_BD_filter &lt;- readRDS(&quot;/home/cwj/project/08_depth_compar/result/obj_BD_filter.rds&quot;)
+# obj_BD_res1.0 &lt;- obj_BD_filter %&gt;%
+#   NormalizeData() %&gt;%
+#   FindVariableFeatures() %&gt;%
+#   ScaleData() %&gt;% RunPCA() %&gt;%
+#   FindNeighbors() %&gt;%
+#   FindClusters(resolution = 1.0) %&gt;%
+#   RunTSNE(dims = 1:10) %&gt;%
+#   RunUMAP(dims = 1:10)
+#saveRDS(obj_BD_res1.0, &quot;/home/cwj/project/08_depth_compar/result/obj_BD_filter_res1.0.rds&quot;)
+obj_BD_res1.0&lt;-readRDS(&quot;/home/cwj/project/08_depth_compar/result/obj_BD_filter_res1.0.rds&quot;)
+DimPlot(obj_BD_res1.0, reduction ='umap', label=T)  +NoLegend() +NoAxes()
+# obj_SK_filter &lt;- readRDS(&quot;/home/cwj/project/08_depth_compar/result/obj_SK_filter.rds&quot;)
+# obj_SK_res1.0 &lt;- obj_SK_filter %&gt;%
+#   NormalizeData() %&gt;%
+#   FindVariableFeatures() %&gt;%
+#   ScaleData() %&gt;% RunPCA() %&gt;%
+#   FindNeighbors() %&gt;%
+#   FindClusters(resolution = 1.0) %&gt;%
+#   RunTSNE(dims = 1:10) %&gt;%
+#   RunUMAP(dims = 1:10)
+#saveRDS(obj_SK_res1.0, &quot;/home/cwj/project/08_depth_compar/result/obj_SK_filter_res1.0.rds&quot;)
+obj_SK_res1.0&lt;-readRDS(&quot;/home/cwj/project/08_depth_compar/result/obj_SK_filter_res1.0.rds&quot;)
+DimPlot(obj_SK_res1.0, reduction ='umap', label=T)  +NoLegend() +NoAxes()
+FeaturePlot(obj_10x_res1.0, features=c(&quot;nFeature_RNA&quot;,&quot;nCount_RNA&quot;,&quot;percent.mt&quot;),ncol =3)
+FeaturePlot(obj_BD_res1.0, features=c(&quot;nFeature_RNA&quot;,&quot;nCount_RNA&quot;,&quot;percent.mt&quot;),ncol =3)
+FeaturePlot(obj_SK_res1.0, features=c(&quot;nFeature_RNA&quot;,&quot;nCount_RNA&quot;,&quot;percent.mt&quot;),ncol =3)
+</code></pre>
+<p><strong>四、最后聊聊</strong></p>
+<p><strong>粗暴地</strong> 看上文分析结果，在细胞数量上BD与SeekGene完胜10X，nFeature数的性能三家相差无几，nCount数上10X则是遥遥领先；在降维分群方面，在同样1.0的分辨率下10X的cluster类型最少，BD与SeekGene获得的cluster更多，但BD似乎出现了降维拖尾的现象，过滤参数还需要进一步调整。当然，这只是一个非常粗糙的评估，我们的小测评并不能考虑到数据来源、建库、测序完成度的一致性，也未能对大队列的数据进行横向评估，并且仅限于肺部一个组织，所以我们这里的结果仅供大家参考(保命申明<img alt="" src="../images/4d0458a9188cecdd.webp">)。如果大家有感兴趣的单细胞平台或组织类型，可以在留言区或客服微信处交流，下期咱就测它！</p>
+<p><img alt="" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../images/3b8e21da777157f9.webp"><img alt="" src="../images/7a5130b05d387a24.gif"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流（别问在么，添加时直接说来意）。呼声很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../images/7ef00c45433a7bde.webp"><img alt="" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

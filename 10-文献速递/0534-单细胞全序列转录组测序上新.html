@@ -1,0 +1,32 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0534-单细胞全序列转录组测序上新</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">单细胞全序列转录组测序上新</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498597&amp;idx=1&amp;sn=1ad5dfa3c8c428972200798a65ea08e0&amp;chksm=9b3c8235ac4b0b23371d59ed732cb31dc6ea9d2217dbf7717a48cd3f8526d8d868d1b70fc823#rd
+合集：文献速递</p>
+</blockquote>
+<p><strong>写在前面</strong></p>
+<p>单细胞的论文我们介绍过很多，但是很少从技术本身来剖析过，今天介绍的是一篇3月23号发布在预印本上题为"High throughput detection of variation in single-cell whole transcriptome through streamlined scFAST-seq"的文章。这项技术(single cell Full-length RNA Sequence, scFAST-seq)由寻因生物历时三年开发完成，可以在<strong>8h</strong> 内建库构建约<strong>12,000</strong> 个细胞的全长RNA文库。这是一种依托于<strong>随机引物</strong> 建库策略的单细胞全新技术。传统的3'端建库策略由于其通过oligo-dT去捕获转录本的polyA尾，因此对非polyA尾的lncRNA、rRNA、circRNA、eRNA等RNA分子敏感性不足。因此，相较于3‘端策略来说，scFAST-seq利用随机引物进行随机捕获，避免poly A尾的介入，使得其在检测<strong>非polyA</strong> 的转录本、覆盖更长的转录本长度和鉴定更多的剪接位点方面具有明显的优势（这意味着能够更深入的挖掘转录本层面的信息）。对于细胞分化、拟时序分析、RNA动力学分析等进阶分析内容来说，scFAST-seq也较3'端策略而言具有更好的效果。在cDNA终文库的基础上也可以灵活选择cDNA巢式扩增或测序文库的探针捕获，从而针对不同的研究目的富集对应的序列。</p>
+<p><strong>具体内容</strong></p>
+<p>2.1 建库流程与特征：具体建库的实验流程的受众比较少，感兴趣的同学可以阅读一下原文的methods(<strong>https://www.biorxiv.org/content/10.1101/2023.03.19.533382v1.full</strong>)。大致来说，与大家熟悉的10X Genomics一样，单细胞悬液会被制备成一个油包水的体系，但scFAST-seq使用随机引物而非3'端的oligo-dT去捕获RNA分子参与逆转录，优化后的随机引物12N7F能够捕获到更多的转录本与RNA分子：</p>
+<p><img alt="" src="../images/5b63af8b151aa107.jpg"></p>
+<p>以往的5'策略在Bulk RNA-Seq中被频繁使用，因为Bulk RNA-Seq可以很方便的使用RNase H降解rRNA，但在单细胞建库中，这就是个难题。因此scFAST-seq使用在使用随机引物的同时加入了一种"阻断"探针，能够特异性的<strong>阻断rRNA与mtRNA的逆转录</strong> 从而大大降低文库中rRNA(30%→10%)与mtRNA(6%→1%)的占比：</p>
+<p><img alt="" src="../images/c4f1b37e45b997e5.jpg"><img alt="" src="../images/cfc71bb8ab8514f9.jpg"></p>
+<p>scFAST-seq的流程示意图如下所示：</p>
+<p><img alt="" src="../images/eeea85e4726c1c59.webp"></p>
+<p>2.2 scFAST-seq与3'策略的scRNA-seq一致性评价
+作者对K562、A549、HCC827混合细胞系、乳腺癌、胶质母细胞瘤、小鼠胰腺癌、外周血等样本分别进行了scFAST-seq与3'策略的scRNA-seq的测序，与上文表述的一样，scFAST-seq获得的mtRNA与rRNA数量都更少(图A)。与此同时，scFAST-seq的reads分布在基因中的位置更加的均匀，而不是像3'测序那般主要集中在RNA分子的3'端(图B)；这显然更有利于转录本结构的研究。在基因定量方面，相关性分析(图D)、降维分析(图E)与细胞比例分析(图F)均显示scFAST-seq与3' scRNA-seq具有极为相似的表达矩阵；infercnv分析方面两种技术的一致性极高(图G)。但在转录本的捕获数量上而言，在对应样本中scFAST-seq依旧是更胜一筹(图C)。</p>
+<p><img alt="" src="../images/91d06972b62bd002.webp"></p>
+<p>2.3 scFAST-seq在转录组分析中的优势上文提到过的对基因区域的覆盖度更均衡是优势之一，而3'端的偏好性会妨碍对转录本内部结构的研究、从而丢失可变剪切等信息，scFAST-seq很好的解决了这一问题。另外，由于scFAST-seq的随机引物策略，其捕获到的<strong>lncRNA</strong> 比例也明显高于sc3'-seq(图A)，并且管家基因的捕获数量并没有显著差别(图B)。在各组样本的转录本长度分布中，也可以发现scFAST-seq获得的长度(图C)、<strong>可变剪切</strong> 捕获的数量(图D)均较sc3'-seq而言更高。在不同的细胞类型中，scFAST-seq捕获到的剪切事件也均有提升(图F)，且能够发现更多的新型转录本(图G)。</p>
+<p><img alt="" src="../images/975969acd345a58e.webp"></p>
+<p>2.4 scFAST-seq在T细胞演化过程的精准推断在与sc3'-seq的对比中，scFAST-seq对于未剪切转录本的捕获比例也在各组样本中更高(图A)。这为利用RNA动力学推断<strong>细胞分化</strong> 、<strong>谱系分析</strong> 、<strong>肿瘤微环境</strong> 动态变化提供了条件，在BRCA样本中也可以明显发现细胞经RNA动力学分析的标注细胞数更多(图B)。由于慢性感染与肿瘤进程中T细胞的持续暴露与激活，T细胞通常会丢失效应能力与记忆T细胞的特性从而转化为耗竭性T细胞，因此对T细胞"naive"、"effector"、"exhaustion"等状态的注释是一个研究热点。无论是在RNA动力学(图C)还是拟时序分析(图D)中，scFAST-seq均能<strong>清晰推断</strong> 出"naive"、"effector"、"exhaustion"三者的<strong>演化方向</strong> ，而sc3'-seq稍显杂乱。</p>
+<p><img alt="" src="../images/efd630b2bc25691e.webp"></p>
+<p>2.5 scFAST-seq与目的区域富集技术的结合期望简单的通过增大测序量来增大目的区域的reads数是不切实际的，因此通过<strong>生物素探针</strong> 或<strong>巢式PCR</strong> 可以提升目的区域的捕获效率，例如EGFR 19del可通过生物素探针提升近一倍(图A)、巢式PCR也可以在少量的细胞中捕获到更多对应的转录本(图B)。scFAST-seq与目的区域富集策略的结合可以用最低的测序成本获取更多的目的信息。</p>
+<p><img alt="" src="../images/3b54e3e8f3e96259.webp"></p>
+<p><strong>简单聊聊</strong></p>
+<p>作为一款对标SMART-Seq2的国产测序技术，scFAST-seq的表现十分优秀。当然，scFAST-seq也并不是没有缺点，其对于<strong>低丰度</strong> 的转录本捕获效率稳定性不足。为寻因生物点赞的同时也期待单细胞领域出现越来越多有竞争力的国产平台！</p>
+<p><img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅)。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/fdb4c49c78e6216c.webp"></p>
+<p><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

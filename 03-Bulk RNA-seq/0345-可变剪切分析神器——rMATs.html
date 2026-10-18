@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0345-可变剪切分析神器——rMATs</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="rmats">可变剪切分析神器——rMATs</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520911&amp;idx=1&amp;sn=1662a0b8ba6daa27cac8de6e581f3bfd&amp;chksm=9b3cebdfac4b62c9e9d35ec94640fc44c10d6bf8af9c4300bde3b798c2e1f9fa4a433622813f#rd
+合集：Bulk RNA-seq</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p><img alt="" src="../images/7e5f70140aa206bc.webp"></p>
+<p><strong>选择性剪接（Alternative splicing，AS）是剪除未成熟mRNA中的内含子、保留外显子后生成成熟mRNA的过程。</strong> 在各类疾病发生和发展过程中，异常的选择性剪接起着重要作用。目前RNA-seq已经成为定量分析选择性剪切的有力工具，这篇文章中，作者在先前研究两个样本RNA-seq数据之间的**MATS(multivariate analysis of transcript splicing)的基础上，针对重复（replicate）的样本进行分析，开发了一种新的方法称为 rMATS。**我们在此前的课程转录组教程中已经包含了rMATS的实战(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510793&amp;idx=1&amp;sn=bfa69e8f261932d9bea74443fab732f0&amp;chksm=9b3cd259ac4b5b4fd4b3bb80d0210a3396cda777b32ab49be1a45339453db314bb2a17fc438d&amp;scene=21#wechat_redirect">Bulk RNASeq| 转录组实战</a>)，这里让我们一起来看看这个方法的具体内容吧。</p>
+<p><strong>二、主要内容</strong></p>
+<ol>
+<li><strong>1. <strong><strong>非配对重复中的</strong></strong>rMATS</strong><strong>统计模型。</strong></li>
+</ol>
+<p><strong>从RNA-seq数据中进行选择性剪接分析的基本原理即比较不同亚型的reads数占所有亚型的比例</strong> ，以外显子跳跃事件为例，发生时会出现外显子（I）增加和外显子跳跃（S）两种亚型，统计不同亚型reads的比例即为外显子包含水平（ψ）（Fig.1）。ψ的数值受到多种因素的影响，当RNA-seq的reads数越多时，得到的ψ值将越可靠。在相同样本的重复RNA-seq数据中，由于生物技术原因，结果也存在可变性，因此在方法的开发中需要考虑这些因素。</p>
+<p>在rMATs中，作者通过分层框架来同时考虑不同重复之间的估计不确定性和重复之间的可变性。外显子的读取包括上层外显子reads，跳跃外显子reads和下层外显子reads。详细计算公式如图所示（Fig.S1）。其中，二项分布<strong>模拟了ψ的数值不确定性受总读数n的影响，而重复样本的可变性用混合模型中的</strong> 随机效应<strong>来模拟</strong> （Fig.2）。</p>
+<p><strong>Fig.1：</strong></p>
+<p><img alt="" src="../images/48409a2141ab5271.png"></p>
+<p><strong>Fig.S1：</strong></p>
+<p><img alt="" src="../images/b5ccc5c3059aafbe.png"></p>
+<p><img alt="" src="../images/e886b37acc777aa2.png"></p>
+<p><strong>Fig.2</strong></p>
+<p><img alt="" src="../images/b7dbbf317375d8dc.png"></p>
+<ol>
+<li><strong>1. <strong><strong>rMATS</strong></strong>的模拟研究。</strong>****</li>
+</ol>
+<p>之后，<strong>作者进行模拟研究来评估rMATS的性能</strong> 。选择两个样本（每个样本10个重复的RNA-seq数据），共5000个外显子，其中5%的外显子存在差异剪接。而95%的外显子不存在差异剪接，即两个样本间Δψ≤5%，并计算标准差SD来衡量样本之间的可变性。使用<strong>rMATS来分析这些模拟数据</strong> ，结果发现在所有三组模拟中，rMATS对重复数据的分析优于对合并数据的分析，特别是当样本可变性增加时（Fig.3）。</p>
+<p><img alt="" src="../images/4ff21be071755a34.webp"></p>
+<ol>
+<li><strong>2. <strong><strong>前列腺癌的rMATs分析。</strong></strong></strong></li>
+</ol>
+<p>为了证实rMATs的实用性，作者分析了两个<strong>前列腺癌细胞系</strong> （各n=3）的RNA-seq数据，其中PC3E细胞表现出上皮细胞特性，GS689细胞具有侵袭特性而表现为间充质表型。选择 <em>ARHGAP17</em> 基因进行分析并经过RT-qPCR进行验证（Fig.4），结果显示RT-qPCR的结果与前列腺癌细胞系的RNA-Seq数据分析有94%的一致率。</p>
+<p><strong>Fig.4</strong></p>
+<p><img alt="" src="../images/bd319388bd85b03b.webp"></p>
+<p><strong>3. 样本大小和测序深度影响检测方法的精确度，</strong>****</p>
+<p><strong>RNA-seq进行选择性剪接分析时常见的问题便是对于测序深度的选择</strong> ，预算固定时，需要在测序深度和重复样本数之间做选择，通过增加重复的数量能够更好地估计重复之间的可变性，但这样做会降低测序深度并增加单个重复的估计不确定性。因此作者设计了一个实验来检测样本大小和测序深度对于分析精确度的影响，结果表明较低的重复数量便有较高的真阳性率，如在SD = 0.01和0.02时，只需要<strong>3个重复</strong> 就可以分别达到<strong>92%</strong> 和<strong>90%</strong> 的真阳性率（Fig.5A）。同时，当增加测序深度后，作者发现相比于200M，1.6GB的测序深度能够得到更大的真阳性率（Fig.5B）。总的来说，当样本之间变异系数较大时，需要较多的重复才能够达到较高的真阳性率，而样本变异系数较低时，3个重复便能够达到较高的真阳性率；同时，在不考虑预算的情况下，<strong>测序深度</strong> 的增加能够提供较高的检测精度，但需要较多的样本数量来减少组间变异性。</p>
+<p><strong>Fig.5：</strong></p>
+<p><img alt="" src="../images/1ba38ae64d4819e9.webp"></p>
+<ol>
+<li><strong>4. <strong><strong>配对重复中的rMATS统计。</strong></strong></strong></li>
+</ol>
+<p><strong>转录组测序通常选择配对设计研究</strong> ，配对研究的选择能够减少个体的特异性变异，提供统计精确度。rMATs能够通过协方差结构对于配对重复进行建模，结果显示一些外显子在两个配对样本之间具有很强的相关性，而另一些外显子在不同个体上的差异小于配对样本，因此作者引入相关系数 ρi参与计算，使用双变量正态分布来模拟样本组内重复之间的变化以及成对重复之间的相关性（Fig.6）。为了进一步验证rMATs分析配对模型的实用性，作者对于肾癌细胞的RNA-seq进行差异性剪接分析，发现使用配对信息导致统计的显著性增加（Fig.7A）,同时Δψ的SD值也会变小（Fig.7B）。以上结果表明rMATS统计模型可以揭示配对模型中更微妙但一致的剪接变化。</p>
+<p><strong>Fig.6：</strong></p>
+<p><img alt="" src="../images/26cb3420c44f5435.png"></p>
+<p><strong>Fig.7</strong></p>
+<p><img alt="" src="../images/8a718a2d98ff9cec.webp"></p>
+<p><strong>5.<strong><strong>rMATS</strong></strong>和其他分析方法的比较。</strong>****</p>
+<p><strong>最后作者将rMATS(未配对模型)的性能与Cufflinks(2.2.1)和DiffSplice(0.1.1)进行比较</strong> ，后者使用Jensen-Shannon散度(JSD)度量来测试两个样本组之间剪接水平/异型比例的差异。结果显示无论是单个样本，还是重复样本的分析，ROC曲线均显示出rMATs的假阳性率较低（Fig.8）。</p>
+<p><strong>Fig.8：</strong></p>
+<p>**
+**</p>
+<p><img alt="" src="../images/85018d2eb77ecc16.webp"></p>
+<p><strong>三、总结讨论</strong></p>
+<p>综上所述，作者的数据为RNA-Seq的选择性剪接分析提供了指导原则，证明了生物学重复对于设计研究的重要性，同时合并RNA-seq或合并来自多个重复样品的RNA-Seq数据不是解决变异性的有效方法，并且异常值的产生会导致结果的假阳性率变高，因此重复数据的使用对于差异性剪接分析是必不可少的。<strong>rMATS的使用教程、测试数据可见：</strong><strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510793&amp;idx=1&amp;sn=bfa69e8f261932d9bea74443fab732f0&amp;chksm=9b3cd259ac4b5b4fd4b3bb80d0210a3396cda777b32ab49be1a45339453db314bb2a17fc438d&amp;scene=21#wechat_redirect">Bulk RNASeq| 转录组实战</a></strong><strong>。</strong> 总的来说，rMATs是对于重复数据进行差异选择性剪接的有力工具。</p>
+<p><img alt="" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../images/3b8e21da777157f9.webp"><img alt="" src="../images/7a5130b05d387a24.gif"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507693&amp;idx=1&amp;sn=d9517a0803ad75cb7be430806834e7b8&amp;chksm=9b3ca7bdac4b2eaba1ad01ed04ab1fbcbafcf4f6ddfe9e4f76ed9229707f545fe7d9c9ffd6ae&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（别问在么，添加时直接说来意）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../images/acba43cb3408c3d0.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

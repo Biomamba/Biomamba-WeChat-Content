@@ -1,0 +1,185 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0623-IF=9.6 肝外胆管癌中的TIGIT表达及其对CD8+T细胞耗竭的影响对免疫治疗的启示</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="if96-tigitcd8t">IF=9.6| 肝外胆管癌中的TIGIT表达及其对CD8+T细胞耗竭的影响对免疫治疗的启示</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531388&amp;idx=6&amp;sn=0bcbbe65b4e3e86d96db8972ceb8d30f&amp;chksm=9b3c022cac4b8b3a3cf97703db05f65eb75d5d20af43057efb6937be1085840e96bec01454cf#rd
+合集：文献速递</p>
+</blockquote>
+<h1 id="_1"></h1>
+<p><strong>一、写在前面</strong></p>
+<p>肝外胆管癌（ECCA）是一种恶性肿瘤，其<strong>微环境组成</strong> 和<strong>免疫逃逸机制</strong> 研究对揭示<strong>肿瘤异质性</strong> 和<strong>治疗策略</strong> 至关重要。<strong>T 细胞免疫受体 TIGIT</strong> 作为<strong>新兴免疫抑制受体</strong> ，在多种癌症中参与 <strong>T 细胞衰竭（Tex）</strong> ，但其在 ECCA 中的作用及对 CD8+ T 细胞功能的影响尚不明朗。本文通过<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530022&amp;idx=2&amp;sn=5c6aa081663719ce2f0f9b7f4d173c93&amp;scene=21#wechat_redirect">单细胞 RNA 测序（scRNA-seq）</a></strong> 分析 <strong>ECCA 肿瘤浸润淋巴细胞（TILs）</strong> ，揭示 <strong>TIGIT 在 TOX+ CD8 T 细胞中的高表达</strong> ，并结合<strong>组织芯片</strong> 和<strong>免疫组化</strong> 验证其与<strong>患者预后的负相关</strong> 。<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529204&amp;idx=1&amp;sn=dc70f79b6460e9a134d8dbee531fc3c7&amp;scene=21#wechat_redirect">流式细胞术</a>进一步证实 <strong>TIGIT+ CD8+ T 细胞功能受损</strong> ，表达 <strong>TNF-α、IFN-γ 和 TCF-1 降低</strong> ，而 <strong>PD-1 和 TIM-3 升高</strong> 。<strong>患者来源异种移植（PDX）模型</strong> 验证了 <strong>anti-TIGIT 治疗的潜力</strong> 。本文旨在探讨 <strong>TIGIT 在 ECCA 中的作用及其免疫治疗意义</strong> 。原文链接:https://pubmed.ncbi.nlm.nih.gov/39939322/
+DOI: 10.1038/s41419-025-07388-4
+<img alt="" src="../images/9287a013c9266571.webp">
+如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530022&amp;idx=2&amp;sn=5c6aa081663719ce2f0f9b7f4d173c93&amp;scene=21&amp;token=167164344&amp;lang=zh_CN#wechat_redirect">单细胞数据分析</a><strong>教学</strong> 、生信热点<strong><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469#wechat_redirect">全文复现</a></strong> 、自测数据<strong>个性化分析</strong> 辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530174&amp;idx=1&amp;sn=c3b0499adcc9093546e4ba1cfffba7bd&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[<strong>Biomamba_zhushou</strong>]</p>
+<p>**二、主要结果
+**</p>
+<table>
+<thead>
+<tr>
+<th>1. ECCA患者的临床病理特征这项研究共纳入了302名肝外胆管癌（ECCA）患者，构成了一个大规模的研究队列（表1）。患者的中位年龄为61岁，其中女性占61.5%，男性占38.5%。在诊断方面，83.4%的患者为肝门周围型胆管癌，16.6%为远端型胆管癌。大部分肿瘤（62.6%）为中度分化，而低分化和高分化的肿瘤分别占24.1%和13.3%。绝大多数患者（92.8%）接受了包括不同类型肝切除术在内的根治性手术治疗。对于占主体的肝门周围型胆管癌患者，其中位无病生存期为12个月，总生存期为20个月。这些详细的临床病理学信息为后续的免疫学分析提供了坚实的基础。表1变量</th>
+<th>胆管癌患者（ <em>n</em> = 302）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>年龄，中位数（范围）</td>
+<td>61 (30–84)</td>
+</tr>
+<tr>
+<td><em>性别，例数（%）</em></td>
+<td></td>
+</tr>
+<tr>
+<td>女性</td>
+<td>116 (38.5%)</td>
+</tr>
+<tr>
+<td>男性</td>
+<td>186 (61.5%)</td>
+</tr>
+<tr>
+<td>根治性手术，例数（%）</td>
+<td>280 (92.8%)</td>
+</tr>
+<tr>
+<td>左肝切除术</td>
+<td>141 (46.8%)</td>
+</tr>
+<tr>
+<td>右肝切除术</td>
+<td>60 (19.9%)</td>
+</tr>
+<tr>
+<td>中肝切除术</td>
+<td>30 (9.8%)</td>
+</tr>
+<tr>
+<td>胰十二指肠切除术</td>
+<td>46 (15.2%)</td>
+</tr>
+<tr>
+<td>肝胰十二指肠切除术</td>
+<td>3 (1.1%)</td>
+</tr>
+<tr>
+<td>姑息性手术，例数（%）</td>
+<td>22 (7.2%)</td>
+</tr>
+<tr>
+<td><em>诊断，例数（%）</em></td>
+<td></td>
+</tr>
+<tr>
+<td>肝门部胆管癌</td>
+<td>252 (83.4%)</td>
+</tr>
+<tr>
+<td>远端胆管癌</td>
+<td>50 (16.6%)</td>
+</tr>
+<tr>
+<td><em>肿瘤分级，例数（%）</em></td>
+<td></td>
+</tr>
+<tr>
+<td>高分化</td>
+<td>40 (13.3%)</td>
+</tr>
+<tr>
+<td>中分化</td>
+<td>189 (62.6%)</td>
+</tr>
+<tr>
+<td>低分化</td>
+<td>73 (24.1%)</td>
+</tr>
+<tr>
+<td><em>肝门部胆管癌</em> （ <em>n</em> = 252）， <em>Bismuth-Corlette分型，例数（%）</em></td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td>0</td>
+</tr>
+<tr>
+<td>II</td>
+<td>34 (13.6%)</td>
+</tr>
+<tr>
+<td>IIIa</td>
+<td>59 (23.6%)</td>
+</tr>
+<tr>
+<td>IIIb</td>
+<td>85 (33.6%)</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>74 (29.2%)</td>
+</tr>
+<tr>
+<td>胆红素 μmol/L，中位数（范围）</td>
+<td>137.1 (9.1–562.7)</td>
+</tr>
+<tr>
+<td>白蛋白 g/L，中位数（范围）</td>
+<td>34.9 (25.1–51.4)</td>
+</tr>
+<tr>
+<td>CA19-9 Ku/L，中位数（范围）</td>
+<td>102.6 (1.5–800)</td>
+</tr>
+<tr>
+<td><em>胆道引流，例数（%）</em></td>
+<td></td>
+</tr>
+<tr>
+<td>无引流</td>
+<td>142 (47.1%)</td>
+</tr>
+<tr>
+<td>经皮肝穿刺胆道造影（PTC）</td>
+<td>95 (31.3%)</td>
+</tr>
+<tr>
+<td>内镜逆行胆管造影（ERC）</td>
+<td>52 (17.2%)</td>
+</tr>
+<tr>
+<td>PTC和ERC</td>
+<td>13 (4.4%)</td>
+</tr>
+<tr>
+<td>肝门部胆管癌无病生存期，中位数月（范围）</td>
+<td>12 (0–74)</td>
+</tr>
+</tbody>
+</table>
+<p>2. 通过单细胞RNA测序揭示ECCA的高分辨率免疫图谱
+研究人员首先对从肿瘤组织中分离出的<strong>肿瘤浸润淋巴细胞（tumor-infiltrating lymphocytes, TILs）</strong> 进行了<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530022&amp;idx=2&amp;sn=5c6aa081663719ce2f0f9b7f4d173c93&amp;scene=21#wechat_redirect">单细胞RNA测序（scRNA-seq）</a></strong> 希望在高分辨率下解析肝外胆管癌（ECCA）的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527498&amp;idx=1&amp;sn=c8282e9d4175bfb2e572278312073d81&amp;scene=21#wechat_redirect">免疫微环境</a>（图1）。在对数据进行严格的质量控制后，共有13,000个高质量的细胞被用于后续分析。通过对这些细胞进行聚类和注释，作者识别出了微环境中的主要免疫细胞亚群，包括<strong>T细胞、NK细胞、B细胞和巨噬细胞</strong> 。其中最关键的发现是，<strong>T细胞</strong> 是TILs中最主要的组成部分，总数达到了9,867个，占所有分析细胞总数的<strong>72.02%</strong> 。这一结果表明，T细胞在ECCA的肿瘤免疫微环境中可能扮演着核心角色，因此后续的分析也主要聚焦于对T细胞亚群的深入研究。</p>
+<p><img alt="" src="../images/cea2fe9a051b690b.webp"></p>
+<p>图1</p>
+<p>3. 免疫检查点分子TIGIT在TOX+CD8 T细胞中显著过表达</p>
+<p>在确定T细胞是ECCA微环境中的主要免疫细胞后，作者对T细胞亚群进行了更深入的<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522102&amp;idx=2&amp;sn=e13d800b5fb2c2b1f33d91fc794d5a10&amp;scene=21#wechat_redirect">单细胞转录组分析</a>（图2）。他们首先将T细胞进一步细分为CD4+和CD8+ T细胞亚群。分析发现，作为<strong>T细胞耗竭（T cell exhaustion）</strong> 的关键转录因子，<strong>TOX</strong> 的表达主要富集在<strong>CD8+ T细胞</strong> 中。在此基础上，通过对TOX阳性和TOX阴性的CD8+ T细胞进行差异基因表达分析，他们得到了一个核心发现：新兴的免疫检查点分子<strong>TIGIT</strong> 在<strong>TOX阳性的CD8+ T细胞中显著过表达</strong> 。这一强烈的共表达模式首次将TIGIT与ECCA中耗竭的CD8+ T细胞直接联系起来，表明TIGIT的高表达可能参与并驱动了CD8+ T细胞的耗竭过程。</p>
+<p><img alt="Fig. 2" src="../images/af56a15458ca732f.webp"></p>
+<p>图2</p>
+<p>4. TIGIT高表达与ECCA患者生存期缩短相关为了能更科学地验证单细胞测序的结果并评估TIGIT的临床相关性，研究人员在一项涉及大规模临床样本的分析中，探究了TIGIT蛋白的表达及其对患者生存率的影响（图3）。通过对包含89例ECCA患者的<strong>组织微阵列（tissue microarrays）</strong> 进行<strong>免疫组织化学（immunohistochemistry）</strong> 染色，他们证实了TIGIT蛋白在肿瘤组织中的表达。进一步的双重<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530174&amp;idx=1&amp;sn=c3b0499adcc9093546e4ba1cfffba7bd&amp;scene=21#wechat_redirect">免疫荧光染色</a>显示，<strong>TIGIT与CD8在T细胞表面共表达</strong> ，这在蛋白水平上验证了单细胞测序的结果。至关重要的是，在一项涉及289名患者的生存分析中，研究发现TIGIT的表达水平与患者的预后密切相关：<strong>高TIGIT表达</strong> 的患者中位生存期仅为<strong>26个月</strong> ，显著低于<strong>低TIGIT表达</strong> 患者的<strong>32个月</strong> 。此外，研究还发现TIGIT的配体<strong>CD155</strong> 主要表达于肿瘤的<strong>上皮细胞</strong> （即癌细胞）上。这些结果共同表明，TIGIT是ECCA中一个重要的不良预后标志物，并且其介导免疫抑制的分子基础（TIGIT在T细胞上表达，其配体在癌细胞上表达）在<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528088&amp;idx=1&amp;sn=ac4c0e71d5a37e073bf63f65e597541e&amp;scene=21#wechat_redirect">肿瘤微环境</a>中普遍存在。</p>
+<p><img alt="Fig. 3" src="../images/77a20af176b66b58.webp"></p>
+<p>图3</p>
+<p>5. TIGIT是ECCA中T细胞耗竭的潜在表面标志物</p>
+<p>利用<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529204&amp;idx=1&amp;sn=dc70f79b6460e9a134d8dbee531fc3c7&amp;scene=21#wechat_redirect">流式细胞术（flow cytometry）</a></strong> 研究人员对ECCA患者的T细胞进行了详细的表型分析，更进一步从功能层面定义TIGIT阳性T细胞的状态。通过比较<strong>TIGIT阳性CD8+ T细胞</strong> 与TIGIT阴性CD8+ T细胞，他们发现TIGIT阳性细胞表现出经典的耗竭特征（图4）。一方面，TIGIT阳性细胞表面其他关键的抑制性检查点分子，如<strong>PD-1</strong> 和<strong>TIM-3</strong> 的表达水平显著更高。另一方面，在功能上，这群细胞的效应功能受损，其产生的关键杀伤性细胞因子——<strong>肿瘤坏死因子-α（TNF-α）</strong> 和<strong>干扰素-γ（IFN-γ）</strong> 的水平显著低于TIGIT阴性细胞。这些发现共同表明，TIGIT阳性代表了ECCA<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527498&amp;idx=1&amp;sn=c8282e9d4175bfb2e572278312073d81&amp;scene=21#wechat_redirect">肿瘤微环境</a>中一群功能耗竭的CD8+ T细胞，TIGIT可能与其他免疫检查点分子协同作用，共同诱导了T细胞的功能障碍。</p>
+<p><img alt="Fig. 4" src="../images/7a1a63564e5dddde.webp"></p>
+<p>图4</p>
+<p>6. ECCA患者TIGIT阳性CD8+ T细胞中TCF-1的表达降低研究人员单独检测了<strong>TCF-1</strong> 的表达水平，用于从<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530488&amp;idx=3&amp;sn=687d43475eee9023cc711bca6a677537&amp;scene=21#wechat_redirect">转录因子</a>层面进一步证实TIGIT与T细胞耗竭的关联。 TCF-1是一种维持T细胞干性（stemness）和功能的关键转录因子，其表达的下调或缺失被认为是T细胞走向终末耗竭的重要标志。通过<strong>流式细胞术（flow cytometry）</strong> 分析，研究人员发现，与TIGIT阴性的CD8+ T细胞相比，<strong>TIGIT阳性CD8+ T细胞</strong> 中表达TCF-1的细胞比例显著<strong>降低</strong> （图5）。 TIGIT表达与TCF-1表达之间的这种<strong>负相关性</strong> ，为TIGIT阳性CD8+ T细胞处于耗竭状态提供了更有力的证据，表明这群细胞可能已经丧失了自我更新的能力，进入了功能衰竭的终末阶段。<img alt="Fig. 5" src="../images/20a795bacbd9c85b.webp">图5
+7.PDX模型中TIGIT抗体的免疫治疗效果作者的团队构建了<strong>人源肿瘤异种移植（patient-derived xenograft, PDX）</strong> 小鼠模型，并使用<strong>TIGIT抗体（anti-TIGIT antibody）</strong> 进行治疗，希望能验证靶向TIGIT的治疗潜力。结果显示，与对照组相比，接受TIGIT抗体治疗的小鼠<strong>肿瘤生长速度显著减慢，最终肿瘤重量也显著降低</strong> （图6）。在免疫细胞层面，抗体治疗能够<strong>增加肿瘤组织中效应CD8+ T细胞的浸润比例</strong> 。功能分析表明，这些T细胞的杀伤能力得到增强，其表达的关键杀伤分子<strong>颗粒酶B（granzyme B, GRZB）</strong> 的比例显著升高。更重要的是，在分子水平上，TIGIT抗体成功地逆转了T细胞的耗竭状态：它<strong>上调了抑制耗竭的关键转录因子TCF-1</strong> 的蛋白水平，同时<strong>下调了促进耗竭的转录因子TOX1和NR4A1</strong> 的蛋白水平。这些临床前证据有力地表明，TIGIT抗体能够通过逆转T细胞耗竭、增强CD8+ T细胞的抗肿瘤活性来抑制ECCA的生长，为临床治疗提供了新思路。<img alt="Fig. 6" src="../images/3f0dd57e4a4cb5b5.webp">
+图6
+8. ECCA中TIGIT阳性CD8+ T细胞呈现耗竭且杀伤潜能低下研究人员回归到<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530022&amp;idx=2&amp;sn=5c6aa081663719ce2f0f9b7f4d173c93&amp;scene=21#wechat_redirect">单细胞RNA测序（scRNA-seq）</a></strong> 数据，对TIGIT阳性和阴性的CD8+ T细胞进行了直接的基因表达谱比较，从转录组层面最终确认TIGIT阳性T细胞的功能状态（图7）。分析结果清晰地显示，<strong>TIGIT阳性CD8+ T细胞</strong> 高表达一系列与<strong>T细胞耗竭（T cell exhaustion）</strong> 相关的关键基因，如<strong>TOX</strong> 和<strong>EOMES</strong> ；而TIGIT阴性细胞则高表达抑制耗竭的基因，如<strong>TCF7</strong> （编码TCF-1蛋白）（图7）。在功能层面，TIGIT阳性CD8+ T细胞的<strong>杀伤能力（killing capacity）</strong> 也显著降低，其编码关键杀伤分子<strong>颗粒酶B（GZMB）</strong> 和<strong>干扰素-γ（IFNG）</strong> 的基因表达水平均显著低于TIGIT阴性细胞。这一独特的基因表达特征为之前的发现提供了最终的分子证据，证实了在ECCA的肿瘤微环境中，TIGIT阳性CD8+ T细胞确实处于一种功能耗竭且杀伤潜能低下的状态。<img alt="Fig. 7" src="../images/7603d25da8418aa0.webp">图7</p>
+<p><strong>三、随便聊聊</strong></p>
+<p>本研究揭示 <strong>TIGIT 在 ECCA 中高表达与不良预后相关</strong> ，促进 <strong>CD8+ T 细胞衰竭</strong> 和<strong>肿瘤免疫逃逸</strong> 。<strong>anti-TIGIT 治疗</strong> 在 PDX 模型中<strong>降低肿瘤负荷</strong> ，<strong>提升 CD8+ T 细胞活性</strong> ，并通过<strong>上调 TCF-1、下调 TOX1 和 NR4A1 逆转衰竭</strong> 。该发现为 <strong>ECCA 免疫治疗提供了新靶点</strong> 。然而，<strong>研究样本有限</strong> ，需<strong>更大队列验证 TIGIT 与 TCF-1/TOX1/NR4A1 轴的机制</strong> 。未来，可探索 <strong>TIGIT 阻断与 PD-1 等联合疗法</strong> ，提升 <strong>CD8+ T 细胞响应</strong> 。该工作强调 <strong>TIGIT 在 ECCA 进展中的关键作用</strong> ，推动<strong>精准免疫治疗的发展</strong> 。</p>
+<p><strong>四、参考文献</strong></p>
+<p>[1]: Tang T, Wang W, Gan L, Bai J, Tan D, Jiang Y, Zheng P, Zhang W, He Y, Zuo Q, Zhang L. TIGIT expression in extrahepatic cholangiocarcinoma and its impact on CD8 + T cell exhaustion: implications for immunotherapy. Cell Death Dis. 2025 Feb 12;16(1):90. doi: 10.1038/s41419-025-07388-4. PMID: 39939322; PMCID: PMC11822069.</p>
+<p><img alt="图片" src="../images/95968d673495ca4c.png"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/b36f05f29bee05ab.png"><img alt="图片" src="../images/0667abfe3cfb054d.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530154&amp;idx=2&amp;sn=e5d0a63646094c3094b7b916350d22ad&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/fe8ecb8594a1f419.webp"><img alt="图片" src="../images/735cbbf3b51b2cbf.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

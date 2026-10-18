@@ -1,0 +1,35 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0320-谁说一定要去卷积，亚细胞分辨率空转分析的新方法</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">谁说一定要去卷积，亚细胞分辨率空转分析的新方法</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528207&amp;idx=1&amp;sn=13aafaa75639311cfd0940c34dc25dbe&amp;chksm=9b3c165fac4b9f490188575c858440128fcee034cb1878ca2c28ec7ac9ff0753e2a3ce543412#rd
+合集：空间转录组 / 文献速递</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>现如今的空间转录组能够能够在原组织位检测<strong>数百万个</strong> 位点的基因表达量(不熟悉空转同学建议看一下我们的空转合集：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2879312479804489730&amp;scene=173&amp;subscene=&amp;sessionid=svr_431f289eacc&amp;enterid=1719237500&amp;from_msgid=2247505248&amp;from_itemidx=2&amp;count=3&amp;nolastread=1#wechat_redirect">点击跳转</a>)，这不得不让空转领域面对测序深度、空间分辨率、样本大小这三个因素的平衡(几乎是一个<strong>不可能三角</strong>)。对于常见的两种空转建库策略——image-base和sequencing-base的后者而言，分辨率在不断的提升，目前已经能够达到亚细胞分辨率水平，但此前并没有一个工具能够综合转录表达量、空间坐标信息完成对亚细胞分辨率的空转数据完成单细胞水平的精准注释。因此，作者发布了基于multiparameter persistent homology(MPH)的<strong>TopACT</strong> 工具与算法，并在人类肾脏、小鼠肾脏、小鼠大脑的<strong>stereo-seq</strong> 与<strong>Xenium</strong> 数据中进行了性能测试，能够精准识别并注释样本中空间分布、转录本丰度稀疏的免疫细胞。</p>
+<p><strong>二、背景介绍</strong></p>
+<p>在sequence-base的空转中，spot与单个细胞的统一一直是个难题(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511779&amp;idx=1&amp;sn=23868525d86a9ed7867a3837ed18612c&amp;chksm=9b3cd7b3ac4b5ea502950d0278d68da978f6011b2597c3ec90fb77e79320883fb4a5be2d5399&amp;scene=21#wechat_redirect">SeekSpace</a>除外)；而image-base的空转通常又面临通量低的问题(捕获基因数量有限)。目前空转数据的细胞注释策略一般也分为两种：对于spot<strong>大于细胞</strong> 尺寸的数据用去卷积(通常基于非负矩阵分解)，对于分辨率<strong>低于细胞</strong> 尺寸的数据做合并(Figure 1a)。而以上这两种策略通常也需要依赖于scRNA-seq或snRNA-seq的数据作为<strong>参考数据集</strong>(Figure 1b)。对于本文重点关注的亚细胞分辨率空转数据(例如2μm分辨率的HDST与Visium HD、0.5~0.8μm分辨率的Seq-Scope、0.5~0.715μm分辨率的stereo-seq)而言，此前的主要策略是进行标准细胞类型分群或贝叶斯算法(可以不基于细胞分割进行细胞的划分)。这些亚细胞spot通常<strong>转录本丰度</strong> 相对<strong>较低</strong> ，将他们与<strong>临近的spot精准整合</strong> 为<strong>单细胞</strong> 水平的单位难度通常较大(尤其是在细胞边界不清晰或无细胞边界信息时)。此时，需要一个可以不依赖先验细胞边界也能够灵活调整spot合并的滑动窗口、能够灵敏检测丰度稀疏转录本及分布稀疏细胞类型的工具来解决空转难题。因此，作者设计了TopACT能够对各spot进行拓扑性(基于MPH)地细胞类型自动注释(Fig1d)，其亮点是扫描spot的滑窗大小是动态的(Fig.1e,f)。</p>
+<p><img alt="" src="../images/f27bb04f5afe0232.webp"></p>
+<p><strong>Figure1</strong></p>
+<p><strong>三、主要结果</strong></p>
+<p>1、在人工合成数据上的表现
+作者分别使用了四个数据集来检验TopACT的性能。作者首先在一个<strong>人工模拟</strong> 的数据集上进行了测试(Fig.2a)，相较于RCTD的解卷积过程而言(Fig.2b)，TopACT的Immune、Podocyte、Urothelium的准确性(Fig.2c)较高。分布<strong>稀疏</strong> 的细胞类型通常<strong>更难</strong> 被检测到，但TopACT的对于Immune、Podocyte、Urothelium(模拟的是肾脏样本，这三类细胞比例较低)<strong>检出率</strong> 仍然维持在<strong>较高</strong> 水平，均值均接近1(Fig.2d)。在高分辨率的空转平台中，spot细胞类型的鉴定往往容易受到RNA扩散效应的影响，各个技术平台的RNA扩散强度也不尽相同(例如Seq-Scope的侧向扩散距离约为1.7μm，Stereo-seq的侧向扩散强度约为6，84μm)，可以明显看出，TopACT随着扩散距离的增加，准确率的稳定性要高于RCTD(Fig.2e)。<img alt="" src="../images/23d6ab6fc32f6d17.webp"></p>
+<p><strong>Figure 2</strong></p>
+<p>2、在鼠脑中定位巨噬细胞</p>
+<p>对于基于stereo-seq的cell bin鼠脑数据而言，很难在其中获得除了Microglia以外的其它<strong>免疫细胞</strong> ，但TopACT能够在鼠脑的stereo-seq数据中精准识别perivascular macrophage(PVM)并且能够观察到具有<strong>区分度</strong> 的marker。<img alt="" src="../images/265d1f2990b3268c.webp"></p>
+<p><strong>Figure.3</strong></p>
+<p>3、将TopACT迁移到<strong>image-base</strong> 的空转平台</p>
+<p>前面我们介绍过，image-base的空转平台虽然能够高效的捕获实验者感兴趣的基因或通路，但它们能够捕获到的基因数量较为有限。为了测试TopACT能够在<strong>输入基因数量较低</strong> 时仍能运行，作者构建了一个包含<strong>377个基因</strong> 的IgAN病人活检Xenium平台空转数据(Fig.4)。作者利用Seurat对基于image的细胞分割结果进行了聚类注释，并使用TopACT对数据进行了注释，二者对比结果显示前者丢失了细胞的<strong>粒度感</strong> 及形状的异质性，而后者对于肾脏近曲小管、髓袢、收集管主细胞的注释而言均与H&amp;E结果更加类似(Fig.4c,d)了。例如，足细胞是一类包含于肾小球内的细胞类型，image分割的注释结果中，在肾小球外也能够观察到足细胞的注释出现，而TopACT的注释结果中足细胞则主要分布在肾小球范围中(Fig.4g,h)。这在一定程度上证明了TopACT适用于image-base的空转平台数据。
+<img alt="" src="../images/643cb6d17170c582.webp"></p>
+<p><strong>Figure4</strong></p>
+<p>4、精准定位小鼠肾脏中的免疫细胞</p>
+<p>免疫细胞在实体组织的空转数据中定位通常比较困难，原因如下：(1)免疫细胞通常<strong>大小不一</strong> ，较小的细胞难以发现；(2)免疫细胞在基质组织中分布较为<strong>分散</strong> ，提升了注释难度；(3)免疫细胞的<strong>代谢活性</strong> 通常没有基质细胞高，在代谢旺盛的肾脏组织中更是如此，若同一个bin或区域中同时存在肾小管细胞和免疫细胞，显然肾小管细胞的特征会占据主导地位。作者对小鼠系统性红斑狼疮肾脏的stereo-seq数据(Fig.5a)分别进行了依赖于ssDNA细胞分割的注释与TopACT的注释，可以明显发现经TLR7抑制剂处理的组别可以观察到肾小球中的<strong>免疫细胞数量显著上升</strong>(Fig.5b,c)。根据免疫细胞与足细胞的平均距离来看(Fig.5d)，免疫细胞甚至有可能"<strong>渗入</strong> "足细胞之中(不过biomamba认为这里无法排除这一现象是<strong>RNA扩散</strong> /细胞垂直方向上<strong>重合</strong> 情况造成的)。此外TopACT还可以通过MPH的激活半径参数来判断是否存在<strong>免疫细胞环</strong> ，例如在TLR7抑制剂处处理后的肾小球周围可以明显观察到这一现象(Fig.5e)。上述现象也看通过对T Cell(CD4、CD8)、B Cell(CD19)、Myeloid(CD11b、CD68、GR1)对应marker的染色被证实。此外，TopACT还能够做到对肾小球内外(Fig.5g)、肾小球中心区域/周边区域(Fig.5h)的免疫细胞强度进行评估。可以说TopACT能够很大程度上解决免疫细胞在空转组织中定位注释的问题。</p>
+<p><img alt="" src="../images/8d119cb6fe964e59.webp"></p>
+<p><strong>Figure 5</strong></p>
+<p><strong>四、讨论</strong></p>
+<p>随着一个组学的兴起，各式各样的技术平台会层出不穷，空间转录组的分辨率在不断的被提升，技术快速更新的同时也给算法、工具的开发、更新留出了空间。TopACT可谓是给目前分辨率低于细胞大小的空转平台提供了一盏指路明灯，一改按照坐标分bin或细胞分割后去卷积的思路，其能够对亚细胞分辨率spot进行注释，推荐大家赶紧用起来。当然，也不能光吹，毕竟去卷积的工具软件繁多，互相之间能够做benckmarking，而像TopACT这样做aggregate的工具还比较少，其性能还有待进一步观察，也存在被其它软件工具替代的可能。</p>
+<p><img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取资料、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527585&amp;idx=1&amp;sn=fa32112c11b215b33096cab43baf08ea&amp;scene=21#wechat_redirect">免费两周学习版上</a>服务器的<strong>微信号</strong> ，方便各位随时交流（别问在么，添加时直接说来意）。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。</p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/7ef00c45433a7bde.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

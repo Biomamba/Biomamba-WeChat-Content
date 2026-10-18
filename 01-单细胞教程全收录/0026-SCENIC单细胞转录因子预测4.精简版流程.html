@@ -1,0 +1,494 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0026-SCENIC单细胞转录因子预测4.精简版流程</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="scenic4">SCENIC单细胞转录因子预测|4.精简版流程</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501260&amp;idx=1&amp;sn=f1e2a165599e753e2959aad7c8a298cb&amp;chksm=9b3cbc9cac4b358a9499654a2f95fa9010309ee4f408ef8b1f31ceb1a0f263ce22e8b511c430#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>写在前面</strong> 经过几节课的铺垫，SCENIC的运行流程其实非常简单，大部分内容均被SCENIC包高度封装，最核心的内容其实只有四行。本次教程文末快速地和大家一起过一遍流程。当然，输出文件的含义及利用方式还需要通过我们后续的详解视频来解析。学习手册与测试文件不断更新，可在文末解锁或联系客服微信Biomamba领取。学习手册：</p>
+<p><img alt="" src="../images/b569a9cedcee02e3.webp"></p>
+<p>当然更推荐大家去作者的Github学习：https://github.com/aertslab/SCENIC<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497382&amp;idx=1&amp;sn=95586ea6dc381f8b8941cbd50f914c34&amp;chksm=9b3c8ff6ac4b06e0a44df58181c3c85ea856fbc1b02e819640f7d9963fb598a4c4abb84f000f&amp;scene=21#wechat_redirect"></a>
+<strong>视频教程</strong></p>
+<p>B站同步播出：</p>
+<p>https://www.bilibili.com/video/BV1Mg4y1c7wU?p=4</p>
+<p><strong>图文教程</strong></p>
+<p><code>SCENIC</code>的分析流程封装的较好，运行完整个流程无非也十几行代码(但是会产生大量的过程及结果文件)。
+下面这个<strong>示例数据</strong> 真的算的很<strong>快</strong> ，不过大家跑自己数据时可能会算上<strong>好几天</strong> 。</p>
+<h2 id="31">3.1. 计算共表达网络</h2>
+<pre><code class="language-r">genesKept &lt;- geneFiltering(exprMat, scenicOptions)
+</code></pre>
+<pre><code>## Maximum value in the expression matrix: 421
+</code></pre>
+<pre><code>## Ratio of detected vs non-detected: 0.24
+</code></pre>
+<pre><code>## Number of counts (in the dataset units) per gene:
+</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+##     0.0    17.0    48.0   146.8   137.0  5868.0
+</code></pre>
+<pre><code>## Number of cells in which each gene is detected:
+</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+##    0.00   10.00   25.00   39.01   60.00  180.00
+</code></pre>
+<pre><code>##
+## Number of genes left after applying the following filters (sequential):
+</code></pre>
+<pre><code>##  771 genes with counts per gene &gt; 6
+</code></pre>
+<pre><code>##  770 genes detected in more than 2 cells
+</code></pre>
+<pre><code>## Using the column 'features' as feature index for the ranking database.
+</code></pre>
+<pre><code>##  770 genes available in RcisTarget database
+</code></pre>
+<pre><code>## Gene list saved in int/1.1_genesKept.Rds
+</code></pre>
+<pre><code class="language-r">exprMat_filtered &lt;- exprMat[genesKept, ]
+runCorrelation(exprMat_filtered, scenicOptions)
+exprMat_filtered_log &lt;- log2(exprMat_filtered+1)
+</code></pre>
+<pre><code class="language-r"># 基因共表达网络计算
+mymethod &lt;- 'runGenie3' # 'grnboost2'
+library(reticulate)
+if(mymethod=='runGenie3'){
+  runGenie3(exprMat_filtered_log, scenicOptions)
+}else{
+  arb.algo = import('arboreto.algo')
+  tf_names = getDbTfs(scenicOptions)
+  tf_names = Seurat::CaseMatch(
+    search = tf_names,
+    match = rownames(exprMat_filtered))
+  adj = arb.algo$grnboost2(
+    as.data.frame(t(as.matrix(exprMat_filtered))),
+    tf_names=tf_names, seed=2023L
+  )
+  colnames(adj) = c('TF','Target','weight')
+  saveRDS(adj,file=getIntName(scenicOptions,
+                              'genie3ll'))
+}
+</code></pre>
+<pre><code>## Using 8 TFs as potential regulators...
+</code></pre>
+<pre><code>## Warning in runGenie3(exprMat_filtered_log, scenicOptions): Only 8 (0%) of the 1721 TFs in the database were found in the dataset. Do they use the same gene IDs?
+</code></pre>
+<pre><code>## Running GENIE3 part 1
+</code></pre>
+<pre><code>## Running GENIE3 part 10
+</code></pre>
+<pre><code>## Running GENIE3 part 2
+</code></pre>
+<pre><code>## Running GENIE3 part 3
+</code></pre>
+<pre><code>## Running GENIE3 part 4
+</code></pre>
+<pre><code>## Running GENIE3 part 5
+</code></pre>
+<pre><code>## Running GENIE3 part 6
+</code></pre>
+<pre><code>## Running GENIE3 part 7
+</code></pre>
+<pre><code>## Running GENIE3 part 8
+</code></pre>
+<pre><code>## Running GENIE3 part 9
+</code></pre>
+<pre><code>## Finished running GENIE3.
+</code></pre>
+<h2 id="32-grn-score">3.2. 构建并计算基因调控网络活性(GRN score)</h2>
+<pre><code class="language-r">exprMat_log &lt;- log2(exprMat+1)
+scenicOptions@settings$dbs &lt;- scenicOptions@settings$dbs[&quot;10kb&quot;] # Toy run settings
+scenicOptions &lt;- runSCENIC_1_coexNetwork2modules(scenicOptions)
+</code></pre>
+<pre><code>## 02:16    Creating TF modules
+</code></pre>
+<pre><code>## Number of links between TFs and targets (weight&gt;=0.001): 6139
+</code></pre>
+<pre><code>##            [,1]
+## nTFs          8
+## nTargets    770
+## nGeneSets    47
+## nLinks    17299
+</code></pre>
+<pre><code class="language-r">scenicOptions &lt;- runSCENIC_2_createRegulons(scenicOptions, coexMethod=c(&quot;top5perTarget&quot;)) # Toy run settings
+</code></pre>
+<pre><code>## 02:17    Step 2. Identifying regulons
+</code></pre>
+<pre><code>##
+## Attaching package: 'AUCell'
+</code></pre>
+<pre><code>## The following object is masked from 'package:SCENIC':
+##
+##     plotEmb_rgb
+</code></pre>
+<pre><code>## Using the column 'features' as feature index for the ranking database.
+</code></pre>
+<pre><code>## tfModulesSummary:
+</code></pre>
+<pre><code>##               [,1]
+## top5perTarget    8
+</code></pre>
+<pre><code>## 02:17    RcisTarget: Calculating AUC
+</code></pre>
+<pre><code>## Using the column 'features' as feature index for the ranking database.
+</code></pre>
+<pre><code>## Scoring database:  [Source file: mm9-tss-centered-10kb-7species.mc9nr.feather]
+</code></pre>
+<pre><code>## 02:17    RcisTarget: Adding motif annotation
+</code></pre>
+<pre><code>## Using BiocParallel...
+</code></pre>
+<pre><code>## Number of motifs in the initial enrichment: 867
+</code></pre>
+<pre><code>## Number of motifs annotated to the matching TF: 126
+</code></pre>
+<pre><code>## 02:17    RcisTarget: Pruning targets
+</code></pre>
+<pre><code>## Using the column 'features' as feature index for the ranking database.
+</code></pre>
+<pre><code>## [1] 22058
+</code></pre>
+<pre><code>## 02:19    Number of motifs that support the regulons: 126
+</code></pre>
+<pre><code>##  Preview of motif enrichment saved as: output/Step2_MotifEnrichment_preview.html
+</code></pre>
+<pre><code class="language-r">scenicOptions &lt;- runSCENIC_3_scoreCells(scenicOptions, exprMat_log)
+</code></pre>
+<pre><code>## 02:19    Step 3. Analyzing the network activity in each individual cell
+</code></pre>
+<pre><code>##  Number of regulons to evaluate on cells: 14
+## Biggest (non-extended) regulons:
+##   Tef (405g)
+##   Sox9 (150g)
+##   Irf1 (104g)
+##   Sox8 (97g)
+##   Sox10 (88g)
+##   Dlx5 (35g)
+##   Stat6 (27g)
+</code></pre>
+<pre><code>## Quantiles for the number of genes detected by cell:
+## (Non-detected genes are shuffled at the end of the ranking. Keep it in mind when choosing the threshold for calculating the AUC).
+</code></pre>
+<pre><code>##    min     1%     5%    10%    50%   100%
+##  46.00  58.99  77.00  84.80 154.00 342.00
+</code></pre>
+<pre><code>## Warning in .AUCell_calcAUC(geneSets = geneSets, rankings = rankings, nCores =
+## nCores, : Using only the first 58.99 genes (aucMaxRank) to calculate the AUC.
+</code></pre>
+<pre><code>## Using 8 cores with doMC.
+</code></pre>
+<pre><code>## 02:19    Finished running AUCell.
+</code></pre>
+<pre><code>## 02:19    Plotting heatmap...
+</code></pre>
+<pre><code>## 02:19    Plotting t-SNEs...
+</code></pre>
+<pre><code>## Warning in file.rename(plotsName, file.path(plotsLoc, plotsName)):
+## cannot rename file 'Step3_RegulonActivity_tSNE_colByActivity' to
+## 'output/Step3_RegulonActivity_tSNE_colByActivity', reason 'Directory not empty'
+</code></pre>
+<pre><code class="language-r"># 通过交互的shiny app选择判定二元矩阵的阈值，这里Rmarkdown不便展示，大家可以自行尝试一下
+# aucellApp &lt;- plotTsne_AUCellApp(scenicOptions, exprMat_log)
+# savedSelections &lt;- shiny::runApp(aucellApp)
+# newThresholds &lt;- savedSelections$thresholds
+# scenicOptions@fileNames$int[&quot;aucell_thresholds&quot;,1] &lt;- &quot;int/newThresholds.Rds&quot;
+# saveRDS(newThresholds, file=getIntName(scenicOptions, &quot;aucell_thresholds&quot;))
+
+scenicOptions &lt;- runSCENIC_4_aucell_binarize(scenicOptions)#将AUCell矩阵二元化
+</code></pre>
+<pre><code>## Binary regulon activity: 6 TF regulons x 197 cells.
+## (11 regulons including 'extended' versions)
+## 6 regulons are active in more than 1% (1.97) cells.
+</code></pre>
+<pre><code>## Warning in AUCell_plotTSNE(tSNE = tSNE, exprMat = exprMat, cellsAUC =
+## regulonAUC, : Expression plot was requested, but no expression matrix provided.
+</code></pre>
+<pre><code>## Warning in file.rename(plotsName, file.path(plotsLoc, plotsName)):
+## cannot rename file 'Step4_BinaryRegulonActivity_tSNE_colByActivity' to
+## 'output/Step4_BinaryRegulonActivity_tSNE_colByActivity', reason 'Directory not
+## empty'
+</code></pre>
+<h2 id="33">3.3. 一些下游的可视化与探索</h2>
+<pre><code>tsneAUC(scenicOptions, aucType=&quot;AUC&quot;) #利用AUCell score运行tsne
+</code></pre>
+<pre><code>## [1] &quot;int/tSNE_AUC_50pcs_30perpl.Rds&quot;
+</code></pre>
+<pre><code class="language-r"># Export:
+# saveRDS(cellInfo, file=getDatasetInfo(scenicOptions, &quot;cellInfo&quot;)) # Temporary, to add to loom
+if(!file.exists('output/scenic.loom')){export2loom(scenicOptions, exprMat)}
+
+saveRDS(scenicOptions, file=&quot;int/scenicOptions.Rds&quot;)#保存结果
+
+### Exploring output
+# output下存放的scenic.loom文件可以用这个网站做交互式的可视化: http://scope.aertslab.org
+
+# motif富集的相关信息在：
+#output/Step2_MotifEnrichment_preview.html in
+motifEnrichment_selfMotifs_wGenes &lt;- loadInt(scenicOptions, &quot;motifEnrichment_selfMotifs_wGenes&quot;)
+tableSubset &lt;- motifEnrichment_selfMotifs_wGenes[highlightedTFs==&quot;Sox8&quot;]#这样查看Sox8的信息
+viewMotifs(tableSubset)
+</code></pre>
+<p><code></code></p>
+<p><img alt="" src="../images/55fad2a75042c458.webp"></p>
+<pre><code class="language-r">#查看motif和对应基因：
+#output/Step2_regulonTargetsInfo.tsv
+regulonTargetsInfo &lt;- loadInt(scenicOptions, &quot;regulonTargetsInfo&quot;)
+tableSubset &lt;- regulonTargetsInfo[TF==&quot;Stat6&quot; &amp; highConfAnnot==TRUE]
+viewMotifs(tableSubset)
+</code></pre>
+<p><img alt="" src="../images/25416e30aa8b61ca.webp"></p>
+<pre><code class="language-r">#计算并展示每种细胞类型特异性的(celltype Cell-type specific regulators (RSS))，类似于拿RGN的活性来计算调控
+regulonAUC &lt;- loadInt(scenicOptions, &quot;aucell_regulonAUC&quot;)
+rss &lt;- calcRSS(AUC=getAUC(regulonAUC), cellAnnotation=cellInfo[colnames(regulonAUC), &quot;CellType&quot;], )
+rssPlot &lt;- plotRSS(rss)
+</code></pre>
+<pre><code>## Loading required package: grid
+</code></pre>
+<pre><code>## ========================================
+## ComplexHeatmap version 2.12.1
+## Bioconductor page: http://bioconductor.org/packages/ComplexHeatmap/
+## Github page: https://github.com/jokergoo/ComplexHeatmap
+## Documentation: http://jokergoo.github.io/ComplexHeatmap-reference
+##
+## If you use it in published research, please cite either one:
+## - Gu, Z. Complex heatmaps reveal patterns and correlations in multidimensional
+##     genomic data. Bioinformatics 2016.
+## - Gu, Z. Complex Heatmap Visualization. iMeta 2022.
+##
+##
+## The new InteractiveComplexHeatmap package can directly export static
+## complex heatmaps into an interactive Shiny app with zero effort. Have a try!
+##
+## This message can be suppressed by:
+##   suppressPackageStartupMessages(library(ComplexHeatmap))
+## ========================================
+</code></pre>
+<pre><code>## Showing regulons and cell types with any RSS &gt; 0.01 (dim: 14x5)
+</code></pre>
+<pre><code>## Loading required package: ggplot2
+</code></pre>
+<pre><code>plotly::ggplotly(rssPlot$plot)
+</code></pre>
+<p><img alt="" src="../images/679eca98a9af9495.webp"></p>
+<h2 id="34">3.4 输出文件</h2>
+<p>除了我们上面可视化展示出的结果，<code>SCENIC</code>运行时会自动在本地输出大量文件：</p>
+<p>├── scenic.loom
+├── Step2_MotifEnrichment_preview.html
+├── Step2_MotifEnrichment.tsv
+├── Step2_regulonTargetsInfo.tsv
+├── Step3_RegulonActivity_heatmap
+├── Step3_RegulonActivity_heatmap.pdf
+├── Step3_RegulonActivity_tSNE_colByActivity
+│ ├── Dlx5 (35g)_AUC.png
+│ ├── Dlx5 (35g)_binaryAUC.png
+│ ├── Dlx5 (35g)_expression.png
+│ ├── Dlx5 (35g)_histogram.png
+│ ├── Dlx5_extended (214g)_AUC.png
+│ ├── Dlx5_extended (214g)_binaryAUC.png
+│ ├── Dlx5_extended (214g)_expression.png
+│ ├── Dlx5_extended (214g)_histogram.png
+│ ├── Irf1 (104g)_AUC.png
+│ ├── Irf1 (104g)_binaryAUC.png
+│ ├── Irf1 (104g)_expression.png
+│ ├── Irf1 (104g)_histogram.png
+│ ├── Irf1_extended (108g)_AUC.png
+│ ├── Irf1_extended (108g)_binaryAUC.png
+│ ├── Irf1_extended (108g)_expression.png
+│ ├── Irf1_extended (108g)_histogram.png
+│ ├── Sox10 (88g)_AUC.png
+│ ├── Sox10 (88g)_binaryAUC.png
+│ ├── Sox10 (88g)_expression.png
+│ ├── Sox10 (88g)_histogram.png
+│ ├── Sox10_extended (114g)_AUC.png
+│ ├── Sox10_extended (114g)_binaryAUC.png
+│ ├── Sox10_extended (114g)_expression.png
+│ ├── Sox10_extended (114g)_histogram.png
+│ ├── Sox8 (97g)_AUC.png
+│ ├── Sox8 (97g)_binaryAUC.png
+│ ├── Sox8 (97g)_expression.png
+│ ├── Sox8 (97g)_histogram.png
+│ ├── Sox8_extended (136g)_AUC.png
+│ ├── Sox8_extended (136g)_binaryAUC.png
+│ ├── Sox8_extended (136g)_expression.png
+│ ├── Sox8_extended (136g)_histogram.png
+│ ├── Sox9 (150g)_AUC.png
+│ ├── Sox9 (150g)_binaryAUC.png
+│ ├── Sox9 (150g)_expression.png
+│ ├── Sox9 (150g)_histogram.png
+│ ├── Sox9_extended (183g)_AUC.png
+│ ├── Sox9_extended (183g)_binaryAUC.png
+│ ├── Sox9_extended (183g)_expression.png
+│ ├── Sox9_extended (183g)_histogram.png
+│ ├── Stat6 (27g)_AUC.png
+│ ├── Stat6 (27g)_binaryAUC.png
+│ ├── Stat6 (27g)_expression.png
+│ ├── Stat6 (27g)_histogram.png
+│ ├── Stat6_extended (75g)_AUC.png
+│ ├── Stat6_extended (75g)_binaryAUC.png
+│ ├── Stat6_extended (75g)_expression.png
+│ ├── Stat6_extended (75g)_histogram.png
+│ ├── Tef (405g)_AUC.png
+│ ├── Tef (405g)_binaryAUC.png
+│ ├── Tef (405g)_expression.png
+│ ├── Tef (405g)_histogram.png
+│ ├── Tef_extended (447g)_AUC.png
+│ ├── Tef_extended (447g)_binaryAUC.png
+│ ├── Tef_extended (447g)_expression.png
+│ └── Tef_extended (447g)_histogram.png
+├── Step3_RegulonActivity_tSNE_colByActivity.html
+├── Step3_RegulonActivity_tSNE_colByCellProps.pdf
+├── Step4_BinaryRegulonActivity_Heatmap_all.pdf
+├── Step4_BinaryRegulonActivity_Heatmap_corr.pdf
+├── Step4_BinaryRegulonActivity_Heatmap_onePercent.pdf
+├── Step4_BinaryRegulonActivity_tSNE_colByActivity
+│ ├── Dlx5 (35g)_AUC.png
+│ ├── Dlx5 (35g)_binaryAUC.png
+│ ├── Dlx5 (35g)_histogram.png
+│ ├── Dlx5_extended (214g)_AUC.png
+│ ├── Dlx5_extended (214g)_binaryAUC.png
+│ ├── Dlx5_extended (214g)_histogram.png
+│ ├── Irf1 (104g)_AUC.png
+│ ├── Irf1 (104g)_binaryAUC.png
+│ ├── Irf1 (104g)_histogram.png
+│ ├── Irf1_extended (108g)_AUC.png
+│ ├── Irf1_extended (108g)_binaryAUC.png
+│ ├── Irf1_extended (108g)_histogram.png
+│ ├── Sox10 (88g)_AUC.png
+│ ├── Sox10 (88g)_binaryAUC.png
+│ ├── Sox10 (88g)_histogram.png
+│ ├── Sox10_extended (114g)_AUC.png
+│ ├── Sox10_extended (114g)_binaryAUC.png
+│ ├── Sox10_extended (114g)_histogram.png
+│ ├── Sox8 (97g)_AUC.png
+│ ├── Sox8 (97g)_binaryAUC.png
+│ ├── Sox8 (97g)_histogram.png
+│ ├── Sox8_extended (136g)_AUC.png
+│ ├── Sox8_extended (136g)_binaryAUC.png
+│ ├── Sox8_extended (136g)_histogram.png
+│ ├── Sox9 (150g)_AUC.png
+│ ├── Sox9 (150g)_binaryAUC.png
+│ ├── Sox9 (150g)_histogram.png
+│ ├── Sox9_extended (183g)_AUC.png
+│ ├── Sox9_extended (183g)_binaryAUC.png
+│ ├── Sox9_extended (183g)_histogram.png
+│ ├── Stat6 (27g)_AUC.png
+│ ├── Stat6 (27g)_binaryAUC.png
+│ ├── Stat6 (27g)_histogram.png
+│ ├── Stat6_extended (75g)_AUC.png
+│ ├── Stat6_extended (75g)_binaryAUC.png
+│ ├── Stat6_extended (75g)_histogram.png
+│ ├── Tef (405g)_AUC.png
+│ ├── Tef (405g)_binaryAUC.png
+│ ├── Tef (405g)_histogram.png
+│ ├── Tef_extended (447g)_AUC.png
+│ ├── Tef_extended (447g)_binaryAUC.png
+│ └── Tef_extended (447g)_histogram.png
+├── Step4_BinaryRegulonActivity_tSNE_colByActivity.html
+├── Step4_BinaryRegulonActivity_tSNE_colByAUC.pdf
+├── Step4_BinaryRegulonActivity_tSNE_colByCellProps.pdf
+└── Step4_BoxplotActiveCellsRegulon.pdf</p>
+<p>他们收录的信息为:</p>
+<h3 id="341">3.4.1 我人肉总结归纳的结果</h3>
+<ul>
+<li>
+<p>“int/1.4_GENIE3_linkList.Rds”
+基因共表达网络预测结果，记录了TF与TG间的weight</p>
+</li>
+<li>
+<p>“int/2.1_tfModules_forMotifEnrichmet.Rds” list文件，保存的是经Motif富集检验得到的TF模块</p>
+</li>
+<li>
+<p>“int/2.3_motifEnrichment.Rds”
+经AUCell评分筛选后的motif富集分析结果</p>
+</li>
+<li>
+<p>“int/2.4_motifEnrichment_selfMotifs_wGenes.Rds”
+存放构建regulon包含的target gene信息</p>
+</li>
+<li>
+<p>“output/Step2_MotifEnrichment.tsv”
+2.4_motifEnrichment_selfMotifs_wGenes.Rds的txt版</p>
+</li>
+<li>
+<p>“output/Step2_MotifEnrichment_preview.html”
+regulon的详细信息，html文件可存储motif的logo等信息</p>
+</li>
+<li>
+<p>“int/2.5_regulonTargetsInfo.Rds”
+最终的regulon详细信息</p>
+</li>
+<li>
+<p>“output/Step2_regulonTargetsInfo.tsv”
+int/2.5_regulonTargetsInfo.Rd的txt版</p>
+</li>
+<li>
+<p>“int/2.6_regulons_asGeneSet.Rds”</p>
+</li>
+</ul>
+<h1 id="regulonregulon">regulon信息，包含高/低置信度的regulon的标注</h1>
+<ul>
+<li>
+<p>“int/3.1_regulons_forAUCell.Rds”
+基因数大于10的regulon，regulon名称后标注了包含基因数量</p>
+</li>
+<li>
+<p>“int/3.3_aucellRankings.Rds”
+AUCell ranking的结果</p>
+</li>
+<li>
+<p>“int/3.2_aucellGenesStats.pdf”
+AUCell ranking的结果可视化图片</p>
+</li>
+<li>
+<p>“int/3.4_regulonAUC.Rds”
+AUCell score计算结果</p>
+</li>
+<li>
+<p>“int/3.5_AUCellThresholds.Rds”
+存放在AUCell判断regulon on/off时的阈值</p>
+</li>
+<li>
+<p>“int/3.5_AUCellThresholds_Info.tsv”
+AUCell 的阈值、细胞、基因数等信息记录</p>
+</li>
+<li>
+<p>“output/Step3_RegulonActivity_heatmap”
+AUCell score 热图</p>
+</li>
+<li>
+<p>“output/Step3_RegulonActivity_tSNE_colByCellProps.pdf”
+利用regulon score的TSNE可视化结果</p>
+</li>
+<li>
+<p>“int/4.1_binaryRegulonActivity.Rds”
+regulon的AUCell二元矩阵</p>
+</li>
+<li>
+<p>“output/Step4_BinaryRegulonActivity_Heatmap_notCorr”
+regulon二元矩阵的相关性热图</p>
+</li>
+<li>
+<p>“output/Step4_BinaryRegulonActivity_tSNE_colByCellProps.pdf”
+二元矩阵TSNE降维可视化结果</p>
+</li>
+</ul>
+<h3 id="342-chatgpt">3.4.2 ChatGPT的回答</h3>
+<ul>
+<li>
+<p>scenic.loom
+SCENIC输出结果的主要文件，包含整个结果的基因表达数据、调控网络和调控子模块等信息。</p>
+</li>
+<li>
+<p>Step2_MotifEnrichment_preview.html
+展示了motif enrichment可视化结果的html文件。</p>
+</li>
+<li>
+<p>Step2_MotifEnrichment.tsv
+motif enrichment表格文件，包含每个转录因子集合的motif分数。</p>
+</li>
+<li>
+<p>Step2_regulonTargetsInfo.tsv
+每个regulon涵盖的基因、Gene Ontology、Pathway与OmniPath分析的信息。</p>
+</li>
+<li>
+<p>Step3_RegulonActivity_heatmap
+各个Regulon在每个单元中的活动水平heatmap文件。</p>
+</li>
+</ul></article></body></html>

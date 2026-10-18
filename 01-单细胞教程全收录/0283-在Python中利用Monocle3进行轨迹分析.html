@@ -1,0 +1,258 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0283-在Python中利用Monocle3进行轨迹分析</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="pythonmonocle3">在Python中利用Monocle3进行轨迹分析</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247538758&amp;idx=3&amp;sn=e3d67a5cb8b9f49ac544b9222b2df019&amp;chksm=9b3c2116ac4ba800f758a9e0856fa20d8aac599c4fc55c122ebda0488871e8ccdf9ba0651ed2#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p>本推文沿着 <code>monocle3-python</code> 仓库下的 <code>tutorials/c_elegans_embryo_v2.ipynb</code>, 把  <em>C. elegans</em> 早期胚胎 <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">scRNA-seq </a>数据的整套 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;scene=21#wechat_redirect">Monocle3</a> <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">轨迹</a>分析在 Python 上重做一遍。每一步先讲算法在算什么 —— size factor、SimplePPT 主图、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">pseudotime</a>、<code>graph_test</code> 用的 Moran's I —— 再贴上 <code>monocle3-python</code> (当前 PyPI 版本 <code>1.4.26.post1</code>) 的 API 调用。</p>
+<h2 id="_1">总览</h2>
+<p><code>monocle3-python</code> 是<code>cole-trapnell-lab/monocle3</code>的 AnnData 重写版本。整套 port 的设计目标是逐 step 保留 R<code>monocle3</code>的编排顺序与数值行为, 同时把 R 的<code>cell_data_set</code>(继承自<code>SingleCellExperiment</code>的 S4 容器) 整个替换成<code>anndata.AnnData</code>, 把 UMAP、Leiden、MNN、GLM 这些非 monocle3-specific 的算法全部下放给<code>scverse</code>生态: UMAP 走<code>umap-learn</code>, Leiden 走<code>leidenalg</code>, kNN 走<code>annoy</code>/<code>pynndescent</code>/<code>hnswlib</code>, GLM 走<code>statsmodels</code>, MNN 用 port 自带的纯 Python<code>reduced_mnn</code>(<code>monocle3/_batchelor.py</code>是 R<code>batchelor::reducedMNN</code>的逐行翻译)。可视化栈走的是 Bio-Babel 同期出的<code>ggplot2_py</code>/<code>pheatmap-python</code>/<code>ggrepel-python</code>/<code>scales-python</code>。</p>
+<p>整套 port 最值得展开的地方是 SimplePPT 主图学习: Monocle3 论文里的核心算法在 <code>monocle3/learn_graph.py</code> 里被逐行翻译, 是后面 <code>order_cells</code> 拿到 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">pseudotime</a> 的几何基础。下面我们按 spine notebook 走一遍, 完整地把这段流水线跑出来。</p>
+<h2 id="packer">加载 Packer 胚胎数据</h2>
+<p><code>load_packer_embryo()</code> 把 Packer 早期 <em>C. elegans</em> 胚胎 <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">scRNA-seq</a> 数据缓存到<code>~/.cache/monocle3-python/packer_embryo.h5ad</code>并返回<code>AnnData</code>对象, shape 是 (6188, 20222) —— 6188 个细胞 × 20222 个基因。<code>obs</code>里有几列后面会反复用到:<code>time.point</code>(胚胎采样时间点)、<code>embryo.time</code>(连续时间)、<code>embryo.time.bin</code>(粗分箱, 文章后面用<code>'130-170'</code>作为最早时段的 root)、<code>batch</code>、<code>cell.type</code>(Packer 团队给的 ground-truth 注释), 以及<code>bg.300.loading</code>、<code>bg.400.loading</code>、<code>bg.500.1.loading</code>、<code>bg.500.2.loading</code>、<code>bg.r17.loading</code>、<code>bg.b01.loading</code>、<code>bg.b02.loading</code> 这 7 个 loading-background 协变量, 它们是 R vignette 里用于 residual model 的输入。</p>
+<pre><code class="language-python">import numpy as np
+import pandas as pd
+
+import ggplot2_py as gg
+import monocle3 as m3
+print('monocle3-python', m3.__version__)
+</code></pre>
+<pre><code>adata = m3.load_packer_embryo()
+adata
+</code></pre>
+<h2 id="size-factor-truncated-pca-preprocess_cds">size factor + truncated PCA: <code>preprocess_cds</code></h2>
+<p><code>preprocess_cds</code> 做两件事: 一是把每个细胞的 size factor 写到<code>obs['Size_Factor']</code>, 二是在 size-factor-normalized 矩阵上跑一个截断 SVD 把 cells × genes 投到一个<code>num_dim</code>维的子空间里。size factor 用的是 R<code>monocle3</code>的默认<code>mean-geometric-mean-total</code>: 对每个细胞算总 UMI 计数<code>t_i</code>, 然后<code>s_i = t_i / exp(mean(log(t_i)))</code>—— 一个让所有细胞总量乘以<code>1/s_i</code>之后处在相同尺度上的几何均值归一化。Norm 默认<code>log</code>, 即对<code>X / s_i</code>做<code>log1p</code>。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485571&amp;idx=1&amp;sn=a0497f79fe83ff6b86705f6eb0e1cbf9&amp;scene=21#wechat_redirect">PCA</a> 走的是 <code>sparse_prcomp</code> (<code>monocle3/preprocess.py:312</code>), 这是 R <code>irlba::sparse_prcomp_irlba</code> 的功能等价物。关键点在中心化: 直接对稀疏矩阵减去列均值会把它 densify 掉, 因此 port 在大稀疏矩阵情况下用 <code>scipy.sparse.linalg.svds</code> 配合一个 <code>LinearOperator</code> 实现"隐式中心化" —— <code>matvec(v) = X @ (v/std) - col_mean @ (v/std)</code>、<code>rmatvec(u) = (X.T @ u - col_mean * u.sum()) / std</code> —— 这样既能拿到 PCA 等价结果, 又不展开矩阵。小问题 (<code>n_rows * n_cols &lt; 5e6</code>) 直接走 <code>numpy.linalg.svd</code> 的稠密路径换取确定性。整段在调用 SVD 前显式 <code>np.random.seed(2016)</code>, 跟 R 的 <code>set.seed(2016)</code> 对齐。</p>
+<pre><code>m3.preprocess_cds(adata, num_dim=50)
+</code></pre>
+<p>执行后 <code>adata.obsm['X_pca']</code> 会拿到 (6188, 50) 的 PCA 坐标, 拟合细节 (SVD 旋转矩阵、奇异值、列均值、列标准差、解释方差比例、被保留的基因列表) 写到 <code>adata.uns['monocle3']['preprocess']['PCA']</code>, 后面 <code>find_gene_modules</code> 算 gene loading 就要去这里拿。</p>
+<h2 id="residual-subtraction-reducedmnn-align_cds">residual subtraction + reducedMNN: <code>align_cds</code></h2>
+<p>胚胎 <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">scRNA-seq</a> 在做完 PCA 之后, 还要剥掉两类不感兴趣的差异: (a) 几个 loading-background 协变量带来的连续效应 (溶酶体污染等), (b) 不同建库批次间的离散偏移 (<code>batch</code> 列)。<code>align_cds</code> 把这两件事顺序做一遍。</p>
+<p>(a) 走 patsy + OLS。给一个 R 风格的 formula <code>~ bg.300.loading + ... + bg.b02.loading</code>, port 在 <code>align_cds</code> 内部调 <code>patsy.dmatrix</code> 构造 design matrix, 用 <code>np.linalg.lstsq</code> 一把求出系数 β, 然后把非 intercept 列对应的 β 乘回 design matrix 再从 PC 坐标里减掉 —— 残差化, 但只减线性效应, 不引入非线性 (<code>monocle3/alignment.py:35</code>)。</p>
+<p>(b) 走 <code>_batchelor.reduced_mnn</code>, 这是 R <code>batchelor::reducedMNN</code> 限定在 <code>monocle3</code> 调用形态下的纯 Python 翻译: <code>k=alignment_k</code> (默认 20), <code>ndist=3</code>, sequential merge order, KmknnParam-style 精确 kNN。两个 batch 之间找互最近邻 (mutual nearest neighbors), 在 MNN 对上估计偏移向量, 用 tricube 加权把全部细胞拉到对齐空间, 写出 <code>adata.obsm['X_aligned']</code>。</p>
+<pre><code>m3.preprocess_cds(adata, num_dim=50)
+m3.align_cds(
+    adata,
+    residual_model_formula_str=(
+        '~ bg.300.loading + bg.400.loading + bg.500.1.loading + '
+        'bg.500.2.loading + bg.r17.loading + bg.b01.loading + bg.b02.loading'
+    ),
+    alignment_group='batch',
+)
+</code></pre>
+<p>注意 <code>preprocess_cds</code> 在这里被重新调用 —— 为了 spine notebook 的代码块严格可复制, 第一个 cell 留着, 第二个 cell 把它和 <code>align_cds</code> 一起重跑一遍是 notebook 原貌, 实际生产里只跑第二段就够。</p>
+<h2 id="umap-reduce_dimension">UMAP: <code>reduce_dimension</code></h2>
+<p><code>reduce_dimension</code> 默认从<code>X_aligned</code>(若存在, 否则<code>X_pca</code>) 取出坐标, 跑 UMAP 投到 2D。后端是<code>umap-learn</code>, 但 port 默认<code>umap_nn_method='annoy'</code>—— 这条路径下 monocle3-python 不让<code>umap-learn</code>自己建 kNN 图, 而是用真正的<code>annoy</code>库严格按 R<code>uwot</code>的参数 (<code>n_trees=50</code>,<code>search_k = 2 * n_neighbors * n_trees</code>) 预算 kNN, 把<code>(indices, distances)</code>通过<code>umap.UMAP(precomputed_knn=...)</code>喂进去 (<code>monocle3/reduce_dimensions.py:258</code>)。对<code>cosine</code>距离还要把 annoy 的 "angular" 距离 (<code>sqrt(2*(1-cos))</code>) 平方再除以 2, 转回<code>umap-learn</code>内部期望的<code>1 - cos</code>度量 —— 这样数值结果和 R uwot 才能逐 batch 对上。<code>random_state=2016</code>,<code>transform_seed=2016</code>, 单线程 (<code>cores=1</code>) 下可复现;<code>cores&gt;1</code> 时会显式 warn umap-learn 的并行 SGD 不确定性。</p>
+<pre><code>np.random.seed(42)
+m3.reduce_dimension(adata, cores=1)
+</code></pre>
+<pre><code>m3.plot_cells(adata, label_groups_by_cluster=False, color_cells_by='cell.type')
+</code></pre>
+<p><img alt="" src="../images/b0d1fea9d0b935ec.webp"></p>
+<p>按 Packer 给的 <code>cell.type</code> 上色, 能直接看到胚层之间的连续过渡, 这是后面 SimplePPT 要在上面铺 principal graph 的底图。</p>
+<h2 id="jaccard-leiden-cluster_cells">Jaccard-Leiden 聚类: <code>cluster_cells</code></h2>
+<p>聚类的算法直觉是: 在 UMAP 坐标上建 kNN, 把每条边的权重换成两端节点 kNN 集合的 Jaccard 相似度, 然后在这张加权图上跑 Leiden。具体实现里, <code>_make_knn_graph</code>先调<code>nearest_neighbors.search_nn_matrix</code>拿 (k+1) 邻居, 把 self 那一列换到第 0 列以匹配 R 的<code>swap_nn_row_index_point</code>, 再通过<code>_clustering_cpp.jaccard_coeff</code>算所有边的 Jaccard 系数, 输出一张<code>igraph.Graph</code>(<code>monocle3/cluster_cells.py:38</code>)。Leiden 走<code>leidenalg.find_partition</code>, 默认<code>CPMVertexPartition</code>,<code>resolution_parameter=resolution</code>。注意 R<code>monocle3</code>默认<code>resolution=0.0001</code>, 但 Packer 胚胎数据需要更稀疏的 cluster, 因此 spine notebook 这里手动调成<code>5e-6</code>。</p>
+<p>聚类得到 cluster 之后, 还要进一步把"显著连接的 cluster"合并成 <strong>partition</strong> , 这是 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;scene=21#wechat_redirect">Monocle3</a> v3 的特色 (R <code>monocle3</code> v2 没这一步)。<code>_compute_partitions</code> (<code>monocle3/cluster_cells.py:177</code>) 在 cluster-cluster 邻接矩阵上做 PAGA 风格的二项检验: <code>M.T @ A @ M</code> 拿到每对 cluster 间的真实边数, 与 null 模型 (按节点度分布期望的边数) 比较得到 z-score 和 p-value, Holm step-down 校正, 切掉 q &gt; 0.05 的边, 剩下的连通分量就是 partition。partition 在 <code>learn_graph</code> 阶段会被当作"独立轨迹子图"的边界用。</p>
+<pre><code>m3.cluster_cells(adata, resolution=5e-6)
+m3.plot_cells(adata, group_cells_by='partition', color_cells_by='partition')
+</code></pre>
+<p><img alt="" src="../images/218ed1f854a23fb1.webp"></p>
+<p>在这个 resolution 下整套数据落到一个 partition 里, 后面学到的 principal graph 也就是单连通的一棵树 (允许有环)。</p>
+<h2 id="simpleppt-learn_graph">SimplePPT 主图: <code>learn_graph</code></h2>
+<p>这一步是整篇文章最值得展开的地方。<code>learn_graph</code> 在每个 partition 内部独立学一张 <strong>principal graph</strong> , 形态上是一棵带可选环的无向图, 顶点是 K 个学习得到的 centroid, 边是它们之间的 MST。算法名叫 <strong>SimplePPT</strong> (Simple Principal Tree), 来自 reversed graph embedding 思想: 一边让 centroid 之间的总图距 (MST 边权和) 尽可能小, 一边让原始细胞与 centroid 的软分配距离尽可能小, 这两项加权求和构成目标函数, 在 centroid 上做交替优化。</p>
+<p><code>monocle3-python</code> 把这件事拆成四块, 全在 <code>monocle3/learn_graph.py</code> 里:</p>
+<p><strong>初始化</strong> : <code>_kmeans_with_init</code> 等距采样 K 个初始点 + k-means 聚到 K 个 cluster (<code>learn_graph.py:141</code>), 然后在每个 cluster 内取局部密度最高的点作为 medoid —— 密度估计是 <code>rho = exp(-mean kNN distance)</code>, kNN 用的是 <code>annoy</code> (<code>learn_graph.py:723-768</code>)。K 的默认值来自启发式 <code>n_clusters * 15 * log10(n_cells)</code>, 但 spine notebook 这里强制 <code>ncenter=1000</code> 以匹配 R vignette (R 的默认对胚胎数据偏粗)。</p>
+<p><strong>SimplePPT 迭代</strong> (<code>_calc_principal_graph</code>, <code>learn_graph.py:77</code>): 在 K 个 centroid 上交替三步, 直到目标函数相对变化 &lt; <code>eps=1e-5</code>:</p>
+<ol>
+<li><strong>MST</strong> : 对 centroid 配对欧式距离矩阵 Φ 跑最小生成树 (<code>igraph.Graph.Weighted_Adjacency</code> + <code>spanning_tree</code>);</li>
+<li><strong>Soft assignment</strong> : 对每个细胞 i 和每个 centroid k, <code>P_ik ∝ exp(-‖x_i - C_k‖² / σ)</code>, 行归一化为分布 (<code>L1_sigma</code> 默认 0.01);</li>
+<li><strong>闭式重心更新</strong> : 解线性方程 <code>(2 (diag(W·1) - W) + γ diag(P.T·1)) C.T = γ X P</code> 得到下一轮 centroid (<code>L1_gamma</code> 默认 0.5)。</li>
+</ol>
+<p><strong>Loop closure</strong> (<code>_connect_tips</code>, <code>learn_graph.py:516</code>): 默认 <code>close_loop=True</code>。算每个度为 1 的 tip 在细胞 kNN 图上的 PAGA q-value 矩阵, 同时算 tip-tip 间的 geodesic / euclidean 距离比。如果两个 tip 满足 <code>q &lt; 0.05</code> + <code>geodesic ≥ (1/3) * diameter</code> + <code>euclidean ≤ 1 * max_edge</code>, 就在它们之间加一条边 —— 这是把 MST 的 acyclic 约束打破, 允许 trajectory 形成环 (例如细胞周期)。</p>
+<p><strong>Prune</strong> (<code>_prune_tree</code>, <code>learn_graph.py:584</code>): 默认 <code>prune_graph=True</code>。从一个度为 2 的 root 跑 BFS, 检查每个非树干分支的长度, 长度 &lt; <code>minimal_branch_len=10</code> 就整支砍掉, 防止 noise tips 干扰下游 pseudotime。</p>
+<p>最后 <code>_project2mst</code> (<code>learn_graph.py:245</code>) 把每个细胞投影到最近的 MST 边上, 构造一张 <strong>cell-augmented graph</strong> —— 顶点既有 centroid (<code>Y_1</code>、<code>Y_2</code>、...) 又有细胞名, 边按"沿 MST 边距离 source centroid 远近"排序后串起来。这张增广图就是下一步 <code>order_cells</code> 算 pseudotime 用的 igraph。</p>
+<pre><code>m3.learn_graph(adata, learn_graph_control={'ncenter': 1000})
+</code></pre>
+<pre><code>m3.plot_cells(
+    adata, color_cells_by='cell.type',
+    label_groups_by_cluster=False,
+    label_leaves=False, label_branch_points=False,
+)
+</code></pre>
+<p><img alt="" src="../images/562ba5dbe13da852.webp"></p>
+<pre><code>m3.plot_cells(
+    adata, color_cells_by='embryo.time.bin',
+    label_cell_groups=False,
+    label_leaves=True, label_branch_points=True,
+    graph_label_size=1.5,
+)
+</code></pre>
+<p><img alt="" src="../images/e0bc6b7106a69e23.webp"></p>
+<p>第二张图上标出了所有 leaf (终端 cell type) 和 branch point (命运分歧节点), 黑色折线段就是学到的 principal graph。配合 <code>embryo.time.bin</code> 的颜色, 能直接看出"早期时段聚集在中间, 沿着分支向 leaf 推进"的 trajectory 形状, 这就是接下来要量化的 pseudotime 走向。</p>
+<h2 id="pseudotime-order_cells">pseudotime: <code>order_cells</code></h2>
+<p>有了 cell-augmented graph 之后, pseudotime 就是一个最短路径问题: 给一个或多个 root 节点, 算每个细胞在这张加权图上到 root 集合的最短路径距离, 多 root 取 min。</p>
+<p>spine notebook 这里用的 root 选择策略是"最早时段细胞密度最大的 centroid"。<code>earliest_principal_node</code> 读 <code>adata.uns['monocle3']['principal_graph_aux']['UMAP']['pr_graph_cell_proj_closest_vertex']</code> 拿到每个细胞最近的 centroid (<code>V1</code> 列, 1-based ID), 在 <code>embryo.time.bin == '130-170'</code> 的子集里数频次, 最高的那个 <code>Y_k</code> 就是 root。这条策略比 R vignette 的 "interactive shiny picker" 严格 —— port 没移植 shiny, 强制用户给 <code>root_pr_nodes</code> 或 <code>root_cells</code>, 反而更适合做可复现实验。</p>
+<pre><code class="language-python">def earliest_principal_node(adata, time_bin='130-170'):
+    mask = adata.obs['embryo.time.bin'].astype(str) == time_bin
+    closest = adata.uns['monocle3']['principal_graph_aux']['UMAP'][
+        'pr_graph_cell_proj_closest_vertex'
+    ]['V1'].to_numpy()
+    closest_subset = closest[mask.to_numpy()]
+    values, counts = np.unique(closest_subset, return_counts=True)
+    return [f'Y_{int(values[np.argmax(counts)])}']
+
+m3.order_cells(adata, root_pr_nodes=earliest_principal_node(adata))
+m3.plot_cells(
+    adata, color_cells_by='pseudotime',
+    label_cell_groups=False,
+    label_leaves=False, label_branch_points=False,
+    graph_label_size=1.5,
+)
+</code></pre>
+<p><img alt="" src="../images/7c9c4366fc883895.webp"></p>
+<p><code>order_cells</code> 内部对每个 root <code>Y_k</code> 找到 UMAP 空间里最近的实际细胞, 把这些细胞作为 source, 在 <code>pr_graph_cell_proj_tree</code> 上调 <code>igraph.distances(weights='weight')</code> 算所有节点 (centroid + cell) 到 source 的最短路径, pseudotime 写到 <code>obs['monocle3_pseudotime']</code>。一个值得知道的坑: 如果 <code>use_partition=True</code> (默认), 每个 partition 的 principal graph 是断开的, 不在 root 所在 partition 里的细胞会拿到 <code>inf</code>。这种情况下 port 会显式 <code>UserWarning</code> 提示用 <code>use_partition=False</code> 或者每个 partition 都给一个 root (<code>order_cells.py:156-172</code>)。我们这里只有一个 partition, 所以不会触发。</p>
+<h2 id="marker-panel">轨迹上的 marker panel</h2>
+<p>有了 pseudotime 和 principal graph, 下一步就是把 marker 基因在轨迹上的表达模式叠加上来。<code>plot_cells(genes=...)</code> 支持一次画多个基因, 每个基因占一个 panel, 颜色是 log-normalized 表达量 (<code>min_expr=0.1</code> 控制截断阈值)。</p>
+<pre><code>ciliated_genes = ['che-1', 'hlh-17', 'nhr-6', 'dmd-6', 'ceh-36', 'ham-1']
+
+m3.plot_cells(
+    adata, genes=ciliated_genes,
+    label_cell_groups=False, show_trajectory_graph=False,
+)
+</code></pre>
+<p><img alt="" src="../images/4bf11bd476f50ced.webp"></p>
+<p><code>plot_percent_cells_positive</code> 把每个时间点上 marker 阳性 (<code>X &gt; min_expr</code>) 的细胞比例画成 barplot, 比直接看表达均值更稳健 —— 在 dropout 严重的 scRNA-seq 数据上, "几个细胞高表达 vs 多数细胞低表达"的差异往往比均值更有生物学意义。</p>
+<pre><code>gene_mask = adata.var['gene_short_name'].astype(str).isin(ciliated_genes)
+(
+    m3.plot_percent_cells_positive(
+        adata[:, gene_mask].copy(),
+        group_cells_by='time.point',
+    )
+    + gg.theme(
+        axis_text_x=gg.element_text(angle=45, hjust=1),
+        legend_position='none',
+    )
+)
+</code></pre>
+<p><img alt="" src="../images/ad98a0cee581f658.webp"></p>
+<h2 id="per-gene-glm-fit_models">per-gene GLM 差异表达: <code>fit_models</code></h2>
+<p><code>fit_models</code> 对每个基因独立拟合一个 GLM, 默认 <code>expression_family='quasipoisson'</code>, 对应 <code>statsmodels.GLM(family=Poisson(), offset=log(Size_Factor))</code> 加 post-fit dispersion 估计 (<code>monocle3/expr_models.py</code>)。把 <code>Size_Factor</code> 当 offset 而不是把表达量除以 SF, 是 count-based GLM 的标准做法: 它让模型在 count scale 上工作, 保留 mean-variance 关系。</p>
+<p>R <code>monocle3</code> 暴露了 <code>quasipoisson</code> (默认)、<code>poisson</code>、<code>gaussian</code>、<code>binomial</code>、<code>negbinomial</code>、<code>zipoisson</code>、<code>zinegbinomial</code>, port 全部对接到对应的 <code>statsmodels</code> 接口 (NB 和 ZINB 走 <code>statsmodels.discrete.count_model.NegativeBinomial</code> / <code>ZeroInflatedNegativeBinomialP</code>)。<code>mixed-negbinomial</code> 在 port 里抛 <code>NotImplementedError</code> —— R 用的 <code>lme4</code> glmer 还没有等价的 statsmodels 接口。</p>
+<p>下面四段代码展示了 <code>fit_models</code> 的几种典型用法: 单变量 (<code>~ embryo.time</code>)、加协变量 (<code>~ embryo.time + batch</code>)、似然比检验对比模型 (<code>compare_models</code>)、用 spline 拟合非线性趋势 (<code>~ splines::ns(pseudotime, df=3)</code>)。</p>
+<pre><code>adata.obs['pseudotime'] = m3.pseudotime(adata)
+sub = adata[:, gene_mask].copy()
+
+gene_fits_time = m3.fit_models(sub, model_formula_str='~embryo.time')
+fit_coefs = m3.coefficient_table(gene_fits_time)
+
+(
+    fit_coefs
+    .query(&quot;term in ('embryo.time', 'embryo_time')&quot;)
+    .query('q_value &lt; 0.05')
+    [['gene_short_name', 'term', 'q_value', 'estimate']]
+)
+</code></pre>
+<p><img alt="" src="../images/5451d88598e408ef.webp"></p>
+<pre><code>violin_mask = adata.var['gene_short_name'].astype(str).isin(
+    ['che-1', 'nhr-6', 'dmd-6', 'ceh-36']
+)
+(
+    m3.plot_genes_violin(
+        adata[:, violin_mask].copy(),
+        group_cells_by='embryo.time.bin', ncol=2,
+    )
+    + gg.theme(axis_text_x=gg.element_text(angle=45, hjust=1))
+)
+</code></pre>
+<pre><code>gene_fits_batch = m3.fit_models(sub, model_formula_str='~embryo.time + batch')
+
+m3.coefficient_table(gene_fits_batch) \
+    .query(&quot;term not in ('Intercept', '(Intercept)')&quot;) \
+    [['gene_short_name', 'term', 'q_value', 'estimate']]
+</code></pre>
+<pre><code>m3.evaluate_fits(gene_fits_batch)
+</code></pre>
+<pre><code>time_models = m3.fit_models(
+    sub, model_formula_str='~embryo.time', expression_family='negbinomial'
+)
+time_batch_models = m3.fit_models(
+    sub, model_formula_str='~embryo.time + batch', expression_family='negbinomial'
+)
+
+m3.compare_models(time_batch_models, time_models)[['gene_id', 'q_value']]
+</code></pre>
+<pre><code>finite = np.isfinite(adata.obs['pseudotime'].to_numpy())
+sub_pt = adata[finite][:, gene_mask].copy()
+
+gene_fits_pt = m3.fit_models(
+    sub_pt,
+    model_formula_str='~splines::ns(pseudotime, df=3)',
+)
+(
+    m3.coefficient_table(gene_fits_pt)
+    .loc[lambda d: d['term'].str.contains('pseudotime')]
+    .assign(q_value=lambda d: d['q_value'].fillna(1.0))
+    .query('q_value &lt; 0.05')
+    [['gene_short_name', 'term', 'q_value', 'estimate']]
+)
+</code></pre>
+<p><code>coefficient_table</code> 出 broom 风格的 tidy 表 (每行一个<code>(gene, term)</code>对),<code>evaluate_fits</code>出每个基因的<code>r_squared</code>/<code>df</code>/<code>logLik</code>/<code>status</code>,<code>compare_models</code>用 chi-square 检验做嵌套模型的似然比检验。注意<code>~ splines::ns(pseudotime, df=3)</code>这种 R 风格的函数调用 formula 是被<code>patsy</code> 透传识别的, df=3 的 natural cubic spline 把 pseudotime 拆成三段单调可微的曲线, 能拟合"先升后降"或"S 形累积"这类典型基因表达动态。</p>
+<h2 id="graph_test-gene-modules">主图驱动的差异表达: <code>graph_test</code> + gene modules</h2>
+<p>到这里为止的 DE 都是"基因在某个外部变量 (time, pseudotime, batch) 上的响应"。Monocle3 v3 引入了一种新的视角: 把整张 principal graph 当成空间结构, 问"哪些基因的表达在这张图上有空间自相关", 也就是 <strong>Moran's I</strong> 。直觉是: 一个基因如果在轨迹上每个区域随机分布, Moran's I 接近 0; 如果它在某个 lineage 上集中表达 (邻接细胞表达值相似), Moran's I 显著大于 0。</p>
+<p><code>graph_test(neighbor_graph='principal_graph')</code> 的精彩之处在邻接图怎么造 (<code>monocle3/graph_test.py:207</code>): 它不直接用 UMAP 上的 kNN, 而是先算 kNN 的 Jaccard 边权, 再造一个"细胞 → 最近 centroid"的 indicator 矩阵 M, 用 <code>M @ (principal_g + I) @ M.T</code> 得到 feasibility mask —— 只有"两个细胞各自最近的 centroid 在 principal graph 上相邻 (或就是同一个)"的细胞对才保留, 其他全部置零。这样得到的邻接图把"轨迹相邻"的几何约束硬编码进了空间自相关的定义里, 比直接在 UMAP 上算 Moran's I 更能反映 trajectory 上的表达模式。</p>
+<p>Moran's I 本身的方差公式是 R <code>spdep</code> 的标准写法, port 在 <code>_moran_per_row</code> (<code>graph_test.py:50</code>) 里逐项实现, BH 校正出 q-value。</p>
+<pre><code class="language-python">pr_graph_test_res = m3.graph_test(adata, neighbor_graph='principal_graph', cores=4)
+pr_deg_ids = pr_graph_test_res.query('q_value &lt; 0.05').index.tolist()
+
+gene_module_df = m3.find_gene_modules(adata[:, pr_deg_ids].copy(), resolution=1e-3)
+cell_group_df = pd.DataFrame({
+    'cell': adata.obs_names,
+    'cell_group': adata.obs['cell.type'].astype(str).to_numpy(),
+})
+
+agg_mat = m3.aggregate_gene_expression(
+    adata,
+    gene_group_df=gene_module_df[['id', 'module']],
+    cell_group_df=cell_group_df,
+)
+agg_mat.index = ['Module ' + str(i) for i in agg_mat.index]
+
+import pheatmap
+pheatmap.pheatmap(
+    agg_mat, scale='column', clustering_method='ward.D2', fontsize=6,
+)
+</code></pre>
+<p><img alt="" src="../images/6ad97e7c1e73857e.webp"></p>
+<p><code>find_gene_modules</code> 把 <code>graph_test</code> 选出来的显著基因 (<code>q &lt; 0.05</code>) 在 PCA loading 空间 (<code>SVD.v @ diag(SVD.sdev)</code>) 上跑一遍 UMAP, 然后跑 Leiden 聚类, 得到 (gene_id, module) 表 (<code>monocle3/cluster_genes.py:97</code>)。<code>aggregate_gene_expression</code> 把它和 <code>cell_group_df</code> (这里按 <code>cell.type</code> 分组) 一起做成 module × cell_type 的 z-score 矩阵, 喂给 <code>pheatmap</code> 画出 module 在不同细胞类型上的特异性 —— 这就是 Monocle3 论文里那张著名的"细胞类型 × 基因模块"热图。</p>
+<pre><code>m3.plot_cells(adata, genes=gene_module_df, label_cell_groups=False, show_trajectory_graph=False)
+</code></pre>
+<p><img alt="" src="../images/098b0433dcfa765d.webp"></p>
+<p>把 <code>gene_module_df</code> 直接传给 <code>plot_cells(genes=...)</code>, 就能在 UMAP 上每个 module 一个 panel 把"哪些细胞 module-X 整体高表达"可视化出来, 是 module 解读最直观的视图。</p>
+<h2 id="afd-lineage-pseudotime">AFD lineage 的 pseudotime 表达曲线</h2>
+<p>最后看一段沿着 <a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">pseudotime</a> 的基因动态。R vignette 这里 hardcode 了 <code>cluster IDs 22 / 28 / 35</code> 三个 AFD 神经元相关 cluster, 但 port 里 Leiden 给出的 cluster 编号不一定能对上, spine notebook 用一个更稳健的策略: 取细胞数最多的前三个 cluster 当 AFD 代理子集, 然后在 AFD 子集上画 <code>gcy-8</code> / <code>dac-1</code> / <code>oig-8</code> 三个标志基因沿 pseudotime 的曲线。</p>
+<pre><code>cluster_counts = m3.clusters(adata).value_counts()
+top_clusters = cluster_counts.head(3).index.tolist()
+afd_mask = m3.clusters(adata).isin(top_clusters)
+
+afd_cds = adata[afd_mask.to_numpy()].copy()
+afd_genes_mask = afd_cds.var['gene_short_name'].astype(str).isin(
+    ['gcy-8', 'dac-1', 'oig-8']
+)
+
+m3.plot_genes_in_pseudotime(
+    afd_cds[:, afd_genes_mask].copy(),
+    color_cells_by='embryo.time.bin',
+    min_expr=0.5,
+)
+</code></pre>
+<p><img alt="" src="../images/6e760930444b9918.webp"></p>
+<p><code>plot_genes_in_pseudotime</code> 内部对每个基因在 pseudotime 上拟合一条平滑曲线 (loess 或 spline, 看参数), 把表达 (<code>&gt; min_expr</code> 的细胞) 按 pseudotime 排开画 scatter + 拟合曲线。从这张图能直接读到"这个 marker 在 AFD lineage 上是早期高、晚期消失, 还是反过来"的时间走向, 是把 trajectory 落回到具体基因的最后一步。</p>
+<h2 id="_2">收尾</h2>
+<p>我们把 spine notebook 的 11 个核心 step 全部走了一遍: 加载 → size factor + PCA → residual + reducedMNN → UMAP → Jaccard-Leiden 聚类 +<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect"> PAGA </a>partition → SimplePPT 主图 + loop closure + prune → cell-augmented 最短路径<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect"> pseudotime</a> → marker panel → GLM DE (含 spline 和 LR 检验) → 主图邻接 Moran's I + gene module → AFD lineage 表达曲线。<code>monocle3-python</code> 的设计回避了"R 包 Python 化"常见的两个坑: 既没有保留 <code>cell_data_set</code> 的 S4 兼容 shim (用户直接读 <code>adata.X</code> / <code>obs</code> / <code>var</code> / <code>obsm</code>, 跟整个 scverse 生态一致), 也没有把核心算法拆给第三方接口 (SimplePPT、Moran's I、reducedMNN、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">PAGA</a> 风格 partition 这几个 monocle3 特有的步骤全部在 port 内部用 numpy / scipy / igraph 重写, 数值上和 R 上游对齐)。日常如果你需要在 Python 里跑 trajectory analysis, 这套 port 现在已经可以当成 R <code>monocle3</code> 的直接替代; 如果你的 pipeline 还在 R 那边, port 的 R-parity 也让"做对照实验"或者"跨语言复现"成为可行操作。</p>
+<hr>
+<p>代码: <code>https://github.com/Bio-Babel/Monocle3-python</code>. 示例数据: <code>packer_embryo.h5ad</code> (Zenodo). 上游 R 包: <code>https://github.com/cole-trapnell-lab/monocle3</code>.</p>
+<p><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/fe8ecb8594a1f419.webp"><img alt="图片" src="../images/4ccf87cacd1143af.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

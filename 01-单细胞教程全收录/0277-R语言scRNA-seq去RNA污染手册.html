@@ -1,0 +1,84 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0277-R语言scRNA-seq去RNA污染手册</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="rscrna-seqrna">R语言scRNA-seq去RNA污染手册</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537859&amp;idx=2&amp;sn=18ae896ac1a635a10f5a8dd78b3ebeb8&amp;chksm=9b3c2d93ac4ba485a4227133470989308c5495ed4b24a2a5b56f9092b9ed97c072c07433562e#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>进阶质控：去RNA污染</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png">基于液滴的<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2168829347397156865#wechat_redirect">单细胞</a>RNA测序（scRNA-seq）已能够在单次实验中对数十万个细胞的转录组进行定量分析。这项技术为理解正常和病理性细胞行为的最新进展提供了支撑。此外，构建“人类细胞图谱”的大规模研究工作，关键依赖于基于液滴的scRNA-seq所产生的转录组读数的准确性和细胞特异性。基于液滴的scRNA-seq的核心假设是：每个进行分子标记和逆转录的液滴仅包含来自单个细胞的信使RNA（mRNA）。
+但在实际应用中，这一假设常被违背，可能导致scRNA-seq数据的解释出现偏差。典型例子包括含有<strong>多个细胞的液滴（双细胞液滴）</strong> 和空液滴。目前，检测和<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528430&amp;idx=2&amp;sn=7e73a081c3b94f705af30c1463bb6838&amp;scene=21#wechat_redirect">去除双细胞</a>液滴仍是研究的热点领域。另一种违背该假设的现象是：输入溶液中的无细胞RNA与包裹在液滴内的细胞混合后被测序。即使在最高质量的数据集中，这些污染性的外源性RNA也被证实存在。基于此，我们整理出了可以进行去RNA污染的软件：SoupX、DecontX、CellBender，其中SoupX的目标是去除每个细胞中无细胞mRNA分子的贡献，恢复每个细胞中每种基因的真实分子丰度；<strong>DecontX 是一种新颖的贝叶斯方法，可用于估算和去除单个细胞中的污染；CellBender的作用包括</strong>减少背景噪声引起的批次差异、降低伪差异表达信号。****</p>
+<p>往期我们也出了去除双细胞的教程，感兴趣的小伙伴可以点击<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511622&amp;idx=1&amp;sn=60b35668e569267bab14ec8fbba8bd74&amp;scene=21#wechat_redirect">scRNA-Seq双细胞过滤手册</a>学习哦~</p>
+<p>学习手册图片集锦：<img alt="" src="../images/1f1e916bccd8645d.webp"></p>
+<p>优惠订阅资料或参与课程请联系客服微信[Biomamba_zhushou]<img alt="" src="../images/fe8ecb8594a1f419.webp"><strong>更多生信教程可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">为什么我们敢开放终身订阅</a></strong>
+<strong>-Biomamba</strong>
+<img alt="" src="../images/7d247e6c6ef19f87.png">
+<img alt="" src="../images/f08cdfe212eb6283.png"></p>
+<p>所见即所得</p>
+<p><img alt="" src="../images/2cc9da4d1e6321da.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>以html格式提供学习手册，可在浏览器中打开并翻阅学习：‍</p>
+<p><img alt="" src="../images/053af3f53c899eee.webp"></p>
+<p>单细胞去污染教程目录：</p>
+<p>一、写在前面</p>
+<p>二、准备工作</p>
+<p>2.1 编程基础</p>
+<p>2.2 硬件基础</p>
+<p>三、SoupX</p>
+<p>3.1 文献解读</p>
+<p>3.2 包的安装和导入</p>
+<p>3.3 数据下载</p>
+<p>3.4 数据读取</p>
+<p>3.5 向SoupChannel对象中添加额外的元数据</p>
+<p>3.6 估计污染比例</p>
+<p>3.7 矫正表达矩阵</p>
+<p>3.8 PBMC8K实战</p>
+<p>四、DecontX</p>
+<p>4.1 文献解读</p>
+<p>4.2 包的安装和导入</p>
+<p>4.3 数据读取</p>
+<p>4.4 方案一：只输入一个过滤后的细胞矩阵</p>
+<p>4.5 方案二：提供raw/droplet矩阵</p>
+<p>五、CellBender</p>
+<p>5.1 文献解读</p>
+<p>5.2 安装</p>
+<p>5.3 数据测试</p>
+<p>5.4 CellBender 运行输出文件说明</p>
+<p>5.5 降维分群</p>
+<p>六、结果比对</p>
+<p>6.1 细胞数目对比</p>
+<p>6.2 交集细胞对比</p>
+<p>6.3 细胞类型偏好性对比</p>
+<p>6.4 去污染后基因表达对比</p>
+<p>七、总结</p>
+<p>八、本教程用到的环境</p>
+<p>九、单细胞教程全收录</p>
+<p>十、欢迎致谢</p>
+<p>文末下载链接中包含以下内容：</p>
+<p><img alt="" src="../images/47787fe13c2a96f8.png">测试文件，总大小5.73GB<img alt="" src="../images/7d247e6c6ef19f87.png"></p>
+<p><img alt="" src="../images/399758fa7d6941c2.png"></p>
+<p>往期推送</p>
+<p><img alt="" src="../images/fbfc4b8be383f432.png"><img alt="" src="../images/007e970626afa0b7.png"></p>
+<p>Biomamba 生信基地现已开放终身订阅，现已包含几十篇订阅资料，未来37年持续更新：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">为什么我们敢开放终身订阅</a></p>
+<p>2025年我们零差评完成订阅任务（<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534690&amp;idx=1&amp;sn=4ff5291b649fb4fe4d703c48a04d37f2&amp;scene=21#wechat_redirect">2026订阅须知</a>），2026已更新订阅内容：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534718&amp;idx=1&amp;sn=f1492239574ad489be9a1aa0c84af87a&amp;scene=21#wechat_redirect">单细胞Figure1的常见图表(Python版)</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534702&amp;idx=1&amp;sn=f1531163f8f620b59cf63dfaa1c03e67&amp;scene=21#wechat_redirect">告别R依赖！一文搞定Python单细胞基础分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535112&amp;idx=1&amp;sn=95a6b88cd49fb2bbb7aa091a00e09e2c&amp;scene=21#wechat_redirect">风靡一时的scTenifoldKnk单细胞虚拟基因敲除,准不准?</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535114&amp;idx=1&amp;sn=95b6364b67d7ae9f03ba8455863ddabe&amp;scene=21#wechat_redirect">scRNA拟时序分析三大Python包： palantir、PAGA、RNAvelocity</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535726&amp;idx=1&amp;sn=fa3a01ca6ec0f20d0e9b7ac960712ac3&amp;scene=21#wechat_redirect">正刊都在用的AI驱动蛋白质从头设计流程：RFdiffusion+ProteinMPNN+AlphaFold3</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536366&amp;idx=1&amp;sn=c3eb2d3abad1952b3b7fa88099c607b7&amp;scene=21#wechat_redirect">CellphoneDB搞定细胞通讯分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536705&amp;idx=1&amp;sn=7fbfeba5dee45f6c3311bd31082a428c&amp;scene=21#wechat_redirect">scRNA-seq肿瘤细胞药物敏感性预测分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536940&amp;idx=1&amp;sn=57eea9f64dfeff9231977ab5028c3dcd&amp;scene=21#wechat_redirect">fastXXX、rapidXXX系列加速你的单细胞数据分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537055&amp;idx=1&amp;sn=170371b86b42d47373bf7f0500031f19&amp;scene=21#wechat_redirect">转录因子、基因共表达网络分析手册：pySCENIC在脑、黑色素瘤中的应用</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537531&amp;idx=1&amp;sn=e5f08c08b352287ddfda069a20019afb&amp;scene=21#wechat_redirect">让你的scRNA数据变得更干净~</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537631&amp;idx=1&amp;sn=b702b29384fd4f4878cc0b4d0fcf51e7&amp;scene=21#wechat_redirect">保姆级视频教程| 空间转录组分析手册(基于Seurat)</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537733&amp;idx=1&amp;sn=b938e687d0acf2d906139314e137b903&amp;scene=21#wechat_redirect">拷贝数变异分析的python实现及R语言对比</a></p>
+<p><strong><img alt="" src="../images/bc4a928a4947108c.webp"></strong>**
+**</p>
+<p>持续更新中~</p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png"></p>
+<p>解锁前需阅读：<strong><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534690&amp;idx=1&amp;sn=4ff5291b649fb4fe4d703c48a04d37f2&amp;scene=21#wechat_redirect">2026订阅须知</a></strong><img alt="图片" src="../images/eab31beb8c0e41d2.png"></p>
+<p>订阅后解锁下方学习手册链接：</p>
+<p><img alt="图片" src="../images/8b04fd62fd8f3d51.png"><img alt="" src="../images/007e970626afa0b7.png">本推送教程、测试文件下载链接：</p>
+<p>https://pan.baidu.com/s/1k4fVammykDXU5F238xpCfQ</p>
+<p>提取码请联系客服微信获取：</p>
+<p><img alt="" src="../images/fe8ecb8594a1f419.webp"></p>
+<p><img alt="" src="../images/7d247e6c6ef19f87.png"></p></article></body></html>

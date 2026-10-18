@@ -1,0 +1,251 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0435-如何让计算时间缩短23</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="23">如何让计算时间缩短2/3</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535577&amp;idx=2&amp;sn=72c151cf9ab13ad3fda5afcdb2927164&amp;chksm=9b3c3289ac4bbb9f9a3229669012c01495bfade0ef6e5f2afa0aab1e96d1c5bb13149af656e6#rd
+合集：服务器</p>
+</blockquote>
+<p><strong>写在前面</strong></p>
+<p><img alt="" src="../images/8908217adc07dcf8.webp"></p>
+<p>我们一致致力于给大家提提供高性价比的计算设备：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>。考虑到我们的用户群体还是做单细胞测序数据分析较多，因此此前我用手里拥有的所有计算资源(<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522266&amp;idx=1&amp;sn=3ea8087e380f0cdee0d9632afb6b7582&amp;scene=21#wechat_redirect">Biomamba独享服务器</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247519707&amp;idx=1&amp;sn=73dcab26f9b2ed75a954327317d07112&amp;scene=21#wechat_redirect">本地工作站</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;scene=21#wechat_redirect">共享服务器</a>)进行了一个常见单细胞数据的分析(参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;scene=21#wechat_redirect">单样本分析</a>)流程的计算时间测序测试结果可见：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247524308&amp;idx=1&amp;sn=f00b40599ac7f57e433ebf33b9edc174&amp;scene=21#wechat_redirect">你的电脑算单细胞有多快？</a></p>
+<p>当然，这是硬件的差别，大家写代码时的优化也能够提升计算效率：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520131&amp;idx=1&amp;sn=7f5cc8edf7d1fb4836608fd2a32d13da&amp;scene=21#wechat_redirect">听说你觉得服务器慢？</a></p>
+<p>如果你对下面的教程比较迷茫，那么你可以先行学习编程教程：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505777&amp;idx=1&amp;sn=f3efae390566b838a445ab9f832323c8&amp;chksm=9b3cae21ac4b2737f5923b246470d699474c041bb78de50d2b71b99d537f9f44ca2938002cda&amp;scene=21#wechat_redirect">十小时学会Linux</a>
+<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2980604042328702978#wechat_redirect">生信Linux及服务器使用技巧</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506720&amp;idx=1&amp;sn=fe897ba3c33a8e63bf6a4e35aeac1896&amp;scene=21#wechat_redirect">R语言基础学习手册</a></p>
+<p>如果你的计算机不足以支持下面流程的计算，可按需选用适合自己的计算资源：共享(经济实惠)：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503869&amp;idx=1&amp;sn=142f8c7ba8620815a8770773df077f12&amp;chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&amp;scene=21#wechat_redirect">有root权限的共享服务器,报我名字立减200￥</a>独享(省电省心)：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247508226&amp;idx=1&amp;sn=69e0eea720ac6aecc0362bcb9ac339ba&amp;chksm=9b3cd852ac4b51445651a091be0fb6f638bd8cf5eb399af1c54804631fe3047706cf1d4044de&amp;scene=21#wechat_redirect">生信分析不求人</a></p>
+<p>实体(稳定高效)：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506028&amp;idx=2&amp;sn=3b479a92f0c6119c4584efbc23b8c32a&amp;chksm=9b3ca13cac4b282a9ffe1fc4f4ab1a50b14688c6490f859ef714b84a755c286cb8a585054486&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a></p>
+<p>访问链接：https://biomamba.xiyoucloud.net/</p>
+<p>更多内容可咨询客服微信[<strong>Biomamba_yunying</strong>]</p>
+<p><strong>新老设备计算时间对比</strong></p>
+<p><img alt="" src="../images/8908217adc07dcf8.webp"></p>
+<p>生信基地在不断招兵买马中：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527394&amp;idx=1&amp;sn=e6d650be7044c5df6e10e2e4bf8589e5&amp;scene=21#wechat_redirect">欢迎大家来生信基地兼职/工作/参观</a>，考虑到我们的计算压力以后会越来越多，我们也给自己的计算设备进行了升级换代。最主要的操作就是把"Intel(R) Xeon(R) CPU E5-2695 v2 @ 2.40GHz"(百元CPU)给换成了“Intel(R) Xeon(R) Platinum 8368Q CPU @ 2.60GHz”（万元CPU）。内存提升到768GB的同时，还插上了一张RTX3090，后面可以<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510121&amp;idx=1&amp;sn=87b53d350d9aedd5b3205d59e51356a0&amp;scene=21#wechat_redirect">机器学习</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507794&amp;idx=1&amp;sn=c70dd03a962adb3f3b92ffed47e978bb&amp;scene=21#wechat_redirect">基于深度学习的图像分类任务</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507794&amp;idx=1&amp;sn=c70dd03a962adb3f3b92ffed47e978bb&amp;scene=21#wechat_redirect">空间转录组分析</a>走起了。</p>
+<p><strong>这里仅比对顺序计算</strong> ：</p>
+<p><strong>(1)独享基础版</strong> ：</p>
+<p><img alt="" src="../images/39f691bac9e5dcec.png"></p>
+<p><strong>(2)独享进阶版</strong> ：</p>
+<p><img alt="" src="../images/2aa984d5c7b7357e.png"></p>
+<p>计算速度缩减为原来的1/3，考虑到以上数据包含从硬盘读取数据的时间，速率的提示效率还会更大。</p>
+<p><strong>回血时间</strong></p>
+<p><img alt="" src="../images/8908217adc07dcf8.webp"></p>
+<p>陆陆续续在我的这台服务器上已经投入了大几万了，考虑回回血。参考以下内容，我们可以承接各类单细胞数据的定量（<strong>200￥</strong> /单个样本）,包括但不限于以下平台：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501751&amp;idx=2&amp;sn=a79512f54db7456ea577de40f1a2d286&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：cellranger</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501812&amp;idx=2&amp;sn=7feb4d89ebc45ca7d64ad2dd5cd3c832&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：dropseqRunner</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506542&amp;idx=1&amp;sn=99cf7af7fc0d56b0d6fe7ea3596df2b6&amp;scene=21#wechat_redirect">BD Rhapsody平台单细胞转录组定量流程</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522444&amp;idx=1&amp;sn=91ddf9e2ca3fb75db3ad524fe0042fab&amp;scene=21#wechat_redirect">10X Visium上游定量过程</a></p>
+<p>如果你也想拥有一台同款的服务器，这是完整配置，可以添加我们询价：</p>
+<p><img alt="" src="../images/de0517c8ca80afef.webp"></p>
+<p><strong>测试代码与数据</strong></p>
+<p><img alt="" src="../images/8908217adc07dcf8.webp"></p>
+<p>大家如果想对自己手里的计算资源进行测试，可以尝试以下代码：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r"># 测试代码system.time({  library(Seurat)  iri &lt;- readRDS('./iri.intergrate.rds')  iri[[&quot;percent.mt&quot;]] &lt;- PercentageFeatureSet(iri, pattern = &quot;^MT-&quot;) #通过线粒体的序列数来对数据进行计算  head(iri@meta.data, 5)  #QC的数据存在meta.data里，可以用这个来查看前5行  VlnPlot(iri, features = c(&quot;nFeature_RNA&quot;, &quot;nCount_RNA&quot;, &quot;percent.mt&quot;), ncol = 3)   #用小提琴图来展示QC的结果，展示了每个barcode中基因的数目、UMI数目以及线粒体基因含量的分布情况  plot1 &lt;- FeatureScatter(iri, feature1 = &quot;nCount_RNA&quot;, feature2 = &quot;percent.mt&quot;)  plot2 &lt;- FeatureScatter(iri, feature1 = &quot;nCount_RNA&quot;, feature2 = &quot;nFeature_RNA&quot;)  CombinePlots(plots = list(plot1, plot2)) #高变基因，判断趋势及占比  #质控，选子集，RNA数量在200与2500之间的，多的可能是低质量细胞或空drouplets，gene count多的可能是doublets or multiplets  iri &lt;- NormalizeData(iri, normalization.method = &quot;LogNormalize&quot;, scale.factor = 10000)        #用LogNormalize法对数据进行标准化（乘10000再取对数）数据存在iri[[&quot;RNA&quot;]]@data.里  #默认的方法也完成了log1p的操作，得到的结果就类似于TPM的对数  iri &lt;- FindVariableFeatures(iri, selection.method = &quot;vst&quot;, nfeatures = 2000)  # 筛选高变基因（输出2000个），用于下游的PCA及分群  top10 &lt;- head(VariableFeatures(iri), 10) #输出差异最大的十个基因  plot1 &lt;- VariableFeaturePlot(iri)  plot2 &lt;- LabelPoints(plot = plot1, points = top10, repel = TRUE)  CombinePlots(plots = list(plot1, plot2))  #输出差异基因散点图（有无标签）  iri &lt;- ScaleData(iri, features =  rownames(iri)) #将数据进行标准化，为后续的PCA分析做准备，数据存在iri[[&quot;RNA&quot;]]@scale.data  ##for PCA DoHeatmap   #iri &lt;- ScaleData(iri)#only4VariableFeatures  iri &lt;- ScaleData(iri, vars.to.regress = &quot;percent.mt&quot;) #剔除不想要的变量（如线粒体的比例）  #iri[[&quot;RNA&quot;]]@scale.data  iri &lt;- RunPCA(iri, features = VariableFeatures(object = iri)) #PCA降维分析  print(iri[[&quot;pca&quot;]], dims = 1:5, nfeatures = 5) #打印PCA部分结果  VizDimLoadings(iri, dims = 1:2, reduction = &quot;pca&quot;)   DimHeatmap(iri, dims = 1, cells = 500, balanced = TRUE) #三种PCA展示方式  DimHeatmap(iri, dims = 1:15, cells = 500, balanced = TRUE) #展示15种PCA  #筛选合适的维度：  iri &lt;- JackStraw(iri, num.replicate = 100) #重复计算次数  iri &lt;- ScoreJackStraw(iri, dims = 1:20) #计算维度这一步花的时间比较久  JackStrawPlot(iri, dims = 1:15) #画出1到15个维度  #JackStrawPlot相当于高级PCA，为挑选合适维度进行下游可视化提供依据  ElbowPlot(iri) #利用ElbowPlot来评价PC，PCA切记为了结果好看而降低PC数  iri &lt;- FindNeighbors(iri, dims = 1:10)  iri &lt;- FindClusters(iri, resolution = 0.5)   #细胞分群，resolution分辨率在细胞数在3000附近时一般设为0.4-1.2，resolution越大得到的类群越多  head(Idents(iri), 5) #看前五个分类群ID  #非线性降维方法：UMAP、tSNE  iri &lt;- RunUMAP(iri, dims = 1:10) #运行UMAP算法  #sce.all &lt;- RunUMAP(sce.all, dims = 1:30, min.dist = 0.01, n.neighbors = 4L)  #可以调整亚群之间的距离  iri &lt;- RunTSNE(iri, dims = 1:10) #运行TSNE算法，TSNE算法运行时间较UMAP更久  DimPlot(iri, reduction = &quot;umap&quot;, label = TRUE)    iri.markers &lt;- FindAllMarkers(iri, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)   })
+</code></pre>
+<p>测试文件：</p>
+<p>通过网盘分享的文件：</p>
+<p>iri.intergrate.rds</p>
+<p>链接:</p>
+<p>https://pan.baidu.com/s/1rFCgY-N-dKIFEBmbdC7tKw?pwd=bav8 提取码: bav8 <img alt="" src="../images/8dec0d8be42f5ebe.webp"></p>
+<p><img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532585&amp;idx=1&amp;sn=e265d2846ec66e5faaaf21403d274d2f&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527585&amp;idx=1&amp;sn=fa32112c11b215b33096cab43baf08ea&amp;scene=21#wechat_redirect">免费两周学习版</a>服务器的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/0afa34cf8c4b5e66.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

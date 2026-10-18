@@ -1,0 +1,222 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0034-单细胞分析的最上游——处理Fastq文件：dropseqRunner</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="fastqdropseqrunner">单细胞分析的最上游——处理Fastq文件：dropseqRunner</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501812&amp;idx=2&amp;sn=7feb4d89ebc45ca7d64ad2dd5cd3c832&amp;chksm=9b3cbea4ac4b37b2d2609172d58251076a6ab6a7043600613f0fb2ae0bea427de542b4dcf91e#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/32d1a043631a4178.png"></p>
+<p>写在前面</p>
+<p><img alt="" src="../images/806f50c6211bc173.gif">原先我们将这一部分内容安排在了整个课程的最后，是考虑到这部分内容需要一定的Linux基础。这并不代表这是一个下游的内容，相反，这是单细胞测序整个生物信息学分析中最上游的内容。作为承前启后的一个步骤，实验的部分到Fastq文件终止，生信的部分由Fastq文件开始（如果这里你不知道我在说什么，建议去看一下我们这个系列的第一讲：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484077&amp;idx=1&amp;sn=e329bf865493d46308985f4c111370ae&amp;chksm=9b3f7bfdac48f2eb7e903510338bd772c6be34ccbcb681806d288e62a05eee28fa209d2f33b9&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（一）绪论</a>）。这里我们主要进行dropseq流程的介绍，另一种主流平台的流程请看上一篇：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484923&amp;idx=1&amp;sn=b5876af14fbee68d1e9db4b0f70cd1c8&amp;chksm=9b3f7cabac48f5bdb3aac7d20201d89121a83720b41a10017564fedbb8c4a13df0da92daffd7&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：cellranger</a>。这部分内容需要在Linux中完成(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501099&amp;idx=1&amp;sn=78446147184292fad3417495926b3096&amp;chksm=9b3cbc7bac4b356dcf0460781f9bf16df4ede481f8cc57282c7384b9d2baccaa820d64c89bab&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>)，掌握Linux知识并拥有服务器的同学可能不需要视频教程，而没有Linux基础和服务器的同学看了视频也无法自己操作。没有条件自己操作的同学也可以<strong>在文末联系我</strong> 。Linux教程可以参考：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491413&amp;idx=1&amp;sn=1252abc3bd5584bdf5d59487c8dd61e3&amp;chksm=9b3f6605ac48ef13bf0bc605a9f3bba4b804f56b824a0b2a550f7c831516441e829f35ed9f69&amp;scene=21#wechat_redirect">跟着Biomamba一起学Linux| 一.计算机硬件组成</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492243&amp;idx=1&amp;sn=bbb06cfd7a0836943262bf4897a390d1&amp;chksm=9b3c9bc3ac4b12d529d9e5173c1ef22f43db3dbffac9143384fb463f30da1ca6afeea8d987bb&amp;scene=21#wechat_redirect">Linux| 二.计算机软件组成与Linux</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493279&amp;idx=1&amp;sn=ab7f430ea98de7f29d8f4bfb238eb0d6&amp;chksm=9b3c9fcfac4b16d916ba186e658ffb8973043e85f2fd0cf524a1f27715056555ba0130b0c2d5&amp;scene=21#wechat_redirect">Linux| 三.免费获得Linux系统-WSL</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493649&amp;idx=1&amp;sn=0b3070157cc16bb54424bec5b8641d32&amp;chksm=9b3c9141ac4b18574a6a09a78749e40df7bbbb320fad2a593d7a61586526085ebbdabd148384&amp;scene=21#wechat_redirect">Linux| 四.免费获得Linux系统-虚拟机</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494994&amp;idx=2&amp;sn=0cecd945228792a6be108cca83e85779&amp;chksm=9b3c9402ac4b1d14893b28d8618d437c0aec1ac6117154bd8ffeaac8f8f129ddefb0d4377cfb&amp;scene=21#wechat_redirect">Linux| 五.免费获得Linux系统-服务器</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495054&amp;idx=2&amp;sn=13d1f8d0c6b8c974e31a355ed7b997eb&amp;chksm=9b3c94deac4b1dc81477c239380aea22aeac952fa0495f61cd769393d165d8122c42bab830af&amp;scene=21#wechat_redirect">Linux| 六.命令行与与基本命令</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495054&amp;idx=1&amp;sn=1a418b6877f7d8905902abe7f73ebf7a&amp;chksm=9b3c94deac4b1dc8e1da4756108994ba6f4e0e385385df21d8fbc5a0947edef369592b9b1d3a&amp;scene=21#wechat_redirect">Linux| 七.获取Linux命令帮助的几种方式</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496291&amp;idx=2&amp;sn=1813f6615aa2f5a8598851f43bfdafbf&amp;chksm=9b3c8b33ac4b0225b397b56465d559ae80c1d6cc1ab6135bb12153b9beaa04ff1e0ca1ec4402&amp;scene=21#wechat_redirect">Linux| 八.Linux的文件目录系统</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496291&amp;idx=1&amp;sn=e4afc3656c82173ff5ec8fa6b39c9d9f&amp;chksm=9b3c8b33ac4b0225a50550199bb85c025667b2c104af270812e2baa81577789308572ac4da23&amp;scene=21#wechat_redirect">Linux| 九.路径查看与切换: pwd,cd,ls命令</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496442&amp;idx=1&amp;sn=3a60951daf331f134f2959b3e654d085&amp;chksm=9b3c8baaac4b02bc952d526e498861efa4fabf0eb8fbdf6b7f291c7e80d0105aaff454323ccb&amp;scene=21#wechat_redirect">Linux| 十.通配符</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496527&amp;idx=1&amp;sn=fe8eec0be5994a08496bf41d803abeb9&amp;chksm=9b3c8a1fac4b030974c5c1bdc8ccd18cb96ba6e23c5aea29fe30353db0b433294d9952d765c1&amp;scene=21#wechat_redirect">Linux| 11.文件删除: rm命令</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496599&amp;idx=1&amp;sn=648b97b3ffc0e7d37faf8b71f7ba2a8e&amp;chksm=9b3c8ac7ac4b03d11c0bc81aa4c411d6bdad34e4c07cad476c792938844ae2d4e76e1c979c54&amp;scene=21#wechat_redirect">Linux| 12.文件的复制(cp)与移动(mv)</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496613&amp;idx=1&amp;sn=463621761f8ebb28ae229c7a4eff809a&amp;chksm=9b3c8af5ac4b03e37a3e959617a49fb0e7304b042dbd7a548cda620c682013632214e41ae911&amp;scene=21#wechat_redirect">Linux| 13.用户与组群概念</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496892&amp;idx=1&amp;sn=960dbca843a51a73c1b331abee5c127d&amp;chksm=9b3c8decac4b04fa3fb1fec375e6c6950f277f6c128c9decf5c38a689086ef798f519cd10acd&amp;scene=21#wechat_redirect">Linux| 14.用户管理命令(useradd, passwd, userdel, su)</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496931&amp;idx=1&amp;sn=392e2b97f850374c96de50194b95bfbf&amp;chksm=9b3c8db3ac4b04a5ddc57970bcb36f64587725d1ddcd9bec12e0902953483eeec314a5f4a3aa&amp;scene=21#wechat_redirect">Linux| 15.文件权限管理: chown, chmod</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497180&amp;idx=1&amp;sn=e4d998d9c9d5a7672cba67654f7e8c1c&amp;chksm=9b3c8c8cac4b059abd73e1e026f5d705d1bd2f25883b462cb09bdc72f140fe2727f93abb0c1f&amp;scene=21#wechat_redirect">Linux| 16.快捷键</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497255&amp;idx=1&amp;sn=304d5492738068f33d377317c31bf75b&amp;chksm=9b3c8f77ac4b0661a7e4306071f129f06a2ca680caeecaa9d6af1f24720170d9e1fa3a371de1&amp;scene=21#wechat_redirect">Linux| 17.输出重定向</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497261&amp;idx=1&amp;sn=8d4177937f7ff4ee7db2eb9a59878af9&amp;chksm=9b3c8f7dac4b066b7ce3dd9f815d631bc43c8d7115c508c88c1b8038b2a5af5b6cfde6734148&amp;scene=21#wechat_redirect">Linux| 18.管道符</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497743&amp;idx=1&amp;sn=f8e9fda7d325262f129a80faf77217dd&amp;chksm=9b3c815fac4b0849c12cfb926cef2eaed8e0c779cb50c92647c48230b99492dc12aed135e03f&amp;scene=21#wechat_redirect">Linux| 19.文件查找 find, locate, which</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498050&amp;idx=1&amp;sn=9f29a0c594743a6cd0ce2b2beaaef037&amp;chksm=9b3c8012ac4b0904666979588c25b2025eded47d5f05885f9101d7d0e81a96d8feeff837859c&amp;scene=21#wechat_redirect">Linux| 20.别名 alias</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498073&amp;idx=1&amp;sn=658f9059b05cc2859deb3cd4f2b5df4b&amp;chksm=9b3c8009ac4b091f9baea3f3ca640b138358edd768d906703004323622516c7af7fedb72c446&amp;scene=21#wechat_redirect">Linux| 21.软链接与硬链接 ln</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499664&amp;idx=1&amp;sn=4864161942d45fedee2fa28e6d85460e&amp;chksm=9b3c86c0ac4b0fd67ff1798290f95695b8284943d468aaa9ae2db38fe79927ef47dd7d73f7f6&amp;scene=21#wechat_redirect">Linux| 22. (解)压缩与md5值校验</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500401&amp;idx=1&amp;sn=e4270e426c7e1dcbc55ce9320955c21a&amp;chksm=9b3cbb21ac4b3237b1be87b1ea466584fd996c18564b50b65a6ff7e66d0732530b0bf5e006eb&amp;scene=21#wechat_redirect">Linux| 23. 文件查看 wc, cat, head, tail</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500554&amp;idx=2&amp;sn=3d20b135ac7f78500d439beac16f2067&amp;chksm=9b3cba5aac4b334c89ad2b040b90f291118072bf3a6ee566591b42920163a965f3095e41a4e4&amp;scene=21#wechat_redirect">Linux| 24. 文件浏览器 more,less</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500900&amp;idx=1&amp;sn=f8e41737d22588beaeb6cfeea8865a7d&amp;chksm=9b3cbd34ac4b3422ded73466e862117a5b4989eb0ca2125f2c1f45b67f9ca3772d40a1bb6835&amp;scene=21#wechat_redirect">Linux| 25. 文件编辑器 vim</a></p>
+<p>一、conda的安装</p>
+<p>dropseqRunner是个依赖conda和python的环境，在安装前确保自己的服务器中有与之兼容的conda与python</p>
+<ul>
+<li>*</li>
+</ul>
+<pre><code class="language-bash">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Linux-x86_64.shbash Anaconda3-5.3.1-Linux-x86_64.sh
+</code></pre>
+<p>二、Dropseq的安装</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>##########Dropseqrunner安装##################wget https://codeload.github.com/aselewa/dropseqRunner/zip/master#下载dropseqcd ./dropseqRunner-masterconda env create -f environment.yaml#创建dropseq运行的conda环境conda activate dropRunner#每次运行dropseq前需要进行激活，不激活环境则无法调用snakemakemake#编译，不编译无法出现主脚本
+</code></pre>
+<p>三、下载参考数据并构建比对索引</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>#这里以小鼠的为例wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_genomic.fna.gzwget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_genomic.gff.gzconda install gffread#安装处理gff文件软件gffread GCF_000001635.27_GRCm39_genomic.gff -T -o mice.gtf#将gff文件转换为gtf文件STAR --runThreadN 4 --runMode genomeGenerate --genomeDir reference/ --genomeFastaFiles  GCF_000001635.27_GRCm39_genomic.fna --sjdbGTFfile mice.gtf#建参考数据库
+</code></pre>
+<p>四、Dropseq使用方法</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>python /dropseqRunner-master/dropRunner.py  --R1 SRR11799731_R1.fastq.gz --R2 SRR11799731_R2.fastq.gz --indices /dropseqRunner-master/db/reference --sample SRR11799731 --protocol drop#主程序使用方法#各个参数：#R1 R2不用多说，分别是你的两个fastq文件 #--indices是刚才构建好的参考数据集#--sample是样本前缀名#运行完毕后用于Seurat的数据存在/sample/output/SRR11799731_0_Solo.out/Gene
+</code></pre>
+<p><strong>单细胞系列教程目录</strong></p>
+<p><img alt="" src="../images/90fab1387787746b.gif"> 单细胞数据分析系列教程：B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/本公众号单细胞相关资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500516&amp;idx=1&amp;sn=3c0b9de505fcd232054e38b451fa1742&amp;chksm=9b3cbbb4ac4b32a26b61f3a1f7941fff5852d3e6e744ec680aafd0b84ec976a33bf982fb5f79&amp;scene=21#wechat_redirect">scRNA-Seq学习手册2023_R语言版</a></p>
+<p>单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499776&amp;idx=2&amp;sn=7fc250d94ed88cfd5e2224f071bb1742&amp;chksm=9b3cb950ac4b30467a082527547b91aec15b7d1f40d44e362894aedeb6a99e014518fa5e4743&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|1.绪论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499795&amp;idx=2&amp;sn=68e6298eb43633c71939c146d90230ff&amp;chksm=9b3cb943ac4b3055e09739d77e037d679f3d9ec68780d1aa8c592f806fcc8d2322eaee78752d&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|2.各类数据结构与读取方法</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500010&amp;idx=2&amp;sn=2f9fd1b0101d579bcd250fdc24e98bfc&amp;chksm=9b3cb9baac4b30ac6f0ce28a6dd10470e73d1e1d6defece5636939a32a6db9b2cce0ff8688eb&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|3.单样本分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500117&amp;idx=2&amp;sn=cef0b0abec6d73a8c2615980ef68aec1&amp;chksm=9b3cb805ac4b3113fdc820b9c9667f9554b2e39f90c45b5806021a415698b0a5141c521c64dc&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|4.多样本整合</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500167&amp;idx=2&amp;sn=8de136b938e8d4753042d23166a24026&amp;chksm=9b3cb8d7ac4b31c19c843810c7fe4341515df8ba6fff86a0ebff9d830edfcd656a29d18011c9&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|5.细胞类型注释，从入门到入土</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500270&amp;idx=2&amp;sn=d8c4ebf8f63d12bd2ac8e2607864f322&amp;chksm=9b3cb8beac4b31a824e228b486f0d8dd21a8f4113a0a0bcbaf1b20eaade3a83c9c7c1184010b&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|6组间差异分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500357&amp;idx=2&amp;sn=40034079b771c478b482e849ed4b216c&amp;chksm=9b3cbb15ac4b3203d517ff71073ab0520fe144bc108b7a26f6b17e88fb63a78c5777946618e3&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析|7基因集富集分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486134&amp;idx=1&amp;sn=e581b8ac20bbc968aeef3f9cf56f3a0f&amp;chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&amp;scene=21#wechat_redirect">Seurat中分类变量处理技巧</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490949&amp;idx=1&amp;sn=b8dbe07d901f7c24f82d078be7a2fc77&amp;chksm=9b3f64d5ac48edc33980363c7bc862a9f6283b78dac407e9c082d80bd7d9669215eecac62347&amp;scene=21#wechat_redirect">沉浸式统计细胞比例</a></p>
+<p>单细胞图片改造计划：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496162&amp;idx=1&amp;sn=598c2920f7cc0697ee5a1fa6cadaee04&amp;chksm=9b3c88b2ac4b01a415feeebbbec6c4891319439dc8dcdafd33cca7a1222e5adc723ae9d3a73d&amp;scene=21#wechat_redirect">改造单细胞降维图| 1.DimPlot的探索</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496239&amp;idx=1&amp;sn=1fe6fd4a7fb88ecc0456b4f5710cb5d6&amp;chksm=9b3c8b7fac4b0269e0abeab951ad6ae0ddd1464dd9d1867280eeb9755fda5ba8f5237d88a7a6&amp;scene=21#wechat_redirect">改造单细胞降维图| 2.ggplot2中的DIY</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496343&amp;idx=1&amp;sn=8ac1c511e1197e231c628649167bc26f&amp;chksm=9b3c8bc7ac4b02d134495e000f349cdbd75458b429297f858dfd58d1b428d8256b7e5c5075b4&amp;scene=21#wechat_redirect">改造单细胞降维图| 3.3D降维图与动图绘制</a></p>
+<p>SCENIC转录因子分析：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500098&amp;idx=1&amp;sn=8c31241bd259e303a6ac3c9740f298d9&amp;chksm=9b3cb812ac4b31046fd298c8ee5f0bc0de445df62b234bd934c34ca655e61de3da54d81e2053&amp;scene=21#wechat_redirect">1.绪论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500439&amp;idx=1&amp;sn=d6b4874a8352f5b7a4165629c03058ce&amp;chksm=9b3cbbc7ac4b32d158fd3c5c2f155c54c892d40eaae3718409936fc319f69705da32badf79d6&amp;scene=21#wechat_redirect">2.学习手册</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500631&amp;idx=1&amp;sn=5d73db4dcc74b66de07dee9db910bb83&amp;chksm=9b3cba07ac4b3311d1820bb305778aea707294f19fd6ff2631cd003da80bdcff8f8bc8ed34de&amp;scene=21#wechat_redirect">3.软件安装与数据准备</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501260&amp;idx=1&amp;sn=f1e2a165599e753e2959aad7c8a298cb&amp;chksm=9b3cbc9cac4b358a9499654a2f95fa9010309ee4f408ef8b1f31ceb1a0f263ce22e8b511c430&amp;scene=21#wechat_redirect">4.精简版流程</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501692&amp;idx=1&amp;sn=3f7e263a93942ad03faa1ba5f8694ec4&amp;chksm=9b3cbe2cac4b373af9db74a50ffb08a9b8a3b958fc6385c937385f0f7323bc935cdb0fe5275c&amp;scene=21#wechat_redirect">5.step1+step2构建共表达网络与regulon</a></p>
+<p>上游fastq文件处理：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501751&amp;idx=2&amp;sn=a79512f54db7456ea577de40f1a2d286&amp;chksm=9b3cbee7ac4b37f1ce313d5eeb9a9ac9940640ab599ac5ab5d438fa86a8007796b768e4e68c2&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：cellranger</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484937&amp;idx=1&amp;sn=4fe1fa518202bdaf462bb93a2614ed32&amp;chksm=9b3f7f59ac48f64fafaf34bac2c80f06d3a86b6a84ccf12566c7eac25bb71c7edd3d74004cf7&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：dropseqRunner</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488441&amp;idx=1&amp;sn=dac4efc4a8901a4abb133f9e5c80831e&amp;chksm=9b3f6ae9ac48e3fff5a7112a0127726441ccb9dc2c3369d4a0fe98a2120df991954ff0567732&amp;scene=21#wechat_redirect">有奖提问,这个smart-Seq2数据实战的比对率为何如此低？</a></p>
+<p>细胞通讯B站连续播放起来比较方便：
+https://www.bilibili.com/video/BV1Ab4y1W7qx?p=1<strong>往期推送</strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501282&amp;idx=2&amp;sn=cd37ea80e0b92f5bfbc98ea286e363da&amp;chksm=9b3cbcb2ac4b35a4258d21fe003374795619fc2356376ebbe4ff640233f4b4c6e3e3ead41370&amp;scene=21#wechat_redirect">《细胞通讯》1.概论</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501296&amp;idx=2&amp;sn=fb3e252d95ee8b50cd446e71335b1aa0&amp;chksm=9b3cbca0ac4b35b621b4f51d2c3a130f00461faeeff067396222c2fc2eeb53f3544664d7d9bc&amp;scene=21#wechat_redirect">《细胞通讯》2.1CellChat基础分析教程</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501523&amp;idx=2&amp;sn=6fa803f256c2e0b945f93ae7d8245f50&amp;chksm=9b3cbf83ac4b3695b587e9817840f419104c8680f5ef08ee39aa149b79852f48b179f68e3397&amp;scene=21#wechat_redirect">《细胞通讯》2.2CellChat多组别分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501735&amp;idx=2&amp;sn=35fc792961507f4ae1cbae3a2882fba6&amp;chksm=9b3cbef7ac4b37e1417d4108c8bd378c68c3907431ddfc52ad37c916e85649bb450d761a8e19&amp;scene=21#wechat_redirect">《细胞通讯》CellChat学习手册</a></p>
+<p>拟时序分析B站连续播放起来比较方便：
+https://www.bilibili.com/video/BV1br4y1x7Hf?p=1<strong>往期推送</strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486553&amp;idx=1&amp;sn=b689ec962a17ca1a1ada29ae8ff8c019&amp;chksm=9b3f7509ac48fc1f0f81e288de8f15c86548215a1cd9d5c740dc63f2421371d13890398ab1df&amp;scene=21#wechat_redirect">《拟时序分析》1.概论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487001&amp;idx=1&amp;sn=329129e75f703e3f332e76af9c66871e&amp;chksm=9b3f7749ac48fe5f081248c2a48c56685e3915015036c73f8f67ec3e6acc246ddf815daedb22&amp;scene=21#wechat_redirect">《拟时序分析》2.monocle概论</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487398&amp;idx=1&amp;sn=6621eed90157d8da06ef778c40bd5554&amp;chksm=9b3f76f6ac48ffe081ddfee3a323e0e31c1fda33731012de73168cf2ab30a226cf70c848f769&amp;scene=21#wechat_redirect">《拟时序分析》3.monocle2实操：精简版拟时序</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501684&amp;idx=2&amp;sn=45c8b083e1094718d7fc4b97e370b01d&amp;chksm=9b3cbe24ac4b3732e6eb04084fe3af4419c817755e4eb9a11ba1fb9f68488d12fe7bc865ad0b&amp;scene=21#wechat_redirect">《拟时序分析》4.monocle2实操：完整版</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489044&amp;idx=1&amp;sn=061dbfc34d200b73a8227d0bb28a1d27&amp;chksm=9b3f6f44ac48e65251f7e5ecce84637c05d50ecb92769e8386f221f8e7b9bfeb719232def863&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》5.初识monocle3</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489494&amp;idx=1&amp;sn=44f0a44857c12fcf9a1ab84e4f2cbebf&amp;chksm=9b3f6e86ac48e79026321de2fdca81a139d104d655884ffe87a68e0a1551ddffa5af7919d19e&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》6.monocle3的降维、分群、聚类</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;chksm=9b3f6222ac48eb3450de0b02a34eb5fff2db89ab8f155460d554cbb23be0cd27fd349079e7b2&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》7.monocle3的拟时序分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491083&amp;idx=1&amp;sn=c5697ab024193cb6595d27e4f4d3bfaf&amp;chksm=9b3f675bac48ee4d7244d9819e14fe210f7e42e40fc7a6a8df7b95bfd92f06334d60d226cb93&amp;scene=21#wechat_redirect">解决monocle2的orderCells报错的两种方法</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494479&amp;idx=1&amp;sn=32f39c79c4c9fc07aa829eed49016da3&amp;chksm=9b3c921fac4b1b091efcdd151500b69d19f71d5ca518122af697fc37e87acd915f3be5f63fb8&amp;scene=21#wechat_redirect">一文搞定拟时序分析的下游可视化探索</a></p>
+<p>其他单细胞相关技术贴也在这里：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484056&amp;idx=1&amp;sn=4967a054f5241ff3a1bd4a6fe9a502b1&amp;chksm=9b3f7bc8ac48f2deca3141461be035deb8658be184d78597af28f8ba2092d12f020768275248&amp;scene=21#wechat_redirect">细胞的数量由誰决定？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484701&amp;idx=1&amp;sn=ad90680f252d092a2e21f349c8f32cab&amp;chksm=9b3f7c4dac48f55bf1d11337406ab0e1295e8e1731dbac0715eedc99d11beff7f380e42dd49b&amp;scene=21#wechat_redirect">单细胞中应该如何做GSVA？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484280&amp;idx=2&amp;sn=844af02070012a1c2681880596ba51a2&amp;chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&amp;scene=21#wechat_redirect">答读者问（三）：单细胞测序前景</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=2&amp;sn=e8d02fddc80d1137bb64c55541f1651d&amp;chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&amp;scene=21#wechat_redirect">答读者问（四）：如何分析细胞亚群</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485012&amp;idx=1&amp;sn=6007c8d7cb2a236dd7240a678dac0391&amp;chksm=9b3f7f04ac48f612f811c1df9e9450dc8112d343e4bf245be5149c2e2a073d3e339cd0e3ff61&amp;scene=21#wechat_redirect">答读者问（八）：为什么Read10X也会报错?</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485134&amp;idx=1&amp;sn=13f5f8c47d8af2beeca4e103a5f5e26d&amp;chksm=9b3f7f9eac48f688b454a1062ee4e41f7072ac9d58e5466fa7ed4bb05018adbfe167bb3a445a&amp;scene=21#wechat_redirect">答读者问（十）整合后的表达矩阵，如何拆分出分组信息？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485145&amp;idx=1&amp;sn=402cb28c16aba0dc647037c9b7aba8f7&amp;chksm=9b3f7f89ac48f69fe27cd427df3eff2e88c240bf20dfe92d8b522eecd7302d132d880bf29047&amp;scene=21#wechat_redirect">答读者问（十一）如何一次性读取一个目录下的cellranger输出文件？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485730&amp;idx=1&amp;sn=42b9b35026bec5359ac34750dea3bf44&amp;chksm=9b3f7072ac48f964970f673a86e27ecd453a80b953168dc110e0ea6bfa4110eeed3350c9601a&amp;scene=21#wechat_redirect">给你安排一个懂生信的工具人（十）：不学编程 零代码完成单细胞测序数据分析：Loupe Browser</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485798&amp;idx=1&amp;sn=c849bc7a0093af92fc99e13b55842bb2&amp;chksm=9b3f7036ac48f92048d726b38f2dd978d0b0cce779c1a4090aa4da5cb2df3ad30a5c5dbed27e&amp;scene=21#wechat_redirect">什么？不做单细胞也能分析细胞类群和免疫浸润？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485859&amp;idx=1&amp;sn=a014c4cb6034551e57c70820c7781e49&amp;chksm=9b3f70f3ac48f9e52620e3ff197eb98e58836e8bb6baad634387a521fdda1e4a194356517c73&amp;scene=21#wechat_redirect">答读者问 （十三）查看Seurat对象时的ERROR：type='text'</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485925&amp;idx=1&amp;sn=14e08440200f0f5cb4dcc2dc615efeb8&amp;chksm=9b3f70b5ac48f9a37a43cc2a8b2a5e485a3f84b4ef87949dfe99056bc6301b110e80800f6bb1&amp;scene=21#wechat_redirect">各类单细胞对象（数据格式）转换大全（一）</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486045&amp;idx=1&amp;sn=0b6874bcffc8abafb505cabce4c4fc0e&amp;chksm=9b3f730dac48fa1b140ef01c07a7749e69df4fa7d2056deeed0673c668b6246724cd85741125&amp;scene=21#wechat_redirect">批量整理好GEO中下载的单细胞数据</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486259&amp;idx=1&amp;sn=97de5c9e15e48cb62c8a680376a4ee0d&amp;chksm=9b3f7263ac48fb75a91b40416826fe35b340284cf38255925ac447443a62cdc1df082d20fb61&amp;scene=21#wechat_redirect">答读者问 （十五）稀疏矩阵转matrix, as.matrix函数是下下策</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487923&amp;idx=1&amp;sn=15043c6d729b0d5493ab875b0e54a259&amp;chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0&amp;scene=21#wechat_redirect">答读者问 （十六）做单细胞测序到底需要多少内存</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488995&amp;idx=1&amp;sn=7140e0d037671542fb37dff3a3c94b28&amp;chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&amp;scene=21#wechat_redirect">答读者问 （十七）调用的线程越多就算的越快嘛?</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490010&amp;idx=1&amp;sn=24c55fa4bd5d7d829625cb67dbaf321a&amp;chksm=9b3f608aac48e99c9f27e3423c8398034a1819d0ccebbf21170b955461d2c335132d6f3cce25&amp;scene=21#wechat_redirect">答读者问（十八）、一个我至少被问过30遍的monocle报错</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490952&amp;idx=1&amp;sn=364a3941e59e45234795c906a42fc9ab&amp;chksm=9b3f64d8ac48edcec70384cf5c6a91224d0f7841ce3a7cfcade6513500c13673a6695d6f0299&amp;scene=21#wechat_redirect">没有barcode文件的单细胞数据要怎么读取</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491761&amp;idx=1&amp;sn=41f5c1ceaacf6a1c4840567f8a349e06&amp;chksm=9b3c99e1ac4b10f7ca158561e96fec76a49ff32b8412cb146ed3fb7aa9260c75172b4eb16f9a&amp;scene=21#wechat_redirect">单细胞基因集评分之AUCell</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494516&amp;idx=1&amp;sn=cb2d4e6b182428ce7b98e7fff2e8729a&amp;chksm=9b3c9224ac4b1b32c4fe99758960305c4845395cfe03851d70a0407043ee36250e55d20106fc&amp;scene=21#wechat_redirect">粉丝来稿|1. Seurat4相较于Seurat3的几点改动</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494116&amp;idx=1&amp;sn=f3dc577cbb464779062aada313191a05&amp;chksm=9b3c90b4ac4b19a27a17f958e3437337d5b10b6ba7153e4dd43dedcb4df812d8c6b4d86fe970&amp;scene=21#wechat_redirect">如何加快Seurat的计算速度</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493493&amp;idx=1&amp;sn=2cd725b2f04377f218955bafbcbb877d&amp;chksm=9b3c9e25ac4b17330a9b9ff77302ab95a9dc5dc7e6fe7298f28d682112ee066c7d4bc1947982&amp;scene=21#wechat_redirect">一文搞定单细胞基因集评分</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494879&amp;idx=1&amp;sn=c2287ab3684792747dfac53d6704462b&amp;chksm=9b3c958fac4b1c994a4b075c4f8475816e121966fa8c52cb0a2ce8c14987988ab9bdb49bdf69&amp;scene=21#wechat_redirect">答读者问（二十）四个单细胞样本只给了一套文件怎么读</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495019&amp;idx=1&amp;sn=f52ac22ca1ea47ecddaa3503bdc2c0b6&amp;chksm=9b3c943bac4b1d2d521f7155ce8f499389dade23828017572a84cdce71e5d08d37d74e08512b&amp;scene=21#wechat_redirect">人类单细胞测序数据中有哪些以"**-"开头的基因</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495765&amp;idx=1&amp;sn=2ec5e3e26491e28c92e25c40630bffae&amp;chksm=9b3c8905ac4b0013a23f9cda2cccd67cdf3c4a941bac161e3a15a12ab98cd4e5eca8aeedbe96&amp;scene=21#wechat_redirect">为什么总把分辨率调的很高</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495938&amp;idx=1&amp;sn=2258390c97ec14f3cd336defede59cdb&amp;chksm=9b3c8852ac4b01448fd3b84463d5ab6b697495db6ad57746e7f60e32f491547a3e35290c66ee&amp;scene=21#wechat_redirect">Seurat中如何让细胞听你指挥</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496273&amp;idx=1&amp;sn=fd5a92dd7fdc349b1624784ca74b1220&amp;chksm=9b3c8b01ac4b0217cf06d89bfea49c3fa0c9b580957338c0cc8f55ede3e8f65d6d7162ae27e3&amp;scene=21#wechat_redirect">答读者问| 22.object 'CsparseMatrix_validate' not found</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500270&amp;idx=1&amp;sn=11bdf3c7f9042fc03f9ed237a9b9677b&amp;chksm=9b3cb8beac4b31a8bf1d9fb862553ed32ac9a56f4a6e0f2d38c9478132f87327d8c6b6940573&amp;scene=21#wechat_redirect">单细胞数据在R中的读取及存储速度太慢怎么办？这个神包来帮你！</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501241&amp;idx=1&amp;sn=9e15d23f721ad7f4ae1335ce5362031b&amp;chksm=9b3cbce9ac4b35ff43434c0384afbbf5689f5b62a677e55e8a635d4812da57593d85a73cf48b&amp;scene=21#wechat_redirect">单细胞分群分辨率选择困难症</a></p>
+<p>单细胞文献阅读：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495792&amp;idx=2&amp;sn=1aecc80b68f65f8a44a899df524038c0&amp;chksm=9b3c8920ac4b0036b23268331b457a335b22b4fa3aed1db287ab79e7a4613df8d195bd11421a&amp;scene=21#wechat_redirect">测序技术的发展与应用</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485069&amp;idx=1&amp;sn=ef5cec9d4eab8807a3929baa5bc203eb&amp;chksm=9b3f7fddac48f6cbfa64b2de8a627dd7c24e102046075840d56930dac3167eda3b6c8e21edae&amp;scene=21#wechat_redirect">一些生物信息学的基本概念</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489823&amp;idx=1&amp;sn=6a5dddd53870395316d2b2e904c6ce72&amp;chksm=9b3f604fac48e959e97e4b0317643efdcf117da7f8b75f1edbcd64dd8e2f07149e6031a94dd4&amp;scene=21#wechat_redirect">Biomamba助推的第二篇文章!发表了！</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492532&amp;idx=1&amp;sn=cddb4691f23defc80b60da231790c53c&amp;chksm=9b3c9ae4ac4b13f2334cc7f6b16eec1d8223800f6ecef71a93cfba21698ac5f4505dbd64f300&amp;scene=21#wechat_redirect">又来了！Biomamba生信基地助推的第四篇文章!</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497682&amp;idx=2&amp;sn=7ef49191c5e334bb291ccdaa8ea444ae&amp;chksm=9b3c8e82ac4b079425433938c831d528eddb9237efaca49acbc210e9cd715d057541589dc290&amp;scene=21#wechat_redirect">单细胞测序解析糖尿病肾病中肾小球的动态变化</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497713&amp;idx=1&amp;sn=b7f8df758bc4d95b88969378c6dfbeee&amp;chksm=9b3c8ea1ac4b07b7c6a0b5023ebf6c8ecd7d34741ab076baa0b564535d1d753bbf9dc5be5290&amp;scene=21#wechat_redirect">Cell metabolism| 单细胞测序技术解析健康人与T2D患者的胰岛差异</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497713&amp;idx=2&amp;sn=554d6a4e1b28b2e5303695fae5942a34&amp;chksm=9b3c8ea1ac4b07b72323ce25cd49474a9228ec1aaa56243f57dca3f2f668dc42ab9cd58dca21&amp;scene=21#wechat_redirect">Science| 小鼠全肾单细胞测序开篇之作</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497840&amp;idx=2&amp;sn=1dacbfb190e11d2ff104e32f238cf8c4&amp;chksm=9b3c8120ac4b08367bfe3a0dd8d55f21f5d13528826de3144a9a85ce9b1c9f4c710de703edae&amp;scene=21#wechat_redirect">一篇不花钱就能白嫖的文章</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247497867&amp;idx=2&amp;sn=caeb8ed06ffd5239b58cebcd90843cf8&amp;chksm=9b3c81dbac4b08cd9eec50978951a1b890ca08edec644ff75205a09ad1f067dff25d6ecb938e&amp;scene=21#wechat_redirect">不会吧不会吧，Nature都能白嫖？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498513&amp;idx=2&amp;sn=79845edf56a3023c59c73403d7b6494b&amp;chksm=9b3c8241ac4b0b57793402686edc8c35aaa3b0959d3096b5122207fbb70ab809d1df5faee0d7&amp;scene=21#wechat_redirect">高氧下小鼠肺发育损伤的ScRNA图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485376&amp;idx=1&amp;sn=02e228d0993d8a653c8bb1d531021cdb&amp;chksm=9b3f7e90ac48f78686d6d5953aeb192db4f28bf577dbebd76d9fabbe797f135b7fb08fb42867&amp;scene=21#wechat_redirect">IgAN &amp; STRT-Seq</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498596&amp;idx=2&amp;sn=8f63f5856cdf90e15f1d19b4cfe6a39e&amp;chksm=9b3c8234ac4b0b221a5d2c417558f0e63f742459c0a3f8c1cbb4cdf74ce25ddcaf0e48f4a7ce&amp;scene=21#wechat_redirect">老树开新花—EGFR、肿瘤、免疫+scRNA-Seq</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498597&amp;idx=2&amp;sn=9f5fee38d0821052c9c6b3753c2b3bed&amp;chksm=9b3c8235ac4b0b238c4902ad7b3944b285baaa0a7ec6f5c7d08a596fdf89735dc7a7afab91f0&amp;scene=21#wechat_redirect">癌前基质细胞驱动BRCA1肿瘤发生</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498668&amp;idx=2&amp;sn=50cb239885bed65d3d3702c813d8e354&amp;chksm=9b3c82fcac4b0beabece692f6e2d89c5fe4adf3a268e2944d8f0df4393cc554de5432086d6c1&amp;scene=21#wechat_redirect">紧跟生信"钱"沿,胰腺癌&amp;免疫多模态图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498644&amp;idx=2&amp;sn=6293493263eeb2b4bf3f82cf526dea36&amp;chksm=9b3c82c4ac4b0bd2a9f48b1326bbfbf2b8270ab79e5877f9bca21aa7883f60fb9cb235df2c36&amp;scene=21#wechat_redirect">原发头颈癌和肿瘤转移微生态</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498860&amp;idx=2&amp;sn=156afeec25201c7baa880af8daac8c60&amp;chksm=9b3c853cac4b0c2a2ca09f44fd487c6d8d9701cb447f318c89f83a53e1a7b712d6f10ff17c43&amp;scene=21#wechat_redirect">《Cell Metabolism》：肾脏疾病&amp;代谢&amp;核受体ESRRA</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498862&amp;idx=2&amp;sn=1ba36b54428198104c5168d84aba6c51&amp;chksm=9b3c853eac4b0c2874eee3d90b5a989fdc2b366c40805b5041a6f1a588e99b45be14469bdd56&amp;scene=21#wechat_redirect">《Nature communication》：PD-1&amp;急性髓细胞性白血病&amp;T Cell</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498926&amp;idx=2&amp;sn=3bbd43812d2dfcbbd9230c8cb50df36b&amp;chksm=9b3c85feac4b0ce8225b6f77eec91ac9c8150bff171ac6874363b2617ccfe6042400777415c3&amp;scene=21#wechat_redirect">单细胞测序揭示鼻咽癌微环境的基质动力学和肿瘤特异性特征</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498939&amp;idx=2&amp;sn=b63958fb8f28af052036f4ffc05e2fc2&amp;chksm=9b3c85ebac4b0cfdf3fda8f7236c50db168de20ff4795db7af9d6a0b45304e3f6fb3ba888694&amp;scene=21#wechat_redirect">《Nature》：MYB调控衰竭性T细胞对检查点抑制的响应</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500846&amp;idx=1&amp;sn=d5e9782c0318e411771e746950f5b5f5&amp;chksm=9b3cbd7eac4b3468ea93a5d6a28cfd05409660a532cc8df72ed9b58f30a76b0a8b6cec79934a&amp;scene=21#wechat_redirect">单细胞都能活检测序了？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493808&amp;idx=1&amp;sn=52c7d330ffdda47c3409d36fe9cbbcd8&amp;chksm=9b3c91e0ac4b18f6edf59d171a0d982b1e3f842148046d8eed19343484feaa84dbd5b7682a11&amp;scene=21#wechat_redirect">文献阅读(二十九)、单细胞测序做到什么程度能毕业|硕士篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494017&amp;idx=1&amp;sn=a2dc4e2eef2bcdb40f5074b665dfa45f&amp;chksm=9b3c90d1ac4b19c79ac5128f96d27789241357c9745bb0389ff5f79f96ab825d3e1c9b29e3af&amp;scene=21#wechat_redirect">文献阅读(三十)、单细胞测序做到什么程度能毕业|博士篇</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494796&amp;idx=1&amp;sn=92c91a65719bdf39658814eb691a780f&amp;chksm=9b3c95dcac4b1cca5547440a5881e650da3ea430bad3e6017cbd2891606b2ec40e3ec343bc0e&amp;scene=21#wechat_redirect">2022年了，都有哪些器官/组织有scRNA-Seq数据|小鼠篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494806&amp;idx=1&amp;sn=1d15ad9cb4d350a164d3b941bc715233&amp;chksm=9b3c95c6ac4b1cd054cedbd3e8c8f57ee88cc59a6ebda2fd11ba8fea79f5e9e8c65d21ff338c&amp;scene=21#wechat_redirect">2022年了，都有哪些器官/组织有scRNA-Seq数据|人类篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496958&amp;idx=1&amp;sn=f34c69e2114d99fa25e2524411c028a2&amp;chksm=9b3c8daeac4b04b80a5629433d5eec4d25b8ba7d2a74fa31cd499b98c36601ddfe436e2196eb&amp;scene=21#wechat_redirect">2023年了, 都哪些物种有scRNA-Seq数据</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496064&amp;idx=1&amp;sn=0be38306f9cd8c6b819d58cc2e779b87&amp;chksm=9b3c88d0ac4b01c6773b6c4f1a063788509baa27c57e2098b16b8ebe38cc625a87b9d89272c7&amp;scene=21#wechat_redirect">终于读到一篇用monocle3做拟时序的文章</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496126&amp;idx=1&amp;sn=8cb6040a38eb844bb215c0d395196e3a&amp;chksm=9b3c88eeac4b01f8dcb8f4c7a19c5a58841d5fe1623f0a4c585c6dcc281cbbdd2830a1150f6a&amp;scene=21#wechat_redirect">单细胞转录组+亚细胞空间代谢组=25分文章</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496237&amp;idx=1&amp;sn=646cd85b62d08c1739a532242c8991ba&amp;chksm=9b3c8b7dac4b026be9e65b64df8e830d1c2c882272165e64eec6eb258e4ed5342cf30f42dda5&amp;scene=21#wechat_redirect">酸了，六个样本的scRNA-Seq+差异分析=9分文章</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247498939&amp;idx=1&amp;sn=1b33d219c795f2de8ff66a5c330a3d24&amp;chksm=9b3c85ebac4b0cfd050a7c0abe11dead991a988aa5b790eac6fd57de2f76a85ef2191d8b9ca6&amp;scene=21#wechat_redirect">自测scRNA-Seq+scWGBS=3分三区文章？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499336&amp;idx=1&amp;sn=864c535b38ce630487fccc602d893a80&amp;chksm=9b3c8718ac4b0e0e8a0e2560a83546167a82616d99503606e3ac0ef29e90b01cc762e95d64e6&amp;scene=21#wechat_redirect">百万级单细胞多组学数据集成</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500243&amp;idx=1&amp;sn=b0e513e85a202ec7ca4041a700a7ae10&amp;chksm=9b3cb883ac4b3195cffd0398d880468b12dd068f9a9fd96b7d0f8aed8961be34293e6ff4a2bb&amp;scene=21#wechat_redirect">空间转录组与单细胞转录组整合分析工具大比拼</a></p>
+<p>单细胞注释复写<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490504&amp;idx=1&amp;sn=0066b2b33067cedb9d1c28689a53faab&amp;chksm=9b3f6298ac48eb8e12cdc7bdd6263e5feb9039f549f7b9dbf4e258854ee61476d09f702f1447&amp;scene=21#wechat_redirect">单细胞注释复写(一):Human Fetal Kidney</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491642&amp;idx=1&amp;sn=2246fb702277ddc690f056fc8854142e&amp;chksm=9b3c996aac4b107c059a403978eca7be1ae7987659626272c58430910ad75892ad470517aefb&amp;scene=21#wechat_redirect">单细胞注释复写(二): human colorectal</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501145&amp;idx=2&amp;sn=12c2e8d104ad343fc13acb8cda266e6c&amp;chksm=9b3cbc09ac4b351f4ed708a0ed577a21f48ccb0d4173aed94a027b4170147ab85931ee51d1e5&amp;scene=21#wechat_redirect">单细胞复写|3.急性心肌梗塞(AMI)外周血scRNA-Seq分析实战(链接重置)</a></p>
+<p>硬件准备：
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247501099&amp;idx=1&amp;sn=78446147184292fad3417495926b3096&amp;chksm=9b3cbc7bac4b356dcf0460781f9bf16df4ede481f8cc57282c7384b9d2baccaa820d64c89bab&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500273&amp;idx=1&amp;sn=f600f10077f6298ea957e459b5f8a375&amp;chksm=9b3cb8a1ac4b31b702838076dbceb077e9c8980d9cffe5c4ab10ebbeceaf5fe3e658003e66c4&amp;scene=21#wechat_redirect">有root权限的共享服务器,注册即送200￥</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500111&amp;idx=1&amp;sn=1dfc668263614efb82e0659af5fcd438&amp;chksm=9b3cb81fac4b3109a8e19a09cc68122b1943dcd45c653627e77dfa47d476280079ea6a8dd63d&amp;scene=21#wechat_redirect">独享服务器，满足你对生信分析的所有幻想</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492383&amp;idx=1&amp;sn=b8d912877cb38e8d8c9084d1d9370ded&amp;chksm=9b3c9a4fac4b135926091a8af972c45a17a2fa1f94c704779c60df5f733847036c3797894c1c&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a>
+<img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复读者消息，这里给大家留一下领取资料、免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247500273&amp;idx=1&amp;sn=f600f10077f6298ea957e459b5f8a375&amp;chksm=9b3cb8a1ac4b31b702838076dbceb077e9c8980d9cffe5c4ab10ebbeceaf5fe3e658003e66c4&amp;scene=21#wechat_redirect">有root权限的共享服务器,注册即送200￥</a>)的<strong>微信号[Biomamba_kefu]</strong> ，方便各位随时交流、提建议(科研任务繁重，回复不及时请见谅，<strong>备注来意会优先通过</strong>)。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492981&amp;idx=1&amp;sn=aed903c4b853113d8c89e13848ea3365&amp;chksm=9b3c9c25ac4b1533feb5f42f94ab4b6023a160313db4bc6a2f142e54d26627e3ea94b53e9031&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/fdb4c49c78e6216c.webp"></p>
+<p><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

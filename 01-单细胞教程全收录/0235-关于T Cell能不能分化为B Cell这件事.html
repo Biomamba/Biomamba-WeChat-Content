@@ -1,0 +1,176 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0235-关于T Cell能不能分化为B Cell这件事</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="t-cellb-cell">关于T Cell能不能分化为B Cell这件事</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529864&amp;idx=1&amp;sn=825c0c6d9e29c224dc46e97f3c6d7f47&amp;chksm=9b3c0cd8ac4b85ce3a0def6ace951bb94cc3d070e4b2745e056435d8299e09278fc8199fc96d#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p>一、不要神话拟时序分析</p>
+<p>我们在分享<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">轨迹分析</a>时，总有同学问：我的分析结果中XX细胞和XX细胞的拟时间顺序不对/反了，寻求解决办法。其实这个问题很好理解，<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486553&amp;idx=1&amp;sn=b689ec962a17ca1a1ada29ae8ff8c019&amp;scene=21#wechat_redirect">《拟时序分析》概论</a>时我们其实解释过，通俗点说算法根本不知道谁前谁后，它只知道把表达相似的细胞排排坐。所以不要过度神话拟时序的分析结果，拟时间与实际生物学现象并不一定完全相关。甚至我也可以把T Cell和B Cell的拟时间手搓成连续的，但显然我并不能说T Cell分化成了B Cell：</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-r"># 设置工作目录library(monocle)# seurat对象转换为cds对象方法sce.obj&lt;- readRDS('data/sce.obj.rds')sce.obj &lt;- subset(sce.obj,idents = c('Naive CD4 T' , 'Memory CD4 T', 'B' ,'CD8 T'))# 准备细胞*基因表达矩阵data &lt;- GetAssayData(sce.obj, slot = &quot;counts&quot;)
+# 准备phenoData，描述细胞的各种元属性，相当于seurat_obj@meta.data，行-细胞，列-属性  pd &lt;- new('AnnotatedDataFrame', data = sce.obj@meta.data)# 准备featureData，基因名，行-基因名fData &lt;- data.frame(gene_short_name = row.names(data),                     row.names = row.names(data))fd &lt;- new('AnnotatedDataFrame', data = fData)# 创建monocle2的celldataset(缩写为cds)对象mycds &lt;- newCellDataSet(data,                        phenoData = pd,                        featureData = fd,                        expressionFamily = negbinomial.size())
+mycds &lt;- estimateSizeFactors(mycds)mycds &lt;- estimateDispersions(mycds)
+# 质控(可选) 去除死细胞、空液滴、碎细胞液滴、双液滴，提高计算准确度、降低运算时间mycds &lt;- detectGenes(mycds, min_expr = 0.1)
+mycds_expressed_genes &lt;- row.names(subset(Biobase::fData(mycds),                                          num_cells_expressed &gt;= 10))mycds &lt;- mycds[mycds_expressed_genes,]disp_table &lt;- dispersionTable(mycds)unsup_clustering_genes &lt;- subset(disp_table, mean_expression &gt;= 0.1)#展示轨迹图的方法plot_cell_trajectory(mycds, color_by = &quot;celltype&quot;,size = 3)|  plot_cell_trajectory(mycds, color_by = &quot;Pseudotime&quot;)#来看看拟时间吧
+</code></pre>
+<p>这样看来B Cell与T Cell的几种亚群就展示出了相互演化的拟时序关系，显然我们并不能说B Cell与T Cell能够相互转化。</p>
+<p><img alt="" src="../images/c4a500fb7ea70562.webp"></p>
+<p>二、说的正规点</p>
+<p>说的正规点这种情况由以下原因造成：</p>
+<p>1. 细胞状态定义不准确</p>
+<p>Monocle通过识别基因表达变化的连续性来构建轨迹，但其初始状态（root node）需手动指定(<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;scene=21#wechat_redirect">monocle3的拟时序分析</a>支持)。若选择的 root 细胞实际属于终末状态，则会导致拟时间方向颠倒。若将分化终点的细胞错误指定为起点，后续细胞的拟时间将呈现 “反向” 分化。</p>
+<p>2. 基因选择偏差</p>
+<p>Monocle 依赖差异表达基因（DEGs）来推断轨迹。若选择的基因集偏向于特定方向（如终末分化标记），算法可能误判轨迹方向。</p>
+<p>3. 分支结构复杂</p>
+<p>在存在多分支的分化轨迹中，Monocle 可能将某个分支的方向误判为主轴方向，导致部分细胞拟时间反转。</p>
+<p>4. 批次效应或技术噪声</p>
+<p>未校正的批次效应可能干扰细胞间的相似性计算，使算法误判细胞的先后顺序。</p>
+<p>5. 算法参数不匹配</p>
+<p>Monocle的DDRTree降维算法对参数敏感，如关键参数设置不当可能导致轨迹扭曲。</p>
+<p>三、如何正确的矫正拟时序</p>
+<p>1. 正确的定义初始/终止的root</p>
+<p>使用已知的早期/晚期标记基因（如干细胞标志物）筛选 root 细胞类群。</p>
+<p>2. 优化特征基因选择</p>
+<p>在确定参与计算的基因集时不要简单的选择高变基因，可选择部分已知参与该样本演化的细胞类群</p>
+<p>3. 批次效应校正</p>
+<p>使用limma或scran等进行批次校正，当然，最好你的实验设计时就避免批次效应产生。</p>
+<p>4. 考虑替代算法/工具</p>
+<p>若Monocle持续出现方向性问题，可尝试其他轨迹推断工具：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528666&amp;idx=1&amp;sn=d29545d296bac3e41de322e43fde80dd&amp;scene=21#wechat_redirect">一文学会四种scRNA-seq轨迹分析</a></p>
+<p>四、更多教程</p>
+<p>如果你觉得当前教程有用，不妨看看：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528470&amp;idx=1&amp;sn=7f3ced59b2b97bed1ac9df560b11ddd6&amp;scene=21#wechat_redirect">生信基地122篇单细胞教程全索引</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529435&amp;idx=1&amp;sn=cc7e9ff271f0ce0157008532ef4829c3&amp;scene=21#wechat_redirect">scRNA-seq，从小白到文献复现大神！</a>
+<img alt="图片" src="../images/68adda3cdb14540f.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/3b8e21da777157f9.webp"><img alt="图片" src="../images/7a5130b05d387a24.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528482&amp;idx=1&amp;sn=7cc0715eace4f592a62bdaf157b25c01&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

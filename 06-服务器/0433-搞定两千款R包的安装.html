@@ -1,0 +1,165 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0433-搞定两千款R包的安装</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="r">搞定两千款R包的安装</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535250&amp;idx=2&amp;sn=56a11385eebfabd73cdcc4958a29580b&amp;chksm=9b3c33c2ac4bbad4aad6b70715e6e75b036999da3a84792b5905b9d68552740880815f83709d#rd
+合集：服务器</p>
+</blockquote>
+<p><img alt="" src="../images/0ffc03dd3fbc9e2f.gif"></p>
+<p><strong>一、写在前面</strong></p>
+<p>最近有粉丝要我们在西柚云环境中布置好的R环境，算是变相给我们来了波宣传。<img alt="" src="../images/61ff9ff338981120.webp"></p>
+<p>如果你对下面的教程比较迷茫，那么你可以先行学习些编程基础：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528126&amp;idx=2&amp;sn=668c2709891956b567b316f9f2fb26ea&amp;scene=21#wechat_redirect">R语言基础学习手册</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505777&amp;idx=1&amp;sn=f3efae390566b838a445ab9f832323c8&amp;chksm=9b3cae21ac4b2737f5923b246470d699474c041bb78de50d2b71b99d537f9f44ca2938002cda&amp;scene=21#wechat_redirect">十小时学会Linux</a>
+<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2980604042328702978#wechat_redirect">生信Linux及服务器使用技巧</a>
+本教程基于Linux中的Rstudio环境演示，计算资源不足的同学可参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529471&amp;idx=2&amp;sn=c191f2df999820bf7f1f96832d120d2d&amp;scene=21#wechat_redirect">选择西柚云的11个理由</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511780&amp;idx=1&amp;sn=3acc0874f7d2fa75f1abbe7a9a9b4069&amp;chksm=9b3cd7b4ac4b5ea27d4d53964e4a4a9fa8c806a19103729dd4ff0fa72e621411f46a251d269f&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503618&amp;idx=1&amp;sn=ca47ca985aa8560f6b38f15f210519e2&amp;chksm=9b3cb652ac4b3f44292560071b7e98e2f6fa6ec03581cd882a4d59b9d7fa063a5b9ac1b923f3&amp;scene=21#wechat_redirect">独享服务器，生信分析不求人</a></p>
+<p>访问链接：https://biomamba.xiyoucloud.net/</p>
+<p>更多内容可咨询客服微信[<strong>Biomamba_zhushou</strong>]</p>
+<p>其实获得环境中的R包即版本号的方法很简单，两行就可以搞定：</p>
+<ul>
+<li>*</li>
+</ul>
+<pre><code class="language-r">package_list &lt;- installed.packages()write.csv(package_list,'package_list.csv')
+</code></pre>
+<p>package_list.csv的下载链接见下文，文件表头为：<img alt="" src="../images/8b95f83214e2c0f3.webp">
+其中的每一列的内容代表：</p>
+<ol>
+<li>
+<p>Package:</p>
+<ul>
+<li>包的名称。</li>
+</ul>
+</li>
+<li>
+<p>LibPath:</p>
+<ul>
+<li>包安装的库路径。这与 <code>.libPaths()</code> 函数返回的路径相关，显示了包所在的具体位置。</li>
+</ul>
+</li>
+<li>
+<p>Version:</p>
+<ul>
+<li>已安装的包的版本号。</li>
+</ul>
+</li>
+<li>
+<p>Priority:</p>
+<ul>
+<li>如果包是基本必须的（例如，base 或 recommended），这一列会标明其优先级。大多数包这一栏为空，表示它们不是基础包。</li>
+</ul>
+</li>
+<li>
+<p>Depends:</p>
+<ul>
+<li>列出了安装和运行此包所依赖的其他包及版本。这有助于理解包之间的依赖关系。</li>
+</ul>
+</li>
+<li>
+<p>Imports:</p>
+<ul>
+<li>列出了该包在函数中调用的其他包的函数或数据，不过这些包并不需要被加载为了该包的正常使用（不同于Depends，Depends的包需要被加载）。</li>
+</ul>
+</li>
+<li>
+<p>LinkingTo:</p>
+<ul>
+<li>主要用于R包涉及到编译代码（如C, C++或Fortran）时，列出了需要链接到的其他包。</li>
+</ul>
+</li>
+<li>
+<p>Suggests:</p>
+<ul>
+<li>包括那些不是必须的，但是增强包功能的建议包。这些包通常用于示例或扩展功能。</li>
+</ul>
+</li>
+<li>
+<p>Enhances:</p>
+<ul>
+<li>列出了哪些包可能会被当前包增强功能。</li>
+</ul>
+</li>
+<li>
+<p>License:</p>
+<ul>
+<li>包的许可证类型。</li>
+</ul>
+</li>
+<li>
+<p>Built:</p>
+<ul>
+<li>这列显示了包是在哪个R版本下构建的。这有助于了解包与特定R版本的兼容性。</li>
+</ul>
+</li>
+<li>
+<p>大家可以对着上面的信息来安装指定的版本</p>
+</li>
+</ol>
+<p><img alt="" src="../images/06077bf834ad4007.gif"></p>
+<p><img alt="" src="../images/0ffc03dd3fbc9e2f.gif"></p>
+<p><strong>二、.libPaths</strong></p>
+<p>另外我还从我的.libPaths中导出了R包相关文件
+<img alt="" src="../images/cc083f40a9aa8c0a.webp"></p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code>tar -zcf site-libraray.tar.gz  /usr/local/lib/R/site-librarytar -zcf library.tar.gz /usr/lib/R/librarytar -zcf lib_site-library.tar.gz /usr/lib/R/site-library
+</code></pre>
+<p>这三个R包路径有一些不同的用途和特点：</p>
+<ol>
+<li>
+<p>"/usr/local/lib/R/site-library":</p>
+<ul>
+<li>
+<p>这个路径通常用于存放系统级别的R包，这些包是由系统管理员安装的，供所有系统用户使用。</p>
+</li>
+<li>
+<p>位于<code>/usr/local/lib</code>的路径表明这些库可能是由管理员或通过超级用户权限安装的，通常不受R默认安装过程的影响，而是独立安装的包。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>"/usr/lib/R/site-library":</p>
+<ul>
+<li>
+<p>这个路径与<code>/usr/local/lib/R/site-library</code>相似，也是用来存放系统级的R包。</p>
+</li>
+<li>
+<p>位置在<code>/usr/lib</code>，这通常意味着这些包可能是由操作系统的包管理系统安装的（如使用APT或YUM的Linux系统），或者是系统在初始安装时预装的包。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>"/usr/lib/R/library":</p>
+<ul>
+<li>
+<p>这个路径是R的默认库路径，存放的是R的基础包和核心包，这些包随R软件一起被安装。</p>
+</li>
+<li>
+<p>这些包通常是R安装过程的一部分，是R运行的基本组件，包括了统计、图形处理等基础功能的包。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>4.</p>
+<p>列表和R包路径的文件都给大家准备好了，大家可以自行下载使用，使用教程请参考以下教程：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505248&amp;idx=1&amp;sn=a8ac5af6f8827019c15b30be3490a64d&amp;chksm=9b3cac30ac4b2526697877572b49323d499d705f697135fc2fbd1e6a6c2a77a6041e90056581&amp;scene=21#wechat_redirect">在Rstudio中使用同一个R包的不同版本</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247499664&amp;idx=1&amp;sn=4864161942d45fedee2fa28e6d85460e&amp;chksm=9b3c86c0ac4b0fd67ff1798290f95695b8284943d468aaa9ae2db38fe79927ef47dd7d73f7f6&amp;scene=21#wechat_redirect"> (解)压缩与md5值校验</a></p>
+<p><img alt="" src="../images/06077bf834ad4007.gif"></p>
+<p><img alt="" src="../images/0ffc03dd3fbc9e2f.gif"></p>
+<p><strong>三、资料下载</strong></p>
+<p>下载链接：</p>
+<p>https://pan.baidu.com/s/1NfiGlJQZDFu_y2xQzkJAlA?pwd=d9ia</p>
+<p>提取码：d9ia</p>
+<p><img alt="" src="../images/5db2866c96946f66.jpg"></p>
+<p><strong>注意，我的环境是Ubuntu 20.04.5 LTS，R版本为4.2.2</strong></p>
+<p><img alt="" src="../images/06077bf834ad4007.gif"></p>
+<p><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532585&amp;idx=1&amp;sn=e265d2846ec66e5faaaf21403d274d2f&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528410&amp;idx=2&amp;sn=0f2bac25479cf8d20dab5d82ae986f2e&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528057&amp;idx=1&amp;sn=bb348c2a88c977c7cce67ee6731a3591&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="图片" src="../images/e43581b4f5118aad.webp"><img alt="图片" src="../images/4ccf87cacd1143af.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

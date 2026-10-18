@@ -1,0 +1,471 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0015-改造单细胞降维图 1.DimPlot的探索</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="1dimplot">改造单细胞降维图| 1.DimPlot的探索</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496162&amp;idx=1&amp;sn=598c2920f7cc0697ee5a1fa6cadaee04&amp;chksm=9b3c88b2ac4b01a415feeebbbec6c4891319439dc8dcdafd33cca7a1222e5adc723ae9d3a73d#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><img alt="" src="../images/ceac53a8b65f5faf.png"></p>
+<p>写在前面</p>
+<p><img alt="" src="../images/90fab1387787746b.gif">随着我们课程的持续深入，以及各位小伙伴分析技能的日益提升，目前很多同学已经不满足于Seurat的可视化功能并希望能够做出一些<strong>改进的可视化</strong> 。我个人对可视化的方式改进其实并不感冒，画图嘛，跟翻译一样<strong>信达雅</strong> 即可，没必要盲目追求视觉效果。不过这也并不方案我给大家做这类的教程。我们准备出一系列<strong>单细胞测图片改造计划</strong> 的推送，大家如果有任何关于可视化的想法，也可以通过文末客服微信联系我们。
+第一个系列就是对降维图的改造，这次的推送我们先和大家一起回顾一下"Seurat::DimPlot"的内容，也许你需要的功能早已被作者纳入囊中。下一次教程我们将会和大家一起在ggplot2中完成一些探索。</p>
+<p><img alt="" src="../images/ceac53a8b65f5faf.png"></p>
+<p>视频教程</p>
+<p><img alt="" src="../images/90fab1387787746b.gif">B站同步播出，连播更方便，文末阅读原文可直达：https://www.bilibili.com/video/BV1S44y1b76Z?p=11</p>
+<p><img alt="" src="../images/ceac53a8b65f5faf.png"></p>
+<p>图文教程</p>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<h1 id="_1">二、准备工作</h1>
+<h2 id="11">1.1 预处理</h2>
+<pre><code>#依赖的包比较多，并且很多也比较难装，装的时候需要有点耐心
+if(!require(GEOquery))BiocManager::install('GEOquery')
+</code></pre>
+<pre><code>## Loading required package: GEOquery
+</code></pre>
+<pre><code>## Loading required package: Biobase
+</code></pre>
+<pre><code>## Loading required package: BiocGenerics
+</code></pre>
+<pre><code>##
+## Attaching package: 'BiocGenerics'
+</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+##
+##     IQR, mad, sd, var, xtabs
+</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+##
+##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+##     union, unique, unsplit, which.max, which.min
+</code></pre>
+<pre><code>## Welcome to Bioconductor
+##
+##     Vignettes contain introductory material; view with
+##     'browseVignettes()'. To cite Bioconductor, see
+##     'citation(&quot;Biobase&quot;)', and for packages 'citation(&quot;pkgname&quot;)'.
+</code></pre>
+<pre><code>## Setting options('download.file.method.GEOquery'='auto')
+</code></pre>
+<pre><code>## Setting options('GEOquery.inmemory.gpl'=FALSE)
+</code></pre>
+<pre><code>if(!require(GEOquery))install.packages('Seurat')
+#建议安装的时候选1，依赖的包都装上
+</code></pre>
+<p>用GEOquery下载总是出权限问题，大家可以自行在GEO中下载GSE139107。我提供的测试数据中也有计算好的数据，下面这个代码框的运行大约要花费20GB的内存，建议从第二个代码框直接读取。</p>
+<pre><code class="language-r">#加载包和数据
+library(plot1cell)
+#getGEOSuppFiles(GEO = &quot;GSE139107&quot;)
+#    setwd(&quot;GSE139107/&quot;)
+setwd(&quot;GSE139107/&quot;)
+    all_files &lt;- list.files(pattern = &quot;dge&quot;)
+    all_ct &lt;- list()
+    for (i in 1:length(all_files)) {
+        ct_data &lt;- read.delim(all_files[i])
+        ct_data &lt;- Matrix(as.matrix(ct_data), sparse = T)
+        all_ct[[i]] &lt;- ct_data
+        print(all_files[i])
+    }
+    all.count &lt;- RowMergeSparseMatrices(all_ct[[1]], all_ct[-1])
+    meta.data &lt;- read.delim(&quot;GSE139107_MouseIRI.metadata.txt.gz&quot;)
+    all.count &lt;- all.count[, rownames(meta.data)]
+    iri &lt;- CreateSeuratObject(counts = all.count, min.cells = 0,
+        min.features = 0, meta.data = meta.data)
+    makecore &lt;- function(workcore,memory){
+  if(!require(Seurat))install.packages('Seurat')
+  if(!require(future))install.packages('future')
+  plan(&quot;multiprocess&quot;, workers = workcore)
+  options(future.globals.maxSize= memory*1024*1024**2)
+}
+makecore(4,5)
+    iri.list &lt;- SplitObject(iri, split.by = &quot;orig.ident&quot;)
+    iri.list &lt;- lapply(X = iri.list, FUN = function(x) {
+        x &lt;- NormalizeData(x, verbose = FALSE)
+        x &lt;- FindVariableFeatures(x, verbose = FALSE)
+    })
+    features &lt;- SelectIntegrationFeatures(object.list = iri.list)
+    iri.list &lt;- lapply(X = iri.list, FUN = function(x) {
+        x &lt;- ScaleData(x, features = features, verbose = FALSE)
+        x &lt;- RunPCA(x, features = features, verbose = FALSE)
+    })
+    anchors &lt;- FindIntegrationAnchors(object.list = iri.list,
+        reference = c(1, 2), reduction = &quot;rpca&quot;, dims = 1:50)
+    iri.integrated &lt;- IntegrateData(anchorset = anchors, dims = 1:50)
+    iri.integrated &lt;- ScaleData(iri.integrated, verbose = FALSE)
+    iri.integrated &lt;- RunPCA(iri.integrated, verbose = FALSE)
+    iri.integrated &lt;- RunUMAP(iri.integrated, dims = 1:25, min.dist = 0.2)
+    iri.integrated &lt;- RunTSNE(iri.integrated, dims = 1:25, min.dist = 0.2)
+    iri.integrated &lt;- SetIdent(iri.integrated, value = &quot;celltype&quot;)
+    levels(iri.integrated) &lt;- c(&quot;PTS1&quot;, &quot;PTS2&quot;, &quot;PTS3&quot;,
+        &quot;NewPT1&quot;, &quot;NewPT2&quot;, &quot;DTL-ATL&quot;, &quot;MTAL&quot;,
+        &quot;CTAL1&quot;, &quot;CTAL2&quot;, &quot;MD&quot;, &quot;DCT&quot;,
+        &quot;DCT-CNT&quot;, &quot;CNT&quot;, &quot;PC1&quot;, &quot;PC2&quot;,
+        &quot;ICA&quot;, &quot;ICB&quot;, &quot;Uro&quot;, &quot;Pod&quot;, &quot;PEC&quot;,
+        &quot;EC1&quot;, &quot;EC2&quot;, &quot;Fib&quot;, &quot;Per&quot;, &quot;Mø&quot;,
+        &quot;Tcell&quot;)
+    levels(iri.integrated@meta.data$Group) &lt;- c(&quot;Control&quot;,
+        &quot;4hours&quot;, &quot;12hours&quot;, &quot;2days&quot;, &quot;14days&quot;,
+        &quot;6weeks&quot;)
+    DefaultAssay(iri.integrated) &lt;- &quot;RNA&quot;
+    setwd(&quot;../&quot;)
+    saveRDS(iri.integrated,'iri.intergrate.rds')
+</code></pre>
+<h2 id="12">1.2 数据基本情况</h2>
+<pre><code class="language-r">#大家可以跳过上面预处理的步骤直接读取
+library(Seurat)
+</code></pre>
+<pre><code>## Attaching SeuratObject
+</code></pre>
+<pre><code class="language-r">scRNA &lt;- readRDS('iri.intergrate.rds')
+ncol(scRNA)#细胞数量很多
+</code></pre>
+<pre><code>## [1] 126578
+</code></pre>
+<pre><code>names(scRNA@meta.data)
+</code></pre>
+<pre><code>## [1] &quot;orig.ident&quot;   &quot;nCount_RNA&quot;   &quot;nFeature_RNA&quot; &quot;Group&quot;        &quot;Replicates&quot;
+## [6] &quot;celltype&quot;
+</code></pre>
+<pre><code>DimPlot(scRNA)
+</code></pre>
+<pre><code>## Rasterizing points since number of points exceeds 100,000.
+## To disable this behavior set `raster=FALSE`
+</code></pre>
+<p><img alt="" src="../images/6b7cf21ccc62e9cc.webp"></p>
+<pre><code>DimPlot(scRNA,split.by = 'Group')#可以看到组别比较多
+</code></pre>
+<pre><code>## Rasterizing points since number of points exceeds 100,000.
+## To disable this behavior set `raster=FALSE`
+</code></pre>
+<p><img alt="" src="../images/d8378cf9dbfc5325.webp"></p>
+<pre><code>DimPlot(scRNA,split.by = 'Replicates')
+</code></pre>
+<pre><code>## Rasterizing points since number of points exceeds 100,000.
+## To disable this behavior set `raster=FALSE`
+</code></pre>
+<p><img alt="" src="../images/f9ca788f91581891.webp"></p>
+<pre><code class="language-r">#细胞数量太多不方便演示，做个抽样
+Idents(scRNA) &lt;- 'Group' #设置active idents
+scRNA &lt;- subset(scRNA, downsample = 1000)#每个'Group'中随机抽取一千个细胞
+Idents(scRNA) &lt;- 'celltype'
+ncol(scRNA)
+</code></pre>
+<pre><code>## [1] 6000
+</code></pre>
+<h1 id="seuratdimplot">三、对<code>Seurat::DimPlot</code>的探索</h1>
+<p>在我们利用一些扩展包对降维图进行改造之前，我们可以先来回顾一下<code>Seurat</code>中的<code>DimPlot</code>，随着版本的更新，其功能越来越强大，也许有许多你未曾使用过参数，而它们可能已经能满足你的改造需求。</p>
+<h2 id="21dimplot">2.1.<code>DimPlot</code>的完整参数</h2>
+<pre><code>#?DimPlot
+
+# DimPlot {Seurat}  R Documentation
+# Dimensional reduction plot
+# Description
+# Graphs the output of a dimensional reduction technique on a 2D scatter plot where each point is a cell and it's positioned based on the cell embeddings determined by the reduction technique. By default, cells are colored by their identity class (can be changed with the group.by parameter).
+#
+# Usage
+# DimPlot(
+#   object,
+#   dims = c(1, 2),
+#   cells = NULL,
+#   cols = NULL,
+#   pt.size = NULL,
+#   reduction = NULL,
+#   group.by = NULL,
+#   split.by = NULL,
+#   shape.by = NULL,
+#   order = NULL,
+#   shuffle = FALSE,
+#   seed = 1,
+#   label = FALSE,
+#   label.size = 4,
+#   label.color = &quot;black&quot;,
+#   label.box = FALSE,
+#   repel = FALSE,
+#   cells.highlight = NULL,
+#   cols.highlight = &quot;#DE2D26&quot;,
+#   sizes.highlight = 1,
+#   na.value = &quot;grey50&quot;,
+#   ncol = NULL,
+#   combine = TRUE,
+#   raster = NULL,
+#   raster.dpi = c(512, 512)
+# )
+#
+# PCAPlot(object, ...)
+#
+# TSNEPlot(object, ...)
+#
+# UMAPPlot(object, ...)
+# Arguments
+# object
+# Seurat object
+#
+# dims
+# Dimensions to plot, must be a two-length numeric vector specifying x- and y-dimensions
+#
+# cells
+# Vector of cells to plot (default is all cells)
+#
+# cols
+# Vector of colors, each color corresponds to an identity class. This may also be a single character or numeric value corresponding to a palette as specified by brewer.pal.info. By default, ggplot2 assigns colors. We also include a number of palettes from the pals package. See DiscretePalette for details.
+#
+# pt.size
+# Adjust point size for plotting
+#
+# reduction
+# Which dimensionality reduction to use. If not specified, first searches for umap, then tsne, then pca
+#
+# group.by
+# Name of one or more metadata columns to group (color) cells by (for example, orig.ident); pass 'ident' to group by identity class
+#
+# split.by
+# Name of a metadata column to split plot by; see FetchData for more details
+#
+# shape.by
+# If NULL, all points are circles (default). You can specify any cell attribute (that can be pulled with FetchData) allowing for both different colors and different shapes on cells. Only applicable if raster = FALSE.
+#
+# order
+# Specify the order of plotting for the idents. This can be useful for crowded plots if points of interest are being buried. Provide either a full list of valid idents or a subset to be plotted last (on top)
+#
+# shuffle
+# Whether to randomly shuffle the order of points. This can be useful for crowded plots if points of interest are being buried. (default is FALSE)
+#
+# seed
+# Sets the seed if randomly shuffling the order of points.
+#
+# label
+# Whether to label the clusters
+#
+# label.size
+# Sets size of labels
+#
+# label.color
+# Sets the color of the label text
+#
+# label.box
+# Whether to put a box around the label text (geom_text vs geom_label)
+#
+# repel
+# Repel labels
+#
+# cells.highlight
+# A list of character or numeric vectors of cells to highlight. If only one group of cells desired, can simply pass a vector instead of a list. If set, colors selected cells to the color(s) in cols.highlight and other cells black (white if dark.theme = TRUE); will also resize to the size(s) passed to sizes.highlight
+#
+# cols.highlight
+# A vector of colors to highlight the cells as; will repeat to the length groups in cells.highlight
+#
+# sizes.highlight
+# Size of highlighted cells; will repeat to the length groups in cells.highlight
+#
+# na.value
+# Color value for NA points when using custom scale
+#
+# ncol
+# Number of columns for display when combining plots
+#
+# combine
+# Combine plots into a single patchworked ggplot object. If FALSE, return a list of ggplot objects
+#
+# raster
+# Convert points to raster format, default is NULL which automatically rasterizes if plotting more than 100,000 cells
+#
+# raster.dpi
+# Pixel resolution for rasterized plots, passed to geom_scattermore(). Default is c(512, 512).
+#
+# ...
+# Extra parameters passed to DimPlot
+#
+# Value
+# A patchworked ggplot object if combine = TRUE; otherwise, a list of ggplot objects
+#
+# Note
+# For the old do.hover and do.identify functionality, please see HoverLocator and CellSelector, respectively.
+#
+# See Also
+# FeaturePlot HoverLocator CellSelector FetchData
+#
+# Examples
+# Run examples
+#
+# data(&quot;pbmc_small&quot;)
+# DimPlot(object = pbmc_small)
+# DimPlot(object = pbmc_small, split.by = 'ident')
+</code></pre>
+<h2 id="22dimplot">2.2.调整<code>DimPlot</code>参数</h2>
+<p>其实<code>DimPlot</code>中还有很多参数可以调整，用好这些参数也可以对降维图改造一番：</p>
+<h3 id="221-cols">2.2.1 <code>cols</code></h3>
+<p>这个参数主要用于调整各分类变量的颜色
+<code>ggsci</code>的使用可以参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492081&amp;idx=1&amp;sn=5ac4068bef62225d8ad8fb73f41ce295&amp;chksm=9b3c98a1ac4b11b7793d4733c883b3eef5e52e335759e0130127f73f5c82b2e84cd43e825914&amp;token=9118618&amp;lang=zh_CN&amp;scene=21#wechat_redirect">自此配色烦恼不相逢——ggsci</a></p>
+<pre><code class="language-r">library(ggsci)
+mycol &lt;- c(pal_d3()(7),pal_aaas()(7),pal_uchicago()(7),pal_jama()(7))
+DimPlot(scRNA)|#ggplot2的默认配色
+  DimPlot(scRNA,cols = mycol)#ggsci中的一些配色
+</code></pre>
+<p><img alt="" src="../images/7a24ad390a651bab.webp"></p>
+<p>2.2.2 <code>pt.size</code></p>
+<pre><code>#设置的极端一些让大家看看效果，大家可以自行调整至舒适的大小
+DimPlot(scRNA,pt.size = 0.01)|DimPlot(scRNA,pt.size = 1)
+</code></pre>
+<p><img alt="" src="../images/544051870e3e98eb.webp"></p>
+<h3 id="223-reduction">2.2.3 <code>reduction</code></h3>
+<p>这个参数也比较简单，即选择降维方式</p>
+<pre><code>DimPlot(scRNA,reduction = 'umap')|
+  DimPlot(scRNA,reduction = 'tsne')|
+    DimPlot(scRNA,reduction = 'pca')
+</code></pre>
+<p><img alt="" src="../images/4e9d6130aa8f4584.webp"></p>
+<pre><code>#显然PCA是不利于做细胞类型的展示的
+</code></pre>
+<h3 id="224-label">2.2.4 <code>label</code>相关</h3>
+<p><code>label</code>:是否显示标签</p>
+<pre><code>DimPlot(scRNA,label = F)|DimPlot(scRNA,label = T)
+</code></pre>
+<p><img alt="" src="../images/f4af3efdaf04692b.webp"></p>
+<pre><code class="language-r">#有点花，我们就挑细胞数量最多的五种细胞类型做展示：
+suppressMessages(library(dplyr))
+mycelltype &lt;- table(Idents(scRNA)) %&gt;%sort(decreasing = T) %&gt;% names(.) %&gt;% .[c(1:5)*2]
+mycelltype#抽出五种细胞
+</code></pre>
+<pre><code>## [1] &quot;PTS1&quot; &quot;EC1&quot;  &quot;DCT&quot;  &quot;PTS3&quot; &quot;Fib&quot;
+</code></pre>
+<pre><code class="language-r">scRNA &lt;- subset(scRNA,idents=mycelltype)
+DimPlot(scRNA,label = F)|DimPlot(scRNA,label = T)
+</code></pre>
+<p><img alt="" src="../images/e62c693453061d93.webp"></p>
+<p><code>label.size</code>:在<code>labe=T</code>时调整标签大小:</p>
+<pre><code>#一样选的比较极端，大家可以自行调整
+DimPlot(scRNA,label = T,label.size  = 0.5)|
+  DimPlot(scRNA,label = T,label.size = 5)
+</code></pre>
+<p><img alt="" src="../images/3e678ecb2b709ea4.webp"></p>
+<p><code>label.box</code>:在<code>labe=T</code>时给label加上一个边框</p>
+<pre><code>#一样选的比较极端，大家可以自行调整
+DimPlot(scRNA,label = T,label.box = T)|#缺点就是会挡住后面的点
+  DimPlot(scRNA,label = T,label.box  = F)
+</code></pre>
+<p><img alt="" src="../images/dda7948accf51dc9.webp"></p>
+<p><code>repel</code>:把<code>label</code>放在细胞的一侧，这样可以拯救一下遮住的点</p>
+<pre><code>DimPlot(scRNA,label = T,label.box  = T,repel = T)|DimPlot(scRNA,label = T,label.box  = T,repel = F)
+</code></pre>
+<p><img alt="" src="../images/69a748cddb8a2b25.webp"></p>
+<h3 id="225-highlight">2.2.5 <code>highlight</code>相关</h3>
+<p><code>cells.highlight</code>:选择想要高亮的细胞，这里输入的是一个包含细胞<strong>barcode</strong> 名称的list</p>
+<pre><code>DimPlot(scRNA,label = T)|
+  DimPlot(scRNA,label = T,cells.highlight = c('PTS2','PTS1'))|#这行是个错误示范
+    DimPlot(scRNA,label = T,cells.highlight = list(PTC1and2=colnames(scRNA)[scRNA$celltype %in% c('PTS2','PTS1')]))
+</code></pre>
+<p><img alt="" src="../images/372461a48327e67b.webp"></p>
+<p><code>sizes.highlight</code>:被高亮的细胞可以如是调整点的大小：</p>
+<pre><code>DimPlot(scRNA,label = T)|
+  DimPlot(scRNA,label = T,cells.highlight = list(PTC1and2=colnames(scRNA)[scRNA$celltype %in% c('PTS2','PTS1')]),sizes.highlight=1)|
+  DimPlot(scRNA,label = T,cells.highlight = list(PTC1and2=colnames(scRNA)[scRNA$celltype %in% c('PTS2','PTS1')]),sizes.highlight=2)
+</code></pre>
+<p><img alt="" src="../images/2993aa9ac34ccd95.webp"></p>
+<h3 id="226-raster">2.2.6 <code>raster</code>是否栅格化</h3>
+<p>及把矢量图像素化</p>
+<pre><code>DimPlot(scRNA,raster  = F)|DimPlot(scRNA,raster = T)
+</code></pre>
+<p><img alt="" src="../images/3a17b5f3c2d26cb7.webp"></p>
+<pre><code>#这里由于像元尺寸小于点的大小，因此点的看起来点变方了
+#我们把这两张图分别存出来
+pdf(file = 'p1.pdf')
+DimPlot(scRNA,raster  = F)
+dev.off()
+</code></pre>
+<pre><code>## png
+##   2
+</code></pre>
+<pre><code>pdf(file = 'p2.pdf')
+DimPlot(scRNA,raster = T)
+dev.off()
+</code></pre>
+<pre><code>## png
+##   2
+</code></pre>
+<pre><code>#可以看出，栅格化以后会节省图片文件存储空间的大小
+file.size('p1.pdf')
+</code></pre>
+<pre><code>## [1] 120020
+</code></pre>
+<pre><code>file.size('p2.pdf')
+</code></pre>
+<pre><code>## [1] 16020
+</code></pre>
+<p><code>reaster.dpi</code>:设定栅格化的分辨率</p>
+<pre><code>#分辨率选的越低，图片就会越糊：
+DimPlot(scRNA,raster = T, raster.dpi = c(512, 512))|
+  DimPlot(scRNA,raster = T,raster.dpi  = c(200, 200))
+</code></pre>
+<p><img alt="" src="../images/c83b79fdbb03182e.webp"></p>
+<p><img alt="" src="../images/ceac53a8b65f5faf.png"></p>
+<p>代码及测试文件</p>
+<p><img alt="" src="../images/90fab1387787746b.gif">不要再说我的链接失效啦，我也不知道为啥腾讯和百度云不对付，微信页面或腾讯浏览器时常打不开百度云链接，链接最好在谷歌浏览器中打开或<strong>扫码打开</strong> ，真的失效了再提醒客服更换链接哦。也不要说我的链接里没代码，html格式的文件大家用浏览器打开就可以看到整理好的笔记：</p>
+<p><img alt="" src="../images/4c351de25fb35e2b.webp"></p>
+<p>链接：</p>
+<p>链接：https://pan.baidu.com/s/1DRDOEgtq1YrEJWQCz2vsOQ?pwd=sxxv</p>
+<p><img alt="" src="../images/a3f316313ac8117f.jpg"></p>
+<p>若链接失效可以文末联系客服领取~</p>
+<p><strong>单细胞系列教程目录</strong></p>
+<p><img alt="" src="../images/90fab1387787746b.gif"></p>
+<p>单细胞数据分析系列教程：</p>
+<p>B站视频，先看一遍视频再去看推送操作，建议至少看三遍：https://www.bilibili.com/video/BV1S44y1b76Z/以下的资料都可以在这里订阅：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492295&amp;idx=1&amp;sn=d4e81588c0ac2906849c8bc44d079209&amp;chksm=9b3c9b97ac4b1281ab462f866538f096ba2473a3d1426a27d8d97ccc636bfd081e1ba8934dfd&amp;scene=21#wechat_redirect">单细胞数据基础分析学习手册</a></p>
+<p>单细胞测序基础数据分析保姆级教程，代码部分整理在往期推送之中：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484077&amp;idx=1&amp;sn=e329bf865493d46308985f4c111370ae&amp;chksm=9b3f7bfdac48f2eb7e903510338bd772c6be34ccbcb681806d288e62a05eee28fa209d2f33b9&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（一）——绪论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484086&amp;idx=1&amp;sn=7346a09ba350d6fb7c806dcb7509a1ef&amp;chksm=9b3f7be6ac48f2f02cb948140381ad2a0e3818cc0eefc53cb7a1ad7459aacdc1e90a1ce0af8b&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（二）——各类输入文件读取</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487976&amp;idx=1&amp;sn=8edd929256e609e4210a40df63fc1427&amp;chksm=9b3f68b8ac48e1aefd3ff38dd5744c485cde5d7f28d79745b66863928d4614fafb2928b3f617&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（三）——单样本分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488539&amp;idx=1&amp;sn=73c538e31907b8d82437cc063b2a2a15&amp;chksm=9b3f6d4bac48e45dcc737ee5a7529f58803fdbaa9ef49aca3c76af0f2e7e374247266b0d16cb&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（四）——多样本整合</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488597&amp;idx=1&amp;sn=6123d348db245774d4a0db4134a839d4&amp;chksm=9b3f6d05ac48e4132f92ca6c32dab29d2a4e1eb00d1db3b6e10eba7ffc7154e8554a70938583&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（五）——细胞类型注释</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488675&amp;idx=1&amp;sn=c1f4ac08b87baf625c7aafa8f073ed79&amp;chksm=9b3f6df3ac48e4e53ef11776bda8a5f75f1d465e4e2d6cccd5e4e1aff5f26eaa34cdea3aabb8&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（六）——组间差异分析及可视化</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488717&amp;idx=1&amp;sn=6ba02599dda33eb6cff751c1d92055d9&amp;chksm=9b3f6d9dac48e48ba334f031ce7874b4383a45be271acc9f0e6a714934ab7c7d945a513efdec&amp;scene=21#wechat_redirect">手把手教你做单细胞测序数据分析（七）——基因集富集分析</a></p>
+<p>上游fastq文件处理：
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484923&amp;idx=1&amp;sn=b5876af14fbee68d1e9db4b0f70cd1c8&amp;chksm=9b3f7cabac48f5bdb3aac7d20201d89121a83720b41a10017564fedbb8c4a13df0da92daffd7&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：cellranger</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484937&amp;idx=1&amp;sn=4fe1fa518202bdaf462bb93a2614ed32&amp;chksm=9b3f7f59ac48f64fafaf34bac2c80f06d3a86b6a84ccf12566c7eac25bb71c7edd3d74004cf7&amp;scene=21#wechat_redirect">单细胞分析的最上游——处理Fastq文件：dropseqRunner</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488441&amp;idx=1&amp;sn=dac4efc4a8901a4abb133f9e5c80831e&amp;chksm=9b3f6ae9ac48e3fff5a7112a0127726441ccb9dc2c3369d4a0fe98a2120df991954ff0567732&amp;scene=21#wechat_redirect">有奖提问,这个smart-Seq2数据实战的比对率为何如此低？</a></p>
+<p>细胞通讯B站连续播放起来比较方便：
+https://www.bilibili.com/video/BV1Ab4y1W7qx?p=1<strong>往期推送</strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485403&amp;idx=1&amp;sn=e148e2d09556a85333cd9c212a880aaa&amp;chksm=9b3f7e8bac48f79d6288977f3a67ebed5813dfe92e4a227a2e304eb68321771b3511fdaf5ba5&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《细胞通讯》1.概论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485680&amp;idx=1&amp;sn=8168685ab9bbf772dce24e8673994033&amp;chksm=9b3f71a0ac48f8b6554aa6f30a81f7e622fd8bf2f6a83701839290b7dd8f1c90343592603413&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《细胞通讯》2.1CellChat基础分析教程</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485706&amp;idx=1&amp;sn=2d39360b41733b0be6f88d2922388507&amp;chksm=9b3f705aac48f94cc478210f7f11d37294156517c489dedb333d8647ca287134a29944f39a3d&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《细胞通讯》2.2CellChat多组别分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485734&amp;idx=1&amp;sn=32c75f6d07b49084e518af6d18099e8b&amp;chksm=9b3f7076ac48f9600593b319d2e0b36bf5a62399a9835caa5783ad36fbdec6004e04cb656db9&amp;scene=21#wechat_redirect">给你们申请到了免费的128GB云服务器</a>
+拟时序分析B站连续播放起来比较方便：
+https://www.bilibili.com/video/BV1br4y1x7Hf?p=1<strong>往期推送</strong><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486553&amp;idx=1&amp;sn=b689ec962a17ca1a1ada29ae8ff8c019&amp;chksm=9b3f7509ac48fc1f0f81e288de8f15c86548215a1cd9d5c740dc63f2421371d13890398ab1df&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》1.概论</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487001&amp;idx=1&amp;sn=329129e75f703e3f332e76af9c66871e&amp;chksm=9b3f7749ac48fe5f081248c2a48c56685e3915015036c73f8f67ec3e6acc246ddf815daedb22&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》2.monocle概论</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487400&amp;idx=1&amp;sn=223a96a245c408c31e2c3c16afac88fc&amp;chksm=9b3f76f8ac48ffee769dc76870e15bbd0275647dcfb9bf21bf499b7eaee86121b254e4b2da54&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》3.monocle2实操：完整版</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489044&amp;idx=1&amp;sn=061dbfc34d200b73a8227d0bb28a1d27&amp;chksm=9b3f6f44ac48e65251f7e5ecce84637c05d50ecb92769e8386f221f8e7b9bfeb719232def863&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》4.初识monocle3</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489494&amp;idx=1&amp;sn=44f0a44857c12fcf9a1ab84e4f2cbebf&amp;chksm=9b3f6e86ac48e79026321de2fdca81a139d104d655884ffe87a68e0a1551ddffa5af7919d19e&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》5.monocle3的降维、分群、聚类</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490418&amp;idx=1&amp;sn=18ae0b6139fe1a2436dcf6cc47850297&amp;chksm=9b3f6222ac48eb3450de0b02a34eb5fff2db89ab8f155460d554cbb23be0cd27fd349079e7b2&amp;scene=21#wechat_redirect">单细胞测序数据进阶分析—《拟时序分析》6.monocle3的拟时序分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491083&amp;idx=1&amp;sn=c5697ab024193cb6595d27e4f4d3bfaf&amp;chksm=9b3f675bac48ee4d7244d9819e14fe210f7e42e40fc7a6a8df7b95bfd92f06334d60d226cb93&amp;scene=21#wechat_redirect">解决monocle2的orderCells报错的两种方法</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494479&amp;idx=1&amp;sn=32f39c79c4c9fc07aa829eed49016da3&amp;chksm=9b3c921fac4b1b091efcdd151500b69d19f71d5ca518122af697fc37e87acd915f3be5f63fb8&amp;scene=21#wechat_redirect">一文搞定拟时序分析的下游可视化探索</a></p>
+<p>其他单细胞相关技术贴也在这里：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484056&amp;idx=1&amp;sn=4967a054f5241ff3a1bd4a6fe9a502b1&amp;chksm=9b3f7bc8ac48f2deca3141461be035deb8658be184d78597af28f8ba2092d12f020768275248&amp;scene=21#wechat_redirect">细胞的数量由誰决定？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484701&amp;idx=1&amp;sn=ad90680f252d092a2e21f349c8f32cab&amp;chksm=9b3f7c4dac48f55bf1d11337406ab0e1295e8e1731dbac0715eedc99d11beff7f380e42dd49b&amp;scene=21#wechat_redirect">单细胞中应该如何做GSVA？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484280&amp;idx=2&amp;sn=844af02070012a1c2681880596ba51a2&amp;chksm=9b3f7a28ac48f33e95eb906121be8953410ca4c572c8035cb801609a56caf9dcff57fa989602&amp;scene=21#wechat_redirect">答读者问（三）：单细胞测序前景</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484316&amp;idx=2&amp;sn=e8d02fddc80d1137bb64c55541f1651d&amp;chksm=9b3f7accac48f3da7df7fcad9c996291bc66967c04d16dde92ed391c56e610a7298ac8fb7dbb&amp;scene=21#wechat_redirect">答读者问（四）：如何分析细胞亚群</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485012&amp;idx=1&amp;sn=6007c8d7cb2a236dd7240a678dac0391&amp;chksm=9b3f7f04ac48f612f811c1df9e9450dc8112d343e4bf245be5149c2e2a073d3e339cd0e3ff61&amp;scene=21#wechat_redirect">答读者问（八）：为什么Read10X也会报错?</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485134&amp;idx=1&amp;sn=13f5f8c47d8af2beeca4e103a5f5e26d&amp;chksm=9b3f7f9eac48f688b454a1062ee4e41f7072ac9d58e5466fa7ed4bb05018adbfe167bb3a445a&amp;scene=21#wechat_redirect">答读者问（十）整合后的表达矩阵，如何拆分出分组信息？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485145&amp;idx=1&amp;sn=402cb28c16aba0dc647037c9b7aba8f7&amp;chksm=9b3f7f89ac48f69fe27cd427df3eff2e88c240bf20dfe92d8b522eecd7302d132d880bf29047&amp;scene=21#wechat_redirect">答读者问（十一）如何一次性读取一个目录下的cellranger输出文件？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485730&amp;idx=1&amp;sn=42b9b35026bec5359ac34750dea3bf44&amp;chksm=9b3f7072ac48f964970f673a86e27ecd453a80b953168dc110e0ea6bfa4110eeed3350c9601a&amp;scene=21#wechat_redirect">给你安排一个懂生信的工具人（十）：不学编程 零代码完成单细胞测序数据分析：Loupe Browser</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485798&amp;idx=1&amp;sn=c849bc7a0093af92fc99e13b55842bb2&amp;chksm=9b3f7036ac48f92048d726b38f2dd978d0b0cce779c1a4090aa4da5cb2df3ad30a5c5dbed27e&amp;scene=21#wechat_redirect">什么？不做单细胞也能分析细胞类群和免疫浸润？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485859&amp;idx=1&amp;sn=a014c4cb6034551e57c70820c7781e49&amp;chksm=9b3f70f3ac48f9e52620e3ff197eb98e58836e8bb6baad634387a521fdda1e4a194356517c73&amp;scene=21#wechat_redirect">答读者问 （十三）查看Seurat对象时的ERROR：type='text'</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485925&amp;idx=1&amp;sn=14e08440200f0f5cb4dcc2dc615efeb8&amp;chksm=9b3f70b5ac48f9a37a43cc2a8b2a5e485a3f84b4ef87949dfe99056bc6301b110e80800f6bb1&amp;scene=21#wechat_redirect">各类单细胞对象（数据格式）转换大全（一）</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486045&amp;idx=1&amp;sn=0b6874bcffc8abafb505cabce4c4fc0e&amp;chksm=9b3f730dac48fa1b140ef01c07a7749e69df4fa7d2056deeed0673c668b6246724cd85741125&amp;scene=21#wechat_redirect">批量整理好GEO中下载的单细胞数据</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486134&amp;idx=1&amp;sn=e581b8ac20bbc968aeef3f9cf56f3a0f&amp;chksm=9b3f73e6ac48faf0f1c81752b0190abc617eb720a71806950e7851c7d19b7e3e092aa97bd005&amp;scene=21#wechat_redirect">答读者问 （十四）Seurat中分类变量处理技巧</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486259&amp;idx=1&amp;sn=97de5c9e15e48cb62c8a680376a4ee0d&amp;chksm=9b3f7263ac48fb75a91b40416826fe35b340284cf38255925ac447443a62cdc1df082d20fb61&amp;scene=21#wechat_redirect">答读者问 （十五）稀疏矩阵转matrix, as.matrix函数是下下策</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247487923&amp;idx=1&amp;sn=15043c6d729b0d5493ab875b0e54a259&amp;chksm=9b3f68e3ac48e1f5dae514a01c857f9a56a90e2977dd7862db28d06fe55888cd9bb4afbb14e0&amp;scene=21#wechat_redirect">答读者问 （十六）做单细胞测序到底需要多少内存</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488995&amp;idx=1&amp;sn=7140e0d037671542fb37dff3a3c94b28&amp;chksm=9b3f6cb3ac48e5a5f54a02be9e6af9f5a4cf8da1de1770f9035130c84dedf059a024964fc15a&amp;scene=21#wechat_redirect">答读者问 （十七）调用的线程越多就算的越快嘛?</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490010&amp;idx=1&amp;sn=24c55fa4bd5d7d829625cb67dbaf321a&amp;chksm=9b3f608aac48e99c9f27e3423c8398034a1819d0ccebbf21170b955461d2c335132d6f3cce25&amp;scene=21#wechat_redirect">答读者问（十八）、一个我至少被问过30遍的monocle报错</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490949&amp;idx=1&amp;sn=b8dbe07d901f7c24f82d078be7a2fc77&amp;chksm=9b3f64d5ac48edc33980363c7bc862a9f6283b78dac407e9c082d80bd7d9669215eecac62347&amp;scene=21#wechat_redirect">沉浸式统计细胞比例</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490952&amp;idx=1&amp;sn=364a3941e59e45234795c906a42fc9ab&amp;chksm=9b3f64d8ac48edcec70384cf5c6a91224d0f7841ce3a7cfcade6513500c13673a6695d6f0299&amp;scene=21#wechat_redirect">没有barcode文件的单细胞数据要怎么读取</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491761&amp;idx=1&amp;sn=41f5c1ceaacf6a1c4840567f8a349e06&amp;chksm=9b3c99e1ac4b10f7ca158561e96fec76a49ff32b8412cb146ed3fb7aa9260c75172b4eb16f9a&amp;scene=21#wechat_redirect">单细胞基因集评分之AUCell</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494516&amp;idx=1&amp;sn=cb2d4e6b182428ce7b98e7fff2e8729a&amp;chksm=9b3c9224ac4b1b32c4fe99758960305c4845395cfe03851d70a0407043ee36250e55d20106fc&amp;scene=21#wechat_redirect">粉丝来稿|1. Seurat4相较于Seurat3的几点改动</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494116&amp;idx=1&amp;sn=f3dc577cbb464779062aada313191a05&amp;chksm=9b3c90b4ac4b19a27a17f958e3437337d5b10b6ba7153e4dd43dedcb4df812d8c6b4d86fe970&amp;scene=21#wechat_redirect">如何加快Seurat的计算速度</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493493&amp;idx=1&amp;sn=2cd725b2f04377f218955bafbcbb877d&amp;chksm=9b3c9e25ac4b17330a9b9ff77302ab95a9dc5dc7e6fe7298f28d682112ee066c7d4bc1947982&amp;scene=21#wechat_redirect">一文搞定单细胞基因集评分</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494879&amp;idx=1&amp;sn=c2287ab3684792747dfac53d6704462b&amp;chksm=9b3c958fac4b1c994a4b075c4f8475816e121966fa8c52cb0a2ce8c14987988ab9bdb49bdf69&amp;scene=21#wechat_redirect">答读者问（二十）四个单细胞样本只给了一套文件怎么读</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495019&amp;idx=1&amp;sn=f52ac22ca1ea47ecddaa3503bdc2c0b6&amp;chksm=9b3c943bac4b1d2d521f7155ce8f499389dade23828017572a84cdce71e5d08d37d74e08512b&amp;scene=21#wechat_redirect">人类单细胞测序数据中有哪些以"**-"开头的基因</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495765&amp;idx=1&amp;sn=2ec5e3e26491e28c92e25c40630bffae&amp;chksm=9b3c8905ac4b0013a23f9cda2cccd67cdf3c4a941bac161e3a15a12ab98cd4e5eca8aeedbe96&amp;scene=21#wechat_redirect">为什么总把分辨率调的很高</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247495938&amp;idx=1&amp;sn=2258390c97ec14f3cd336defede59cdb&amp;chksm=9b3c8852ac4b01448fd3b84463d5ab6b697495db6ad57746e7f60e32f491547a3e35290c66ee&amp;scene=21#wechat_redirect">Seurat中如何让细胞听你指挥</a></p>
+<p>单细胞文献阅读：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489823&amp;idx=1&amp;sn=6a5dddd53870395316d2b2e904c6ce72&amp;chksm=9b3f604fac48e959e97e4b0317643efdcf117da7f8b75f1edbcd64dd8e2f07149e6031a94dd4&amp;scene=21#wechat_redirect">Biomamba助推的第二篇文章!发表了！</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492532&amp;idx=1&amp;sn=cddb4691f23defc80b60da231790c53c&amp;chksm=9b3c9ae4ac4b13f2334cc7f6b16eec1d8223800f6ecef71a93cfba21698ac5f4505dbd64f300&amp;scene=21#wechat_redirect">又来了！Biomamba生信基地助推的第四篇文章!</a>
+文献阅读（三）、单细胞测序解析糖尿病肾病中肾小球的动态变化
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484204&amp;idx=1&amp;sn=ee2119c172e6e917998f3781ed20f550&amp;chksm=9b3f7a7cac48f36a97e3bd13660c34f8001032a87a17e98cccb835de3583bbf2d928128a277e&amp;scene=21#wechat_redirect">文献阅读（四）、</a>单细胞测序技术解析健康人与T2D患者的胰岛差异<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484204&amp;idx=1&amp;sn=ee2119c172e6e917998f3781ed20f550&amp;chksm=9b3f7a7cac48f36a97e3bd13660c34f8001032a87a17e98cccb835de3583bbf2d928128a277e&amp;scene=21#wechat_redirect">文献阅读（六）、</a>小鼠全肾单细胞测序开篇之作<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484204&amp;idx=1&amp;sn=ee2119c172e6e917998f3781ed20f550&amp;chksm=9b3f7a7cac48f36a97e3bd13660c34f8001032a87a17e98cccb835de3583bbf2d928128a277e&amp;scene=21#wechat_redirect">文献阅读（七）、</a>一篇不花钱就能白嫖的文章<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484204&amp;idx=1&amp;sn=ee2119c172e6e917998f3781ed20f550&amp;chksm=9b3f7a7cac48f36a97e3bd13660c34f8001032a87a17e98cccb835de3583bbf2d928128a277e&amp;scene=21#wechat_redirect">文献阅读（八）、不会吧不会吧，Nature都能白嫖？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485097&amp;idx=1&amp;sn=6e3e63fff6f26332b6a8b393608686d9&amp;chksm=9b3f7ff9ac48f6efc5477c57f3ab38e6c7dbd48b503a731cb08ac5f430fdab98d0d7e21da11a&amp;scene=21#wechat_redirect">文献阅读（十一）、高氧下小鼠肺发育损伤的ScRNA图谱</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485376&amp;idx=1&amp;sn=02e228d0993d8a653c8bb1d531021cdb&amp;chksm=9b3f7e90ac48f78686d6d5953aeb192db4f28bf577dbebd76d9fabbe797f135b7fb08fb42867&amp;scene=21#wechat_redirect">文献阅读（十二）、IgAN &amp; STRT-Seq</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486192&amp;idx=1&amp;sn=6b40bb3bb1ef590a477514a4400f4642&amp;chksm=9b3f73a0ac48fab6044850ae09b4e340f08b1b19e2c180ae1c25808104886fc544311d167396&amp;scene=21#wechat_redirect">文献阅读（十三）、老树开新花——EGFR、肿瘤、免疫+scRNA-Seq</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247486417&amp;idx=1&amp;sn=5dfa5b46e7626a1d3e327cb4fc3df3d5&amp;chksm=9b3f7281ac48fb9721b5ac0b8fd323a44018ba9d3ff3a872be2c36f141c2e02f9761df95708e&amp;scene=21#wechat_redirect">文献阅读（十五）、癌前基质细胞驱动BRCA1肿瘤发生</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489045&amp;idx=1&amp;sn=29feb00f094a9a7e20418b22aa54dd8c&amp;chksm=9b3f6f45ac48e653d4223838eb1d96e65e5ee51ac3f7782841d9b33013bdb67b5e22e9599fac&amp;scene=21#wechat_redirect">文献阅读（十八）、紧跟生信"钱"沿,胰腺癌&amp;免疫多模态图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489511&amp;idx=1&amp;sn=76ec706ebd97e3edd08687f5cf3b6816&amp;chksm=9b3f6eb7ac48e7a10bb81aec5332ecc0544a683f576ea680c8baa621e504816bf65c7d331bdf&amp;scene=21#wechat_redirect">文献阅读（十九）、原发头颈癌和肿瘤转移微生态</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490575&amp;idx=1&amp;sn=b931a1d50ddcfc4e34999763139695a0&amp;chksm=9b3f655fac48ec49eb2fb01ce8acb15e230091ab3c29ce1471747850be5dae54dbe97fd103b0&amp;scene=21#wechat_redirect">文献阅读（二十一）、肾脏疾病&amp;代谢&amp;核受体ESRRA</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490929&amp;idx=1&amp;sn=82bf93ccbd9dd906caad8ec709c86153&amp;chksm=9b3f6421ac48ed37117794e7c5b878fa78760627e8bced9c37a2c7c67fd8afd58d0cf0add17e&amp;scene=21#wechat_redirect">文献阅读(二十二)、PD-1&amp;急性髓细胞性白血病&amp;T Cell</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491084&amp;idx=1&amp;sn=e450844d4f102caa88cab6deb630a3f4&amp;chksm=9b3f675cac48ee4a6883559859a21d77256479bb8d030c54a91240827d85b925066bc4f8ebb6&amp;scene=21#wechat_redirect">文献阅读（二十三）、鼻咽癌&amp;肿瘤微环境&amp;scRNA-Seq</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491909&amp;idx=1&amp;sn=5d47d2917397248dd6a3a9e85f2acd6d&amp;chksm=9b3c9815ac4b11037e52ba00215a0b6cd23b554139955123ef21ac2cd07a646e97309e7def78&amp;scene=21#wechat_redirect">文献阅读 (二十四)、《Nature》：MYB调控衰竭性T细胞对检查点抑制的响应</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493604&amp;idx=1&amp;sn=d0f8738e26a4b1c870d329b6a4a7b689&amp;chksm=9b3c9eb4ac4b17a2d0b04d72c350c20f575701de7179f77fcd3567f4b1533cf35df4157f67e1&amp;scene=21#wechat_redirect">文献阅读(二十八)、单细胞都能活检测序了？</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493808&amp;idx=1&amp;sn=52c7d330ffdda47c3409d36fe9cbbcd8&amp;chksm=9b3c91e0ac4b18f6edf59d171a0d982b1e3f842148046d8eed19343484feaa84dbd5b7682a11&amp;scene=21#wechat_redirect">文献阅读(二十九)、单细胞测序做到什么程度能毕业|硕士篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494017&amp;idx=1&amp;sn=a2dc4e2eef2bcdb40f5074b665dfa45f&amp;chksm=9b3c90d1ac4b19c79ac5128f96d27789241357c9745bb0389ff5f79f96ab825d3e1c9b29e3af&amp;scene=21#wechat_redirect">文献阅读(三十)、单细胞测序做到什么程度能毕业|博士篇</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494796&amp;idx=1&amp;sn=92c91a65719bdf39658814eb691a780f&amp;chksm=9b3c95dcac4b1cca5547440a5881e650da3ea430bad3e6017cbd2891606b2ec40e3ec343bc0e&amp;scene=21#wechat_redirect">2022年了，都有哪些器官/组织有scRNA-Seq数据|小鼠篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247494806&amp;idx=1&amp;sn=1d15ad9cb4d350a164d3b941bc715233&amp;chksm=9b3c95c6ac4b1cd054cedbd3e8c8f57ee88cc59a6ebda2fd11ba8fea79f5e9e8c65d21ff338c&amp;scene=21#wechat_redirect">2022年了，都有哪些器官/组织有scRNA-Seq数据|人类篇</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496064&amp;idx=1&amp;sn=0be38306f9cd8c6b819d58cc2e779b87&amp;chksm=9b3c88d0ac4b01c6773b6c4f1a063788509baa27c57e2098b16b8ebe38cc625a87b9d89272c7&amp;scene=21#wechat_redirect">终于读到一篇用monocle3做拟时序的文章</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247496126&amp;idx=1&amp;sn=8cb6040a38eb844bb215c0d395196e3a&amp;chksm=9b3c88eeac4b01f8dcb8f4c7a19c5a58841d5fe1623f0a4c585c6dcc281cbbdd2830a1150f6a&amp;scene=21#wechat_redirect">单细胞转录组+亚细胞空间代谢组=25分文章</a></p>
+<p>单细胞注释复写<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490504&amp;idx=1&amp;sn=0066b2b33067cedb9d1c28689a53faab&amp;chksm=9b3f6298ac48eb8e12cdc7bdd6263e5feb9039f549f7b9dbf4e258854ee61476d09f702f1447&amp;scene=21#wechat_redirect">单细胞注释复写(一):Human Fetal Kidney</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247491642&amp;idx=1&amp;sn=2246fb702277ddc690f056fc8854142e&amp;chksm=9b3c996aac4b107c059a403978eca7be1ae7987659626272c58430910ad75892ad470517aefb&amp;scene=21#wechat_redirect">单细胞注释复写(二): human colorectal</a></p>
+<p>非技术帖：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247484798&amp;idx=1&amp;sn=120eada9b02ea2f81f93cd4cfa5eb964&amp;chksm=9b3f7c2eac48f538e2f95166dbe576b029dcb3ad7d321a4d9f346c9a51416d777f4cffb9aa84&amp;scene=21#wechat_redirect">关于单细胞的事 谈谈后面的计划</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247485614&amp;idx=1&amp;sn=f63ab5d759bdcb933f334be6333f9493&amp;chksm=9b3f71feac48f8e8cece92812e0c26d7c03130359451a89ce7db22b7022506371269e1fc2af0&amp;scene=21#wechat_redirect">趁机预告一波</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247489314&amp;idx=1&amp;sn=fe66765836fe0d7b3450b30117415ce8&amp;chksm=9b3f6e72ac48e7642725b22bafbece9c37277f56e3958be57d9702240c3b63dbeb1aedf61cf9&amp;scene=21#wechat_redirect">生信分析为什么要使用服务器？</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247492383&amp;idx=1&amp;sn=b8d912877cb38e8d8c9084d1d9370ded&amp;chksm=9b3c9a4fac4b135926091a8af972c45a17a2fa1f94c704779c60df5f733847036c3797894c1c&amp;scene=21#wechat_redirect">为实验室准备一份生物信息学不动产</a></p>
+<p><img alt="" src="../images/56869e2cc75aa830.png"></p>
+<p>如何联系我们</p>
+<p><img alt="" src="../images/7c0febec2249cfa6.gif">公众号后台消息更新不及时，超过48h便不允许回复消息，这里留一下领取资料、免费服务器的<strong>微信号</strong> ，方便各位随时交流、提建议（由助理接待）。此外呼声一直很高的交流群也建好了，欢迎大家入群讨论：<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247490936&amp;idx=1&amp;sn=850dfc45b10a6bd538c81cfbf1d7af37&amp;chksm=9b3f6428ac48ed3e4199dbfdec2fce4324d3226af19e335b8e5c0143cf8f0881667e36074d83&amp;scene=21#wechat_redirect">永久免费的千人生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247488966&amp;idx=1&amp;sn=9e9e7659b4cf00ac3173d21e88e1602b&amp;chksm=9b3f6c96ac48e580efe53f966430f6598785e5c5c6bcc20f5eef019e723e49baaaea6d73fb7b&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a>
+<img alt="" src="../images/fdb4c49c78e6216c.webp"><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

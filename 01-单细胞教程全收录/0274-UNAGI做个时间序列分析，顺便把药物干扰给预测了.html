@@ -1,0 +1,648 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0274-UNAGI做个时间序列分析，顺便把药物干扰给预测了</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="unagi">UNAGI做个时间序列分析，顺便把药物干扰给预测了</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537658&amp;idx=1&amp;sn=a4cb5c4626986f7f78dfa6419b4e7365&amp;chksm=9b3c2aaaac4ba3bc8e76824830dbb2571fd8cf3cedeaf6e103afd5bdf53b5ef6188a45126ed6#rd
+合集：单细胞教程全收录</p>
+</blockquote>
+<p><strong>一、写在前面</strong></p>
+<p>UNAGI是一种深度生成神经网络，专门用于分析时间序列单细胞转录组数据。该工具捕捉了疾病进展背后的复杂细胞动态，增强了药物扰动建模和筛查能力。当应用于特发性肺纤维化患者的数据集时，UNAGI学习到疾病知情的细胞嵌入，加深我们对疾病进展的理解，从而识别潜在的治疗药物候选。作者利用蛋白质组学验证了UNAGI细胞动力学分析的准确性，而使用纤维化混合剂的人体精切肺切片也证实了UNAGI关于硝苯地平（一种降压药物）可能对人体组织具有抗纤维化作用的预测。UNAGI的多功能性延伸至包括新冠在内的其他疾病，展现出适应性，并证实其在解码特发性肺纤维化以外复杂细胞动态中的更广泛应用，进一步扩大其在多样病理领域寻求治疗解决方案的应用。简单来说UNGAI可以对单细胞数据进行时间序列分析，并预测时间序列中的药物与基因干扰。 测试文件与学习手册见文末。</p>
+<p>原文链接：</p>
+<p>https://www.nature.com/articles/s41551-025-01423-7
+代码参考：</p>
+<p>https://github.com/mcgilldinglab/UNAGI/blob/main/tutorials/run_UNAGI_using_example_dataset.ipynb</p>
+<p>更多Python单细胞分析技巧可见：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=2&amp;sn=f1b479a1469dfe46bd8bb0b0bd1b470d&amp;scene=21#wechat_redirect"><img alt="" src="../images/b9adfcf1e0c54eb7.webp"></a></p>
+<p>如果需要<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247531388&amp;idx=3&amp;sn=dfaf8cac9db70bb408206fb3da27ffda&amp;scene=21#wechat_redirect">单细胞数据分析</a>指导、生信热点<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMzIzOTk5OQ==&amp;action=getalbum&amp;album_id=2981710763847614469&amp;token=1729645779&amp;lang=zh_CN#wechat_redirect">全文复现</a>、自测数据个性化分析辅导、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530174&amp;idx=1&amp;sn=c3b0499adcc9093546e4ba1cfffba7bd&amp;scene=21#wechat_redirect">常态化实验学习</a>，欢迎联系客服微信[Biomamba_zhushou]。</p>
+<p><strong>二、实操流程</strong></p>
+<pre><code>如果你的计算资源不够用。不妨看看：
+</code></pre>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247532373&amp;idx=2&amp;sn=4708fac31ac8f4e347847e4b7f2a4fed&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529475&amp;idx=1&amp;sn=10827e982a637e0fc36e4b6e857736c8&amp;scene=21&amp;token=1904068475&amp;lang=zh_CN&amp;poc_token=HF-eN2mj01zsfxe_I4r8D5pfZx80xO2AVYSB6qtT#wechat_redirect">忘记宣传了，独享用户连技术支持都是独享的</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529840&amp;idx=1&amp;sn=704b0a3d60a17c5bc2445d54c97b834f&amp;scene=21#wechat_redirect">RTX5090、4080S、5070显卡上机</a></p>
+<p>访问链接：https://biomamba.xiyoucloud.net/</p>
+<pre><code>1.安装
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>conda create -n unagi python=3.10conda activate unagipip install scUNAGI -i https://pypi.tuna.tsinghua.edu.cn/simple# 有一个比较恶心的事情，大家需要修改一下这个脚本的源码# 从github上克隆包相关文件git clone https://github.com/mcgilldinglab/UNAGI.gitcd UNAGI# 在本地安装一遍矫正一些包的冲突pip install ./locate UNAGI_analyst.py # 定位脚本位置# 修改定位到的脚本，下面要换成你自己的路径sed -i '10d' /home/biomamba/miniconda3/lib/python3.9/site-packages/UNAGI/UNAGI_analyst.py # 会用vim的同学也可以手动删除这行内容：from VTK.IO.Xdmf3.Testing.Python.VToXLoop import raiseErrorAndExit# 如果上面这个问题不解决，你会遇到这个报错：ModuleNotFoundError: No module named 'VTK'# 并且，numpy的版本需要&lt;2.0，否则会遇到这个报错：AttributeError: `np.string_` was removed in the NumPy 2.0 release. Use `np.bytes_` instead.pip install numpy==1.26.4 --force-reinstall# 安装特定版本的torch组件，否则会提示显卡驱动版本不兼容pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu128
+</code></pre>
+<p>另外还需要依赖<code>idrem</code>库完成可视化，我已经在本地给大家下载好了，大家可以随手册一起下载</p>
+<p>2. 测试数据集演示</p>
+<p>本章节将逐步介绍如何使用<code>UNAGI</code>配置模型架构、调整训练参数以及对时间序列单个数据集进行分析。我们通过将<code>UNAGI</code>应用于从snRNA-seq数据，并演示<code>UNAGI</code>的基本功能。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 以下包都需要能正常导入：import warningsimport scanpy as scimport oswarnings.filterwarnings('ignore')import warningsfrom UNAGI import UNAGI
+</code></pre>
+<p>2.1 初始化并加载数据集</p>
+<p>加载好UNAGI之后，第一步就是要设置数据分析参数，UNAGI可以直接加载<code>h5ad</code>数据，不明白这部分内容的可以参考<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528513&amp;idx=1&amp;sn=1ff1b8bee321f8f5bcac425ce96dc6ff&amp;scene=21#wechat_redirect">一文了解Python中的单细胞通货：AnnData</a>。<code>UNAGi</code>需要一个拥有时间序列作为输入的数据，这个数据保存在annData.obs中，这个数据需要包含KNN连接矩阵(单细胞数据处理可见：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247534702&amp;idx=1&amp;sn=f1531163f8f620b59cf63dfaa1c03e67&amp;scene=21#wechat_redirect">告别R依赖！一文搞定Python单细胞基础分析</a>)。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>#提交脚本samples=(&quot;Amp-3219&quot; &quot;Amp-3588&quot; &quot;Amp-6762_combined&quot;)count=1for sample in &quot;${samples[@]}&quot;; do    id=&quot;S${count}&quot;    echo &quot;Submitting $sample with ID $id ...&quot;    qsub /data/CRCdata/WES/add_label.bash $sample $id    count=$((count + 1))doneimport warningsimport scanpy as scimport osadata = sc.read_h5ad('./UNAGI-main/UNAGI/data/example/0.h5ad')adata.obs['stage']
+</code></pre>
+<pre><code>145_94_D__CAACAGTTCCAAGCCG     0
+</code></pre>
+<pre><code>221_45_Db__TCCATCGAGGCTCACC    0
+</code></pre>
+<pre><code>248_111_D__GTAACACAGGCTATCT    0
+</code></pre>
+<pre><code>145_21_Db__ACAGCCGGTGGTCTGC    0
+</code></pre>
+<pre><code>248_111_D__GGTGTCGCAATACCCA    0
+</code></pre>
+<pre><code>                                                            ..
+</code></pre>
+<pre><code>221_35_Db__GTGACGCGTTTACACG    0
+</code></pre>
+<pre><code>302_11_D__GAAGCCCGTTCATCTT     0
+</code></pre>
+<pre><code>145_22_D__CTTCGGTCATGTACGT     0
+</code></pre>
+<pre><code>145_21_Db__AGATGAAAGGGAGGTG    0
+</code></pre>
+<pre><code>94_124_D__CCCAACTTCGTCGATA     0
+</code></pre>
+<pre><code>Name: stage, Length: 13550, dtype: int64
+</code></pre>
+<ul>
+<li>*</li>
+</ul>
+<pre><code># 看一下这个adata的全部注释信息：adata.obs
+</code></pre>
+<p><img alt="" src="../images/824ac10114c53ced.webp"></p>
+<p>13550 rows × 31 columns</p>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code># 看一下包含的细胞类型：adata.obs['ident'].unique()# 可以看出这是个肺部的数据
+</code></pre>
+<pre><code>['VEcapillary', 'VEarterial', 'PericyteAlveolar', 'VEaerocyte', 'VEvenous', 'FibroblastAlveolar', 'SMC', 'FibroblastAdventitial', 'VEaerocyte/VEcapillary/FibroblastAlveolar', 'LymphEndo'] Categories (10, object): ['FibroblastAdventitial', 'FibroblastAlveolar', 'LymphEndo', 'PericyteAlveolar', ..., 'VEaerocyte/VEcapillary/FibroblastAlveolar', 'VEarterial', 'VEcapillary', 'VEvenous']
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 实例化unagiunagi = UNAGI()# 预处理h5ad文件：unagi.setup_data('./UNAGI-main/UNAGI/data/example/0.h5ad',# 单细胞的h5ad文件，注意，unagi会在这个路径下生成临时文件夹（样本名文件夹与，model_save文件夹），因此同一时间运行多个unagi，最好放在不同的目录下                 total_stage=4,# 时序结果的总序列数                 stage_key='stage',# 生成的时间序列在adata.obs中的名称                 threads=20# 默认参与计算的线程数                 )unagi
+</code></pre>
+<pre><code>Fast mode enabled!
+</code></pre>
+<pre><code> Cell graphs found, skipping cell graph construction!
+</code></pre>
+<pre><code>&lt;UNAGI.UNAGI_tool.UNAGI at 0x7f2014bd12d0&gt;
+</code></pre>
+<p>2.2 确认模型结构与超参数</p>
+<p><code>run_UNAGI</code>的输出日志会很长，用jupyter学习本教程的同学可以点击左侧的导航栏向下跳转。 我的演示设备中CPU是<code>Intel Xeon Platinum 8383C</code>、GPU是<code>RTX5990</code>，大约花费20min。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># 设置训练参数：unagi.setup_training(task='example',# 任务名称                     dist='ziln',# 当前单细胞数据的分布模式，可选的有：'ziln' (zero-inflated log normal), 'zinb' (zero-inflated negative binomial), 'zig' (zero-inflated gamma), and 'nb' (negative binomial)                     device='cuda:0',# 指定显卡                     GPU=True,# 是否启用GPU加速                     epoch_iter=5,# 第二轮循环开始，每轮的训练epoch数                     epoch_initial=1,# 第一轮的epoch数                     max_iter=3,# 训练三轮大循环                     BATCHSIZE=560 # 最小的批次大小                     )# 训练：unagi.run_UNAGI(idrem_dir = './iDREM')# 需要有idrem库，否则可视化内容无法生成
+</code></pre>
+<p><img alt="" src="../images/aac53d8a514fb1d4.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/647e77159e762add.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/ce59ea03c49e9f76.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/a828698daa70e63a.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/f81753fb13400a46.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/37e30f520d120d8c.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/74c571ad8e574047.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/b1a81b27c91c1d14.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/9701f78648116e23.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/224912d7df6105ee.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/3e5dd98dddb1dc9d.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/0c628a69409585cd.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/059ef8819f004233.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/04ae955ca43534d7.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/8463777cda34d477.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/6b737a60d4a2cbd4.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/9bdcf26e04f57a0b.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/4451eef3f949c8a8.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/f68903eb98e351da.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/1eae7dacdb9ceba1.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/25e9dad188807df9.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/e027e55b4b0f1a37.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/5203feb1970e42a8.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/fb14b028fe247605.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/069ce131d8e773be.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/7282760601777505.png"></p>
+<p><img alt="No description has been provided for this image" src="../images/8865bb9af0f07c1b.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/d77b3ee8c3978b99.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/98098e7f8358a11a.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/a05b82e65913eaac.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/a764e027d2d28893.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/2e6d118ba7aa3637.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/321c33e1ed395711.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/effce94d4aee0605.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/d38a5585e9a10c8b.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/75642e429205fb5d.webp"></p>
+<p><img alt="No description has been provided for this image" src="../images/25df50baeb369cf3.webp"></p>
+<ul>
+<li>*</li>
+</ul>
+<pre><code># UNAGI输出了许多文件，存储在0、1、2、model_savve文件夹中!tree -L 2 UNAGI-main/UNAGI/data/example/
+</code></pre>
+<pre><code>UNAGI-main/UNAGI/data/example/
+</code></pre>
+<pre><code>├── 0
+</code></pre>
+<pre><code>│   ├── averageValues.npy
+</code></pre>
+<pre><code>│   ├── edges.txt
+</code></pre>
+<pre><code>│   ├── idremInput
+</code></pre>
+<pre><code>│   ├── idremModel
+</code></pre>
+<pre><code>│   ├── idremResults
+</code></pre>
+<pre><code>│   ├── idremsetting
+</code></pre>
+<pre><code>│   ├── loss.txt
+</code></pre>
+<pre><code>│   └── stagedata
+</code></pre>
+<pre><code>├── 0.h5ad
+</code></pre>
+<pre><code> ├── 1
+</code></pre>
+<pre><code>│   ├── averageValues.npy
+</code></pre>
+<pre><code> │   ├── edges.txt
+</code></pre>
+<pre><code> │   ├── idremInput
+</code></pre>
+<pre><code>│   ├── idremModel
+</code></pre>
+<pre><code>│   ├── idremResults
+</code></pre>
+<pre><code>│   ├── idremsetting
+</code></pre>
+<pre><code>│   ├── loss.txt
+</code></pre>
+<pre><code>│   └── stagedata
+</code></pre>
+<pre><code>├── 1.h5ad
+</code></pre>
+<pre><code>├── 2
+</code></pre>
+<pre><code>│   ├── averageValues.npy
+</code></pre>
+<pre><code>│   ├── edges.txt
+</code></pre>
+<pre><code>│   ├── idremInput
+</code></pre>
+<pre><code>│   ├── idremModel
+</code></pre>
+<pre><code>│   ├── idremResults
+</code></pre>
+<pre><code>│   ├── idremsetting
+</code></pre>
+<pre><code>│   ├── loss.txt
+</code></pre>
+<pre><code>│   └── stagedata
+</code></pre>
+<pre><code>├── 2.h5ad
+</code></pre>
+<pre><code>├── 3.h5ad
+</code></pre>
+<pre><code> └── model_save
+</code></pre>
+<pre><code>    ├── example_0.pth
+</code></pre>
+<pre><code>    ├── example_1.pth
+</code></pre>
+<pre><code>    ├── example_2.pth
+</code></pre>
+<pre><code>    ├── example_dis_0.pth
+</code></pre>
+<pre><code>    ├── example_dis_1.pth
+</code></pre>
+<pre><code>    ├── example_dis_2.pth
+</code></pre>
+<pre><code>    └── training_parameters.json
+</code></pre>
+<pre><code>  19 directories, 20 files
+</code></pre>
+<p>2.3 虚拟干扰分析</p>
+<p>在UNAGI模型训练完毕后，时间序列可初步获得四个stage。原输入<code>h5ad</code>的路径下训练完成后会生成一个新的 “升级版单细胞数据”，就是这里的<code>2/stagedata/dataset.h5ad</code>，其中包含：模型学习到的细胞潜变量空间（z）、UMAP、动态基因、细胞轨迹（Tracks）细胞状态转换图、扰动分析所需的全部信息，可用于执行下游任务。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>%%timeimport warningswarnings.filterwarnings('ignore')from UNAGI import UNAGIunagi = UNAGI()# 进行药物干扰分析：unagi.analyse_UNAGI('./UNAGI-main/UNAGI/data/example/2/stagedata/dataset.h5ad',# 输入文件                    iteration=2,# 选择第几次迭代计算次数                    random_background_sampling_times=1000,#  寻找动态标记基因时，随机背景基因抽样次数，数值越大，结果越稳定，但跑的会越慢                    target_dir=None, # 目标文件夹，none则输出                    customized_drug='./UNAGI-main/UNAGI/data/cmap_drug_target_genes.npy',# 自定义药物数据库，这里是由作者提供的                    run_perturbation=True# 是否运行基因、药物干扰                   )
+</code></pre>
+<p><img alt="" src="../images/a21b12ba94b852d7.webp"></p>
+<p>2.4可视化</p>
+<p>UNAGI会生成包含<code>.h5ad</code>、<code>.pkl</code>的心文件夹(为指定的情况下输出的是这里的<code>example_2</code>)，可用于后续可视化。</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>import scanpy as scimport pickle as pkl# 读取输出的h5ad单细胞文件adata = sc.read('./example_2/dataset.h5ad')# 单细胞对象：adata
+</code></pre>
+<pre><code>AnnData object with n_obs × n_vars = 27647 × 2484
+</code></pre>
+<pre><code>     obs: 'barcode', 'nUMI', 'nGene', 'percMito', 'percSpliced.v', 'percUnspliced.v', 'percAmbiguous.v', 'Sample.ID', 'Subject.ID', 'Sex', 'Age', 'Surface.Density', 'Percent.Tissue', 'Disease.Ident', 'nCount_RNA', 'final.ident', 'nFeature_RNA', 'nCount_integrated', 'nFeature_integrated', 'name.simple', 'Library.Ident', 'renamedFin', 'integrated_snn_res.2', 'seurat_clusters', 'renamed.2', 'integrated_snn_res.3', 'log10UMI', 'renamed.3', 'stage', 'leiden', 'ident'
+</code></pre>
+<pre><code>     var: 'features'
+</code></pre>
+<pre><code>     obsm: 'X_umap', 'embdedding', 'umap', 'z'
+</code></pre>
+<pre><code>     layers: 'geneWeight'
+</code></pre>
+<pre><code>     obsp: 'gcn_connectivities'
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<pre><code># 读取非结构性注释信息：adata.uns = pkl.load(open('./example_2/attribute.pkl', 'rb'))type(adata.uns)
+</code></pre>
+<pre><code>anndata.compat._overloaded_dict.OverloadedDict
+</code></pre>
+<p>2.4.1 细胞降维可视化</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>from UNAGI.plotting import cell_type_composition, plot_stages_latent_representationplot_stages_latent_representation(adata, # 读入的单细胞对象                                  cell_type_key='ident', # 细胞的分类变量                                  stage_key='stage'# 分组变量                                 )
+</code></pre>
+<pre><code>ARI:  0.6551458869846446
+</code></pre>
+<pre><code>NMIs:  0.6503782470882618
+</code></pre>
+<pre><code>silhouette score:  0.22718687453535993
+</code></pre>
+<pre><code>ARI:  0.680303236781184
+</code></pre>
+<pre><code>NMIs:  0.7374966525638296
+</code></pre>
+<pre><code>silhouette score:  0.30596853452442374
+</code></pre>
+<pre><code>ARI:  0.7884503852215209
+</code></pre>
+<pre><code>NMIs:  0.7823241013103959
+</code></pre>
+<pre><code>silhouette score:  0.20378125738231517
+</code></pre>
+<pre><code>ARI:  0.7709702766822403
+</code></pre>
+<pre><code>NMIs:  0.7719353736314634
+</code></pre>
+<pre><code>silhouette score:  0.22769615347172187
+</code></pre>
+<p><img alt="No description has been provided for this image" src="../images/94d0ba60f47b8bf9.webp"></p>
+<pre><code>ARIs:  [0.7237174464173974]
+</code></pre>
+<pre><code>NMI:  [0.7355335936484877]
+</code></pre>
+<pre><code>silhouette score:  0.2411582049784552
+</code></pre>
+<p>2.4.2 细胞比例可视化</p>
+<p>*</p>
+<pre><code>cell_type_composition(adata, cell_type_key='ident', stage_key='stage')
+</code></pre>
+<p><img alt="No description has been provided for this image" src="../images/1c1a957b0362f35e.webp"></p>
+<p>2.4.3 细胞动态发育轨迹</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>from UNAGI.utils import visualize_dynamic_graphs_by_text# 展示各个stage中各细胞类型的亚群发育轨迹：visualize_dynamic_graphs_by_text(edges=adata.uns['edges'],cell_types=adata.uns['clusterType'])
+# 动态轨迹图也可以直接保存为txt格式：# visualize_dynamic_graphs_by_text(edges=adata.uns['edges'],cell_types=adata.uns['clusterType'],write='saved_dynamic_graphs.txt')
+</code></pre>
+<p><img alt="" src="../images/b76341fab78564df.webp"></p>
+<p>2.4.4 药物干扰结果可视化</p>
+<p>可以看出<code>ibudilast</code>的干扰分值非常高，其与纤维化过程中的TGFβ通路相关，其在肺纤维化中具有治疗潜能。</p>
+<ul>
+<li>*</li>
+</ul>
+<pre><code>from UNAGI.perturbations import get_top_compounds, get_top_pathwaysget_top_compounds(adata,perturb_change=0.5,top_n=10)
+</code></pre>
+<p><img alt="" src="../images/01e2881ac95783fa.webp"></p>
+<p>2.4.5通路干扰结果</p>
+<p>*</p>
+<pre><code>get_top_pathways(adata,perturb_change=0.5,top_n=10)
+</code></pre>
+<p><img alt="" src="../images/89dd4d6255f441bc.webp"></p>
+<p><strong>三、资料领取</strong></p>
+<p>更多编程教程可见：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505777&amp;idx=1&amp;sn=f3efae390566b838a445ab9f832323c8&amp;scene=21#wechat_redirect">十小时学会Linux</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535038&amp;idx=2&amp;sn=717a8673a8bf82d5ac40af4441a07f65&amp;scene=21#wechat_redirect">5.5小时掌握R语言</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537399&amp;idx=1&amp;sn=d14c7987d1384fe133094748844b8d59&amp;scene=21#wechat_redirect">8小时掌握生信Python</a></p>
+<p>本推送的代码文件可以在以下链接中下载：</p>
+<p><img alt="" src="../images/f072a361947a4569.webp">通过网盘分享的文件链接:</p>
+<p>https://pan.baidu.com/s/1No_C678UKW_SWAjS_V13-Q</p>
+<p>提取码: 2it8</p>
+<p><img alt="" src="../images/dd001a70968d14fc.webp"><img alt="图片" src="../images/cb4255ab8010219d.gif"></p>
+<p><strong>欢迎致谢</strong></p>
+<p>如果以上内容对你有帮助，欢迎在文章的Acknowledgement中加上这一段，联系客服微信可以发放奖励：</p>
+<pre><code>Since Biomamba and his wechat public account team produce bioinformatics tutorials and share code with annotation, we thank Biomamba for their guidance in bioinformatics and data analysis for the current study.
+</code></pre>
+<p><strong>欢迎在发文/毕业时向我们分享你的喜悦~</strong></p>
+<p><strong>已致谢文章</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247510548&amp;idx=1&amp;sn=58048c46e837b1d56dffa282272c6d96&amp;chksm=9b3cd344ac4b5a52369e91b4e61fa0a2c951b82cc21165b99f42ba2c2191d4add803bd73c928&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect"> 鼻咽癌的Bulk RNA-Seq与scRNA-Seq联合分析</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247511886&amp;idx=1&amp;sn=31c712d00377b0f0ed33703b5b4fbfd8&amp;chksm=9b3cd61eac4b5f084fde14a2eb50356f2f40a66c608d38909f12a3d81f48cff029a09ce2ee8c&amp;token=1453608870&amp;lang=zh_CN&amp;scene=21#wechat_redirect">13分+文章利用scRNA-Seq揭示地铁细颗粒物引起肺部炎症的分子机制</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247518144&amp;idx=1&amp;sn=d036f1bb04b09eb73f53e2104d69404c&amp;chksm=9b3cfe90ac4b77862f2f463b42132c7bfdb687a1b61d350dcf656117b1331271e179710fd4fa&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">除了铁死亡，还有铜死亡？！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247520900&amp;idx=1&amp;sn=157134292ffc2e5df730c5ba8a357b61&amp;chksm=9b3cebd4ac4b62c286543c30381e9b4fdb8b44b28d4fa902fb963bbd45b28e1d3f1bc98eb148&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">IF14.3| scRNA-seq+脂质组多组学分析揭示宫内生长受限导致肝损伤的性别差异</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247521069&amp;idx=1&amp;sn=4ef441a885cb2525ee3b5c81001feddf&amp;chksm=9b3cea7dac4b636be9f10ffdf75e13531fccae62129944b21a457db2e08c3f2db1e1b553ac34&amp;scene=21&amp;cur_album_id=3425248581018714114#wechat_redirect">银屑病和脂肪肝病中共同病理和免疫特征</a> <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522233&amp;idx=1&amp;sn=287a380de741ff55f0ce78dc9c727985&amp;chksm=9b3ceee9ac4b67ffd925abafeba2cb215a5984e6dc85f0d8607340a07ec9208f1d19eae0e04b&amp;scene=21#wechat_redirect">《Advanced Science》新型Arf1抑制剂促进癌症干细胞衰老并增强抗肿瘤免疫</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247522281&amp;idx=1&amp;sn=f95eb12fdc340b8da1123ec6253e6fac&amp;chksm=9b3ceeb9ac4b67afa587e5fa3a2a8960e9bb28a1ad6dc48e49120a76154417a4c8be95af90b0&amp;scene=21#wechat_redirect">scRNA-seq揭示脓毒症预后水平预测的关键靶点！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247527168&amp;idx=1&amp;sn=0791d2bf53a9a60015577f892b10d370&amp;scene=21#wechat_redirect">机器学习+生信多组学联合构建牙周炎"线粒体功能障碍与免疫微环境"关联网络</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247528014&amp;idx=1&amp;sn=d285c9ebd415be328fc682d00e6182c0&amp;scene=21#wechat_redirect">KIF18A在肝细胞癌转移中的双重角色</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247530000&amp;idx=1&amp;sn=e8ddca4e1b2e60839cdf2a7fe87b3dfe&amp;chksm=9b3c0f40ac4b86562e0e307b9dbb8688159e72b3c19d9ceebf8a4bb2e21638896f005b497b11&amp;scene=21&amp;cur_album_id=3425248581018714114&amp;search_click_id=#wechat_redirect">bulk+scRNA-seq挖掘BCL2-MAPK14-TXN氧化应激诊断模型，鉴定脓毒症中氧化应激关键基因</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536407&amp;idx=1&amp;sn=4da88e13f112662a02fea89d1b7798e9&amp;scene=21#wechat_redirect">致谢文章+1，中科院1区，scRNA-seq揭示麻黄-甘草配对治疗呼吸系统症状和多(I:C)诱发肺炎模型机制</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247537544&amp;idx=1&amp;sn=6e5bb738eb11af53173f9fef67b977df&amp;scene=21#wechat_redirect">致谢文章又+1，生物信息学+机器学习鉴定驱动糖尿病肾病免疫激活和小管间隙损伤的PANoptosis枢纽基因</a></p>
+<p>向下滑动查看更多</p>
+<p>欢迎大家致谢~</p>
+<p><img alt="图片" src="../images/4ec66ccdb832fd05.gif"></p>
+<p><img alt="图片" src="../images/2b97050f06208e7a.webp"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="图片" src="../images/fb7650d03b8755cc.webp"><img alt="图片" src="../images/ec72a80f59849127.gif"> 留一个领取<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247535983&amp;idx=1&amp;sn=99378a252908b06f56432eb08741d278&amp;scene=21#wechat_redirect">资料</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=1&amp;sn=8d03259be06f54521aac5251dec988d5&amp;scene=21#wechat_redirect">开箱即用的单细胞分析镜像</a>的<strong>微信号[Biomamba_zhushou]</strong>，方便各位随时交流。同时我们也构建了<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247536307&amp;idx=2&amp;sn=2d030173f51d24a4fee43bd0d83da03b&amp;scene=21#wechat_redirect">交流群矩阵</a>，欢迎大家入群讨论。
+大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247529398&amp;idx=2&amp;sn=5a429852d61721916a405712677d5905&amp;scene=21#wechat_redirect">没有检索，就没有发言权</a></p>
+<p><strong>已有生信基地联系方式的同学</strong><strong>无需重复添加</strong></p>
+<p><img alt="" src="../images/eff615a0a49ee4ca.webp"><img alt="图片" src="../images/acba43cb3408c3d0.gif"> 您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>

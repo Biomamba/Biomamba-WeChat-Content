@@ -1,0 +1,345 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0193-代码复写 疟疾中免疫细胞亚群的调控响应</title><link rel="stylesheet" href="../style.css"></head><body><header class="nav"><a href="../index.html">🏠 首页</a><span class="ttl">Biomamba 生信基地 · 公众号内容存档</span></header><article><h1 id="_1">代码复写| 疟疾中免疫细胞亚群的调控响应</h1>
+<blockquote>
+<p>原文：https://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507659&amp;idx=2&amp;sn=a6860bb0eb8d3854a37acd0342777956&amp;chksm=9b3ca79bac4b2e8dc0c3aa83c000894a53e2b316388495703e58d42ab205dd093bf578807b74#rd
+合集：单细胞教程全收录 / 全文复现</p>
+</blockquote>
+<p>评审环节开始！</p>
+<p>** <em>写在前面</em>**</p>
+<p>首届“<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506477&amp;idx=2&amp;sn=155b83716930e4ae956604f7745a6fe4&amp;chksm=9b3ca37dac4b2a6b57d1467eb4dff2c1d425b5150e6eaf384fd2232e105a597f3c3887bc9807&amp;scene=21#wechat_redirect">寻因杯</a>”单细胞代码复写大赛正在展开评审环节，这次带来的是16号作品。本作品复写了题为"Single cell transcriptomics shows that malaria promotes unique regulatory responses across multiple immune cell subsets"的论文.<strong>文章链接</strong> ：https://doi.org/10.1038/s41467-023-43181-7<strong>数据原始链接：</strong> 投稿人未提供
+<strong>复现图片集锦</strong> ：</p>
+<p><img alt="" src="../images/c5d736c9a0ba629d.webp"></p>
+<p><strong>文献简介</strong> ：投稿人未提供</p>
+<p>一、复写内容</p>
+<h2 id="load-packages">Load packages</h2>
+<pre><code class="language-r">library(Seurat)
+library(SeuratObject)
+library(dplyr)
+library(stringr)
+library(ggplot2)
+library(ggpubr)
+library(tibble)
+library(UpSetR)
+library(BiocManager)
+library(MAST)
+</code></pre>
+<h2 id="11-datainput">1.1 Datainput</h2>
+<p>There is a folder within working directory “Cell_ranger_outputs” that contains the below folders with these files in each folder “barcodes.tsv.gz”, “features.tsv.gz”,“matrix.tsv.gz”.</p>
+<pre><code class="language-r">dir='./GSE217930_RAW/'
+fs = list.files('GSE217930_RAW/',pattern = '^GSM')
+samples=str_split(fs,'_',simplify = T)[,1]
+lapply(unique(samples),function(x){
+  y=fs[grepl(x,fs)]
+  folder=paste0(&quot;GSE217930_RAW/&quot;, str_split(y[1],'_',simplify = T)[,1])
+  dir.create(folder,recursive = T)
+  file.rename(paste0(&quot;GSE217930_RAW/&quot;,y[1]),file.path(folder,&quot;barcodes.tsv.gz&quot;))
+  file.rename(paste0(&quot;GSE217930_RAW/&quot;,y[2]),file.path(folder,&quot;features.tsv.gz&quot;))
+  file.rename(paste0(&quot;GSE217930_RAW/&quot;,y[3]),file.path(folder,&quot;matrix.mtx.gz&quot;))
+})
+setwd(&quot;./GSE217930_RAW/&quot;)
+
+files &lt;- dir(&quot;./GSE217930_RAW&quot;, pattern = &quot;^[^/]+$&quot;)
+new_names &lt;- c(&quot;sampleA&quot;, &quot;sampleB&quot;, &quot;sampleC&quot;, &quot;sampleD&quot;, &quot;sampleE&quot;,&quot;sampleF&quot;, &quot;sampleG&quot;, &quot;sampleH&quot;, &quot;sampleI&quot;, &quot;sampleJ&quot;,
+               &quot;sampleK&quot;, &quot;sampleL&quot;, &quot;sampleM&quot;, &quot;sampleN&quot;, &quot;sampleO&quot;,&quot;sampleP&quot;, &quot;sampleQ&quot;, &quot;sampleR&quot;, &quot;sampleS&quot;, &quot;sampleT&quot;)
+
+for (i in seq_along(files)) {
+  old_name &lt;- file.path(dir, files[i])
+  new_name &lt;- file.path(dir, new_names[i])
+  file.rename(from = old_name, to = new_name)
+}
+
+#Put in Read10X
+for (file in  new_names &lt;- c(&quot;sampleA&quot;, &quot;sampleB&quot;, &quot;sampleC&quot;, &quot;sampleD&quot;, &quot;sampleE&quot;,&quot;sampleF&quot;, &quot;sampleG&quot;, &quot;sampleH&quot;, &quot;sampleI&quot;, &quot;sampleJ&quot;,&quot;sampleK&quot;, &quot;sampleL&quot;, &quot;sampleM&quot;, &quot;sampleN&quot;, &quot;sampleO&quot;,&quot;sampleP&quot;, &quot;sampleQ&quot;, &quot;sampleR&quot;, &quot;sampleS&quot;, &quot;sampleT&quot;)){
+  seurat_data &lt;- Read10X(data.dir = paste0(&quot;GSE217930_RAW/&quot;, file))
+  seurat_obj &lt;- CreateSeuratObject(counts = seurat_data,
+                                   min.cells = 3,
+                                   min.features = 200,
+                                   project = file)
+  assign(file, seurat_obj)
+}
+#merge these objects together into a single Seurat object.
+merged_seurat &lt;- merge(x = A,
+                       y = new_names &lt;- c(&quot;sampleA&quot;, &quot;sampleB&quot;, &quot;sampleC&quot;, &quot;sampleD&quot;, &quot;sampleE&quot;,&quot;sampleF&quot;, &quot;sampleG&quot;, &quot;sampleH&quot;, &quot;sampleI&quot;, &quot;sampleJ&quot;,&quot;sampleK&quot;, &quot;sampleL&quot;, &quot;sampleM&quot;, &quot;sampleN&quot;, &quot;sampleO&quot;,&quot;sampleP&quot;, &quot;sampleQ&quot;, &quot;sampleR&quot;, &quot;sampleS&quot;, &quot;sampleT&quot;),
+                       add.cell.id = c(&quot;adult1day0&quot;, &quot;adult1day7&quot;, &quot;adult1day28&quot;,&quot;adultc1&quot;,&quot;child1day0&quot;,&quot;child1day7&quot;,&quot;child1day28&quot;,&quot;adultc2&quot;,&quot;adult2day0&quot;, &quot;adult2day28&quot;, &quot;adult3day0&quot;, &quot;adult3day28&quot;, &quot;child2day0&quot;, &quot;child2day28&quot;, &quot;child3day0&quot;, &quot;child3day28&quot;, &quot;adult2day7&quot;, &quot;adult3day7&quot;, &quot;child2day7&quot;, &quot;child3day7&quot;))
+View(merged_seurat@meta.data)
+
+## 1.1.2 Add relative information
+# Add number of genes per UMI for each cell to metadata
+merged_seurat$log10GenesPerUMI &lt;- log10(merged_seurat$nFeature_RNA) / log10(merged_seurat$nCount_RNA)
+# Compute percent mito ratio
+merged_seurat$mitoRatio &lt;- PercentageFeatureSet(object = merged_seurat, pattern = &quot;^MT-&quot;)
+merged_seurat$mitoRatio &lt;- merged_seurat@meta.data$mitoRatio / 100
+# Create the metadata dataframe by extracting the meta.data slot from the Seurat object
+metadata &lt;- merged_seurat@meta.data
+head(metadata)
+metadata$cells &lt;- rownames(metadata)
+# Add cell IDs to metadata
+metadata &lt;- metadata %&gt;%
+  dplyr::rename(seq_folder = orig.ident,
+                nUMI = nCount_RNA,
+                nGene = nFeature_RNA)
+# Add metadata back to Seurat object
+merged_seurat@meta.data &lt;- metadata
+saveRDS(merged_seurat, &quot;merged_seurat.RDS&quot;)
+</code></pre>
+<h2 id="12-qc">1.2 QC</h2>
+<pre><code class="language-r">## 1.2.1C reate meta.data for timepoints and controls
+sample_to_label &lt;- c(
+  &quot;adult1day0&quot; = &quot;Day0&quot;, &quot;adult2day0&quot; = &quot;Day0&quot;, &quot;adult3day0&quot; = &quot;Day0&quot;,
+  &quot;child1day0&quot; = &quot;Day0&quot;, &quot;child2day0&quot; = &quot;Day0&quot;, &quot;child3day0&quot; = &quot;Day0&quot;,
+  &quot;adult1day7&quot; = &quot;Day7&quot;, &quot;adult2day7&quot; = &quot;Day7&quot;, &quot;adult3day7&quot; = &quot;Day7&quot;,
+  &quot;child1day7&quot; = &quot;Day7&quot;, &quot;child2day7&quot; = &quot;Day7&quot;, &quot;child3day7&quot; = &quot;Day7&quot;,
+  &quot;adult1day28&quot; = &quot;Day28&quot;, &quot;adult2day28&quot; = &quot;Day28&quot;, &quot;adult3day28&quot; = &quot;Day28&quot;,
+  &quot;child1day28&quot; = &quot;Day28&quot;, &quot;child2day28&quot; = &quot;Day28&quot;, &quot;child3day28&quot; = &quot;Day28&quot;,
+  &quot;adultc1&quot; = &quot;Control&quot;, &quot;adultc2&quot; = &quot;Control&quot;
+)
+merged_seurat@meta.data$day &lt;- sample_to_label[merged_seurat@meta.data$sample]
+
+## 1.2.2 ell Filtering
+filtered_seurat &lt;- subset(x = merged_seurat,
+                          subset= (nUMI &gt;= 500) &amp;
+                            (nGene &gt;= 250) &amp;
+                            (log10GenesPerUMI &gt; 0.80) &amp;
+                            (mitoRatio &lt; 0.20))
+# Extract counts
+counts &lt;- GetAssayData(object = filtered_seurat, slot = &quot;counts&quot;)
+nonzero &lt;- counts &gt; 0
+keep_genes &lt;- Matrix::rowSums(nonzero) &gt;= 10
+filtered_counts &lt;- counts[keep_genes, ]
+filtered_seurat &lt;- CreateSeuratObject(filtered_counts, meta.data = filtered_seurat@meta.data)
+
+# Create a clean (post-filtered) metadata dataframe by extracting the meta.data slot from the flitered Seurat object
+metadata_clean &lt;- filtered_seurat@meta.data
+# Save R object as RDS to load at any time
+saveRDS(filtered_seurat, &quot;filtered_seurat.RDS&quot;)
+</code></pre>
+<h2 id="13-normalization">1.3 Normalization</h2>
+<pre><code class="language-r"># Split seurat object by sample to perform cell cycle scoring and normalization on all samples
+split_seurat &lt;- SplitObject(filtered_seurat, split.by = &quot;sample&quot;)
+split_seurat &lt;- split_seurat[c(&quot;adult1day0&quot;, &quot;adult1day7&quot;, &quot;adult1day28&quot;,&quot;adultc1&quot;,&quot;child1day7&quot;,&quot;child1day28&quot;,&quot;adultc2&quot;,&quot;adult2day0&quot;, &quot;adult2day28&quot;, &quot;adult3day0&quot;, &quot;adult3day28&quot;, &quot;child2day0&quot;, &quot;child2day28&quot;, &quot;child3day0&quot;, &quot;child3day28&quot;, &quot;adult2day7&quot;, &quot;adult3day7&quot;, &quot;child2day7&quot;, &quot;child3day7&quot;)]
+
+# Defined G2M and S phase cell cycle based on cannonical markers
+g2m_genes &lt;- c(&quot;NCAPD2&quot;, &quot;ANLN&quot;, &quot;TACC3&quot;, &quot;HMMR&quot;, &quot;GTSE1&quot;, &quot;NDC80&quot;, &quot;AURKA&quot;, &quot;TPX2&quot;, &quot;BIRC5&quot;, &quot;G2E3&quot;, &quot;CBX5&quot;, &quot;RANGAP1&quot;, &quot;CTCF&quot;, &quot;CDCA3&quot;, &quot;TTK&quot;, &quot;SMC4&quot;, &quot;ECT2&quot;, &quot;CENPA&quot;, &quot;CDC20&quot;, &quot;NEK2&quot;, &quot;CENPF&quot;, &quot;TMPO&quot;, &quot;HJURP&quot;, &quot;CKS2&quot;, &quot;DLGAP5&quot;, &quot;PIMREG&quot;, &quot;TOP2A&quot;, &quot;PSRC1&quot;, &quot;CDCA8&quot;, &quot;CKAP2&quot;, &quot;NUSAP1&quot;, &quot;KIF23&quot;, &quot;KIF11&quot;, &quot;KIF20B&quot;, &quot;CENPE&quot;, &quot;GAS2L3&quot;, &quot;KIF2C&quot;, &quot;NUF2&quot;, &quot;ANP32E&quot;, &quot;LBR&quot;, &quot;MKI67&quot;, &quot;CCNB2&quot;, &quot;CDC25C&quot;, &quot;HMGB2&quot;, &quot;CKAP2L&quot;, &quot;BUB1&quot;, &quot;CDK1&quot;, &quot;CKS1B&quot;, &quot;UBE2C&quot;, &quot;CKAP5&quot;, &quot;AURKB&quot;, &quot;CDCA2&quot;, &quot;TUBB4B&quot;, &quot;JPT1&quot;)
+s_genes &lt;- c(&quot;UBR7&quot;, &quot;RFC2&quot;, &quot;RAD51&quot;, &quot;MCM2&quot;, &quot;TIPIN&quot;, &quot;MCM6&quot;, &quot;UNG&quot;, &quot;POLD3&quot;, &quot;WDR76&quot;, &quot;CLSPN&quot;, &quot;CDC45&quot;, &quot;CDC6&quot;, &quot;MSH2&quot;, &quot;MCM5&quot;, &quot;POLA1&quot;, &quot;MCM4&quot;, &quot;RAD51AP1&quot;, &quot;GMNN&quot;, &quot;RPA2&quot;, &quot;CASP8AP2&quot;, &quot;HELLS&quot;, &quot;E2F8&quot;, &quot;GINS2&quot;, &quot;PCNA&quot;, &quot;NASP&quot;, &quot;BRIP1&quot;, &quot;DSCC1&quot;, &quot;DTL&quot;, &quot;CDCA7&quot;, &quot;CENPU&quot;, &quot;ATAD2&quot;, &quot;CHAF1B&quot;, &quot;USP1&quot;, &quot;SLBP&quot;, &quot;RRM1&quot;, &quot;FEN1&quot;, &quot;RRM2&quot;, &quot;EXO1&quot;, &quot;CCNE2&quot;, &quot;TYMS&quot;, &quot;BLM&quot;, &quot;PRIM1&quot;, &quot;UHRF1&quot;)
+for (i in 1:length(x = split_seurat)) {
+  split_seurat[[i]] &lt;- NormalizeData(object = split_seurat[[i]], verbose = FALSE)
+  split_seurat[[i]] &lt;- CellCycleScoring(split_seurat[[i]], g2m.features=g2m_genes, s.features=s_genes)
+  split_seurat[[i]] &lt;- FindVariableFeatures(object = split_seurat[[i]], selection.method = &quot;vst&quot;,
+                                            nfeatures = 2000, verbose = FALSE)
+</code></pre>
+<h2 id="14-find-integration-anchors">1.4 Find Integration Anchors</h2>
+<pre><code class="language-r"># Find Integration Anchors and integrate data
+integ.anchors &lt;- FindIntegrationAnchors(object.list =  split_seurat, dims = 1:20)
+seurat_integrated &lt;- IntegrateData(anchorset = integ.anchors, dims = 1:20)
+DefaultAssay(seurat_integrated) &lt;- &quot;integrated&quot;
+# Run the standard workflow for visualization and clustering
+seurat_integrated &lt;- ScaleData(seurat_integrated, vars.to.regress = c(&quot;mitoRatio&quot;))
+seurat_integrated &lt;- RunPCA(seurat_integrated, npcs = 30)
+# Run UMAP
+seurat_integrated &lt;- RunUMAP(seurat_integrated, dims = 1:30, reduction = &quot;pca&quot;)
+# Determine the K-nearest neighbor graph
+seurat_integrated &lt;- FindNeighbors(object = seurat_integrated, dims = 1:30)
+seurat_integrated &lt;- FindClusters(object = seurat_integrated, resolution=0.6)
+DimPlot(seurat_integrated, reduction = &quot;umap&quot;, label = TRUE, label.size = 6)
+
+ident_to_donor &lt;- c(
+  &quot;adult1day0&quot; = &quot;Adult1&quot;, &quot;adult2day0&quot; = &quot;Adult2&quot;, &quot;adult3day0&quot; = &quot;Adult3&quot;,
+  &quot;child2day0&quot; = &quot;Child2&quot;, &quot;child3day0&quot; = &quot;Child3&quot;,
+  &quot;adult1day7&quot; = &quot;Adult1&quot;, &quot;adult2day7&quot; = &quot;Adult2&quot;, &quot;adult3day7&quot; = &quot;donor7&quot;,
+  &quot;child1day7&quot; = &quot;Child1&quot;, &quot;child2day7&quot; = &quot;Child2&quot;, &quot;child3day7&quot; = &quot;Child3&quot;,
+  &quot;adult1day28&quot; = &quot;Adult1&quot;, &quot;adult2day28&quot; = &quot;Adult2&quot;, &quot;adult3day28&quot; = &quot;Adult3&quot;,
+  &quot;child1day28&quot; = &quot;Child1&quot;, &quot;child2day28&quot; = &quot;Child2&quot;, &quot;child3day28&quot; = &quot;Child3&quot;,
+  &quot;adultc1&quot; = &quot;Control1&quot;, &quot;adultc2&quot; = &quot;Control2&quot;
+)
+
+seurat_integrated@meta.data$donor &lt;- ident_to_donor[seurat_integrated@meta.data$orig.ident]
+#Set identity at integrated_snn_res.0.6 to compare clusters at chosen resolution
+Idents(seurat_integrated) &lt;- &quot;integrated_snn_res.0.6&quot;
+saveRDS(seurat_integrated, &quot;seurat_integrated.RDS&quot;)
+</code></pre>
+<h2 id="15-set-annotation-as-active-identity">1.5 Set annotation as active identity</h2>
+<pre><code class="language-r">seurat_integrated &lt;- RenameIdents(object = seurat_integrated,
+                                  &quot;0&quot;= &quot;CD4 T cells&quot;,
+                                  &quot;1&quot;=&quot;CD4 T cells&quot;,
+                                  &quot;2&quot;= &quot;CD8 T cells&quot;,
+                                  &quot;3&quot; = &quot;NK cells&quot;,
+                                  &quot;4&quot; = &quot;CD8 T cells&quot;,
+                                  &quot;5&quot; = &quot;CD4 T cells&quot;,
+                                  &quot;6&quot; = &quot;γδ T cells&quot;,
+                                  &quot;7&quot; = &quot;CD14 Monocytes&quot;,
+                                  &quot;8&quot; = &quot;CD4 T cells&quot;,
+                                  &quot;9&quot; = &quot;NK cells&quot;,
+                                  &quot;10&quot; = &quot;B cells&quot;,
+                                  &quot;11&quot; = &quot;B cells&quot;,
+                                  &quot;12&quot; = &quot;CD8 T cells&quot;,
+                                  &quot;13&quot; = &quot;CD4 T cells&quot;,
+                                  &quot;14&quot; = &quot;CD4 T cells&quot;,
+                                  &quot;15&quot; = &quot;Uncharacterised&quot;,
+                                  &quot;16&quot; = &quot;CD16 Monocytes&quot;,
+                                  &quot;17&quot; = &quot;NKT cells&quot;,
+                                  &quot;18&quot; = &quot;Plasma cells&quot;,
+                                  &quot;19&quot; = &quot;cDCs&quot;,
+                                  &quot;20&quot; = &quot;pDCs&quot;,
+                                  &quot;21&quot; = &quot;HSPCs&quot;,
+                                  &quot;22&quot; = &quot;Platelets&quot;)
+# Using cell selector rename distinct MKI67 cluster as 'Proliferating cells'
+cells.proliferating &lt;- CellSelector(plot = plot)
+seurat_integrated &lt;- CellSelector(plot = plot, object = seurat_integrated, ident = &quot;Proliferating cells&quot;)
+
+# Add cluster annotation in active identity to meta.data and order identities for dotplot visualisation
+seurat_integrated[[&quot;annotate_cluster&quot;]] &lt;- Idents(object = seurat_integrated)
+seurat_integrated@meta.data$annotate_cluster &lt;- factor(seurat_integrated@meta.data$annotate_cluster, levels = c(&quot;CD14 Monocytes&quot;,&quot;CD16 Monocytes&quot;,&quot;cDCs&quot;,&quot;pDCs&quot;,&quot;CD4 T cells&quot;,&quot;CD8 T cells&quot;,&quot;γδ T cells&quot;,&quot;NKT cells&quot;,&quot;NK cells&quot;,&quot;B cells&quot;,&quot;Plasma cells&quot;,&quot;Proliferating cells&quot;,&quot;HSPCs&quot;,&quot;Platelets&quot;,&quot;Uncharacterised&quot;))
+</code></pre>
+<h2 id="2-cell-cluster">2. Cell cluster</h2>
+<h2 id="21-fig-1b-dot-plot-of-the-mean-expression-of-marker-genes-used-to-annotate-cell-types">2.1 Fig 1b Dot plot of the mean expression of marker genes used to annotate cell types</h2>
+<pre><code class="language-r"># Define the list of features
+features &lt;- c(&quot;CD14&quot;, &quot;LYZ&quot;, &quot;S100A8&quot;, &quot;S100A9&quot;, &quot;IL1A&quot;, &quot;IL1B&quot;, &quot;TNF&quot;, &quot;FCER1G&quot;, &quot;CTSS&quot;, &quot;FCGR3A&quot;, &quot;CX3CR1&quot;,
+              &quot;CDKN1C&quot;, &quot;IFITM3&quot;, &quot;FCER1A&quot;, &quot;CD1C&quot;, &quot;HLA-DRA&quot;, &quot;HLA-DRB1&quot;, &quot;CD74&quot;, &quot;CLEC4C&quot;, &quot;LILRA4&quot;, &quot;PLD4&quot;,
+              &quot;SERPINF1&quot;, &quot;IL3RA&quot;, &quot;CCR7&quot;, &quot;GIMAP7&quot;, &quot;IL7R&quot;, &quot;MAL&quot;, &quot;LTB&quot;, &quot;NELL2&quot;, &quot;PASK&quot;, &quot;CD8A&quot;, &quot;CD8B&quot;,
+              &quot;KLRB1&quot;, &quot;KLRG1&quot;, &quot;TRGC1&quot;, &quot;TRGC2&quot;, &quot;TRDC&quot;, &quot;NCAM1&quot;, &quot;GNLY&quot;, &quot;NKG7&quot;, &quot;GZMA&quot;, &quot;GZMB&quot;, &quot;KLRC1&quot;,
+              &quot;KLRD1&quot;, &quot;CD19&quot;, &quot;CD79A&quot;, &quot;BANK1&quot;, &quot;IGHM&quot;,&quot;IGHD&quot;, &quot;MZB1&quot;, &quot;CD38&quot;, &quot;JCHAIN&quot;, &quot;IGHA1&quot;, &quot;IGHG1&quot;,
+              &quot;IGHG3&quot;, &quot;MKI67&quot;, &quot;PCNA&quot;, &quot;STMN1&quot;, &quot;PCLAF&quot;, &quot;CD34&quot;, &quot;SPINK2&quot;, &quot;SMIM24&quot;, &quot;AVP&quot;, &quot;PPBP&quot;, &quot;ITGB3&quot;,
+              &quot;PF4&quot;, &quot;NRGN&quot;)
+
+# Define the color scheme
+colors &lt;- c(&quot;white&quot;, &quot;red3&quot;)
+
+# Create the DotPlot
+DotPlot(seurat_integrated, features = features,
+        cols = colors,dot.scale = 1) +
+  coord_flip() +
+  theme_bw(base_size = 5) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+</code></pre>
+<p><img alt="" src="../images/791c2b0ed8a8758e.webp"></p>
+<p>save Fig 1b</p>
+<h2 id="22-fig-1c-umap-of-all-cells-in-integrated-analysis">2.2 Fig 1c UMAP of all cells in integrated analysis</h2>
+<pre><code class="language-r"># View the levels of cell type identities in the Seurat object
+cell_type_levels &lt;- levels(seurat_integrated)
+print(cell_type_levels)
+</code></pre>
+<pre><code>##  [1] &quot;CD14 Monocytes&quot;      &quot;CD16 Monocytes&quot;      &quot;cDCs&quot;
+##  [4] &quot;pDCs&quot;                &quot;CD4 T cells&quot;         &quot;CD8 T cells&quot;
+##  [7] &quot;γδ T cells&quot;          &quot;NKT cells&quot;           &quot;NK cells&quot;
+## [10] &quot;B cells&quot;             &quot;Plasma cells&quot;        &quot;Proliferating cells&quot;
+## [13] &quot;HSPCs&quot;               &quot;Platelets&quot;           &quot;Unknown&quot;
+</code></pre>
+<pre><code class="language-r">custom_colors1 &lt;- c(&quot;CD14 Monocytes&quot; = &quot;#eb2c3a&quot;,
+                    &quot;CD16 Monocytes&quot; = &quot;#14aa57&quot;,
+                    &quot;cDCs&quot; = &quot;#385ea8&quot;,
+                    &quot;pDCs&quot; = &quot;#f0bcbe&quot;,
+                    &quot;CD4 T cells&quot; = &quot;#ec3291&quot;,
+                    &quot;CD8 T cells&quot; = &quot;#00afe8&quot;,
+                    &quot;γδ T cells&quot; = &quot;#f0e22c&quot;,
+                    &quot;NKT cells&quot; = &quot;#016837&quot;,
+                    &quot;NK cells&quot; = &quot;#ee9956&quot;,
+                    &quot;B cells&quot; = &quot;#6b578d&quot;,
+                    &quot;Plasma cells&quot; = &quot;#ca146e&quot;,
+                    &quot;Proliferating cells&quot; = &quot;#5ab6ae&quot;,
+                    &quot;HSPCs&quot; = &quot;#803c1c&quot;,
+                    &quot;Platelets&quot; = &quot;#cbcecd&quot;,
+                    &quot;Unknown&quot; = &quot;#7b7d7f&quot;)
+DimPlot(seurat_integrated, reduction = &quot;umap&quot;, label = FALSE, raster = TRUE, cols = custom_colors1)
+</code></pre>
+<p><img alt="" src="../images/45c8771a4aa47e96.webp"></p>
+<p>save Fig 1c</p>
+<h2 id="3-sub-cluster-analysis-of-t-cells">3. Sub-cluster analysis of γδ T cells</h2>
+<h2 id="31-qc">3.1 QC</h2>
+<h2 id="32-scale-data-and-run-pca">3.2 Scale Data and Run PCA</h2>
+<h2 id="33-using-cell-selector-investigate-t-cells">3.3 Using cell selector investigate γδ T cells</h2>
+<h2 id="34-choose-sub-clusters-for-next-step-to-rerun">3.4 Choose sub-clusters for next step to rerun</h2>
+<h2 id="35-findmarkers-from-sub-clusters">3.5 Findmarkers from sub-clusters</h2>
+<h2 id="36-fig-4a-subsets-of-t-cells-annotation-visualization">3.6 Fig 4a subsets of γδ T cells annotation &amp; visualization</h2>
+<p>Cytotoxic GNLY GZMB GZMH NKG7 FCGR3A FGFBP2 Inflammatory “CCL4l2”, CCL4 “CCL3”,“IFNG”, “TNF” antigen-presenting “HLA-DRA”, “CD74”, “HLA-DQB1”, “HLA-DRB1”,““HLA-DPA1”, “HLA-DPB1”,“HLA-DRB5” transitional YBX3, ER5L ypel5 ifrd1 akna(cd40 related) type 3 - il7r klrb1 ncr3 RORA naive - ltb ccr7 aqp3 cxcr3</p>
+<pre><code class="language-r"># annotation for γδ T cells
+Idents(annotated_gdF_sub)&lt;-&quot;integrated_snn_res.0.6&quot;
+#DimPlot(annotated_gdF_sub, reduction = &quot;umap&quot;)
+annotated_gdF_sub@meta.data$res0.6_collapsed[annotated_gdF_sub@meta.data$integrated_snn_res.0.6 == 0] &lt;- &quot;Cytotoxic&quot;
+annotated_gdF_sub@meta.data$res0.6_collapsed[annotated_gdF_sub@meta.data$integrated_snn_res.0.6 == 2] &lt;- &quot;Naive&quot;
+annotated_gdF_sub@meta.data$res0.6_collapsed[annotated_gdF_sub@meta.data$integrated_snn_res.0.6 %in% c(1,5)] &lt;- &quot;Type3&quot;
+annotated_gdF_sub@meta.data$res0.6_collapsed[annotated_gdF_sub@meta.data$integrated_snn_res.0.6 == 3] &lt;- &quot;Inflammatory&quot;
+annotated_gdF_sub@meta.data$res0.6_collapsed[annotated_gdF_sub@meta.data$integrated_snn_res.0.6 == 4] &lt;- &quot;Transitional&quot;
+annotated_gdF_sub@meta.data$res0.6_collapsed[annotated_gdF_sub@meta.data$integrated_snn_res.0.6 == 6] &lt;- &quot;Antigen_presenting&quot;
+# Select cluster annotation
+Idents(annotated_gdF_sub) &lt;- &quot;res0.6_collapsed&quot;
+## why not choose this path?
+# *** Visualise cluster annotation with UMAP ***
+custom_colors2 &lt;- c(&quot;Transitional&quot; = &quot;#e86d66&quot;,
+                    &quot;Inflammatory&quot; = &quot;#b09b35&quot;,
+                    &quot;Type3&quot; = &quot;#1dad5e&quot;,
+                    &quot;Naive&quot; = &quot;#638ac6&quot;,
+                    &quot;Cytotoxic&quot; = &quot;#02afb6&quot;,
+                    &quot;Antigen_presenting&quot; = &quot;#c272a6&quot;)
+DimPlot(annotated_gdF_sub, reduction = &quot;umap&quot;, cols = custom_colors2)
+</code></pre>
+<p><img alt="" src="../images/f4e83747bff4790e.webp"></p>
+<p>save Fig 4a</p>
+<h2 id="37-fig-4b-top-20-upregulated-degs-in-each-t-cell-subsets">3.7 Fig 4b Top 20 upregulated DEGs in each γδ T cell subsets</h2>
+<pre><code class="language-r"># Define the list of features
+new_levels &lt;- c( &quot;Naive&quot;,&quot;Type3&quot;,&quot;Transitional&quot;,&quot;Antigen_presenting&quot;,&quot;Inflammatory&quot;,&quot;Cytotoxic&quot;)
+Idents(annotated_gdF_sub) &lt;- factor(Idents(annotated_gdF_sub), levels = new_levels)
+
+features &lt;- c(&quot;GNLY&quot;,&quot;GZMB&quot;,&quot;GZMH&quot;,&quot;NKG7&quot;,&quot;FCGR3A&quot;,
+              &quot;FGFBP2&quot;,&quot;CCL4L2&quot;,&quot;CCL4&quot;,&quot;CCL3&quot;,&quot;IFNG&quot;,
+              &quot;TNF&quot;,&quot;HLA-DRA&quot;,&quot;CD74&quot;,&quot;HLA-DQB1&quot;,&quot;HLA-DPA1&quot;,
+              &quot;IER5L&quot;,&quot;YPEL5&quot;,&quot;IFRD1&quot;,&quot;IL21R&quot;,&quot;KLRB1&quot;,
+              &quot;NCR3&quot;, &quot;RORA&quot;, &quot;IL7R&quot;,&quot;LTB&quot;,&quot;AQP3&quot;,&quot;CCR7&quot;
+              )
+# Define the color scheme
+colors &lt;- c(&quot;white&quot;, &quot;red3&quot;)
+
+# Create the DotPlot
+dot_plot &lt;- DotPlot(annotated_gdF_sub, features = features, cols = colors, dot.scale = 4) +
+  theme_bw(base_size = 10) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1)) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+dot_plot
+</code></pre>
+<p><img alt="" src="../images/bfd158d4d3c7907b.webp"></p>
+<p>save Fig 4b</p>
+<p>save all files</p>
+<pre><code>#save.image(file = &quot;my_environment.RData&quot;)
+</code></pre>
+<p>01</p>
+<p>二、测试文件及代码</p>
+<p>如果你也想学习本文的代码和思路，我们给大家准备好了测试文件和代码。</p>
+<p>链接：https://pan.baidu.com/s/1YSgAim8coIX_vv6qsLjwgw?pwd=ye65</p>
+<p>提取码：ye65</p>
+<p><img alt="" src="../images/9bd5e9cd331e1fd5.jpg"></p>
+<p>02</p>
+<p>三、合作方介绍</p>
+<p><strong><strong>本次活动由</strong>Biomamba生信基地</strong> 组织主办、<strong>北京寻因生物科技</strong> 有限公司独家冠名、科研者之家、西柚云超算联合赞助，设立总价值约<strong>50W</strong> 的科研助力基金。
+北京寻因生物科技有限公司：</p>
+<p>北京寻因生物科技有限公司（简称寻因生物）成立于2018年，秉承“用技术温暖生命，预见未来”的企业愿景，致力于全球单细胞市场标准普世化发展，推动单细胞技术在早筛、临床、药研等应用方向的深耕落地，为全球科学家、技术公司及药企工业等客户提供可信赖的高品质单细胞技术服务及实验室建设解决方案。</p>
+<p>科研者之家：</p>
+<p>科研者之家（www.home-for-researchers）是目前国内最知名的科研工具箱平台，以“科研不停，神器不止”为理念，自2019年上线以来，多款工具火爆科研界，如AI写作助手、Figdraw在线绘图平台、生信零代码平台、AI润色、DLP一键改写降重、中文版Pubmed、课题思路助手等。截止目前，包括Nature，Advanced Materials等顶级期刊在内，科研者之家相关科研工具被论文引用已超2300次之多。</p>
+<p>西柚云超算：</p>
+<p>西柚云是一家专注于科研共享计算的云服务基建型公司。于2022年推出独立研发的大禹共享型计算系统，具有实例动态迁移（拒绝传统型共享服务器单节点卡顿）、开箱即用的生信环境、每个用户拥有<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247503869&amp;idx=1&amp;sn=142f8c7ba8620815a8770773df077f12&amp;chksm=9b3cb6adac4b3fbb1acdf7593df06af5ac77d1fe9c0144c999de7109bd063b76080a33c50e0d&amp;scene=21#wechat_redirect">独立的实例和root权限</a>等特性。</p>
+<p>03</p>
+<p>四、往期作品回顾</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506684&amp;idx=1&amp;sn=c27703a05d4fffae6a5e9e54b4fa7dfe&amp;chksm=9b3ca3acac4b2abaa1e5d4f4a7e4d0730f2e5c4d72c7b3d3d29a653c3bae6590d90e31908dde&amp;scene=21#wechat_redirect">干细胞样CD4+ T细胞与自身免疫性血管炎</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506720&amp;idx=2&amp;sn=4760277df5a7b6f0d6d1698ac734aa3b&amp;chksm=9b3ca270ac4b2b66b0330e822893fa233ba3bdfd45d857097fba6e86561196c1497c20db25b8&amp;scene=21#wechat_redirect">结直肠癌免疫图谱中的基因表达程序</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506754&amp;idx=1&amp;sn=3e3e9b4857bb0371b7c1113df792df2e&amp;chksm=9b3ca212ac4b2b043baf0c72684d186a1c065ff7b3d865c308aff4f3483ab5923638fda8d1ff&amp;scene=21#wechat_redirect">MLP模型鉴定免疫细胞发育和瘤内T细胞耗竭的单细胞染色质图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506779&amp;idx=1&amp;sn=dc97a74cfac6caeabaa838160385c3b2&amp;chksm=9b3ca20bac4b2b1da51998764b22ac3c08415298a47ded14283337386f18f9548749de70725e&amp;scene=21#wechat_redirect">T Cell单细胞参考图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506900&amp;idx=1&amp;sn=83774f3062e42ca0eee1df2cf19144f0&amp;chksm=9b3ca284ac4b2b9221736162ac44280d6184c9f8b0cc13bbcc4c914c14b707fe13a850c6418e&amp;scene=21#wechat_redirect">小鼠纹状体单细胞基因变化图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506960&amp;idx=1&amp;sn=9f5913231f9583411e47ccf0dcadedf6&amp;chksm=9b3ca540ac4b2c56a60b5f71ab32e1eacd3194af4bfef819b2de60fc50781360876b45837bf7&amp;scene=21#wechat_redirect"></a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506960&amp;idx=1&amp;sn=9f5913231f9583411e47ccf0dcadedf6&amp;chksm=9b3ca540ac4b2c56a60b5f71ab32e1eacd3194af4bfef819b2de60fc50781360876b45837bf7&amp;scene=21#wechat_redirect">人类肾脏snRNA-seq图谱拟时序分析</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507012&amp;idx=1&amp;sn=fb01cca63326fd6e8c682434a53fc2ea&amp;chksm=9b3ca514ac4b2c02115ae5dea368190ce74997ac16a07fdc29f76cef815600b1e5b813c71163&amp;scene=21#wechat_redirect">CellRank的教程重现</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507096&amp;idx=1&amp;sn=98e42a5768074d2766f2ce64214ac391&amp;chksm=9b3ca5c8ac4b2cdebe68a8519a087e41a4c88a7e465c5ddc107f633a5fbf3fcc8bbff6aa8821&amp;scene=21#wechat_redirect">胶质瘤相关巨噬细胞scRNA图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507136&amp;idx=2&amp;sn=16f8afe29fb59b9a8e9cac265098709c&amp;chksm=9b3ca590ac4b2c86c9554bf20edd587f5d758636f55cf9e390220249d3338b1fde7717fb3c6e&amp;scene=21#wechat_redirect">肝癌单细胞分群marker</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507144&amp;idx=1&amp;sn=ed6e95f16601e6196cea7179b88db250&amp;chksm=9b3ca598ac4b2c8ecfd1025246eb79c6aa8bf5703f8698d23f1d1f673121e3bf8168a32dba07&amp;scene=21#wechat_redirect">scRNA揭示T1D骨髓与骨质减少的关系</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507337&amp;idx=1&amp;sn=e23d849663a6cfcad19bacdaeeb85b5f&amp;chksm=9b3ca4d9ac4b2dcf8ce4d9720bf7588a30e932adea4297862927ebfe20c29f8961436f761b8c&amp;scene=21#wechat_redirect">微环境中肿瘤免疫屏障决定了免疫治疗的效果</a><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507353&amp;idx=1&amp;sn=f2922ce2337c31a781a690ea59c5abde&amp;chksm=9b3ca4c9ac4b2ddfc267838fe6d794027643e89fe054a5ca4d48e51976ea825af7fed285e26b&amp;scene=21#wechat_redirect">肝脏发育、成熟的单细胞图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507450&amp;idx=1&amp;sn=ee9b7d482ad9a88c6da18341c7ec5254&amp;chksm=9b3ca4aaac4b2dbc83fc6cc4c084636fb397e56d0057dfb5b546acf402661ab64d241f985073&amp;scene=21#wechat_redirect">胰腺导管腺癌的内异质性和恶性进展scRNA-seq图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507501&amp;idx=2&amp;sn=dec30ee34e483c3695613b3e41488a78&amp;chksm=9b3ca77dac4b2e6b1734f1fd3d0134468b2ca8bc9f9118edc6e114a37f7ceea7dc4fa41b4556&amp;scene=21#wechat_redirect">人类肾脏scRNA-seq图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507501&amp;idx=1&amp;sn=94c2a38b98957a9526d510798f791419&amp;chksm=9b3ca77dac4b2e6b40d37e73f54791d55a919f50992bf62ac557ecbac919fb6415dca468dba4&amp;scene=21#wechat_redirect">小鼠与人类的空间表观单细胞图谱</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247507096&amp;idx=1&amp;sn=98e42a5768074d2766f2ce64214ac391&amp;chksm=9b3ca5c8ac4b2cdebe68a8519a087e41a4c88a7e465c5ddc107f633a5fbf3fcc8bbff6aa8821&amp;scene=21#wechat_redirect"></a></p>
+<p>04</p>
+<p>**本次活动最终解释权归主办方所有!******<strong>主办方拥有对作品的编辑、宣发权利!</strong></p>
+<p><img alt="" src="../images/d0a809a43821e1e5.png"></p>
+<p><strong>如何联系我们</strong></p>
+<p><img alt="" src="../images/feb9903c31c83e08.png"><img alt="" src="../images/349b3050f055aa44.gif"> 公众号后台消息回复不便，这里给大家留一下领取资料及免费服务器(<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506420&amp;idx=1&amp;sn=6867471200293a24ff3122583585da33&amp;chksm=9b3ca0a4ac4b29b2ea3a3873acbccd80ff7c9ef487baf2865cd3fc5f744beb6881230ec3c1c4&amp;scene=21#wechat_redirect">足够支持你完成硕博生涯的生信环境</a>)的<strong>微信号</strong> ，方便各位随时交流、提建议（科研任务繁重，回复不及时请见谅）。此外呼声一直很高的<strong>交流群</strong> 也建好了，欢迎大家入群讨论：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247505868&amp;idx=2&amp;sn=20c81313eaef9a7031a84ef3a691d1b5&amp;chksm=9b3cae9cac4b278a42c8de97e864c7664a37e9a4adb5973625fe3f8dd1093e55aeda88d443aa&amp;scene=21#wechat_redirect">永久免费的生信、科研交流群</a></p>
+<p>大家可以阅读完这几篇之后添加<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247493329&amp;idx=1&amp;sn=597870b7f7ce10346da3561e7c281627&amp;chksm=9b3c9f81ac4b169794088ce9abbcacb5f18e9fd174fc0d7e28da62d78facadf3100ef38aaf22&amp;scene=21#wechat_redirect">给生信入门初学者的小贴士</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMzIzOTk5OQ==&amp;mid=2247506266&amp;idx=2&amp;sn=22b1164bc9602c25620d058847785422&amp;chksm=9b3ca00aac4b291c16d738271746ffb90149282a728f484e8a1952463c46a8e7dc4f883ab928&amp;scene=21#wechat_redirect">如何搜索公众号过往发布内容</a></p>
+<p><img alt="" src="../images/e29532a7f035a4ca.webp"></p>
+<p><img alt="" src="../images/0694eb4925c4700f.gif">您点的每个赞和在看，我都认真当成了喜欢</p></article></body></html>
